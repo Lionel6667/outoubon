@@ -1,0 +1,957 @@
+{
+  "course_title": "Mathématiques : Fonctions, Suites, Complexes, Probabilités, Statistiques, Intégrales, Barycentre",
+  "chapters": [
+    {
+      "chapter_title": "Fonctions numériques",
+      "chapter_introduction": "Les fonctions numériques sont des outils essentiels pour modéliser des phénomènes physiques, économiques ou biologiques. Dans ce chapitre, vous apprendrez à déterminer l'ensemble des valeurs pour lesquelles une fonction est définie, à étudier son comportement aux bornes (limites), à calculer sa dérivée pour connaître ses variations, à dresser son tableau de variation, à identifier ses asymptotes, à trouver l'équation de sa tangente, et à reconnaître ses symétries (parité).",
+      "chapter_objectives": [
+        "Déterminer le domaine de définition d'une fonction",
+        "Calculer des limites et lever les formes indéterminées",
+        "Maîtriser les techniques de dérivation",
+        "Construire un tableau de variation complet",
+        "Identifier les asymptotes verticales, horizontales et obliques",
+        "Écrire l'équation de la tangente en un point",
+        "Reconnaître les fonctions paires, impaires et les symétries"
+      ],
+      "subchapters": [
+        {
+          "title": "Domaine de définition",
+          "introduction": "Le domaine de définition est l'ensemble de tous les nombres réels qu'une fonction peut accepter sans « planter ».",
+          "definition": "Le domaine de définition D_f de f est l'ensemble des réels x pour lesquels f(x) est un nombre réel bien défini.",
+          "explanation": "Imaginez une machine qui prend un nombre x et produit un résultat f(x). Certains nombres peuvent bloquer la machine : par exemple, on ne peut pas prendre la racine carrée d'un nombre négatif (car le résultat ne serait pas réel), on ne peut pas prendre le logarithme d'un nombre négatif ou nul, et on ne peut pas diviser par zéro. Pour une fonction composée, on prend l'intersection (le « et ») des conditions de chaque composant. Cela signifie que toutes les conditions doivent être satisfaites en même temps.",
+          "step_by_step": [
+            "Étape 1 : Repérez toutes les expressions problématiques : racines carrées (√), logarithmes (ln), dénominateurs (fractions).",
+            "Étape 2 : Écrivez la condition pour chaque bloc : pour √u, il faut u ≥ 0 ; pour ln(u), il faut u > 0 ; pour 1/u, il faut u ≠ 0.",
+            "Étape 3 : Résolvez chaque inéquation ou équation séparément.",
+            "Étape 4 : Prenez l'intersection (ET) de toutes les conditions. Cela donne les x qui satisfont toutes les conditions en même temps.",
+            "Étape 5 : Exprimez le domaine sous forme d'intervalles (par exemple [2;5] ou ]3;+∞[) ou de réunion d'intervalles (∪)."
+          ],
+          "examples": [
+            "Exemple 1 : f(x) = √(x-3). La racine carrée impose x-3 ≥ 0 → x ≥ 3. Donc D_f = [3 ; +∞[ (le crochet [ signifie que 3 est inclus).",
+            "Exemple 2 : f(x) = ln(2x-6). Le logarithme impose 2x-6 > 0 → x > 3. Donc D_f = ]3 ; +∞[ (3 est exclu).",
+            "Exemple 3 : f(x) = (x+2)/(x-5). Le dénominateur ne doit pas être nul : x-5 ≠ 0 → x ≠ 5. Donc D_f = ℝ \\ {5} (tous les réels sauf 5)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : f(x) = ln(2x/(x+1)). Il faut que 2x/(x+1) > 0. Étudions le signe du quotient. Le numérateur 2x est nul en 0, positif pour x>0, négatif pour x<0. Le dénominateur x+1 est nul en -1, positif pour x>-1, négatif pour x<-1. Le quotient est positif sur ]-∞ ; -1[ (car numérateur négatif, dénominateur négatif → positif) et sur ]0 ; +∞[ (numérateur et dénominateur positifs). Donc D_f = ]-∞ ; -1[ ∪ ]0 ; +∞[.",
+            "Exemple détaillé 2 : f(x) = ln((x+3)/(x-1)) + √(x-2). Deux conditions : (x+3)/(x-1) > 0 et x-2 ≥ 0. La première donne (par tableau de signes) x < -3 ou x > 1. La seconde donne x ≥ 2. L'intersection des deux donne x ≥ 2 (car à partir de 2, on est dans x>1 et x≥2). Donc D_f = [2 ; +∞[."
+          ],
+          "methods": [
+            "Racine carrée √u : u ≥ 0",
+            "Logarithme ln(u) : u > 0",
+            "Division (u/v) : v ≠ 0",
+            "Exponentielle e^u : toujours définie sur ℝ",
+            "Combinaison : prendre l'intersection des conditions"
+          ],
+          "common_mistakes": [
+            "Confondre >0 et ≥0 pour le logarithme : ln(0) n'est pas défini, donc on doit avoir strictement >0.",
+            "Prendre l'union (OU) au lieu de l'intersection (ET) des conditions. Par exemple, si une condition donne x>2 et une autre donne x<5, l'intersection est 2<x<5, pas la réunion.",
+            "Oublier que le dénominateur ne doit pas être nul, même si une racine ou un logarithme est présent. Par exemple, dans √(x)/(x-3), il faut x≥0 ET x≠3."
+          ],
+          "summary": "Pour trouver le domaine, identifier chaque bloc problématique (racine, log, fraction), écrire sa condition, puis intersecter toutes les conditions. Le résultat est l'ensemble des x pour lesquels la fonction existe."
+        },
+        {
+          "title": "Limites",
+          "introduction": "Les limites décrivent le comportement d'une fonction lorsque x s'approche d'une valeur particulière ou devient très grand (vers +∞ ou -∞).",
+          "definition": "La limite de f(x) quand x tend vers a (a peut être un nombre réel, +∞ ou -∞) est la valeur que f(x) approche sans nécessairement l'atteindre. On note lim_{x→a} f(x) = L.",
+          "explanation": "Les limites permettent de savoir ce qui se passe « au bord » du domaine ou à l'infini. Parfois, en remplaçant x par la valeur cible, on obtient directement un nombre : c'est la limite. Mais parfois on tombe sur des formes indéterminées comme 0/0, ∞/∞, ∞-∞, 0×∞. Dans ces cas, il faut simplifier l'expression (factoriser, diviser par le terme dominant, utiliser les croissances comparées). Les croissances comparées disent qu'en +∞, l'exponentielle e^x l'emporte sur toute puissance x^n, et toute puissance x^n l'emporte sur le logarithme ln x.",
+          "step_by_step": [
+            "Étape 1 : Remplacez x par la valeur cible dans l'expression de f(x).",
+            "Étape 2 : Si vous obtenez un nombre réel (par exemple 5, -2, 0), ce nombre est la limite. C'est terminé.",
+            "Étape 3 : Si vous obtenez une forme indéterminée (0/0, ∞/∞, etc.), choisissez une technique :",
+            "   - Pour 0/0 : factorisez le numérateur et le dénominateur, puis simplifiez.",
+            "   - Pour ∞/∞ avec des polynômes : divisez chaque terme par la plus haute puissance de x présente.",
+            "   - Pour des exponentielles ou logarithmes : utilisez les croissances comparées.",
+            "Étape 4 : Après simplification, appliquez à nouveau la limite.",
+            "Étape 5 : Si la fonction change de comportement à gauche et à droite (par exemple autour d'un point où le dénominateur s'annule), calculez séparément la limite à gauche (x→a⁻) et à droite (x→a⁺)."
+          ],
+          "examples": [
+            "Exemple 1 : lim_{x→2} (x²-4)/(x-2). En remplaçant x=2, on obtient 0/0 (indéterminé). On factorise : x²-4 = (x-2)(x+2). Donc (x-2)(x+2)/(x-2) = x+2 pour x≠2. La limite devient lim_{x→2} (x+2) = 4.",
+            "Exemple 2 : lim_{x→+∞} (3x²+5x-1)/(2x²-7). En +∞, on a ∞/∞. On divise numérateur et dénominateur par x² (la plus haute puissance) : (3 + 5/x - 1/x²) / (2 - 7/x²). Quand x→+∞, 5/x→0, 1/x²→0, 7/x²→0. Il reste 3/2.",
+            "Exemple 3 : lim_{x→-∞} x² e^x. Ici x² → +∞, e^x → 0 (car x→-∞). C'est une forme 0×∞. On utilise la croissance comparée : l'exponentielle l'emporte sur toute puissance, donc le produit tend vers 0. Plus précisément, on peut écrire x² e^x = x² / e^{-x} et quand x→-∞, e^{-x} → +∞ plus vite que x², donc limite 0."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : lim_{x→+∞} (4e^x+3)/(e^x+2). Divisons par e^x : (4 + 3/e^x)/(1+2/e^x). 3/e^x→0, 2/e^x→0, donc limite = 4/1 = 4.",
+            "Exemple détaillé 2 : lim_{x→+∞} ln(2x/(x+1)). Pour x grand, 2x/(x+1) ≈ 2x/x = 2. Donc ln(2x/(x+1)) → ln 2. On peut aussi écrire 2x/(x+1) = 2/(1+1/x) → 2, donc ln → ln2.",
+            "Exemple détaillé 3 : lim_{x→0⁺} (x + ln x). Quand x→0⁺, x→0 et ln x → -∞. La somme tend vers -∞ (car -∞ domine)."
+          ],
+          "methods": [
+            "Polynôme : limite en ±∞ donnée par le terme de plus haut degré.",
+            "Fraction rationnelle : diviser par le terme de plus haut degré du dénominateur.",
+            "Exponentielle : e^x domine toute puissance de x quand x→+∞.",
+            "Logarithme : toute puissance de x domine ln x quand x→+∞.",
+            "Forme 0/0 : factoriser et simplifier."
+          ],
+          "common_mistakes": [
+            "Croire que ln(0) = 0 alors que ln(0⁺) = -∞ (la limite est -∞, pas 0).",
+            "Ne pas reconnaître une forme indéterminée et donner directement un résultat faux (par exemple dire que ∞/∞ = 1 sans simplifier).",
+            "Appliquer directement la limite sans simplifier alors qu'on a une forme indéterminée."
+          ],
+          "summary": "Les limites s'obtiennent souvent par substitution directe ; si vous tombez sur une forme indéterminée, utilisez la factorisation, le terme dominant ou les croissances comparées. N'oubliez pas les limites à gauche et à droite quand la fonction n'est pas définie d'un côté."
+        },
+        {
+          "title": "Dérivées",
+          "introduction": "La dérivée mesure la variation instantanée d'une fonction. C'est la pente de la tangente à la courbe en chaque point. Si la dérivée est positive, la fonction monte ; si elle est négative, la fonction descend.",
+          "definition": "La dérivée f'(x) est la limite du taux d'accroissement (f(x+h)-f(x))/h quand h tend vers 0. Si f'(x) > 0, f est croissante ; si f'(x) < 0, f est décroissante. Si f'(x) = 0, la tangente est horizontale (possible extremum).",
+          "explanation": "Pour calculer une dérivée, on utilise des formules de base et des règles de calcul. Il faut bien connaître les dérivées des fonctions usuelles : xⁿ, eˣ, ln x, etc. Ensuite, on applique les règles pour les sommes, produits, quotients et compositions (règle de chaîne). La règle de chaîne dit : la dérivée de f(g(x)) est f'(g(x)) × g'(x).",
+          "step_by_step": [
+            "Étape 1 : Identifiez la forme de la fonction : est-ce une somme, un produit, un quotient, ou une composition ?",
+            "Étape 2 : Appliquez la règle correspondante :",
+            "   - Somme : (u+v)' = u' + v'",
+            "   - Produit : (uv)' = u'v + uv'",
+            "   - Quotient : (u/v)' = (u'v - uv')/v²",
+            "   - Composition : (u(v(x)))' = u'(v(x)) × v'(x)",
+            "Étape 3 : Utilisez les dérivées des fonctions usuelles : (xⁿ)' = n xⁿ⁻¹, (eˣ)' = eˣ, (ln x)' = 1/x, etc.",
+            "Étape 4 : Simplifiez l'expression obtenue (factorisez si possible).",
+            "Étape 5 : Précisez le domaine de dérivabilité (souvent le même que le domaine de définition, sauf aux points où la fonction n'est pas dérivable, comme un angle ou une racine en 0)."
+          ],
+          "examples": [
+            "Exemple 1 : f(x) = 3x⁴ - 2x² + 5x - 1. On dérive terme à terme : (3x⁴)' = 12x³, (-2x²)' = -4x, (5x)' = 5, (-1)' = 0. Donc f'(x) = 12x³ - 4x + 5.",
+            "Exemple 2 : f(x) = e^{2x}. C'est une composition : u = 2x, alors f'(x) = e^{2x} × (2x)' = e^{2x} × 2 = 2e^{2x}.",
+            "Exemple 3 : f(x) = ln(2x-5). Composition : u = 2x-5, (ln u)' = u'/u = 2/(2x-5).",
+            "Exemple 4 : f(x) = x e^x. C'est un produit : u=x, v=e^x. u'=1, v'=e^x. Donc f' = 1·e^x + x·e^x = e^x(1+x)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : f(x) = e^{2x} - 4e^x + 3. Dérivée : (e^{2x})' = 2e^{2x}, (-4e^x)' = -4e^x, (3)'=0. Donc f'(x)=2e^{2x}-4e^x = 2e^x(e^x-2).",
+            "Exemple détaillé 2 : f(x) = ln(3x/(x+2)). On peut simplifier avant de dériver : ln(3x) - ln(x+2). Alors f'(x) = (3)/(3x) - 1/(x+2) = 1/x - 1/(x+2) = (x+2 - x)/(x(x+2)) = 2/(x(x+2)).",
+            "Exemple détaillé 3 : f(x) = (2e^x+1)/(e^x-3). C'est un quotient. Posons u=2e^x+1, v=e^x-3. u'=2e^x, v'=e^x. Alors f' = (u'v - uv')/v² = [2e^x(e^x-3) - (2e^x+1)e^x] / (e^x-3)² = [2e^{2x} -6e^x - 2e^{2x} - e^x] / (e^x-3)² = (-7e^x)/(e^x-3)²."
+          ],
+          "methods": [
+            "Dérivée de uⁿ : n u^{n-1} u'",
+            "Dérivée de e^u : u' e^u",
+            "Dérivée de ln u : u'/u",
+            "Produit : (uv)' = u'v + uv'",
+            "Quotient : (u/v)' = (u'v - uv')/v²"
+          ],
+          "common_mistakes": [
+            "Oublier la dérivée de la fonction intérieure (règle de chaîne). Par exemple, dériver e^{2x} en e^{2x} sans le ×2.",
+            "Confondre dérivée de ln(u) avec 1/u (il manque u').",
+            "Négliger les conditions de domaine : par exemple, √x n'est pas dérivable en 0 (la dérivée tend vers +∞, mais on dit souvent que la fonction n'est pas dérivable en 0)."
+          ],
+          "summary": "Maîtriser les dérivées des fonctions usuelles et les règles de calcul (somme, produit, quotient, composition) vous permet d'étudier les variations de n'importe quelle fonction. Entraînez-vous avec beaucoup d'exemples."
+        },
+        {
+          "title": "Tableau de variation",
+          "introduction": "Le tableau de variation est un résumé visuel du comportement d'une fonction : où elle monte, où elle descend, ses maximums et minimums, et ses limites aux bornes.",
+          "definition": "C'est un tableau qui indique, pour chaque intervalle du domaine, le signe de la dérivée et la monotonie de f (croissante ↗ ou décroissante ↘), ainsi que les valeurs aux bornes et aux points où la dérivée s'annule.",
+          "explanation": "Pour dresser un tableau de variation, on suit cinq étapes : 1) domaine de définition, 2) calcul de f'(x) et factorisation, 3) recherche des points où f'(x)=0 et des valeurs interdites, 4) étude du signe de f' sur chaque intervalle, 5) calcul des limites et valeurs aux points importants. Ensuite, on remplit le tableau avec les flèches.",
+          "step_by_step": [
+            "Étape 1 : Déterminez le domaine de définition de f (voir sous-chapitre 1.1).",
+            "Étape 2 : Calculez f'(x) et factorisez-la au maximum (cela facilite l'étude du signe).",
+            "Étape 3 : Trouvez les valeurs où f'(x)=0 (racines du numérateur) et les valeurs où f' n'est pas définie (valeurs interdites du domaine).",
+            "Étape 4 : Construisez un tableau de signes pour f'(x) sur chaque intervalle délimité par ces valeurs.",
+            "Étape 5 : En déduisez le sens de variation : si f'(x) > 0, flèche montante (↗) ; si f'(x) < 0, flèche descendante (↘).",
+            "Étape 6 : Calculez les limites aux bornes du domaine (en ±∞ ou aux valeurs interdites) et les valeurs de f aux points où f'=0.",
+            "Étape 7 : Remplissez le tableau de variation avec les valeurs et les flèches."
+          ],
+          "examples": [
+            "Exemple : f(x) = x³ - 3x sur ℝ. Domaine ℝ. f'(x)=3x²-3=3(x-1)(x+1). Les racines : x=-1 et x=1. Signe de f' : pour x<-1, (x-1)<0, (x+1)<0 → produit positif → f'>0 ; pour -1<x<1, (x-1)<0, (x+1)>0 → négatif ; pour x>1, positif. Donc f croissante sur ]-∞,-1], décroissante sur [-1,1], croissante sur [1,+∞[. f(-1)=(-1)³-3(-1)= -1+3=2 ; f(1)=1-3=-2. Limites : lim_{x→-∞} f(x) = -∞ (car x³ domine), lim_{x→+∞}=+∞. Tableau :",
+            "   x   | -∞  | -1  | 1  | +∞",
+            "   f'  |  +  | 0 | - | 0 | +",
+            "   f   | -∞ ↗ 2 ↘ -2 ↗ +∞"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : f(x) = e^{2x} - 4e^x + 3. Domaine ℝ. f'(x)=2e^{2x}-4e^x = 2e^x(e^x-2). e^x >0 toujours, donc signe de f' = signe de (e^x-2). e^x-2=0 → e^x=2 → x=ln2. Pour x<ln2, e^x<2 → e^x-2<0 → f'<0 ; pour x>ln2, f'>0. Donc f décroissante sur ]-∞, ln2], croissante sur [ln2, +∞[. f(ln2)= e^{2ln2} -4e^{ln2}+3 = 4 - 8 +3 = -1. Limites : en -∞, e^{2x}→0, e^x→0, donc f→3 ; en +∞, f→+∞. Tableau.",
+            "Exemple détaillé 2 : f(x) = x - 1 - ln x sur ]0,+∞[. f'(x)=1 - 1/x = (x-1)/x. x>0, donc signe de f' = signe de (x-1). f'=0 en x=1. Pour 0<x<1, f'<0 (décroissante) ; pour x>1, f'>0 (croissante). f(1)=1-1-0=0. Limites : en 0⁺, ln x → -∞, donc -ln x → +∞, donc f(x)=x-1 -ln x → +∞ ; en +∞, x domine, donc f→+∞. Minimum en x=1, f(1)=0."
+          ],
+          "methods": [
+            "f'(x) > 0 → f croissante ↗",
+            "f'(x) < 0 → f décroissante ↘",
+            "f'(x) = 0 → extremum possible (à vérifier par le signe avant/après)",
+            "Toujours préciser les limites aux bornes du domaine"
+          ],
+          "common_mistakes": [
+            "Oublier les valeurs interdites du domaine (par exemple, si le domaine est ]0,+∞[, il ne faut pas inclure 0 dans le tableau).",
+            "Ne pas calculer les limites aux bornes (elles sont nécessaires pour compléter le tableau).",
+            "Confondre extremum local et global : un extremum local est un pic ou un creux local, mais la fonction peut aller plus haut ou plus bas ailleurs."
+          ],
+          "summary": "Le tableau de variation est un outil indispensable pour visualiser le comportement global d'une fonction. Il résume domaine, signe de la dérivée, variations, extremums et limites."
+        },
+        {
+          "title": "Asymptotes",
+          "introduction": "Une asymptote est une droite que la courbe d'une fonction approche de plus en plus quand x s'éloigne (vers ±∞) ou s'approche d'une valeur interdite. La courbe peut s'en rapprocher sans jamais la toucher (ou en la touchant parfois).",
+          "definition": "Il existe trois types d'asymptotes : verticale (droite x = a), horizontale (droite y = L), oblique (droite y = ax+b avec a≠0).",
+          "explanation": "Asymptote verticale : quand x tend vers une valeur a (souvent un point où le dénominateur s'annule ou ln tend vers 0), la fonction tend vers ±∞. Asymptote horizontale : quand x→±∞, la fonction tend vers une constante L. Asymptote oblique : quand x→±∞, la fonction se comporte comme une droite non horizontale (y=ax+b). Pour trouver a, on calcule lim f(x)/x ; pour b, lim (f(x)-ax).",
+          "step_by_step": [
+            "Étape 1 : Cherchez les asymptotes verticales : regardez les bornes du domaine où la fonction peut devenir infinie (dénominateur nul, logarithme tendant vers 0⁺, etc.). Calculez la limite. Si elle est infinie, la droite x = a est asymptote verticale.",
+            "Étape 2 : Cherchez les asymptotes horizontales : calculez lim_{x→+∞} f(x) et lim_{x→-∞} f(x). Si l'une de ces limites est un nombre réel L, alors y = L est asymptote horizontale (dans la direction correspondante).",
+            "Étape 3 : Si aucune asymptote horizontale n'existe (les limites sont infinies), cherchez une asymptote oblique. Calculez a = lim_{x→±∞} f(x)/x. Si a est un nombre réel non nul, calculez b = lim_{x→±∞} (f(x) - a x). Si b est fini, alors y = a x + b est asymptote oblique.",
+            "Étape 4 : Vérifiez que la différence f(x) - (ax+b) tend vers 0."
+          ],
+          "examples": [
+            "Exemple 1 : f(x)=1/(x-3). Quand x→3, f(x)→±∞, donc asymptote verticale x=3.",
+            "Exemple 2 : f(x)=(2x+1)/(x-1). En ±∞, limite = 2, donc asymptote horizontale y=2 (dans les deux directions).",
+            "Exemple 3 : f(x)=x+2-e^x sur ]-∞,0]. En -∞, e^x→0, donc f(x) ≈ x+2. On a f(x)/x → 1 et f(x)-x → 2, donc asymptote oblique y=x+2 en -∞."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : f(x)=2e^x/(e^x+1). En +∞, e^x domine, f(x)≈2e^x/e^x=2 → AH y=2. En -∞, e^x→0, f(x)≈0/(0+1)=0 → AH y=0. Pas d'AV car dénominateur jamais nul.",
+            "Exemple détaillé 2 : f(x)=ln(2x/(x+1)). Domaine : ]-∞,-1[ ∪ ]0,+∞[. En +∞, 2x/(x+1)→2, donc ln→ln2 → AH y=ln2. En -∞, même chose → AH y=ln2. Asymptotes verticales : quand x→-1⁻ (par valeurs inférieures à -1), 2x/(x+1) → ? x→-1⁻, 2x→ -2, (x+1)→ 0⁻, donc quotient → +∞, ln→+∞ → AV x=-1. Quand x→0⁺, 2x→0⁺, (x+1)→1, quotient→0⁺, ln→ -∞ → AV x=0."
+          ],
+          "methods": [
+            "AV : chercher les bornes du domaine où la fonction tend vers ±∞ (dénominateur nul, ln→0⁺, etc.).",
+            "AH : calculer lim_{x→±∞} f(x). Si finie, c'est une AH.",
+            "AO : calculer a = lim f(x)/x, puis b = lim (f(x)-ax). Si a et b finis avec a≠0, c'est une AO."
+          ],
+          "common_mistakes": [
+            "Confondre asymptote oblique avec horizontale : une horizontale a une pente nulle, une oblique a une pente non nulle.",
+            "Oublier de vérifier les deux directions (±∞) pour les AH et AO : parfois la fonction n'a pas la même asymptote à gauche et à droite.",
+            "Prendre une AV là où la limite n'est pas infinie (par exemple, si la fonction tend vers une constante, ce n'est pas une AV)."
+          ],
+          "summary": "Les asymptotes décrivent le comportement asymptotique de la fonction. On les trouve grâce aux limites : verticales pour les bornes finies où la fonction explose, horizontales ou obliques pour les comportements à l'infini."
+        },
+        {
+          "title": "Équation de la tangente",
+          "introduction": "La tangente à une courbe en un point est la droite qui « effleure » la courbe en ce point, avec la même pente que la courbe. C'est une approximation linéaire locale.",
+          "definition": "Au point d'abscisse x₀, la tangente a pour équation : y = f'(x₀)(x - x₀) + f(x₀).",
+          "explanation": "On a besoin de deux choses : la valeur de la fonction en x₀ (pour connaître le point de contact) et la valeur de la dérivée en x₀ (pour la pente). Ensuite, on applique la formule de l'équation d'une droite passant par (x₀, y₀) avec pente m : y - y₀ = m (x - x₀). Ici, y₀ = f(x₀) et m = f'(x₀).",
+          "step_by_step": [
+            "Étape 1 : Calculez f(x₀), l'ordonnée du point de contact.",
+            "Étape 2 : Calculez f'(x₀), la pente de la tangente.",
+            "Étape 3 : Appliquez la formule : y = f'(x₀)(x - x₀) + f(x₀).",
+            "Étape 4 : Simplifiez pour obtenir l'équation réduite y = mx + p (si besoin).",
+            "Étape 5 : Vérifiez que le point (x₀, f(x₀)) appartient bien à la droite (remplacez x par x₀, vous devez retomber sur f(x₀))."
+          ],
+          "examples": [
+            "Exemple 1 : f(x)=x²+2x-1, x₀=1. f(1)=1+2-1=2. f'(x)=2x+2, f'(1)=2+2=4. Tangente : y=4(x-1)+2 = 4x-4+2=4x-2.",
+            "Exemple 2 : f(x)=e^x, x₀=0. f(0)=1, f'(0)=1. Tangente : y=1(x-0)+1 = x+1."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : f(x)=ln(2x/(x+1)), x₀=3. f(3)=ln(6/4)=ln(3/2). f'(x) = (dérivée déjà calculée) 1/x - 1/(x+1) ? En fait, simplifions : ln(2x)-ln(x+1), donc f'(x)=1/x - 1/(x+1). À x=3, f'(3)=1/3 - 1/4 = 1/12. Tangente : y = (1/12)(x-3) + ln(3/2).",
+            "Exemple détaillé 2 : f(x)=e^{2x}-4e^x+3, x₀=0. f(0)=1-4+3=0. f'(x)=2e^{2x}-4e^x, f'(0)=2-4=-2. Tangente : y = -2(x-0)+0 = -2x."
+          ],
+          "methods": [
+            "Calculer f(x₀)",
+            "Calculer f'(x₀)",
+            "Appliquer y = f'(x₀)(x-x₀) + f(x₀)",
+            "Simplifier l'expression"
+          ],
+          "common_mistakes": [
+            "Oublier le terme f(x₀) (beaucoup écrivent y = f'(x₀)(x-x₀) seulement).",
+            "Confondre f'(x₀) avec la pente de la sécante (qui utilise deux points).",
+            "Erreur de signe dans la formule : c'est (x - x₀), pas (x₀ - x)."
+          ],
+          "summary": "La tangente est donnée par la formule de la droite passant par (x₀, f(x₀)) avec la pente f'(x₀). C'est une approximation linéaire de la fonction au voisinage de x₀."
+        },
+        {
+          "title": "Fonctions paires, impaires et symétrie",
+          "introduction": "Certaines fonctions possèdent des symétries qui simplifient leur étude. Si une fonction est paire, sa courbe est symétrique par rapport à l'axe des ordonnées. Si elle est impaire, elle est symétrique par rapport à l'origine. Il existe aussi des centres de symétrie quelconques.",
+          "definition": "Fonction paire : f(-x) = f(x) pour tout x du domaine (domaine symétrique). La courbe est symétrique par rapport à l'axe (Oy). Fonction impaire : f(-x) = -f(x) pour tout x du domaine. La courbe est symétrique par rapport à l'origine (0,0). Un point I(a,b) est centre de symétrie si pour tout t, f(a+t)+f(a-t)=2b.",
+          "explanation": "Pour vérifier la parité, on calcule f(-x) et on compare à f(x) et -f(x). Si f(-x)=f(x), c'est pair ; si f(-x)=-f(x), c'est impair. Attention : le domaine doit être symétrique par rapport à 0 (si x est dans le domaine, -x aussi). Pour un centre de symétrie quelconque, on utilise la condition f(a+t)+f(a-t)=2b, qui signifie que le point (a,b) est le milieu du segment joignant les points d'abscisses a+t et a-t.",
+          "step_by_step": [
+            "Étape 1 : Vérifiez que le domaine est symétrique par rapport à 0 (pour la parité) ou par rapport à a (pour un centre).",
+            "Étape 2 : Calculez f(-x) et simplifiez.",
+            "Étape 3 : Comparez f(-x) à f(x) : si égal, fonction paire ; si égal à -f(x), fonction impaire.",
+            "Étape 4 : Pour un centre I(a,b), posez t = x-a, calculez f(a+t)+f(a-t). Si cette somme est constante égale à 2b pour tout t, alors I est centre de symétrie.",
+            "Étape 5 : Utilisez la symétrie pour réduire l'intervalle d'étude (par exemple, étudier seulement x≥0 si la fonction est paire)."
+          ],
+          "examples": [
+            "Exemple 1 : f(x)=x². f(-x)=(-x)²=x²=f(x) → paire. Courbe symétrique par rapport à l'axe des y.",
+            "Exemple 2 : f(x)=x³. f(-x)=(-x)³ = -x³ = -f(x) → impaire. Courbe symétrique par rapport à l'origine.",
+            "Exemple 3 : f(x)=ln((1+x)/(1-x)). Domaine : |x|<1, symétrique. f(-x)=ln((1-x)/(1+x)) = -ln((1+x)/(1-x)) = -f(x) → impaire."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : f(x)=e^x/(e^x+1). Montrons que I(0,1/2) est centre de symétrie. Calculons f(x)+f(-x) = e^x/(e^x+1) + e^{-x}/(e^{-x}+1). Mettons le second terme au même dénominateur : e^{-x}/(e^{-x}+1) = 1/(1+e^x) (car on multiplie haut et bas par e^x). Donc f(x)+f(-x) = e^x/(e^x+1) + 1/(e^x+1) = (e^x+1)/(e^x+1)=1. Donc 2b=1 → b=1/2, et a=0 (car on a f(t)+f(-t)=1). Donc (0,1/2) est centre de symétrie."
+          ],
+          "methods": [
+            "Pour la parité : calculer f(-x) et simplifier.",
+            "Pour centre de symétrie en (a,b) : vérifier f(a+t)+f(a-t)=2b pour tout t."
+          ],
+          "common_mistakes": [
+            "Croire qu'une fonction est paire si f(-x) = f(x) seulement pour quelques valeurs (il faut que ce soit vrai pour tout x du domaine).",
+            "Oublier de vérifier que le domaine est symétrique par rapport à 0 (par exemple, si le domaine est [0, +∞[, elle ne peut pas être paire ou impaire)."
+          ],
+          "summary": "La parité et les symétries permettent de réduire le domaine d'étude (par exemple, étudier seulement x≥0 pour une fonction paire) et de tracer la courbe plus rapidement."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Déterminer le domaine de définition de f(x) = ln(x-4).",
+          "solution": "x-4 > 0 ⇒ x > 4, donc D_f = ]4 ; +∞[.",
+          "explanation": "La fonction logarithme n'est définie que pour des arguments strictement positifs. On résout l'inéquation x-4 > 0. Attention : on ne peut pas avoir x=4 car ln(0) n'existe pas."
+        },
+        {
+          "question": "Calculer lim_{x→+∞} (2e^x+1)/(e^x+3).",
+          "solution": "Diviser numérateur et dénominateur par e^x : lim (2 + 1/e^x) / (1 + 3/e^x) = (2+0)/(1+0) = 2.",
+          "explanation": "Quand x→+∞, e^x devient très grand. On divise chaque terme par e^x pour faire apparaître des termes 1/e^x qui tendent vers 0. Ainsi, la limite est 2."
+        },
+        {
+          "question": "Dériver f(x) = x² e^x.",
+          "solution": "f'(x) = 2x e^x + x² e^x = e^x (x² + 2x).",
+          "explanation": "On applique la règle du produit : (uv)' = u'v+uv' avec u=x², v=e^x. u'=2x, v'=e^x. Donc f' = 2x·e^x + x²·e^x = e^x(2x+x²)."
+        },
+        {
+          "question": "Dresser le tableau de variation de f(x)=x³-3x sur ℝ.",
+          "solution": "f'(x)=3x²-3=3(x-1)(x+1). Signe : + sur ]-∞,-1[, - sur ]-1,1[, + sur ]1,+∞[. Donc f croissante sur ]-∞,-1] et [1,+∞[, décroissante sur [-1,1]. Maximum local en x=-1 : f(-1)=2, minimum local en x=1 : f(1)=-2.",
+          "explanation": "On calcule la dérivée, on factorise, on étudie son signe (produit de facteurs), puis on en déduit les variations. Les valeurs de f aux points où f'=0 donnent les extremums."
+        },
+        {
+          "question": "Trouver l'équation de la tangente à f(x)=ln(x) en x=1.",
+          "solution": "f(1)=0, f'(x)=1/x ⇒ f'(1)=1, donc tangente : y = 1·(x-1)+0 = x-1.",
+          "explanation": "On utilise la formule y = f'(x₀)(x-x₀)+f(x₀). Ici, x₀=1, f(1)=ln1=0, f'(1)=1. Donc y = (x-1)."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Suites numériques",
+      "chapter_introduction": "Les suites numériques permettent de modéliser des évolutions discrètes, comme la croissance d'une population ou les intérêts bancaires. Dans ce chapitre, vous apprendrez à reconnaître et manipuler les suites arithmétiques (addition constante), géométriques (multiplication constante), ainsi que les suites affines (combinaison des deux).",
+      "chapter_objectives": [
+        "Définir une suite arithmétique et calculer son terme général et sa somme",
+        "Définir une suite géométrique et calculer son terme général, sa somme et sa limite",
+        "Résoudre les suites affines U_{n+1}=aU_n+b en les ramenant à des suites géométriques",
+        "Utiliser ces suites dans des problèmes concrets (finances, démographie)"
+      ],
+      "subchapters": [
+        {
+          "title": "Suites arithmétiques",
+          "introduction": "Une suite arithmétique est une suite où l'on ajoute toujours le même nombre (la raison) pour passer d'un terme au suivant.",
+          "definition": "Uₙ est arithmétique de raison r ⇔ U_{n+1} = U_n + r. Terme général (en commençant à l'indice 0) : U_n = U_0 + n·r. Si on commence à l'indice 1, U_n = U_1 + (n-1)r.",
+          "explanation": "La somme des premiers termes d'une suite arithmétique se calcule comme la moyenne du premier et du dernier multipliée par le nombre de termes : S = (nombre de termes) × (premier + dernier)/2. C'est comme pour une progression linéaire.",
+          "step_by_step": [
+            "Étape 1 : Identifier le premier terme U₀ (ou U₁) et la raison r.",
+            "Étape 2 : Écrire la relation U_{n+1} = U_n + r.",
+            "Étape 3 : Exprimer U_n en fonction de n : U_n = U_0 + n r (si U₀ connu) ou U_n = U_1 + (n-1)r.",
+            "Étape 4 : Pour calculer une somme de termes consécutifs, déterminer le nombre de termes N, puis appliquer S = N × (premier terme + dernier terme)/2.",
+            "Étape 5 : Vérifier avec un petit exemple (par exemple, calculer les premiers termes à la main)."
+          ],
+          "examples": [
+            "Exemple 1 : Suite 3,7,11,15,... → r=4, U₀=3 → U_n = 3+4n.",
+            "Exemple 2 : U₀=-2, r=3 → U₁₁ = -2 + 11×3 = -2+33=31. La somme des 12 premiers termes (U₀ à U₁₁) : S₁₂ = 12 × (-2+31)/2 = 12 × 29/2 = 6×29=174."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : On donne U₇=68 et U₁₈=156. Trouver la raison et U₀. La différence d'indices : 18-7=11, donc 11r = 156-68=88 → r=8. Alors U₇ = U₀ + 7×8 = U₀+56 =68 → U₀=12. Donc U_n=12+8n.",
+            "Exemple détaillé 2 (problème de la vie courante) : Un employé gagne 250€ la première semaine, puis chaque semaine il gagne 50€ de plus. Sa semaine n (en commençant à 1) : U₁=250, r=50. À quelle semaine dépasse-t-il 800€ ? U_n = 250 + (n-1)×50 >800 → 50(n-1) >550 → n-1>11 → n>12 → n=13. Somme gagnée après 23 semaines : S₂₃ = 23×(250 + (250+22×50))/2 = 23×(250+1350)/2 = 23×1600/2=23×800=18400€."
+          ],
+          "methods": [
+            "Trouver r = (U_p - U_q)/(p-q) (avec p≠q).",
+            "Terme général : U_n = U_0 + n r (ou U_n = U_1 + (n-1)r).",
+            "Somme des n premiers termes (de U₀ à U_{n-1}) : n(U_0+U_{n-1})/2."
+          ],
+          "common_mistakes": [
+            "Confondre l'indice de départ (U₀ ou U₁). Si on utilise U₁, la formule devient U_n = U₁ + (n-1)r.",
+            "Oublier que la somme de U₀ à Uₙ contient n+1 termes (car on commence à 0). Par exemple, U₀, U₁, ..., Uₙ donne n+1 termes."
+          ],
+          "summary": "Les suites arithmétiques modélisent des croissances linéaires (ajout constant). Le terme général est une fonction affine de n, et la somme est une fonction quadratique."
+        },
+        {
+          "title": "Suites géométriques",
+          "introduction": "Une suite géométrique est une suite où l'on multiplie toujours par le même nombre (la raison) pour passer d'un terme au suivant. C'est le modèle des intérêts composés ou de la décroissance radioactive.",
+          "definition": "Uₙ est géométrique de raison q ⇔ U_{n+1} = q·U_n. Terme général : U_n = U_0·qⁿ (si on part de U₀).",
+          "explanation": "La somme des n premiers termes (q≠1) est S_n = U₀ (1 - qⁿ)/(1 - q). La limite dépend de |q| : si |q| < 1, U_n → 0 ; si q = 1, constante ; si q > 1, U_n → +∞ (ou -∞ selon le signe de U₀) ; si q ≤ -1, pas de limite (oscillations).",
+          "step_by_step": [
+            "Étape 1 : Identifier U₀ et la raison q (q = U_{n+1}/U_n constant).",
+            "Étape 2 : Écrire U_n = U₀ qⁿ.",
+            "Étape 3 : Pour calculer une somme de termes consécutifs (de U₀ à U_{N-1}), utiliser S = premier terme × (1 - q^{N})/(1 - q) si q≠1. Attention : N est le nombre de termes.",
+            "Étape 4 : Déterminer la limite : si |q|<1, limite 0 ; si q=1, limite U₀ ; si q>1, limite infinie (signe de U₀).",
+            "Étape 5 : Appliquer aux problèmes concrets (intérêts composés : C_n = C₀(1+taux)ⁿ)."
+          ],
+          "examples": [
+            "Exemple 1 : U₀=4, q=3 → U₅ = 4×3⁵ = 4×243=972. Somme des 6 premiers termes (U₀ à U₅) : S₆ = 4×(1-3⁶)/(1-3) = 4×(1-729)/(-2) = 4×(-728)/(-2) = 4×364 = 1456.",
+            "Exemple 2 : Capital C₀=70000€, taux annuel 9% → C_n = 70000×1,09ⁿ. Pour doubler : 1,09ⁿ = 2 → n = ln2/ln1,09 ≈ 0,6931/0,08618 ≈ 8,04 → 9 ans (car n entier)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 (suite affine) : U_{n+1}=aU_n+b. On verra dans le sous-chapitre suivant.",
+            "Exemple détaillé 2 (clientèle) : Une entreprise a 8000 clients la première année. Chaque année, elle perd 30% de ses clients mais en gagne 3000 nouveaux. U₁=8000, U_{n+1}=0,7U_n+3000. On cherche la limite. On trouve le point fixe L = 3000/(1-0,7)=10000. Alors V_n = U_n-10000 est géométrique de raison 0,7 : V_n = (8000-10000)×0,7^{n-1} = -2000×0,7^{n-1}. Donc U_n = 10000 - 2000×0,7^{n-1}. Quand n→∞, U_n→10000."
+          ],
+          "methods": [
+            "Reconnaître une suite géométrique par le rapport constant U_{n+1}/U_n.",
+            "Pour une suite affine, trouver le point fixe L et définir V_n = U_n - L (voir sous-chapitre suivant).",
+            "Somme géométrique : U₀(1-q^{n+1})/(1-q) pour les n+1 premiers termes (U₀ à Uₙ)."
+          ],
+          "common_mistakes": [
+            "Oublier la condition q≠1 pour la formule de somme (si q=1, la somme est N×U₀).",
+            "Confondre la somme de U₀ à Uₙ (n+1 termes) avec U₀ à U_{n-1} (n termes).",
+            "Ne pas traiter correctement les signes pour q négatif : par exemple, q=-2, les termes alternent, la somme se calcule avec la même formule mais attention à la limite qui n'existe pas."
+          ],
+          "summary": "Les suites géométriques modélisent des phénomènes à taux de croissance proportionnel (intérêts, populations). Leur comportement à long terme est régi par la valeur de |q|."
+        },
+        {
+          "title": "Suites affines (U_{n+1}=aU_n+b)",
+          "introduction": "Ces suites combinent un terme proportionnel et une constante. Elles apparaissent souvent dans les problèmes de finance ou d'évolution (exemple : chaque année, on perd un certain pourcentage de clients mais on en gagne un nombre fixe).",
+          "definition": "Une suite affine vérifie U_{n+1} = a U_n + b, avec a ≠ 1 (si a=1, c'est une suite arithmétique). On la transforme en suite géométrique en posant V_n = U_n - L, où L = b/(1-a) est le point fixe (solution de L = aL+b).",
+          "explanation": "L'idée : on cherche un nombre L tel que si U_n = L, alors U_{n+1}=L aussi (point fixe). En soustrayant L de chaque côté, on obtient U_{n+1}-L = a(U_n - L). Ainsi, V_n = U_n-L est géométrique de raison a. On calcule V_n = V_0 aⁿ, puis U_n = L + (U_0-L)aⁿ. La limite est L si |a|<1, sinon diverge.",
+          "step_by_step": [
+            "Étape 1 : Calculer le point fixe L en résolvant L = aL + b, soit L = b/(1-a). (Attention : a≠1).",
+            "Étape 2 : Définir V_n = U_n - L.",
+            "Étape 3 : Montrer que V_{n+1} = a V_n (c'est une suite géométrique de raison a).",
+            "Étape 4 : Exprimer V_n = V_0 · aⁿ = (U_0 - L) · aⁿ.",
+            "Étape 5 : Revenir à U_n = L + (U_0 - L) aⁿ.",
+            "Étape 6 : Étudier la limite selon la valeur de a : si |a|<1, U_n→L ; si a>1, |U_n|→∞ ; si a≤-1, pas de limite."
+          ],
+          "examples": [
+            "Exemple : U₀=2000, U_{n+1}=1,035U_n+700. Ici a=1,035, b=700. L = 700/(1-1,035)=700/(-0,035)= -20000. V₀ = 2000 - (-20000)=22000. Donc U_n = -20000 + 22000×1,035ⁿ. Comme a>1, U_n→+∞."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Reprenons l'exemple de la clientèle avec U₁=8000, U_{n+1}=0,7U_n+3000. On a a=0,7, b=3000. L = 3000/(1-0,7)=3000/0,3=10000. V₁ = U₁-L = 8000-10000=-2000. Alors V_n = V₁·a^{n-1} = -2000×0,7^{n-1}. Donc U_n = 10000 - 2000×0,7^{n-1}. Limite = 10000."
+          ],
+          "methods": [
+            "Résoudre L = aL + b pour obtenir L.",
+            "Définir V_n = U_n - L.",
+            "Montrer que (V_n) est géométrique de raison a.",
+            "Exprimer U_n = L + (U_0 - L)·aⁿ."
+          ],
+          "common_mistakes": [
+            "Oublier de vérifier a≠1 (si a=1, la formule de L n'est pas définie, on a une suite arithmétique).",
+            "Calculer L avec la mauvaise formule : L = b/(1-a) (attention au signe : on résout L = aL+b → L - aL = b → L(1-a)=b → L=b/(1-a)).",
+            "Ne pas simplifier correctement l'expression finale."
+          ],
+          "summary": "Toute suite affine se ramène à une suite géométrique par translation (en soustrayant le point fixe). Cela permet d'obtenir facilement son terme général et sa limite."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Une suite arithmétique a U₁=3 et U₄=12. Trouver la raison r et le terme général U_n (en commençant à n=1).",
+          "solution": "U₄ = U₁ + 3r ⇒ 12 = 3 + 3r ⇒ 3r = 9 ⇒ r=3. U_n = U₁ + (n-1)r = 3 + 3(n-1) = 3n.",
+          "explanation": "On utilise la formule U_n = U_p + (n-p)r. Avec p=1, n=4, on a 12 = 3 + 3r, d'où r=3. Ensuite, U_n = 3 + (n-1)×3 = 3n."
+        },
+        {
+          "question": "U₀=4, q=3. Calculer U₅ et la somme S = U₀+U₁+...+U₅.",
+          "solution": "U₅ = 4×3⁵ = 4×243 = 972. S = 4×(1-3⁶)/(1-3) = 4×(1-729)/(-2) = 4×(-728)/(-2) = 4×364 = 1456.",
+          "explanation": "Terme général d'une suite géométrique : U_n = U₀ qⁿ. Pour la somme des termes de U₀ à U₅, il y a 6 termes, donc S = U₀ (1 - q^{6})/(1-q) = 4(1-729)/(-2) = 1456."
+        },
+        {
+          "question": "Soit U₀=2, U_{n+1}=0,5U_n+3. Trouver L, exprimer U_n et sa limite.",
+          "solution": "L = 3/(1-0,5)=3/0,5=6. V_n = U_n-6 ⇒ V_{n+1}=0,5 V_n ⇒ V_n = (2-6)×0,5ⁿ = -4×0,5ⁿ. Donc U_n = 6 - 4×0,5ⁿ. Limite : 6.",
+          "explanation": "On calcule le point fixe L = b/(1-a) = 3/(0,5)=6. On pose V_n = U_n-6, alors V_{n+1}=0,5 V_n, donc V_n = V₀·0,5ⁿ = (2-6)×0,5ⁿ = -4×0,5ⁿ. U_n = 6 + V_n = 6 - 4×0,5ⁿ. Comme 0,5ⁿ→0, U_n→6."
+        },
+        {
+          "question": "Une population de 300 oiseaux diminue de 3% par an. En quelle année passe-t-elle sous 200 ? (arrondir à l'année supérieure)",
+          "solution": "U_n = 300×(0,97)ⁿ. On veut 300×0,97ⁿ < 200 ⇒ 0,97ⁿ < 2/3 ⇒ n > ln(2/3)/ln(0,97) ≈ (-0,4055)/(-0,03046) ≈ 13,31. Donc n=14 ans.",
+          "explanation": "La suite est géométrique de raison 0,97. On résout l'inéquation en prenant le logarithme (strictement décroissant). Comme n doit être entier, on prend n=14."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Nombres complexes",
+      "chapter_introduction": "Les nombres complexes étendent les réels en introduisant le nombre imaginaire i tel que i² = -1. Ils sont fondamentaux en électricité, en mécanique des fluides et en traitement du signal. Dans ce chapitre, vous apprendrez à manipuler les trois formes d'un complexe (algébrique, trigonométrique, exponentielle), à résoudre des équations polynomiales dans ℂ, et à utiliser les complexes pour résoudre des problèmes de géométrie plane.",
+      "chapter_objectives": [
+        "Passer d'une forme à l'autre (algébrique, trigonométrique, exponentielle)",
+        "Calculer le module et l'argument d'un complexe",
+        "Résoudre des équations du second degré dans ℂ",
+        "Factoriser des polynômes dans ℂ",
+        "Utiliser les complexes pour calculer distances, milieux, angles dans le plan"
+      ],
+      "subchapters": [
+        {
+          "title": "Les trois formes d'un nombre complexe",
+          "introduction": "Les nombres complexes étendent les réels en introduisant i tel que i² = -1. Un complexe s'écrit sous trois formes équivalentes.",
+          "definition": "Un complexe z s'écrit z = a+bi (forme algébrique), z = r(cosθ + i sinθ) (forme trigonométrique) ou z = r e^{iθ} (forme exponentielle), avec r = |z| = √(a²+b²) (module, toujours positif) et θ = arg(z) (argument, angle modulo 2π).",
+          "explanation": "Le module r est la distance du point (a,b) à l'origine. L'argument θ est l'angle que fait le vecteur (a,b) avec l'axe des réels positifs. On passe de l'algébrique à la trigonométrique en calculant r, puis cosθ = a/r, sinθ = b/r. Attention au quadrant (le signe de a et b détermine l'angle). La forme exponentielle est très pratique pour multiplier et diviser : |z₁z₂| = |z₁||z₂|, arg(z₁z₂) = arg(z₁)+arg(z₂).",
+          "step_by_step": [
+            "Pour passer de la forme algébrique a+bi à la forme exponentielle :",
+            "Étape 1 : Calculer r = √(a²+b²).",
+            "Étape 2 : Déterminer θ tel que cosθ = a/r et sinθ = b/r. On utilise souvent arctan(b/a) en ajustant selon le quadrant :",
+            "   - Si a>0, θ = arctan(b/a).",
+            "   - Si a<0, θ = arctan(b/a) + π (ou -π selon la convention).",
+            "   - Si a=0 et b>0, θ = π/2 ; si a=0 et b<0, θ = -π/2.",
+            "Étape 3 : Écrire z = r e^{iθ}.",
+            "Pour passer de l'exponentielle à l'algébrique : utiliser e^{iθ}=cosθ+ i sinθ, puis multiplier par r."
+          ],
+          "examples": [
+            "Exemple 1 : 1+i. a=1, b=1, r=√(1+1)=√2. cosθ=1/√2, sinθ=1/√2 → θ=π/4. Donc 1+i = √2 e^{iπ/4}.",
+            "Exemple 2 : -2+2i√3. a=-2, b=2√3, r=√(4+12)=4. cosθ=-2/4=-1/2, sinθ=2√3/4=√3/2 → θ=2π/3 (car cos négatif, sin positif). Donc z=4e^{i2π/3}."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : z = (1-i√3)(1-i). On peut d'abord mettre chaque facteur sous forme exponentielle : 1-i√3 : r=2, cosθ=1/2, sinθ=-√3/2 → θ=-π/3 ; 1-i : r=√2, θ=-π/4. Alors |z|=2×√2=2√2, arg(z)= -π/3 - π/4 = -7π/12. Donc z=2√2 e^{-7iπ/12}.",
+            "Exemple détaillé 2 : z = √3 - i. r=√(3+1)=2, cosθ=√3/2, sinθ=-1/2 → θ=-π/6. Donc z=2e^{-iπ/6}. Calculons z⁶ : (2e^{-iπ/6})⁶ = 2⁶ e^{-iπ} = 64 (-1) = -64."
+          ],
+          "methods": [
+            "Module : |z| = √(a²+b²)",
+            "Argument : cosθ = a/|z|, sinθ = b/|z|",
+            "Forme exponentielle : z = |z| e^{iθ}",
+            "Produit : |z₁z₂| = |z₁||z₂|, arg(z₁z₂)= arg(z₁)+arg(z₂)"
+          ],
+          "common_mistakes": [
+            "Oublier que le module est toujours positif (ne jamais écrire r négatif).",
+            "Confondre argument principal (généralement dans ]-π,π]) avec une autre mesure (on peut ajouter 2π).",
+            "Mal interpréter le signe de sin et cos pour le quadrant : par exemple, a=-1, b=-1 donne θ = -3π/4 (ou 5π/4), pas π/4."
+          ],
+          "summary": "Les trois formes sont interchangeables. La forme exponentielle simplifie les produits, puissances et divisions. Le module et l'argument sont les coordonnées polaires du point."
+        },
+        {
+          "title": "Polynômes et équations dans ℂ",
+          "introduction": "Dans ℂ, tout polynôme de degré n a exactement n racines (comptées avec multiplicité). C'est le théorème fondamental de l'algèbre.",
+          "definition": "Une équation du second degré az²+bz+c=0 (a≠0) se résout avec Δ = b²-4ac. Si Δ<0, les racines sont complexes conjuguées : (-b ± i√(-Δ))/(2a).",
+          "explanation": "Pour le troisième degré ou plus, on cherche d'abord une racine évidente (souvent un entier ou un complexe simple donné). On factorise le polynôme par (z - racine), puis on résout le quotient (degré inférieur). Les racines complexes non réelles apparaissent toujours par paires conjuguées (si les coefficients sont réels).",
+          "step_by_step": [
+            "Pour une équation du second degré :",
+            "Étape 1 : Calculer Δ = b² - 4ac.",
+            "Étape 2 : Si Δ ≥ 0 (réel), racines réelles : (-b ± √Δ)/(2a).",
+            "Étape 3 : Si Δ < 0, racines complexes : (-b ± i√(-Δ))/(2a).",
+            "Pour un polynôme de degré ≥ 3 :",
+            "Étape 1 : Chercher une racine évidente (essayer des petits entiers, des complexes simples comme i, -i, etc.).",
+            "Étape 2 : Effectuer la division euclidienne du polynôme par (z - racine) pour obtenir un quotient de degré inférieur.",
+            "Étape 3 : Résoudre le quotient (degré 2 ou plus) par la méthode appropriée."
+          ],
+          "examples": [
+            "Exemple 1 : z²+2z+5=0. Δ=4-20=-16. √(-16)=4i. Racines : (-2 ± 4i)/2 = -1 ± 2i.",
+            "Exemple 2 : z²-6z+10=0. Δ=36-40=-4, √(-4)=2i. Racines : (6 ± 2i)/2 = 3 ± i."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : P(z)=z³+(3i-6)z²+(10-18i)z+30i. On teste z=-3i : (-3i)³ = 27i, (3i-6)(9i²?) Mieux : vérification rapide : -3i est racine car P(-3i)=... (on l'admet). Factorisation par (z+3i). On effectue la division, on obtient z²-6z+10. Les racines de ce trinôme sont 3±i. Donc les trois racines : -3i, 3+i, 3-i.",
+            "Exemple détaillé 2 : P(z)=z³-2(2+i)z²+(5+8i)z-10i. On vérifie que 2i est racine. On factorise par (z-2i), on obtient z² -4z +5, dont les racines sont 2±i. Donc racines : 2i, 2+i, 2-i."
+          ],
+          "methods": [
+            "Second degré : Δ, puis formules.",
+            "Théorème de Viète : z₁+z₂ = -b/a, z₁z₂ = c/a.",
+            "Pour degré 3 : chercher une racine évidente (souvent donnée), effectuer la division euclidienne."
+          ],
+          "common_mistakes": [
+            "Oublier le signe i dans la racine carrée d'un négatif : √(-Δ) devient i√(Δ) (avec Δ positif).",
+            "Ne pas vérifier que la racine évidente annule bien le polynôme (faire le calcul).",
+            "Mal appliquer la factorisation : la division doit être exacte (reste nul)."
+          ],
+          "summary": "Les équations polynomiales se résolvent dans ℂ de manière systématique. Les racines complexes non réelles apparaissent par paires conjuguées si les coefficients sont réels."
+        },
+        {
+          "title": "Géométrie dans le plan complexe",
+          "introduction": "Chaque nombre complexe z = a+bi correspond à un point M(a,b) du plan. Les opérations sur les complexes ont des interprétations géométriques : addition = translation, multiplication = rotation + homothétie.",
+          "definition": "La distance entre deux points d'affixes z₁ et z₂ est |z₂-z₁|. Le milieu a pour affixe (z₁+z₂)/2. L'angle entre vecteurs est donné par l'argument du quotient. Plus précisément, (z_B - z_A)/(z_C - z_A) a pour module le rapport des longueurs et pour argument l'angle (AB, AC).",
+          "explanation": "Pour étudier un triangle, on calcule les modules pour les longueurs. Pour vérifier un angle droit, on regarde si le quotient des différences est un imaginaire pur (partie réelle nulle). Pour un alignement, le quotient est réel. Une rotation de centre Ω et d'angle θ s'écrit z' = e^{iθ}(z - z_Ω) + z_Ω.",
+          "step_by_step": [
+            "Pour calculer une distance : |z_B - z_A|.",
+            "Pour calculer un milieu : (z_A+z_B)/2.",
+            "Pour vérifier un angle droit en A : (z_B - z_A)/(z_C - z_A) est un imaginaire pur (sa partie réelle est nulle).",
+            "Pour vérifier un alignement de A, B, C : (z_B - z_A)/(z_C - z_A) est un nombre réel.",
+            "Pour une rotation de centre Ω et d'angle θ : z' = e^{iθ}(z - z_Ω) + z_Ω."
+          ],
+          "examples": [
+            "Exemple : A(1+i), B(3+2i), C(2-i). Calculons les distances : AB = |(3+2i)-(1+i)| = |2+i| = √(4+1)=√5 ; AC = |(2-i)-(1+i)| = |1-2i| = √(1+4)=√5 ; donc triangle isocèle en A. Calculons (z_B-z_A)/(z_C-z_A) = (2+i)/(1-2i) = (2+i)(1+2i)/(1+4) = (2+4i+i-2)/5 = (5i)/5 = i, qui est imaginaire pur. Donc l'angle en A est droit (90°)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 (isobarycentre) : L'isobarycentre (centre de gravité) de trois points a pour affixe (z_A+z_B+z_C)/3.",
+            "Exemple détaillé 2 (rotation) : Soit Ω(1+2i), θ=π/2. L'image d'un point z est z' = e^{iπ/2}(z - (1+2i)) + (1+2i) = i(z-1-2i)+1+2i."
+          ],
+          "methods": [
+            "Distance = module de la différence.",
+            "Milieu = demi-somme des affixes.",
+            "Angle droit ⇔ quotient imaginaire pur.",
+            "Alignement ⇔ quotient réel."
+          ],
+          "common_mistakes": [
+            "Confondre module et distance au carré (ne pas oublier la racine carrée).",
+            "Oublier que le quotient doit être imaginaire pur pour l'orthogonalité (partie réelle nulle).",
+            "Mal ordonner les points dans le quotient : pour l'angle en A, on prend (B-A)/(C-A)."
+          ],
+          "summary": "Le plan complexe permet de traduire des propriétés géométriques en calculs algébriques sur les affixes. C'est un outil puissant pour les problèmes de géométrie."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Écrire 1-i sous forme trigonométrique et exponentielle.",
+          "solution": "Module = √(1²+(-1)²)=√2. cosθ=1/√2, sinθ=-1/√2 ⇒ θ = -π/4 (ou 7π/4). Donc forme trigo : √2(cos(-π/4)+ i sin(-π/4)), forme exponentielle : √2 e^{-iπ/4}.",
+          "explanation": "On calcule le module et l'argument. La partie réelle est positive, la partie imaginaire négative → angle -π/4 (dans le 4ème quadrant)."
+        },
+        {
+          "question": "Résoudre dans ℂ l'équation z²+2z+5=0.",
+          "solution": "Δ = 4-20 = -16. √Δ = 4i. Racines : (-2 ± 4i)/2 = -1 ± 2i.",
+          "explanation": "On applique la formule du discriminant. Δ est négatif, donc on utilise i√(-Δ) = 4i. Les racines sont complexes conjuguées."
+        },
+        {
+          "question": "Soit A(1+2i), B(3+4i), C(5-2i). Calculer les distances AB, AC, BC. Le triangle est-il rectangle ?",
+          "solution": "AB = |3+4i - (1+2i)| = |2+2i| = √(4+4)=√8=2√2. AC = |5-2i-(1+2i)| = |4-4i| = √(16+16)=√32=4√2. BC = |5-2i-(3+4i)| = |2-6i| = √(4+36)=√40=2√10. On vérifie : AB²+AC² = 8+32=40 = BC², donc rectangle en A.",
+          "explanation": "On calcule les modules des différences. On applique la réciproque du théorème de Pythagore. Les carrés des deux petits côtés (AB et AC) donnent BC², donc l'angle droit est en A."
+        },
+        {
+          "question": "Trouver les racines de z⁴=16 dans ℂ.",
+          "solution": "z⁴ = 16 = 16 e^{i2kπ}. Donc z = 16^{1/4} e^{i(2kπ)/4} = 2 e^{i kπ/2} pour k=0,1,2,3. Racines : 2, 2i, -2, -2i.",
+          "explanation": "On utilise la forme exponentielle. 16 = 16 e^{i0} mais on ajoute 2kπ pour tenir compte de la périodicité. La racine quatrième du module est 2. Les arguments sont 0, π/2, π, 3π/2. On obtient les quatre racines."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Probabilités",
+      "chapter_introduction": "Les probabilités permettent de quantifier l'incertitude et de modéliser des phénomènes aléatoires. Dans ce chapitre, vous apprendrez à calculer des probabilités dans des situations d'équiprobabilité à l'aide de la combinatoire, à manipuler les probabilités conditionnelles, la formule des probabilités totales et le théorème de Bayes, ainsi qu'à étudier des variables aléatoires discrètes (loi, espérance, variance, fonction de répartition).",
+      "chapter_objectives": [
+        "Calculer des probabilités en utilisant les combinaisons",
+        "Appliquer les formules des probabilités conditionnelles et totales",
+        "Utiliser le théorème de Bayes pour inverser des conditionnements",
+        "Déterminer la loi d'une variable aléatoire discrète",
+        "Calculer l'espérance, la variance et l'écart-type",
+        "Construire et interpréter la fonction de répartition"
+      ],
+      "subchapters": [
+        {
+          "title": "Fondamentaux et combinatoire",
+          "introduction": "Les probabilités mesurent la chance qu'un événement se produise. Dans une situation où tous les résultats sont également probables (équiprobables), la probabilité est le quotient du nombre de cas favorables par le nombre total de cas.",
+          "definition": "Dans un univers Ω fini équiprobable, la probabilité d'un événement A est P(A) = nombre de cas favorables à A / nombre de cas possibles (|Ω|).",
+          "explanation": "Pour compter les cas, on utilise souvent les combinaisons. Une combinaison C(n,k) = n!/(k!(n-k)!) donne le nombre de façons de choisir k éléments parmi n sans tenir compte de l'ordre. C'est utile pour les tirages simultanés (ex : tirer 3 boules dans une urne). Les propriétés de base : P(A∪B)=P(A)+P(B)-P(A∩B), P(Ā)=1-P(A).",
+          "step_by_step": [
+            "Étape 1 : Déterminer l'univers Ω et le nombre total de cas. Souvent c'est C(N, n) pour un tirage de n éléments parmi N sans ordre.",
+            "Étape 2 : Compter le nombre de cas favorables à l'événement A (en utilisant des combinaisons, des produits, etc.).",
+            "Étape 3 : Appliquer P(A) = favorables / total.",
+            "Étape 4 : Utiliser les propriétés si nécessaire (union, complémentaire)."
+          ],
+          "examples": [
+            "Exemple 1 : Une urne contient 16 boules : 5 bleues, 6 noires, 5 jaunes. On tire 3 boules au hasard. Nombre total de tirages : C(16,3)=560. Nombre de tirages avec 3 boules de la même couleur : C(5,3)+C(6,3)+C(5,3)=10+20+10=40. Donc P = 40/560 = 1/14.",
+            "Exemple 2 : Jeu de 32 cartes, on tire 3 cartes. Probabilité d'avoir exactement 2 as : nombre de façons de choisir 2 as parmi 4 : C(4,2)=6, et 1 autre carte parmi les 28 non-as : C(28,1)=28. Total favorables = 6×28=168. Total cas = C(32,3)=4960. P = 168/4960 = 21/620."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : 10 pistes de danse (6 lentes, 4 rapides), on en choisit 3 au hasard. Probabilité d'avoir 2 lentes et 1 rapide : C(6,2)×C(4,1)/C(10,3) = 15×4 / 120 = 60/120 = 1/2. Probabilité d'avoir au moins 1 rapide = 1 - P(aucune rapide) = 1 - C(6,3)/C(10,3) = 1 - 20/120 = 1 - 1/6 = 5/6."
+          ],
+          "methods": [
+            "P(A∪B)=P(A)+P(B)-P(A∩B)",
+            "P(Ā)=1-P(A)",
+            "Combinaison : C(n,k)=C(n,n-k)",
+            "Si les événements sont incompatibles, P(A∪B)=P(A)+P(B)."
+          ],
+          "common_mistakes": [
+            "Confondre arrangement (ordre important) et combinaison (ordre non important). Ici, pour un tirage simultané, on utilise les combinaisons.",
+            "Oublier de diviser par le nombre total de cas (on donne parfois le nombre de favorables sans le total).",
+            "Ne pas vérifier l'équiprobabilité (tous les résultats doivent avoir la même chance)."
+          ],
+          "summary": "En situation d'équiprobabilité, la probabilité se calcule par un quotient de nombres de cas, souvent via les combinaisons. Les propriétés de base permettent de simplifier les calculs."
+        },
+        {
+          "title": "Probabilités conditionnelles et totales",
+          "introduction": "La probabilité conditionnelle mesure la chance d'un événement sachant qu'un autre est réalisé. C'est un outil essentiel pour mettre à jour nos croyances en fonction d'une information.",
+          "definition": "P(A|B) = P(A∩B)/P(B) (si P(B)>0). Deux événements A et B sont indépendants si P(A∩B)=P(A)P(B).",
+          "explanation": "La formule des probabilités totales permet de calculer P(A) en décomposant l'univers en plusieurs causes (partition). Si B₁, B₂, ..., Bₙ forment une partition (disjoints et recouvrant Ω), alors P(A) = ∑ P(A|B_i) P(B_i). La formule de Bayes permet d'inverser le conditionnement : P(B_i|A) = P(A|B_i)P(B_i) / P(A).",
+          "step_by_step": [
+            "Pour calculer P(A|B) : P(A∩B)/P(B).",
+            "Pour vérifier l'indépendance : comparer P(A∩B) et P(A)P(B).",
+            "Formule des probabilités totales : si B₁,...,Bₙ forment une partition, P(A)=∑ P(A|B_i)P(B_i).",
+            "Formule de Bayes : P(B_i|A) = P(A|B_i)P(B_i) / P(A)."
+          ],
+          "examples": [
+            "Exemple classique : Trois usines fabriquent des pièces. Usine A : 50% de la production, 4% de défauts ; Usine B : 30%, 3% de défauts ; Usine C : 20%, 2% de défauts. On prend une pièce au hasard. Probabilité qu'elle soit défectueuse : P(D) = 0,5×0,04 + 0,3×0,03 + 0,2×0,02 = 0,02+0,009+0,004=0,033. Si la pièce est défectueuse, probabilité qu'elle vienne de A : P(A|D) = (0,5×0,04)/0,033 = 0,02/0,033 = 20/33 ≈ 0,606."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : Dans une classe, 40% aiment les maths, 30% aiment la physique, 10% aiment les deux. On choisit un élève au hasard. Sachant qu'il n'aime pas les maths, probabilité qu'il aime la physique ? P(physique | non maths) = P(physique ∩ non maths)/P(non maths) = (0,3-0,1)/(0,6) = 0,2/0,6 = 1/3.",
+            "Exemple détaillé 2 : Trois urnes : U₁ : 1 rouge, 5 jaunes ; U₂ : 3 rouges, 1 jaune ; U₃ : 1 rouge, 2 jaunes. On choisit une urne au hasard (1/3 chacun) puis on tire une boule. Probabilité de tirer une rouge : P(R)=1/3×1/6 + 1/3×3/4 + 1/3×1/3 = 1/18 + 1/4 + 1/9 = (2/36 + 9/36 + 4/36)=15/36=5/12."
+          ],
+          "methods": [
+            "P(A∩B)=P(A)P(B) pour l'indépendance.",
+            "Formule des probabilités totales : P(A)=∑P(A|B_i)P(B_i).",
+            "Formule de Bayes : P(B_i|A)=P(A|B_i)P(B_i)/P(A)."
+          ],
+          "common_mistakes": [
+            "Confondre P(A|B) et P(B|A) (souvent très différents).",
+            "Supposer l'indépendance sans vérification (ne pas prendre l'habitude de dire « A et B sont indépendants » sans calcul).",
+            "Oublier que les événements d'une partition doivent être disjoints et couvrir l'univers."
+          ],
+          "summary": "Les probabilités conditionnelles et la formule de Bayes sont des outils puissants pour mettre à jour les probabilités en fonction d'une information. La formule des probabilités totales permet de décomposer un événement selon plusieurs causes."
+        },
+        {
+          "title": "Variables aléatoires discrètes",
+          "introduction": "Une variable aléatoire associe un nombre à chaque résultat d'une expérience aléatoire. Par exemple, le nombre de piles obtenu en lançant 3 pièces.",
+          "definition": "La loi de probabilité d'une variable aléatoire discrète X donne les valeurs possibles x_i et leurs probabilités p_i = P(X=x_i). On a ∑ p_i = 1. L'espérance E(X)=∑ x_i p_i (moyenne théorique). La variance V(X)=E[(X-E(X))²] = E(X²) - [E(X)]² (mesure de dispersion). L'écart-type σ(X)=√V(X).",
+          "explanation": "L'espérance est la valeur moyenne que l'on obtiendrait si l'on répétait l'expérience un très grand nombre de fois. La variance quantifie la dispersion autour de la moyenne. On utilise souvent les propriétés de linéarité : E(aX+b)=aE(X)+b, V(aX+b)=a²V(X).",
+          "step_by_step": [
+            "Étape 1 : Déterminer toutes les valeurs possibles de X.",
+            "Étape 2 : Calculer la probabilité de chaque valeur (souvent à l'aide de la combinatoire ou de formules).",
+            "Étape 3 : Vérifier que la somme des probabilités vaut 1.",
+            "Étape 4 : Calculer E(X) = Σ x_i p_i.",
+            "Étape 5 : Calculer E(X²) = Σ x_i² p_i.",
+            "Étape 6 : Calculer V(X) = E(X²) - [E(X)]².",
+            "Étape 7 : L'écart-type σ(X) = √V(X)."
+          ],
+          "examples": [
+            "Exemple : Urne avec boules 1,1,1,2,4,5. On tire 2 boules (sans remise, simultanément). Soit X la somme. Les valeurs possibles : 2 (1+1), 3 (1+2), 5 (1+4), 6 (1+5 ou 2+4), 7 (2+5), 9 (4+5). Calcul des probabilités (nous ne détaillons pas ici). On obtient par exemple P(X=2)=C(3,2)/C(6,2)=3/15=1/5, etc. Puis E(X)=14/3."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Soit la loi de X : x_i = -3, -2, 1, 3, 5 ; p_i = 0,2 ; 0,3 ; 0,2 ; 0,1 ; 0,2. Vérifions somme = 0,2+0,3+0,2+0,1+0,2=1. E(X)= (-3×0,2)+(-2×0,3)+(1×0,2)+(3×0,1)+(5×0,2)= -0,6 -0,6 +0,2 +0,3 +1,0 = 0,3. E(X²)= 9×0,2 + 4×0,3 + 1×0,2 + 9×0,1 + 25×0,2 = 1,8+1,2+0,2+0,9+5 = 9,1. V(X)=9,1 - (0,3)² = 9,1 - 0,09 = 9,01. σ≈√9,01≈3,002.",
+            "Exemple avec deux dés spéciaux : D₁ (2,2,4,4,6,6) et D₂ (1,1,1,3,3,5). X=somme. On peut construire un tableau 6×6. Les valeurs vont de 3 à 11. On compte les occurrences pour obtenir la loi."
+          ],
+          "methods": [
+            "Vérifier que ∑p_i = 1.",
+            "Calculer E(X) = ∑x_i p_i.",
+            "Calculer E(X²) = ∑x_i² p_i.",
+            "V(X)=E(X²)-[E(X)]²."
+          ],
+          "common_mistakes": [
+            "Oublier de multiplier par la probabilité (faire la moyenne simple des x_i).",
+            "Confondre variance et écart-type (l'écart-type est la racine carrée de la variance).",
+            "Ne pas simplifier les fractions (cela n'est pas une erreur en soi, mais cela peut compliquer les calculs)."
+          ],
+          "summary": "La loi d'une variable aléatoire discrète résume son comportement. L'espérance et la variance sont ses indicateurs numériques essentiels : l'espérance est la moyenne, la variance mesure la dispersion."
+        },
+        {
+          "title": "Fonction de répartition",
+          "introduction": "La fonction de répartition F(x) donne la probabilité que la variable aléatoire X soit inférieure ou égale à x. C'est une autre façon de décrire la loi.",
+          "definition": "F(x) = P(X ≤ x). Pour une variable discrète, F est une fonction en escalier, constante entre les valeurs prises par X, avec des sauts de hauteur p_i aux points x_i (en ordonnant les valeurs).",
+          "explanation": "On calcule F(x) en sommant les probabilités pour toutes les valeurs ≤ x. F est croissante (non décroissante), tend vers 0 quand x→ -∞ et vers 1 quand x→ +∞. Elle est continue à droite (par convention). Elle permet de calculer facilement P(a < X ≤ b) = F(b) - F(a).",
+          "step_by_step": [
+            "Étape 1 : Ordonner les valeurs x_i dans l'ordre croissant.",
+            "Étape 2 : Pour chaque x, additionner les probabilités des x_i ≤ x.",
+            "Étape 3 : Représenter graphiquement : fonction en escalier avec des sauts aux x_i.",
+            "Étape 4 : Utiliser F pour calculer P(a < X ≤ b) = F(b) - F(a)."
+          ],
+          "examples": [
+            "Exemple : X prend les valeurs -5 (1/6), -2 (1/12), 0 (1/4), 1 (1/4), 3 (1/12), 6 (1/6). Alors :",
+            "Pour x < -5, F(x)=0.",
+            "Pour -5 ≤ x < -2, F(x)=1/6.",
+            "Pour -2 ≤ x < 0, F(x)=1/6+1/12=1/4.",
+            "Pour 0 ≤ x < 1, F(x)=1/4+1/4=1/2.",
+            "Pour 1 ≤ x < 3, F(x)=1/2+1/4=3/4.",
+            "Pour 3 ≤ x < 6, F(x)=3/4+1/12=5/6.",
+            "Pour x ≥ 6, F(x)=1."
+          ],
+          "detailed_examples": [
+            "Exemple : Pour une loi binomiale B(n,p), la fonction de répartition est tabulée dans les tables statistiques. On peut l'utiliser pour calculer P(X≤k).",
+            "Utilisation : P(2 < X ≤ 5) = F(5)-F(2)."
+          ],
+          "methods": [
+            "Ordonner les valeurs de X.",
+            "F(x) = ∑_{x_i ≤ x} p_i.",
+            "F est continue à droite (par convention, on prend l'inégalité ≤ pour la définition)."
+          ],
+          "common_mistakes": [
+            "Confondre P(X < x) et P(X ≤ x). F(x) donne P(X ≤ x). Pour P(X < x), il faut prendre la limite à gauche, ou soustraire p_x si x est une valeur possible.",
+            "Oublier d'inclure la valeur x dans l'inégalité pour F(x) : F(x) inclut la probabilité de X=x.",
+            "Ne pas tenir compte des sauts multiples (si plusieurs valeurs identiques, mais en général les valeurs sont distinctes)."
+          ],
+          "summary": "La fonction de répartition est un outil commode pour calculer des probabilités d'intervalles. C'est une fonction en escalier qui résume toute la loi."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un dé à 6 faces équilibré : quelle est la probabilité d'obtenir un nombre pair ?",
+          "solution": "Nombres pairs : 2,4,6 → 3 cas favorables sur 6 → P=3/6=1/2.",
+          "explanation": "En situation d'équiprobabilité, P = nombre de résultats favorables / nombre total de résultats."
+        },
+        {
+          "question": "P(A)=0,5, P(B)=0,4, P(A∩B)=0,2. Calculer P(A∪B), P(A|B), P(B|A).",
+          "solution": "P(A∪B)=0,5+0,4-0,2=0,7. P(A|B)=0,2/0,4=0,5. P(B|A)=0,2/0,5=0,4.",
+          "explanation": "On applique les formules : P(A∪B)=P(A)+P(B)-P(A∩B). P(A|B)=P(A∩B)/P(B). P(B|A)=P(A∩B)/P(A)."
+        },
+        {
+          "question": "On lance 3 fois une pièce équilibrée. Soit X = nombre de piles. Donner la loi de X, calculer E(X) et V(X).",
+          "solution": "X peut prendre 0,1,2,3. P(X=0)=1/8, P(X=1)=3/8, P(X=2)=3/8, P(X=3)=1/8. E(X)=0×1/8+1×3/8+2×3/8+3×1/8 = (3+6+3)/8=12/8=1,5. E(X²)=0+1×3/8+4×3/8+9×1/8 = (3+12+9)/8=24/8=3. V(X)=3 - (1,5)²=3-2,25=0,75.",
+          "explanation": "La loi binomiale B(3,0,5) donne ces probabilités. On calcule l'espérance et la variance par les formules. On peut aussi utiliser E(X)=np=3×0,5=1,5 et V(X)=np(1-p)=3×0,5×0,5=0,75."
+        },
+        {
+          "question": "Pour la loi de X précédente, donner la fonction de répartition F(1).",
+          "solution": "F(1)=P(X≤1)=P(X=0)+P(X=1)=1/8+3/8=4/8=0,5.",
+          "explanation": "La fonction de répartition additionne les probabilités des valeurs inférieures ou égales à 1."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Statistiques à deux variables",
+      "chapter_introduction": "Lorsque l'on dispose de deux séries de données, on cherche souvent à savoir si elles sont liées. Dans ce chapitre, vous apprendrez à calculer le point moyen, la covariance, le coefficient de corrélation et la droite de régression linéaire. Ces outils permettent de quantifier et de modéliser une relation linéaire entre deux variables, et de faire des prévisions.",
+      "chapter_objectives": [
+        "Calculer les moyennes et variances d'une série double",
+        "Déterminer la covariance et le coefficient de corrélation",
+        "Établir l'équation de la droite de régression de y en x",
+        "Utiliser la droite pour estimer des valeurs (interpolation/extrapolation)",
+        "Interpréter le coefficient de corrélation"
+      ],
+      "subchapters": [
+        {
+          "title": "Régression linéaire et corrélation",
+          "introduction": "On étudie le lien entre deux variables x et y à partir d'un nuage de points (x_i, y_i). La droite de régression est la droite qui approche au mieux le nuage selon la méthode des moindres carrés.",
+          "definition": "Le point moyen G( x̄ , ȳ ) est le centre de gravité. La covariance Cov(x,y)= (∑x_i y_i)/n - x̄ ȳ. La droite de régression de y en x est y = ax+b avec a = Cov(x,y)/V(x) et b = ȳ - a x̄, où V(x) = (∑x_i²)/n - x̄² (variance de x).",
+          "explanation": "Le coefficient de corrélation r = Cov(x,y)/(σ_x σ_y) mesure l'intensité de la liaison linéaire. Il est compris entre -1 et 1. Si r est proche de 1, corrélation positive forte (les points sont alignés avec pente positive). Proche de -1, corrélation négative forte. Proche de 0, pas de lien linéaire. La droite de régression passe toujours par G.",
+          "step_by_step": [
+            "Étape 1 : Calculer les moyennes x̄ = (∑x_i)/n, ȳ = (∑y_i)/n.",
+            "Étape 2 : Calculer la variance de x : V(x) = (∑x_i²)/n - x̄².",
+            "Étape 3 : Calculer la covariance : Cov = (∑x_i y_i)/n - x̄ ȳ.",
+            "Étape 4 : Calculer le coefficient de corrélation : r = Cov / (σ_x σ_y) avec σ_x = √V(x), σ_y = √V(y).",
+            "Étape 5 : Calculer la pente a = Cov / V(x).",
+            "Étape 6 : Calculer l'ordonnée à l'origine b = ȳ - a x̄.",
+            "Étape 7 : Écrire la droite de régression y = a x + b."
+          ],
+          "examples": [
+            "Exemple : Fossiles : x = (44,65,71,75,87), y = (40,60,59,65,75). n=5. Calculons : x̄=68,4 ; ȳ=59,8 ; V(x)=200,64 ; Cov=159,48 ; a≈0,795 ; b≈5,42 ; r≈0,987 → très forte corrélation positive."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (poids d'un nourrisson en fonction de l'âge) : x = (5,7,10,14,18,22,26) jours, y = (3,61; 3,70; 3,75; 3,85; 3,90; 4,05; 4,12) kg. Calculs : x̄≈14,57, ȳ≈3,854, V(x)=52,53, Cov=1,24, a≈0,0236, b≈3,51. Droite : y=0,0236x+3,51. Estimation à 30 jours : y=0,0236×30+3,51=0,708+3,51=4,218 kg.",
+            "Méthode de Mayer (approximation) : on divise les données en deux groupes, on calcule les points moyens G₁ et G₂, puis la droite (G₁G₂)."
+          ],
+          "methods": [
+            "Calculer x̄ = (∑x)/n, ȳ = (∑y)/n",
+            "Calculer V(x) = (∑x²)/n - x̄²",
+            "Cov = (∑xy)/n - x̄ȳ",
+            "a = Cov/V(x), b = ȳ - a x̄",
+            "r = Cov/(σ_x σ_y)"
+          ],
+          "common_mistakes": [
+            "Confondre covariance et coefficient de corrélation (la covariance peut être grande en valeur absolue sans que la corrélation soit forte, car elle dépend des unités).",
+            "Oublier que la droite de régression minimise la somme des carrés des résidus verticaux (et non horizontaux).",
+            "Utiliser la formule de la covariance avec n-1 au lieu de n (selon la définition du cours, on utilise ici la variance et covariance avec division par n). Attention aux conventions."
+          ],
+          "summary": "La régression linéaire permet de modéliser une relation linéaire entre deux variables et de faire des prévisions. Le coefficient de corrélation mesure la force et le sens de cette relation."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Pour les données suivantes : x = (5,7,10,14,18,22,26), y = (3,61; 3,70; 3,75; 3,85; 3,90; 4,05; 4,12). Calculer x̄, ȳ, la covariance, V(x), la droite de régression, et estimer y pour x=30.",
+          "solution": "n=7. ∑x=5+7+10+14+18+22+26=102 → x̄=102/7≈14,5714. ∑y=3,61+3,70+3,75+3,85+3,90+4,05+4,12=26,98 → ȳ≈3,8543. ∑x²=25+49+100+196+324+484+676=1854 → V(x)=1854/7 - (14,5714)² ≈264,857 - 212,33=52,527. ∑xy=5*3,61+7*3,70+10*3,75+14*3,85+18*3,90+22*4,05+26*4,12 =18,05+25,9+37,5+53,9+70,2+89,1+107,12=401,77 → Cov=401,77/7 - 14,5714*3,8543 ≈57,3957 - 56,156=1,2397. a = Cov/V(x)=1,2397/52,527≈0,0236. b=ȳ - a x̄ =3,8543 - 0,0236*14,5714≈3,8543-0,344=3,5103. Droite : y=0,0236x+3,5103. Pour x=30 : y≈0,0236*30+3,5103=0,708+3,5103=4,2183 kg.",
+          "explanation": "On suit les étapes de calcul : moyennes, variances, covariance, puis coefficients de la droite. L'estimation se fait en remplaçant x par 30."
+        },
+        {
+          "question": "Calculer le coefficient de corrélation r pour les données des fossiles (x=(44,65,71,75,87), y=(40,60,59,65,75)).",
+          "solution": "n=5. x̄=68,4, ȳ=59,8. V(x)= (44²+65²+71²+75²+87²)/5 - 68,4² = (1936+4225+5041+5625+7569)/5 - 4678,56 = 24396/5 - 4678,56 = 4879,2 - 4678,56 = 200,64. V(y)= (40²+60²+59²+65²+75²)/5 - 59,8² = (1600+3600+3481+4225+5625)/5 - 3576,04 = 18531/5 - 3576,04 = 3706,2 - 3576,04 = 130,16. Cov = (44*40+65*60+71*59+75*65+87*75)/5 - 68,4*59,8 = (1760+3900+4189+4875+6525)/5 - 4090,32 = 21249/5 - 4090,32 = 4249,8 - 4090,32 = 159,48. r = 159,48 / √(200,64*130,16) = 159,48 / √(26114,6624) ≈ 159,48 / 161,6 ≈ 0,987.",
+          "explanation": "On calcule les variances et la covariance, puis r = Cov/(σ_x σ_y). Une valeur proche de 1 indique une forte corrélation linéaire positive."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Primitives et intégrales",
+      "chapter_introduction": "Le calcul intégral est l'opération inverse de la dérivation. Il permet de calculer des aires sous des courbes, des valeurs moyennes, ou encore de résoudre des équations différentielles. Dans ce chapitre, vous apprendrez à déterminer des primitives de fonctions usuelles, à calculer des intégrales définies et à interpréter géométriquement le résultat.",
+      "chapter_objectives": [
+        "Trouver une primitive d'une fonction donnée",
+        "Utiliser les formules de primitives usuelles et l'intégration par parties",
+        "Calculer une intégrale définie à l'aide d'une primitive",
+        "Interpréter l'intégrale comme une aire",
+        "Calculer la valeur moyenne d'une fonction sur un intervalle"
+      ],
+      "subchapters": [
+        {
+          "title": "Primitives usuelles",
+          "introduction": "Une primitive d'une fonction f est une fonction F dont la dérivée est f. Trouver une primitive, c'est faire l'opération inverse de la dérivation.",
+          "definition": "F est une primitive de f sur un intervalle si F'(x)=f(x) pour tout x de cet intervalle. Toutes les primitives diffèrent d'une constante additive.",
+          "explanation": "On utilise les formules de dérivation à l'envers. Par exemple, puisque (xⁿ)' = n xⁿ⁻¹, alors une primitive de xⁿ (n≠-1) est xⁿ⁺¹/(n+1). De même, (eˣ)' = eˣ donne une primitive de eˣ est eˣ. Pour les fonctions composées, on reconnaît les formes u'·uⁿ, u'/u, u'·e^u. Par exemple, une primitive de u'·uⁿ est uⁿ⁺¹/(n+1), une primitive de u'/u est ln|u|, une primitive de u'·e^u est e^u.",
+          "step_by_step": [
+            "Étape 1 : Reconnaître la forme de f : polynôme, exponentielle, logarithme, etc.",
+            "Étape 2 : Appliquer la formule de primitive inverse de la dérivée :",
+            "   - ∫ xⁿ dx = xⁿ⁺¹/(n+1) + C (n≠-1)",
+            "   - ∫ eˣ dx = eˣ + C",
+            "   - ∫ 1/x dx = ln|x| + C",
+            "Étape 3 : Si la fonction est une composée du type u'·uⁿ, alors une primitive est uⁿ⁺¹/(n+1).",
+            "Étape 4 : Si c'est u'/u, primitive ln|u|.",
+            "Étape 5 : Si c'est u'·e^u, primitive e^u.",
+            "Étape 6 : Ajouter la constante d'intégration C, sauf si une condition initiale (F(x₀)=y₀) est donnée pour déterminer C."
+          ],
+          "examples": [
+            "Exemple 1 : Primitive de xⁿ (n≠-1) : xⁿ⁺¹/(n+1)+C.",
+            "Exemple 2 : Primitive de eˣ : eˣ+C.",
+            "Exemple 3 : Primitive de 1/x : ln|x|+C.",
+            "Exemple 4 : Primitive de u'/u : ln|u|+C."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : f(x)=2xeˣ, avec F(0)=0. On utilise l'intégration par parties (voir méthode) ou on remarque que (2xeˣ)' = 2eˣ+2xeˣ, pas évident. Par parties : u'=eˣ, v=2x → u=eˣ, v'=2. ∫2xeˣ dx = 2x eˣ - ∫2eˣ dx = 2xeˣ - 2eˣ + C. Avec F(0)=0 → 0 -2 + C =0 → C=2. Donc F(x)=2eˣ(x-1)+2.",
+            "Exemple détaillé 2 : f(x)=2e^{2x}, F(ln2)=0. Une primitive de e^{2x} est (1/2)e^{2x}, donc de 2e^{2x} est e^{2x}. Donc F(x)=e^{2x}+C. F(ln2)=e^{2ln2}+C=4+C=0 → C=-4. Donc F(x)=e^{2x}-4."
+          ],
+          "methods": [
+            "Linéarité : primitive de af+bg = aF+bG.",
+            "Intégration par parties : ∫u'v = uv - ∫uv'. Bien choisir u' (souvent la plus facile à intégrer) et v.",
+            "Reconnaître les formes u'·e^u, u'/u, u'·uⁿ."
+          ],
+          "common_mistakes": [
+            "Oublier la constante d'intégration C (sauf si condition initiale).",
+            "Confondre primitive de 1/x (ln|x|) avec ln(x) sans valeur absolue, ce qui n'est valable que si x>0.",
+            "Mal appliquer la formule de parties (choisir u' et v de manière que l'intégrale ∫uv' soit plus simple)."
+          ],
+          "summary": "Savoir trouver une primitive revient à inverser les règles de dérivation. Il faut connaître les primitives des fonctions usuelles et les techniques de base (linéarité, parties, reconnaissance)."
+        },
+        {
+          "title": "Intégrale définie et valeur moyenne",
+          "introduction": "L'intégrale définie d'une fonction entre deux bornes a et b mesure l'aire (algébrique) sous la courbe. Elle se calcule à l'aide d'une primitive.",
+          "definition": "∫_a^b f(x) dx = [F(x)]_a^b = F(b)-F(a), où F est une primitive de f. La valeur moyenne de f sur [a,b] est m = 1/(b-a) ∫_a^b f(x) dx.",
+          "explanation": "L'intégrale est additive : ∫_a^b + ∫_b^c = ∫_a^c. L'intégrale d'une constante k est k(b-a). Si f est positive, l'intégrale représente l'aire entre la courbe et l'axe des x. Si f est négative, l'intégrale est l'opposé de l'aire (aire négative).",
+          "step_by_step": [
+            "Étape 1 : Trouver une primitive F de f.",
+            "Étape 2 : Calculer F(b) et F(a).",
+            "Étape 3 : Soustraire : ∫_a^b f(x) dx = F(b) - F(a).",
+            "Étape 4 : Pour la valeur moyenne, diviser le résultat par (b-a).",
+            "Étape 5 : Interpréter l'aire : si f est positive, l'intégrale est l'aire sous la courbe."
+          ],
+          "examples": [
+            "Exemple 1 : ∫₀² (3x²-2x+1) dx = [x³ - x² + x]₀² = (8-4+2) - 0 = 6.",
+            "Exemple 2 : ∫₀¹ eˣ dx = [eˣ]₀¹ = e - 1.",
+            "Exemple 3 : ∫₁ᵉ (1/x) dx = [ln x]₁ᵉ = ln e - ln 1 = 1 - 0 = 1."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : f(t)=140-40e^t sur [0,5]. Primitive F(t)=140t - 40e^t. ∫₀⁵ f = (700 - 40e⁵) - (0 - 40) = 700 - 40e⁵ +40 = 740 - 40e⁵. Valeur moyenne = (1/5)(740 - 40e⁵) = 148 - 8e⁵ ≈ 148 - 8×148,41 ≈ 148 - 1187,3 = -1039,3 (négatif, car la fonction devient très négative).",
+            "Exemple détaillé 2 : ∫_{ln2}^{ln4} e^{2x} dx. Primitive : (1/2)e^{2x}. Donc = (1/2)(e^{2ln4} - e^{2ln2}) = (1/2)(16 - 4)=6."
+          ],
+          "methods": [
+            "Trouver une primitive F.",
+            "Calculer F(b)-F(a).",
+            "Pour la valeur moyenne, diviser par (b-a)."
+          ],
+          "common_mistakes": [
+            "Oublier de soustraire F(a) (beaucoup écrivent seulement F(b)).",
+            "Confondre intégrale et primitive : l'intégrale est un nombre, la primitive est une fonction.",
+            "Erreur dans le calcul de la valeur moyenne : ne pas oublier de diviser par (b-a)."
+          ],
+          "summary": "L'intégrale définie permet de calculer des aires et des valeurs moyennes. Elle est l'outil fondamental du calcul intégral."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Trouver une primitive de f(x)=3x²-2x+1.",
+          "solution": "F(x) = x³ - x² + x + C (par exemple C=0 donne F(x)=x³-x²+x).",
+          "explanation": "On primitive chaque terme : ∫3x² dx = x³, ∫(-2x)dx = -x², ∫1 dx = x. On ajoute une constante C."
+        },
+        {
+          "question": "Calculer ∫₀² (2x+1) dx.",
+          "solution": "Primitive de 2x+1 : x²+x. Donc ∫₀² = [x²+x]₀² = (4+2)-(0+0)=6.",
+          "explanation": "On calcule la primitive, on évalue aux bornes, on soustrait."
+        },
+        {
+          "question": "Soit f(x)=2xeˣ. Calculer ∫₀¹ f(x) dx sachant qu'une primitive est F(x)=2eˣ(x-1)+2.",
+          "solution": "∫₀¹ f = F(1)-F(0) = [2e¹(1-1)+2] - [2e⁰(0-1)+2] = (0+2) - (2*(-1)+2) = 2 - (-2+2) = 2 - 0 = 2.",
+          "explanation": "On utilise directement la primitive donnée en appliquant le théorème fondamental."
+        },
+        {
+          "question": "Calculer la valeur moyenne de f(x)=e^x sur [0,1].",
+          "solution": "Valeur moyenne = 1/(1-0) ∫₀¹ eˣ dx = ∫₀¹ eˣ dx = e-1 ≈ 1,718.",
+          "explanation": "L'intégrale de eˣ de 0 à 1 vaut e-1, et on divise par la longueur de l'intervalle (1)."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Barycentre et géométrie",
+      "chapter_introduction": "Le barycentre est un concept qui généralise la notion de milieu et de centre de gravité. Il permet de combiner plusieurs points avec des coefficients (poids). Dans ce chapitre, vous apprendrez à calculer les coordonnées du barycentre, à utiliser la relation vectorielle, et à appliquer le barycentre à des problèmes de géométrie (alignement, concours, simplification de sommes vectorielles).",
+      "chapter_objectives": [
+        "Définir le barycentre d'un système de points pondérés",
+        "Calculer les coordonnées du barycentre dans un repère",
+        "Utiliser la relation vectorielle α GA + β GB + γ GC = 0",
+        "Exprimer un vecteur en fonction des autres à partir du barycentre",
+        "Résoudre des problèmes géométriques à l'aide du barycentre"
+      ],
+      "subchapters": [
+        {
+          "title": "Barycentre de points pondérés",
+          "introduction": "Le barycentre est un point qui équilibre des masses placées en différents points. Par exemple, le centre de gravité d'un triangle est le barycentre des sommets avec des coefficients égaux.",
+          "definition": "G est le barycentre du système {(A,α),(B,β),(C,γ)} (α+β+γ≠0) si α GA⃗ + β GB⃗ + γ GC⃗ = 0⃗. En coordonnées : x_G = (α x_A+β x_B+γ x_C)/(α+β+γ), idem pour y. On note G = bar{(A,α), (B,β), (C,γ)}.",
+          "explanation": "Le barycentre généralise la notion de milieu (α=β, γ=0 donne le milieu de [AB]). On peut aussi exprimer AG⃗ en fonction de AB⃗ et AC⃗ : AG⃗ = (β AB⃗ + γ AC⃗)/(α+β+γ). Cette formule est utile pour placer G sur un segment ou à l'intérieur d'un triangle.",
+          "step_by_step": [
+            "Étape 1 : Vérifier que la somme des coefficients est non nulle (sinon le barycentre n'existe pas).",
+            "Étape 2 : Pour calculer les coordonnées : faire la moyenne pondérée des coordonnées : x_G = (α x_A+β x_B+γ x_C)/(α+β+γ).",
+            "Étape 3 : Pour utiliser la relation vectorielle : écrire α GA + β GB + γ GC = 0.",
+            "Étape 4 : Pour exprimer AG en fonction de AB et AC : AG = (β AB + γ AC)/(α+β+γ).",
+            "Étape 5 : Appliquer aux problèmes de concours (médianes, centres de gravité)."
+          ],
+          "examples": [
+            "Exemple 1 : A(2,-3), B(1,4), C(0,5) avec coefficients 3, -2, 4. Somme = 5. x_G = (3×2 + (-2)×1 + 4×0)/5 = (6-2+0)/5 = 4/5 = 0,8. y_G = (3×(-3) + (-2)×4 + 4×5)/5 = (-9-8+20)/5 = 3/5 = 0,6.",
+            "Exemple 2 : AG⃗ = (β AB⃗ + γ AC⃗)/(α+β+γ) pour trois points."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé 1 : G barycentre de (A,2),(B,4),(C,5). Alors AG⃗ = (4 AB⃗ + 5 AC⃗)/(2+4+5) = (4 AB⃗ + 5 AC⃗)/11.",
+            "Exemple détaillé 2 : Si AG⃗ = (3/5) AB⃗, alors G est le barycentre de (A,2) et (B,3) car β/(α+β)=3/5 donne 5β=3α+3β → 2β=3α → α/β=2/3. On peut prendre α=2, β=3."
+          ],
+          "methods": [
+            "Somme des coefficients ≠ 0.",
+            "Coordonnées : moyenne pondérée.",
+            "Vectoriellement : AG⃗ = (β AB⃗ + γ AC⃗)/(α+β+γ) pour trois points."
+          ],
+          "common_mistakes": [
+            "Oublier de diviser par la somme des coefficients (donner seulement la somme pondérée).",
+            "Confondre barycentre avec isobarycentre (coefficients égaux).",
+            "Ne pas vérifier que la somme n'est pas nulle (par exemple, coefficients 2, -2, 0 donnent somme nulle, pas de barycentre)."
+          ],
+          "summary": "Le barycentre permet de combiner des points avec des poids, et ses coordonnées s'obtiennent par moyenne pondérée. C'est un outil puissant en géométrie pour simplifier des relations vectorielles."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "A(0,0), B(4,0), C(1,3). G barycentre de (A,2), (B,-1), (C,1). Calculer G.",
+          "solution": "Somme des coefficients = 2-1+1=2. x_G = (2*0 + (-1)*4 + 1*1)/2 = (-4+1)/2 = -3/2 = -1,5. y_G = (2*0 + (-1)*0 + 1*3)/2 = 3/2 = 1,5. Donc G(-1,5 ; 1,5).",
+          "explanation": "On applique la formule des coordonnées du barycentre : moyenne pondérée des coordonnées."
+        },
+        {
+          "question": "Exprimer AG en fonction de AB et AC si G est barycentre de (A,2),(B,4),(C,5).",
+          "solution": "D'après la formule : AG = (β AB + γ AC)/(α+β+γ) = (4 AB + 5 AC)/(2+4+5) = (4 AB + 5 AC)/11.",
+          "explanation": "On utilise la relation vectorielle : α GA + β GB + γ GC = 0, puis on exprime AG en fonction des autres vecteurs. On obtient AG = (β AB + γ AC)/(α+β+γ)."
+        },
+        {
+          "question": "Déterminer les coefficients α,β tels que G soit le barycentre de (A,α),(B,β) avec AG = (3/5) AB.",
+          "solution": "Pour deux points, AG = (β/(α+β)) AB. On veut β/(α+β) = 3/5 ⇒ 5β = 3α+3β ⇒ 2β = 3α ⇒ α/β = 2/3. On peut prendre α=2, β=3.",
+          "explanation": "La formule du barycentre de deux points donne AG = (β/(α+β)) AB. On résout l'équation pour obtenir une proportion entre α et β. Tous les couples proportionnels conviennent."
+        }
+      ]
+    }
+  ]
+}

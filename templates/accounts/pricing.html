@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% block title %}Abonnement · OU TOU BON{% endblock %}
+
+{% block body %}
+<style>
+
+.pricing-page { padding:2rem 1.5rem; max-width:840px; margin:0 auto; }
+.pricing-page-header { text-align:center; margin-bottom:2rem; }
+.pricing-page-header h1 { font-size:1.8rem; font-weight:800; margin-bottom:.5rem; }
+.pricing-page-header p { color:var(--t2); font-size:.95rem; }
+
+.plan-active-banner {
+  display:flex; align-items:center; gap:.75rem;
+  background:rgba(16,185,129,.08); border:1px solid rgba(16,185,129,.25);
+  border-radius:14px; padding:1rem 1.25rem; margin-bottom:1.5rem;
+}
+.plan-active-banner i { color:var(--green); font-size:1.2rem; }
+.plan-active-banner .plan-txt { font-weight:700; color:var(--green); }
+.plan-active-banner .plan-date { color:var(--t2); font-size:.85rem; margin-top:.15rem; }
+
+.plan-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.25rem; }
+
+.plan-box {
+  position: relative; overflow: hidden;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 22px;
+  padding: 2rem 1.75rem 1.75rem;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.plan-box::before {
+  content:''; position:absolute; right:-50px; bottom:-60px;
+  width:180px; height:180px; border-radius:50%;
+  background: radial-gradient(circle, rgba(56,189,248,.15), transparent 70%);
+  pointer-events:none;
+}
+.plan-box:hover { transform:translateY(-4px); box-shadow:0 18px 50px rgba(0,0,0,.5); }
+
+.plan-box.best {
+  border-color: rgba(251,191,36,.45);
+  box-shadow: 0 14px 42px rgba(0,0,0,.4), 0 0 0 1px rgba(251,191,36,.2) inset;
+}
+.plan-box.best::before { background:radial-gradient(circle,rgba(251,191,36,.18),transparent 70%); }
+
+.plan-tag {
+  position:absolute; top:1rem; right:1rem;
+  font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em;
+  background:rgba(251,191,36,.12); border:1px solid rgba(251,191,36,.35);
+  color:#fbbf24; padding:.25rem .65rem; border-radius:99px;
+}
+
+.plan-name { font-size:1.35rem; font-weight:800; margin-bottom:.5rem; }
+.plan-price-row { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.25rem; }
+.plan-amount { font-size:2.5rem; font-weight:900; line-height:1; }
+.plan-per { color:var(--t3); font-size:.85rem; font-weight:600; }
+.plan-old { color:var(--t3); font-size:.85rem; text-decoration:line-through; margin-bottom:.3rem; }
+.plan-sub { color:var(--t2); font-size:.82rem; margin-bottom:1.2rem; }
+
+.plan-features { list-style:none; padding:0; margin:0 0 1.5rem; display:grid; gap:.6rem; }
+.plan-features li { font-size:.85rem; color:#cbd5e1; display:flex; align-items:center; gap:.5rem; }
+.plan-features li i { color:var(--green); font-size:.75rem; flex-shrink:0; }
+
+.plan-pay-btn {
+  width:100%;
+  padding:.85rem;
+  border:none; border-radius:14px;
+  font-size:.95rem; font-weight:800;
+  cursor:pointer; transition:all .18s;
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+}
+.plan-pay-btn.primary {
+  background:var(--green); color:#fff;
+}
+.plan-pay-btn.primary:hover { opacity:.9; }
+.plan-pay-btn.gold {
+  background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#1e293b;
+}
+.plan-pay-btn.gold:hover { opacity:.9; }
+.plan-pay-btn:disabled { opacity:.5; cursor:not-allowed; }
+
+.plan-guarantee {
+  text-align:center; margin-top:1.25rem;
+  color:var(--t3); font-size:.78rem; display:flex; align-items:center; justify-content:center; gap:.4rem;
+}
+
+@media(max-width:600px) {
+  .pricing-page { padding:1rem .75rem; }
+  .plan-grid { grid-template-columns:1fr; }
+  .plan-box { padding:1.5rem 1.25rem; }
+  .plan-amount { font-size:2rem; }
+}
+</style>
+
+<div class="app">
+  {% include "core/_sidebar.html" with active_page="pricing" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title">💳 Abonnement</div></div>
+    <div class="view-area">
+      <div class="pricing-page">
+
+        <div class="pricing-page-header">
+          <h1>Choisis ton plan</h1>
+          <p>Accès illimité à tous les outils IA pour préparer ton BAC.</p>
+        </div>
+
+        {% if is_premium %}
+        <div class="plan-active-banner">
+          <i class="fas fa-crown"></i>
+          <div>
+            <div class="plan-txt">Abonnement actif ✓</div>
+            <div class="plan-date">Expire le {{ plan_expiration|date:"d F Y" }}</div>
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="plan-grid">
+
+          
+          <div class="plan-box">
+            <div class="plan-name">Mensuel</div>
+            <div class="plan-old">1 000G / mois</div>
+            <div style="display:inline-block;background:rgba(16,185,129,.15);color:#10b981;font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:99px;border:1px solid rgba(16,185,129,.3);margin-bottom:.4rem;">🎉 Promo -25% jusqu'en juin</div>
+            <div class="plan-price-row">
+              <div class="plan-amount">750G</div>
+              <div class="plan-per">/ mois</div>
+            </div>
+            <div class="plan-sub">25% de réduction — sans engagement</div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Chat IA stratégique BAC</li>
+              <li><i class="fas fa-check"></i> Quiz + Exercices corrigés</li>
+              <li><i class="fas fa-check"></i> Examen Blanc avec note / 20</li>
+              <li><i class="fas fa-check"></i> Cours Interactif + Fiches Mémo</li>
+              <li><i class="fas fa-check"></i> Plan de révision IA</li>
+              <li><i class="fas fa-check"></i> Bibliothèque + Favoris + Amis</li>
+            </ul>
+            <form method="POST" action="{% url 'create_payment' %}">
+              {% csrf_token %}
+              <input type="hidden" name="plan" value="monthly">
+              {% if user_authenticated %}
+              <button type="submit" class="plan-pay-btn primary" {% if is_premium %}disabled{% endif %}>
+                <i class="fas fa-mobile-alt"></i>
+                {% if is_premium %}Abonnement actif{% else %}Payer avec MonCash{% endif %}
+              </button>
+              {% else %}
+              <button type="button" class="plan-pay-btn primary" onclick="showPricingSignupModal()">
+                <i class="fas fa-mobile-alt"></i>Payer avec MonCash
+              </button>
+              {% endif %}
+            </form>
+          </div>
+
+          
+          <div class="plan-box best">
+            <div class="plan-tag">Meilleure offre</div>
+            <div class="plan-name">Annuel</div>
+            <div class="plan-old">1 000G × 12 = 12 000G</div>
+            <div class="plan-price-row">
+              <div class="plan-amount">6 000G</div>
+              <div class="plan-per">/ an</div>
+            </div>
+            <div class="plan-sub">Soit <strong>500G / mois</strong> — tu économises 6 000G</div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Tout le plan mensuel inclus</li>
+              <li><i class="fas fa-check"></i> 50% d'économie vs mensuel</li>
+              <li><i class="fas fa-check"></i> 12 mois d'accès continu</li>
+              <li><i class="fas fa-check"></i> Priorité nouvelles fonctionnalités IA</li>
+            </ul>
+            <form method="POST" action="{% url 'create_payment' %}">
+              {% csrf_token %}
+              <input type="hidden" name="plan" value="annual">
+              {% if user_authenticated %}
+              <button type="submit" class="plan-pay-btn gold" {% if is_premium %}disabled{% endif %}>
+                <i class="fas fa-mobile-alt"></i>
+                {% if is_premium %}Abonnement actif{% else %}Payer 6 000G — MonCash{% endif %}
+              </button>
+              {% else %}
+              <button type="button" class="plan-pay-btn gold" onclick="showPricingSignupModal()">
+                <i class="fas fa-mobile-alt"></i>Payer 6 000G — MonCash
+              </button>
+              {% endif %}
+            </form>
+            <div class="plan-guarantee"><i class="fas fa-shield-alt"></i> Le meilleur rapport qualité-prix pour le BAC</div>
+          </div>
+
+        </div>
+
+        
+        <div style="text-align:center; margin-top:2rem;">
+          <p style="color:var(--t2); font-size:.85rem; margin-bottom:.75rem;">
+            Tu n'as pas de MonCash ? Demande à un proche de t'offrir l'abonnement !
+          </p>
+          {% if user_authenticated %}
+          <a href="{% url 'gift_generate' %}" style="
+            display:inline-flex; align-items:center; gap:.5rem;
+            background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#1e293b;
+            padding:.75rem 1.5rem; border-radius:14px;
+            font-weight:800; font-size:.9rem; text-decoration:none;
+            transition:opacity .2s;
+          " onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+            <i class="fas fa-gift"></i>
+            Demander à un proche
+          </a>
+          {% else %}
+          <button type="button" onclick="showPricingSignupModal()" style="
+            display:inline-flex; align-items:center; gap:.5rem;
+            background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#1e293b;
+            padding:.75rem 1.5rem; border-radius:14px;
+            font-weight:800; font-size:.9rem; border:none; cursor:pointer;
+            transition:opacity .2s;
+          " onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+            <i class="fas fa-gift"></i>
+            Demander à un proche
+          </button>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if not user_authenticated %}
+
+<div id="pricingSignupModal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);">
+  <div style="background:#1e2330;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2rem;max-width:400px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5);">
+    <div style="font-size:2.5rem;margin-bottom:.75rem;">🔐</div>
+    <h2 style="font-size:1.2rem;font-weight:800;margin:0 0 .5rem;">Crée ton compte d'abord</h2>
+    <p style="font-size:.88rem;color:#94a3b8;line-height:1.6;margin:0 0 1.5rem;">
+      Pour souscrire à un abonnement, tu dois avoir un compte OU TOU BON. C'est gratuit et ne prend que 2 minutes !
+    </p>
+    <a href="{% url 'signup' %}" style="display:block;background:#10B981;color:#fff;border-radius:12px;padding:.75rem;font-weight:800;font-size:.95rem;text-decoration:none;margin-bottom:.6rem;">
+      Créer mon compte →
+    </a>
+    <a href="{% url 'login' %}" style="display:block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#94a3b8;border-radius:12px;padding:.65rem;font-weight:600;font-size:.9rem;text-decoration:none;margin-bottom:1rem;">
+      J'ai déjà un compte — me connecter
+    </a>
+    <button onclick="document.getElementById('pricingSignupModal').style.display='none'" style="background:none;border:none;color:#64748b;font-size:.8rem;cursor:pointer;text-decoration:underline;">
+      Fermer
+    </button>
+  </div>
+</div>
+<script>
+function showPricingSignupModal() {
+  const m = document.getElementById('pricingSignupModal');
+  m.style.display = 'flex';
+}
+document.getElementById('pricingSignupModal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+</script>
+{% endif %}
+{% endblock %}

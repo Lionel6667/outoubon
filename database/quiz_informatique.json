@@ -1,0 +1,3007 @@
+{
+  "matiere": "informatique",
+  "total": 200,
+  "description": "Quiz Informatique — BAC Haïti",
+  "quiz": [
+    {
+      "id": "I1",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces éléments n’est PAS un type d’accès à Internet ?",
+      "correct": "C",
+      "explanation": "Un type d'accès à Internet désigne une technologie ou un moyen utilisé pour se connecter au réseau mondial. Les options WiMax, Modem 56K et RNIS sont effectivement des technologies d'accès à Internet, car elles permettent aux utilisateurs de se connecter via différentes méthodes. Par contre, un DVD (Digital Versatile Disc) est un support de stockage optique utilisé pour stocker des données, des films, de la musique, etc., mais il ne permet pas d'accéder directement à Internet. C'est pourquoi l'option DVD n'est pas un type d'accès à Internet.",
+      "options": [
+        "WiMax",
+        "Modem 56K",
+        "DVD",
+        "RNIS"
+      ]
+    },
+    {
+      "id": "I2",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un mégabit (Mb) vaut 2^20 bits. Combien de mégabits représente 1,13 × 2^15 bits ?",
+      "correct": "A",
+      "explanation": "Pour résoudre ce problème, il faut comprendre la relation entre les bits et les mégabits. Un mégabit (Mb) est égal à 2^20 bits. On nous donne 1,13 × 2^15 bits et on nous demande de convertir cela en mégabits. Pour ce faire, on divise par 2^20. On peut réécrire 2^20 comme 2^15 × 2^5. Ainsi, 1,13 × 2^15 / (2^15 × 2^5) se simplifie en 1,13 / 2^5, soit 1,13 / 32, ce qui équivaut à 0,0353125. Les options qui proposent des calculs incorrects ne peuvent pas être retenues. Par conséquent, 0,0353 Mb est la bonne réponse.",
+      "options": [
+        "0,0353 Mb",
+        "1,13 Mb",
+        "2,26 Mb",
+        "0,5 Mb"
+      ]
+    },
+    {
+      "id": "I3",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour afficher la table de multiplication d’un nombre saisi par l’utilisateur (de 1 à 10), quelle structure de contrôle est la plus adaptée ?",
+      "correct": "A",
+      "explanation": "Lorsqu'il s'agit d'afficher la table de multiplication d'un nombre saisi par l'utilisateur de 1 à 10, il est important de choisir une structure de contrôle qui permet de répéter une action un nombre connu de fois. Une boucle 'Pour' (for) est particulièrement adaptée à ce genre de situation, car elle permet d'exécuter une série d'instructions pour chaque valeur d'un intervalle donné. Les instructions 'Goto' et 'Si' (if) sont moins appropriées pour des répétitions itératives, et une boucle 'Tant que' (while) pourrait être utilisée mais est moins naturelle pour un nombre d'itérations fixé.",
+      "options": [
+        "Une boucle Pour (for)",
+        "Une instruction Goto",
+        "Une condition Si (if)",
+        "Une boucle Tant que (while)"
+      ]
+    },
+    {
+      "id": "I4",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans un algorithme, quelle instruction permet d’afficher un résultat à l’écran ?",
+      "correct": "D",
+      "explanation": "Dans un algorithme, l'instruction qui permet d'afficher un résultat à l'écran est essentielle pour la sortie des données traitées. L'instruction 'Ecrire' est spécifiquement conçue pour cette tâche. Les instructions 'Si', 'Lire' et 'Pour' servent respectivement à prendre des décisions, à saisir des données et à répéter des actions, mais ne sont pas utilisées pour afficher des résultats.",
+      "options": [
+        "Si",
+        "Lire",
+        "Pour",
+        "Ecrire"
+      ]
+    },
+    {
+      "id": "I5",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel est le rôle de l’instruction « Lire » dans un algorithme ?",
+      "correct": "B",
+      "explanation": "L'instruction 'Lire' dans un algorithme joue un rôle crucial dans l'acquisition de données. Elle permet de saisir une donnée depuis l'utilisateur, ce qui est essentiel pour le traitement de l'information. Les autres options, comme 'Afficher une donnée' (qui correspond à 'Ecrire'), 'Effectuer un calcul' ou 'Répéter une action', ne correspondent pas à la fonction première de l'instruction 'Lire'.",
+      "options": [
+        "Afficher une donnée",
+        "Saisir une donnée depuis l’utilisateur",
+        "Effectuer un calcul",
+        "Répéter une action"
+      ]
+    },
+    {
+      "id": "I6",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces lignes crée correctement un tableau de dix entiers ?",
+      "correct": "C",
+      "explanation": "Pour créer correctement un tableau de dix entiers, il faut déclarer le tableau avec la bonne taille. La déclaration doit inclure la taille du tableau entre crochets. L'option qui propose 'Tableau [10] en numérique' est la seule à déclarer explicitement un tableau pouvant contenir dix éléments (numérotés de 0 à 9).",
+      "options": [
+        "Tableau [9] en numérique",
+        "Tableau {10} en numérique",
+        "Tableau [10] en numérique",
+        "Tableau {9} en numérique"
+      ]
+    },
+    {
+      "id": "I7",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces balises HTML est correctement écrite ?",
+      "correct": "D",
+      "explanation": "En HTML, les balises doivent être correctement ouvertes et fermées. La balise `<title>` est une balise HTML qui indique le titre de la page. Pour être correcte, elle doit être fermée avec `</title>`. La paire de balises `<title>` `</title>` respecte cette règle, ce qui n'est pas le cas des autres options qui présentent des erreurs de syntaxe ou de fermeture.",
+      "options": [
+        "`<title>` `<title/>`",
+        "`</title>` `<title>`",
+        "`<Title>` `</Title>` (en HTML5, les balises sont insensibles à la casse mais la bonne réponse standard est la A)",
+        "`<title>` `</title>`"
+      ]
+    },
+    {
+      "id": "I8",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour se connecter à Internet, quel périphérique est généralement nécessaire ?",
+      "correct": "A",
+      "explanation": "Pour se connecter à Internet, un périphérique spécifique est généralement nécessaire. Un modem (ou un routeur modem) est essentiel pour établir la connexion Internet, car il permet de communiquer avec le fournisseur d'accès à Internet. Les autres périphériques mentionnés, comme un scanner, une webcam ou une imprimante, sont des périphériques d'entrée ou de sortie mais ne permettent pas à eux seuls d'établir une connexion Internet.",
+      "options": [
+        "Un modem",
+        "Un scanner",
+        "Une webcam",
+        "Une imprimante"
+      ]
+    },
+    {
+      "id": "I9",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un algorithme qui calcule la valeur absolue d’un nombre X doit :",
+      "correct": "B",
+      "explanation": "Un algorithme qui calcule la valeur absolue d'un nombre X doit afficher X si X est positif ou nul, et afficher -X si X est négatif. C'est pourquoi l'option 'Afficher X si X ≥ 0, sinon afficher -X' est la bonne réponse, car elle correspond à la définition de la valeur absolue. Les autres options sont incorrectes : afficher X² ne donne pas la valeur absolue, afficher toujours X ne tient pas compte des valeurs négatives, et afficher toujours -X donnerait des résultats incorrects pour les valeurs positives.",
+      "options": [
+        "Afficher X²",
+        "Afficher X si X ≥ 0, sinon afficher -X",
+        "Afficher toujours X",
+        "Afficher toujours -X"
+      ]
+    },
+    {
+      "id": "I10",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel est le résultat de l’algorithme suivant ?",
+      "correct": "A",
+      "explanation": "L'algorithme en question n'est pas précisé, mais si la réponse est 4 quelle que soit la saisie, cela signifie que l'algorithme est conçu pour toujours produire ce résultat. Les options 'Le carré du nombre saisi' et 'Le double du nombre saisi' dépendent de la valeur d'entrée, ce qui n'est pas le cas de la réponse correcte. Il n'y a pas d'erreur dans l'algorithme, sinon la réponse 'Une erreur' serait justifiée.",
+      "options": [
+        "4, quelle que soit la saisie",
+        "Le carré du nombre saisi",
+        "Le double du nombre saisi",
+        "Une erreur"
+      ]
+    },
+    {
+      "id": "I11",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le BIOS (Basic Input Output System) est stocké dans :",
+      "correct": "C",
+      "explanation": "Le BIOS est stocké dans la ROM (Read-Only Memory) car il s'agit d'une mémoire non volatile qui conserve son contenu même en cas de coupure d'alimentation. La ROM est utilisée pour stocker les informations permanentes, comme le BIOS. Les autres options sont incorrectes : le disque dur est utilisé pour stocker des données à long terme, mais il n'est pas directement accessible par le processeur ; le processeur exécute les instructions, mais il ne stocke pas le BIOS ; la RAM est une mémoire volatile utilisée pour stocker temporairement les données en cours de traitement.",
+      "options": [
+        "Le disque dur",
+        "Le processeur",
+        "La ROM",
+        "La RAM"
+      ]
+    },
+    {
+      "id": "I12",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces logiciels n’est pas un système d’exploitation ?",
+      "correct": "C",
+      "explanation": "Un système d'exploitation est un logiciel qui gère les ressources d'un ordinateur et fournit des services aux applications. Les options 'Windows', 'DOS' et 'Linux' sont des exemples de systèmes d'exploitation. En revanche, 'Microsoft Office' est une suite bureautique, c'est-à-dire un ensemble d'applications destinées à la création et à la modification de documents. Elle n'est pas un système d'exploitation.",
+      "options": [
+        "Windows",
+        "DOS",
+        "Microsoft Office",
+        "Linux"
+      ]
+    },
+    {
+      "id": "I13",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un site web est un ensemble de :",
+      "correct": "B",
+      "explanation": "Un site web est un ensemble de pages web reliées par des hyperliens, qui sont des liens cliquables permettant de passer d'une page à une autre. Les autres options sont incorrectes : les serveurs web sont des ordinateurs qui hébergent les sites web, mais ils ne constituent pas le site web lui-même ; les navigateurs sont des logiciels qui permettent d'accéder aux sites web, mais ils ne font pas partie du site web ; les adresses IP identifient les machines sur un réseau, mais elles ne décrivent pas la structure d'un site web.",
+      "options": [
+        "Serveurs web",
+        "Pages web reliées par des hyperliens",
+        "Navigateurs",
+        "Adresses IP"
+      ]
+    },
+    {
+      "id": "I14",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Que signifie l’acronyme IP ?",
+      "correct": "D",
+      "explanation": "L'acronyme IP signifie 'Internet Protocol', qui est un protocole de communication utilisé pour échanger des données sur Internet. Il permet d'identifier et de localiser les appareils sur un réseau. Les autres options sont incorrectes : 'Input Program' n'a pas de sens dans ce contexte, 'Internal Processor' décrit une composante matérielle, et 'Internet Page' décrit un contenu web, mais pas un protocole de communication.",
+      "options": [
+        "Input Program",
+        "Internal Processor",
+        "Internet Page",
+        "Internet Protocol"
+      ]
+    },
+    {
+      "id": "I15",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un algorithme qui demande l’âge et affiche « Majeur » si l’âge ≥ 18, « Mineur » sinon, utilise :",
+      "correct": "B",
+      "explanation": "Un algorithme qui demande l'âge et affiche 'Majeur' si l'âge est supérieur ou égal à 18, et 'Mineur' sinon, utilise une condition, c'est-à-dire une instruction qui permet de prendre une décision en fonction d'une condition. Cela correspond à l'utilisation d'une instruction 'si' (ou 'if' en anglais). Les autres options sont incorrectes : une fonction est un ensemble d'instructions réutilisables, mais elle n'est pas nécessaire ici ; une variable tableau est utilisée pour stocker plusieurs valeurs, mais elle n'est pas pertinente ici ; une boucle est utilisée pour répéter une instruction plusieurs fois, mais elle n'est pas nécessaire pour prendre une décision simple.",
+      "options": [
+        "Une fonction",
+        "Une condition (si)",
+        "Une variable tableau",
+        "Une boucle"
+      ]
+    },
+    {
+      "id": "I16",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans un algorithme, comment échanger deux variables A et B ?",
+      "correct": "C",
+      "explanation": "Pour échanger deux variables, il est nécessaire d'utiliser une variable temporaire pour conserver la valeur de l'une des variables pendant l'échange. L'option 'C ← A, A ← B, B ← C' est la bonne réponse, car elle utilise une variable temporaire C pour stocker la valeur de A, puis attribue la valeur de B à A et enfin la valeur de C (qui est la valeur initiale de A) à B. Les autres options sont incorrectes : l'option 'A ← B, B ← A' perd la valeur initiale de A ; l'option 'A ← A + B, B ← A – B, A ← A – B' est une méthode pour échanger deux valeurs sans variable temporaire, mais elle est moins simple et peut causer des problèmes de dépassement de capacité. L'option 'C' est simplement énoncée sans variable temporaire explicite mais fonctionne.",
+      "options": [
+        "A ← B, B ← A (perd la valeur initiale de A)",
+        "A ← A + B, B ← A – B, A ← A – B (fonctionne mais moins simple)",
+        "C ← A, A ← B, B ← C",
+        "A ← B, B ← A"
+      ]
+    },
+    {
+      "id": "I17",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle boucle est la mieux adaptée pour parcourir un tableau de taille connue ?",
+      "correct": "B",
+      "explanation": "Lorsqu'il s'agit de parcourir un tableau de taille connue, la boucle 'Pour' (ou 'for' en anglais) est la plus adaptée. Cela est dû au fait que la boucle 'Pour' permet de contrôler facilement le nombre d'itérations, ce qui est particulièrement utile lorsque l'on connaît à l'avance le nombre d'éléments à parcourir. Les autres options, telles que 'Tant que' (while) et 'Répéter' (repeat), peuvent également être utilisées pour parcourir un tableau, mais elles nécessitent une gestion manuelle de l'indice, ce qui peut être moins naturel et plus propice aux erreurs. La boucle 'Goto' est quant à elle déconseillée car elle peut rendre le code difficile à lire et à maintenir.",
+      "options": [
+        "Goto",
+        "Pour (for)",
+        "Tant que (while)",
+        "Répéter (repeat)"
+      ]
+    },
+    {
+      "id": "I18",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La RAM est une mémoire :",
+      "correct": "A",
+      "explanation": "La RAM (Random Access Memory) est une mémoire dite 'volatile', ce qui signifie qu'elle perd son contenu dès que l'alimentation électrique est coupée. Cela contraste avec les mémoires non volatiles, comme les disques durs ou les ROM (Read-Only Memory), qui conservent leurs données même en l'absence d'alimentation. La RAM est utilisée pour stocker temporairement les données et les instructions nécessaires au fonctionnement de l'ordinateur, ce qui permet un accès rapide. Les options 'En lecture seule', 'De stockage permanent' et 'Non volatile' décrivent des caractéristiques qui ne sont pas celles de la RAM.",
+      "options": [
+        "Volatile",
+        "En lecture seule",
+        "De stockage permanent",
+        "Non volatile"
+      ]
+    },
+    {
+      "id": "I19",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le processeur (CPU) a pour rôle principal de :",
+      "correct": "B",
+      "explanation": "Le processeur, ou CPU (Central Processing Unit), a pour rôle principal d'exécuter les instructions d'un programme. Il effectue les calculs et les opérations nécessaires pour faire fonctionner l'ordinateur. Les autres composants, tels que la RAM, les disques durs et les cartes graphiques, ont des rôles spécifiques mais distincts de celui du processeur. Ainsi, stocker des données est le rôle de la mémoire, connecter l'ordinateur à Internet est le rôle de la carte réseau, et afficher des images est le rôle de la carte graphique.",
+      "options": [
+        "Stocker des données",
+        "Exécuter les instructions d’un programme",
+        "Connecter l’ordinateur à Internet",
+        "Afficher des images"
+      ]
+    },
+    {
+      "id": "I20",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces unités est la plus grande ?",
+      "correct": "C",
+      "explanation": "Pour déterminer quelle unité est la plus grande, il faut connaître l'ordre de grandeur des unités de stockage. Un octet est l'unité de base, un kilooctet (Ko) vaut 1 024 octets, un mégaoctet (Mo) vaut 1 024 kilooctets, et un gigaoctet (Go) vaut 1 024 mégaoctets. Par conséquent, le gigaoctet est la plus grande unité parmi celles proposées. Les autres options, à savoir l'octet, le kilooctet et le mégaoctet, sont inférieures au gigaoctet.",
+      "options": [
+        "Octet",
+        "Mégaoctet (Mo)",
+        "Gigaoctet (Go)",
+        "Kilooctet (Ko)"
+      ]
+    },
+    {
+      "id": "I21",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "1 Go (gigaoctet) vaut :",
+      "correct": "A",
+      "explanation": "Un gigaoctet (Go) vaut 1 024 mégaoctets (Mo). Cela fait partie de la hiérarchie des unités de mesure de la capacité de stockage en informatique. Ainsi, 1 Go = 1 024 Mo, 1 Mo = 1 024 kilooctets (Ko), et 1 Ko = 1 024 octets. Les options '1024 octets', '1024 Ko' et '1024 To' (téraoctets) ne correspondent pas à la valeur d'un gigaoctet.",
+      "options": [
+        "1024 Mo",
+        "1024 octets",
+        "1024 Ko",
+        "1024 To"
+      ]
+    },
+    {
+      "id": "I22",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le système de numération utilisé en informatique est le :",
+      "correct": "A",
+      "explanation": "Le système de numération utilisé en informatique est le système binaire. Cela signifie que les données sont représentées à l'aide de deux chiffres : 0 et 1. Le système binaire est le langage que les ordinateurs comprennent nativement. Bien que les systèmes décimal, octal et hexadécimal soient également utilisés en informatique, notamment pour la programmation et la communication avec les utilisateurs, le binaire est le fondamental.",
+      "options": [
+        "Binaire",
+        "Décimal",
+        "Octal",
+        "Hexadécimal"
+      ]
+    },
+    {
+      "id": "I23",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En binaire, la valeur 1010 correspond en décimal à :",
+      "correct": "C",
+      "explanation": "La valeur binaire 1010 correspond à la valeur décimale 10. Pour convertir un nombre binaire en décimal, il faut multiplier chaque chiffre binaire par la puissance de 2 correspondant à sa position, en partant de la droite (2^0 = 1, 2^1 = 2, 2^2 = 4, 2^3 = 8, etc.). Ainsi, 1010 en binaire est calculé comme suit : (1 * 2^3) + (0 * 2^2) + (1 * 2^1) + (0 * 2^0) = 8 + 0 + 2 + 0 = 10.",
+      "options": [
+        "8",
+        "11",
+        "10",
+        "9"
+      ]
+    },
+    {
+      "id": "I24",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un octet est composé de :",
+      "correct": "D",
+      "explanation": "Un octet est composé de 8 bits. Un bit est l'unité élémentaire d'information en informatique et ne peut prendre que deux valeurs : 0 ou 1. L'octet, composé de 8 bits, est une unité de mesure de la quantité d'informations et est couramment utilisé pour exprimer la taille des données. Les options '4 bits', '16 bits' et '32 bits' ne correspondent pas à la définition d'un octet.",
+      "options": [
+        "4 bits",
+        "16 bits",
+        "32 bits",
+        "8 bits"
+      ]
+    },
+    {
+      "id": "I25",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le langage HTML est utilisé pour :",
+      "correct": "D",
+      "explanation": "Le langage HTML est utilisé pour créer des pages web. C'est un langage de balisage qui permet de structurer et de formatter du contenu sur le web. Les autres options sont incorrectes car CSS est utilisé pour créer des feuilles de style, les langages comme JavaScript, Python, etc. sont utilisés pour programmer des applications, et SQL est utilisé pour gérer des bases de données.",
+      "options": [
+        "Créer des feuilles de style",
+        "Gérer des bases de données",
+        "Programmer des applications",
+        "Créer des pages web"
+      ]
+    },
+    {
+      "id": "I26",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle balise HTML est utilisée pour insérer une image ?",
+      "correct": "B",
+      "explanation": "La balise HTML utilisée pour insérer une image est `<img>`. Cette balise permet de charger et d'afficher une image dans une page web. Les autres options sont incorrectes car `<picture>` est une balise moderne qui permet de définir plusieurs sources pour une image, `<src>` est un attribut de la balise `<img>` qui spécifie la source de l'image, et `<image>` n'est pas une balise standard en HTML.",
+      "options": [
+        "`<picture>`",
+        "`<img>`",
+        "`<src>`",
+        "`<image>`"
+      ]
+    },
+    {
+      "id": "I27",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’attribut `src` dans la balise `<img>` spécifie :",
+      "correct": "B",
+      "explanation": "L'attribut `src` dans la balise `<img>` spécifie la source de l'image, c'est-à-dire l'URL ou le chemin vers l'image. Cela permet au navigateur de charger et d'afficher l'image. Les autres options sont incorrectes car `alt` spécifie le texte alternatif à afficher si l'image ne peut pas être chargée, et `width` et `height` spécifient respectivement la largeur et la hauteur de l'image.",
+      "options": [
+        "La hauteur de l’image",
+        "La source de l’image (URL ou chemin)",
+        "La largeur de l’image",
+        "Le texte alternatif"
+      ]
+    },
+    {
+      "id": "I28",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces adresses IP est valide (IPv4) ?",
+      "correct": "A",
+      "explanation": "L'adresse IP valide (IPv4) est 10.0.0.1. Une adresse IP IPv4 est composée de quatre octets séparés par des points, et chaque octet doit avoir une valeur comprise entre 0 et 255. Les autres options sont incorrectes car 300.1.2.3 a un octet supérieur à 255, 192.168.1 n'a que trois octets, et 192.168.1.256 a un octet supérieur à 255.",
+      "options": [
+        "10.0.0.1",
+        "300.1.2.3",
+        "192.168.1",
+        "192.168.1.256"
+      ]
+    },
+    {
+      "id": "I29",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole HTTP sert à :",
+      "correct": "D",
+      "explanation": "Le protocole HTTP sert à transférer des pages web. C'est un protocole de communication qui permet aux clients (navigateurs) de demander des ressources à des serveurs et de les récupérer. Les autres options sont incorrectes car FTP est utilisé pour transférer des fichiers, SMTP, POP et IMAP sont utilisés pour envoyer et recevoir des emails, et DNS est utilisé pour résoudre des noms de domaine.",
+      "options": [
+        "Transférer des fichiers",
+        "Envoyer des emails",
+        "Résoudre des noms de domaine",
+        "Transférer des pages web"
+      ]
+    },
+    {
+      "id": "I30",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole FTP est utilisé pour :",
+      "correct": "A",
+      "explanation": "Le protocole FTP est utilisé pour transférer des fichiers. C'est un protocole de communication qui permet aux clients de se connecter à des serveurs et de transférer des fichiers. Les autres options sont incorrectes car HTTP est utilisé pour naviguer sur le web, SMTP est utilisé pour envoyer des emails, et SSL/TLS sont utilisés pour sécuriser les connexions.",
+      "options": [
+        "Transférer des fichiers",
+        "Envoyer des emails",
+        "Naviguer sur le web",
+        "Sécuriser les connexions"
+      ]
+    },
+    {
+      "id": "I31",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole SMTP est associé à :",
+      "correct": "A",
+      "explanation": "Le protocole SMTP est associé à l'envoi de courrier électronique. C'est un protocole de communication qui permet aux serveurs de messagerie de se communiquer et d'envoyer des emails. Les autres options sont incorrectes car HTTP est utilisé pour le web, FTP est utilisé pour le transfert de fichiers, et DNS est utilisé pour la résolution de noms.",
+      "options": [
+        "Le courrier électronique (envoi)",
+        "Le transfert de fichiers",
+        "Le web",
+        "La résolution de noms"
+      ]
+    },
+    {
+      "id": "I32",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole POP3 sert à :",
+      "correct": "D",
+      "explanation": "Le protocole POP3 sert à recevoir des emails, c'est-à-dire à télécharger des emails d'un serveur de messagerie vers un client de messagerie. C'est un protocole de communication qui permet aux clients de se connecter à des serveurs de messagerie et de récupérer leurs emails. Les autres options sont incorrectes car HTTP est utilisé pour naviguer sur le web, SSL est utilisé pour sécuriser les connexions, et SMTP est utilisé pour envoyer des emails.",
+      "options": [
+        "Naviguer sur le web",
+        "Sécuriser une connexion",
+        "Envoyer des emails",
+        "Recevoir des emails (téléchargement)"
+      ]
+    },
+    {
+      "id": "I33",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole DNS sert à :",
+      "correct": "A",
+      "explanation": "Le protocole DNS sert à traduire un nom de domaine en adresse IP. L'option 'Traduire un nom de domaine en adresse IP' est la bonne réponse, car c'est la fonction principale du DNS. Les autres options sont incorrectes : 'Transférer des fichiers' est la fonction de protocoles tels que FTP ; 'Attribuer une adresse IP dynamique' est la fonction de DHCP ; 'Chiffrer les communications' est la fonction de protocoles tels que SSL/TLS.",
+      "options": [
+        "Traduire un nom de domaine en adresse IP",
+        "Transférer des fichiers",
+        "Attribuer une adresse IP dynamique",
+        "Chiffrer les communications"
+      ]
+    },
+    {
+      "id": "I34",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole DHCP permet :",
+      "correct": "D",
+      "explanation": "Le protocole DHCP permet d'obtenir automatiquement une adresse IP. L'option 'D’obtenir automatiquement une adresse IP' est la bonne réponse, car c'est la fonction principale de DHCP. Les autres options sont incorrectes : 'De résoudre des noms de domaine' est la fonction de DNS ; 'De naviguer sur le web' est la fonction de protocoles tels que HTTP ; 'D’envoyer des emails' est la fonction de protocoles tels que SMTP.",
+      "options": [
+        "De résoudre des noms de domaine",
+        "De naviguer sur le web",
+        "D’envoyer des emails",
+        "D’obtenir automatiquement une adresse IP"
+      ]
+    },
+    {
+      "id": "I35",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un pare-feu (firewall) a pour fonction de :",
+      "correct": "A",
+      "explanation": "Un pare-feu (firewall) a pour fonction de bloquer les accès non autorisés. L'option 'Bloquer les accès non autorisés' est la bonne réponse, car c'est la fonction principale d'un pare-feu. Les autres options sont incorrectes : 'Gérer les imprimantes' est la fonction de protocoles tels que IPP ; 'Accélérer Internet' n'est pas une fonction de pare-feu ; 'Stocker des données' est la fonction de dispositifs de stockage.",
+      "options": [
+        "Bloquer les accès non autorisés",
+        "Gérer les imprimantes",
+        "Accélérer Internet",
+        "Stocker des données"
+      ]
+    },
+    {
+      "id": "I36",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un antivirus protège principalement contre :",
+      "correct": "C",
+      "explanation": "Un antivirus protège principalement contre les logiciels malveillants (virus). L'option 'Les logiciels malveillants (virus)' est la bonne réponse, car c'est la fonction principale d'un antivirus. Les autres options sont incorrectes : 'Les coupures de courant' sont un problème d'alimentation électrique ; 'Les pannes matérielles' sont un problème de matériel ; 'Les erreurs de saisie' sont un problème d'utilisation.",
+      "options": [
+        "Les coupures de courant",
+        "Les pannes matérielles",
+        "Les logiciels malveillants (virus)",
+        "Les erreurs de saisie"
+      ]
+    },
+    {
+      "id": "I37",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Qu’est-ce qu’un « phishing » ?",
+      "correct": "A",
+      "explanation": "Un « phishing » est une technique de piratage par usurpation d’identité (hameçonnage). L'option 'Une technique de piratage par usurpation d’identité (hameçonnage)' est la bonne réponse, car c'est la définition du phishing. Les autres options sont incorrectes : 'Un type de pare-feu' est un dispositif de sécurité réseau ; 'Un protocole réseau' est un ensemble de règles pour la communication réseau ; 'Un virus qui efface les fichiers' est un type de malware.",
+      "options": [
+        "Une technique de piratage par usurpation d’identité (hameçonnage)",
+        "Un type de pare-feu",
+        "Un protocole réseau",
+        "Un virus qui efface les fichiers"
+      ]
+    },
+    {
+      "id": "I38",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « ransomware » est un logiciel malveillant qui :",
+      "correct": "C",
+      "explanation": "Un « ransomware » est un logiciel malveillant qui chiffre les données et demande une rançon. C'est pourquoi l'option « Chiffre les données et demande une rançon » est la bonne réponse. Les autres options sont incorrectes car « Affiche des publicités » décrit un adware, « Ralentit l’ordinateur » peut être un effet de plusieurs types de logiciels malveillants mais ne décrit pas spécifiquement un ransomware, et « Espionne l’utilisateur » décrit un spyware.",
+      "options": [
+        "Affiche des publicités",
+        "Ralentit l’ordinateur",
+        "Chiffre les données et demande une rançon",
+        "Espionne l’utilisateur"
+      ]
+    },
+    {
+      "id": "I39",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « cloud computing » désigne :",
+      "correct": "C",
+      "explanation": "Le « cloud computing » désigne l’utilisation de ressources informatiques à distance via Internet. C'est pourquoi l'option « L’utilisation de ressources informatiques à distance via Internet » est la bonne réponse. Les autres options sont incorrectes car « Le stockage local sur disque dur » est le contraire du cloud computing, « Un système d’exploitation » est un type de logiciel différent, et « Un type de processeur » n'a aucun rapport avec le cloud computing.",
+      "options": [
+        "Le stockage local sur disque dur",
+        "Un système d’exploitation",
+        "L’utilisation de ressources informatiques à distance via Internet",
+        "Un type de processeur"
+      ]
+    },
+    {
+      "id": "I40",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces services est un exemple de cloud computing ?",
+      "correct": "B",
+      "explanation": "Google Drive est un exemple de cloud computing car il permet l'utilisation de ressources informatiques à distance via Internet. C'est pourquoi l'option « Google Drive » est la bonne réponse. Les autres options sont incorrectes car « Microsoft Word (installation locale) » est un logiciel installé localement, « Un disque dur externe » et « Une clé USB » sont des dispositifs de stockage locaux.",
+      "options": [
+        "Microsoft Word (installation locale)",
+        "Google Drive",
+        "Un disque dur externe",
+        "Une clé USB"
+      ]
+    },
+    {
+      "id": "I41",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Qu’est-ce qu’un algorithme ?",
+      "correct": "C",
+      "explanation": "Un algorithme est une suite finie d'instructions pour résoudre un problème. C'est un ensemble de règles et d'opérations qui permettent de traiter des données et d'obtenir un résultat. L'option 'Un langage de programmation' est incorrecte car un langage de programmation est un outil utilisé pour implémenter un algorithme, mais ce n'est pas l'algorithme lui-même. Les options 'Un type de donnée' et 'Un système d'exploitation' sont également incorrectes car elles n'ont rien à voir avec la définition d'un algorithme.",
+      "options": [
+        "Un langage de programmation",
+        "Un type de donnée",
+        "Une suite finie d’instructions pour résoudre un problème",
+        "Un système d’exploitation"
+      ]
+    },
+    {
+      "id": "I42",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En algorithmique, la structure « Si… alors… sinon » permet :",
+      "correct": "D",
+      "explanation": "La structure 'Si… alors… sinon' permet de prendre une décision en fonction d'une condition. Elle permet de sélectionner un bloc d'instructions à exécuter en fonction d'une condition. C'est ce qu'on appelle la sélection conditionnelle. L'option 'Le séquencement' est incorrecte car le séquencement consiste à exécuter des instructions dans l'ordre. L'option 'L'appel de fonction' est également incorrecte car l'appel de fonction consiste à appeler une fonction pour exécuter un bloc d'instructions. L'option 'La répétition' est incorrecte car la répétition consiste à répéter un bloc d'instructions plusieurs fois.",
+      "options": [
+        "Le séquencement",
+        "L’appel de fonction",
+        "La répétition",
+        "La sélection conditionnelle"
+      ]
+    },
+    {
+      "id": "I43",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle est la sortie de cet algorithme ?",
+      "correct": "D",
+      "explanation": "Pour déterminer la sortie de cet algorithme, il faudrait connaître les détails de l'algorithme en question. Cependant, en général, si l'algorithme modifie les valeurs de deux variables a et b pour que a prenne la valeur 10 et b prenne la valeur 10, alors la sortie serait effectivement 10 10. Les autres options seraient incorrectes en fonction des détails de l'algorithme.",
+      "options": [
+        "5 10",
+        "5 5",
+        "10 5",
+        "10 10"
+      ]
+    },
+    {
+      "id": "I44",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’instruction « Pour i de 1 à 10 » va répéter le bloc :",
+      "correct": "B",
+      "explanation": "L'instruction 'Pour i de 1 à 10' va répéter le bloc 10 fois. En effet, la boucle 'Pour' permet de répéter un bloc d'instructions un certain nombre de fois. Dans ce cas, la variable i prend les valeurs 1, 2, 3, ..., 10, ce qui correspond à 10 itérations. L'option '11 fois' est incorrecte car la boucle commence à 1 et se termine à 10. L'option '9 fois' est incorrecte car la boucle compte 10 itérations. L'option '0 fois' est incorrecte car la boucle est exécutée au moins une fois.",
+      "options": [
+        "11 fois",
+        "10 fois",
+        "9 fois",
+        "0 fois"
+      ]
+    },
+    {
+      "id": "I45",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces langages est un langage de programmation interprété ?",
+      "correct": "D",
+      "explanation": "Python est un langage de programmation interprété. Cela signifie que le code Python est exécuté directement par l'interpréteur sans être compilé en code machine. Les langages compilés comme Java, C et Assembleur nécessitent une compilation avant l'exécution. L'option 'Java (compilé en bytecode)' est incorrecte car Java est compilé en bytecode avant d'être exécuté par la machine virtuelle. Les options 'C' et 'Assembleur' sont également incorrectes car ces langages sont compilés en code machine avant l'exécution.",
+      "options": [
+        "Java (compilé en bytecode)",
+        "Assembleur",
+        "C",
+        "Python"
+      ]
+    },
+    {
+      "id": "I46",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces langages est principalement utilisé pour le développement web côté serveur ?",
+      "correct": "A",
+      "explanation": "PHP est un langage de programmation principalement utilisé pour le développement web côté serveur. Il permet de créer des pages web dynamiques en interagissant avec une base de données et en générant du contenu HTML. Les autres options sont incorrectes car JavaScript est utilisé côté client pour créer des interactions sur les pages web, HTML est utilisé pour structurer le contenu des pages web et CSS est utilisé pour styler les pages web.",
+      "options": [
+        "PHP",
+        "JavaScript (côté client aussi)",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "id": "I47",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces commandes permet d’afficher un message en Python ?",
+      "correct": "D",
+      "explanation": "En Python, la commande 'print' permet d'afficher un message. La fonction 'print' prend un argument qui est le message à afficher. Les autres options sont incorrectes car 'printf' est une fonction de la bibliothèque standard du C, 'Console.Write' est une méthode de la classe Console en C# et 'echo' est une commande shell utilisée pour afficher un message.",
+      "options": [
+        "printf(\"Bonjour\")",
+        "Console.Write(\"Bonjour\")",
+        "echo \"Bonjour\"",
+        "print(\"Bonjour\")"
+      ]
+    },
+    {
+      "id": "I48",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En Python, quelle est la sortie de `type(5)` ?",
+      "correct": "B",
+      "explanation": "En Python, la fonction 'type' permet de déterminer le type d'une variable. Dans ce cas, la variable 5 est un entier, donc la sortie de 'type(5)' est '<class 'int'>'. Les autres options sont incorrectes car 5 n'est pas un float, un booléen ou une chaîne de caractères.",
+      "options": [
+        "`<class 'float'>`",
+        "`<class 'int'>`",
+        "`<class 'bool'>`",
+        "`<class 'str'>`"
+      ]
+    },
+    {
+      "id": "I49",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une variable booléenne peut prendre quelles valeurs ?",
+      "correct": "C",
+      "explanation": "Une variable booléenne peut prendre les valeurs Vrai et Faux (True/False). C'est pourquoi l'option « Vrai et Faux (True/False) » est la bonne réponse. Les autres options sont incorrectes car même si 0 et 1 peuvent être utilisés pour représenter Faux et Vrai en informatique, ce ne sont pas les seules valeurs possibles pour une variable booléenne, « Entier » décrit un type de variable différent, et « Oui et Non » ne sont pas les valeurs standard pour une variable booléenne en informatique.",
+      "options": [
+        "0 et 1",
+        "Entier",
+        "Vrai et Faux (True/False)",
+        "Oui et Non"
+      ]
+    },
+    {
+      "id": "I50",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’opérateur logique « ET » (AND) renvoie Vrai si :",
+      "correct": "C",
+      "explanation": "L’opérateur logique « ET » (AND) renvoie Vrai si toutes les conditions sont vraies. C'est pourquoi l'option « Toutes les conditions sont vraies » est la bonne réponse. Les autres options sont incorrectes car « Une seule condition est vraie » décrit l'opérateur logique « OU » (OR) dans certains cas, « Aucune condition n’est vraie » donnerait un résultat faux pour l'opérateur ET, et « Au moins une condition est vraie » décrit l'opérateur OU.",
+      "options": [
+        "Une seule condition est vraie",
+        "Aucune condition n’est vraie",
+        "Toutes les conditions sont vraies",
+        "Au moins une condition est vraie"
+      ]
+    },
+    {
+      "id": "I51",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’opérateur logique « OU » (OR) renvoie Vrai si :",
+      "correct": "D",
+      "explanation": "L’opérateur logique « OU » (OR) renvoie Vrai si au moins une condition est vraie. C'est pourquoi l'option « Au moins une condition est vraie » est la bonne réponse. Les autres options sont incorrectes car « Aucune condition n’est vraie » donnerait un résultat faux pour l'opérateur OU, « Exactement une condition est vraie » est trop restrictif car l'opérateur OU est vrai même si toutes les conditions sont vraies, et « Toutes les conditions sont vraies » décrit l'opérateur ET.",
+      "options": [
+        "Aucune condition n’est vraie",
+        "Exactement une condition est vraie",
+        "Toutes les conditions sont vraies",
+        "Au moins une condition est vraie"
+      ]
+    },
+    {
+      "id": "I52",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En algorithmique, le symbole « ← » signifie :",
+      "correct": "C",
+      "explanation": "En algorithmique, le symbole « ← » est utilisé pour indiquer l'affectation d'une valeur à une variable. C'est pourquoi l'option 'Affectation (mettre une valeur dans une variable)' est la bonne réponse. L'option 'Égalité logique' est incorrecte car l'égalité logique est généralement représentée par « = » ou « == ». L'option 'Incrémentation' est incorrecte car l'incrémentation est une opération qui ajoute 1 à une variable, souvent représentée par « ++ » ou « += 1 ». L'option 'Comparaison' est incorrecte car la comparaison est une opération qui vérifie si deux valeurs sont égales ou non, mais ne met pas de valeur dans une variable.",
+      "options": [
+        "Égalité logique",
+        "Incrémentation",
+        "Affectation (mettre une valeur dans une variable)",
+        "Comparaison"
+      ]
+    },
+    {
+      "id": "I53",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un ordinateur ne peut exécuter directement un programme écrit en Python. Pourquoi ?",
+      "correct": "C",
+      "explanation": "Un ordinateur ne peut exécuter directement un programme écrit en Python parce que Python est un langage interprété, ce qui signifie qu'il a besoin d'un interpréteur pour traduire son code en instructions que l'ordinateur peut exécuter directement. C'est pourquoi l'option 'Python est un langage interprété, nécessite un interpréteur' est la bonne réponse. L'option 'Python est trop lent' est incorrecte car la vitesse d'exécution n'est pas la raison pour laquelle un ordinateur a besoin d'un interpréteur pour exécuter Python. L'option 'Python est un langage compilé' est incorrecte car Python est justement un langage interprété, pas compilé. L'option 'Python n’est pas un langage de programmation' est incorrecte car Python est bien un langage de programmation.",
+      "options": [
+        "Python est trop lent",
+        "Python est un langage compilé",
+        "Python est un langage interprété, nécessite un interpréteur",
+        "Python n’est pas un langage de programmation"
+      ]
+    },
+    {
+      "id": "I54",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces logiciels est un navigateur web ?",
+      "correct": "A",
+      "explanation": "Google Chrome est un logiciel utilisé pour naviguer sur Internet, ce qui en fait un navigateur web. C'est pourquoi l'option 'Google Chrome' est la bonne réponse. L'option 'Windows Media Player' est incorrecte car c'est un lecteur multimédia. L'option 'Microsoft Word' est incorrecte car c'est un logiciel de traitement de texte. L'option 'Adobe Photoshop' est incorrecte car c'est un logiciel de retouche photo et de graphisme.",
+      "options": [
+        "Google Chrome",
+        "Windows Media Player",
+        "Microsoft Word",
+        "Adobe Photoshop"
+      ]
+    },
+    {
+      "id": "I55",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces éléments est un moteur de recherche ?",
+      "correct": "A",
+      "explanation": "Google est un moteur de recherche, c'est-à-dire un outil qui permet de trouver des informations sur Internet. C'est pourquoi l'option 'Google' est la bonne réponse. L'option 'Windows' est incorrecte car c'est un système d'exploitation. L'option 'Linux' est incorrecte car c'est également un système d'exploitation. L'option 'Facebook' est incorrecte car c'est un réseau social.",
+      "options": [
+        "Google",
+        "Windows",
+        "Linux",
+        "Facebook"
+      ]
+    },
+    {
+      "id": "I56",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’URL « https://www.exemple.com » indique l’utilisation du protocole :",
+      "correct": "D",
+      "explanation": "L'URL « https://www.exemple.com » utilise le protocole HTTP sécurisé (HTTPS), qui est une version sécurisée du protocole HTTP utilisant SSL/TLS pour chiffrer les données. C'est pourquoi l'option 'HTTP sécurisé (SSL/TLS)' est la bonne réponse. L'option 'FTP' est incorrecte car FTP (File Transfer Protocol) est un protocole utilisé pour le transfert de fichiers. L'option 'SMTP' est incorrecte car SMTP (Simple Mail Transfer Protocol) est un protocole utilisé pour l'envoi de courriels. L'option 'DNS' est incorrecte car DNS (Domain Name System) est un système qui traduit les noms de domaine en adresses IP.",
+      "options": [
+        "FTP",
+        "SMTP",
+        "DNS",
+        "HTTP sécurisé (SSL/TLS)"
+      ]
+    },
+    {
+      "id": "I57",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Que signifie le sigle WWW ?",
+      "correct": "C",
+      "explanation": "Le sigle WWW signifie World Wide Web, qui est un système de navigation et de partage d'informations sur Internet. Le World Wide Web est un réseau de documents hypertextes qui utilisent le protocole HTTP pour communiquer. Les autres options, Web Wide World, Wide Web World et World Web Wide, ne correspondent pas à la définition correcte du World Wide Web.",
+      "options": [
+        "Web Wide World",
+        "Wide Web World",
+        "World Wide Web",
+        "World Web Wide"
+      ]
+    },
+    {
+      "id": "I58",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un cookie (témoin de connexion) est :",
+      "correct": "D",
+      "explanation": "Un cookie, ou témoin de connexion, est un petit fichier stocké par le navigateur pour mémoriser des informations sur l'utilisateur, telles que ses préférences ou son historique de navigation. Les autres options sont incorrectes car un cookie n'est pas un logiciel espion, qui serait un programme malveillant destiné à collecter des informations sans consentement ; il n'est pas non plus un type de pare-feu, qui est un système de sécurité destiné à protéger un réseau informatique, ni un virus, qui est un programme malveillant destiné à endommager un système informatique.",
+      "options": [
+        "Un logiciel espion",
+        "Un type de pare-feu",
+        "Un virus",
+        "Un petit fichier stocké par le navigateur pour mémoriser des informations"
+      ]
+    },
+    {
+      "id": "I59",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces extensions de fichier correspond à une image ?",
+      "correct": "C",
+      "explanation": "L'extension de fichier .jpg correspond à une image, car c'est un format de fichier couramment utilisé pour stocker des images numériques. Les autres options sont incorrectes car .doc est une extension de fichier pour les documents Word, .exe est une extension de fichier pour les exécutables, et .mp3 est une extension de fichier pour les fichiers audio.",
+      "options": [
+        ".doc",
+        ".exe",
+        ".jpg",
+        ".mp3"
+      ]
+    },
+    {
+      "id": "I60",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces extensions correspond à un fichier texte brut ?",
+      "correct": "C",
+      "explanation": "L'extension de fichier .txt correspond à un fichier texte brut, car c'est un format de fichier simple qui ne contient que du texte non formaté. Les autres options sont incorrectes car .pdf est une extension de fichier pour les documents au format Portable Document Format, .xlsx est une extension de fichier pour les feuilles de calcul Excel, et .pptx est une extension de fichier pour les présentations PowerPoint.",
+      "options": [
+        ".pdf",
+        ".xlsx",
+        ".txt",
+        ".pptx"
+      ]
+    },
+    {
+      "id": "I61",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le système d’exploitation Windows est développé par :",
+      "correct": "B",
+      "explanation": "Le système d'exploitation Windows est développé par Microsoft, qui est une entreprise spécialisée dans la création de logiciels et de systèmes d'exploitation. Les autres options sont incorrectes car Apple est le développeur de macOS, Linux Foundation est une organisation qui soutient le développement de Linux, et Google est une entreprise spécialisée dans la recherche et le développement de technologies Internet.",
+      "options": [
+        "Apple",
+        "Microsoft",
+        "Linux Foundation",
+        "Google"
+      ]
+    },
+    {
+      "id": "I62",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le système d’exploitation macOS est développé par :",
+      "correct": "B",
+      "explanation": "Le système d'exploitation macOS est développé par Apple, qui est une entreprise spécialisée dans la création de produits électroniques et de logiciels. Les autres options sont incorrectes car Google est le développeur d'Android, IBM est une entreprise spécialisée dans la création de matériel et de logiciels, et Microsoft est le développeur de Windows.",
+      "options": [
+        "Google",
+        "Apple",
+        "IBM",
+        "Microsoft"
+      ]
+    },
+    {
+      "id": "I63",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le noyau Linux est un système d’exploitation :",
+      "correct": "C",
+      "explanation": "Le noyau Linux est un système d'exploitation open source, ce qui signifie que son code source est librement disponible et peut être modifié et distribué par quiconque. Les autres options sont incorrectes car Linux n'est pas développé par Microsoft, qui est l'entreprise derrière Windows ; il n'est pas non plus propriétaire, ce qui signifie qu'il n'est pas détenu par une seule entreprise ou personne ; enfin, il n'est pas payant, car il est généralement distribué gratuitement.",
+      "options": [
+        "Développé par Microsoft",
+        "Propriétaire",
+        "Open source",
+        "Payant"
+      ]
+    },
+    {
+      "id": "I64",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Android est un système d’exploitation basé sur :",
+      "correct": "D",
+      "explanation": "Android est un système d'exploitation basé sur Linux, qui est un noyau de système d'exploitation open source. Les autres options sont incorrectes car Android n'est pas basé sur Windows, qui est un système d'exploitation développé par Microsoft ; il n'est pas non plus basé sur macOS, qui est un système d'exploitation développé par Apple ; enfin, il n'est pas basé sur iOS, qui est un système d'exploitation développé par Apple pour ses appareils mobiles.",
+      "options": [
+        "Windows",
+        "macOS",
+        "iOS",
+        "Linux"
+      ]
+    },
+    {
+      "id": "I65",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "iOS est le système d’exploitation des :",
+      "correct": "A",
+      "explanation": "iOS est le système d'exploitation développé par Apple pour ses appareils mobiles. C'est pourquoi il est utilisé sur les iPhone et iPad, qui sont des appareils mobiles d'Apple. Les smartphones Android utilisent quant à eux le système d'exploitation Android. Les ordinateurs Apple utilisent macOS, tandis que les montres connectées utilisent watchOS. Ainsi, la réponse correcte concerne les appareils mobiles d'Apple.",
+      "options": [
+        "iPhone et iPad",
+        "Smartphones Android",
+        "Ordinateurs Apple",
+        "Montres connectées"
+      ]
+    },
+    {
+      "id": "I66",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces périphériques est un périphérique d’entrée ?",
+      "correct": "A",
+      "explanation": "Un périphérique d'entrée est un appareil qui permet de saisir des informations dans un ordinateur. Le clavier est un exemple de périphérique d'entrée, car il permet de saisir du texte et des commandes. Les haut-parleurs, imprimantes et écrans sont des périphériques de sortie, car ils affichent ou produisent des informations.",
+      "options": [
+        "Clavier",
+        "Haut-parleur",
+        "Imprimante",
+        "Écran"
+      ]
+    },
+    {
+      "id": "I67",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces périphériques est un périphérique de sortie ?",
+      "correct": "B",
+      "explanation": "Un périphérique de sortie est un appareil qui affiche ou produit des informations. L'écran est un exemple de périphérique de sortie, car il affiche les informations traitées par l'ordinateur. Les scanners, microphones et souris sont des périphériques d'entrée, car ils saisissent des informations.",
+      "options": [
+        "Scanner",
+        "Écran",
+        "Microphone",
+        "Souris"
+      ]
+    },
+    {
+      "id": "I68",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une imprimante laser utilise principalement :",
+      "correct": "C",
+      "explanation": "Une imprimante laser utilise du toner, qui est une poudre fine, pour imprimer des documents. Le toner est attiré par un tambour photosensible, puis transféré sur le papier pour former l'image imprimée. Les autres options, telles que le ruban, l'encre liquide et le papier thermique, sont utilisées dans d'autres types d'imprimantes.",
+      "options": [
+        "Du ruban",
+        "De l’encre liquide",
+        "Du toner (poudre)",
+        "Du papier thermique"
+      ]
+    },
+    {
+      "id": "I69",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Wi-Fi est une technologie de :",
+      "correct": "B",
+      "explanation": "Le Wi-Fi est une technologie de connexion sans fil qui permet de relier des appareils à un réseau local. Il utilise des ondes radio pour transmettre des données entre les appareils et un routeur. Les autres options, telles que l'alimentation électrique, le stockage de données et la connexion filaire, ne sont pas liées à la technologie Wi-Fi.",
+      "options": [
+        "Alimentation électrique",
+        "Connexion sans fil (réseau local)",
+        "Stockage de données",
+        "Connexion filaire"
+      ]
+    },
+    {
+      "id": "I70",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Bluetooth permet de :",
+      "correct": "B",
+      "explanation": "Le Bluetooth est une technologie de connexion sans fil qui permet de relier des périphériques sur une courte distance, généralement quelques mètres. Il est souvent utilisé pour connecter des écouteurs, des haut-parleurs ou des claviers à un ordinateur ou un smartphone. Les autres options, telles que la recharge de la batterie, la lecture de DVD et l'accès à Internet, ne sont pas liées à la technologie Bluetooth.",
+      "options": [
+        "Recharger la batterie",
+        "Connecter des périphériques sans fil sur courte distance",
+        "Lire des DVD",
+        "Accéder à Internet à haut débit"
+      ]
+    },
+    {
+      "id": "I71",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces prises est utilisée pour connecter un écran VGA ?",
+      "correct": "C",
+      "explanation": "La prise VGA, également appelée D-sub 15 broches, est utilisée pour connecter un écran à un ordinateur. Elle transmet les signaux vidéo analogiques de l'ordinateur à l'écran. C'est pourquoi l'option 'VGA (D-sub 15 broches)' est la bonne réponse. Les autres options sont incorrectes : 'RJ45' est une prise utilisée pour les réseaux Ethernet ; 'USB' est une prise utilisée pour connecter des périphériques à un ordinateur ; 'HDMI' est une prise utilisée pour transmettre des signaux vidéo et audio de haute qualité.",
+      "options": [
+        "RJ45",
+        "USB",
+        "VGA (D-sub 15 broches)",
+        "HDMI"
+      ]
+    },
+    {
+      "id": "I72",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le port USB sert à :",
+      "correct": "C",
+      "explanation": "Le port USB est utilisé pour connecter des périphériques tels que des claviers, des souris, des clés USB et des disques durs externes à un ordinateur. Il permet de transférer des données entre les périphériques et l'ordinateur. Les autres options, telles que l'alimentation de l'ordinateur, la connexion d'un écran et la connexion d'un câble réseau, ne sont pas liées au port USB.",
+      "options": [
+        "Alimenter l’ordinateur",
+        "Connecter un écran",
+        "Connecter des périphériques (clavier, souris, clé, etc.)",
+        "Connecter un câble réseau"
+      ]
+    },
+    {
+      "id": "I73",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un disque SSD (Solid State Drive) utilise :",
+      "correct": "A",
+      "explanation": "Un disque SSD utilise de la mémoire flash, ce qui lui permet de stocker des données de manière non volatile, c'est-à-dire sans alimentation électrique. Les autres options sont incorrectes car les CD sont des supports optiques, les plateaux magnétiques sont utilisés dans les disques durs classiques (HDD) et les cassettes sont des supports d'enregistrement audio/vidéo. La mémoire flash est la technologie clé qui permet aux SSD d'offrir des performances élevées et une consommation électrique faible.",
+      "options": [
+        "De la mémoire flash",
+        "Des CD",
+        "Des plateaux magnétiques",
+        "Des cassettes"
+      ]
+    },
+    {
+      "id": "I74",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel est l’avantage principal d’un SSD par rapport à un HDD ?",
+      "correct": "B",
+      "explanation": "L'avantage principal d'un SSD par rapport à un HDD est qu'il est plus rapide et résistant aux chocs. En effet, les SSD n'ont pas de pièces mobiles, ce qui les rend moins sensibles aux chocs et aux vibrations, et ils peuvent accéder aux données beaucoup plus rapidement que les HDD. Les autres options sont incorrectes car les SSD sont généralement plus chers que les HDD, ils ont souvent une capacité de stockage inférieure et consomment moins d'énergie.",
+      "options": [
+        "Moins cher",
+        "Plus rapide et résistant aux chocs",
+        "Plus grande capacité",
+        "Consomme plus d’énergie"
+      ]
+    },
+    {
+      "id": "I75",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La mémoire cache est :",
+      "correct": "D",
+      "explanation": "La mémoire cache est une mémoire très rapide proche du processeur, qui permet de stocker temporairement les données les plus fréquemment accédées. Cela permet d'améliorer considérablement les performances de l'ordinateur. Les autres options sont incorrectes car la mémoire de masse fait référence à des dispositifs de stockage de grande capacité comme les disques durs, la mémoire morte (ROM) est une mémoire non volatile qui contient des données permanentes, et un disque dur externe est un périphérique de stockage amovible.",
+      "options": [
+        "Une mémoire de masse",
+        "Une mémoire morte",
+        "Un disque dur externe",
+        "Une mémoire très rapide proche du processeur"
+      ]
+    },
+    {
+      "id": "I76",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La fréquence d’un processeur se mesure en :",
+      "correct": "C",
+      "explanation": "La fréquence d'un processeur se mesure en Hertz (GHz, MHz), ce qui représente le nombre de cycles par seconde que le processeur peut exécuter. Cela donne une indication de la vitesse à laquelle le processeur peut traiter les instructions. Les autres options sont incorrectes car les bits et les octets sont des unités de mesure de la quantité d'information, et les watts sont une unité de mesure de la puissance électrique.",
+      "options": [
+        "Bits",
+        "Octets",
+        "Hertz (GHz, MHz)",
+        "Watts"
+      ]
+    },
+    {
+      "id": "I77",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le nombre de cœurs d’un processeur indique :",
+      "correct": "C",
+      "explanation": "Le nombre de cœurs d'un processeur indique le nombre de tâches qu'il peut traiter simultanément, grâce au parallélisme. Cela permet d'améliorer les performances de l'ordinateur lors de l'exécution de plusieurs tâches en même temps. Les autres options sont incorrectes car la taille du processeur n'est pas directement liée au nombre de cœurs, la vitesse du processeur est mesurée par la fréquence, et la consommation électrique dépend de plusieurs facteurs, y compris la technologie utilisée.",
+      "options": [
+        "Sa taille",
+        "Sa vitesse",
+        "Le nombre de tâches qu’il peut traiter simultanément (parallélisme)",
+        "Sa consommation"
+      ]
+    },
+    {
+      "id": "I78",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces logiciels est un tableur ?",
+      "correct": "D",
+      "explanation": "Excel est un tableur, un type de logiciel qui permet de créer et de manipuler des feuilles de calcul pour effectuer des calculs, des analyses de données et des représentations graphiques. Les autres options sont incorrectes car PowerPoint est un logiciel de présentation, Word est un traitement de texte et Access est un logiciel de gestion de bases de données.",
+      "options": [
+        "PowerPoint",
+        "Word",
+        "Access",
+        "Excel"
+      ]
+    },
+    {
+      "id": "I79",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces logiciels est un traitement de texte ?",
+      "correct": "D",
+      "explanation": "Word est un traitement de texte, un type de logiciel qui permet de créer, de modifier et de mettre en page des documents texte. Les autres options sont incorrectes car PowerPoint est un logiciel de présentation, Outlook est un client de messagerie électronique et Excel est un tableur.",
+      "options": [
+        "PowerPoint",
+        "Outlook",
+        "Excel",
+        "Word"
+      ]
+    },
+    {
+      "id": "I80",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « compilateur » transforme :",
+      "correct": "B",
+      "explanation": "Un compilateur transforme un code source en code exécutable, c'est-à-dire qu'il traduit le code écrit par le programmeur en instructions que l'ordinateur peut exécuter directement. Les autres options sont incorrectes car un décompilateur fait l'inverse, en essayant de reconstituer le code source à partir du code exécutable, et les autres options n'ont pas de sens dans le contexte de la compilation.",
+      "options": [
+        "Un texte en image",
+        "Un code source en code exécutable",
+        "Un code exécutable en code source",
+        "Une image en texte"
+      ]
+    },
+    {
+      "id": "I81",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « interpréteur » exécute le code :",
+      "correct": "B",
+      "explanation": "Un interpréteur est un programme qui exécute directement le code source sans compilation préalable. C'est pourquoi l'option 'Ligne par ligne à la volée' est la bonne réponse, car l'interpréteur lit et exécute le code ligne par ligne. Les autres options sont incorrectes : 'Après compilation' décrit le fonctionnement d'un compilateur, 'Uniquement sur mobile' est une restriction injustifiée, et 'Jamais' est évidemment faux.",
+      "options": [
+        "Après compilation",
+        "Ligne par ligne à la volée",
+        "Uniquement sur mobile",
+        "Jamais"
+      ]
+    },
+    {
+      "id": "I82",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces instructions en C affiche « Bonjour » ?",
+      "correct": "A",
+      "explanation": "Pour afficher 'Bonjour' en langage C, on utilise la fonction printf(). La syntaxe correcte est donc 'printf(\"Bonjour\");', ce qui fait de l'option 'printf(\"Bonjour\");' la bonne réponse. Les autres options sont incorrectes car elles appartiennent à d'autres langages : 'Console.WriteLine(\"Bonjour\");' est du C#, 'echo \"Bonjour\"' est du PHP, et 'print(\"Bonjour\")' est du Python.",
+      "options": [
+        "printf(\"Bonjour\");",
+        "Console.WriteLine(\"Bonjour\");",
+        "echo \"Bonjour\";",
+        "print(\"Bonjour\")"
+      ]
+    },
+    {
+      "id": "I83",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En Java, la méthode principale est :",
+      "correct": "D",
+      "explanation": "En Java, la méthode principale, ou point d'entrée d'un programme, est définie avec la signature 'public static void main(String[] args)'. La réponse correcte est donc 'main()', bien que techniquement, il faudrait spécifier les paramètres. Les autres options sont incorrectes : 'start()' et 'run()' sont liées aux threads, et 'Main()' n'est pas standard en Java.",
+      "options": [
+        "start()",
+        "Main()",
+        "run()",
+        "main()"
+      ]
+    },
+    {
+      "id": "I84",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le langage SQL est utilisé pour :",
+      "correct": "B",
+      "explanation": "Le langage SQL, ou Structured Query Language, est spécifiquement conçu pour gérer et manipuler des données dans des bases de données relationnelles. C'est pourquoi 'Gérer des bases de données relationnelles' est la bonne réponse. Les autres options sont incorrectes car elles décrivent des utilisations d'autres langages ou outils : 'Programmer des jeux' se fait généralement avec des langages comme C++ ou Python, 'Créer des sites web' se fait avec HTML, CSS et JavaScript, et 'Faire du design graphique' se fait avec des outils comme Photoshop.",
+      "options": [
+        "Programmer des jeux",
+        "Gérer des bases de données relationnelles",
+        "Créer des sites web",
+        "Faire du design graphique"
+      ]
+    },
+    {
+      "id": "I85",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La commande SQL `SELECT * FROM clients` permet de :",
+      "correct": "C",
+      "explanation": "La commande SQL 'SELECT * FROM clients' est utilisée pour récupérer toutes les colonnes de toutes les lignes d'une table nommée 'clients'. C'est pourquoi 'Afficher toutes les colonnes de la table clients' est la bonne réponse. Les autres options sont incorrectes : 'Supprimer la table clients' se fait avec 'DROP TABLE clients', 'Insérer un client' se fait avec 'INSERT INTO clients', et 'Créer une table clients' se fait avec 'CREATE TABLE clients'.",
+      "options": [
+        "Supprimer la table clients",
+        "Insérer un client",
+        "Afficher toutes les colonnes de la table clients",
+        "Créer une table clients"
+      ]
+    },
+    {
+      "id": "I86",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La commande SQL `INSERT INTO` sert à :",
+      "correct": "B",
+      "explanation": "La commande SQL 'INSERT INTO' est utilisée pour ajouter de nouvelles données à une table. C'est pourquoi 'Ajouter des enregistrements' est la bonne réponse. Les autres options sont incorrectes : 'Supprimer des enregistrements' se fait avec 'DELETE', 'Créer une table' se fait avec 'CREATE TABLE', et 'Modifier des enregistrements' se fait avec 'UPDATE'.",
+      "options": [
+        "Supprimer des enregistrements",
+        "Ajouter des enregistrements",
+        "Créer une table",
+        "Modifier des enregistrements"
+      ]
+    },
+    {
+      "id": "I87",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La commande SQL `UPDATE` sert à :",
+      "correct": "A",
+      "explanation": "La commande SQL 'UPDATE' est utilisée pour modifier des données existantes dans une table. C'est pourquoi 'Modifier des enregistrements' est la bonne réponse. Les autres options sont incorrectes : 'Créer une table' se fait avec 'CREATE TABLE', 'Supprimer des enregistrements' se fait avec 'DELETE', et 'Ajouter des enregistrements' se fait avec 'INSERT INTO'.",
+      "options": [
+        "Modifier des enregistrements",
+        "Créer une table",
+        "Supprimer des enregistrements",
+        "Ajouter des enregistrements"
+      ]
+    },
+    {
+      "id": "I88",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La commande SQL `DELETE` sert à :",
+      "correct": "B",
+      "explanation": "La commande SQL 'DELETE' est utilisée pour supprimer des enregistrements d'une table. C'est pourquoi 'Supprimer des enregistrements' est la bonne réponse. Les autres options sont incorrectes : 'Modifier des enregistrements' se fait avec 'UPDATE', 'Ajouter des enregistrements' se fait avec 'INSERT INTO', et 'Créer une table' se fait avec 'CREATE TABLE'.",
+      "options": [
+        "Modifier des enregistrements",
+        "Supprimer des enregistrements",
+        "Ajouter des enregistrements",
+        "Créer une table"
+      ]
+    },
+    {
+      "id": "I89",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle est la clé primaire (primary key) dans une table ?",
+      "correct": "A",
+      "explanation": "Une clé primaire dans une table est une colonne qui identifie de manière unique chaque ligne. Cela signifie que chaque valeur dans cette colonne doit être unique et non nulle, ce qui permet d'identifier chaque enregistrement de manière distincte. Les autres options sont incorrectes car une colonne calculée n'a pas nécessairement de valeur unique, une colonne qui contient des valeurs dupliquées ne peut pas servir de clé primaire, et une colonne qui peut être nulle ne remplit pas les conditions requises pour être une clé primaire.",
+      "options": [
+        "Une colonne qui identifie de manière unique chaque ligne",
+        "Une colonne calculée",
+        "Une colonne qui contient des valeurs dupliquées",
+        "Une colonne qui peut être nulle"
+      ]
+    },
+    {
+      "id": "I90",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une clé étrangère (foreign key) sert à :",
+      "correct": "D",
+      "explanation": "Une clé étrangère sert à établir un lien entre deux tables en faisant référence à la clé primaire d'une autre table. Cela permet de maintenir la cohérence des données et de réaliser des jointures entre les tables. Les autres options sont incorrectes car créer un index est une opération qui améliore les performances des requêtes, accélérer les requêtes est un objectif plus large qui peut être atteint par divers moyens, et chiffrer les données est une mesure de sécurité qui n'a pas de rapport direct avec les clés étrangères.",
+      "options": [
+        "Créer un index",
+        "Accélérer les requêtes",
+        "Chiffrer les données",
+        "Lier deux tables entre elles"
+      ]
+    },
+    {
+      "id": "I91",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces formats d’image ne supporte pas la transparence ?",
+      "correct": "D",
+      "explanation": "Le format d'image JPEG ne supporte pas la transparence, ce qui signifie qu'il ne peut pas avoir de fond transparent. Cela est dû à sa nature compressible qui privilégie la qualité visuelle des images continues. Les autres formats mentionnés supportent la transparence, ce qui les rend adaptés pour les graphiques et les images nécessitant un fond transparent.",
+      "options": [
+        "WebP",
+        "PNG",
+        "GIF",
+        "JPEG"
+      ]
+    },
+    {
+      "id": "I92",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format d’image PNG est :",
+      "correct": "D",
+      "explanation": "Le format d'image PNG est un format sans perte, dit 'lossless'. Cela signifie que les images stockées dans ce format ne subissent pas de dégradation de qualité lors de leur sauvegarde, contrairement aux formats avec perte comme JPEG. PNG est particulièrement adapté pour les images nécessitant une haute qualité, comme les logos et les graphiques.",
+      "options": [
+        "Animé",
+        "Vectoriel",
+        "Avec perte",
+        "Sans perte (lossless)"
+      ]
+    },
+    {
+      "id": "I93",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format JPEG est particulièrement adapté pour :",
+      "correct": "C",
+      "explanation": "Le format JPEG est particulièrement adapté pour les photographies qui comportent des dégradés de couleurs. Cela est dû à sa capacité à compresser les données d'image en réduisant la quantité de détails, ce qui est moins perceptible dans les images complexes comme les photographies.",
+      "options": [
+        "Les logos avec aplats",
+        "Les animations",
+        "Les photographies (dégradés)",
+        "Les images avec transparence"
+      ]
+    },
+    {
+      "id": "I94",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format SVG est un format :",
+      "correct": "C",
+      "explanation": "Le format SVG est un format vectoriel, ce qui signifie qu'il stocke les images en tant que formes géométriques et lignes plutôt qu'en pixels. Cela permet aux images SVG d'être redimensionnées sans perte de qualité. Les formats raster, tels que ceux stockant les images en pixels, les fichiers audio contenant du son, et les fichiers vidéo contenant des séquences d'images et/ou du son, ne sont pas pertinents ici.",
+      "options": [
+        "Raster",
+        "Audio",
+        "Vectoriel",
+        "Vidéo"
+      ]
+    },
+    {
+      "id": "I95",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format MP3 est utilisé pour :",
+      "correct": "D",
+      "explanation": "Le format MP3 est utilisé pour stocker de l'audio compressé. Il est largement utilisé pour la musique et les enregistrements audio numériques en raison de sa capacité à réduire la taille des fichiers tout en conservant une qualité audio acceptable. Les autres options, telles que la vidéo, les documents texte, ou les images, ne sont pas concernées par le format MP3.",
+      "options": [
+        "La vidéo",
+        "Les documents texte",
+        "Les images",
+        "L’audio"
+      ]
+    },
+    {
+      "id": "I96",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format MP4 est un conteneur principalement utilisé pour :",
+      "correct": "B",
+      "explanation": "Le format MP4 est un conteneur principalement utilisé pour stocker de la vidéo et/ou de l'audio. Il est couramment utilisé pour les films, les émissions de télévision et les clips vidéo en ligne. Les autres options, comme l'audio seul, les images fixes, ou les archives, ne sont pas les principaux objectifs du format MP4.",
+      "options": [
+        "L’audio seul",
+        "La vidéo (et audio)",
+        "Les images fixes",
+        "Les archives"
+      ]
+    },
+    {
+      "id": "I97",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format ZIP sert à :",
+      "correct": "C",
+      "explanation": "Le format ZIP sert à compresser des fichiers, ce qui signifie qu'il permet de réduire la taille des fichiers pour faciliter leur stockage ou leur envoi. Cela est utile pour les fichiers qui ne doivent pas être modifiés fréquemment. Les autres options sont incorrectes car afficher des vidéos nécessite un lecteur vidéo, lire de la musique nécessite un lecteur audio, et éditer du texte nécessite un éditeur de texte.",
+      "options": [
+        "Afficher des vidéos",
+        "Lire de la musique",
+        "Compresser des fichiers",
+        "Éditer du texte"
+      ]
+    },
+    {
+      "id": "I98",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un fichier avec l’extension `.exe` est généralement :",
+      "correct": "B",
+      "explanation": "Un fichier avec l'extension `.exe` est généralement un fichier exécutable sous Windows, c'est-à-dire un programme qui peut être lancé directement. Cela est dû au fait que l'extension `.exe` est réservée aux fichiers exécutables sous Windows. Les autres options sont incorrectes car une vidéo aurait une extension comme `.mp4` ou `.avi`, une image aurait une extension comme `.jpg` ou `.png`, et un fichier texte aurait une extension comme `.txt`.",
+      "options": [
+        "Une vidéo",
+        "Un fichier exécutable sous Windows",
+        "Une image",
+        "Un fichier texte"
+      ]
+    },
+    {
+      "id": "I99",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La mémoire ROM est :",
+      "correct": "B",
+      "explanation": "La mémoire ROM (Read-Only Memory) est non volatile et en lecture seule, ce qui signifie qu'elle conserve son contenu même en cas de coupure d'alimentation et que son contenu ne peut pas être modifié. Cela est utile pour stocker des informations qui ne doivent pas être modifiées, comme le firmware d'un appareil. Les autres options sont incorrectes car la RAM (Random Access Memory) est volatile et permet l'écriture, la mémoire EEPROM (Electrically Erasable Programmable Read-Only Memory) est réinscriptible, et la mémoire Flash est également réinscriptible.",
+      "options": [
+        "Identique à la RAM",
+        "Non volatile et en lecture seule",
+        "Réinscriptible à volonté",
+        "Volatile"
+      ]
+    },
+    {
+      "id": "I100",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces périphériques est un périphérique de stockage ?",
+      "correct": "D",
+      "explanation": "Un disque dur externe est un périphérique de stockage, c'est-à-dire qu'il permet de stocker des données de manière permanente. Cela est utile pour sauvegarder des fichiers importants ou pour transporter des données d'un ordinateur à un autre. Les autres options sont incorrectes car un clavier et une souris sont des périphériques d'entrée, et un écran est un périphérique de sortie.",
+      "options": [
+        "Clavier",
+        "Souris",
+        "Écran",
+        "Disque dur externe"
+      ]
+    },
+    {
+      "id": "I101",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « bit » est la plus petite unité d’information, il peut prendre les valeurs :",
+      "correct": "C",
+      "explanation": "Un bit est la plus petite unité d'information et peut prendre les valeurs 0 ou 1, ce qui correspond à des états électriques différents dans un ordinateur. Cela est fondamental pour le fonctionnement des ordinateurs, car les données sont représentées sous forme binaire. Les autres options sont incorrectes car les valeurs 'Vrai ou Faux' sont utilisées en logique, les lettres 'A à Z' sont utilisées pour représenter des caractères, et les valeurs '0 à 9' sont utilisées pour représenter des nombres décimaux.",
+      "options": [
+        "Vrai ou Faux",
+        "A à Z",
+        "0 ou 1",
+        "0 à 9"
+      ]
+    },
+    {
+      "id": "I102",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "1 Ko (kilooctet) vaut :",
+      "correct": "D",
+      "explanation": "1 Ko (kilooctet) vaut 1000 octets en préfixe décimal ou 1024 octets en binaire, selon le contexte. En informatique, on utilise souvent le préfixe binaire, ce qui signifie que 1 Ko vaut 1024 octets. Les autres options sont incorrectes car 1000 bits ou 1024 bits ne correspondent pas à 1 Ko, et 1 million d'octets correspond à 1 Mo (mégaoctet).",
+      "options": [
+        "1000 bits",
+        "1024 bits",
+        "1 million d’octets",
+        "1000 octets (en préfixe décimal) ou 1024 octets (binaire) selon contexte. En informatique binaire : 1024 octets"
+      ]
+    },
+    {
+      "id": "I103",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un CD-ROM a une capacité typique d’environ :",
+      "correct": "A",
+      "explanation": "Un CD-ROM a une capacité typique d'environ 700 Mo, ce qui est une valeur standard pour les CD-ROM. Cela est utile pour stocker des données ou des programmes qui ne sont pas trop volumineux. Les autres options sont incorrectes car 25 Go correspond à une capacité de DVD, 4,7 Go correspond à une capacité de DVD simple couche, et 128 Go correspond à une capacité de disque dur ou de mémoire flash.",
+      "options": [
+        "700 Mo",
+        "25 Go",
+        "4,7 Go",
+        "128 Go"
+      ]
+    },
+    {
+      "id": "I104",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un DVD simple couche a une capacité d’environ :",
+      "correct": "A",
+      "explanation": "Un DVD simple couche a une capacité d'environ 4,7 Go, ce qui est une valeur standard pour les DVD simple couche. Cela est utile pour stocker des données ou des programmes qui sont plus volumineux que ceux qui peuvent être stockés sur un CD-ROM. Les autres options sont incorrectes car 50 Go correspond à une capacité de disque dur ou de mémoire flash, 700 Mo correspond à une capacité de CD-ROM, et 25 Go correspond à une capacité de DVD double couche.",
+      "options": [
+        "4,7 Go",
+        "50 Go",
+        "700 Mo",
+        "25 Go"
+      ]
+    },
+    {
+      "id": "I105",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un Blu-ray simple couche a une capacité d’environ :",
+      "correct": "B",
+      "explanation": "Un Blu-ray simple couche a une capacité d'environ 25 Go. En effet, les disques Blu-ray sont conçus pour stocker des contenus de haute qualité tels que des films en haute définition. La capacité de stockage d'un Blu-ray simple couche est de 25 Go, ce qui est nettement supérieur à celle d'un DVD. Les autres options sont incorrectes car 4,7 Go correspond à la capacité d'un DVD simple couche, 50 Go correspond à la capacité d'un Blu-ray double couche et 128 Go est une capacité beaucoup plus élevée que celle d'un Blu-ray simple couche.",
+      "options": [
+        "4,7 Go",
+        "25 Go",
+        "50 Go",
+        "128 Go"
+      ]
+    },
+    {
+      "id": "I106",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces vitesses est la plus rapide pour un processeur ?",
+      "correct": "D",
+      "explanation": "La vitesse la plus rapide pour un processeur est de 2,4 GHz. En effet, la vitesse d'un processeur est mesurée en hertz (Hz) et représente le nombre de cycles par seconde que le processeur peut exécuter. Plus la vitesse est élevée, plus le processeur peut traiter de données rapidement. Les autres options sont incorrectes car 1,2 GHz, 1,8 GHz et 2,0 GHz sont des vitesses inférieures à 2,4 GHz.",
+      "options": [
+        "1,2 GHz",
+        "2,0 GHz",
+        "1,8 GHz",
+        "2,4 GHz"
+      ]
+    },
+    {
+      "id": "I107",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces connecteurs est utilisé pour les disques durs SATA ?",
+      "correct": "B",
+      "explanation": "Le connecteur utilisé pour les disques durs SATA est le connecteur SATA. En effet, SATA (Serial Advanced Technology Attachment) est une norme de connexion pour les disques durs et les autres périphériques de stockage. Le connecteur SATA est spécifiquement conçu pour les disques durs SATA. Les autres options sont incorrectes car PCIe est utilisé pour les cartes d'extension, IDE est une norme plus ancienne pour les disques durs et USB est utilisé pour les périphériques externes.",
+      "options": [
+        "PCIe",
+        "SATA",
+        "IDE",
+        "USB"
+      ]
+    },
+    {
+      "id": "I108",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le connecteur PCIe est utilisé pour :",
+      "correct": "C",
+      "explanation": "Le connecteur PCIe est utilisé pour connecter des cartes d'extension telles que des cartes graphiques, des cartes réseau, etc. En effet, PCIe (Peripheral Component Interconnect Express) est une norme de connexion pour les cartes d'extension qui permet de connecter des périphériques à la carte mère. Les autres options sont incorrectes car brancher un clavier se fait via un connecteur USB ou PS/2, alimenter l'ordinateur se fait via un connecteur d'alimentation et connecter un disque dur externe se fait via un connecteur USB ou eSATA.",
+      "options": [
+        "Brancher un clavier",
+        "Alimenter l’ordinateur",
+        "Connecter des cartes d’extension (graphique, réseau, etc.)",
+        "Connecter un disque dur externe"
+      ]
+    },
+    {
+      "id": "I109",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le connecteur RJ45 sert à :",
+      "correct": "D",
+      "explanation": "Le connecteur RJ45 sert à connecter un câble réseau Ethernet. En effet, RJ45 est un type de connecteur utilisé pour les réseaux Ethernet et permet de connecter des appareils à un réseau local. Les autres options sont incorrectes car RJ11 est utilisé pour les téléphones, VGA et HDMI sont utilisés pour les écrans et les imprimantes se connectent souvent via USB ou parallèle.",
+      "options": [
+        "Connecter un téléphone",
+        "Connecter un écran",
+        "Connecter une imprimante",
+        "Connecter un câble réseau Ethernet"
+      ]
+    },
+    {
+      "id": "I110",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le connecteur HDMI permet de transmettre :",
+      "correct": "C",
+      "explanation": "Le connecteur HDMI permet de transmettre l'audio et la vidéo numériques. En effet, HDMI (High-Definition Multimedia Interface) est une norme de connexion qui permet de transmettre des signaux audio et vidéo de haute qualité entre les appareils. Les autres options sont incorrectes car HDMI ne transmet pas uniquement la vidéo ou l'audio, et il ne sert pas à l'alimentation électrique.",
+      "options": [
+        "Uniquement la vidéo",
+        "L’alimentation électrique",
+        "L’audio et la vidéo numériques",
+        "Uniquement l’audio"
+      ]
+    },
+    {
+      "id": "I111",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un microprocesseur 64 bits peut traiter des données par blocs de :",
+      "correct": "D",
+      "explanation": "Un microprocesseur 64 bits peut traiter des données par blocs de 64 bits. En effet, la capacité d'un processeur à traiter des données est déterminée par son architecture, qui dans ce cas est de 64 bits. Cela signifie que le processeur peut traiter des données en blocs de 64 bits. Les autres options sont incorrectes car 32 bits, 16 bits et 8 bits sont des tailles de blocs inférieures à 64 bits.",
+      "options": [
+        "32 bits",
+        "16 bits",
+        "8 bits",
+        "64 bits"
+      ]
+    },
+    {
+      "id": "I112",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le système de fichiers NTFS est utilisé par :",
+      "correct": "A",
+      "explanation": "Le système de fichiers NTFS est utilisé par Windows. En effet, NTFS (New Technology File System) est un système de fichiers développé par Microsoft pour les systèmes d'exploitation Windows. Les autres options sont incorrectes car Linux utilise souvent ext4 ou d'autres systèmes de fichiers, macOS utilise APFS ou HFS+ et Android utilise ext4 ou f2fs.",
+      "options": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "Android"
+      ]
+    },
+    {
+      "id": "I113",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le système de fichiers ext4 est couramment utilisé par :",
+      "correct": "B",
+      "explanation": "Le système de fichiers ext4 est couramment utilisé par Linux car il est l'un des systèmes de fichiers les plus récents et les plus performants pour les systèmes d'exploitation Linux. iOS utilise principalement le système de fichiers APFS, macOS utilise également APFS et Windows utilise principalement NTFS. Ainsi, les autres options ne correspondent pas à l'utilisation première du système de fichiers ext4.",
+      "options": [
+        "iOS",
+        "Linux",
+        "macOS",
+        "Windows"
+      ]
+    },
+    {
+      "id": "I114",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le système de fichiers FAT32 a une limitation de taille de fichier à :",
+      "correct": "A",
+      "explanation": "Le système de fichiers FAT32 a une limitation de taille de fichier à 4 Go car il a été conçu à l'origine pour les systèmes d'exploitation Windows 95 et Windows 98, qui n'avaient pas besoin de gérer des fichiers de grande taille. Les autres options, 2 Go, 16 Go et 8 Go, ne correspondent pas à la limitation réelle de FAT32, qui est effectivement de 4 Go.",
+      "options": [
+        "4 Go",
+        "2 Go",
+        "16 Go",
+        "8 Go"
+      ]
+    },
+    {
+      "id": "I115",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces périphériques est un périphérique de pointage ?",
+      "correct": "D",
+      "explanation": "Une souris est un périphérique de pointage car elle permet à l'utilisateur de contrôler le curseur sur l'écran et de sélectionner des éléments. Un écran tactile est à la fois un périphérique d'entrée et de sortie, un clavier est un périphérique de saisie de texte et un scanner est un périphérique de numérisation de documents. Ainsi, la souris est le périphérique spécifiquement conçu pour le pointage.",
+      "options": [
+        "Écran tactile (à la fois entrée et sortie)",
+        "Clavier",
+        "Scanner",
+        "Souris"
+      ]
+    },
+    {
+      "id": "I116",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un scanner permet de :",
+      "correct": "D",
+      "explanation": "Un scanner permet de numériser des documents, c'est-à-dire de les convertir en image numérique. Les autres options, photocopier, imprimer des documents et envoyer des fax, sont des fonctions généralement associées à des périphériques différents, tels que des photocopieuses, des imprimantes et des fax respectivement. Le scanner est spécifiquement conçu pour capturer des images à partir de documents physiques.",
+      "options": [
+        "Photocopier",
+        "Imprimer des documents",
+        "Envoyer des fax",
+        "Numériser des documents (les convertir en image numérique)"
+      ]
+    },
+    {
+      "id": "I117",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une webcam est un périphérique :",
+      "correct": "A",
+      "explanation": "Une webcam est un périphérique d'entrée car elle capture des images vidéo et les transmet à l'ordinateur. Les autres options, de communication réseau, de sortie et de stockage, ne correspondent pas à la fonction première d'une webcam, qui est de capturer des données vidéo.",
+      "options": [
+        "D’entrée (capture vidéo)",
+        "De communication réseau",
+        "De sortie",
+        "De stockage"
+      ]
+    },
+    {
+      "id": "I118",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole HTTPS ajoute une couche de sécurité par rapport à HTTP grâce à :",
+      "correct": "A",
+      "explanation": "Le protocole HTTPS ajoute une couche de sécurité par rapport à HTTP grâce à SSL/TLS, qui permet de chiffrer les communications entre le client et le serveur. Les autres options, SMTP, DNS et FTP, sont des protocoles qui ont des fonctions différentes et ne fournissent pas de couche de sécurité similaire à SSL/TLS.",
+      "options": [
+        "SSL/TLS",
+        "SMTP",
+        "DNS",
+        "FTP"
+      ]
+    },
+    {
+      "id": "I119",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un certificat SSL/TLS permet de :",
+      "correct": "A",
+      "explanation": "Un certificat SSL/TLS permet de chiffrer les communications entre client et serveur, garantissant ainsi la confidentialité et l'intégrité des données échangées. Les autres options, bloquer les publicités, accélérer le chargement des pages et gérer les cookies, ne sont pas des fonctions associées aux certificats SSL/TLS.",
+      "options": [
+        "Chiffrer les communications entre client et serveur",
+        "Bloquer les publicités",
+        "Accélérer le chargement des pages",
+        "Gérer les cookies"
+      ]
+    },
+    {
+      "id": "I120",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un routeur a pour fonction principale :",
+      "correct": "A",
+      "explanation": "Un routeur a pour fonction principale de connecter plusieurs réseaux entre eux et de router les paquets de données pour qu'ils atteignent leur destination. Les autres options, moduler/démoduler le signal, fournir une connexion Wi-Fi et connecter des périphériques à un même réseau, sont des fonctions associées à des périphériques différents, tels que des modems, des points d'accès et des switchs respectivement.",
+      "options": [
+        "Connecter plusieurs réseaux entre eux et router les paquets",
+        "Moduler/démoduler le signal (modem)",
+        "Fournir une connexion Wi-Fi (point d’accès)",
+        "Connecter des périphériques à un même réseau (switch)"
+      ]
+    },
+    {
+      "id": "I121",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un commutateur (switch) permet de :",
+      "correct": "A",
+      "explanation": "Un commutateur, ou switch, est un appareil qui permet de connecter plusieurs périphériques sur un même réseau local, facilitant ainsi la communication entre eux. Cela est rendu possible grâce à ses ports multiples qui permettent de brancher directement les appareils. L'option 'Connecter plusieurs périphériques sur un même réseau local' est donc la bonne réponse. Les autres options sont incorrectes car moduler le signal est plutôt le rôle d'un modem, relier différents réseaux est le rôle d'un routeur, et fournir une adresse IP est généralement le rôle d'un serveur DHCP.",
+      "options": [
+        "Connecter plusieurs périphériques sur un même réseau local",
+        "Moduler le signal",
+        "Relier différents réseaux",
+        "Fournir une adresse IP"
+      ]
+    },
+    {
+      "id": "I122",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’adresse MAC d’une carte réseau est :",
+      "correct": "B",
+      "explanation": "L'adresse MAC, ou Media Access Control, est une adresse physique unique attribuée par le fabricant à une carte réseau. Elle permet d'identifier de manière unique un appareil sur un réseau et est utilisée pour acheminer les données vers la bonne destination. L'option 'Une adresse physique unique attribuée par le fabricant' est donc la bonne réponse. Les autres options sont incorrectes car une adresse de messagerie est liée à l'email, une adresse IP est utilisée pour identifier un appareil sur un réseau mais est différente de l'adresse MAC, et une adresse de site web, ou URL, est utilisée pour accéder à des ressources sur Internet.",
+      "options": [
+        "Une adresse de messagerie",
+        "Une adresse physique unique attribuée par le fabricant",
+        "Une adresse IP",
+        "Une adresse de site web"
+      ]
+    },
+    {
+      "id": "I123",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le masque de sous-réseau 255.255.255.0 correspond à un CIDR :",
+      "correct": "B",
+      "explanation": "Le masque de sous-réseau 255.255.255.0 est utilisé pour déterminer la partie d'une adresse IP qui est réservée au réseau et celle qui est disponible pour les appareils. Ce masque correspond à un CIDR, ou Classless Inter-Domain Routing, de /24, car il définit 24 bits pour l'adresse réseau. L'option '/24' est donc la bonne réponse. Les autres options sont incorrectes car /16 correspondrait à un masque de 255.255.0.0, /8 à 255.0.0.0, et /32 à 255.255.255.255, qui sont des masques de sous-réseau différents.",
+      "options": [
+        "/16",
+        "/24",
+        "/8",
+        "/32"
+      ]
+    },
+    {
+      "id": "I124",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’adresse IP 127.0.0.1 est appelée :",
+      "correct": "B",
+      "explanation": "L'adresse IP 127.0.0.1 est une adresse spéciale appelée localhost ou loopback. Elle permet à un appareil de communiquer avec lui-même et est souvent utilisée pour tester les configurations réseau sans avoir besoin d'un autre appareil. L'option 'localhost (loopback)' est donc la bonne réponse. Les autres options sont incorrectes car une adresse multicast est utilisée pour envoyer des données à plusieurs appareils simultanément, l'adresse de broadcast est utilisée pour envoyer des données à tous les appareils d'un réseau, et une adresse de réseau est la partie de l'adresse IP qui identifie le réseau lui-même.",
+      "options": [
+        "Adresse multicast",
+        "Localhost (loopback)",
+        "Adresse de broadcast",
+        "Adresse de réseau"
+      ]
+    },
+    {
+      "id": "I125",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces services utilise le port 80 par défaut ?",
+      "correct": "C",
+      "explanation": "Le port 80 est le port par défaut utilisé par le protocole HTTP, ou Hypertext Transfer Protocol, pour transférer des données hypertextes sur le World Wide Web. L'option 'HTTP' est donc la bonne réponse. Les autres options sont incorrectes car SSH utilise généralement le port 22, HTTPS utilise le port 443 pour un transfert sécurisé de données, et FTP utilise le port 21 pour le transfert de fichiers.",
+      "options": [
+        "SSH",
+        "HTTPS",
+        "HTTP",
+        "FTP"
+      ]
+    },
+    {
+      "id": "I126",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le port 443 est utilisé par :",
+      "correct": "A",
+      "explanation": "Le port 443 est utilisé par défaut par le protocole HTTPS, ou Hypertext Transfer Protocol Secure, qui est une version sécurisée de HTTP. Il permet de protéger les données transférées entre un navigateur et un serveur web. L'option 'HTTPS' est donc la bonne réponse. Les autres options sont incorrectes car le port 25 est généralement utilisé par SMTP pour l'envoi de courriels, le port 110 est utilisé par POP3 pour la réception de courriels, et le port 80 est utilisé par HTTP pour des transferts de données non sécurisés.",
+      "options": [
+        "HTTPS",
+        "POP3",
+        "SMTP",
+        "HTTP"
+      ]
+    },
+    {
+      "id": "I127",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le port 21 est associé à :",
+      "correct": "B",
+      "explanation": "Le port 21 est associé au protocole FTP, ou File Transfer Protocol, qui est utilisé pour le transfert de fichiers entre appareils sur un réseau. L'option 'FTP' est donc la bonne réponse. Les autres options sont incorrectes car le port 23 est généralement utilisé par Telnet pour des connexions à distance en texte brut, le port 80 est utilisé par HTTP pour des transferts de données sur le web, et le port 22 est utilisé par SSH pour des connexions sécurisées à distance.",
+      "options": [
+        "Telnet",
+        "FTP",
+        "HTTP",
+        "SSH"
+      ]
+    },
+    {
+      "id": "I128",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le port 22 est utilisé par :",
+      "correct": "C",
+      "explanation": "Le port 22 est utilisé par défaut par le protocole SSH, ou Secure Shell, qui permet de se connecter de manière sécurisée à un appareil distant pour exécuter des commandes ou transférer des fichiers. L'option 'SSH' est donc la bonne réponse. Les autres options sont incorrectes car le port 21 est utilisé par FTP pour le transfert de fichiers, le port 25 est généralement utilisé par SMTP pour l'envoi de courriels, et le port 23 est utilisé par Telnet pour des connexions en texte brut.",
+      "options": [
+        "FTP",
+        "SMTP",
+        "SSH",
+        "Telnet"
+      ]
+    },
+    {
+      "id": "I129",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le port 25 est utilisé par :",
+      "correct": "D",
+      "explanation": "Le port 25 est utilisé pour le protocole SMTP (Simple Mail Transfer Protocol), qui permet l'envoi d'emails entre serveurs de messagerie. Ce port est dédié à cette tâche spécifique. Les autres options sont incorrectes car le port 110 est utilisé pour POP3 (Post Office Protocol 3), le port 80 est utilisé pour HTTP (Hypertext Transfer Protocol), et le port 143 est utilisé pour IMAP (Internet Message Access Protocol).",
+      "options": [
+        "POP3",
+        "HTTP",
+        "IMAP",
+        "SMTP (envoi d’emails)"
+      ]
+    },
+    {
+      "id": "I130",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le port 110 est utilisé par :",
+      "correct": "D",
+      "explanation": "Le port 110 est utilisé pour le protocole POP3 (Post Office Protocol 3), qui permet la réception d'emails sur un client de messagerie. C'est un protocole couramment utilisé pour récupérer les emails d'un serveur de messagerie. Les autres options sont incorrectes car le port 25 est utilisé pour SMTP, le port 443 est utilisé pour HTTPS (Hypertext Transfer Protocol Secure), et le port 143 est utilisé pour IMAP.",
+      "options": [
+        "SMTP",
+        "IMAP",
+        "HTTPS",
+        "POP3 (réception d’emails)"
+      ]
+    },
+    {
+      "id": "I131",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le langage JavaScript est principalement exécuté :",
+      "correct": "A",
+      "explanation": "Le langage JavaScript est principalement exécuté côté client, c'est-à-dire dans le navigateur web de l'utilisateur. Cela permet d'exécuter des scripts côté client et d'interagir avec les éléments de la page web. Les autres options sont incorrectes car JavaScript peut également être exécuté côté serveur avec des technologies comme Node.js, mais ce n'est pas son utilisation principale. Le disque dur et la base de données ne sont pas directement liés à l'exécution de JavaScript.",
+      "options": [
+        "Côté client (navigateur)",
+        "Sur le disque dur",
+        "Côté serveur",
+        "Sur la base de données"
+      ]
+    },
+    {
+      "id": "I132",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces langages est un langage de script côté serveur ?",
+      "correct": "B",
+      "explanation": "Le langage PHP est un langage de script côté serveur, couramment utilisé pour développer des applications web dynamiques. Il est exécuté sur le serveur web et permet de générer des pages web dynamiques. Les autres options sont incorrectes car HTML, CSS et JavaScript (côté client) sont des technologies côté client, utilisées pour structurer, styler et animer les pages web.",
+      "options": [
+        "HTML",
+        "PHP",
+        "JavaScript (côté client principalement)",
+        "CSS"
+      ]
+    },
+    {
+      "id": "I133",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La balise `<a>` en HTML sert à :",
+      "correct": "A",
+      "explanation": "La balise <a> en HTML sert à créer un lien hypertexte, permettant aux utilisateurs de naviguer vers une autre page web ou ressource en cliquant sur le lien. Les autres options sont incorrectes car la balise <img> est utilisée pour insérer une image, la balise <h1> est utilisée pour définir un titre, et la balise <strong> est utilisée pour mettre en gras un texte.",
+      "options": [
+        "Créer un lien hypertexte",
+        "Définir un titre",
+        "Insérer une image",
+        "Mettre en gras"
+      ]
+    },
+    {
+      "id": "I134",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’attribut `href` de la balise `<a>` spécifie :",
+      "correct": "C",
+      "explanation": "L'attribut href de la balise <a> spécifie la destination du lien, c'est-à-dire l'URL vers laquelle l'utilisateur sera dirigé lorsqu'il clique sur le lien. Les autres options sont incorrectes car l'attribut href ne définit pas le texte du lien (qui est contenu dans la balise <a>), la taille du lien (qui est définie avec CSS) ou la couleur du lien (qui est également définie avec CSS).",
+      "options": [
+        "Le texte du lien",
+        "La taille du lien",
+        "La destination du lien",
+        "La couleur du lien"
+      ]
+    },
+    {
+      "id": "I135",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La balise `<p>` en HTML sert à :",
+      "correct": "B",
+      "explanation": "La balise <p> en HTML sert à créer un paragraphe, permettant de structurer le contenu textuel d'une page web. Les autres options sont incorrectes car la balise <h1> est utilisée pour définir un titre, la balise <ul> ou <ol> est utilisée pour créer une liste, et la balise <img> est utilisée pour insérer une image.",
+      "options": [
+        "Créer un titre",
+        "Créer un paragraphe",
+        "Créer une liste",
+        "Insérer une image"
+      ]
+    },
+    {
+      "id": "I136",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La balise `<br>` permet :",
+      "correct": "A",
+      "explanation": "La balise <br> permet d'insérer un saut de ligne dans un texte, forçant le texte à continuer sur une nouvelle ligne. Les autres options sont incorrectes car la balise <img> est utilisée pour insérer une image, la balise <a> est utilisée pour créer un lien hypertexte, et la balise <h1> est utilisée pour définir un titre.",
+      "options": [
+        "Un saut de ligne",
+        "Une image",
+        "Un lien hypertexte",
+        "Un titre"
+      ]
+    },
+    {
+      "id": "I137",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le CSS permet de :",
+      "correct": "A",
+      "explanation": "Le CSS, ou Cascading Style Sheets, est un langage de style utilisé pour contrôler la mise en page et l'apparence des documents HTML. Il permet de séparer la structure du contenu de la présentation, ce qui facilite la maintenance et la modification des styles. Ainsi, le CSS permet effectivement de mettre en forme, ou de styler, les pages web. Les autres options sont incorrectes car la gestion des bases de données relève de la compétence des langages de base de données comme SQL, la programmation d'interactions est généralement faite avec JavaScript, et la structuration du contenu HTML est assurée par le HTML lui-même.",
+      "options": [
+        "Mettre en forme (style) les pages web",
+        "Gérer les bases de données",
+        "Programmer des interactions",
+        "Structurer le contenu HTML"
+      ]
+    },
+    {
+      "id": "I138",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces sélecteurs CSS cible tous les éléments de classe « test » ?",
+      "correct": "D",
+      "explanation": "En CSS, les sélecteurs sont utilisés pour cibler des éléments spécifiques dans un document HTML. Le sélecteur de classe, qui est précédé d'un point (.), est utilisé pour cibler tous les éléments qui ont une classe spécifique. Ainsi, le sélecteur '.test' cible tous les éléments de classe 'test'. Les autres options sont incorrectes car le sélecteur '#test' cible un élément avec l'ID 'test', le sélecteur '*test' n'est pas un sélecteur CSS standard, et le sélecteur 'test' cible tous les éléments de la balise 'test', pas ceux de classe 'test'.",
+      "options": [
+        "#test",
+        "*test",
+        "test",
+        ".test"
+      ]
+    },
+    {
+      "id": "I139",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le sélecteur CSS `#menu` cible l’élément avec :",
+      "correct": "C",
+      "explanation": "En CSS, le sélecteur '#menu' utilise l'ID pour cibler un élément spécifique dans le document HTML. L'ID est un attribut qui identifie de manière unique un élément dans un document. Ainsi, le sélecteur '#menu' cible l'élément avec l'identifiant 'menu'. Les autres options sont incorrectes car le sélecteur de balise '<menu>' cible tous les éléments '<menu>', le sélecteur de classe '.menu' cible tous les éléments de classe 'menu', et l'option 'Tous les éléments enfants' n'est pas une cible spécifique mais plutôt une relation entre éléments.",
+      "options": [
+        "La balise `<menu>`",
+        "La classe « menu »",
+        "L’identifiant « menu »",
+        "Tous les éléments enfants"
+      ]
+    },
+    {
+      "id": "I140",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La propriété CSS `color` permet de définir :",
+      "correct": "A",
+      "explanation": "La propriété CSS 'color' est utilisée pour définir la couleur du texte dans un élément. Elle peut être utilisée pour changer la couleur du texte en une couleur spécifiée. Les autres options sont incorrectes car la couleur du fond est définie avec la propriété 'background-color', la couleur de l'ombre est définie avec la propriété 'box-shadow', et la couleur de la bordure est définie avec la propriété 'border-color'.",
+      "options": [
+        "La couleur du texte",
+        "La couleur du fond",
+        "La couleur de l’ombre",
+        "La couleur de la bordure"
+      ]
+    },
+    {
+      "id": "I141",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La propriété CSS `background-color` définit :",
+      "correct": "D",
+      "explanation": "La propriété CSS 'background-color' définit la couleur de fond d'un élément. Elle peut être utilisée pour spécifier la couleur de fond d'un élément, que ce soit une couleur unie ou un dégradé. Les autres options, telles que la couleur du texte, la couleur de lien, ou la couleur de bordure, sont définies avec d'autres propriétés CSS.",
+      "options": [
+        "La couleur du texte",
+        "La couleur de lien",
+        "La couleur de bordure",
+        "La couleur de fond"
+      ]
+    },
+    {
+      "id": "I142",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le modèle de boîte (box model) en CSS comprend :",
+      "correct": "C",
+      "explanation": "Le modèle de boîte, ou box model, en CSS est un concept qui décrit la structure d'un élément dans le navigateur. Il comprend quatre parties : la zone de contenu (content), la bordure (border), l'espacement interne (padding), et l'espacement externe (margin). Ainsi, le modèle de boîte comprend effectivement margin, border, padding, et content. Les autres options sont incorrectes car elles sont soit incomplètes, soit incorrectes.",
+      "options": [
+        "content, border, shadow",
+        "padding, margin, outline",
+        "margin, border, padding, content",
+        "width, height, margin"
+      ]
+    },
+    {
+      "id": "I143",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La propriété CSS `display: flex` permet de :",
+      "correct": "A",
+      "explanation": "La propriété CSS 'display: flex' est utilisée pour créer un conteneur flexible, ou flexbox, qui permet de disposer ses éléments enfants de manière flexible. Cela facilite l'alignement et la distribution des éléments dans un conteneur. Les autres options sont incorrectes car l'ajout d'une ombre est fait avec la propriété 'box-shadow', la définition d'une police est faite avec la propriété 'font-family', et cacher un élément est généralement fait avec la propriété 'display: none'.",
+      "options": [
+        "Créer un alignement flexible (flexbox)",
+        "Ajouter une ombre",
+        "Définir une police",
+        "Cacher un élément"
+      ]
+    },
+    {
+      "id": "I144",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le responsive design vise à :",
+      "correct": "C",
+      "explanation": "Le responsive design est une approche de conception web qui vise à rendre les sites web adaptatifs à différentes tailles d'écran et à différents appareils. Cela permet d'assurer une expérience utilisateur optimale, quel que soit le dispositif utilisé pour accéder au site. Les autres options sont incorrectes car la sécurisation d'un site relève de la sécurité web, l'ajout d'animations relève des effets visuels, et l'accélération du chargement relève de l'optimisation des performances.",
+      "options": [
+        "Sécuriser le site",
+        "Ajouter des animations",
+        "Rendre un site web adaptatif à différentes tailles d’écran",
+        "Accélérer le chargement"
+      ]
+    },
+    {
+      "id": "I145",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La balise `<meta charset=\"UTF-8\">` sert à :",
+      "correct": "A",
+      "explanation": "La balise <meta charset='UTF-8'> est utilisée pour définir l'encodage des caractères dans un document HTML. Cela permet de spécifier comment les caractères doivent être interprétés par le navigateur, garantissant ainsi une correcte affichage des textes. Les autres options sont incorrectes car inclure un script se fait avec la balise <script>, lier une feuille de style se fait avec la balise <link> et définir le titre de la page se fait avec la balise <title>.",
+      "options": [
+        "Définir l’encodage des caractères",
+        "Inclure un script",
+        "Lier une feuille de style",
+        "Définir le titre de la page"
+      ]
+    },
+    {
+      "id": "I146",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole utilisé pour envoyer des emails est :",
+      "correct": "B",
+      "explanation": "Le protocole SMTP (Simple Mail Transfer Protocol) est spécifiquement conçu pour l'envoi de courriels entre serveurs de messagerie. Il permet aux serveurs de messagerie de communiquer entre eux pour acheminer les emails jusqu'à leur destinataire. Les autres options sont incorrectes car HTTP est utilisé pour le web, DNS pour la résolution de noms de domaine en adresses IP et FTP pour le transfert de fichiers.",
+      "options": [
+        "HTTP",
+        "SMTP",
+        "DNS",
+        "FTP"
+      ]
+    },
+    {
+      "id": "I147",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole utilisé pour recevoir des emails en téléchargeant les messages est :",
+      "correct": "A",
+      "explanation": "Le protocole POP3 (Post Office Protocol version 3) est utilisé pour recevoir des emails en les téléchargeant sur l'ordinateur du destinataire. Il permet de récupérer les emails depuis un serveur de messagerie, mais contrairement à IMAP, il télécharge les emails et les supprime généralement du serveur. Les autres options sont incorrectes car SMTP est utilisé pour envoyer des emails, IMAP permet de consulter les emails sans les télécharger et HTTP est utilisé pour naviguer sur le web.",
+      "options": [
+        "POP3",
+        "HTTP",
+        "IMAP (permet de consulter sans télécharger)",
+        "SMTP"
+      ]
+    },
+    {
+      "id": "I148",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole IMAP permet de :",
+      "correct": "D",
+      "explanation": "Le protocole IMAP (Internet Message Access Protocol) permet de recevoir des emails tout en laissant une copie sur le serveur. Cela signifie que les emails peuvent être consultés depuis plusieurs appareils sans que ceux-ci soient téléchargés et supprimés du serveur. Les autres options sont incorrectes car envoyer des emails utilise SMTP, transférer des fichiers utilise FTP et naviguer sur le web utilise HTTP.",
+      "options": [
+        "Envoyer des emails",
+        "Transférer des fichiers",
+        "Naviguer sur le web",
+        "Recevoir des emails en laissant une copie sur le serveur"
+      ]
+    },
+    {
+      "id": "I149",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un mot de passe fort doit contenir :",
+      "correct": "D",
+      "explanation": "Un mot de passe fort doit contenir au moins 8 caractères, incluant des lettres majuscules et minuscules, des chiffres et des symboles. Cela augmente considérablement la sécurité en rendant beaucoup plus difficile la tâche des pirates qui cherchent à deviner ou à craquer les mots de passe. Les autres options sont incorrectes car un mot de passe faible, comme celui qui ne contient que des chiffres ou uniquement des lettres, peut être facilement deviné ou craqué, et un mot de passe court est plus vulnérable.",
+      "options": [
+        "Uniquement des chiffres",
+        "Moins de 6 caractères",
+        "Uniquement des lettres",
+        "Au moins 8 caractères, lettres majuscules/minuscules, chiffres, symboles"
+      ]
+    },
+    {
+      "id": "I150",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’authentification à deux facteurs (2FA) ajoute une couche de sécurité en demandant :",
+      "correct": "B",
+      "explanation": "L'authentification à deux facteurs (2FA) ajoute une couche de sécurité supplémentaire en demandant non seulement le mot de passe, mais aussi un code temporaire envoyé par SMS ou généré par une application. Cela rend beaucoup plus difficile l'accès non autorisé à un compte, même si le mot de passe a été compromis. Les autres options sont incorrectes car un deuxième mot de passe n'ajoute pas nécessairement de sécurité, une question secrète peut être facilement devinée et une empreinte digitale, bien que sécurisée, ne constitue qu'un seul facteur.",
+      "options": [
+        "Un deuxième mot de passe",
+        "Un code temporaire (SMS, application) en plus du mot de passe",
+        "Une question secrète",
+        "Une empreinte digitale uniquement"
+      ]
+    },
+    {
+      "id": "I151",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une sauvegarde (backup) régulière permet de :",
+      "correct": "B",
+      "explanation": "Une sauvegarde régulière permet de récupérer des données en cas de perte, que ce soit due à un dysfonctionnement matériel, un virus ou une erreur humaine. Cela garantit que les informations importantes peuvent être récupérées même si elles sont accidentellement supprimées ou si l'appareil est endommagé. Les autres options sont incorrectes car accélérer l'ordinateur nécessite des optimisations logicielles ou matérielles, augmenter la mémoire nécessite l'ajout de composants et éviter les virus nécessite un logiciel antivirus.",
+      "options": [
+        "Accélérer l’ordinateur",
+        "Récupérer des données en cas de perte",
+        "Augmenter la mémoire",
+        "Éviter les virus"
+      ]
+    },
+    {
+      "id": "I152",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le terme « cloud » (nuage) fait référence à :",
+      "correct": "B",
+      "explanation": "Le terme 'cloud' (nuage) fait référence à des serveurs distants accessibles via Internet qui offrent des services tels que le stockage de données, la gestion d'applications et d'infrastructures. Cela permet aux utilisateurs d'accéder à leurs données et applications depuis n'importe où, à tout moment. Les autres options sont incorrectes car un stockage local se réfère à des appareils de stockage directement connectés à l'ordinateur, un type de processeur est une composante matérielle interne et un logiciel antivirus est un programme conçu pour protéger contre les logiciels malveillants.",
+      "options": [
+        "Un stockage local",
+        "Des serveurs distants accessibles via Internet",
+        "Un type de processeur",
+        "Un logiciel antivirus"
+      ]
+    },
+    {
+      "id": "I153",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La virtualisation permet de :",
+      "correct": "C",
+      "explanation": "La virtualisation est une technologie qui permet de créer des environnements virtuels sur une machine physique. Cela permet d'exécuter plusieurs systèmes d'exploitation sur une seule machine physique, ce qui est très utile pour les tests, le développement et la production. Les autres options sont incorrectes car la virtualisation ne consiste pas à chiffrer des données, compresser des fichiers ou accélérer le réseau.",
+      "options": [
+        "Chiffrer les données",
+        "Compresser des fichiers",
+        "Exécuter plusieurs systèmes d’exploitation sur une seule machine physique",
+        "Accélérer le réseau"
+      ]
+    },
+    {
+      "id": "I154",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un hyperviseur (hypervisor) est utilisé dans :",
+      "correct": "A",
+      "explanation": "Un hyperviseur, également appelé hypervisor, est un logiciel qui permet de créer et de gérer des machines virtuelles. Il est utilisé dans la virtualisation pour permettre à plusieurs systèmes d'exploitation de s'exécuter sur une seule machine physique. Les autres options sont incorrectes car l'hyperviseur n'a aucun rapport avec le design graphique, la gestion de bases de données ou le développement web.",
+      "options": [
+        "La virtualisation",
+        "Le design graphique",
+        "La gestion de bases de données",
+        "Le développement web"
+      ]
+    },
+    {
+      "id": "I155",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Docker est une technologie de :",
+      "correct": "C",
+      "explanation": "Docker est une technologie de conteneurisation qui permet d'isoler des applications dans des conteneurs légers, ce qui facilite leur déploiement et leur gestion. La virtualisation complète est différente car elle nécessite un noyau de système d'exploitation pour chaque machine virtuelle. Les autres options sont incorrectes car Docker n'est pas une technologie de stockage, de virtualisation complète ou de réseau.",
+      "options": [
+        "Stockage",
+        "Virtualisation complète",
+        "Conteneurisation (isolation d’applications)",
+        "Réseau"
+      ]
+    },
+    {
+      "id": "I156",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le langage de requête structuré (SQL) permet d’interagir avec :",
+      "correct": "B",
+      "explanation": "Le langage de requête structuré (SQL) est un langage de programmation qui permet d'interagir avec des bases de données relationnelles. Il permet de créer, de lire, de mettre à jour et de supprimer des données dans ces bases de données. Les autres options sont incorrectes car le SQL n'est pas utilisé pour interagir avec des sons, des images ou des fichiers texte.",
+      "options": [
+        "Des sons",
+        "Des bases de données relationnelles",
+        "Des images",
+        "Des fichiers texte"
+      ]
+    },
+    {
+      "id": "I157",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une base de données NoSQL est adaptée pour :",
+      "correct": "A",
+      "explanation": "Une base de données NoSQL est une base de données qui ne suit pas le modèle relationnel traditionnel. Elle est adaptée pour stocker des données non structurées ou semi-structurées, telles que des données au format JSON ou clé-valeur. Les autres options sont incorrectes car les bases de données NoSQL ne sont pas adaptées pour les données fortement structurées et relationnelles, le traitement de texte ou le calcul numérique.",
+      "options": [
+        "Les données non structurées ou semi-structurées (JSON, clé-valeur, etc.)",
+        "Le traitement de texte",
+        "Les données fortement structurées et relationnelles",
+        "Le calcul numérique"
+      ]
+    },
+    {
+      "id": "I158",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "MongoDB est un exemple de base de données :",
+      "correct": "B",
+      "explanation": "MongoDB est un exemple de base de données NoSQL qui stocke des données sous forme de documents JSON. Elle est appelée base de données de document. Les autres options sont incorrectes car MongoDB n'est pas une base de données relationnelle, de réseau ou hiérarchique.",
+      "options": [
+        "Relationnelle",
+        "NoSQL (document)",
+        "Réseau",
+        "Hiérarchique"
+      ]
+    },
+    {
+      "id": "I159",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format JSON est couramment utilisé pour :",
+      "correct": "D",
+      "explanation": "Le format JSON (JavaScript Object Notation) est un format de données léger qui permet d'échanger des données structurées entre applications. Il est couramment utilisé pour les échanges de données entre serveurs web et applications clientes. Les autres options sont incorrectes car le JSON n'est pas utilisé pour afficher des images, compresser des fichiers ou chiffrer des messages.",
+      "options": [
+        "Afficher des images",
+        "Compresser des fichiers",
+        "Chiffrer des messages",
+        "Échanger des données structurées entre applications"
+      ]
+    },
+    {
+      "id": "I160",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le format XML est similaire à JSON mais :",
+      "correct": "D",
+      "explanation": "Le format XML (Extensible Markup Language) est un format de données qui est similaire à JSON mais plus lourd et plus verbeux. XML utilise des balises pour décrire les données, ce qui le rend plus volumineux que JSON. Les autres options sont incorrectes car XML n'est pas plus léger que JSON, il n'est pas binaire et il n'est pas uniquement utilisé pour le web.",
+      "options": [
+        "Plus léger",
+        "Binaire",
+        "Uniquement pour le web",
+        "Plus lourd et plus verbeux"
+      ]
+    },
+    {
+      "id": "I161",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un algorithme de tri à bulles (bubble sort) a une complexité moyenne de :",
+      "correct": "C",
+      "explanation": "Un algorithme de tri à bulles, ou bubble sort, a une complexité moyenne de O(n²) car il compare chaque paire d'éléments adjacents dans la liste et les échange si nécessaire, ce qui nécessite un nombre de opérations proportionnel au carré du nombre d'éléments. Les autres options sont incorrectes car O(1) décrit une complexité constante, ce qui n'est pas le cas ici ; O(n log n) est la complexité de certains algorithmes de tri plus efficaces comme le tri rapide ou le tri par fusion ; et O(n) décrit une complexité linéaire, qui est inférieure à celle du tri à bulles.",
+      "options": [
+        "O(1)",
+        "O(n log n)",
+        "O(n²)",
+        "O(n)"
+      ]
+    },
+    {
+      "id": "I162",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le tri rapide (quicksort) a une complexité moyenne de :",
+      "correct": "A",
+      "explanation": "Le tri rapide, ou quicksort, a une complexité moyenne de O(n log n) car il divise la liste en deux sous-listes de tailles approximativement égales à chaque étape, ce qui conduit à une complexité logarithmique. Les autres options sont incorrectes car O(n) décrit une complexité linéaire, qui est inférieure à celle du tri rapide ; O(n²) est la complexité pire cas du tri rapide, mais pas sa complexité moyenne ; et O(log n) décrit une complexité qui est trop faible pour cet algorithme.",
+      "options": [
+        "O(n log n)",
+        "O(n)",
+        "O(n²)",
+        "O(log n)"
+      ]
+    },
+    {
+      "id": "I163",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une structure de données FIFO (First In, First Out) est une :",
+      "correct": "D",
+      "explanation": "Une structure de données FIFO, ou First In, First Out, est une file, ou queue, car les éléments sont ajoutés à la fin et supprimés du début, garantissant que le premier élément ajouté est le premier à être supprimé. Les autres options sont incorrectes car une liste chaînée est une structure de données plus générale qui ne spécifie pas nécessairement l'ordre de suppression ; un tableau est une structure de données statique qui ne spécifie pas l'ordre d'accès ; et une pile, ou stack, est une structure de données LIFO.",
+      "options": [
+        "Liste chaînée",
+        "Tableau",
+        "Pile (stack)",
+        "File (queue)"
+      ]
+    },
+    {
+      "id": "I164",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une structure LIFO (Last In, First Out) est une :",
+      "correct": "B",
+      "explanation": "Une structure LIFO, ou Last In, First Out, est une pile, ou stack, car le dernier élément ajouté est le premier à être supprimé. Les autres options sont incorrectes car un tableau est une structure de données statique qui ne spécifie pas l'ordre d'accès ; un arbre est une structure de données plus complexe qui ne spécifie pas nécessairement l'ordre de suppression ; et une file est une structure de données FIFO.",
+      "options": [
+        "Tableau",
+        "Pile",
+        "Arbre",
+        "File"
+      ]
+    },
+    {
+      "id": "I165",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un arbre binaire de recherche a la propriété que :",
+      "correct": "D",
+      "explanation": "Un arbre binaire de recherche a la propriété que les nœuds sont ordonnés, c'est-à-dire que les valeurs des nœuds de la sous-arbre gauche sont inférieures à la valeur du nœud parent, et les valeurs des nœuds de la sous-arbre droit sont supérieures. Les autres options sont incorrectes car l'arbre n'est pas nécessairement équilibré ; les feuilles ne sont pas nécessairement au même niveau ; et les nœuds n'ont pas nécessairement deux enfants.",
+      "options": [
+        "Il est équilibré",
+        "Les feuilles sont toutes au même niveau",
+        "Tous les nœuds ont deux enfants",
+        "Les nœuds sont ordonnés (gauche < racine < droite)"
+      ]
+    },
+    {
+      "id": "I166",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La complexité d’une recherche dans un arbre binaire de recherche équilibré est :",
+      "correct": "D",
+      "explanation": "La complexité d'une recherche dans un arbre binaire de recherche équilibré est de O(log n) car l'arbre est équilibré, ce qui signifie que la hauteur de l'arbre est logarithmique par rapport au nombre de nœuds. Les autres options sont incorrectes car O(1) décrit une complexité constante, qui n'est pas possible pour une recherche dans un arbre ; O(n) décrit une complexité linéaire, qui est celle d'une recherche dans une liste non ordonnée ; et O(n²) est une complexité trop élevée pour une recherche dans un arbre équilibré.",
+      "options": [
+        "O(1)",
+        "O(n)",
+        "O(n²)",
+        "O(log n)"
+      ]
+    },
+    {
+      "id": "I167",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La pile d’exécution (call stack) en programmation sert à :",
+      "correct": "B",
+      "explanation": "La pile d'exécution, ou call stack, sert à gérer les appels de fonction et les retours en stockant les informations sur les fonctions appelées, telles que les paramètres et les adresses de retour. Les autres options sont incorrectes car la gestion des entrées/sorties est effectuée par d'autres mécanismes ; l'allocation de mémoire dynamique est effectuée par le tas, ou heap ; et le stockage des variables globales est effectué dans un segment de données.",
+      "options": [
+        "Gérer les entrées/sorties",
+        "Gérer les appels de fonction et les retours",
+        "Allouer la mémoire dynamique",
+        "Stocker les variables globales"
+      ]
+    },
+    {
+      "id": "I168",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une récursion est une fonction qui :",
+      "correct": "A",
+      "explanation": "Une récursion est une fonction qui s'appelle elle-même, ce qui permet de résoudre des problèmes complexes en les décomposant en sous-problèmes plus simples. Les autres options sont incorrectes car une boucle est une structure de contrôle qui permet de répéter une séquence d'instructions ; une fonction inline est une fonction qui est intégrée directement dans le code appelant ; et une fonction anonyme est une fonction qui n'a pas de nom.",
+      "options": [
+        "S’appelle elle-même",
+        "Utilise une boucle",
+        "Est inline",
+        "Est anonyme"
+      ]
+    },
+    {
+      "id": "I169",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La programmation orientée objet repose sur les concepts de :",
+      "correct": "D",
+      "explanation": "La programmation orientée objet repose sur les concepts de classes, objets, héritage et polymorphisme. En effet, la POO est une approche de programmation qui organise le code en classes et objets qui interagissent entre eux. Les classes définissent les propriétés et les comportements des objets, tandis que l'héritage permet de créer des classes qui héritent des propriétés et des comportements d'autres classes. Le polymorphisme permet aux objets de prendre différentes formes en fonction du contexte. Les autres options, telles que les algorithmes, les structures de données, les variables, les boucles et les conditions, sont des concepts fondamentaux de la programmation en général, mais ne sont pas spécifiques à la POO.",
+      "options": [
+        "Algorithmes, structures de données",
+        "Variables, boucles, conditions",
+        "Requêtes, transactions",
+        "Classes, objets, héritage, polymorphisme"
+      ]
+    },
+    {
+      "id": "I170",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’encapsulation en POO consiste à :",
+      "correct": "C",
+      "explanation": "L'encapsulation en POO consiste à cacher les détails d'implémentation et protéger les données. Cela signifie que les données d'un objet sont cachées et ne peuvent être accédées que par les méthodes de cet objet. Cela permet de contrôler l'accès aux données et de prévenir les erreurs. Les autres options, telles que la création d'interfaces, l'héritage multiple et la définition de classes abstraites, sont des concepts liés à la POO, mais ne correspondent pas à l'encapsulation.",
+      "options": [
+        "Créer des interfaces",
+        "Permettre l’héritage multiple",
+        "Cacher les détails d’implémentation et protéger les données",
+        "Définir des classes abstraites"
+      ]
+    },
+    {
+      "id": "I171",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le polymorphisme permet :",
+      "correct": "B",
+      "explanation": "Le polymorphisme permet d'avoir plusieurs méthodes avec le même nom mais des comportements différents. Cela signifie qu'un objet peut répondre de différentes manières à une même invocation de méthode, en fonction de son type ou de son contexte. Les autres options, telles que la création d'objets, le cache des données et l'héritage multiple, ne correspondent pas au polymorphisme.",
+      "options": [
+        "De créer des objets",
+        "D’avoir plusieurs méthodes avec le même nom mais des comportements différents",
+        "De cacher les données",
+        "D’hériter de plusieurs classes"
+      ]
+    },
+    {
+      "id": "I172",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En POO, une classe abstraite :",
+      "correct": "A",
+      "explanation": "En POO, une classe abstraite ne peut pas être instanciée directement. Cela signifie qu'une classe abstraite est une classe qui ne peut pas être créée directement, mais qui peut être héritée par d'autres classes. Les autres options, telles que la présence de méthodes statiques, le caractère final ou la définition d'une interface, ne correspondent pas aux caractéristiques d'une classe abstraite.",
+      "options": [
+        "Ne peut pas être instanciée directement",
+        "Contient uniquement des méthodes statiques",
+        "Est toujours finale",
+        "Est une interface"
+      ]
+    },
+    {
+      "id": "I173",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une interface en Java ou C# définit :",
+      "correct": "B",
+      "explanation": "Une interface en Java ou C# définit un contrat avec des méthodes sans implémentation. Cela signifie qu'une interface est un ensemble de méthodes qui doivent être implémentées par les classes qui l'implémentent. Les autres options, telles que la définition d'un objet, d'une implémentation concrète ou d'une classe mère, ne correspondent pas à la définition d'une interface.",
+      "options": [
+        "Un objet",
+        "Un contrat avec des méthodes sans implémentation",
+        "Une implémentation concrète",
+        "Une classe mère"
+      ]
+    },
+    {
+      "id": "I174",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le constructeur d’une classe est appelé :",
+      "correct": "B",
+      "explanation": "Le constructeur d'une classe est appelé lors de la création d'un objet. Cela signifie que le constructeur est une méthode spéciale qui est appelée automatiquement lorsqu'un objet est créé. Les autres options, telles que le chargement de la classe, l'appel de méthode ou la destruction d'un objet, ne correspondent pas au moment où le constructeur est appelé.",
+      "options": [
+        "Au chargement de la classe",
+        "Lors de la création d’un objet",
+        "À chaque appel de méthode",
+        "Lors de la destruction d’un objet"
+      ]
+    },
+    {
+      "id": "I175",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mot-clé `this` en Java ou C++ désigne :",
+      "correct": "C",
+      "explanation": "Le mot-clé `this` en Java ou C++ désigne l'objet courant (l'instance). Cela signifie que `this` est une référence à l'objet actuel, qui peut être utilisée pour accéder à ses membres. Les autres options, telles que la classe courante, une référence statique ou un pointeur nul, ne correspondent pas à la signification de `this`.",
+      "options": [
+        "La classe courante",
+        "Une référence statique",
+        "L’objet courant (l’instance)",
+        "Un pointeur nul"
+      ]
+    },
+    {
+      "id": "I176",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mot-clé `super` en Java permet :",
+      "correct": "D",
+      "explanation": "Le mot-clé `super` en Java permet d'appeler le constructeur ou une méthode de la classe parente. Cela signifie que `super` est utilisé pour accéder aux membres de la classe parente, qui peuvent être masqués par des membres de la classe courante. Les autres options, telles que la création d'un objet, le lancement d'une exception ou l'accès à une méthode statique, ne correspondent pas à l'utilisation de `super`.",
+      "options": [
+        "De créer un objet",
+        "De lancer une exception",
+        "D’accéder à une méthode statique",
+        "D’appeler le constructeur ou une méthode de la classe parente"
+      ]
+    },
+    {
+      "id": "I177",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une exception en programmation est :",
+      "correct": "A",
+      "explanation": "Une exception en programmation est un événement imprévu qui se produit lors de l'exécution d'un programme, souvent causé par une erreur ou une situation anormale. C'est pourquoi l'option 'Une erreur survenant à l'exécution' est la bonne réponse. Les autres options sont incorrectes car un message de log est simplement un enregistrement d'un événement, un warning est un avertissement qui ne bloque pas l'exécution et une erreur de compilation est une erreur qui se produit lors de la compilation du code, et non lors de l'exécution.",
+      "options": [
+        "Une erreur survenant à l’exécution",
+        "Un message de log",
+        "Un warning",
+        "Une erreur de compilation"
+      ]
+    },
+    {
+      "id": "I178",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le bloc `try-catch` sert à :",
+      "correct": "C",
+      "explanation": "Le bloc `try-catch` est utilisé pour gérer les exceptions, c'est-à-dire pour intercepter et traiter les erreurs qui se produisent lors de l'exécution d'un programme. C'est pourquoi l'option 'Gérer les exceptions (les capturer)' est la bonne réponse. Les autres options sont incorrectes car créer des boucles se fait avec des instructions de contrôle de flux, déclarer des variables se fait avec des déclarations de variables et définir des classes se fait avec des définitions de classes.",
+      "options": [
+        "Créer des boucles",
+        "Déclarer des variables",
+        "Gérer les exceptions (les capturer)",
+        "Définir des classes"
+      ]
+    },
+    {
+      "id": "I179",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le bloc `finally` s’exécute :",
+      "correct": "C",
+      "explanation": "Le bloc `finally` est exécuté après le bloc `try` ou `catch`, toujours, quelle que soit la présence ou non d'une exception. C'est pourquoi l'option 'Après le bloc `try` ou `catch`, toujours' est la bonne réponse. Les autres options sont incorrectes car le bloc `finally` ne s'exécute pas avant le `try`, il ne s'exécute pas seulement si une exception est levée et il s'exécute effectivement, contrairement à l'option 'Jamais'.",
+      "options": [
+        "Avant le `try`",
+        "Seulement si une exception est levée",
+        "Après le bloc `try` ou `catch`, toujours",
+        "Jamais"
+      ]
+    },
+    {
+      "id": "I180",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La programmation fonctionnelle met l’accent sur :",
+      "correct": "C",
+      "explanation": "La programmation fonctionnelle met l'accent sur les fonctions pures, c'est-à-dire des fonctions qui n'ont pas d'effets de bord et qui retournent toujours le même résultat pour les mêmes entrées. C'est pourquoi l'option 'Les fonctions pures (sans effet de bord)' est la bonne réponse. Les autres options sont incorrectes car les boucles impératives sont caractéristiques de la programmation impérative, les variables globales sont généralement considérées comme mauvaises pratiques et les objets et leurs interactions sont caractéristiques de la programmation orientée objet.",
+      "options": [
+        "Les boucles impératives",
+        "Les variables globales",
+        "Les fonctions pures (sans effet de bord)",
+        "Les objets et leurs interactions"
+      ]
+    },
+    {
+      "id": "I181",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le langage Haskell est un langage :",
+      "correct": "B",
+      "explanation": "Le langage Haskell est un langage fonctionnel pur, c'est-à-dire qu'il est basé sur les concepts de la programmation fonctionnelle et qu'il n'autorise pas les effets de bord. C'est pourquoi l'option 'Fonctionnel pur' est la bonne réponse. Les autres options sont incorrectes car les langages de script sont généralement des langages de programmation de haut niveau pour les tâches de script, les langages orientés objet sont basés sur les concepts d'objets et de classes et les langages impératifs sont basés sur les instructions de contrôle de flux.",
+      "options": [
+        "De script",
+        "Fonctionnel pur",
+        "Orienté objet",
+        "Impératif"
+      ]
+    },
+    {
+      "id": "I182",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un générateur de nombres pseudo-aléatoires est :",
+      "correct": "A",
+      "explanation": "Un générateur de nombres pseudo-aléatoires est un algorithme qui produit une suite de nombres qui semblent aléatoires, mais qui sont en fait déterministes, c'est-à-dire que la suite est prévisible si la graine est connue. C'est pourquoi l'option 'Déterministe (suite prévisible si la graine est connue)' est la bonne réponse. Les autres options sont incorrectes car les générateurs de nombres aléatoires basés sur le matériel sont des dispositifs physiques qui produisent des nombres aléatoires, les nombres vraiment aléatoires sont produits par des phénomènes physiques aléatoires et les générateurs de nombres pseudo-aléatoires sont utilisés dans de nombreux domaines, pas seulement en cryptographie.",
+      "options": [
+        "Déterministe (suite prévisible si la graine est connue)",
+        "Basé sur le matériel",
+        "Vraiment aléatoire",
+        "Utilisé uniquement en cryptographie"
+      ]
+    },
+    {
+      "id": "I183",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La cryptographie asymétrique utilise :",
+      "correct": "B",
+      "explanation": "La cryptographie asymétrique utilise une paire de clés, une clé publique et une clé privée, pour chiffrer et déchiffrer les messages. C'est pourquoi l'option 'Une paire de clés (publique et privée)' est la bonne réponse. Les autres options sont incorrectes car la cryptographie symétrique utilise une seule clé secrète partagée, la cryptographie asymétrique n'utilise pas de clé unique et les systèmes de cryptographie ont généralement besoin d'une clé pour fonctionner.",
+      "options": [
+        "Aucune clé",
+        "Une paire de clés (publique et privée)",
+        "Une clé secrète partagée",
+        "Une clé unique"
+      ]
+    },
+    {
+      "id": "I184",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La clé publique en cryptographie asymétrique sert à :",
+      "correct": "C",
+      "explanation": "La clé publique en cryptographie asymétrique sert à chiffrer les messages et à vérifier les signatures, c'est-à-dire à authentifier les expéditeurs. C'est pourquoi l'option 'Chiffrer (et vérifier les signatures)' est la bonne réponse. Les autres options sont incorrectes car la clé privée est utilisée pour signer les messages, déchiffrer les messages nécessite la clé privée et établir une connexion nécessite souvent un échange de clés.",
+      "options": [
+        "Signer uniquement",
+        "Déchiffrer",
+        "Chiffrer (et vérifier les signatures)",
+        "Établir une connexion"
+      ]
+    },
+    {
+      "id": "I185",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chiffrement symétrique utilise :",
+      "correct": "D",
+      "explanation": "Le chiffrement symétrique utilise une seule clé partagée pour chiffrer et déchiffrer les données. Cela signifie que la même clé est utilisée pour rendre les données illisibles et pour les rendre à nouveau lisibles. Les autres options sont incorrectes car le chiffrement asymétrique utilise deux clés différentes, une pour chiffrer et une autre pour déchiffrer ; le certificat est utilisé dans le chiffrement asymétrique ; et l'utilisation de deux clés ou aucune clé ne correspond pas au chiffrement symétrique.",
+      "options": [
+        "Un certificat",
+        "Aucune clé",
+        "Deux clés",
+        "Une seule clé partagée"
+      ]
+    },
+    {
+      "id": "I186",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le hachage (hash) est une fonction qui :",
+      "correct": "A",
+      "explanation": "Le hachage est une fonction qui transforme un message en une empreinte de taille fixe, non réversible. Cela signifie qu'il est impossible de retrouver le message original à partir de l'empreinte. Les autres options sont incorrectes car le chiffrement est réversible, la génération de clé symétrique est une autre opération, et la compression réduit la taille d'un fichier sans le transformer en une empreinte.",
+      "options": [
+        "Transforme un message en une empreinte de taille fixe, non réversible",
+        "Chiffre un message de façon réversible",
+        "Génère une clé symétrique",
+        "Compresse un fichier"
+      ]
+    },
+    {
+      "id": "I187",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "SHA-256 est un algorithme de :",
+      "correct": "C",
+      "explanation": "SHA-256 est un algorithme de hachage cryptographique. Il est utilisé pour générer une empreinte digitale sécurisée d'un message. Les autres options sont incorrectes car le chiffrement asymétrique utilise des algorithmes comme RSA, la compression utilise des algorithmes comme ZIP, et le chiffrement symétrique utilise des algorithmes comme AES.",
+      "options": [
+        "Chiffrement asymétrique",
+        "Compression",
+        "Hachage cryptographique",
+        "Chiffrement symétrique"
+      ]
+    },
+    {
+      "id": "I188",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « cheval de Troie » (Trojan) est :",
+      "correct": "C",
+      "explanation": "Un cheval de Troie est un logiciel malveillant déguisé en logiciel légitime. Il permet à l'attaquant d'accéder à l'ordinateur infecté. Les autres options sont incorrectes car un virus se reproduit, un ransomware demande une rançon, et un ver informatique est un type de malware qui se propage sans nécessiter d'interaction de l'utilisateur.",
+      "options": [
+        "Un virus qui se reproduit",
+        "Un ransomware",
+        "Un logiciel malveillant déguisé en logiciel légitime",
+        "Un ver informatique"
+      ]
+    },
+    {
+      "id": "I189",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un ver (worm) se distingue d’un virus par :",
+      "correct": "A",
+      "explanation": "Un ver se distingue d'un virus par sa capacité à se reproduire sans nécessiter de programme hôte. Cela signifie qu'un ver peut se propager de manière autonome, tandis qu'un virus a besoin d'un programme pour se reproduire. Les autres options sont incorrectes car la destruction de fichiers n'est pas exclusive aux vers, le mode de transmission par email n'est pas une caractéristique déterminante, et le chiffrement des données n'est pas une caractéristique des vers.",
+      "options": [
+        "Sa capacité à se reproduire sans nécessiter de programme hôte",
+        "Sa destruction de fichiers",
+        "Son mode de transmission par email",
+        "Son chiffrement des données"
+      ]
+    },
+    {
+      "id": "I190",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « rootkit » est un logiciel malveillant qui :",
+      "correct": "A",
+      "explanation": "Un rootkit est un logiciel malveillant qui cache sa présence et permet un accès privilégié à l'ordinateur infecté. Cela signifie qu'il peut masquer les activités malveillantes et donner à l'attaquant un contrôle total sur l'ordinateur. Les autres options sont incorrectes car un adware affiche des publicités, un ransomware chiffre les fichiers, et un keylogger espionne les frappes clavier.",
+      "options": [
+        "Cache sa présence et permet un accès privilégié",
+        "Affiche des publicités",
+        "Chiffre les fichiers",
+        "Espionne les frappes clavier"
+      ]
+    },
+    {
+      "id": "I191",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « keylogger » enregistre :",
+      "correct": "D",
+      "explanation": "Un keylogger enregistre les frappes au clavier. Cela signifie qu'il peut capturer les informations sensibles comme les mots de passe et les informations de carte de crédit. Les autres options sont incorrectes car les mots de passe enregistrés sont généralement capturés par des malware de type credential theft, les mouvements de souris et les captures d'écran sont généralement capturés par des outils de surveillance différents.",
+      "options": [
+        "Les mots de passe enregistrés",
+        "Les mouvements de souris",
+        "Les captures d’écran",
+        "Les frappes au clavier"
+      ]
+    },
+    {
+      "id": "I192",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La technique du « spoofing » consiste à :",
+      "correct": "D",
+      "explanation": "La technique du spoofing consiste à usurper une identité, comme une adresse IP ou une adresse email. Cela signifie que l'attaquant peut se faire passer pour une entité légitime pour tromper les utilisateurs ou les systèmes de sécurité. Les autres options sont incorrectes car le chiffrement des données est une mesure de protection, le blocage des attaques est une mesure de défense, et l'analyse du trafic réseau est une opération de surveillance.",
+      "options": [
+        "Chiffrer des données",
+        "Bloquer les attaques",
+        "Analyser le trafic réseau",
+        "Usurper une identité (adresse IP, email, etc.)"
+      ]
+    },
+    {
+      "id": "I193",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un attaque par déni de service (DoS) vise à :",
+      "correct": "B",
+      "explanation": "Un attaque par déni de service (DoS) a pour but de rendre un service indisponible en le saturant, généralement en envoyant un grand nombre de requêtes pour épuiser les ressources du serveur. Cela empêche les utilisateurs légitimes d'accéder au service. Les autres options, comme usurper une identité, installer un virus, ou voler des données, sont des types d'attaques différents.",
+      "options": [
+        "Usurper une identité",
+        "Rendre un service indisponible en le saturant",
+        "Installer un virus",
+        "Voler des données"
+      ]
+    },
+    {
+      "id": "I194",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « honeypot » est :",
+      "correct": "D",
+      "explanation": "Un 'honeypot' est un système piège conçu pour attirer les attaquants et les étudier, permettant ainsi aux experts en sécurité de comprendre les méthodes et les outils utilisés par les pirates. Les autres options, telles qu'un antivirus, un outil de chiffrement, ou un pare-feu, sont des mesures de sécurité différentes.",
+      "options": [
+        "Un antivirus",
+        "Un outil de chiffrement",
+        "Un pare-feu",
+        "Un système piège pour attirer les attaquants et les étudier"
+      ]
+    },
+    {
+      "id": "I195",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le terme « ingénierie sociale » désigne :",
+      "correct": "D",
+      "explanation": "Le terme 'ingénierie sociale' désigne une manipulation psychologique pour obtenir des informations confidentielles, souvent en se faisant passer pour une personne de confiance ou en créant un sentiment d'urgence. Les autres options sont incorrectes car un type de cryptographie est une méthode de protection des données, un logiciel de gestion de projet est un outil pour gérer les tâches, et une attaque technique sur le réseau est une attaque qui exploite les vulnérabilités techniques du réseau.",
+      "options": [
+        "Un type de cryptographie",
+        "Un logiciel de gestion de projet",
+        "Une attaque technique sur le réseau",
+        "Une manipulation psychologique pour obtenir des informations confidentielles"
+      ]
+    },
+    {
+      "id": "I196",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « phishing » par SMS est appelé :",
+      "correct": "C",
+      "explanation": "Un 'phishing' par SMS est appelé 'Smishing', car il utilise les messages SMS pour tromper les victimes. Les autres options sont incorrectes car le 'vishing' est un 'phishing' par voix (téléphone), le 'spear phishing' est un 'phishing' ciblé, et le 'pharming' est une attaque qui consiste à rediriger les utilisateurs vers un site Web frauduleux.",
+      "options": [
+        "Vishing",
+        "Spear phishing",
+        "Smishing",
+        "Pharming"
+      ]
+    },
+    {
+      "id": "I197",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La norme WPA2 est utilisée pour sécuriser :",
+      "correct": "C",
+      "explanation": "La norme WPA2 est utilisée pour sécuriser les réseaux Wi-Fi, en fournissant un chiffrement et une authentification pour les connexions sans fil. Les autres options sont incorrectes car les emails sont sécurisés par des protocoles comme SSL/TLS, les connexions Ethernet sont généralement sécurisées par des protocoles de réseau local, et les mots de passe sont sécurisés par des algorithmes de hachage.",
+      "options": [
+        "Les emails",
+        "Les connexions Ethernet",
+        "Les réseaux Wi-Fi",
+        "Les mots de passe"
+      ]
+    },
+    {
+      "id": "I198",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protocole SSL/TLS sécurise les communications sur :",
+      "correct": "B",
+      "explanation": "Le protocole SSL/TLS sécurise les communications sur Internet, notamment les navigateurs et les emails, en fournissant un chiffrement et une authentification. Les autres options sont incorrectes car le Bluetooth est sécurisé par des protocoles spécifiques, le réseau local est généralement sécurisé par des protocoles de réseau local, et le port série n'est généralement pas utilisé pour des communications sécurisées.",
+      "options": [
+        "Le Bluetooth",
+        "Internet (navigateurs, emails, etc.)",
+        "Le réseau local",
+        "Le port série"
+      ]
+    },
+    {
+      "id": "I199",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un VPN (Virtual Private Network) permet de :",
+      "correct": "D",
+      "explanation": "Un VPN (Virtual Private Network) permet de créer un réseau local virtuel sécurisé sur Internet, en fournissant un chiffrement et une authentification pour les communications. Les autres options sont incorrectes car hacher les mots de passe est une méthode de protection des mots de passe, bloquer les virus est une fonction d'un antivirus, et accélérer la connexion n'est pas une fonction première d'un VPN.",
+      "options": [
+        "Hacher les mots de passe",
+        "Bloquer les virus",
+        "Accélérer la connexion",
+        "Créer un réseau local virtuel sécurisé sur Internet"
+      ]
+    },
+    {
+      "id": "I200",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces affirmations sur les logiciels libres est vraie ?",
+      "correct": "D",
+      "explanation": "Les logiciels libres donnent la liberté d'exécuter, d'étudier, de modifier et de redistribuer le code, ce qui permet aux utilisateurs de personnaliser et d'améliorer les logiciels. Les autres options sont incorrectes car les logiciels libres peuvent être modifiés, ont généralement une licence comme la licence GPL, et ne sont pas toujours gratuits mais plutôt libres d'utilisation.",
+      "options": [
+        "Ils ne peuvent pas être modifiés",
+        "Ils n’ont pas de licence",
+        "Ils sont toujours gratuits",
+        "Ils donnent la liberté d’exécuter, d’étudier, de modifier et de redistribuer le code"
+      ]
+    }
+  ]
+}

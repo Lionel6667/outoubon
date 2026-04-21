@@ -1,0 +1,903 @@
+{
+  "course_title": "Philosophie - Baccalauréat Haïtien",
+  "chapters": [
+    {
+      "chapter_title": "Méthodologie de la dissertation philosophique",
+      "chapter_introduction": "La dissertation est l'exercice roi du baccalauréat. Elle représente souvent 30 à 60% de la note. Contrairement à ce que certains croient, vous n'avez pas à donner votre avis, mais à problématiser une question, à confronter des thèses et à construire une argumentation rigoureuse. Ce chapitre vous apprend à réussir cet exercice pas à pas.",
+      "chapter_objectives": [
+        "Comprendre ce qu'est une dissertation philosophique et sa structure obligatoire",
+        "Savoir analyser un sujet et définir ses termes",
+        "Maîtriser la construction d'une problématique pertinente",
+        "Construire un plan dialectique (thèse, antithèse, synthèse)",
+        "Rédiger une introduction et une conclusion conformes aux attentes",
+        "Éviter les pièges récurrents identifiés dans les copies d'examen"
+      ],
+      "subchapters": [
+        {
+          "title": "Qu'est-ce qu'une dissertation philosophique ?",
+          "introduction": "La dissertation n'est ni un récit, ni un exposé de connaissances, ni une prise de position personnelle. C'est une réflexion argumentée qui répond à une question en montrant ses enjeux.",
+          "definition": "Une dissertation philosophique est un exercice écrit qui consiste à répondre de manière problématisée, argumentée et structurée à une question philosophique, en mobilisant des concepts et des références aux auteurs.",
+          "explanation": "On évalue votre capacité à penser par vous-même, à mobiliser des connaissances, à construire une argumentation logique et à respecter les codes de l'écrit philosophique. La structure est toujours la même : introduction, développement en deux parties (thèse et antithèse) ou trois (thèse, antithèse, synthèse), conclusion. Chaque partie doit comporter deux ou trois arguments appuyés par des exemples et des références.",
+          "step_by_step": [
+            "Étape 1 : Lire et relire le sujet pour en saisir toutes les nuances.",
+            "Étape 2 : Définir les termes du sujet (vocabulaire philosophique).",
+            "Étape 3 : Dégager le problème implicite (problématiser).",
+            "Étape 4 : Rechercher des arguments et des références d'auteurs.",
+            "Étape 5 : Construire un plan dialectique (thèse / antithèse / synthèse).",
+            "Étape 6 : Rédiger l'introduction (accroche, définitions, problématique, annonce du plan).",
+            "Étape 7 : Rédiger le développement en respectant la structure du plan.",
+            "Étape 8 : Rédiger la conclusion (synthèse, réponse, ouverture).",
+            "Étape 9 : Relire et corriger les erreurs."
+          ],
+          "examples": [
+            "Exemple simple : Sujet : \"L'homme doit-il seulement travailler par nécessité ?\" → Il faut montrer que le travail est à la fois une contrainte et une source d'épanouissement."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2015, série LLA) : Le sujet \"L'homme doit-il seulement travailler par nécessité ?\" a été traité avec succès par les candidats ayant structuré leur copie ainsi : 1) Oui, le travail répond d'abord à des besoins vitaux (Marx, Arendt) ; 2) Non, il peut être source d'épanouissement et de réalisation de soi (Hegel) ; 3) Conclusion nuancée : le sens du travail dépend du contexte social."
+          ],
+          "methods": [
+            "Pour ne pas être hors-sujet, reformulez le sujet avec vos mots et vérifiez après chaque paragraphe que vous répondez à la question.",
+            "Utilisez un brouillon pour noter toutes les idées avant de les organiser.",
+            "Apprenez par cœur les plans types sur les sujets récurrents (liberté, travail, morale, technique)."
+          ],
+          "common_mistakes": [
+            "Confondre thèse et résumé : la thèse répond à une question, ce n'est pas un simple résumé du sujet.",
+            "Oublier de problématiser (poser une question) – les copies sans problématique sont sévèrement pénalisées.",
+            "Faire un catalogue d'idées sans plan dialectique.",
+            "Introduire un nouvel argument dans la conclusion.",
+            "Parler à la première personne ('je pense que') – préférez l'impersonnel."
+          ],
+          "summary": "La dissertation répond à une question philosophique par une réflexion structurée (introduction, développement dialectique, conclusion). Elle exige une problématique, des arguments et des références aux auteurs."
+        },
+        {
+          "title": "Analyser le sujet et problématiser",
+          "introduction": "Avant d'écrire, il faut comprendre exactement ce que l'on vous demande. Un sujet mal analysé conduit inévitablement au hors-sujet.",
+          "definition": "Analyser un sujet, c'est en décomposer les termes, définir chaque mot-clé, repérer les présupposés et les oppositions implicites, puis formuler une ou plusieurs questions qui en découlent – c'est la problématique.",
+          "explanation": "Prenons le sujet : 'Suffit-il de respecter les règles sociales pour être moral ?' Les mots-clés sont : 'suffit-il' (indique une restriction : les règles sont-elles suffisantes ?), 'respecter les règles sociales' (obéir aux lois et coutumes), 'moral' (qui agit bien selon des principes). L'opposition implicite est entre 'morale' (qui vient de l'intérieur) et 'règles sociales' (qui viennent de l'extérieur). La problématique pourrait être : 'Le respect des règles extérieures garantit-il la moralité d'une action, ou bien la morale suppose-t-elle un jugement intérieur autonome ?'",
+          "step_by_step": [
+            "Étape 1 : Soulignez les mots-clés du sujet.",
+            "Étape 2 : Définissez chaque mot-clé (2-3 lignes chacun).",
+            "Étape 3 : Repérez l'opposition ou la tension implicite (ex : nature/culture, liberté/déterminisme, intérêt/devoir).",
+            "Étape 4 : Formulez 2 ou 3 questions qui découlent de cette opposition.",
+            "Étape 5 : Choisissez la question la plus pertinente comme problématique (elle doit être précise et ouverte)."
+          ],
+          "examples": [
+            "Exemple : Sujet 'Le doute est-il nécessairement le refus de la vérité ?' → Mots-clés : doute, nécessairement, refus, vérité. Problématique : 'Le doute est-il toujours une opposition à la vérité, ou peut-il être au contraire un chemin vers elle ?'"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2016) : 'Les progrès techniques sont-ils capables de rendre l'homme heureux ?' → Définitions : progrès techniques (innovations, machines), capables (ont-ils le pouvoir ?), heureux (satisfaction durable). Opposition : technique apporte confort mais peut aliéner. Problématique : 'Les progrès techniques, en améliorant nos conditions de vie, nous rapprochent-ils du bonheur, ou créent-ils de nouvelles formes d'insatisfaction et d'aliénation ?'"
+          ],
+          "methods": [
+            "Pour définir un terme, demandez-vous : 'Qu'est-ce que cela signifie en philosophie ?' Utilisez des distinctions classiques (ex : liberté d'indifférence / liberté d'autonomie).",
+            "Pour trouver la problématique, partez de l'opinion commune puis montrez qu'elle est insuffisante."
+          ],
+          "common_mistakes": [
+            "Définir les mots avec des exemples sans explication conceptuelle.",
+            "Formuler une problématique trop vague ou trop fermée (qui appelle une réponse par oui ou non sans nuance).",
+            "Oublier de problématiser et partir directement dans le plan."
+          ],
+          "summary": "Analyser un sujet, c'est définir ses termes et repérer ses tensions. La problématique est la question centrale qui structure toute la dissertation."
+        },
+        {
+          "title": "Construire le plan dialectique",
+          "introduction": "Le plan dialectique est la structure gagnante pour la dissertation. Il consiste à examiner d'abord une première réponse (thèse), puis à la critiquer ou la nuancer (antithèse), et enfin à proposer un dépassement (synthèse).",
+          "definition": "Un plan dialectique comporte trois moments : 1) La thèse : on développe les arguments en faveur d'une première réponse (souvent l'opinion commune). 2) L'antithèse : on montre les limites de cette réponse et on développe des arguments opposés. 3) La synthèse : on dépasse l'opposition par une position plus complexe et nuancée.",
+          "explanation": "Attention : la synthèse n'est pas un juste milieu ou un compromis mou. C'est une position qui intègre les apports de la thèse et de l'antithèse tout en montrant leur insuffisance respective. Par exemple, pour le sujet sur la liberté, la thèse peut être 'l'homme est libre', l'antithèse 'l'homme est déterminé', et la synthèse 'l'homme est à la fois déterminé et libre, sa liberté consiste à comprendre et à maîtriser les déterminismes'.",
+          "step_by_step": [
+            "Étape 1 : Rassemblez tous les arguments possibles (au brouillon).",
+            "Étape 2 : Classez-les en deux groupes : ceux qui vont dans le sens de la thèse, ceux qui vont dans le sens de l'antithèse.",
+            "Étape 3 : Pour chaque groupe, sélectionnez 2 ou 3 arguments forts.",
+            "Étape 4 : Ordonnez les arguments dans chaque partie du plus simple au plus complexe.",
+            "Étape 5 : Rédigez une transition entre la thèse et l'antithèse (ex : 'Cependant, cette première approche mérite d'être nuancée').",
+            "Étape 6 : Rédigez la synthèse en montrant comment les deux perspectives se complètent."
+          ],
+          "examples": [
+            "Exemple : Sujet 'Suffit-il d'obéir à la raison pour être libre ?' → Thèse : Oui, obéir à la raison, c'est agir selon la nature humaine et échapper aux passions. Antithèse : Non, la raison peut être aliénante (raison instrumentale) et la liberté suppose aussi l'émotion et la spontanéité. Synthèse : La véritable liberté est l'autonomie : obéir à une loi que l'on se donne, mais cette loi doit être rationnelle."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2019, 'La moralité consiste-t-elle à fuir notre nature ?') : Thèse : Oui, la morale nous demande de dominer nos instincts naturels (Kant). Antithèse : Non, la morale peut consister à suivre notre nature bonne (Rousseau, l'homme naturellement bon). Synthèse : La morale ne consiste ni à fuir ni à suivre aveuglément notre nature, mais à l'éduquer, à la transformer par la raison et l'habitude (Aristote)."
+          ],
+          "methods": [
+            "Pour construire votre plan, posez-vous la question : 'Que répondrait un auteur favorable à cette thèse ?' et 'Que répondrait un auteur opposé ?'",
+            "Utilisez des connecteurs logiques pour structurer : 'D'abord', 'Ensuite', 'Cependant', 'En revanche', 'En définitive'."
+          ],
+          "common_mistakes": [
+            "Faire une antithèse qui est simplement un 'non' sans arguments solides.",
+            "Déséquilibrer les deux parties (une trop longue, l'autre trop courte).",
+            "Confondre synthèse avec compromis ou avec une troisième thèse.",
+            "Ne pas faire de transition entre les parties."
+          ],
+          "summary": "Le plan dialectique comporte une thèse (première réponse), une antithèse (critique de la thèse) et une synthèse (dépassement). Chaque partie doit contenir 2 à 3 arguments illustrés par des références."
+        },
+        {
+          "title": "Rédiger l'introduction et la conclusion",
+          "introduction": "L'introduction et la conclusion sont les moments clés de la copie. Une introduction ratée donne une mauvaise première impression ; une conclusion faible gâche une bonne copie.",
+          "definition": "L'introduction doit comporter : une phrase d'accroche (citation, fait d'actualité, constat), la définition des termes, la problématique (sous forme de question), l'annonce du plan. La conclusion doit comporter : un rappel du parcours (synthèse), une réponse claire à la problématique, une ouverture (question plus large).",
+          "explanation": "Les longueurs sont précisées dans les examens : introduction de 6 à 12 lignes, conclusion de 6 à 12 lignes. Ne dépassez pas. La problématique doit être formulée comme une question directe. L'annonce du plan annonce simplement les deux ou trois parties. La conclusion ne doit jamais introduire un argument nouveau.",
+          "step_by_step": [
+            "Étape 1 (introduction) : Partez d'une accroche qui amène le sujet.",
+            "Étape 2 : Définissez les termes du sujet.",
+            "Étape 3 : Montrez l'opposition implicite et formulez la problématique.",
+            "Étape 4 : Annoncez votre plan ('Dans un premier temps, nous verrons que... Dans un second temps, nous montrerons que... Enfin, nous conclurons que...').",
+            "Étape 5 (conclusion) : Résumez le cheminement de votre réflexion (2-3 phrases).",
+            "Étape 6 : Répondez explicitement à la problématique.",
+            "Étape 7 : Ouvrez vers une question plus large (sans développer)."
+          ],
+          "examples": [
+            "Exemple d'introduction (sujet : 'L'homme doit-il seulement travailler par nécessité ?') : Le travail est une activité qui occupe une grande partie de notre vie. Pour certains, il n'est qu'un moyen de subvenir à leurs besoins ; pour d'autres, il est une source d'épanouissement. Faut-il réduire le travail à la seule nécessité ? Nous verrons d'abord que le travail répond effectivement à une nécessité vitale, puis que cette vision est insuffisante car le travail peut aussi être une activité libre et formatrice. Enfin, nous montrerons que le sens du travail dépend du contexte social."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé de conclusion (même sujet) : En définitive, le travail ne se réduit pas à la seule nécessité, même s'il en procède originellement. D'abord réponse à des besoins vitaux, il peut devenir, dans des conditions favorables, une activité libre et épanouissante. Cependant, cette libération du travail reste un idéal qui n'est pas accessible à tous. La question du sens du travail est donc inséparable de celle de l'organisation sociale. C'est pourquoi philosopher sur le travail, c'est aussi s'interroger sur la société que nous voulons construire."
+          ],
+          "methods": [
+            "Pour l'accroche, utilisez une citation d'un auteur du programme, un événement d'actualité ou une opinion courante.",
+            "Pour la conclusion, ne répétez pas bêtement votre plan ; faites une synthèse qui montre la progression de votre pensée."
+          ],
+          "common_mistakes": [
+            "Introduction trop longue (plus de 15 lignes) ou trop courte (moins de 5 lignes).",
+            "Oublier la problématique (on ne peut pas faire une dissertation sans question).",
+            "Conclusion qui se contente de répéter l'introduction.",
+            "Introduire un argument nouveau dans la conclusion.",
+            "Conclure par 'je ne sais pas' ou 'il n'y a pas de réponse'."
+          ],
+          "summary": "L'introduction pose le problème (définitions, problématique, annonce du plan). La conclusion synthétise, répond à la problématique et ouvre vers une question plus large."
+        },
+        {
+          "title": "Pièges récurrents et astuces pour réussir",
+          "introduction": "L'expérience des examens montre que certains défauts reviennent très souvent dans les copies. Les connaître vous permettra de les éviter.",
+          "definition": "Les pièges récurrents sont des erreurs méthodologiques ou de fond qui font perdre des points systématiquement. Les astuces sont des stratégies pour gagner du temps et améliorer sa copie.",
+          "explanation": "Parmi les pièges : le hors-sujet (ne pas répondre à la question posée), l'absence de problématique, un plan déséquilibré, la paraphrase (répéter le sujet sans l'analyser), l'absence de références aux auteurs, la confusion entre thèse et résumé. Parmi les astuces : toujours définir les termes, toujours problématiser, citer des auteurs (Platon, Aristote, Descartes, Kant, Rousseau, Spinoza, etc.), faire des transitions, soigner la conclusion.",
+          "step_by_step": [
+            "Étape 1 : Avant d'écrire, vérifiez que vous répondez bien à la question posée.",
+            "Étape 2 : Au brouillon, notez les auteurs et leurs concepts à mobiliser.",
+            "Étape 3 : Structurez votre plan avec des titres apparents (I, II, III).",
+            "Étape 4 : Rédigez chaque paragraphe selon le schéma : affirmation, explication, exemple, transition.",
+            "Étape 5 : Relisez-vous en chassant les répétitions et les fautes d'orthographe."
+          ],
+          "examples": [
+            "Exemple de piège à éviter : 'Je pense que la liberté est importante' → impersonnel : 'La liberté est une valeur fondamentale de la philosophie moderne'."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé d'erreur fréquente (relevée dans les copies) : Dans le sujet 'Les progrès techniques sont-ils capables de rendre l'homme heureux ?', certains candidats ont fait un catalogue des inventions techniques (smartphone, Internet, etc.) sans jamais poser la question du bonheur. C'est du hors-sujet."
+          ],
+          "methods": [
+            "Pour éviter le hors-sujet, relisez le sujet après chaque paragraphe et demandez-vous : 'Est-ce que je réponds à la question ?'",
+            "Pour gagner du temps, commencez par l'exercice que vous maîtrisez le mieux (étude de texte ou dissertation).",
+            "Apprenez par cœur les citations des auteurs les plus fréquents (Kant, Rousseau, Descartes, Spinoza)."
+          ],
+          "common_mistakes": [
+            "Confondre explication et répétition (ne dites pas la même chose en d'autres mots, avancez).",
+            "Donner son avis personnel sans argumentation philosophique.",
+            "Oublier les transitions entre les parties.",
+            "Négliger la relecture (les fautes d'orthographe pénalisent)."
+          ],
+          "summary": "Les erreurs les plus fréquentes sont le hors-sujet, l'absence de problématique, le plan déséquilibré et la paraphrase. Les astuces : définir, problématiser, citer, structurer, relire."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Pour le sujet 'La liberté consiste-t-elle à faire ce que l'on veut ?', donnez la problématique et annoncez le plan.",
+          "solution": "Problématique : La liberté se réduit-elle à l'absence de contraintes extérieures, ou suppose-t-elle une maîtrise de soi et un usage raisonnable de notre volonté ? Plan : 1) La liberté semble d'abord être l'absence d'obstacles (thèse) ; 2) Mais cette définition est insuffisante car faire ce que l'on veut peut être une forme d'esclavage (antithèse) ; 3) La véritable liberté est autonomie : obéir à la loi que l'on se donne (synthèse).",
+          "explanation": "Cette problématique et ce plan suivent la structure dialectique exigée et répondent à la question."
+        },
+        {
+          "question": "Dans une introduction, quels sont les quatre éléments obligatoires ?",
+          "solution": "1) Phrase d'accroche, 2) Définition des termes, 3) Problématique, 4) Annonce du plan.",
+          "explanation": "L'absence d'un de ces éléments est pénalisée."
+        },
+        {
+          "question": "Citez deux pièges récurrents dans les dissertations de philosophie.",
+          "solution": "Le hors-sujet et l'absence de problématique.",
+          "explanation": "Ces deux erreurs sont les plus fréquentes et les plus graves car elles rendent la copie hors cadre."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Méthodologie de l'étude de texte",
+      "chapter_introduction": "L'étude de texte est un exercice très codifié qui représente souvent 40 à 60% de la note. Heureusement, les quatre questions sont toujours les mêmes. En maîtrisant la méthode, vous pouvez obtenir une très bonne note sans être un expert en philosophie.",
+      "chapter_objectives": [
+        "Identifier les quatre questions types et leurs barèmes",
+        "Savoir dégager la thèse d'un texte en 2-3 lignes",
+        "Repérer les articulations de l'argumentation",
+        "Expliquer une phrase en profondeur (contexte, mots-clés, sens, exemple, enjeu)",
+        "Dégager l'intérêt philosophique du texte avec la méthode des trois questions",
+        "Éviter les erreurs classiques (paraphrase, résumé, opinion personnelle)"
+      ],
+      "subchapters": [
+        {
+          "title": "Présentation et questions types",
+          "introduction": "L'étude de texte consiste à analyser un court extrait d'un philosophe. Les questions sont toujours les mêmes, quel que soit le texte.",
+          "definition": "Les quatre questions types sont : 1) Relevez la thèse/l'idée principale (2-3 lignes). 2) Dégagez les articulations/étapes de l'argumentation (2-3 lignes par étape). 3) Expliquez une phrase précise (15-30 lignes). 4) Quel est l'intérêt/enjeu philosophique du texte ? (8-15 lignes).",
+          "explanation": "La thèse est l'affirmation centrale que l'auteur défend. Les articulations sont les étapes logiques du raisonnement (introduction, distinction, illustration, conclusion...). L'explication de phrase doit en détailler le sens, les mots-clés et l'enjeu. L'intérêt philosophique consiste à montrer quelles questions le texte soulève au-delà de son propos immédiat.",
+          "step_by_step": [
+            "Étape 1 : Lisez le texte trois fois : une fois pour le thème général, une fois pour souligner les mots-clés, une fois pour identifier la thèse.",
+            "Étape 2 : Répondez d'abord à la question 1 (la thèse) – c'est la plus facile et elle éclaire le reste.",
+            "Étape 3 : Pour la question 2, découpez le texte en 3 ou 4 parties logiques.",
+            "Étape 4 : Pour la question 3, suivez la méthode en 5 paragraphes (contexte, mots-clés, sens, exemple, enjeu).",
+            "Étape 5 : Pour la question 4, utilisez le 'modèle magique' (formulez le problème général, puis trois questions)."
+          ],
+          "examples": [
+            "Exemple de thèse (Kant, Traité de pédagogie) : 'L'homme n'est ni bon ni mauvais par nature ; la moralité est une conquête de la raison et de l'éducation.'"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2016, Rousseau) : Texte sur la connaissance des hommes par leurs actions. Thèse : 'Pour connaître véritablement les hommes, il ne faut pas se fier à leurs discours, mais observer leurs actions, car l'histoire dévoile ce qu'ils cachent.' Articulations : 1) Il pose que la connaissance passe par les actes ; 2) Il oppose les discours aux actions ; 3) Il montre que la confrontation des paroles aux actes révèle l'être véritable ; 4) Il conclut que le déguisement même est révélateur."
+          ],
+          "methods": [
+            "Pour la thèse, formulez une phrase affirmative du type : 'L'auteur soutient que...' ou 'La thèse de l'auteur est que...'",
+            "Pour les articulations, utilisez des verbes d'action : 'l'auteur introduit', 'il oppose', 'il distingue', 'il illustre', 'il conclut'.",
+            "Pour l'intérêt philosophique, utilisez la formule : 'L'intérêt philosophique du texte réside dans le fait que l'auteur nous invite à réfléchir sur le problème suivant : [problème général]. Question 1 ? Question 2 ? Question 3 ? L'ensemble de ces interrogations constituent l'intérêt philosophique du texte.'"
+          ],
+          "common_mistakes": [
+            "Confondre thèse et résumé (la thèse répond à une question, ce n'est pas un résumé).",
+            "Pour la question 2, paraphraser le texte au lieu de dégager les étapes logiques.",
+            "Oublier d'expliquer le sens des mots-clés dans l'explication de phrase.",
+            "Confondre 'intérêt philosophique' avec 'résumé du texte' ou 'avis personnel'."
+          ],
+          "summary": "L'étude de texte comporte quatre questions fixes : thèse, articulations, explication de phrase, intérêt philosophique. Chaque question a sa méthode. La clé est de ne pas paraphraser mais d'analyser."
+        },
+        {
+          "title": "Dégager la thèse (question 1)",
+          "introduction": "La première question est la plus directe : il s'agit de dire en une phrase ce que l'auteur veut démontrer.",
+          "definition": "La thèse est l'affirmation centrale que l'auteur soutient tout au long du texte. Elle répond à une question implicite. Une bonne thèse se formule en une phrase affirmative et concise.",
+          "explanation": "Pour trouver la thèse, demandez-vous : 'Quelle est l'idée que l'auteur répète ou défend ?' Cherchez les phrases qui commencent par 'donc', 'ainsi', 'c'est pourquoi', 'en conclusion'. La thèse est souvent au début ou à la fin du texte. Exemple : dans le texte de Bergson sur le remords, la thèse est : 'Le remords prouve notre liberté, car on ne regrette que ce qui aurait pu ne pas arriver.'",
+          "step_by_step": [
+            "Étape 1 : Lisez le texte en cherchant ce qui semble être la conclusion.",
+            "Étape 2 : Reformulez cette conclusion avec vos mots.",
+            "Étape 3 : Vérifiez que cette affirmation est bien défendue par tous les arguments du texte.",
+            "Étape 4 : Rédigez une phrase du type : 'L'auteur soutient que...' ou 'La thèse de l'auteur est que...'"
+          ],
+          "examples": [
+            "Exemple (texte de Freud sur l'inconscient) : 'L'auteur soutient que l'inconscient est plus vaste que le conscient, lui est antérieur, et possède une valeur psychique propre.'"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2019, Kant) : Texte : 'L'homme n'est ni bon ni mauvais par nature, car l'homme par nature n'est pas du tout un être moral.' Thèse : 'Kant affirme que la moralité n'est pas naturelle mais acquise ; l'homme devient moral par l'éducation et l'effort sur lui-même, non par une disposition innée.'"
+          ],
+          "methods": [
+            "Pour être sûr de ne pas vous tromper, demandez-vous : 'Que cherche à prouver l'auteur ?' Une thèse est toujours une réponse à une question implicite."
+          ],
+          "common_mistakes": [
+            "Donner un résumé du texte au lieu de la thèse.",
+            "Citer une phrase du texte sans la reformuler.",
+            "Formuler une thèse trop vague ou trop générale."
+          ],
+          "summary": "La thèse est l'affirmation centrale de l'auteur. Elle se formule en une phrase affirmative, courte et précise, sans paraphrase."
+        },
+        {
+          "title": "Identifier les articulations (question 2)",
+          "introduction": "Cette question exige de découper le texte en étapes logiques. Elle est souvent négligée mais rapporte beaucoup de points.",
+          "definition": "Les articulations sont les étapes du raisonnement de l'auteur. Chaque étape correspond à un moment du texte où l'auteur introduit une nouvelle idée, une distinction, une illustration, ou une conclusion.",
+          "explanation": "Un texte philosophique typique comporte 3 ou 4 étapes : 1) l'introduction du problème ou la thèse, 2) le développement d'un argument, 3) une illustration ou un exemple, 4) la conclusion. Il faut repérer ces étapes et les décrire en 2-3 lignes chacune, en utilisant des verbes d'action (introduit, distingue, oppose, illustre, conclut).",
+          "step_by_step": [
+            "Étape 1 : Découpez le texte en paragraphes ou en groupes de phrases.",
+            "Étape 2 : Pour chaque segment, demandez-vous : 'Qu'est-ce que l'auteur fait ici ?' (il pose une définition, il donne un exemple, il tire une conséquence...).",
+            "Étape 3 : Rédigez chaque étape en commençant par un verbe d'action.",
+            "Étape 4 : Numérotez les étapes (1ère étape, 2ème étape...)."
+          ],
+          "examples": [
+            "Exemple (texte de Rousseau sur la connaissance des hommes) : 1ère étape : Rousseau affirme que la connaissance des hommes passe par l'observation de leurs actions, non de leurs paroles. 2ème étape : Il oppose ce qu'ils 'montrent' (discours) à ce qu'ils 'cachent' (actions). 3ème étape : Il montre que la confrontation des discours aux actes révèle l'écart entre l'être et le paraître. 4ème étape : Il conclut que plus ils se déguisent, plus on les connaît."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2018, Freud) : Texte sur l'inconscient. 1ère étape : Freud pose une métaphore géométrique : l'inconscient est un grand cercle contenant le conscient. 2ème étape : Il énonce un principe de dépendance unilatérale : tout conscient suppose un inconscient antérieur. 3ème étape : Il précise que l'inconscient n'a pas besoin du conscient pour exister et avoir une valeur psychique."
+          ],
+          "methods": [
+            "Repérez les connecteurs logiques : 'd'abord', 'ensuite', 'en effet', 'car', 'donc', 'or', 'cependant'. Ils indiquent souvent un changement d'étape.",
+            "Les verbes d'action à utiliser : pose, affirme, distingue, oppose, définit, illustre, nuance, conclut."
+          ],
+          "common_mistakes": [
+            "Paraphraser le texte phrase par phrase au lieu de regrouper en étapes logiques.",
+            "Utiliser des verbes vagues comme 'l'auteur dit' ou 'l'auteur écrit'.",
+            "Oublier de numéroter les étapes."
+          ],
+          "summary": "Les articulations sont les étapes du raisonnement. On les décrit avec des verbes d'action (introduit, distingue, illustre, conclut). 3 à 4 étapes suffisent."
+        },
+        {
+          "title": "Expliquer une phrase (question 3)",
+          "introduction": "Cette question est la plus longue et la plus importante. Elle exige une analyse détaillée d'une phrase du texte, souvent la plus dense philosophiquement.",
+          "definition": "Expliquer une phrase, c'est en restituer le sens, en analyser les termes, en montrer le rôle dans l'argumentation générale, et en dégager l'enjeu philosophique. L'explication doit comporter plusieurs paragraphes (contexte, analyse des mots-clés, sens, exemple, enjeu).",
+          "explanation": "Une bonne explication suit un plan en 5 temps : 1) Remettre la phrase dans son contexte (2-3 lignes) : où se situe-t-elle dans le texte ? 2) Définir les mots-clés (3-4 lignes) : que signifient les termes importants ? 3) Expliquer le sens de la phrase (5-10 lignes) : que veut dire l'auteur ? 4) Donner un exemple (3-5 lignes) : pour illustrer le propos. 5) Dégager l'enjeu philosophique (2-3 lignes) : pourquoi cette phrase est-elle importante ?",
+          "step_by_step": [
+            "Étape 1 : Relisez la phrase et le texte autour pour comprendre le contexte.",
+            "Étape 2 : Soulignez les mots-clés de la phrase.",
+            "Étape 3 : Rédigez un premier paragraphe sur le contexte.",
+            "Étape 4 : Rédigez un deuxième paragraphe en définissant les mots-clés.",
+            "Étape 5 : Rédigez un troisième paragraphe sur le sens global de la phrase.",
+            "Étape 6 : Rédigez un quatrième paragraphe avec un exemple concret.",
+            "Étape 7 : Rédigez un cinquième paragraphe sur l'enjeu philosophique."
+          ],
+          "examples": [
+            "Exemple (phrase de Rousseau : 'Plus ils se déguisent, mieux on les connaît') : Contexte : Rousseau vient d'opposer les discours aux actions. Mots-clés : 'déguisent' (mentir, paraître), 'connaît' (saisir la vérité de l'autre). Sens : Le mensonge n'est pas un obstacle à la connaissance, mais un symptôme. Exemple : Un menteur qui dément trop vigoureusement une accusation trahit sa culpabilité. Enjeu : Rousseau fonde une méthode pour connaître autrui par l'écart entre l'être et le paraître."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2019, Kant : 'L'homme par nature n'est pas du tout un être moral') : Contexte : Kant répond à la question de savoir si l'homme est naturellement bon ou mauvais. Mots-clés : 'par nature' (ce qui est inné, antérieur à l'éducation), 'être moral' (capable d'agir par devoir). Sens : La moralité n'est pas donnée à la naissance, elle est acquise par l'éducation et l'effort. Exemple : Un enfant n'est pas moral ; il le devient en apprenant à obéir à la raison. Enjeu : Cela justifie l'importance de l'éducation morale et de la discipline."
+          ],
+          "methods": [
+            "Pour définir un mot-clé, demandez-vous : 'Que signifie ce mot dans le vocabulaire de l'auteur ?' Utilisez des distinctions philosophiques.",
+            "L'exemple peut être tiré de l'expérience courante ou de la littérature philosophique."
+          ],
+          "common_mistakes": [
+            "Paraphraser la phrase (la répéter en d'autres mots) sans l'expliquer.",
+            "Oublier de définir les mots-clés.",
+            "Donner un exemple hors de propos.",
+            "Négliger l'enjeu philosophique (pourquoi cette phrase est-elle importante ?)."
+          ],
+          "summary": "L'explication de phrase se fait en 5 paragraphes : contexte, définition des mots-clés, sens, exemple, enjeu philosophique."
+        },
+        {
+          "title": "Dégager l'intérêt philosophique (question 4)",
+          "introduction": "Cette dernière question demande de montrer en quoi le texte est philosophiquement important, c'est-à-dire quelles questions il soulève au-delà de son propos immédiat.",
+          "definition": "L'intérêt philosophique d'un texte est l'ensemble des problèmes que le texte nous invite à examiner. Ce n'est ni un résumé, ni un avis personnel, ni une critique. C'est une mise en perspective des questions que le texte ouvre.",
+          "explanation": "Pour répondre, vous devez formuler le problème général que le texte traite (ex : 'qu'est-ce que la liberté ?'), puis poser deux ou trois questions précises que ce problème soulève. La structure gagnante (tirée des examens) est la suivante : 'L'intérêt philosophique du texte réside dans le fait que l'auteur nous invite à réfléchir sur le problème suivant : [problème général]. Question 1 ? Question 2 ? Question 3 ? L'ensemble de ces interrogations constituent l'intérêt philosophique du texte.'",
+          "step_by_step": [
+            "Étape 1 : Identifiez le thème général du texte (liberté, morale, connaissance, etc.).",
+            "Étape 2 : Formulez le problème sous forme de question large.",
+            "Étape 3 : Posez 2 ou 3 questions qui découlent de ce problème.",
+            "Étape 4 : Rédigez selon le modèle magique."
+          ],
+          "examples": [
+            "Exemple (texte de Kant sur la moralité) : 'L'intérêt philosophique du texte réside dans le fait que Kant nous invite à réfléchir sur le problème suivant : la moralité est-elle naturelle ou acquise ? Question 1 : Si l'homme n'est pas naturellement moral, comment expliquer l'universalité des sentiments moraux ? Question 2 : L'éducation peut-elle vraiment rendre moral ? Question 3 : Quelle est la place de la liberté dans l'acquisition de la moralité ? L'ensemble de ces interrogations constituent l'intérêt philosophique du texte.'"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (texte de Freud sur l'inconscient) : 'L'intérêt philosophique du texte réside dans le fait que Freud nous invite à réfléchir sur le problème suivant : qu'est-ce que le sujet humain et quelles sont les limites de sa conscience ? Question 1 : L'homme se réduit-il à sa conscience, ou bien existe-t-il des instances psychiques inconscientes ? Question 2 : Si l'inconscient a une valeur psychique, comment peut-on connaître ce qui échappe à la conscience ? Question 3 : La découverte de l'inconscient remet-elle en cause la responsabilité morale et la liberté ? L'ensemble de ces interrogations constituent l'intérêt philosophique du texte.'"
+          ],
+          "methods": [
+            "Utilisez le 'modèle magique' : c'est une formule éprouvée qui vous garantit une bonne note à cette question.",
+            "Ne répondez pas aux questions que vous posez ; l'intérêt est de les poser, pas d'y répondre."
+          ],
+          "common_mistakes": [
+            "Confondre intérêt philosophique et thèse (la thèse est la réponse de l'auteur, l'intérêt sont les questions que cela soulève).",
+            "Donner son avis ('je suis d'accord', 'c'est intéressant parce que...').",
+            "Résumer le texte au lieu de poser des questions."
+          ],
+          "summary": "L'intérêt philosophique se dégage par la formule : 'L'auteur nous invite à réfléchir sur le problème suivant : ...' suivi de trois questions. C'est un exercice de problématisation."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Pour un texte donné, quelle est la première chose à faire pour trouver la thèse ?",
+          "solution": "Lire le texte trois fois, puis chercher la phrase qui semble être la conclusion ou l'affirmation centrale.",
+          "explanation": "La thèse est souvent au début ou à la fin du texte, et elle est souvent introduite par 'donc', 'ainsi', 'c'est pourquoi'."
+        },
+        {
+          "question": "Dans l'explication de phrase, combien de paragraphes doit-on idéalement écrire ?",
+          "solution": "5 paragraphes : contexte, mots-clés, sens, exemple, enjeu.",
+          "explanation": "Cette structure garantit une analyse complète et évite la paraphrase."
+        },
+        {
+          "question": "Quelle formule utiliser pour la question sur l'intérêt philosophique ?",
+          "solution": "'L'intérêt philosophique du texte réside dans le fait que l'auteur nous invite à réfléchir sur le problème suivant : ... Question 1 ? Question 2 ? Question 3 ? L'ensemble de ces interrogations constituent l'intérêt philosophique du texte.'",
+          "explanation": "C'est le 'modèle magique' recommandé par les correcteurs."
+        }
+      ]
+    },
+    {
+      "chapter_title": "La liberté",
+      "chapter_introduction": "La liberté est l'un des concepts les plus importants de la philosophie. Elle désigne la capacité de l'homme à agir par lui-même, sans être déterminé par des causes extérieures ou intérieures. Mais sommes-nous vraiment libres ? Nos actions sont-elles déterminées par notre nature, notre éducation, notre inconscient ? Ce chapitre explore les différentes conceptions de la liberté et le débat avec le déterminisme.",
+      "chapter_objectives": [
+        "Définir la liberté et distinguer ses différentes conceptions (liberté d'indifférence, liberté d'autonomie, liberté négative)",
+        "Comprendre la thèse déterministe et ses arguments",
+        "Maîtriser la position de Kant (autonomie) et celle de Sartre (liberté absolue)",
+        "Savoir répondre à la question : 'Le déterminisme constitue-t-il un obstacle à la liberté ?'",
+        "Mobiliser les auteurs clés : Spinoza, Kant, Sartre, Rousseau, Bergson"
+      ],
+      "subchapters": [
+        {
+          "title": "Définition et conceptions de la liberté",
+          "introduction": "La liberté est une notion complexe qui recouvre plusieurs sens. Il est essentiel de les distinguer pour ne pas confondre les problèmes.",
+          "definition": "La liberté peut être définie comme la capacité d'agir selon sa propre volonté, sans contrainte extérieure. Mais cette définition minimale cache trois conceptions différentes : la liberté d'indifférence (pouvoir choisir arbitrairement), la liberté d'autonomie (obéir à la loi que l'on se donne), et la liberté négative (absence d'obstacles).",
+          "explanation": "La liberté d'indifférence (Descartes, Sartre) est la capacité de choisir entre deux contraires sans raison déterminante. La liberté d'autonomie (Kant, Rousseau) est l'obéissance à la loi morale que notre raison se donne à elle-même. La liberté négative (Hobbes, Berlin) est simplement l'absence de contraintes extérieures. Ces conceptions ne répondent pas aux mêmes problèmes.",
+          "step_by_step": [
+            "Étape 1 : Distinguer liberté de faire (agir) et liberté de vouloir (choisir).",
+            "Étape 2 : Pour la liberté de faire, distinguer absence d'obstacles (liberté négative) et pouvoir d'agir selon sa raison (liberté positive).",
+            "Étape 3 : Pour la liberté de vouloir, distinguer liberté d'indifférence et liberté d'autonomie."
+          ],
+          "examples": [
+            "Exemple : Un prisonnier n'a pas la liberté de faire (il est enfermé), mais il peut avoir la liberté de vouloir (il peut choisir son attitude). Un toxicomane a la liberté de faire (il peut se déplacer) mais pas la liberté de vouloir (il est déterminé par sa dépendance)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La liberté d'indifférence est illustrée par le choix d'un âne de Buridan : placé entre deux bottes de foin également éloignées, il meurt de faim faute de pouvoir choisir. Pour Descartes, l'homme n'est pas un âne : il peut suspendre son jugement et choisir librement. Sartre radicalise : l'homme est 'condamné à être libre', il n'a pas de nature qui le détermine."
+          ],
+          "methods": [
+            "Pour ne pas confondre, demandez-vous : 'De quelle liberté parle-t-on ?' (liberté d'action, liberté de volonté, liberté politique, liberté métaphysique)."
+          ],
+          "common_mistakes": [
+            "Confondre liberté et licence (faire n'importe quoi).",
+            "Mélanger les niveaux : la liberté politique (absence d'oppression) n'est pas la même que la liberté métaphysique (libre arbitre).",
+            "Oublier la distinction kantienne entre liberté d'indifférence et autonomie."
+          ],
+          "summary": "Il existe plusieurs conceptions de la liberté : liberté d'indifférence (choix arbitraire), liberté d'autonomie (obéissance à la raison), liberté négative (absence d'obstacles). Il faut les distinguer selon le contexte."
+        },
+        {
+          "title": "Liberté et déterminisme",
+          "introduction": "Le déterminisme est la thèse selon laquelle tous les événements, y compris les actions humaines, sont causés par des antécédents qui les rendent nécessaires. Si le déterminisme est vrai, la liberté serait une illusion.",
+          "definition": "Le déterminisme affirme que tout événement a une cause qui le rend nécessaire. Il existe plusieurs formes : déterminisme physique (lois de la nature), déterminisme biologique (gènes), déterminisme psychologique (inconscient, caractère), déterminisme social (pression sociale).",
+          "explanation": "Spinoza est le représentant majeur du déterminisme : 'Les hommes se croient libres parce qu'ils ont conscience de leurs actions et ignorent les causes qui les déterminent.' Pour lui, comprendre les causes, c'est accéder à une forme de liberté (la liberté comme nécessité comprise). Les neurosciences modernes semblent confirmer que nos décisions sont précédées d'activités cérébrales inconscientes. Pourtant, l'expérience de la liberté est indéniable.",
+          "step_by_step": [
+            "Étape 1 : Exposez la thèse déterministe : tout a une cause, donc nos actions sont déterminées.",
+            "Étape 2 : Donnez des exemples de déterminismes (physique, biologique, psychologique, social).",
+            "Étape 3 : Montrez les conséquences : si le déterminisme est vrai, la responsabilité morale et la justice sont menacées.",
+            "Étape 4 : Opposez les arguments en faveur de la liberté (conscience, remords, capacité de choix)."
+          ],
+          "examples": [
+            "Exemple : Le déterminisme social (Durkheim) montre que le taux de suicide varie selon l'intégration sociale, ce qui suggère que même un acte apparemment personnel est déterminé par des causes sociales."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Spinoza, dans l'Éthique, soutient que la liberté n'est pas l'absence de détermination, mais la compréhension des causes. Un homme libre est celui qui agit par la connaissance de sa nature et des lois qui le régissent. Ainsi, le déterminisme n'est pas un obstacle à la liberté si l'on redéfinit la liberté comme autonomie rationnelle."
+          ],
+          "methods": [
+            "Pour traiter le sujet 'Le déterminisme constitue-t-il un obstacle à la liberté ?', montrez d'abord que oui, puis que non selon la conception de la liberté adoptée (liberté d'indifférence vs liberté d'autonomie)."
+          ],
+          "common_mistakes": [
+            "Croire que le déterminisme nie toute possibilité d'action (on peut agir même si l'action est déterminée).",
+            "Confondre déterminisme et fatalisme (le fatalisme dit que tout est écrit d'avance, ce qui est différent)."
+          ],
+          "summary": "Le déterminisme affirme que nos actions sont causées par des antécédents nécessaires. Il semble incompatible avec la liberté d'indifférence, mais peut l'être avec la liberté d'autonomie (Spinoza, Kant)."
+        },
+        {
+          "title": "Kant et la liberté comme autonomie",
+          "introduction": "Pour Kant, la véritable liberté n'est pas l'absence de contraintes ni le pouvoir de choisir arbitrairement, mais l'obéissance à la loi morale que notre raison se donne à elle-même. C'est l'autonomie.",
+          "definition": "L'autonomie (du grec auto = soi-même, nomos = loi) est la capacité de se donner à soi-même sa propre loi. Pour Kant, un homme est libre lorsqu'il agit par respect pour la loi morale, non par inclination ou par peur des conséquences.",
+          "explanation": "Kant distingue l'hétéronomie (obéir à une loi extérieure, comme la nature ou la société) de l'autonomie (obéir à la loi que la raison se donne). L'impératif catégorique est la formulation de cette loi : 'Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle.' Agir librement, c'est agir selon cette loi, non selon ses désirs. La liberté n'est donc pas l'absence de règle, mais le choix de la règle rationnelle.",
+          "step_by_step": [
+            "Étape 1 : Expliquez la distinction kantienne entre liberté d'indifférence (choix arbitraire) et liberté d'autonomie (obéissance à la raison).",
+            "Étape 2 : Présentez l'impératif catégorique comme la loi que la raison se donne.",
+            "Étape 3 : Montrez que cette conception résout le problème du déterminisme : la raison n'est pas soumise aux déterminismes naturels."
+          ],
+          "examples": [
+            "Exemple : Un commerçant qui ne vole pas ses clients par peur d'être puni n'est pas libre (il obéit à une contrainte extérieure). Il est libre s'il est honnête par respect pour la loi morale, sans attendre de récompense."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Kant, Fondements de la métaphysique des mœurs) : 'L'autonomie de la volonté est le principe unique de toutes les lois morales.' Cela signifie que la liberté n'est pas de faire ce qu'on veut, mais de vouloir ce que la raison commande. Le sage stoïcien est libre même en prison car il a intériorisé la loi morale."
+          ],
+          "methods": [
+            "Pour utiliser Kant dans une dissertation, montrez qu'il résout le problème du déterminisme en situant la liberté dans le domaine intelligible (la raison), non dans le domaine sensible (la nature)."
+          ],
+          "common_mistakes": [
+            "Confondre autonomie et indépendance (l'autonomie n'est pas l'absence de toute loi, mais l'auto-législation).",
+            "Croire que Kant nie toute contrainte (au contraire, la liberté suppose la contrainte sur les inclinations)."
+          ],
+          "summary": "Pour Kant, la liberté est autonomie : obéir à la loi que notre raison se donne. L'impératif catégorique en est l'expression. Cette conception échappe au déterminisme naturel."
+        },
+        {
+          "title": "Sartre et la liberté absolue",
+          "introduction": "Pour Sartre, l'homme est 'condamné à être libre'. Il n'y a pas de nature humaine prédéterminée ; l'existence précède l'essence.",
+          "definition": "Sartre soutient que l'homme n'a pas de nature fixe ; il se définit par ses actes. La liberté est totale, mais elle est angoissante car elle implique la responsabilité absolue.",
+          "explanation": "Contrairement à un objet (dont l'essence précède l'existence), l'homme naît sans essence prédéfinie. Il est 'projet' : il se fait par ses choix. Cette liberté est 'condamnation' car nous n'avons pas choisi d'être libres, et nous sommes responsables de tout ce que nous faisons. Le déterminisme est une 'mauvaise foi' : une excuse pour fuir notre responsabilité.",
+          "step_by_step": [
+            "Étape 1 : Posez la thèse sartrienne : 'L'existence précède l'essence'.",
+            "Étape 2 : Expliquez : nous naissons sans nature déterminée, nous nous définissons par nos actes.",
+            "Étape 3 : Montrez les conséquences : la liberté est totale, donc angoissante, et la responsabilité est absolue."
+          ],
+          "examples": [
+            "Exemple : Un lâche n'est pas lâche par nature ; il devient lâche par ses actes de lâcheté. Il peut toujours choisir de devenir courageux."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Sartre, L'Existentialisme est un humanisme) : 'L'homme est condamné à être libre. Condamné, parce qu'il ne s'est pas créé lui-même, et par ailleurs cependant libre, parce qu'une fois jeté dans le monde, il est responsable de tout ce qu'il fait.' Même le prisonnier de guerre est libre : il peut choisir de s'évader ou d'accepter sa captivité. La liberté n'est pas l'absence d'obstacles, mais la capacité de se projeter vers un avenir."
+          ],
+          "methods": [
+            "Pour critiquer Sartre, on peut objecter que la liberté absolue ignore les déterminismes sociaux, psychologiques et biologiques. L'enfant ne choisit pas sa famille, sa culture, son éducation."
+          ],
+          "common_mistakes": [
+            "Confondre la liberté sartrienne avec le fait de faire n'importe quoi (Sartre insiste sur la responsabilité).",
+            "Oublier que Sartre parle de 'condamnation' : la liberté n'est pas un cadeau, mais un fardeau."
+          ],
+          "summary": "Pour Sartre, l'homme n'a pas de nature ; il est totalement libre de se définir par ses actes. Cette liberté est angoissante et engage une responsabilité absolue."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Quelle est la différence entre liberté d'indifférence et liberté d'autonomie ?",
+          "solution": "La liberté d'indifférence est le pouvoir de choisir arbitrairement sans raison ; la liberté d'autonomie est l'obéissance à la loi morale que la raison se donne.",
+          "explanation": "Kant critique la liberté d'indifférence comme une liberté vide, et défend l'autonomie comme véritable liberté."
+        },
+        {
+          "question": "Citez la formule de Spinoza sur l'illusion de liberté.",
+          "solution": "Les hommes se croient libres parce qu'ils ont conscience de leurs actions et ignorent les causes qui les déterminent.",
+          "explanation": "Cette formule résume le déterminisme spinoziste : la liberté n'est qu'une ignorance des causes."
+        },
+        {
+          "question": "Pour Sartre, en quoi la liberté est-elle une 'condamnation' ?",
+          "solution": "Nous n'avons pas choisi d'être libres, et nous sommes responsables de tout ce que nous faisons, sans aucune excuse.",
+          "explanation": "L'absence de déterminisme signifie que nous ne pouvons rejeter la faute sur notre nature ou sur les circonstances."
+        }
+      ]
+    },
+    {
+      "chapter_title": "La morale",
+      "chapter_introduction": "La morale est l'ensemble des règles, valeurs et principes qui guident l'action humaine et permettent de distinguer le bien du mal. Mais d'où vient la morale ? Faut-il obéir à des règles extérieures ou suivre sa conscience ? Ce chapitre présente les grandes conceptions de la morale.",
+      "chapter_objectives": [
+        "Définir la morale et la distinguer de l'éthique",
+        "Connaître la morale du devoir (Kant) : impératif catégorique, autonomie",
+        "Connaître la morale du bonheur (Aristote, Épicure, utilitaristes)",
+        "Comprendre la morale des sentiments (Rousseau, Hume)",
+        "Savoir répondre aux sujets types : 'Suffit-il de respecter les règles sociales pour être moral ?'"
+      ],
+      "subchapters": [
+        {
+          "title": "Qu'est-ce que la morale ?",
+          "introduction": "La morale est une préoccupation universelle. Mais les philosophes ne s'accordent pas sur son origine, son contenu et son but.",
+          "definition": "La morale est l'ensemble des règles, valeurs et principes qui permettent de distinguer le bien du mal et de guider l'action. L'éthique est la réflexion philosophique sur la morale.",
+          "explanation": "Trois grandes familles de morales s'opposent : 1) Les morales du devoir (déontologiques) : une action est bonne si elle obéit à une règle, indépendamment de ses conséquences (Kant). 2) Les morales du bonheur (eudémonistes, utilitaristes) : une action est bonne si elle produit du bonheur (Aristote, Épicure, Bentham). 3) Les morales des sentiments : la morale vient des sentiments naturels comme la pitié (Rousseau) ou la sympathie (Hume).",
+          "step_by_step": [
+            "Étape 1 : Distinguez morale (pratique) et éthique (réflexion).",
+            "Étape 2 : Présentez les trois grandes conceptions.",
+            "Étape 3 : Pour chaque conception, donnez un auteur représentatif."
+          ],
+          "examples": [
+            "Exemple : La morale kantienne : 'Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle.'",
+            "Exemple : La morale aristotélicienne : le bonheur est l'activité de l'âme conforme à la vertu."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Le sujet 'Suffit-il de respecter les règles sociales pour être moral ?' appelle une réponse nuancée : pour Kant, non, car la morale est autonome ; pour Durkheim, oui, car les règles sociales intériorisées constituent la conscience morale. La bonne réponse est qu'il ne suffit pas de respecter les règles extérieurement ; il faut y adhérer intérieurement."
+          ],
+          "methods": [
+            "Pour traiter un sujet de morale, commencez par définir ce qu'est une action morale (intention, conséquence, règle).",
+            "Utilisez l'exemple du commerçant honnête (Kant) pour illustrer la différence entre agir par intérêt et par devoir."
+          ],
+          "common_mistakes": [
+            "Confondre morale et religion (la morale peut être laïque).",
+            "Réduire la morale à un ensemble d'interdits (elle comporte aussi des valeurs positives)."
+          ],
+          "summary": "La morale se divise en trois grandes conceptions : morale du devoir (Kant), morale du bonheur (Aristote), morale des sentiments (Rousseau)."
+        },
+        {
+          "title": "Kant et la morale du devoir",
+          "introduction": "Pour Kant, la seule chose qui est bonne sans restriction est une bonne volonté. La moralité ne dépend ni des conséquences, ni des sentiments, mais du respect du devoir.",
+          "definition": "Une action est morale si elle est faite par devoir, non par inclination. L'impératif catégorique est la loi morale universelle que la raison se donne : 'Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle.'",
+          "explanation": "Kant distingue les actions conformes au devoir (faites par intérêt) des actions faites par devoir (par respect pour la loi). Exemple : le commerçant honnête par peur de la faillite agit conformément au devoir, mais non par devoir. Il n'est pas moral. L'impératif catégorique ne comporte aucune condition : il commande inconditionnellement. Il s'oppose à l'impératif hypothétique ('si tu veux X, alors tu dois Y').",
+          "step_by_step": [
+            "Étape 1 : Posez la bonne volonté comme seule chose bonne sans restriction.",
+            "Étape 2 : Distinguez action par devoir et action conforme au devoir.",
+            "Étape 3 : Énoncez l'impératif catégorique.",
+            "Étape 4 : Expliquez l'autonomie : la loi morale est celle que la raison se donne."
+          ],
+          "examples": [
+            "Exemple : Aider son prochain par sympathie n'est pas moral pour Kant ; l'être moral est celui qui aide son prochain par devoir, même s'il n'en a pas envie."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Kant, Fondements de la métaphysique des mœurs) : 'L'autonomie de la volonté est le principe unique de toutes les lois morales.' Cela signifie que l'homme n'est vraiment libre que lorsqu'il obéit à la loi qu'il se donne à lui-même, non à une loi extérieure."
+          ],
+          "methods": [
+            "Pour critiquer Kant, on peut objecter que sa morale est trop rigoriste (elle exclut les sentiments) et qu'elle ne donne pas de solution quand les devoirs entrent en conflit."
+          ],
+          "common_mistakes": [
+            "Confondre impératif catégorique et impératif hypothétique.",
+            "Croire que Kant nie l'importance des conséquences (il ne les ignore pas, mais elles ne définissent pas la moralité)."
+          ],
+          "summary": "Pour Kant, la morale est l'affaire du devoir. Une action n'est morale que si elle est faite par respect pour la loi universelle que la raison se donne, non par intérêt ou par inclination."
+        },
+        {
+          "title": "Aristote et la morale du bonheur",
+          "introduction": "Pour Aristote, le bien suprême est le bonheur (eudaimonia). Mais le bonheur n'est pas le plaisir : c'est l'activité de l'âme conforme à la vertu.",
+          "definition": "L'eudémonisme (du grec eudaimonia, bonheur) est la doctrine selon laquelle le but de la vie est le bonheur. Pour Aristote, le bonheur consiste à vivre conformément à la raison, en exerçant les vertus (courage, tempérance, justice, prudence).",
+          "explanation": "Aristote rejette l'identification du bonheur au plaisir (épicurisme vulgaire) ou à l'honneur. Le bonheur est une activité, non un état. Il s'agit d'agir conformément à la vertu. La vertu est un juste milieu entre deux vices (ex : courage entre lâcheté et témérité). Le bonheur suppose aussi des biens extérieurs (santé, amis, richesse) mais ceux-ci ne sont pas le but.",
+          "step_by_step": [
+            "Étape 1 : Définissez l'eudémonisme : le bonheur est le souverain bien.",
+            "Étape 2 : Expliquez que le bonheur aristotélicien est l'activité de l'âme conforme à la vertu.",
+            "Étape 3 : Présentez la doctrine du juste milieu.",
+            "Étape 4 : Montrez le rôle des biens extérieurs."
+          ],
+          "examples": [
+            "Exemple : Le courage est le juste milieu entre la lâcheté (manque de courage) et la témérité (excès de courage)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Aristote, Éthique à Nicomaque) : 'Le bonheur est une activité de l'âme en accord avec la vertu parfaite.' Il ne s'agit pas de contempler passivement, mais d'agir. Un homme heureux est celui qui exerce sa raison dans des actions vertueuses, sur une vie entière."
+          ],
+          "methods": [
+            "Pour comparer Kant et Aristote, montrez que Kant met l'accent sur l'intention (devoir), Aristote sur la finalité (bonheur)."
+          ],
+          "common_mistakes": [
+            "Confondre la conception aristotélicienne du bonheur avec l'hédonisme (recherche du plaisir).",
+            "Croire qu'Aristote réduit la morale à un calcul d'intérêt."
+          ],
+          "summary": "Pour Aristote, le bonheur est l'activité de l'âme conforme à la vertu. La vertu est un juste milieu. Le bonheur est la fin ultime de l'action humaine."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Quelle est la différence entre agir par devoir et agir conformément au devoir (Kant) ?",
+          "solution": "Agir par devoir, c'est agir par respect pour la loi morale ; agir conformément au devoir, c'est faire la même action mais par intérêt (peur, désir de récompense).",
+          "explanation": "Seule l'action par devoir est morale aux yeux de Kant."
+        },
+        {
+          "question": "Pour Aristote, en quoi consiste la vertu ?",
+          "solution": "La vertu est un juste milieu entre deux vices : l'excès et le défaut.",
+          "explanation": "Exemple : le courage est le milieu entre la lâcheté et la témérité."
+        },
+        {
+          "question": "Citez la formule de l'impératif catégorique.",
+          "solution": "Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle.",
+          "explanation": "C'est le principe fondamental de la morale kantienne."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Nature et culture",
+      "chapter_introduction": "L'opposition entre nature et culture est fondamentale pour comprendre l'homme. La nature renvoie à ce qui est inné, universel, déterminé par les gènes. La culture renvoie à ce qui est acquis, variable selon les sociétés, transmis par l'éducation. Mais cette opposition est-elle si tranchée ?",
+      "chapter_objectives": [
+        "Définir la nature et la culture",
+        "Comprendre le débat : l'homme est-il naturellement bon (Rousseau) ou mauvais (Hobbes) ?",
+        "Connaître la thèse de Rousseau sur l'inégalité : les inégalités sont culturelles, non naturelles",
+        "Savoir que la culture est ce qui permet à l'homme de dépasser sa nature"
+      ],
+      "subchapters": [
+        {
+          "title": "Distinction nature/culture",
+          "introduction": "Ce qui est naturel est inné, universel, nécessaire. Ce qui est culturel est acquis, variable, contingent. L'homme est à la fois un être de nature (biologique) et un être de culture.",
+          "definition": "La nature est l'ensemble des caractères innés, transmis par l'hérédité, communs à tous les hommes. La culture est l'ensemble des comportements, croyances, techniques, arts, transmis par l'apprentissage social, variables selon les sociétés.",
+          "explanation": "Les besoins physiologiques (manger, boire, dormir) sont naturels. La manière de les satisfaire (cuisine, rituels) est culturelle. Le langage est une capacité naturelle (organes de la parole) mais les langues sont culturelles. Claude Lévi-Strauss montre que même les tabous alimentaires, l'organisation familiale, les mythes sont culturels, mais ils obéissent à des structures universelles (naturelles) de l'esprit humain.",
+          "step_by_step": [
+            "Étape 1 : Listez ce qui relève de la nature (instincts, besoins vitaux, universalité).",
+            "Étape 2 : Listez ce qui relève de la culture (coutumes, langues, techniques, valeurs).",
+            "Étape 3 : Montrez que certains comportements sont à la frontière (ex : l'alimentation a une base naturelle et une expression culturelle)."
+          ],
+          "examples": [
+            "Exemple : La peur est naturelle ; ce que l'on craint est culturel (un serpent peut être craint ou vénéré selon les sociétés)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Rousseau, Discours sur l'origine de l'inégalité) : 'Il est aisé de voir qu'entre les différences qui distinguent les hommes, plusieurs passent pour naturelles qui sont uniquement l'ouvrage de l'habitude et des divers genres de vie.' Rousseau montre que ce que nous croyons naturel (force, faiblesse, intelligence) est en grande partie le produit de l'éducation et du milieu social."
+          ],
+          "methods": [
+            "Pour traiter le sujet 'Quelle est la part de la nature et celle de la culture dans le comportement humain ?', montrez que les deux sont intriquées : la nature fournit des potentialités, la culture les actualise."
+          ],
+          "common_mistakes": [
+            "Confondre 'naturel' et 'normal' (ce qui est culturel peut sembler naturel parce qu'il est habituel).",
+            "Opposer radicalement nature et culture (elles sont en interaction)."
+          ],
+          "summary": "La nature est l'inné, l'universel ; la culture est l'acquis, le variable. L'homme est à la fois naturel et culturel."
+        },
+        {
+          "title": "Rousseau et l'inégalité",
+          "introduction": "Rousseau est célèbre pour avoir montré que les inégalités entre les hommes ne viennent pas de la nature mais de la société. C'est la thèse du Discours sur l'origine de l'inégalité.",
+          "definition": "Rousseau soutient que l'homme à l'état de nature est bon et égal. Les inégalités (richesse, pouvoir) sont créées par l'institution de la propriété privée et le développement de la société civile.",
+          "explanation": "Dans l'état de nature, les hommes vivent isolés, sans propriété, sans société. Ils ne connaissent ni l'orgueil, ni l'envie, ni la rivalité. Les inégalités naturelles (force, intelligence) n'ont pas de conséquences sociales. C'est l'institution de la propriété ('Ceci est à moi') qui crée la société civile et avec elle l'inégalité, la domination, l'exploitation. Rousseau ne prône pas un retour à l'état de nature, mais une organisation sociale juste (contrat social) qui rétablisse l'égalité.",
+          "step_by_step": [
+            "Étape 1 : Exposez l'état de nature rousseauiste : homme bon, libre, égal.",
+            "Étape 2 : Montrez comment la propriété privée crée l'inégalité.",
+            "Étape 3 : Distinguez inégalités naturelles (physiques) et inégalités sociales (artificielles).",
+            "Étape 4 : Concluez que les inégalités sociales sont culturelles, non naturelles."
+          ],
+          "examples": [
+            "Exemple : Les différences de richesse ne sont pas inscrites dans la nature ; elles résultent de l'histoire et des lois."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Rousseau, Discours sur l'origine de l'inégalité) : 'Le premier qui, ayant enclos un terrain, s'avisa de dire : Ceci est à moi, et trouva des gens assez simples pour le croire, fut le vrai fondateur de la société civile.' L'inégalité n'est donc pas naturelle mais historique."
+          ],
+          "methods": [
+            "Pour critiquer Rousseau, on peut objecter que certaines inégalités (intelligence, santé) sont naturelles et que la société ne peut les effacer totalement."
+          ],
+          "common_mistakes": [
+            "Confondre l'état de nature rousseauiste avec l'état de nature hobbesien (guerre de tous contre tous).",
+            "Croire que Rousseau prône un retour à l'état de nature (il veut une société juste, pas un retour à la bestialité)."
+          ],
+          "summary": "Rousseau montre que les inégalités sociales sont artificielles, créées par la propriété et la société. L'homme à l'état de nature est égal."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Qu'est-ce qui distingue la nature de la culture ?",
+          "solution": "La nature est innée, universelle, transmise par les gènes ; la culture est acquise, variable, transmise par l'éducation.",
+          "explanation": "Exemple : la faim est naturelle, les manières de table sont culturelles."
+        },
+        {
+          "question": "Pour Rousseau, quelle est l'origine des inégalités sociales ?",
+          "solution": "L'origine est la propriété privée et l'institution de la société civile.",
+          "explanation": "Rousseau : 'Le premier qui, ayant enclos un terrain, s'avisa de dire : Ceci est à moi, fut le vrai fondateur de la société civile.'"
+        }
+      ]
+    },
+    {
+      "chapter_title": "Auteurs incontournables",
+      "chapter_introduction": "Le baccalauréat exige la connaissance d'un certain nombre d'auteurs. Cette section présente les plus fréquents avec leurs idées clés, leurs œuvres majeures et des citations utiles.",
+      "chapter_objectives": [
+        "Connaître les dates et œuvres principales de Platon, Aristote, Descartes, Kant, Rousseau, Spinoza, Freud",
+        "Maîtriser les concepts clés de chaque auteur",
+        "Savoir citer une phrase célèbre de chacun",
+        "Associer chaque auteur aux thèmes où il est mobilisable"
+      ],
+      "subchapters": [
+        {
+          "title": "Platon (427-347 av. J.-C.)",
+          "introduction": "Platon est le fondateur de la philosophie occidentale. Élève de Socrate, il a développé une théorie des Idées qui a influencé toute la philosophie.",
+          "definition": "Pour Platon, le monde sensible (que nous voyons) n'est qu'une copie imparfaite du monde intelligible (celui des Idées). La vérité s'atteint par la dialectique, non par les sens. L'allégorie de la caverne illustre cette conception.",
+          "explanation": "Platon oppose le monde des apparences (la caverne) au monde des Idées (le soleil). Les hommes enchaînés dans la caverne ne voient que des ombres ; le philosophe est celui qui sort de la caverne et contemple les Idées. La justice, la beauté, la bonté existent comme Idées parfaites. La philosophie est une conversion du regard, un détournement des sens vers l'intelligible.",
+          "step_by_step": [
+            "Étape 1 : Distinguez monde sensible et monde intelligible.",
+            "Étape 2 : Expliquez l'allégorie de la caverne.",
+            "Étape 3 : Montrez le rôle de la dialectique pour accéder aux Idées."
+          ],
+          "examples": [
+            "Exemple : L'Idée de justice est parfaite et éternelle ; les actes justes dans le monde sensible ne sont que des imitations imparfaites de cette Idée."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (La République, livre VII) : 'Figure-toi des hommes dans une demeure souterraine, en forme de caverne, ayant depuis l'enfance des chaînes aux jambes et au cou.' Les prisonniers ne voient que des ombres projetées sur le mur. L'un d'eux est délivré ; il sort, voit les vraies choses, puis le soleil (l'Idée du Bien). S'il retourne dans la caverne, il aura du mal à s'adapter et sera ridiculisé. C'est l'image du philosophe."
+          ],
+          "methods": [
+            "Mobilisez Platon pour les sujets sur la vérité, la connaissance, l'éducation, la politique (la cité juste)."
+          ],
+          "common_mistakes": [
+            "Confondre la théorie des Idées avec le spiritualisme vague.",
+            "Oublier que Platon n'est pas un idéaliste au sens moderne (les Idées existent réellement)."
+          ],
+          "summary": "Platon oppose le monde sensible (apparences) au monde intelligible (Idées). L'allégorie de la caverne illustre la démarche philosophique. À connaître pour la vérité et la connaissance."
+        },
+        {
+          "title": "Aristote (384-322 av. J.-C.)",
+          "introduction": "Aristote, élève de Platon, a fondé la logique et l'éthique des vertus. Il s'oppose à son maître sur la théorie des Idées.",
+          "definition": "Aristote est le père de la logique (syllogisme). En métaphysique, il critique la théorie des Idées : les Idées ne sont pas séparées des choses. En éthique, le souverain bien est le bonheur (eudémonia), obtenu par l'exercice des vertus (juste milieu).",
+          "explanation": "Pour Aristote, la vertu est une disposition acquise à choisir le juste milieu entre deux vices. Le bonheur n'est pas un état passif, mais une activité de l'âme conforme à la raison. L'homme est un 'animal politique' : il ne peut vivre pleinement qu'en société. La logique aristotélicienne (syllogisme) a dominé jusqu'au XIXe siècle.",
+          "step_by_step": [
+            "Étape 1 : Présentez la critique des Idées platoniciennes.",
+            "Étape 2 : Expliquez l'eudémonisme (bonheur comme activité vertueuse).",
+            "Étape 3 : Donnez des exemples de vertus comme juste milieu."
+          ],
+          "examples": [
+            "Exemple : Le courage est le milieu entre la lâcheté et la témérité ; la générosité entre l'avarice et la prodigalité."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Éthique à Nicomaque) : 'Le bonheur est une activité de l'âme en accord avec la vertu parfaite.' Il ne suffit pas d'avoir des vertus, il faut les exercer dans des actions. Le bonheur se vit sur une vie entière, non à un instant."
+          ],
+          "methods": [
+            "Mobilisez Aristote pour les sujets sur le bonheur, la vertu, la politique, la logique."
+          ],
+          "common_mistakes": [
+            "Confondre l'eudémonisme aristotélicien avec l'hédonisme (recherche du plaisir).",
+            "Oublier que la vertu est un juste milieu, non une moyenne arithmétique."
+          ],
+          "summary": "Aristote défend une morale du bonheur par la vertu, conçue comme un juste milieu. Il est aussi le père de la logique et de la politique comme science."
+        },
+        {
+          "title": "Descartes (1596-1650)",
+          "introduction": "Descartes est le père de la philosophie moderne. Il a fondé le rationalisme et le dualisme de l'âme et du corps.",
+          "definition": "Descartes est célèbre pour son doute méthodique et le 'Cogito ergo sum' (Je pense, donc je suis). Il distingue l'âme (pensée) du corps (étendue). Il a également formulé des preuves de l'existence de Dieu.",
+          "explanation": "Le doute cartésien est hyperbolique : il doute de tout ce qui peut être douteux (sens, rêve, tromperie divine). Mais il découvre une certitude : 'Je pense, donc je suis'. La pensée est l'attribut essentiel de l'âme. L'âme est distincte du corps (dualisme). Dieu est garant de la vérité des idées claires et distinctes. Descartes a aussi contribué aux mathématiques (coordonnées cartésiennes).",
+          "step_by_step": [
+            "Étape 1 : Exposez le doute méthodique (pourquoi douter).",
+            "Étape 2 : Montrez comment le cogito échappe au doute.",
+            "Étape 3 : Expliquez le dualisme âme-corps.",
+            "Étape 4 : Présentez le rôle de Dieu dans la garantie de la vérité."
+          ],
+          "examples": [
+            "Exemple : 'Je pense, donc je suis' : même si je doute de tout, je ne peux pas douter que je doute, donc que je pense, donc que j'existe comme être pensant."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Discours de la méthode) : 'Le bon sens est la chose du monde la mieux partagée.' Descartes affirme que la raison est égale chez tous ; ce qui diffère, c'est l'usage qu'on en fait. La méthode (diviser, ordonner, énumérer) permet de bien conduire sa raison."
+          ],
+          "methods": [
+            "Mobilisez Descartes pour les sujets sur la connaissance, la méthode, l'âme, le doute, la liberté (liberté d'indifférence)."
+          ],
+          "common_mistakes": [
+            "Confondre le doute cartésien (méthodique) avec le scepticisme (doute permanent).",
+            "Oublier que le cogito est une certitude, non un simple raisonnement."
+          ],
+          "summary": "Descartes fonde la philosophie sur le doute méthodique et la certitude du 'cogito'. Il distingue l'âme pensante du corps étendu. C'est le père du rationalisme moderne."
+        },
+        {
+          "title": "Kant (1724-1804)",
+          "introduction": "Kant est le philosophe de la critique. Il a opéré une révolution copernicienne en philosophie : ce n'est pas l'esprit qui s'adapte aux choses, mais les choses qui s'adaptent à l'esprit.",
+          "definition": "Kant est l'auteur des trois Critiques (Critique de la raison pure, Critique de la raison pratique, Critique de la faculté de juger). Il a posé les limites de la connaissance (phénomènes / noumènes) et fondé la morale sur l'autonomie et l'impératif catégorique.",
+          "explanation": "Dans la Critique de la raison pure, Kant montre que nous ne connaissons que les phénomènes (les choses telles qu'elles nous apparaissent), non les noumènes (les choses en soi). L'espace et le temps sont des formes a priori de la sensibilité. Dans la Critique de la raison pratique, il pose la loi morale comme impératif catégorique. L'homme est libre quand il obéit à la loi qu'il se donne (autonomie).",
+          "step_by_step": [
+            "Étape 1 : Expliquez la révolution copernicienne de Kant.",
+            "Étape 2 : Distinguez phénomène et noumène.",
+            "Étape 3 : Présentez l'impératif catégorique et l'autonomie.",
+            "Étape 4 : Montrez l'importance de la raison pratique."
+          ],
+          "examples": [
+            "Exemple : Nous ne connaissons jamais la chose en soi, mais seulement ses manifestations (phénomènes) structurées par nos cadres de perception (espace, temps, catégories)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Qu'est-ce que les Lumières ?) : 'Sapere aude ! Aie le courage de te servir de ton propre entendement !' Kant définit les Lumières comme la sortie de l'homme de sa minorité, c'est-à-dire de l'incapacité de se servir de sa raison sans la direction d'autrui."
+          ],
+          "methods": [
+            "Mobilisez Kant pour les sujets sur la liberté, la morale, les Lumières, la connaissance, l'éducation."
+          ],
+          "common_mistakes": [
+            "Confondre phénomène et noumène (le phénomène est ce qui apparaît, le noumène est la chose en soi).",
+            "Réduire Kant à la morale (sa philosophie théorique est tout aussi importante)."
+          ],
+          "summary": "Kant a opéré une révolution copernicienne : l'esprit impose ses formes aux phénomènes. Il a fondé la morale sur l'autonomie et l'impératif catégorique. C'est l'auteur le plus important du bac."
+        },
+        {
+          "title": "Rousseau (1712-1778)",
+          "introduction": "Rousseau est le philosophe de la nature, de l'éducation et du contrat social. Il a profondément influencé la pensée politique et pédagogique.",
+          "definition": "Rousseau soutient que l'homme est naturellement bon et que c'est la société qui le corrompt. Il critique la propriété privée comme source d'inégalité. Il propose un contrat social fondé sur la volonté générale pour concilier liberté et obéissance à la loi.",
+          "explanation": "Dans le Discours sur l'origine de l'inégalité, Rousseau montre que l'homme à l'état de nature est libre, égal, bon. L'institution de la propriété crée l'inégalité, la guerre, l'exploitation. Dans Du contrat social, il cherche un principe d'association qui défende la personne et les biens de chaque associé tout en permettant à chacun d'obéir à lui-même (autonomie). La volonté générale est la volonté du peuple souverain, distincte de la somme des volontés particulières.",
+          "step_by_step": [
+            "Étape 1 : Présentez l'état de nature rousseauiste (homme bon, libre, égal).",
+            "Étape 2 : Montrez comment la propriété crée l'inégalité.",
+            "Étape 3 : Expliquez la solution du contrat social : la volonté générale.",
+            "Étape 4 : Évoquez l'éducation dans l'Émile (éducation négative, naturelle)."
+          ],
+          "examples": [
+            "Exemple : 'L'homme est né libre, et partout il est dans les fers' (Du contrat social)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Émile) : 'Tout est bien sortant des mains de l'Auteur des choses, tout dégénère entre les mains de l'homme.' Rousseau critique l'éducation traditionnelle qui dénature l'enfant. Il propose une éducation 'négative' : ne pas enseigner, mais laisser l'enfant se développer selon sa nature."
+          ],
+          "methods": [
+            "Mobilisez Rousseau pour les sujets sur la liberté, l'inégalité, l'éducation, la politique (contrat social), la nature et la culture."
+          ],
+          "common_mistakes": [
+            "Confondre volonté générale et volonté de tous (la volonté générale vise l'intérêt commun, la volonté de tous est la somme des intérêts particuliers).",
+            "Croire que Rousseau prône un retour à l'état de nature (il veut une société juste, pas un retour à la bestialité)."
+          ],
+          "summary": "Rousseau est le philosophe de la bonté naturelle de l'homme, de la critique de l'inégalité et du contrat social. Il a aussi révolutionné la pédagogie."
+        },
+        {
+          "title": "Spinoza (1632-1677)",
+          "introduction": "Spinoza est le philosophe du déterminisme et de la liberté comme compréhension des causes. Il a développé une philosophie radicale qui a été longtemps censurée.",
+          "definition": "Spinoza soutient que tout ce qui existe est en Dieu (pantheïsme). Il rejette le libre arbitre : les hommes se croient libres parce qu'ils ignorent les causes de leurs actions. La liberté consiste à comprendre les causes et à agir par raison.",
+          "explanation": "Dans l'Éthique, Spinoza démontre géométriquement que Dieu est la substance unique, infinie, cause de tout. Les hommes ne sont pas des empires dans des empires : ils obéissent aux lois de la nature. Le libre arbitre est une illusion. La liberté est la puissance d'agir selon sa nature, c'est-à-dire selon la raison. L'homme libre est celui qui comprend les causes de ses actions et agit par nécessité intérieure.",
+          "step_by_step": [
+            "Étape 1 : Exposez le déterminisme spinoziste (tout a une cause).",
+            "Étape 2 : Citez la formule sur l'illusion de liberté.",
+            "Étape 3 : Définissez la liberté comme compréhension des causes.",
+            "Étape 4 : Montrez le rôle de la raison dans l'éthique spinoziste."
+          ],
+          "examples": [
+            "Exemple : 'Les hommes se croient libres parce qu'ils ont conscience de leurs actions et ignorent les causes qui les déterminent.' (Éthique)"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Traité politique) : 'La paix ne consiste pas dans l'absence de guerre, mais dans l'union des âmes.' Spinoza défend un État démocratique qui garantit la liberté de penser."
+          ],
+          "methods": [
+            "Mobilisez Spinoza pour les sujets sur la liberté, le déterminisme, la politique, la religion."
+          ],
+          "common_mistakes": [
+            "Confondre le dieu de Spinoza (immanent) avec le dieu transcendant des religions.",
+            "Croire que Spinoza nie toute liberté (il la redéfinit comme nécessité comprise)."
+          ],
+          "summary": "Spinoza est déterministe : les hommes s'illusionnent sur leur liberté. La vraie liberté est la compréhension des causes et l'action par raison. Son éthique est fondée sur la joie et la puissance d'agir."
+        },
+        {
+          "title": "Freud (1856-1939)",
+          "introduction": "Freud est le fondateur de la psychanalyse. Il a découvert l'inconscient et montré son importance dans la vie psychique.",
+          "definition": "Freud a élaboré une théorie de l'inconscient (refoulement, pulsions, ça/moi/surmoi) et une méthode d'investigation (association libre, interprétation des rêves). Il a montré que l'homme n'est pas maître dans sa propre maison.",
+          "explanation": "Freud distingue le conscient (ce dont nous avons conscience), le préconscient (ce qui peut devenir conscient) et l'inconscient (refoulé, inaccessible). Les rêves, les actes manqués (lapsus), les symptômes névrotiques sont des formations de l'inconscient. Le ça est le réservoir des pulsions, le moi est le médiateur avec la réalité, le surmoi est l'intériorisation des interdits parentaux. La psychanalyse vise à rendre conscient l'inconscient pour guérir les névroses.",
+          "step_by_step": [
+            "Étape 1 : Présentez la découverte de l'inconscient.",
+            "Étape 2 : Expliquez la première topique (conscient/préconscient/inconscient).",
+            "Étape 3 : Expliquez la seconde topique (ça/moi/surmoi).",
+            "Étape 4 : Montrez les applications (rêves, lapsus, symptômes)."
+          ],
+          "examples": [
+            "Exemple : L'inconscient est 'pareil à un grand cercle qui enfermerait le conscient' (Freud)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (L'Interprétation des rêves) : Le rêve est 'la voie royale vers la connaissance de l'inconscient'. Les rêves sont des réalisations déguisées de désirs refoulés. L'analyse permet de remonter du contenu manifeste au contenu latent."
+          ],
+          "methods": [
+            "Mobilisez Freud pour les sujets sur la conscience, l'inconscient, la liberté, la culture (Malaise dans la civilisation), la religion."
+          ],
+          "common_mistakes": [
+            "Confondre inconscient et subconscient (le subconscient n'est pas un concept freudien).",
+            "Réduire la psychanalyse à la sexualité (Freud a aussi étudié la culture, la religion, l'art)."
+          ],
+          "summary": "Freud a découvert l'inconscient, instance psychique qui échappe à la conscience et détermine en partie nos comportements. Ses concepts de ça/moi/surmoi et d'interprétation des rêves sont fondamentaux."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Qui a dit 'Je pense, donc je suis' ?",
+          "solution": "Descartes.",
+          "explanation": "Cette formule est le fondement du cogito cartésien."
+        },
+        {
+          "question": "Quel est le principe de l'impératif catégorique ?",
+          "solution": "Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle.",
+          "explanation": "C'est la formulation kantienne de la loi morale."
+        },
+        {
+          "question": "Quelle est la thèse de Rousseau sur l'inégalité ?",
+          "solution": "L'inégalité sociale est artificielle, créée par la propriété privée, non par la nature.",
+          "explanation": "Rousseau s'oppose à ceux qui justifient l'inégalité par des différences naturelles."
+        },
+        {
+          "question": "Pour Spinoza, en quoi consiste la liberté ?",
+          "solution": "La liberté consiste à comprendre les causes qui nous déterminent et à agir par raison.",
+          "explanation": "Spinoza redéfinit la liberté comme nécessité comprise."
+        }
+      ]
+    }
+  ]
+}

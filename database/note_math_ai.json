@@ -1,0 +1,2840 @@
+{
+  "subject": "maths",
+  "source_file": "note_math.json",
+  "total_blocks": 201,
+  "blocks": [
+    {
+      "id": "maths_fonctions_numériques_intro",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions numériques",
+      "type": "chapter_summary",
+      "content": "Les fonctions numériques sont des outils essentiels pour modéliser des phénomènes physiques, économiques ou biologiques. Dans ce chapitre, vous apprendrez à déterminer l'ensemble des valeurs pour lesquelles une fonction est définie, à étudier son comportement aux bornes (limites), à calculer sa dérivée pour connaître ses variations, à dresser son tableau de variation, à identifier ses asymptotes, à trouver l'équation de sa tangente, et à reconnaître ses symétries (parité).\n\nObjectifs :\n- Déterminer le domaine de définition d'une fonction\n- Calculer des limites et lever les formes indéterminées\n- Maîtriser les techniques de dérivation\n- Construire un tableau de variation complet\n- Identifier les asymptotes verticales, horizontales et obliques\n- Écrire l'équation de la tangente en un point\n- Reconnaître les fonctions paires, impaires et les symétries",
+      "level": 1,
+      "tags": [
+        "maths",
+        "fonctions numériques"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_def",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "definition",
+      "content": "Le domaine de définition D_f de f est l'ensemble des réels x pour lesquels f(x) est un nombre réel bien défini.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_exp",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "explanation",
+      "content": "Cinq situations rendent une fonction non définie : racine carrée d'un négatif, logarithme d'un nombre ≤ 0, division par zéro, combinaisons de ces cas. Pour une fonction composée, on prend l'intersection des conditions de chaque composant.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "method",
+      "content": "Identifier toutes les expressions problématiques : racines carrées, logarithmes, dénominateurs.\nÉcrire la condition pour chaque bloc : √u → u ≥ 0 ; ln(u) → u > 0 ; 1/u → u ≠ 0.\nRésoudre chaque inéquation/équation séparément.\nPrendre l'intersection (ET) de toutes les conditions.\nExprimer le domaine sous forme d'intervalles ou de réunion d'intervalles.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_exa",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "examples",
+      "content": "f(x) = √(x-3) → x-3 ≥ 0 → D_f = [3 ; +∞[\nf(x) = ln(2x-6) → 2x-6 > 0 → D_f = ]3 ; +∞[\nf(x) = (x+2)/(x-5) → x-5 ≠ 0 → D_f = ℝ \\ {5}",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_det",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "detailed_examples",
+      "content": "f(x) = ln(2x/(x+1)) → conditions : 2x/(x+1) > 0 → D_f = ]-∞ ; -1[ ∪ ]0 ; +∞[\nf(x) = ln((x+3)/(x-1)) + √(x-2) → (x+3)/(x-1) > 0 et x-2 ≥ 0 → D_f = [2 ; +∞[",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "methods",
+      "content": "Racine carrée √u : u ≥ 0\nLogarithme ln(u) : u > 0\nDivision (u/v) : v ≠ 0\nExponentielle e^u : toujours définie sur ℝ\nCombinaison : prendre l'intersection des conditions",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_com",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "common_mistakes",
+      "content": "Confondre >0 et ≥0 pour le logarithme (ln(0) n'est pas défini)\nPrendre l'union au lieu de l'intersection des conditions\nOublier que le dénominateur ne doit pas être nul même si une racine ou un logarithme est présent",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_domaine_de_définition_sum",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Domaine de définition",
+      "type": "summary",
+      "content": "Pour trouver le domaine, identifier chaque bloc problématique (racine, log, fraction), écrire sa condition, puis intersecter toutes les conditions.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "domaine de définition"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_def",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "definition",
+      "content": "La limite de f(x) quand x tend vers a (éventuellement ±∞) est la valeur que f(x) approche sans nécessairement l'atteindre.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_exp",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "explanation",
+      "content": "On utilise les limites pour trouver des asymptotes, étudier la continuité, et compléter les tableaux de variation. Les formes indéterminées (0/0, ∞/∞, ∞-∞, 0×∞) nécessitent des techniques de factorisation, terme dominant, croissances comparées, etc.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "method",
+      "content": "Essayer la substitution directe de la valeur de x.\nSi le résultat est un nombre réel, c'est la limite.\nSi on obtient une forme indéterminée (0/0, ∞/∞, etc.), choisir une technique : factorisation, division par le terme de plus haut degré, règle de l'Hôpital (si connue), ou croissances comparées.\nSimplifier l'expression puis appliquer la limite.\nVérifier les limites à gauche et à droite si nécessaire (pour les points où la fonction change de définition).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_exa",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "examples",
+      "content": "lim_{x→2} (x²-4)/(x-2) = lim (x-2)(x+2)/(x-2) = 4\nlim_{x→+∞} (3x²+5x-1)/(2x²-7) = 3/2 (diviser par x²)\nlim_{x→-∞} x² e^x = 0 (croissance comparée)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_det",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "detailed_examples",
+      "content": "lim_{x→+∞} (4e^x+3)/(e^x+2) = 4 (diviser par e^x)\nlim_{x→+∞} ln(2x/(x+1)) = ln 2\nlim_{x→0⁺} (x+ln x) = -∞",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "methods",
+      "content": "Polynôme : terme dominant\nFraction rationnelle : diviser par le terme de plus haut degré\nExponentielle : e^x domine toute puissance de x\nLogarithme : toute puissance de x domine ln x\nForme 0/0 : factoriser et simplifier",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_com",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "common_mistakes",
+      "content": "Croire que ln(0) = 0 alors que c'est -∞\nNe pas reconnaître une forme indéterminée\nAppliquer directement la limite sans simplifier",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_limites_sum",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Limites",
+      "type": "summary",
+      "content": "Les limites s'obtiennent souvent par substitution directe ; si forme indéterminée, utiliser factorisation, terme dominant ou croissances comparées.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "limites"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_def",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "definition",
+      "content": "La dérivée f'(x) est la limite du taux d'accroissement. Si f'(x) > 0, f est croissante ; si f'(x) < 0, f est décroissante.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_exp",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "explanation",
+      "content": "On calcule la dérivée à l'aide des formules de base (puissance, exponentielle, logarithme) et des règles de calcul (somme, produit, quotient, composition).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "method",
+      "content": "Identifier la forme de la fonction (somme, produit, quotient, composée).\nAppliquer la règle correspondante : (u+v)' = u'+v' ; (uv)' = u'v+uv' ; (u/v)' = (u'v-uv')/v² ; (u∘v)' = u'(v)×v'.\nUtiliser les dérivées des fonctions usuelles : (xⁿ)' = n xⁿ⁻¹, (eˣ)' = eˣ, (ln x)' = 1/x, etc.\nSimplifier l'expression obtenue.\nPréciser le domaine de dérivabilité (identique au domaine de définition, sauf points singuliers).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_exa",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "examples",
+      "content": "f(x) = 3x⁴ - 2x² + 5x - 1 → f'(x) = 12x³ - 4x + 5\nf(x) = e^{2x} → f'(x) = 2e^{2x}\nf(x) = ln(2x-5) → f'(x) = 2/(2x-5)\nf(x) = x e^x → f'(x) = e^x(1+x)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_det",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "detailed_examples",
+      "content": "f(x) = e^{2x} - 4e^x + 3 → f'(x) = 2e^{2x} - 4e^x = 2e^x(e^x-2)\nf(x) = ln(3x/(x+2)) → f'(x) = 2/(x(x+2))\nf(x) = (2e^x+1)/(e^x-3) → f'(x) = -7e^x/(e^x-3)²",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "methods",
+      "content": "Dérivée de uⁿ : n u^{n-1} u'\nDérivée de e^u : u' e^u\nDérivée de ln u : u'/u\nProduit : (uv)' = u'v + uv'\nQuotient : (u/v)' = (u'v - uv')/v²",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_com",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "common_mistakes",
+      "content": "Oublier la dérivée de la fonction intérieure (règle de chaîne)\nConfondre dérivée de ln(u) avec 1/u\nNégliger les conditions de domaine (ex: dérivée de √x seulement pour x>0)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_dérivées_sum",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Dérivées",
+      "type": "summary",
+      "content": "Maîtriser les dérivées des fonctions usuelles et les règles de calcul permet d'étudier les variations de n'importe quelle fonction.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "dérivées"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_def",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "definition",
+      "content": "C'est un tableau qui indique, pour chaque intervalle du domaine, le signe de la dérivée et la monotonie de f (croissante ou décroissante), ainsi que les valeurs aux bornes.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_exp",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "explanation",
+      "content": "Étapes : 1) Calculer f'(x) et simplifier. 2) Trouver les zéros de f'. 3) Étudier le signe de f' sur chaque intervalle. 4) Calculer f(x) aux points critiques et aux bornes. 5) Dresser le tableau.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "method",
+      "content": "Déterminer le domaine de définition de f.\nCalculer f'(x) et la factoriser au maximum.\nTrouver les valeurs où f'(x)=0 et les valeurs interdites (domaine).\nConstruire un tableau de signes pour f'(x) sur chaque intervalle.\nEn déduire le sens de variation (flèches montantes si f'>0, descendantes si f'<0).\nCalculer les limites aux bornes et les valeurs aux points critiques.\nRemplir le tableau de variation en y inscrivant ces valeurs.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_exa",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "examples",
+      "content": "f(x) = x³-3x sur ℝ : f'(x)=3(x-1)(x+1) → croissante sur ]-∞,-1[ et ]1,+∞[, décroissante sur ]-1,1[. Maximum local en x=-1 (f=2), minimum local en x=1 (f=-2).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_det",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "detailed_examples",
+      "content": "f(x) = e^{2x} - 4e^x + 3 : f'(x)=2e^x(e^x-2) → décroissante sur ]-∞, ln2[, croissante sur ]ln2,+∞[ ; minimum f(ln2)=-1.\nf(x) = x - 1 - ln x sur ]0,+∞[ : f'(x)=(x-1)/x → décroissante sur ]0,1[, croissante sur ]1,+∞[ ; minimum f(1)=0.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "methods",
+      "content": "f'(x) > 0 → f croissante ↗\nf'(x) < 0 → f décroissante ↘\nf'(x) = 0 → extremum possible (à vérifier par le signe)\nToujours préciser les limites aux bornes du domaine",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_com",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "common_mistakes",
+      "content": "Oublier les valeurs interdites du domaine\nNe pas calculer les limites aux bornes\nConfondre extremum local et global",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_tableau_de_variation_sum",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Tableau de variation",
+      "type": "summary",
+      "content": "Le tableau de variation est un outil indispensable pour visualiser le comportement global d'une fonction.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "tableau de variation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_def",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "definition",
+      "content": "Il existe trois types : verticale (x = a), horizontale (y = L), oblique (y = ax+b).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_exp",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "explanation",
+      "content": "Asymptote verticale en a si lim_{x→a} f(x) = ±∞. Asymptote horizontale en ±∞ si lim f(x) = L (fini). Asymptote oblique en ±∞ si lim [f(x) - (ax+b)] = 0, avec a = lim f(x)/x et b = lim (f(x)-ax).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "method",
+      "content": "Chercher les asymptotes verticales : repérer les bornes du domaine où f tend vers ±∞ (dénominateur nul, ln→0⁺, etc.).\nCalculer les limites en ces points ; si limite infinie, la droite x = a est AV.\nPour les asymptotes horizontales : calculer lim_{x→+∞} f(x) et lim_{x→-∞} f(x). Si limite finie L, y = L est AH.\nSi aucune AH, chercher une asymptote oblique : calculer a = lim_{x→±∞} f(x)/x (si finie et non nulle).\nPuis b = lim_{x→±∞} (f(x) - a x). Si b finie, y = a x + b est AO.\nVérifier que la différence f(x)-(ax+b) tend vers 0.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_exa",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "examples",
+      "content": "f(x)=1/(x-3) → AV x=3\nf(x)=(2x+1)/(x-1) → AH y=2 en +∞ et -∞\nf(x)=x+2-e^x sur ]-∞,0] → AO y=x+2 en -∞ car lim (f(x)-(x+2))=0",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_det",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "detailed_examples",
+      "content": "f(x)=2e^x/(e^x+1) → AH y=2 en +∞, AH y=0 en -∞\nf(x)=ln(2x/(x+1)) → AV x=0 et x=-1, AH y=ln2 en ±∞",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "methods",
+      "content": "AV : chercher les bornes infinies du domaine (dénominateur nul, ln→0⁺, etc.)\nAH : calculer lim_{x→±∞} f(x)\nAO : calculer a = lim f(x)/x, puis b = lim (f(x)-ax)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_com",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "common_mistakes",
+      "content": "Confondre asymptote oblique avec horizontale\nOublier de vérifier les deux directions (±∞) pour les AH et AO\nPrendre une AV là où la limite n'est pas infinie",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_asymptotes_sum",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Asymptotes",
+      "type": "summary",
+      "content": "Les asymptotes décrivent le comportement asymptotique de la fonction et sont déterminées par les limites.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "asymptotes"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_def",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "definition",
+      "content": "Au point d'abscisse x₀, la tangente a pour équation : y = f'(x₀)(x - x₀) + f(x₀).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_exp",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "explanation",
+      "content": "Il suffit de calculer la valeur de la fonction et de sa dérivée en x₀, puis d'appliquer la formule.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "method",
+      "content": "Calculer f(x₀), l'ordonnée du point de contact.\nCalculer f'(x₀), la pente de la tangente.\nAppliquer la formule : y = f'(x₀)(x - x₀) + f(x₀).\nSimplifier pour obtenir l'équation réduite y = mx + p.\nVérifier que le point (x₀, f(x₀)) appartient bien à la droite.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_exa",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "examples",
+      "content": "f(x)=x²+2x-1, x₀=1 : f(1)=2, f'(1)=4 → tangente y=4(x-1)+2 = 4x-2\nf(x)=e^x, x₀=0 : f(0)=1, f'(0)=1 → y=x+1",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_det",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "detailed_examples",
+      "content": "f(x)=ln(2x/(x+1)), x₀=3 : f(3)=ln(3/2), f'(3)=1/12 → y = (1/12)(x-3)+ln(3/2)\nf(x)=e^{2x}-4e^x+3, x₀=0 : f(0)=0, f'(0)=-2 → y = -2x",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "methods",
+      "content": "Calculer f(x₀)\nCalculer f'(x₀)\nAppliquer y = f'(x₀)(x-x₀) + f(x₀)\nSimplifier l'expression",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_com",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "common_mistakes",
+      "content": "Oublier le terme f(x₀)\nConfondre f'(x₀) avec la pente de la sécante\nErreur de signe dans la formule",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_équation_de_la_tangente_sum",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Équation de la tangente",
+      "type": "summary",
+      "content": "La tangente est donnée par la formule de la droite passant par (x₀, f(x₀)) de pente f'(x₀).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "équation de la tangente"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_def",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "definition",
+      "content": "Fonction paire : f(-x) = f(x) (symétrie par rapport à l'axe des ordonnées). Fonction impaire : f(-x) = -f(x) (symétrie par rapport à l'origine). Un point I(a,b) est centre de symétrie si f(a+t)+f(a-t)=2b.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_exp",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "explanation",
+      "content": "Pour vérifier la parité, on calcule f(-x) et on compare à f(x) et -f(x). Pour un centre de symétrie, on utilise la condition avec t.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "method",
+      "content": "Vérifier que le domaine est symétrique par rapport à 0 (pour la parité) ou par rapport à a (pour un centre).\nCalculer f(-x) et simplifier.\nComparer f(-x) à f(x) : si égal, fonction paire ; si égal à -f(x), fonction impaire.\nPour un centre I(a,b), poser t = x-a, calculer f(a+t)+f(a-t) ; si égal à 2b pour tout t, alors I est centre de symétrie.\nConclure et utiliser la symétrie pour réduire l'intervalle d'étude.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_exa",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "examples",
+      "content": "f(x)=x² est paire, f(x)=x³ est impaire.\nf(x)=ln((1+x)/(1-x)) est impaire car f(-x) = -f(x).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_det",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "detailed_examples",
+      "content": "f(x)=e^x/(e^x+1) : montrer que I(0,1/2) est centre de symétrie car f(x)+f(-x)=1.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_met",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "methods",
+      "content": "Pour la parité : calculer f(-x) et simplifier\nPour centre de symétrie en (a,b) : vérifier f(a+t)+f(a-t)=2b pour tout t",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_com",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "common_mistakes",
+      "content": "Croire qu'une fonction est paire si f(-x) = f(x) seulement pour quelques valeurs\nOublier de vérifier le domaine symétrique par rapport à 0",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_fonctions_paires_impaires_et_symétrie_sum",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Fonctions paires, impaires et symétrie",
+      "type": "summary",
+      "content": "La parité et les symétries réduisent le domaine d'étude et permettent de tracer la courbe plus rapidement.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "fonctions paires, impaires et symétrie"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_ex1",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Déterminer le domaine de définition de f(x) = ln(x-4).\nSolution : x-4 > 0 ⇒ x > 4, donc D_f = ]4 ; +∞[.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_ex2",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Calculer lim_{x→+∞} (2e^x+1)/(e^x+3).\nSolution : Diviser numérateur et dénominateur par e^x : lim (2 + 1/e^x) / (1 + 3/e^x) = (2+0)/(1+0) = 2.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_ex3",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Dériver f(x) = x² e^x.\nSolution : f'(x) = 2x e^x + x² e^x = e^x (x² + 2x).",
+      "level": 2,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_ex4",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Dresser le tableau de variation de f(x)=x³-3x sur ℝ.\nSolution : f'(x)=3x²-3=3(x-1)(x+1). Signe : + sur ]-∞,-1[, - sur ]-1,1[, + sur ]1,+∞[. Donc f croissante sur ]-∞,-1] et [1,+∞[, décroissante sur [-1,1]. Maximum local en x=-1 : f(-1)=2, minimum local en x=1 : f(1)=-2.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_fonctions_numériques_ex5",
+      "chapter": "Fonctions numériques",
+      "subchapter": "Exercice 5",
+      "type": "exercise",
+      "content": "Question : Trouver l'équation de la tangente à f(x)=ln(x) en x=1.\nSolution : f(1)=0, f'(x)=1/x ⇒ f'(1)=1, donc tangente : y = 1·(x-1)+0 = x-1.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "fonctions numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "maths_suites_numériques_intro",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites numériques",
+      "type": "chapter_summary",
+      "content": "Les suites numériques permettent de modéliser des évolutions discrètes, comme la croissance d'une population ou les intérêts bancaires. Dans ce chapitre, vous apprendrez à reconnaître et manipuler les suites arithmétiques (addition constante), géométriques (multiplication constante), ainsi que les suites affines (combinaison des deux).\n\nObjectifs :\n- Définir une suite arithmétique et calculer son terme général et sa somme\n- Définir une suite géométrique et calculer son terme général, sa somme et sa limite\n- Résoudre les suites affines U_{n+1}=aU_n+b en les ramenant à des suites géométriques\n- Utiliser ces suites dans des problèmes concrets (finances, démographie)",
+      "level": 1,
+      "tags": [
+        "maths",
+        "suites numériques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_def",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "definition",
+      "content": "Uₙ est arithmétique de raison r ⇔ U_{n+1} = U_n + r. Terme général : U_n = U_0 + n·r.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_exp",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "explanation",
+      "content": "La somme des premiers termes se calcule par : S = (nombre de termes) × (premier + dernier)/2.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_met",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "method",
+      "content": "Identifier le premier terme U₀ (ou U₁) et la raison r.\nÉcrire la relation U_{n+1} = U_n + r.\nExprimer U_n en fonction de n : U_n = U_0 + n r (ou U_n = U_1 + (n-1)r).\nPour calculer une somme, déterminer le nombre de termes N, puis appliquer S = N × (premier terme + dernier terme)/2.\nVérifier la cohérence avec un exemple simple.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_exa",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "examples",
+      "content": "Suite 3,7,11,15,... → r=4, Uₙ=3+4n (si U₀=3)\nU₀=-2, r=3 → U₁₁ = -2+33=31, S₁₂ = 12×(-2+31)/2 = 174",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_det",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "detailed_examples",
+      "content": "U₇=68, U₁₈=156 → r=(156-68)/11=8, U₀=68-56=12 → Uₙ=12+8n\nMarconi : 250,300,350,... → U₁=250, r=50. Uₙ>800 → n=13. Somme pour 18000 → n=23 semaines.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_met",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "methods",
+      "content": "Trouver r = (U_p - U_q)/(p-q)\nTerme général : U_n = U_0 + n r\nSomme des n premiers termes : n(U_0+U_{n-1})/2",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_com",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "common_mistakes",
+      "content": "Confondre l'indice de départ (U₀ ou U₁)\nOublier que la somme de U₀ à Uₙ contient n+1 termes",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_arithmétiques_sum",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites arithmétiques",
+      "type": "summary",
+      "content": "Les suites arithmétiques modélisent des croissances linéaires (ajout constant).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites arithmétiques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_def",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "definition",
+      "content": "Uₙ est géométrique de raison q ⇔ U_{n+1} = q·U_n. Terme général : U_n = U_0·qⁿ.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_exp",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "explanation",
+      "content": "La somme des n premiers termes (q≠1) : S_n = U₀(1-qⁿ)/(1-q). La limite dépend de |q| : si |q|<1, U_n→0 ; si q=1, constante ; si q>1, diverge vers ±∞.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_met",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "method",
+      "content": "Identifier U₀ et la raison q (q = U_{n+1}/U_n constant).\nExprimer U_n = U₀ qⁿ.\nPour calculer une somme de termes consécutifs, utiliser S = premier terme × (1 - q^{nombre de termes})/(1 - q) (si q≠1).\nDéterminer la limite : si |q| < 1, limite 0 ; si q=1, limite U₀ ; si q>1, limite infinie (signe selon U₀).\nAppliquer aux problèmes concrets (intérêts composés, décroissance radioactive).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_exa",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "examples",
+      "content": "U₀=4, q=3 → U₅=4×243=972, S₆=4×(1-729)/(1-3)=1456\nCapital C₀=70000, taux 9% → Cₙ=70000×1,09ⁿ → double après 9 ans.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_det",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "detailed_examples",
+      "content": "Suite affine U_{n+1}=aU_n+b : se ramène à une suite géométrique en posant V_n=U_n-L avec L=b/(1-a).\nClientèle : U₁=8000, U_{n+1}=0,7U_n+3000 → L=10000, V_n=U_n-10000 géométrique de raison 0,7 → U_n→10000.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_met",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "methods",
+      "content": "Reconnaître une suite géométrique par rapport constant U_{n+1}/U_n\nPour une suite affine, trouver le point fixe et définir V_n\nSomme géométrique : U₀(1-q^{n+1})/(1-q) pour les n+1 premiers termes",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_com",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "common_mistakes",
+      "content": "Oublier la condition q≠1 pour la formule de somme\nConfondre la somme de U₀ à Uₙ (n+1 termes) avec U₀ à U_{n-1} (n termes)\nNe pas traiter correctement les signes pour q négatif",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_géométriques_sum",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites géométriques",
+      "type": "summary",
+      "content": "Les suites géométriques modélisent des phénomènes à taux de croissance proportionnel (intérêts, populations).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites géométriques"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_def",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "definition",
+      "content": "Une suite affine vérifie U_{n+1} = a U_n + b, avec a≠1. On la transforme en suite géométrique par V_n = U_n - L, où L = b/(1-a) est le point fixe.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_exp",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "explanation",
+      "content": "On calcule L, on pose V_n = U_n - L, alors V_{n+1} = a V_n, donc V_n = V_0·aⁿ, puis U_n = L + (U_0 - L)·aⁿ. La limite est L si |a|<1.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_met",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "method",
+      "content": "Trouver le point fixe L en résolvant L = aL + b (soit L = b/(1-a)).\nDéfinir une nouvelle suite V_n = U_n - L.\nMontrer que V_{n+1} = a V_n (suite géométrique de raison a).\nExprimer V_n = V_0 · aⁿ = (U_0 - L) · aⁿ.\nRevenir à U_n = L + (U_0 - L) aⁿ.\nÉtudier la limite selon la valeur de a.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_exa",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "examples",
+      "content": "U₀=2000, U_{n+1}=1,035U_n+700 → L=700/(1-1,035)= -20000, V₀=22000, U_n=22000·1,035ⁿ -20000.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_det",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "detailed_examples",
+      "content": "Même exemple avec capital : calculer U₁₀, limite → 22000×1,035ⁿ -20000 tend vers +∞ car 1,035>1.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_met",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "methods",
+      "content": "Résoudre L = aL + b pour obtenir L\nDéfinir V_n = U_n - L\nMontrer que (V_n) est géométrique de raison a\nExprimer U_n = L + (U_0 - L)·aⁿ",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_com",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "common_mistakes",
+      "content": "Oublier de vérifier a≠1\nCalculer L avec la mauvaise formule (signe)\nNe pas simplifier correctement l'expression finale",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_suites_affines_u_n1au_nb_sum",
+      "chapter": "Suites numériques",
+      "subchapter": "Suites affines (U_{n+1}=aU_n+b)",
+      "type": "summary",
+      "content": "Toute suite affine se ramène à une suite géométrique par translation, ce qui permet d'obtenir son terme général et sa limite.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "suites affines (u_{n+1}=au_n+b)"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_ex1",
+      "chapter": "Suites numériques",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Une suite arithmétique a U₁=3 et U₄=12. Trouver la raison r et le terme général U_n (en commençant à n=1).\nSolution : U₄ = U₁ + 3r ⇒ 12 = 3 + 3r ⇒ 3r = 9 ⇒ r=3. U_n = U₁ + (n-1)r = 3 + 3(n-1) = 3n.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_ex2",
+      "chapter": "Suites numériques",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : U₀=4, q=3. Calculer U₅ et la somme S = U₀+U₁+...+U₅.\nSolution : U₅ = 4×3⁵ = 4×243 = 972. S = 4×(1-3⁶)/(1-3) = 4×(1-729)/(-2) = 4×(-728)/(-2) = 4×364 = 1456.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_ex3",
+      "chapter": "Suites numériques",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Soit U₀=2, U_{n+1}=0,5U_n+3. Trouver L, exprimer U_n et sa limite.\nSolution : L = 3/(1-0,5)=3/0,5=6. V_n = U_n-6 ⇒ V_{n+1}=0,5 V_n ⇒ V_n = (2-6)×0,5ⁿ = -4×0,5ⁿ. Donc U_n = 6 - 4×0,5ⁿ. Limite : 6.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_suites_numériques_ex4",
+      "chapter": "Suites numériques",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Une population de 300 oiseaux diminue de 3% par an. En quelle année passe-t-elle sous 200 ? (arrondir à l'année supérieure)\nSolution : U_n = 300×(0,97)ⁿ. On veut 300×0,97ⁿ < 200 ⇒ 0,97ⁿ < 2/3 ⇒ n > ln(2/3)/ln(0,97) ≈ (-0,4055)/(-0,03046) ≈ 13,31. Donc n=14 ans.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "suites numériques",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "maths_nombres_complexes_intro",
+      "chapter": "Nombres complexes",
+      "subchapter": "Nombres complexes",
+      "type": "chapter_summary",
+      "content": "Les nombres complexes étendent les réels en introduisant le nombre imaginaire i tel que i² = -1. Ils sont fondamentaux en électricité, en mécanique des fluides et en traitement du signal. Dans ce chapitre, vous apprendrez à manipuler les trois formes d'un complexe (algébrique, trigonométrique, exponentielle), à résoudre des équations polynomiales dans ℂ, et à utiliser les complexes pour résoudre des problèmes de géométrie plane.\n\nObjectifs :\n- Passer d'une forme à l'autre (algébrique, trigonométrique, exponentielle)\n- Calculer le module et l'argument d'un complexe\n- Résoudre des équations du second degré dans ℂ\n- Factoriser des polynômes dans ℂ\n- Utiliser les complexes pour calculer distances, milieux, angles dans le plan",
+      "level": 1,
+      "tags": [
+        "maths",
+        "nombres complexes"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_def",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "definition",
+      "content": "Un complexe z s'écrit z = a+bi (forme algébrique), z = r(cosθ + i sinθ) (forme trigonométrique) ou z = r e^{iθ} (forme exponentielle), avec r = |z| = √(a²+b²) et θ = arg(z).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_exp",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "explanation",
+      "content": "Le module r est la distance à l'origine, l'argument θ est l'angle avec l'axe réel. On passe de l'algébrique à la trigonométrique en calculant r, puis cosθ = a/r, sinθ = b/r.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_met",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "method",
+      "content": "Pour passer de la forme algébrique a+bi à la forme exponentielle :\nCalculer r = √(a²+b²).\nDéterminer θ tel que cosθ = a/r, sinθ = b/r. On utilise la valeur de l'arctan en tenant compte du quadrant.\nÉcrire z = r e^{iθ}.\nPour la forme trigonométrique : z = r(cosθ + i sinθ).\nPour passer de l'exponentielle à l'algébrique : utiliser e^{iθ}=cosθ+ i sinθ et multiplier par r.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_exa",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "examples",
+      "content": "1+i : r=√2, θ=π/4 → 1+i = √2 e^{iπ/4}\n-2+2i√3 : r=4, cosθ=-1/2, sinθ=√3/2 → θ=2π/3 → z=4e^{i2π/3}",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_det",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "detailed_examples",
+      "content": "z = (1-i√3)(1-i) : |z|=2√2, arg(z)= -π/3 - π/4 = -7π/12 → z=2√2 e^{-7iπ/12}\nz = √3 - i : r=2, θ=-π/6 → z=2e^{-iπ/6} ; z⁶ = 64 e^{-iπ} = -64",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_met",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "methods",
+      "content": "Module : |z| = √(a²+b²)\nArgument : cosθ = a/|z|, sinθ = b/|z|\nForme exponentielle : z = |z| e^{iθ}\nPour le produit : |z₁z₂| = |z₁||z₂|, arg(z₁z₂)= arg(z₁)+arg(z₂)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_com",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "common_mistakes",
+      "content": "Oublier que le module est toujours positif\nConfondre argument principal (dans ]-π,π]) avec une autre mesure\nMal interpréter le signe de sin et cos pour le quadrant",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_les_trois_formes_dun_nombre_complexe_sum",
+      "chapter": "Nombres complexes",
+      "subchapter": "Les trois formes d'un nombre complexe",
+      "type": "summary",
+      "content": "Les trois formes sont interchangeables ; la forme exponentielle simplifie les produits et puissances.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "les trois formes d'un nombre complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_def",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "definition",
+      "content": "Une équation du second degré az²+bz+c=0 se résout avec Δ = b²-4ac. Si Δ<0, les racines sont complexes conjuguées : (-b ± i√(-Δ))/(2a).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_exp",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "explanation",
+      "content": "Pour le troisième degré, on cherche une racine évidente (souvent donnée) puis on factorise par (z - z₀) pour obtenir un quotient du second degré.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_met",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "method",
+      "content": "Pour une équation du second degré :\nCalculer Δ = b² - 4ac.\nSi Δ ≥ 0, racines réelles : (-b ± √Δ)/(2a).\nSi Δ < 0, racines complexes : (-b ± i√(-Δ))/(2a).\nPour un polynôme de degré ≥ 3 :\nChercher une racine évidente (souvent entière, ou donnée dans l'énoncé).\nEffectuer la division euclidienne par (z - racine).\nRésoudre le quotient (degré inférieur) par la méthode appropriée.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_exa",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "examples",
+      "content": "z²+2z+5=0 : Δ=4-20=-16, racines -1±2i\nz²-6z+10=0 : Δ=-4, racines 3±i",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_det",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "detailed_examples",
+      "content": "P(z)=z³+(3i-6)z²+(10-18i)z+30i. On vérifie que -3i est racine, factorisation (z+3i)(z²-6z+10), racines -3i, 3+i, 3-i.\nP(z)=z³-2(2+i)z²+(5+8i)z-10i a pour racine 2i, puis les autres 2±i.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_met",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "methods",
+      "content": "Second degré : Δ, puis formules\nThéorème de Viète : z₁+z₂ = -b/a, z₁z₂ = c/a\nPour degré 3 : chercher une racine évidente (souvent donnée), effectuer la division euclidienne",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_com",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "common_mistakes",
+      "content": "Oublier le signe i dans la racine carrée d'un négatif\nNe pas vérifier que la racine évidente annule bien le polynôme\nMal appliquer la factorisation",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_polynômes_et_équations_dans_ℂ_sum",
+      "chapter": "Nombres complexes",
+      "subchapter": "Polynômes et équations dans ℂ",
+      "type": "summary",
+      "content": "Les équations polynomiales se résolvent dans ℂ de manière systématique, les racines complexes non réelles apparaissant par paires conjuguées.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "polynômes et équations dans ℂ"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_def",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "definition",
+      "content": "La distance entre deux points d'affixes z₁ et z₂ est |z₂-z₁|. Le milieu a pour affixe (z₁+z₂)/2. L'angle entre vecteurs est donné par l'argument du quotient.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_exp",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "explanation",
+      "content": "Pour étudier un triangle, on calcule les modules pour les longueurs, et le quotient des différences pour l'angle (imaginaire pur ↔ angle droit).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_met",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "method",
+      "content": "Pour calculer une distance : |z_B - z_A|.\nPour calculer un milieu : (z_A+z_B)/2.\nPour vérifier un angle droit : (z_B - z_A)/(z_C - z_A) est un imaginaire pur (partie réelle nulle).\nPour vérifier un alignement : le quotient (z_B - z_A)/(z_C - z_A) est réel.\nPour une rotation de centre Ω et d'angle θ : z' = e^{iθ}(z - z_Ω) + z_Ω.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_exa",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "examples",
+      "content": "A(1+i), B(3+2i), C(2-i). Calcul : AB=|2+i|=√5, AC=|1-2i|=√5, isocèle en A ; (z_B-z_A)/(z_C-z_A)=i, donc rectangle en A.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_det",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "detailed_examples",
+      "content": "Isobarycentre de trois points : affixe = (z_A+z_B+z_C)/3.\nImage d'un point par rotation d'angle θ : z' = e^{iθ}(z - z_Ω) + z_Ω.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_met",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "methods",
+      "content": "Distance = module de la différence\nMilieu = demi-somme des affixes\nAngle droit ⇔ quotient imaginaire pur\nAlignement ⇔ quotient réel",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_com",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "common_mistakes",
+      "content": "Confondre module et distance au carré\nOublier que le quotient doit être imaginaire pur pour l'orthogonalité (partie réelle nulle)\nMal ordonner les points dans le quotient",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_géométrie_dans_le_plan_complexe_sum",
+      "chapter": "Nombres complexes",
+      "subchapter": "Géométrie dans le plan complexe",
+      "type": "summary",
+      "content": "Le plan complexe permet de traduire des propriétés géométriques en calculs algébriques sur les affixes.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "géométrie dans le plan complexe"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_ex1",
+      "chapter": "Nombres complexes",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Écrire 1-i sous forme trigonométrique et exponentielle.\nSolution : Module = √(1²+(-1)²)=√2. cosθ=1/√2, sinθ=-1/√2 ⇒ θ = -π/4 (ou 7π/4). Donc forme trigo : √2(cos(-π/4)+ i sin(-π/4)), forme exponentielle : √2 e^{-iπ/4}.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_ex2",
+      "chapter": "Nombres complexes",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Résoudre dans ℂ l'équation z²+2z+5=0.\nSolution : Δ = 4-20 = -16. √Δ = 4i. Racines : (-2 ± 4i)/2 = -1 ± 2i.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_ex3",
+      "chapter": "Nombres complexes",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Soit A(1+2i), B(3+4i), C(5-2i). Calculer les distances AB, AC, BC. Le triangle est-il rectangle ?\nSolution : AB = |3+4i - (1+2i)| = |2+2i| = √(4+4)=√8=2√2. AC = |5-2i-(1+2i)| = |4-4i| = √(16+16)=√32=4√2. BC = |5-2i-(3+4i)| = |2-6i| = √(4+36)=√40=2√10. On vérifie : AB²+AC² = 8+32=40 = BC², donc rectangle en A.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_nombres_complexes_ex4",
+      "chapter": "Nombres complexes",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Trouver les racines de z⁴=16 dans ℂ.\nSolution : z⁴ = 16 = 16 e^{i2kπ}. Donc z = 16^{1/4} e^{i(2kπ)/4} = 2 e^{i kπ/2} pour k=0,1,2,3. Racines : 2, 2i, -2, -2i.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "nombres complexes",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "maths_probabilités_intro",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités",
+      "type": "chapter_summary",
+      "content": "Les probabilités permettent de quantifier l'incertitude et de modéliser des phénomènes aléatoires. Dans ce chapitre, vous apprendrez à calculer des probabilités dans des situations d'équiprobabilité à l'aide de la combinatoire, à manipuler les probabilités conditionnelles, la formule des probabilités totales et le théorème de Bayes, ainsi qu'à étudier des variables aléatoires discrètes (loi, espérance, variance, fonction de répartition).\n\nObjectifs :\n- Calculer des probabilités en utilisant les combinaisons\n- Appliquer les formules des probabilités conditionnelles et totales\n- Utiliser le théorème de Bayes pour inverser des conditionnements\n- Déterminer la loi d'une variable aléatoire discrète\n- Calculer l'espérance, la variance et l'écart-type\n- Construire et interpréter la fonction de répartition",
+      "level": 1,
+      "tags": [
+        "maths",
+        "probabilités"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_def",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "definition",
+      "content": "Dans un univers Ω fini équiprobable, la probabilité d'un événement A est P(A) = nombre de cas favorables / nombre de cas possibles.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_exp",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "explanation",
+      "content": "Les combinaisons C(n,k) = n!/(k!(n-k)!) comptent le nombre de façons de choisir k éléments parmi n sans ordre. Elles sont essentielles pour calculer des probabilités dans les tirages.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_met",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "method",
+      "content": "Déterminer l'univers Ω et le nombre total de cas (souvent C(N, n) pour un tirage sans ordre).\nCompter le nombre de cas favorables à l'événement A (utilisation de combinaisons, produits).\nAppliquer P(A) = favorables / total.\nUtiliser les propriétés : P(A∪B)=P(A)+P(B)-P(A∩B), P(Ā)=1-P(A).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_exa",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "examples",
+      "content": "Urne de 16 boules (5B,6N,5J). Tirer 3 boules : P(3 mêmes couleur) = [C(5,3)+C(6,3)+C(5,3)]/C(16,3) = 40/560 = 1/14.\nJeu de 32 cartes, 3 cartes : P(exactement 2 as) = C(4,2)×C(28,1)/C(32,3) = 168/4960 = 21/620.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_det",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "detailed_examples",
+      "content": "10 pistes (6 lentes,4 rapides), 3 danses : P(2 lentes,1 rapide)=C(6,2)C(4,1)/C(10,3)=60/120=1/2 ; P(au moins 1 rapide)=1-C(6,3)/C(10,3)=5/6.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_met",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "methods",
+      "content": "P(A∪B)=P(A)+P(B)-P(A∩B)\nP(Ā)=1-P(A)\nCombinaison : C(n,k)=C(n,n-k)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_com",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "common_mistakes",
+      "content": "Confondre arrangement et combinaison (tenir compte de l'ordre ou non)\nOublier de diviser par le nombre total de cas\nNe pas vérifier l'équiprobabilité",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fondamentaux_et_combinatoire_sum",
+      "chapter": "Probabilités",
+      "subchapter": "Fondamentaux et combinatoire",
+      "type": "summary",
+      "content": "En situation d'équiprobabilité, la probabilité se calcule par un quotient de nombres de cas, souvent via les combinaisons.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fondamentaux et combinatoire"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_def",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "definition",
+      "content": "P(A|B) = P(A∩B)/P(B) (si P(B)>0). Deux événements sont indépendants si P(A∩B)=P(A)P(B).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_exp",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "explanation",
+      "content": "La formule des probabilités totales permet de calculer P(A) à partir d'une partition de l'univers. La formule de Bayes inverse les conditionnements.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_met",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "method",
+      "content": "Pour calculer P(A|B) : P(A∩B)/P(B).\nPour vérifier l'indépendance : comparer P(A∩B) et P(A)P(B).\nFormule des probabilités totales : si B₁,...,Bₙ forment une partition de Ω, alors P(A)=∑ P(A|B_i)P(B_i).\nFormule de Bayes : P(B_i|A) = P(A|B_i)P(B_i) / P(A).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_exa",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "examples",
+      "content": "Usines A(50%, défaut 4%), B(30%, 3%), C(20%, 2%). P(D)=0,04×0,5+0,03×0,3+0,02×0,2=0,033. P(A|D)=0,02/0,033=20/33.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_det",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "detailed_examples",
+      "content": "Dans une classe : 40% aiment maths, 30% physique, 10% les deux. P(physique | n'aime pas maths) = (0,3-0,1)/(0,6)=1/3.\nTrois urnes : U₁(1R,5J), U₂(3R,1J), U₃(1R,2J). On choisit une urne au hasard puis une boule. P(R)=1/3×1/6+1/3×3/4+1/3×1/3=5/12.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_met",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "methods",
+      "content": "P(A∩B)=P(A)P(B) pour l'indépendance\nFormule des probabilités totales : P(A)=∑P(A|B_i)P(B_i)\nFormule de Bayes : P(B_i|A)=P(A|B_i)P(B_i)/P(A)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_com",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "common_mistakes",
+      "content": "Confondre P(A|B) et P(B|A)\nSupposer l'indépendance sans vérification\nOublier que les événements d'une partition doivent être disjoints et couvrir l'univers",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_probabilités_conditionnelles_et_totales_sum",
+      "chapter": "Probabilités",
+      "subchapter": "Probabilités conditionnelles et totales",
+      "type": "summary",
+      "content": "Les probabilités conditionnelles et la formule de Bayes sont des outils puissants pour mettre à jour les probabilités en fonction d'une information.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "probabilités conditionnelles et totales"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_def",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "definition",
+      "content": "La loi de probabilité d'une variable X donne les valeurs possibles x_i et leurs probabilités p_i = P(X=x_i). L'espérance E(X)=∑x_i p_i, la variance V(X)=E(X²)-[E(X)]².",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_exp",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "explanation",
+      "content": "L'espérance est la moyenne théorique, la variance mesure la dispersion. On utilise souvent les propriétés de linéarité : E(aX+b)=aE(X)+b, V(aX+b)=a²V(X).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_met",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "method",
+      "content": "Déterminer toutes les valeurs possibles de X.\nCalculer la probabilité de chaque valeur (souvent à l'aide de la combinatoire).\nVérifier que la somme des probabilités vaut 1.\nCalculer E(X) = Σ x_i p_i.\nCalculer E(X²) = Σ x_i² p_i.\nCalculer V(X) = E(X²) - [E(X)]².\nL'écart-type σ(X) = √V(X).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_exa",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "examples",
+      "content": "Urne avec boules 1,1,1,2,4,5. On tire 2 boules, X=somme. Valeurs 2,3,5,6,7,9 avec probas 1/5,1/5,1/5,4/15,1/15,1/15. E(X)=14/3.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_det",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "detailed_examples",
+      "content": "Loi donnée : x_i = -3,-2,1,3,5 ; p_i=0,2;0,3;0,2;0,1;0,2. E(X)=0,3, V(X)=9,01, σ≈3,002.\nLancer deux dés spéciaux : D₁ (2,2,4,4,6,6) et D₂ (1,1,1,3,3,5). X=somme. Construire la loi en tableau à double entrée.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_met",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "methods",
+      "content": "Vérifier que ∑p_i = 1\nCalculer E(X) = ∑x_i p_i\nCalculer E(X²) = ∑x_i² p_i\nV(X)=E(X²)-[E(X)]²",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_com",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "common_mistakes",
+      "content": "Oublier de multiplier par la probabilité\nConfondre variance et écart-type\nNe pas simplifier les fractions",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_variables_aléatoires_discrètes_sum",
+      "chapter": "Probabilités",
+      "subchapter": "Variables aléatoires discrètes",
+      "type": "summary",
+      "content": "La loi d'une variable aléatoire discrète résume son comportement. L'espérance et la variance sont ses indicateurs numériques essentiels.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "variables aléatoires discrètes"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_def",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "definition",
+      "content": "F(x) = P(X ≤ x). Pour une variable discrète, F est une fonction en escalier, constante entre les valeurs prises par X, avec des sauts de hauteur p_i aux points x_i.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_exp",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "explanation",
+      "content": "On calcule F(x) en sommant les probabilités pour toutes les valeurs ≤ x. F est croissante, tend vers 0 en -∞ et vers 1 en +∞.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_met",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "method",
+      "content": "Ordonner les valeurs x_i dans l'ordre croissant.\nPour chaque x, additionner les probabilités des x_i ≤ x.\nReprésenter graphiquement : fonction en escalier avec des sauts aux x_i.\nUtiliser F pour calculer P(a < X ≤ b) = F(b) - F(a).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_exa",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "examples",
+      "content": "X : -5 (1/6), -2 (1/12), 0 (1/4), 1 (1/4), 3 (1/12), 6 (1/6). Alors F(x)=0 pour x<-5 ; 1/6 pour -5≤x<-2 ; 1/4 pour -2≤x<0 ; 1/2 pour 0≤x<1 ; 3/4 pour 1≤x<3 ; 5/6 pour 3≤x<6 ; 1 pour x≥6.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_det",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "detailed_examples",
+      "content": "Pour une loi binomiale, la fonction de répartition est tabulée.\nUtilisation de F pour calculer P(a<X≤b)=F(b)-F(a).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_met",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "methods",
+      "content": "Ordonner les valeurs de X\nF(x) = ∑_{x_i ≤ x} p_i\nF est continue à droite (par convention)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_com",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "common_mistakes",
+      "content": "Confondre P(X<x) et P(X≤x)\nOublier d'inclure la valeur x dans l'inégalité pour F(x)\nNe pas tenir compte des sauts multiples",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_fonction_de_répartition_sum",
+      "chapter": "Probabilités",
+      "subchapter": "Fonction de répartition",
+      "type": "summary",
+      "content": "La fonction de répartition est un outil commode pour calculer des probabilités d'intervalles.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "probabilités",
+        "fonction de répartition"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_ex1",
+      "chapter": "Probabilités",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Un dé à 6 faces équilibré : quelle est la probabilité d'obtenir un nombre pair ?\nSolution : Nombres pairs : 2,4,6 → 3 cas favorables sur 6 → P=3/6=1/2.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "probabilités",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_ex2",
+      "chapter": "Probabilités",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : P(A)=0,5, P(B)=0,4, P(A∩B)=0,2. Calculer P(A∪B), P(A|B), P(B|A).\nSolution : P(A∪B)=0,5+0,4-0,2=0,7. P(A|B)=0,2/0,4=0,5. P(B|A)=0,2/0,5=0,4.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "probabilités",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_ex3",
+      "chapter": "Probabilités",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : On lance 3 fois une pièce équilibrée. Soit X = nombre de piles. Donner la loi de X, calculer E(X) et V(X).\nSolution : X peut prendre 0,1,2,3. P(X=0)=1/8, P(X=1)=3/8, P(X=2)=3/8, P(X=3)=1/8. E(X)=0×1/8+1×3/8+2×3/8+3×1/8 = (3+6+3)/8=12/8=1,5. E(X²)=0+1×3/8+4×3/8+9×1/8 = (3+12+9)/8=24/8=3. V(X)=3 - (1,5)²=3-2,25=0,75.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "probabilités",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_probabilités_ex4",
+      "chapter": "Probabilités",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Pour la loi de X précédente, donner la fonction de répartition F(1).\nSolution : F(1)=P(X≤1)=P(X=0)+P(X=1)=1/8+3/8=4/8=0,5.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "probabilités",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_intro",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Statistiques à deux variables",
+      "type": "chapter_summary",
+      "content": "Lorsque l'on dispose de deux séries de données, on cherche souvent à savoir si elles sont liées. Dans ce chapitre, vous apprendrez à calculer le point moyen, la covariance, le coefficient de corrélation et la droite de régression linéaire. Ces outils permettent de quantifier et de modéliser une relation linéaire entre deux variables, et de faire des prévisions.\n\nObjectifs :\n- Calculer les moyennes et variances d'une série double\n- Déterminer la covariance et le coefficient de corrélation\n- Établir l'équation de la droite de régression de y en x\n- Utiliser la droite pour estimer des valeurs (interpolation/extrapolation)\n- Interpréter le coefficient de corrélation",
+      "level": 1,
+      "tags": [
+        "maths",
+        "statistiques à deux variables"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_def",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "definition",
+      "content": "Le point moyen G( x̄ , ȳ ) est le centre de gravité. La covariance Cov(x,y)= (∑x_i y_i)/n - x̄ ȳ. La droite de régression de y en x est y = ax+b avec a = Cov(x,y)/V(x) et b = ȳ - a x̄.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_exp",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "explanation",
+      "content": "Le coefficient de corrélation r = Cov(x,y)/(σ_x σ_y) mesure l'intensité de la liaison linéaire (|r| proche de 1 indique une forte corrélation). La droite de régression passe toujours par G.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_met",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "method",
+      "content": "Calculer les moyennes x̄ = (∑x_i)/n, ȳ = (∑y_i)/n.\nCalculer la variance de x : V(x) = (∑x_i²)/n - x̄².\nCalculer la covariance : Cov = (∑x_i y_i)/n - x̄ ȳ.\nCalculer le coefficient de corrélation : r = Cov / (σ_x σ_y) avec σ_x = √V(x), σ_y = √V(y).\nCalculer la pente a = Cov / V(x).\nCalculer l'ordonnée à l'origine b = ȳ - a x̄.\nÉcrire la droite de régression y = a x + b.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_exa",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "examples",
+      "content": "Fossiles : x=(44,65,71,75,87), y=(40,60,59,65,75). x̄=68,4, ȳ=59,8, V(x)=200,64, Cov=159,48, a≈0,795, b≈5,42, r≈0,987 → très forte corrélation positive.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_det",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "detailed_examples",
+      "content": "Poids nourrisson : x=(5,7,10,14,18,22,26), y=(3,61,3,70,3,75,3,85,3,90,4,05,4,12). x̄≈14,57, ȳ≈3,854, V(x)=52,57, Cov=1,24, a≈0,0236, b≈3,51. Prédiction à 30 jours : 4,22 kg.\nMéthode de Mayer : diviser les données en deux groupes, calculer les points moyens G₁ et G₂, la droite de Mayer est (G₁G₂).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_met",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "methods",
+      "content": "Calculer x̄ = (∑x)/n, ȳ = (∑y)/n\nCalculer V(x) = (∑x²)/n - x̄²\nCov = (∑xy)/n - x̄ȳ\na = Cov/V(x), b = ȳ - a x̄\nr = Cov/(σ_x σ_y)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_com",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "common_mistakes",
+      "content": "Confondre covariance et coefficient de corrélation\nOublier que la droite de régression minimise la somme des carrés des résidus verticaux\nUtiliser la formule de la covariance avec n-1 au lieu de n (selon la définition du cours)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_régression_linéaire_et_corrélation_sum",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Régression linéaire et corrélation",
+      "type": "summary",
+      "content": "La régression linéaire permet de modéliser une relation linéaire et de faire des prévisions.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "régression linéaire et corrélation"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_ex1",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Pour les données suivantes : x = (5,7,10,14,18,22,26), y = (3,61; 3,70; 3,75; 3,85; 3,90; 4,05; 4,12). Calculer x̄, ȳ, la covariance, V(x), la droite de régression, et estimer y pour x=30.\nSolution : n=7. ∑x=5+7+10+14+18+22+26=102 → x̄=102/7≈14,5714. ∑y=3,61+3,70+3,75+3,85+3,90+4,05+4,12=26,98 → ȳ≈3,8543. ∑x²=25+49+100+196+324+484+676=1854 → V(x)=1854/7 - (14,5714)² ≈264,857 - 212,33=52,527. ∑xy=5*3,61+7*3,70+10*3,75+14*3,85+18*3,90+22*4,05+26*4,12 =18,05+25,9+37,5+53,9+70,2+89,1+107,12=401,77 → Cov=401,77/7 - 14,5714*3,8543 ≈57,3957 - 56,156=1,2397. a = Cov/V(x)=1,2397/52,527≈0,0236. b=ȳ - a x̄ =3,8543 - 0,0236*14,5714≈3,8543-0,344=3,5103. Droite : y=0,0236x+3,5103. Pour x=30 : y≈0,0236*30+3,5103=0,708+3,5103=4,2183 kg.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_statistiques_à_deux_variables_ex2",
+      "chapter": "Statistiques à deux variables",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Calculer le coefficient de corrélation r pour les données des fossiles (x=(44,65,71,75,87), y=(40,60,59,65,75)).\nSolution : n=5. x̄=68,4, ȳ=59,8. V(x)= (44²+65²+71²+75²+87²)/5 - 68,4² = (1936+4225+5041+5625+7569)/5 - 4678,56 = 24396/5 - 4678,56 = 4879,2 - 4678,56 = 200,64. V(y)= (40²+60²+59²+65²+75²)/5 - 59,8² = (1600+3600+3481+4225+5625)/5 - 3576,04 = 18531/5 - 3576,04 = 3706,2 - 3576,04 = 130,16. Cov = (44*40+65*60+71*59+75*65+87*75)/5 - 68,4*59,8 = (1760+3900+4189+4875+6525)/5 - 4090,32 = 21249/5 - 4090,32 = 4249,8 - 4090,32 = 159,48. r = 159,48 / √(200,64*130,16) = 159,48 / √(26114,6624) ≈ 159,48 / 161,6 ≈ 0,987.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "statistiques à deux variables",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intro",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives et intégrales",
+      "type": "chapter_summary",
+      "content": "Le calcul intégral est l'opération inverse de la dérivation. Il permet de calculer des aires sous des courbes, des valeurs moyennes, ou encore de résoudre des équations différentielles. Dans ce chapitre, vous apprendrez à déterminer des primitives de fonctions usuelles, à calculer des intégrales définies et à interpréter géométriquement le résultat.\n\nObjectifs :\n- Trouver une primitive d'une fonction donnée\n- Utiliser les formules de primitives usuelles et l'intégration par parties\n- Calculer une intégrale définie à l'aide d'une primitive\n- Interpréter l'intégrale comme une aire\n- Calculer la valeur moyenne d'une fonction sur un intervalle",
+      "level": 1,
+      "tags": [
+        "maths",
+        "primitives et intégrales"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_def",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "definition",
+      "content": "F est une primitive de f sur un intervalle si F'(x)=f(x) pour tout x. Toutes les primitives diffèrent d'une constante.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_exp",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "explanation",
+      "content": "On utilise les formules de dérivation inverses. Pour les fonctions composées, on reconnaît la forme u'·f(u).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_met",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "method",
+      "content": "Reconnaître la forme de f : polynôme, exponentielle, logarithme, trigonométrique, etc.\nAppliquer la formule de primitive inverse de la dérivée : ∫ xⁿ dx = xⁿ⁺¹/(n+1)+C (n≠-1) ; ∫ eˣ dx = eˣ+C ; ∫ 1/x dx = ln|x|+C.\nSi la fonction est une composée du type u'·uⁿ, alors une primitive est uⁿ⁺¹/(n+1).\nSi c'est u'/u, primitive ln|u|.\nSi c'est u' e^u, primitive e^u.\nAjouter la constante d'intégration C, sauf si une condition initiale est donnée.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_exa",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "examples",
+      "content": "Primitive de xⁿ (n≠-1) : xⁿ⁺¹/(n+1)+C\nPrimitive de eˣ : eˣ+C\nPrimitive de 1/x : ln|x|+C\nPrimitive de u'/u : ln|u|+C",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_det",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "detailed_examples",
+      "content": "f(x)=2xeˣ, avec F(0)=0. Par parties : u'=eˣ, v=2x → F=2xeˣ-2eˣ+C ; F(0)=-2+C=0 → C=2, F(x)=2eˣ(x-1)+2.\nf(x)=2e^{2x}, F(ln2)=0 : F(x)=e^{2x}+C ; F(ln2)=4+C=0 → C=-4, F(x)=e^{2x}-4.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_met",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "methods",
+      "content": "Linéarité : primitive de af+bg = aF+bG\nIntégration par parties : ∫u'v = uv - ∫uv'\nReconnaître les formes u'·e^u, u'/u, u'·uⁿ",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_com",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "common_mistakes",
+      "content": "Oublier la constante d'intégration\nConfondre primitive de 1/x (ln|x|) avec ln(x) sans valeur absolue\nMal appliquer la formule de parties (choisir u' et v)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_primitives_usuelles_sum",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Primitives usuelles",
+      "type": "summary",
+      "content": "Savoir trouver une primitive revient à inverser les règles de dérivation.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "primitives usuelles"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_def",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "definition",
+      "content": "∫_a^b f(x) dx = [F(x)]_a^b = F(b)-F(a), où F est une primitive. La valeur moyenne de f sur [a,b] est m = 1/(b-a) ∫_a^b f(x) dx.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_exp",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "explanation",
+      "content": "L'intégrale est additive par rapport à l'intervalle, et l'intégrale d'une constante est la constante fois la longueur.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_met",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "method",
+      "content": "Trouver une primitive F de f.\nCalculer F(b) et F(a).\nSoustraire : ∫_a^b f(x) dx = F(b) - F(a).\nPour la valeur moyenne, diviser le résultat par (b-a).\nInterpréter l'aire : si f est positive, l'intégrale est l'aire sous la courbe.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_exa",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "examples",
+      "content": "∫₀² (3x²-2x+1) dx = [x³-x²+x]₀² = 6.\n∫₀¹ eˣ dx = e-1.\n∫₁ᵉ (1/x) dx = ln e - ln 1 = 1.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_det",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "detailed_examples",
+      "content": "f(t)=140-40e^t sur [0,5] : valeur moyenne = 1/5 [140t-40e^t]_0^5 = 1/5(700-40e^5+40) = 148-8e^5 ≈ -1039.\n∫_{ln2}^{ln4} e^{2x} dx = [e^{2x}/2] = (16-4)/2 = 6.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_met",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "methods",
+      "content": "Trouver une primitive F\nCalculer F(b)-F(a)\nPour la valeur moyenne, diviser par (b-a)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_com",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "common_mistakes",
+      "content": "Oublier de soustraire F(a) (mettre les bornes dans le bon ordre)\nConfondre intégrale et primitive\nErreur dans le calcul de la valeur moyenne (diviser par b-a)",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_intégrale_définie_et_valeur_moyenne_sum",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Intégrale définie et valeur moyenne",
+      "type": "summary",
+      "content": "L'intégrale définie permet de calculer des aires et des valeurs moyennes.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "intégrale définie et valeur moyenne"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_ex1",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Trouver une primitive de f(x)=3x²-2x+1.\nSolution : F(x) = x³ - x² + x + C (par exemple C=0 donne F(x)=x³-x²+x).",
+      "level": 2,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_ex2",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Calculer ∫₀² (2x+1) dx.\nSolution : Primitive de 2x+1 : x²+x. Donc ∫₀² = [x²+x]₀² = (4+2)-(0+0)=6.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_ex3",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Soit f(x)=2xeˣ. Calculer ∫₀¹ f(x) dx sachant qu'une primitive est F(x)=2eˣ(x-1)+2.\nSolution : ∫₀¹ f = F(1)-F(0) = [2e¹(1-1)+2] - [2e⁰(0-1)+2] = (0+2) - (2*(-1)+2) = 2 - (-2+2) = 2 - 0 = 2.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_primitives_et_intégrales_ex4",
+      "chapter": "Primitives et intégrales",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Calculer la valeur moyenne de f(x)=e^x sur [0,1].\nSolution : Valeur moyenne = 1/(1-0) ∫₀¹ eˣ dx = ∫₀¹ eˣ dx = e-1 ≈ 1,718.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "primitives et intégrales",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_intro",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre et géométrie",
+      "type": "chapter_summary",
+      "content": "Le barycentre est un concept qui généralise la notion de milieu et de centre de gravité. Il permet de combiner plusieurs points avec des coefficients (poids). Dans ce chapitre, vous apprendrez à calculer les coordonnées du barycentre, à utiliser la relation vectorielle, et à appliquer le barycentre à des problèmes de géométrie (alignement, concours, simplification de sommes vectorielles).\n\nObjectifs :\n- Définir le barycentre d'un système de points pondérés\n- Calculer les coordonnées du barycentre dans un repère\n- Utiliser la relation vectorielle α GA + β GB + γ GC = 0\n- Exprimer un vecteur en fonction des autres à partir du barycentre\n- Résoudre des problèmes géométriques à l'aide du barycentre",
+      "level": 1,
+      "tags": [
+        "maths",
+        "barycentre et géométrie"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_def",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "definition",
+      "content": "G est le barycentre du système {(A,α),(B,β),(C,γ)} (α+β+γ≠0) si α GA⃗ + β GB⃗ + γ GC⃗ = 0⃗. En coordonnées : x_G = (α x_A+β x_B+γ x_C)/(α+β+γ), idem pour y.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_exp",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "explanation",
+      "content": "Le barycentre généralise la notion de milieu (α=β, γ=0). On peut aussi exprimer AG⃗ en fonction de AB⃗ et AC⃗.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_met",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "method",
+      "content": "Vérifier que la somme des coefficients est non nulle.\nPour calculer les coordonnées : faire la moyenne pondérée des coordonnées.\nPour utiliser la relation vectorielle : écrire α GA + β GB + γ GC = 0.\nPour exprimer AG en fonction de AB et AC : AG = (β AB + γ AC)/(α+β+γ).\nAppliquer aux problèmes de concours (médianes, centres de gravité).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_exa",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "examples",
+      "content": "A(2,-3), B(1,4), C(0,5) avec coefficients 3, -2, 4 : somme=5, x_G=(6-2+0)/5=4/5, y_G=(-9-8+20)/5=3/5.\nAG⃗ = (β AB⃗ + γ AC⃗)/(α+β+γ).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_det",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "detailed_examples",
+      "content": "G barycentre de (A,2),(B,4),(C,5) : AG⃗ = (4 AB⃗ + 5 AC⃗)/11.\nSi AG⃗ = (3/5) AB⃗, alors G est le barycentre de (A,2),(B,3) (car β/(α+β)=3/5).",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_met",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "methods",
+      "content": "Somme des coefficients ≠ 0\nCoordonnées : moyenne pondérée\nVectoriellement : AG⃗ = (β AB⃗ + γ AC⃗)/(α+β+γ) pour trois points",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_com",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "common_mistakes",
+      "content": "Oublier de diviser par la somme des coefficients\nConfondre barycentre avec isobarycentre (coefficients égaux)\nNe pas vérifier que la somme n'est pas nulle",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_barycentre_de_points_pondérés_sum",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Barycentre de points pondérés",
+      "type": "summary",
+      "content": "Le barycentre permet de combiner des points avec des poids, et ses coordonnées s'obtiennent par moyenne pondérée.",
+      "level": 3,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "barycentre de points pondérés"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_ex1",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : A(0,0), B(4,0), C(1,3). G barycentre de (A,2), (B,-1), (C,1). Calculer G.\nSolution : Somme des coefficients = 2-1+1=2. x_G = (2*0 + (-1)*4 + 1*1)/2 = (-4+1)/2 = -3/2 = -1,5. y_G = (2*0 + (-1)*0 + 1*3)/2 = 3/2 = 1,5. Donc G(-1,5 ; 1,5).",
+      "level": 2,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_ex2",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Exprimer AG en fonction de AB et AC si G est barycentre de (A,2),(B,4),(C,5).\nSolution : D'après la formule : AG = (β AB + γ AC)/(α+β+γ) = (4 AB + 5 AC)/(2+4+5) = (4 AB + 5 AC)/11.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "maths_barycentre_et_géométrie_ex3",
+      "chapter": "Barycentre et géométrie",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Déterminer les coefficients α,β tels que G soit le barycentre de (A,α),(B,β) avec AG = (3/5) AB.\nSolution : Pour deux points, AG = (β/(α+β)) AB. On veut β/(α+β) = 3/5 ⇒ 5β = 3α+3β ⇒ 2β = 3α ⇒ α/β = 2/3. On peut prendre α=2, β=3.",
+      "level": 2,
+      "tags": [
+        "maths",
+        "barycentre et géométrie",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 7
+    }
+  ]
+}

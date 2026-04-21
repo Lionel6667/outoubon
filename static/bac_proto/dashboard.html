@@ -1,0 +1,2160 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – OU TOU BON</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="window._katexReady=true"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #020617;
+      --bg2:       #0f172a;
+      --card:      #1e293b;
+      --card2:     #162032;
+      --border:    #1e293b;
+      --border2:   #2d3748;
+      --t1:        #f8fafc;
+      --t2:        #94a3b8;
+      --t3:        #64748b;
+      --green:     #10B981;
+      --green2:    #059669;
+      --blue:      #2563eb;
+      --blue2:     #3b82f6;
+      --purple:    #8b5cf6;
+      --orange:    #f97316;
+      --red:       #ef4444;
+      --yellow:    #eab308;
+      --sidebar-w: 240px;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--t1);
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SIDEBAR
+    ═══════════════════════════════════════════════════ */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-height: 100vh;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      z-index: 50;
+      transition: transform .3s;
+    }
+    .sidebar-logo {
+      padding: 1.25rem 1.25rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: .6rem;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .95rem; color: #fff;
+    }
+    .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--t1); }
+    .logo-text span { color: var(--green); }
+
+    .sidebar-user {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .user-avatar {
+      width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .95rem; color: #fff; flex-shrink: 0;
+      overflow: hidden;
+    }
+    .user-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .user-info { overflow: hidden; }
+    .user-name { font-size: .875rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-badge {
+      font-size: .65rem; font-weight: 600; color: var(--green);
+      background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.2);
+      padding: .1rem .45rem; border-radius: 20px; display: inline-block; margin-top: 2px;
+    }
+
+    .sidebar-nav {
+      flex: 1; padding: .75rem .75rem;
+      display: flex; flex-direction: column; gap: 2px;
+      overflow-y: auto;
+    }
+    .nav-section-title {
+      font-size: .65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--t3); padding: .5rem .5rem .25rem;
+      margin-top: .35rem;
+    }
+    .nav-item {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .65rem .75rem; border-radius: 10px;
+      cursor: pointer; text-decoration: none;
+      color: var(--t2); font-size: .875rem; font-weight: 500;
+      transition: background .15s, color .15s;
+      border: none; background: none; width: 100%; text-align: left;
+    }
+    .nav-item i { width: 18px; text-align: center; font-size: .9rem; flex-shrink: 0; }
+    .nav-item:hover { background: rgba(255,255,255,.04); color: var(--t1); }
+    .nav-item.active { background: rgba(16,185,129,.12); color: var(--green); font-weight: 600; }
+    .nav-item.active i { color: var(--green); }
+
+    .sidebar-footer {
+      padding: .75rem;
+      border-top: 1px solid var(--border);
+    }
+    .btn-logout {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .65rem .75rem; border-radius: 10px; width: 100%;
+      background: none; border: none; cursor: pointer;
+      color: var(--t3); font-size: .875rem; font-family: 'Inter', sans-serif;
+      transition: background .15s, color .15s;
+    }
+    .btn-logout:hover { background: rgba(239,68,68,.08); color: var(--red); }
+
+    /* ═══════════════════════════════════════════════════
+       MAIN
+    ═══════════════════════════════════════════════════ */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(2,6,23,.85);
+      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 40;
+      gap: 1rem;
+    }
+    .topbar-title { font-size: 1.1rem; font-weight: 700; }
+    .topbar-right { display: flex; align-items: center; gap: .75rem; }
+    .topbar-streak {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .8rem; font-weight: 700; color: var(--orange);
+      background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.2);
+      padding: .3rem .7rem; border-radius: 20px;
+    }
+    .hamburger {
+      display: none; background: none; border: none;
+      color: var(--t2); font-size: 1.2rem; cursor: pointer; padding: .3rem;
+    }
+
+    .view { display: none; padding: 1.75rem; flex: 1; }
+    .view.active { display: block; }
+
+    /* ═══════════════════════════════════════════════════
+       COMPONENTS
+    ═══════════════════════════════════════════════════ */
+    .section-title {
+      font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;
+    }
+    .section-title span { color: var(--green); }
+
+    .card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.25rem;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+    /* Stat cards */
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.25rem 1.25rem 1rem;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .stat-card.green::before  { background: linear-gradient(90deg, var(--green), var(--green2)); }
+    .stat-card.blue::before   { background: linear-gradient(90deg, var(--blue), var(--blue2)); }
+    .stat-card.purple::before { background: linear-gradient(90deg, var(--purple), #7c3aed); }
+    .stat-card.orange::before { background: linear-gradient(90deg, var(--orange), #ea580c); }
+    .stat-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; margin-bottom: .75rem;
+    }
+    .stat-icon.green  { background: rgba(16,185,129,.12); color: var(--green); }
+    .stat-icon.blue   { background: rgba(37,99,235,.12);  color: var(--blue2); }
+    .stat-icon.purple { background: rgba(139,92,246,.12); color: var(--purple); }
+    .stat-icon.orange { background: rgba(249,115,22,.12); color: var(--orange); }
+    .stat-value { font-size: 1.75rem; font-weight: 800; line-height: 1; margin-bottom: .2rem; }
+    .stat-label { font-size: .78rem; color: var(--t3); margin-bottom: .5rem; }
+    .stat-delta {
+      font-size: .72rem; font-weight: 600;
+      padding: .15rem .45rem; border-radius: 20px;
+      display: inline-flex; align-items: center; gap: .25rem;
+    }
+    .stat-delta.up   { background: rgba(16,185,129,.12); color: var(--green); }
+    .stat-delta.down { background: rgba(239,68,68,.12);  color: var(--red); }
+
+    /* Quick actions */
+    .quick-actions { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .quick-card {
+      background: var(--card); border: 1.5px solid var(--border2);
+      border-radius: 16px; padding: 1.25rem;
+      cursor: pointer; transition: border-color .2s, transform .15s, background .2s;
+      text-align: center;
+    }
+    .quick-card:hover { border-color: var(--green); background: rgba(16,185,129,.04); transform: translateY(-2px); }
+    .quick-card-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin: 0 auto .75rem;
+    }
+    .quick-card h3 { font-size: .9rem; font-weight: 700; margin-bottom: .3rem; }
+    .quick-card p  { font-size: .75rem; color: var(--t3); line-height: 1.4; }
+
+    /* Progress bars */
+    .prog-row { margin-bottom: .85rem; }
+    .prog-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: .35rem; }
+    .prog-name { font-size: .82rem; font-weight: 600; }
+    .prog-pct  { font-size: .78rem; font-weight: 700; }
+    .prog-track { height: 7px; background: rgba(255,255,255,.06); border-radius: 7px; overflow: hidden; }
+    .prog-fill  { height: 7px; border-radius: 7px; transition: width .8s cubic-bezier(.4,0,.2,1); }
+
+    /* ═══════════════════════════════════════════════════
+       CHAT VIEW
+    ═══════════════════════════════════════════════════ */
+    #view-chat {
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      height: 100%;
+    }
+    #view-chat.active { display: flex; }
+    .chat-topbar {
+      padding: 1rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .chat-topbar-left { display: flex; align-items: center; gap: .75rem; }
+    .ai-avatar {
+      width: 38px; height: 38px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .chat-status { display: flex; align-items: center; gap: .35rem; font-size: .75rem; color: var(--green); }
+    .status-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+
+    .subject-pills { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .subject-pill {
+      font-size: .72rem; font-weight: 600; padding: .2rem .65rem;
+      border-radius: 20px; border: 1.5px solid var(--border2);
+      background: transparent; color: var(--t2); cursor: pointer;
+      transition: all .2s; font-family: 'Inter', sans-serif;
+    }
+    .subject-pill.active { border-color: var(--green); background: rgba(16,185,129,.1); color: var(--green); }
+
+    .chat-messages {
+      flex: 1; overflow-y: auto; padding: 1.5rem 1.75rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .msg { display: flex; gap: .75rem; max-width: 80%; }
+    .msg.user { flex-direction: row-reverse; align-self: flex-end; }
+    .msg.ai   { align-self: flex-start; }
+    .msg-avatar {
+      width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: .85rem;
+    }
+    .msg.ai   .msg-avatar { background: linear-gradient(135deg, var(--green), var(--blue)); }
+    .msg.user .msg-avatar {
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: #fff; font-weight: 700; font-size: .75rem;
+    }
+    /* ── Message bubbles ── */
+    .msg-bubble {
+      padding: .85rem 1.1rem; border-radius: 16px; font-size: .9rem; line-height: 1.75;
+      max-width: 100%;
+    }
+    .msg.ai   .msg-bubble { background: var(--card); border: 1px solid var(--border2); border-top-left-radius: 4px; color: var(--t1); }
+    .msg.user .msg-bubble { background: linear-gradient(135deg, var(--blue), #1d4ed8); color: #fff; border-top-right-radius: 4px; }
+    /* Markdown inside AI bubbles */
+    .msg-bubble h3 { font-size: .95rem; font-weight: 800; color: var(--green); margin: 1rem 0 .4rem; display: flex; align-items: center; gap: .4rem; }
+    .msg-bubble h3:first-child { margin-top: 0; }
+    .msg-bubble p  { margin-bottom: .6rem; }
+    .msg-bubble p:last-child { margin-bottom: 0; }
+    .msg-bubble strong { color: var(--green); font-weight: 700; }
+    .msg.user .msg-bubble strong { color: #a5f3d0; }
+    .msg-bubble em { color: #c4b5fd; font-style: italic; }
+    .msg-bubble code { background: rgba(0,0,0,.35); border-radius: 5px; padding: .1rem .4rem; font-size: .82rem; font-family: 'Fira Code', monospace; color: #fde68a; }
+    .msg-bubble pre { background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: .9rem 1rem; margin: .6rem 0; overflow-x: auto; }
+    .msg-bubble pre code { background: none; padding: 0; color: #e2e8f0; font-size: .82rem; }
+    .msg-bubble ul, .msg-bubble ol { padding-left: 1.4rem; margin: .4rem 0 .6rem; }
+    .msg-bubble li { margin-bottom: .3rem; }
+    .msg-bubble ol li { list-style: decimal; }
+    .msg-bubble ul li { list-style: disc; }
+    .msg-bubble hr { border: none; border-top: 1px solid var(--border2); margin: .8rem 0; }
+    /* Table */
+    .msg-bubble table { width: 100%; border-collapse: collapse; font-size: .82rem; margin: .6rem 0; border-radius: 10px; overflow: hidden; }
+    .msg-bubble th { background: rgba(16,185,129,.15); color: var(--green); font-weight: 700; padding: .5rem .75rem; text-align: left; }
+    .msg-bubble td { padding: .45rem .75rem; border-bottom: 1px solid var(--border2); }
+    .msg-bubble tr:last-child td { border-bottom: none; }
+    /* Step block */
+    .msg-step { background: rgba(16,185,129,.06); border-left: 3px solid var(--green); border-radius: 0 10px 10px 0; padding: .6rem .9rem; margin: .35rem 0; font-size: .875rem; }
+    /* Follow-up questions */
+    .followup-wrap { display: flex; flex-direction: column; gap: .4rem; margin-top: .85rem; padding-top: .75rem; border-top: 1px solid var(--border2); }
+    .followup-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--t3); margin-bottom: .1rem; }
+    .followup-btn {
+      background: rgba(16,185,129,.07); border: 1px solid rgba(16,185,129,.2);
+      border-radius: 10px; padding: .5rem .85rem; color: var(--t2);
+      font-size: .8rem; text-align: left; cursor: pointer; font-family: 'Inter',sans-serif;
+      transition: all .2s;
+    }
+    .followup-btn:hover { background: rgba(16,185,129,.14); color: var(--green); border-color: var(--green); }
+    /* Image in user msg */
+    .msg-img { max-width: 220px; border-radius: 10px; margin-bottom: .4rem; display: block; }
+    .msg-time { font-size: .65rem; color: var(--t3); margin-top: .35rem; text-align: right; }
+    .msg.ai .msg-time { text-align: left; }
+
+    /* ── Astra-style loader ── */
+    .astra-loader { display: flex; flex-direction: column; gap: 6px; padding: .5rem .25rem; }
+    .astra-row { display: flex; gap: 5px; }
+    .astra-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border2); transition: background .25s;
+    }
+    .astra-dot.thinking { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+    .astra-dot.generating { background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .astra-phase-label { font-size: .68rem; font-weight: 700; letter-spacing: .05em; margin-top: 2px; }
+    .astra-phase-label.thinking  { color: var(--yellow); }
+    .astra-phase-label.generating { color: var(--green); }
+
+    .chat-input-area {
+      padding: 1rem 1.75rem 1.5rem;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .chat-suggestions { display: flex; gap: .5rem; margin-bottom: .75rem; flex-wrap: wrap; }
+    .suggestion-btn {
+      font-size: .72rem; padding: .3rem .75rem; border-radius: 20px;
+      border: 1.5px solid var(--border2); background: transparent;
+      color: var(--t2); cursor: pointer; transition: all .2s;
+      font-family: 'Inter', sans-serif; white-space: nowrap;
+    }
+    .suggestion-btn:hover { border-color: var(--green); color: var(--green); background: rgba(16,185,129,.05); }
+    .chat-form { display: flex; gap: .6rem; align-items: flex-end; }
+    .chat-input {
+      flex: 1; background: var(--card); border: 1.5px solid var(--border2);
+      border-radius: 14px; color: var(--t1); font-family: 'Inter', sans-serif;
+      font-size: .9rem; padding: .85rem 1rem; resize: none; outline: none;
+      max-height: 150px; min-height: 50px; transition: border-color .2s;
+    }
+    .chat-input:focus { border-color: var(--green); }
+    .chat-input::placeholder { color: var(--t3); }
+    .chat-img-preview {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(16,185,129,.08); border: 1px solid rgba(16,185,129,.2);
+      border-radius: 10px; padding: .4rem .75rem; margin-bottom: .5rem;
+      font-size: .78rem; color: var(--green);
+    }
+    .chat-img-preview img { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; }
+    .btn-remove-chat-img { background: none; border: none; color: var(--t3); cursor: pointer; font-size: .85rem; padding: 0; }
+    .btn-img-upload {
+      width: 46px; height: 46px; border-radius: 12px; border: 1.5px solid var(--border2);
+      background: transparent; color: var(--t2); cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: all .2s;
+    }
+    .btn-img-upload:hover { border-color: var(--green); color: var(--green); background: rgba(16,185,129,.06); }
+    .btn-send {
+      width: 46px; height: 46px; border-radius: 12px; border: none;
+      background: linear-gradient(135deg, var(--green), var(--green2));
+      color: #fff; cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: opacity .2s, transform .1s;
+    }
+    .btn-send:hover { opacity: .85; }
+    .btn-send:active { transform: scale(.95); }
+    .btn-send:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* ═══════════════════════════════════════════════════
+       QUIZ VIEW
+    ═══════════════════════════════════════════════════ */
+    .matiere-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .matiere-card {
+      background: var(--card); border: 2px solid var(--border2);
+      border-radius: 16px; padding: 1.25rem; cursor: pointer;
+      transition: all .2s; text-align: center;
+    }
+    .matiere-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+    .matiere-card.selected { border-color: var(--green); background: rgba(16,185,129,.06); }
+    .matiere-card-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin: 0 auto .75rem;
+    }
+    .matiere-card-name { font-size: .85rem; font-weight: 700; }
+    .matiere-card-count { font-size: .7rem; color: var(--t3); margin-top: 3px; }
+
+    /* Quiz question */
+    .quiz-arena { display: none; }
+    .quiz-arena.active { display: block; }
+    .quiz-subject-picker { }
+    .quiz-header-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .quiz-timer {
+      font-size: 1rem; font-weight: 800;
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 3px solid var(--green); display: flex; align-items: center;
+      justify-content: center; color: var(--green); flex-shrink: 0;
+    }
+    .quiz-timer.urgent { border-color: var(--red); color: var(--red); animation: pulse-timer .5s infinite; }
+    @keyframes pulse-timer { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+    .quiz-prog-wrap { flex: 1; }
+    .quiz-prog-bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 6px; overflow: hidden; }
+    .quiz-prog-fill { height: 6px; background: linear-gradient(90deg, var(--green), var(--blue)); border-radius: 6px; transition: width .4s; }
+    .quiz-question-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem;
+    }
+    .quiz-q-meta { font-size: .75rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .6rem; }
+    .quiz-q-text { font-size: 1rem; font-weight: 600; line-height: 1.6; margin-bottom: 1.25rem; }
+    .quiz-options { display: flex; flex-direction: column; gap: .6rem; }
+    .quiz-opt {
+      padding: .85rem 1rem; border-radius: 12px;
+      border: 1.5px solid var(--border2); background: transparent;
+      color: var(--t1); font-family: 'Inter', sans-serif; font-size: .875rem;
+      cursor: pointer; text-align: left; transition: all .2s;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .quiz-opt-letter {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: rgba(255,255,255,.05); border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 700; flex-shrink: 0;
+      transition: all .2s;
+    }
+    .quiz-opt:hover:not(:disabled) { border-color: var(--green); background: rgba(16,185,129,.06); }
+    .quiz-opt:hover:not(:disabled) .quiz-opt-letter { background: rgba(16,185,129,.15); border-color: var(--green); color: var(--green); }
+    .quiz-opt.correct { border-color: var(--green); background: rgba(16,185,129,.1); }
+    .quiz-opt.correct .quiz-opt-letter { background: var(--green); border-color: var(--green); color: #fff; }
+    .quiz-opt.wrong   { border-color: var(--red); background: rgba(239,68,68,.08); }
+    .quiz-opt.wrong   .quiz-opt-letter { background: var(--red); border-color: var(--red); color: #fff; }
+    .quiz-opt:disabled { cursor: not-allowed; }
+    .quiz-feedback {
+      padding: .85rem 1rem; border-radius: 12px; margin-top: .75rem;
+      font-size: .85rem; line-height: 1.6; display: none;
+    }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.c { background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.25); color: #6ee7b7; }
+    .quiz-feedback.w { background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.2); color: #fca5a5; }
+    .quiz-nav { display: flex; justify-content: flex-end; margin-top: 1rem; }
+
+    /* Quiz results */
+    .quiz-results { display: none; }
+    .quiz-results.show { display: block; }
+    .score-big {
+      text-align: center; padding: 2rem;
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 20px; margin-bottom: 1.5rem;
+    }
+    .score-ring {
+      width: 110px; height: 110px; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .score-ring-excellent { background: radial-gradient(circle, rgba(16,185,129,.15), transparent); border: 4px solid var(--green); }
+    .score-ring-good      { background: radial-gradient(circle, rgba(37,99,235,.15), transparent); border: 4px solid var(--blue2); }
+    .score-ring-medium    { background: radial-gradient(circle, rgba(249,115,22,.15), transparent); border: 4px solid var(--orange); }
+    .score-ring-low       { background: radial-gradient(circle, rgba(239,68,68,.15), transparent); border: 4px solid var(--red); }
+    .score-num { font-size: 2rem; font-weight: 900; line-height: 1; }
+    .score-sub { font-size: .7rem; color: var(--t3); }
+
+    /* ═══════════════════════════════════════════════════
+       EXERCICES VIEW
+    ═══════════════════════════════════════════════════ */
+    .exo-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; height: calc(100vh - 140px); }
+    .exo-input-panel, .exo-output-panel {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 16px; display: flex; flex-direction: column; overflow: hidden;
+    }
+    .panel-header {
+      padding: .9rem 1.25rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+    }
+    .panel-header h3 { font-size: .9rem; font-weight: 700; display: flex; align-items: center; gap: .5rem; }
+    .panel-body { flex: 1; overflow-y: auto; padding: 1.25rem; }
+    .exo-textarea {
+      width: 100%; height: 100%; min-height: 250px; background: transparent;
+      border: none; resize: none; outline: none;
+      color: var(--t1); font-family: 'Inter', sans-serif;
+      font-size: .875rem; line-height: 1.7;
+    }
+    .exo-textarea::placeholder { color: var(--t3); }
+    .exo-toolbar {
+      padding: .75rem 1.25rem; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0; gap: .75rem; flex-wrap: wrap;
+    }
+    .exo-tools { display: flex; gap: .5rem; }
+    .btn-tool {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border2);
+      color: var(--t2); cursor: pointer; font-size: .85rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .btn-tool:hover { background: rgba(255,255,255,.08); color: var(--t1); }
+    .btn-solve {
+      padding: .6rem 1.5rem; border-radius: 10px; border: none;
+      background: linear-gradient(135deg, var(--green), var(--green2));
+      color: #fff; font-family: 'Inter', sans-serif;
+      font-size: .875rem; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; gap: .5rem;
+      transition: opacity .2s;
+    }
+    .btn-solve:hover { opacity: .85; }
+    .btn-solve:disabled { opacity: .5; cursor: not-allowed; }
+
+    .solution-empty {
+      height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: var(--t3); text-align: center; gap: .75rem;
+    }
+    .solution-empty i { font-size: 2.5rem; opacity: .3; }
+    .solution-content { font-size: .875rem; line-height: 1.8; color: var(--t2); }
+    .solution-content h4 { color: var(--green); font-size: .9rem; margin: 1rem 0 .4rem; }
+    .solution-content .step-block {
+      background: rgba(255,255,255,.03); border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0; padding: .75rem 1rem; margin: .5rem 0;
+    }
+    .solution-subject-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .72rem; font-weight: 700; padding: .25rem .6rem;
+      border-radius: 20px; margin-bottom: .75rem;
+    }
+    .img-preview-wrap {
+      position: relative; margin-top: .75rem;
+      border-radius: 10px; overflow: hidden; display: inline-block;
+    }
+    .img-preview-wrap img { max-width: 100%; max-height: 200px; border-radius: 10px; display: block; }
+    .btn-remove-img {
+      position: absolute; top: 6px; right: 6px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(0,0,0,.7); border: none; color: #fff;
+      cursor: pointer; font-size: .7rem; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PROGRESSION VIEW
+    ═══════════════════════════════════════════════════ */
+    .prog-subject-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .prog-subject-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.25rem;
+    }
+    .prog-subject-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .prog-subject-info { display: flex; align-items: center; gap: .6rem; }
+    .prog-subject-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: .9rem;
+    }
+    .prog-subject-name { font-size: .875rem; font-weight: 700; }
+    .prog-pct-big { font-size: 1.5rem; font-weight: 900; }
+    .prog-track2 { height: 8px; background: rgba(255,255,255,.06); border-radius: 8px; overflow: hidden; }
+    .prog-fill2  { height: 8px; border-radius: 8px; transition: width 1s cubic-bezier(.4,0,.2,1); }
+    .prog-tags   { display: flex; gap: .4rem; margin-top: .75rem; flex-wrap: wrap; }
+    .prog-tag {
+      font-size: .67rem; font-weight: 600; padding: .12rem .45rem; border-radius: 20px;
+    }
+
+    /* Achievements */
+    .achievements-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+    .achieve-card {
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 16px; padding: 1.25rem; text-align: center;
+    }
+    .achieve-card.locked { opacity: .4; filter: grayscale(1); }
+    .achieve-icon { font-size: 1.75rem; margin-bottom: .5rem; }
+    .achieve-name { font-size: .78rem; font-weight: 700; margin-bottom: .25rem; }
+    .achieve-desc { font-size: .68rem; color: var(--t3); line-height: 1.4; }
+
+    /* ═══════════════════════════════════════════════════
+       SHARED UTILS
+    ═══════════════════════════════════════════════════ */
+    .btn-primary {
+      padding: .75rem 1.5rem; border-radius: 12px; border: none;
+      background: linear-gradient(135deg, var(--green), var(--green2));
+      color: #fff; font-family: 'Inter', sans-serif;
+      font-size: .875rem; font-weight: 700; cursor: pointer;
+      display: inline-flex; align-items: center; gap: .5rem;
+      transition: opacity .2s, transform .1s;
+    }
+    .btn-primary:hover { opacity: .9; }
+    .btn-primary:active { transform: scale(.98); }
+    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+    .btn-secondary {
+      padding: .7rem 1.4rem; border-radius: 12px;
+      border: 1.5px solid var(--border2); background: transparent;
+      color: var(--t2); font-family: 'Inter', sans-serif;
+      font-size: .875rem; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; gap: .5rem;
+      transition: all .2s;
+    }
+    .btn-secondary:hover { border-color: #4b5563; color: var(--t1); }
+
+    .spinner-sm { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .alert {
+      padding: .8rem 1rem; border-radius: 12px;
+      font-size: .85rem; font-weight: 500;
+      display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem;
+    }
+    .alert-info  { background: rgba(37,99,235,.1); border: 1px solid rgba(37,99,235,.25); color: #93c5fd; }
+    .alert-ok    { background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.25); color: #6ee7b7; }
+    .alert-warn  { background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.25); color: #fdba74; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .grid-4 { grid-template-columns: repeat(2,1fr); }
+      .matiere-grid { grid-template-columns: repeat(2,1fr); }
+      .exo-layout { grid-template-columns: 1fr; height: auto; }
+      .quick-actions { grid-template-columns: 1fr; }
+      .achievements-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .hamburger { display: flex; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .prog-subject-grid { grid-template-columns: 1fr; }
+    }
+    .overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.5); z-index: 45;
+    }
+    .overlay.show { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- Mobile overlay -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- ════════════════ SIDEBAR ════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <a class="sidebar-logo" href="index.html">
+    <div class="logo-icon">B</div>
+    <span class="logo-text">OU TOU BON</span>
+  </a>
+  <div class="sidebar-user">
+    <div class="user-avatar" id="sidebarAvatar"></div>
+    <div class="user-info">
+      <div class="user-name" id="sidebarName">Chargement…</div>
+      <span class="user-badge">Terminale</span>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-section-title">Principal</span>
+    <button class="nav-item active" onclick="showView('home',this)"><i class="fas fa-house"></i> Accueil</button>
+    <button class="nav-item" onclick="showView('chat',this)"><i class="fas fa-robot"></i> Chat IA</button>
+    <button class="nav-item" onclick="showView('quiz',this)"><i class="fas fa-bolt"></i> Quiz</button>
+    <button class="nav-item" onclick="showView('exercices',this)"><i class="fas fa-calculator"></i> Exercices</button>
+    <span class="nav-section-title">Suivi</span>
+    <button class="nav-item" onclick="showView('progression',this)"><i class="fas fa-chart-line"></i> Progression</button>
+    <button class="nav-item" onclick="showView('profil',this)"><i class="fas fa-user"></i> Mon profil</button>
+  </nav>
+  <div class="sidebar-footer">
+    <button class="btn-logout" id="logoutBtn"><i class="fas fa-right-from-bracket"></i> Déconnexion</button>
+  </div>
+</aside>
+
+<!-- ════════════════ MAIN ════════════════ -->
+<div class="main">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:.75rem;">
+      <button class="hamburger" onclick="openSidebar()"><i class="fas fa-bars"></i></button>
+      <span class="topbar-title" id="topbarTitle">Accueil</span>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-streak" id="streakBadge"><i class="fas fa-fire"></i> <span id="streakCount">0</span> jours</div>
+    </div>
+  </div>
+
+  <!-- ══════ VIEW: ACCUEIL ══════ -->
+  <div class="view active" id="view-home">
+
+    <p id="welcomeMsg" style="color:var(--t2);font-size:.9rem;margin-bottom:1.5rem;"></p>
+
+    <!-- Stats -->
+    <div class="grid-4" style="margin-bottom:1.5rem;">
+      <div class="stat-card green">
+        <div class="stat-icon green"><i class="fas fa-clock"></i></div>
+        <div class="stat-value" id="statHours">0h</div>
+        <div class="stat-label">Heures étudiées</div>
+        <span class="stat-delta up"><i class="fas fa-arrow-up"></i> Ce mois</span>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon blue"><i class="fas fa-check-circle"></i></div>
+        <div class="stat-value" id="statExos">0</div>
+        <div class="stat-label">Exercices résolus</div>
+        <span class="stat-delta up"><i class="fas fa-arrow-up"></i> Total</span>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-icon purple"><i class="fas fa-star"></i></div>
+        <div class="stat-value" id="statMoyenne">—</div>
+        <div class="stat-label">Score diagnostic</div>
+        <span class="stat-delta up" id="diagLabel">Test initial</span>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-icon orange"><i class="fas fa-trophy"></i></div>
+        <div class="stat-value" id="statQuiz">0</div>
+        <div class="stat-label">Quiz complétés</div>
+        <span class="stat-delta up"><i class="fas fa-arrow-up"></i> Total</span>
+      </div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="quick-actions">
+      <div class="quick-card" onclick="showView('chat', document.querySelector('[onclick*=chat]'))">
+        <div class="quick-card-icon" style="background:rgba(16,185,129,.12);color:var(--green);">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>Demander à l'IA</h3>
+        <p>Pose une question sur n'importe quelle matière</p>
+      </div>
+      <div class="quick-card" onclick="showView('quiz', document.querySelector('[onclick*=quiz]'))">
+        <div class="quick-card-icon" style="background:rgba(37,99,235,.12);color:var(--blue2);">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Lancer un Quiz</h3>
+        <p>Questions tirées de tes cours et documents</p>
+      </div>
+      <div class="quick-card" onclick="showView('exercices', document.querySelector('[onclick*=exercices]'))">
+        <div class="quick-card-icon" style="background:rgba(139,92,246,.12);color:var(--purple);">
+          <i class="fas fa-calculator"></i>
+        </div>
+        <h3>Résoudre un exercice</h3>
+        <p>Colle le texte ou une photo, l'IA résout étape par étape</p>
+      </div>
+    </div>
+
+    <!-- Progression rapide -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <div class="card">
+        <div style="font-size:.9rem;font-weight:700;margin-bottom:1rem;">📊 Progression par matière</div>
+        <div id="homeProgBars"></div>
+      </div>
+      <div class="card">
+        <div style="font-size:.9rem;font-weight:700;margin-bottom:1rem;">🎯 Points forts & lacunes</div>
+        <div id="homeInsights" style="font-size:.82rem;color:var(--t2);line-height:1.7;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════ VIEW: CHAT ══════ -->
+  <div class="view" id="view-chat">
+    <div class="chat-topbar">
+      <div class="chat-topbar-left">
+        <div class="ai-avatar">🤖</div>
+        <div>
+          <div style="font-size:.9rem;font-weight:700;">OU TOU BON — Tuteur personnel</div>
+          <div class="chat-status"><span class="status-dot"></span>En ligne · Aurora Alpha (OpenRouter)</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:.72rem;color:var(--t3);margin-bottom:.35rem;">Contexte matière</div>
+        <div class="subject-pills" id="subjectPills">
+          <button class="subject-pill active" data-subject="general" onclick="setSubject('general',this)">Général</button>
+          <button class="subject-pill" data-subject="maths"    onclick="setSubject('maths',this)">Maths</button>
+          <button class="subject-pill" data-subject="physique" onclick="setSubject('physique',this)">Physique</button>
+          <button class="subject-pill" data-subject="chimie"   onclick="setSubject('chimie',this)">Chimie</button>
+          <button class="subject-pill" data-subject="svt"      onclick="setSubject('svt',this)">SVT</button>
+          <button class="subject-pill" data-subject="francais" onclick="setSubject('francais',this)">Français</button>
+          <button class="subject-pill" data-subject="philo"    onclick="setSubject('philo',this)">Philo</button>
+          <button class="subject-pill" data-subject="histoire" onclick="setSubject('histoire',this)">Histoire</button>
+          <button class="subject-pill" data-subject="anglais"  onclick="setSubject('anglais',this)">Anglais</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg ai">
+        <div class="msg-avatar">🤖</div>
+        <div>
+          <div class="msg-bubble">
+            Salut ! Je suis <strong>OU TOU BON</strong>, ton tuteur IA pour le BAC 🎓<br><br>
+            Je peux t'aider à :<br>
+            • <strong>Expliquer</strong> un concept de n'importe quelle matière<br>
+            • <strong>Corriger</strong> tes exercices étape par étape<br>
+            • <strong>Faire des révisions</strong> sous forme de dialogue<br>
+            • <strong>Préparer</strong> tes dissertations et analyses<br><br>
+            Choisis une matière en haut et pose ta première question !
+          </div>
+          <div class="msg-time">Maintenant</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="suggestion-btn" onclick="useSuggestion(this)">Explique-moi les suites numériques</button>
+        <button class="suggestion-btn" onclick="useSuggestion(this)">Comment rédiger une intro de philo ?</button>
+        <button class="suggestion-btn" onclick="useSuggestion(this)">Résume la Seconde Guerre mondiale</button>
+        <button class="suggestion-btn" onclick="useSuggestion(this)">Exercice de chimie sur les acides</button>
+      </div>
+      <div id="chatImgPreview" style="display:none;" class="chat-img-preview">
+        <img id="chatImgThumb" src="" alt="">
+        <span id="chatImgName">image.jpg</span>
+        <button class="btn-remove-chat-img" onclick="removeChatImg()" title="Supprimer"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-form">
+        <label class="btn-img-upload" title="Envoyer une image">
+          <i class="fas fa-image"></i>
+          <input type="file" id="chatImgInput" accept="image/*" style="display:none" onchange="handleChatImg(event)">
+        </label>
+        <textarea class="chat-input" id="chatInput" placeholder="Pose ta question…" rows="1"
+          onkeydown="chatKeydown(event)"></textarea>
+        <button class="btn-send" id="sendBtn" onclick="sendChatMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ VIEW: QUIZ ══════ -->
+  <div class="view" id="view-quiz">
+
+    <!-- Sélecteur de matière -->
+    <div id="quizPicker" class="quiz-subject-picker">
+      <div class="section-title">Choisir une <span>matière</span></div>
+      <div class="matiere-grid" id="quizMatiereGrid"></div>
+      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+        <button class="btn-primary" id="startQuizBtn" onclick="startQuiz()" disabled>
+          <i class="fas fa-play"></i> Lancer le quiz
+        </button>
+        <div style="font-size:.8rem;color:var(--t3);">10 questions · ~8 minutes</div>
+      </div>
+    </div>
+
+    <!-- Arène quiz -->
+    <div class="quiz-arena" id="quizArena">
+      <div class="quiz-header-bar">
+        <div class="quiz-prog-wrap">
+          <div style="font-size:.78rem;color:var(--t3);margin-bottom:.4rem;" id="quizCounter">Question 1/10</div>
+          <div class="quiz-prog-bar"><div class="quiz-prog-fill" id="quizProgFill" style="width:0%"></div></div>
+        </div>
+        <div class="quiz-timer" id="quizTimer">30</div>
+        <button class="btn-secondary" onclick="exitQuiz()" style="padding:.5rem 1rem;font-size:.8rem;">
+          <i class="fas fa-times"></i> Quitter
+        </button>
+      </div>
+      <div class="quiz-question-card">
+        <div class="quiz-q-meta" id="quizQMeta"></div>
+        <div class="quiz-q-text" id="quizQText"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-primary" id="quizNextBtn" onclick="nextQuizQuestion()" disabled>
+          Suivant <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Résultats -->
+    <div class="quiz-results" id="quizResults">
+      <div class="score-big">
+        <div class="score-ring" id="scoreRing">
+          <span class="score-num" id="scorePct">0%</span>
+          <span class="score-sub" id="scoreLabel">Score</span>
+        </div>
+        <div style="font-size:1.1rem;font-weight:800;margin-bottom:.35rem;" id="scoreTitle"></div>
+        <div style="font-size:.85rem;color:var(--t2);" id="scoreDetails"></div>
+      </div>
+      <div id="quizResultBars" style="margin-bottom:1.5rem;"></div>
+      <div style="display:flex;gap:1rem;justify-content:center;">
+        <button class="btn-secondary" onclick="restartQuiz()"><i class="fas fa-redo"></i> Rejouer</button>
+        <button class="btn-primary" onclick="showView('exercices', document.querySelector('[onclick*=exercices]'))"><i class="fas fa-calculator"></i> Pratiquer</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════ VIEW: EXERCICES ══════ -->
+  <div class="view" id="view-exercices">
+    <div class="exo-layout">
+      <!-- Input -->
+      <div class="exo-input-panel">
+        <div class="panel-header">
+          <h3><i class="fas fa-pen-to-square" style="color:var(--purple)"></i> Ton exercice</h3>
+          <div style="font-size:.72rem;color:var(--t3);">Texte, photo ou les deux</div>
+        </div>
+        <div class="panel-body">
+          <textarea class="exo-textarea" id="exoInput"
+            placeholder="Colle ici le texte de ton exercice…&#10;&#10;Exemple :&#10;Soit f(x) = x² - 3x + 2. Calculer les racines de f, étudier son signe…"></textarea>
+          <div id="exoImgPreview"></div>
+        </div>
+        <div class="exo-toolbar">
+          <div class="exo-tools">
+            <label class="btn-tool" title="Ajouter une image" style="cursor:pointer;">
+              <i class="fas fa-image"></i>
+              <input type="file" id="exoImageInput" accept="image/*" style="display:none;" onchange="handleExoImage(event)">
+            </label>
+            <button class="btn-tool" title="Effacer" onclick="clearExo()"><i class="fas fa-trash-can"></i></button>
+            <button class="btn-tool" title="Copier la solution" id="copyBtn" onclick="copySolution()" style="display:none;"><i class="fas fa-copy"></i></button>
+          </div>
+          <button class="btn-solve" id="solveBtn" onclick="solveExercice()">
+            <i class="fas fa-wand-magic-sparkles"></i> Résoudre avec l'IA
+          </button>
+        </div>
+      </div>
+      <!-- Output -->
+      <div class="exo-output-panel">
+        <div class="panel-header">
+          <h3><i class="fas fa-lightbulb" style="color:var(--yellow)"></i> Solution détaillée</h3>
+          <div style="font-size:.72rem;color:var(--t3);" id="exoMatiereDetected"></div>
+        </div>
+        <div class="panel-body" id="exoOutput">
+          <div class="solution-empty">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <div>
+              <div style="font-weight:700;color:var(--t2);margin-bottom:.4rem;">Prêt à résoudre</div>
+              <div style="font-size:.78rem;">Colle un exercice et clique sur <strong style="color:var(--green)">Résoudre</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ VIEW: PROGRESSION ══════ -->
+  <div class="view" id="view-progression">
+    <div class="section-title">Ta <span>progression</span></div>
+
+    <div id="diagBanner" style="margin-bottom:1.5rem;display:none;">
+      <div class="alert alert-info">
+        <i class="fas fa-chart-pie"></i>
+        <span>Résultats de ton test diagnostique initial — <strong id="diagDateLabel"></strong></span>
+      </div>
+    </div>
+
+    <div class="prog-subject-grid" id="progSubjectGrid"></div>
+
+    <div style="font-size:.9rem;font-weight:700;margin-bottom:1rem;margin-top:.5rem;">🏆 Succès</div>
+    <div class="achievements-grid" id="achievementsGrid"></div>
+  </div>
+
+  <!-- ══════ VIEW: PROFIL ══════ -->
+  <div class="view" id="view-profil">
+    <div class="section-title">Mon <span>profil</span></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;">
+      <div class="card" style="text-align:center;padding:2rem;">
+        <div class="user-avatar" id="profilAvatar" style="width:80px;height:80px;font-size:1.6rem;margin:0 auto 1rem;border-radius:20px;"></div>
+        <div style="font-size:1.1rem;font-weight:800;" id="profilName">—</div>
+        <div style="font-size:.8rem;color:var(--t3);margin:.25rem 0 .75rem;" id="profilEmail">—</div>
+        <span class="user-badge" style="font-size:.8rem;padding:.25rem .75rem;">Terminale</span>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border2);">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:.3rem;">Lycée</div>
+          <div style="font-size:.875rem;font-weight:600;" id="profilSchool">—</div>
+        </div>
+        <div style="margin-top:1rem;">
+          <div style="font-size:.75rem;color:var(--t3);margin-bottom:.3rem;">Membre depuis</div>
+          <div style="font-size:.875rem;font-weight:600;" id="profilDate">—</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card">
+          <div style="font-weight:700;margin-bottom:1rem;">📈 Statistiques globales</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+            <div style="text-align:center;">
+              <div style="font-size:1.5rem;font-weight:900;color:var(--green);" id="profilStatH">0h</div>
+              <div style="font-size:.72rem;color:var(--t3);">Étude totale</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:1.5rem;font-weight:900;color:var(--blue2);" id="profilStatE">0</div>
+              <div style="font-size:.72rem;color:var(--t3);">Exercices</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:1.5rem;font-weight:900;color:var(--purple);" id="profilStatQ">0</div>
+              <div style="font-size:.72rem;color:var(--t3);">Quiz</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-weight:700;margin-bottom:1rem;">🎯 Score diagnostic par matière</div>
+          <div id="profilDiagBars"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   FIREBASE INIT
+═══════════════════════════════════════════════════════════ */
+const firebaseConfig = {
+  apiKey:            "AIzaSyCtzjju7BZJKQy8RcKOyDTfp0ujjVxVdUc",
+  authDomain:        "htbac-d22cb.firebaseapp.com",
+  projectId:         "htbac-d22cb",
+  storageBucket:     "htbac-d22cb.firebasestorage.app",
+  messagingSenderId: "414988535258",
+  appId:             "1:414988535258:web:f0beaeff6cdcb114e4ace3",
+  measurementId:     "G-6L5C812Q6V",
+  databaseURL:       "https://htbac-d22cb-default-rtdb.firebaseio.com"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db   = firebase.database();
+
+const AI_KEY   = "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";
+const AI_URL   = "https://openrouter.ai/api/v1/chat/completions";
+const AI_MODEL = "openrouter/aurora-alpha";
+
+/* ═══════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════ */
+let currentUser     = null;
+let userData        = null;
+let chatHistory     = [];
+let chatSubject     = 'general';
+let exoImageB64     = null;
+let exoImageMime    = null;
+let chatImageB64    = null;
+let chatImageMime   = null;
+let chatImagePreviewUrl = null;
+let dbContext       = null; // excerpts from Firebase database docs
+let quizQuestions = [];
+let quizCurrent   = 0;
+let quizAnswers   = [];
+let quizAnswered  = false;
+let quizTimer     = null;
+let quizTimeLeft  = 30;
+let selectedMat   = null;
+let quizCounts    = {};
+
+const $ = id => document.getElementById(id);
+
+const MATS = {
+  maths:       { label:'Maths',        icon:'fa-square-root-variable', color:'#3b82f6', bg:'rgba(59,130,246,.12)' },
+  physique:    { label:'Physique',      icon:'fa-atom',                 color:'#8b5cf6', bg:'rgba(139,92,246,.12)' },
+  chimie:      { label:'Chimie',        icon:'fa-flask',                color:'#10B981', bg:'rgba(16,185,129,.12)' },
+  svt:         { label:'SVT',           icon:'fa-leaf',                 color:'#22c55e', bg:'rgba(34,197,94,.12)'  },
+  francais:    { label:'Français',      icon:'fa-book-open',            color:'#f97316', bg:'rgba(249,115,22,.12)' },
+  philosophie: { label:'Philosophie',   icon:'fa-brain',                color:'#ec4899', bg:'rgba(236,72,153,.12)' },
+  histoire:    { label:'Histoire & Géo',icon:'fa-landmark',             color:'#f59e0b', bg:'rgba(245,158,11,.12)' },
+  anglais:     { label:'Anglais',       icon:'fa-globe',                color:'#06b6d4', bg:'rgba(6,182,212,.12)'  },
+};
+
+/* ═══════════════════════════════════════════════════════════
+   AUTH GUARD
+═══════════════════════════════════════════════════════════ */
+auth.onAuthStateChanged(async user => {
+  if (!user) { window.location.href = '/login/'; return; }
+  currentUser = user;
+  await loadUserData();
+  initDashboard();
+});
+
+async function loadUserData() {
+  const snap = await db.ref('users/' + currentUser.uid).once('value');
+  userData = snap.val() || {};
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════ */
+function initDashboard() {
+  const name      = userData.firstName || currentUser.displayName?.split(' ')[0] || 'Étudiant';
+  const fullName  = (userData.firstName || '') + ' ' + (userData.lastName || '');
+  const photo     = currentUser.photoURL || userData.photoURL || '';
+  const stats     = userData.stats || {};
+  const diag      = userData.diagnostic || {};
+  const school    = userData.school?.name || '—';
+
+  // Sidebar user
+  if (photo) {
+    $('sidebarAvatar').innerHTML = `<img src="${photo}" alt="${name}">`;
+  } else {
+    $('sidebarAvatar').textContent = name[0].toUpperCase();
+  }
+  $('sidebarName').textContent = fullName.trim() || name;
+
+  // Topbar streak
+  const streak = userData.stats?.streak || 0;
+  $('streakCount').textContent = streak;
+
+  // Welcome message
+  const hrs = new Date().getHours();
+  const greeting = hrs < 12 ? 'Bonjour' : hrs < 18 ? 'Bon après-midi' : 'Bonsoir';
+  $('welcomeMsg').textContent = `${greeting}, ${name} 👋 — Prêt à réviser ?`;
+
+  // Stats home
+  $('statHours').textContent   = (stats.heuresEtude || 0) + 'h';
+  $('statExos').textContent    = stats.exercicesResolus || 0;
+  $('statQuiz').textContent    = stats.quizCompletes || 0;
+  $('statMoyenne').textContent = diag.scoreGlobal != null ? diag.scoreGlobal + '%' : '—';
+
+  // Progress bars home
+  renderHomeProg();
+  renderHomeInsights();
+
+  // Profil
+  if (photo) {
+    $('profilAvatar').innerHTML = `<img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover;border-radius:20px">`;
+  } else {
+    $('profilAvatar').textContent = name[0].toUpperCase();
+    $('profilAvatar').style.background = 'linear-gradient(135deg,var(--green),var(--blue))';
+  }
+  $('profilName').textContent   = fullName.trim() || name;
+  $('profilEmail').textContent  = currentUser.email || '';
+  $('profilSchool').textContent = school;
+  $('profilDate').textContent   = new Date(userData.createdAt || Date.now()).toLocaleDateString('fr-FR', { year:'numeric', month:'long' });
+  $('profilStatH').textContent  = (stats.heuresEtude || 0) + 'h';
+  $('profilStatE').textContent  = stats.exercicesResolus || 0;
+  $('profilStatQ').textContent  = stats.quizCompletes || 0;
+
+  // Chat avatar initiale
+  chatUserInitial = name[0].toUpperCase();
+
+  // Quiz grid
+  buildQuizMatiereGrid();
+
+  // Progression
+  renderProgression();
+
+  // Diag banner
+  if (diag.completedAt) {
+    $('diagBanner').style.display = '';
+    $('diagDateLabel').textContent = new Date(diag.completedAt).toLocaleDateString('fr-FR');
+  }
+
+  // Chat suggestions selon points faibles
+  updateChatSuggestions();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════════════════ */
+const viewTitles = {
+  home:'Accueil', chat:'Chat IA', quiz:'Quiz',
+  exercices:'Exercices', progression:'Progression', profil:'Mon profil'
+};
+
+function showView(name, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const view = $('view-' + name);
+  if (view) view.classList.add('active');
+  if (btn)  btn.classList.add('active');
+  $('topbarTitle').textContent = viewTitles[name] || name;
+  closeSidebar();
+  // Scroll top
+  document.querySelector('.main').scrollTop = 0;
+}
+
+function openSidebar()  { $('sidebar').classList.add('open'); $('overlay').classList.add('show'); }
+function closeSidebar() { $('sidebar').classList.remove('open'); $('overlay').classList.remove('show'); }
+
+/* ═══════════════════════════════════════════════════════════
+   PROGRESS BARS – HOME
+═══════════════════════════════════════════════════════════ */
+let chatUserInitial = '?';
+
+function renderHomeProg() {
+  const diag = userData.diagnostic?.niveauxMatieres || {};
+  const prog = userData.progression || {};
+  const container = $('homeProgBars');
+  container.innerHTML = '';
+  Object.entries(MATS).forEach(([key, mat]) => {
+    const pct  = diag[key] ?? prog[key] ?? 0;
+    const div  = document.createElement('div');
+    div.className = 'prog-row';
+    div.innerHTML = `
+      <div class="prog-header">
+        <span class="prog-name">${mat.label}</span>
+        <span class="prog-pct" style="color:${mat.color}">${pct}%</span>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" style="width:0%;background:${mat.color}" data-pct="${pct}"></div>
+      </div>`;
+    container.appendChild(div);
+  });
+  // Animate
+  setTimeout(() => {
+    container.querySelectorAll('.prog-fill').forEach(el => {
+      el.style.width = el.dataset.pct + '%';
+    });
+  }, 100);
+}
+
+function renderHomeInsights() {
+  const diag = userData.diagnostic?.niveauxMatieres || {};
+  const sorted = Object.entries(diag).sort((a,b) => b[1]-a[1]);
+  let html = '';
+  if (sorted.length) {
+    const top3 = sorted.slice(0,3).filter(([,v]) => v >= 50);
+    const low3 = sorted.slice(-3).filter(([,v]) => v < 60).reverse();
+    if (top3.length) {
+      html += '<div style="color:var(--green);font-weight:700;margin-bottom:.3rem;">✅ Points forts</div>';
+      top3.forEach(([k,v]) => html += `<div>${MATS[k]?.label || k} — <strong>${v}%</strong></div>`);
+    }
+    if (low3.length) {
+      html += '<div style="color:var(--orange);font-weight:700;margin:.75rem 0 .3rem;">⚡ À travailler</div>';
+      low3.forEach(([k,v]) => html += `<div>${MATS[k]?.label || k} — <strong>${v}%</strong></div>`);
+    }
+  }
+  if (!html) html = '<div style="color:var(--t3);">Complète le test diagnostique pour voir tes insights.</div>';
+  $('homeInsights').innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHAT IA
+═══════════════════════════════════════════════════════════ */
+function setSubject(sub, btn) {
+  chatSubject = sub;
+  document.querySelectorAll('.subject-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  updateChatSuggestions();
+}
+
+const suggestionsBySubject = {
+  general: ["Explique-moi les suites numériques","Comment rédiger une intro de philo ?","Résume la 2nde Guerre mondiale","Exercice de chimie sur les acides"],
+  maths:   ["Explique les dérivées","Comment résoudre une équation du 2nd degré ?","Trigonométrie : sin cos tan","Probabilités conditionnelles"],
+  physique:["Les lois de Newton expliquées","Différence entre courant alternatif et continu","Exercice sur les forces","Optique : réfraction et réflexion"],
+  chimie:  ["pH acido-basique","Équilibrer une équation chimique","Les alcanes et alcènes","Réactions d'oxydoréduction"],
+  svt:     ["La photosynthèse expliquée","Génétique : lois de Mendel","Le système nerveux","ADN et reproduction cellulaire"],
+  francais:["Plan d'une dissertation","Analyse linéaire d'un poème","Les figures de style principales","Commenter un texte littéraire"],
+  philo:   ["Qu'est-ce que la conscience ?","Différence liberté / libre arbitre","Hobbes vs Rousseau","Méthodologie de la dissert philo"],
+  histoire:["La décolonisation en Afrique","Causes de la 1ère Guerre mondiale","La Guerre froide résumée","Les institutions de la 5e République"],
+  anglais: ["Present perfect vs preterite","Comment rédiger un essay en anglais","Vocabulaire du body language","Passif en anglais"],
+};
+
+function updateChatSuggestions() {
+  const suggs = suggestionsBySubject[chatSubject] || suggestionsBySubject.general;
+  const cont  = $('chatSuggestions');
+  cont.innerHTML = '';
+  suggs.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'suggestion-btn';
+    btn.textContent = s;
+    btn.onclick = () => useSuggestion(btn);
+    cont.appendChild(btn);
+  });
+}
+
+function useSuggestion(btn) {
+  $('chatInput').value = btn.textContent;
+  $('chatSuggestions').style.display = 'none';
+  sendChatMessage();
+}
+
+function chatKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendChatMessage();
+  }
+  // Auto-resize
+  e.target.style.height = 'auto';
+  e.target.style.height = Math.min(e.target.scrollHeight, 150) + 'px';
+}
+
+/* ── Image upload dans le chat ── */
+function handleChatImg(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    chatImageB64 = e.target.result.split(',')[1];
+    chatImageMime = file.type;
+    chatImagePreviewUrl = e.target.result;
+    $('chatImgThumb').src = e.target.result;
+    $('chatImgName').textContent = file.name;
+    $('chatImgPreview').style.display = 'flex';
+  };
+  reader.readAsDataURL(file);
+}
+function removeChatImg() {
+  chatImageB64 = null; chatImageMime = null; chatImagePreviewUrl = null;
+  $('chatImgPreview').style.display = 'none';
+  $('chatImgInput').value = '';
+}
+
+/* ── Charge les docs du db Firebase pour contexte ── */
+async function loadDbContext(subject) {
+  if (!subject || subject === 'general') return '';
+  try {
+    const snap = await db.ref('diagnostic_questions/' + subject).limitToFirst(6).once('value');
+    if (!snap.exists()) return '';
+    const excerpts = [];
+    snap.forEach(q => {
+      const v = q.val();
+      if (v.enonce) excerpts.push(`Q: ${v.enonce}${v.explication ? ' | Explication: ' + v.explication : ''}`);
+    });
+    return excerpts.length ? '\n\n--- EXTRAITS DU COURS (base de données) ---\n' + excerpts.join('\n') : '';
+  } catch(e) { return ''; }
+}
+
+async function sendChatMessage() {
+  const input = $('chatInput');
+  const text  = input.value.trim();
+  if (!text && !chatImageB64) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  $('chatSuggestions').style.display = 'none';
+  $('sendBtn').disabled = true;
+
+  // Affiche message user (avec image éventuelle)
+  appendMsg('user', text, chatImagePreviewUrl);
+
+  // Snapshot image avant reset
+  const imgB64  = chatImageB64;
+  const imgMime = chatImageMime;
+  removeChatImg();
+
+  // Build system prompt
+  const subjectContext = chatSubject !== 'general'
+    ? `Tu es spécialisé en ${MATS[chatSubject]?.label || chatSubject} pour le BAC Terminale.` : '';
+  const dbCtx = await loadDbContext(chatSubject);
+  const systemPrompt = `Tu es OU TOU BON. Tu es le pote intelligent de l'élève — pas un prof. ${subjectContext}
+
+TON RÔLE : expliquer les trucs chiants du lycée de façon tellement simple et naturelle que l'élève se dit "ah ouais c'est tout ?". Capte son attention, rends ça intéressant.
+
+STYLE OBLIGATOIRE :
+- Parle comme un ami qui explique, pas comme un manuel scolaire. Pas de blabla académique, pas d'intro pompeuse.
+- Commence direct par l'essentiel. Une question simple = une réponse courte et claire.
+- Utilise des analogies du quotidien pour rendre les concepts concrets (ex: une suite c'est comme une playlist où chaque son suit une règle).
+- Pas de définition formelle d'emblée — explique d'abord avec des mots simples, puis montre l'écriture mathématique.
+- Maximum 2-3 concepts par réponse. Pas de liste encyclopédique.
+- Si l'élève dit "salut" ou parle de la vie, réponds naturellement et demande ce qu'il galère à comprendre.
+
+POUR LES MATHS :
+- Pour TOUTES les expressions mathématiques utilise KaTeX : \$expr\$ pour l'inline et \$\$expr\$\$ pour les blocs. N'utilise JAMAIS \\( \\) ni \\[ \\].
+- Montre les calculs étape par étape, une ligne à la fois, avec une phrase qui explique CE QU'ON FAIT à chaque étape.
+
+RÉPONDS EN FRANÇAIS sauf si la matière est l'anglais.
+${dbCtx ? `Extraits de cours disponibles (utilise-les si pertinents) :\n${dbCtx}` : ''}
+
+APRÈS ta réponse, si la question portait sur un sujet précis (pas un simple bonjour), ajoute 3 questions de suivi courtes et naturelles :
+---FOLLOWUP---
+1. [question courte et naturelle]
+2. [question courte et naturelle]
+3. [question courte et naturelle]
+---END---
+Si c'est une salutation ou hors-cours, n'ajoute pas ce bloc.`;
+
+  // Add user message to history
+  const userContent = imgB64
+    ? [{ type:'text', text: text || 'Analyse cette image.' }, { type:'image_url', image_url:{ url:`data:${imgMime};base64,${imgB64}` } }]
+    : text;
+  chatHistory.push({ role: 'user', parts: [{ text: text || '[image]' }] });
+
+  // Loader Astra — phase thinking
+  const typingId = appendTyping('thinking');
+
+  // Transition thinking → generating après 1.5s
+  const generatingTimeout = setTimeout(() => updateTypingPhase(typingId, 'generating'), 1500);
+
+  try {
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      ...chatHistory.slice(0, -1).map(m => ({ role: m.role === 'model' ? 'assistant' : m.role, content: m.parts[0].text })),
+      { role: 'user', content: userContent },
+    ];
+
+    const resp = await fetch(AI_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${AI_KEY}`,
+        'HTTP-Referer': window.location.href,
+        'X-Title': 'OU TOU BON',
+      },
+      body: JSON.stringify({ model: AI_MODEL, messages, temperature: 0.7, max_tokens: 2048 }),
+    });
+
+    clearTimeout(generatingTimeout);
+    updateTypingPhase(typingId, 'generating');
+    const data = await resp.json();
+
+    if (data.error) throw new Error(`OpenRouter : ${data.error.message || JSON.stringify(data.error)}`);
+    const rawReply = data.choices?.[0]?.message?.content;
+    if (!rawReply) throw new Error('Réponse vide de l\'API.');
+
+    // Sépare la réponse des follow-up questions
+    const followupMatch = rawReply.match(/---FOLLOWUP---\s*([\s\S]*?)\s*---END---/);
+    const mainReply = rawReply.replace(/---FOLLOWUP---[\s\S]*?---END---/g, '').trim();
+    const followups = followupMatch
+      ? followupMatch[1].split('\n')
+          .map(l => l.replace(/^\d+\.\s*/, '').replace(/^\[|\]$/g, '').trim())
+          .filter(l => l.length > 5 && !l.startsWith('['))
+          .slice(0, 3)
+      : [];
+
+    chatHistory.push({ role: 'model', parts: [{ text: mainReply }] });
+    removeTyping(typingId);
+    appendMsg('ai', mainReply, null, followups);
+
+    if (chatHistory.length > 40) chatHistory = chatHistory.slice(-40);
+
+  } catch (err) {
+    clearTimeout(generatingTimeout);
+    removeTyping(typingId);
+    appendMsg('ai', `❌ **Erreur :** ${err.message}`);
+    if (chatHistory.length && chatHistory[chatHistory.length-1].role === 'user') chatHistory.pop();
+  }
+
+  $('sendBtn').disabled = false;
+  input.focus();
+}
+
+/* ── Markdown parser ── */
+function renderMarkdown(raw) {
+  // Escape HTML first (sauf dans les blocs code)
+  let text = raw;
+  // Protect LaTeX blocks $$ and $ from markdown processing (replace with placeholders)
+  const mathBlocks = [];
+  // Display math $$...$$
+  text = text.replace(/\$\$([\s\S]+?)\$\$/g, (_, m) => { mathBlocks.push('$$' + m + '$$'); return `«MATH${mathBlocks.length-1}»`; });
+  // Inline math $...$
+  text = text.replace(/\$([^\$\n]+?)\$/g, (_, m) => { mathBlocks.push('$' + m + '$'); return `«MATH${mathBlocks.length-1}»`; });
+  // Convert \(...\) → $...$
+  text = text.replace(/\\\(([\s\S]+?)\\\)/g, (_, m) => { mathBlocks.push('$' + m.trim() + '$'); return `«MATH${mathBlocks.length-1}»`; });
+  // Convert \[...\] → $$...$$
+  text = text.replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => { mathBlocks.push('$$' + m.trim() + '$$'); return `«MATH${mathBlocks.length-1}»`; });
+  // Code blocks
+  text = text.replace(/```([\s\S]*?)```/g, (_, code) =>
+    `<pre><code>${code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').trim()}</code></pre>`);
+  // Escape remaining HTML
+  text = text.replace(/(?<!<[^>]*)&(?![^<]*>)/g, '&amp;');
+  // Inline code (after block)
+  text = text.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  // Headings
+  text = text.replace(/^#{3,}\s+(.+)$/gm, '<h3>$1</h3>');
+  text = text.replace(/^##\s+(.+)$/gm, '<h3>$1</h3>');
+  // Bold / italic
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Tables
+  text = text.replace(/((?:^\|.+\|\s*\n)+)/gm, tableBlock => {
+    const rows = tableBlock.trim().split('\n').filter(r => !/^\|[-:| ]+\|$/.test(r.trim()));
+    if (rows.length < 1) return tableBlock;
+    const toTd = (row, tag) => row.split('|').slice(1,-1).map(c => `<${tag}>${c.trim()}</${tag}>`).join('');
+    const [head, ...body] = rows;
+    return `<table><thead><tr>${toTd(head,'th')}</tr></thead><tbody>${body.map(r=>`<tr>${toTd(r,'td')}</tr>`).join('')}</tbody></table>`;
+  });
+  // HR
+  text = text.replace(/^---+$/gm, '<hr>');
+  // Ordered list
+  text = text.replace(/((?:^\d+\.\s.+\n?)+)/gm, block => {
+    const items = block.trim().split('\n').map(l => `<li>${l.replace(/^\d+\.\s/,'')}</li>`).join('');
+    return `<ol>${items}</ol>`;
+  });
+  // Unordered list
+  text = text.replace(/((?:^[-*•]\s.+\n?)+)/gm, block => {
+    const items = block.trim().split('\n').map(l => `<li>${l.replace(/^[-*•]\s/,'')}</li>`).join('');
+    return `<ul>${items}</ul>`;
+  });
+  // Paragraphs — wrap remaining lines
+  text = text.split('\n').map(line => {
+    const t = line.trim();
+    if (!t) return '';
+    if (/^<(h[1-6]|ul|ol|li|pre|table|thead|tbody|tr|th|td|hr|blockquote)/.test(t)) return line;
+    return `<p>${line}</p>`;
+  }).join('\n');
+  // Clean double p
+  text = text.replace(/<p><\/p>/g, '');
+  // Restore math placeholders
+  text = text.replace(/«MATH(\d+)»/g, (_, i) => mathBlocks[+i] || '');
+  return text;
+}
+
+function appendMsg(role, text, imageUrl, followups) {
+  const container = $('chatMessages');
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+
+  const avatarContent = role === 'ai' ? '🤖' : chatUserInitial;
+  const avatarStyle   = role === 'user' ? 'background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;' : '';
+  const time = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+
+  let content = '';
+  if (imageUrl) content += `<img src="${imageUrl}" class="msg-img" alt="image">`;
+
+  if (role === 'ai') {
+    content += renderMarkdown(text);
+    // Follow-up questions
+    if (followups && followups.length) {
+      const btns = followups.map(q =>
+        `<button class="followup-btn" onclick="useFollowup(this)">${escHtml(q)}</button>`
+      ).join('');
+      content += `<div class="followup-wrap"><div class="followup-label">💬 Pour aller plus loin</div>${btns}</div>`;
+    }
+  } else {
+    // User: simple text
+    content += `<p>${escHtml(text).replace(/\n/g,'<br>')}</p>`;
+  }
+
+  div.innerHTML = `
+    <div class="msg-avatar" style="${avatarStyle}">${avatarContent}</div>
+    <div style="flex:1;min-width:0;">
+      <div class="msg-bubble">${content}</div>
+      <div class="msg-time">${time}</div>
+    </div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  // Render math with KaTeX for AI messages
+  if (role === 'ai') {
+    const bubble = div.querySelector('.msg-bubble');
+    const tryRender = () => {
+      if (window._katexReady && window.renderMathInElement) {
+        renderMathInElement(bubble, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$',  right: '$',  display: false },
+          ],
+          throwOnError: false,
+          strict: false,
+        });
+        container.scrollTop = container.scrollHeight;
+      } else {
+        setTimeout(tryRender, 150);
+      }
+    };
+    tryRender();
+  }
+}
+
+function useFollowup(btn) {
+  $('chatInput').value = btn.textContent;
+  // Disable all follow-up buttons in this message
+  btn.closest('.followup-wrap').querySelectorAll('.followup-btn').forEach(b => b.disabled = true);
+  sendChatMessage();
+}
+
+/* ── Astra-style animated loader ── */
+function appendTyping(phase) {
+  const id = 'typing-' + Date.now();
+  const container = $('chatMessages');
+  const div = document.createElement('div');
+  div.id = id;
+  div.className = 'msg ai';
+  div.innerHTML = `
+    <div class="msg-avatar">🤖</div>
+    <div class="msg-bubble">
+      <div class="astra-loader" id="${id}-loader">
+        <div class="astra-row" id="${id}-row1">
+          ${Array(7).fill('<div class="astra-dot"></div>').join('')}
+        </div>
+        <div class="astra-row" id="${id}-row2">
+          ${Array(7).fill('<div class="astra-dot"></div>').join('')}
+        </div>
+        <div class="astra-phase-label ${phase || 'thinking'}" id="${id}-label">${phase === 'generating' ? 'Génération…' : 'Réflexion…'}</div>
+      </div>
+    </div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  // Start animation
+  _startAstraDots(id, phase || 'thinking');
+  return id;
+}
+
+let _astraTimers = {};
+function _startAstraDots(id, phase) {
+  clearInterval(_astraTimers[id]);
+  const dots = document.querySelectorAll(`#${id}-row1 .astra-dot, #${id}-row2 .astra-dot`);
+  dots.forEach(d => { d.classList.remove('thinking','generating'); });
+  let i = 0;
+  _astraTimers[id] = setInterval(() => {
+    if (i < dots.length) {
+      dots[i].classList.add(phase);
+      i++;
+    } else {
+      // restart
+      dots.forEach(d => d.classList.remove('thinking','generating'));
+      i = 0;
+    }
+  }, 80);
+}
+
+function updateTypingPhase(id, phase) {
+  const label = $(`${id}-label`);
+  if (!label) return;
+  label.className = `astra-phase-label ${phase}`;
+  label.textContent = phase === 'generating' ? 'Génération…' : 'Réflexion…';
+  _startAstraDots(id, phase);
+}
+
+function removeTyping(id) {
+  clearInterval(_astraTimers[id]);
+  delete _astraTimers[id];
+  const el = $(id); if (el) el.remove();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   QUIZ
+═══════════════════════════════════════════════════════════ */
+async function buildQuizMatiereGrid() {
+  const grid = $('quizMatiereGrid');
+  grid.innerHTML = '';
+
+  // Cherche combien de questions existent par matière
+  try {
+    const snap = await db.ref('diagnostic_questions').once('value');
+    if (snap.exists()) {
+      snap.forEach(m => { quizCounts[m.key] = Object.keys(m.val() || {}).length; });
+    }
+  } catch(e) { /* ignore */ }
+
+  Object.entries(MATS).forEach(([key, mat]) => {
+    const count = quizCounts[key] || 0;
+    const card  = document.createElement('div');
+    card.className = 'matiere-card';
+    card.dataset.mat = key;
+    card.innerHTML = `
+      <div class="matiere-card-icon" style="background:${mat.bg};color:${mat.color};">
+        <i class="fas ${mat.icon}"></i>
+      </div>
+      <div class="matiere-card-name">${mat.label}</div>
+      <div class="matiere-card-count">${count} question${count !== 1 ? 's' : ''}</div>`;
+    card.onclick = () => selectQuizMat(key, card);
+    grid.appendChild(card);
+  });
+}
+
+function selectQuizMat(key, card) {
+  document.querySelectorAll('.matiere-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selectedMat = key;
+  $('startQuizBtn').disabled = false;
+}
+
+async function startQuiz() {
+  if (!selectedMat) return;
+
+  $('quizPicker').style.display  = 'none';
+  $('quizArena').classList.add('active');
+  $('quizResults').classList.remove('show');
+
+  quizQuestions = await loadQuizQuestions(selectedMat);
+  quizCurrent   = 0;
+  quizAnswers   = [];
+
+  renderQuizQuestion();
+}
+
+async function loadQuizQuestions(mat) {
+  let questions = [];
+  try {
+    const snap = await db.ref('diagnostic_questions/' + mat).once('value');
+    if (snap.exists()) {
+      snap.forEach(q => questions.push({ _key: q.key, ...q.val() }));
+    }
+  } catch(e) { /* use fallback */ }
+
+  if (questions.length === 0) {
+    questions = getFallbackQuestions(mat);
+  }
+
+  // Fisher-Yates + pick 10
+  return fisherYates(questions).slice(0, 10);
+}
+
+function fisherYates(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / 0xFFFFFFFF * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function getFallbackQuestions(mat) {
+  const base = {
+    maths: [
+      { enonce:'Quelle est la dérivée de f(x) = x² ?', type:'qcm', options:['x','2x','x²','2'], reponse_correcte:'2x', explication:'La dérivée de xⁿ est n·xⁿ⁻¹. Donc (x²)\' = 2x.', sujet:'Dérivation' },
+      { enonce:'Résoudre x² - 5x + 6 = 0', type:'qcm', options:['x=2 et x=3','x=1 et x=6','x=-2 et x=-3','x=5 et x=1'], reponse_correcte:'x=2 et x=3', explication:'Discriminant : 25-24=1. Racines : (5±1)/2 = 3 et 2.', sujet:'Équations' },
+      { enonce:'sin(90°) = ?', type:'qcm', options:['0','0,5','1','√2/2'], reponse_correcte:'1', explication:'Par définition, sin(90°) = 1.', sujet:'Trigonométrie' },
+    ],
+    physique: [
+      { enonce:'La formule de la vitesse est :', type:'qcm', options:['v = m·a','v = d/t','v = F/m','v = P·t'], reponse_correcte:'v = d/t', explication:'v = distance / temps.', sujet:'Mécanique' },
+      { enonce:'L\'unité du courant électrique est :', type:'qcm', options:['Volt (V)','Watt (W)','Ampère (A)','Ohm (Ω)'], reponse_correcte:'Ampère (A)', explication:'L\'intensité du courant se mesure en Ampères.', sujet:'Électricité' },
+    ],
+    chimie: [
+      { enonce:'Formule chimique de l\'eau :', type:'qcm', options:['H₂O','CO₂','NaCl','O₂'], reponse_correcte:'H₂O', explication:'L\'eau est composée de 2 atomes H et 1 atome O.', sujet:'Molécules' },
+    ],
+    francais: [
+      { enonce:'Une métaphore est :', type:'qcm', options:['Une comparaison avec "comme"','Une comparaison sans outil comparatif','Une répétition','Une question rhétorique'], reponse_correcte:'Une comparaison sans outil comparatif', explication:'La métaphore fait une analogie directe sans "comme" ni "tel que".', sujet:'Figures de style' },
+    ],
+  };
+  return base[mat] || [
+    { enonce:`Question de ${MATS[mat]?.label || mat}`, type:'qcm', options:['A','B','C','D'], reponse_correcte:'A', explication:'Exemple.', sujet:'Général' }
+  ];
+}
+
+function renderQuizQuestion() {
+  const q     = quizQuestions[quizCurrent];
+  const total = quizQuestions.length;
+  const pct   = Math.round((quizCurrent / total) * 100);
+
+  $('quizCounter').textContent   = `Question ${quizCurrent + 1} / ${total}`;
+  $('quizProgFill').style.width  = pct + '%';
+  $('quizQMeta').textContent     = (MATS[q.matiere]?.label || q.matiere || '') + (q.sujet ? ' · ' + q.sujet : '');
+  $('quizQMeta').style.color     = MATS[q.matiere]?.color || 'var(--green)';
+  $('quizQText').textContent     = q.enonce;
+  $('quizFeedback').className    = 'quiz-feedback';
+  $('quizFeedback').textContent  = '';
+  $('quizNextBtn').disabled      = true;
+  quizAnswered                   = false;
+
+  // Options
+  const opts    = $('quizOptions');
+  opts.innerHTML = '';
+  const letters  = ['A','B','C','D','E'];
+  const options  = fisherYates(Array.isArray(q.options) ? q.options : []);
+  options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.innerHTML = `<span class="quiz-opt-letter">${letters[i]}</span>${escHtml(opt)}`;
+    btn.onclick = () => selectQuizOpt(btn, opt, q);
+    opts.appendChild(btn);
+  });
+
+  // Timer
+  clearInterval(quizTimer);
+  quizTimeLeft  = 30;
+  $('quizTimer').textContent = quizTimeLeft;
+  $('quizTimer').className   = 'quiz-timer';
+  quizTimer = setInterval(() => {
+    quizTimeLeft--;
+    $('quizTimer').textContent = quizTimeLeft;
+    if (quizTimeLeft <= 10) $('quizTimer').classList.add('urgent');
+    if (quizTimeLeft <= 0) {
+      clearInterval(quizTimer);
+      if (!quizAnswered) {
+        quizAnswered = true;
+        quizAnswers.push({ matiere: q.matiere, sujet: q.sujet, correct: false });
+        $('quizOptions').querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+        const correct = q.reponse_correcte;
+        $('quizOptions').querySelectorAll('.quiz-opt').forEach(b => {
+          if (b.textContent.slice(1).trim() === correct) b.classList.add('correct');
+        });
+        showQuizFeedback(false, q);
+        $('quizNextBtn').disabled = false;
+      }
+    }
+  }, 1000);
+}
+
+function selectQuizOpt(btn, value, q) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  clearInterval(quizTimer);
+
+  const isCorrect = value === q.reponse_correcte;
+  quizAnswers.push({ matiere: q.matiere, sujet: q.sujet || '', correct: isCorrect });
+
+  $('quizOptions').querySelectorAll('.quiz-opt').forEach(b => {
+    b.disabled = true;
+    const optText = b.textContent.slice(1).trim(); // remove letter prefix
+    if (optText === q.reponse_correcte) b.classList.add('correct');
+    else if (b === btn && !isCorrect) b.classList.add('wrong');
+  });
+
+  showQuizFeedback(isCorrect, q);
+  $('quizNextBtn').disabled = false;
+}
+
+function showQuizFeedback(correct, q) {
+  const fb = $('quizFeedback');
+  fb.classList.add('show', correct ? 'c' : 'w');
+  if (correct) {
+    fb.innerHTML = `<strong>✓ Correct !</strong> ${escHtml(q.explication || '')}`;
+  } else {
+    fb.innerHTML = `<strong>✗ Incorrect.</strong> Bonne réponse : <strong>${escHtml(q.reponse_correcte)}</strong>${q.explication ? ' — ' + escHtml(q.explication) : ''}`;
+  }
+}
+
+function nextQuizQuestion() {
+  quizCurrent++;
+  if (quizCurrent >= quizQuestions.length) {
+    showQuizResults();
+  } else {
+    renderQuizQuestion();
+  }
+}
+
+function showQuizResults() {
+  clearInterval(quizTimer);
+  $('quizArena').classList.remove('active');
+  $('quizResults').classList.add('show');
+
+  const total   = quizAnswers.length || 1;
+  const correct = quizAnswers.filter(a => a.correct).length;
+  const pct     = Math.round((correct / total) * 100);
+
+  $('scorePct').textContent = pct + '%';
+  if (pct >= 80)     { $('scoreRing').className = 'score-ring score-ring-excellent'; $('scorePct').style.color='var(--green)';  $('scoreTitle').textContent = 'Excellent ! 🎉'; }
+  else if (pct >= 60){ $('scoreRing').className = 'score-ring score-ring-good';      $('scorePct').style.color='var(--blue2)';  $('scoreTitle').textContent = 'Bien joué ! 👍'; }
+  else if (pct >= 40){ $('scoreRing').className = 'score-ring score-ring-medium';    $('scorePct').style.color='var(--orange)'; $('scoreTitle').textContent = 'Pas mal, continue ! 💪'; }
+  else               { $('scoreRing').className = 'score-ring score-ring-low';       $('scorePct').style.color='var(--red)';    $('scoreTitle').textContent = 'À réviser ! 📚'; }
+
+  $('scoreDetails').textContent = `${correct} bonne${correct > 1 ? 's' : ''} réponse${correct > 1 ? 's' : ''} sur ${total}`;
+
+  // Détail par sujet
+  const bySujet = {};
+  quizAnswers.forEach(a => {
+    const k = a.sujet || 'Général';
+    if (!bySujet[k]) bySujet[k] = { correct:0, total:0 };
+    bySujet[k].total++;
+    if (a.correct) bySujet[k].correct++;
+  });
+  const rb = $('quizResultBars');
+  rb.innerHTML = '<div style="font-weight:700;margin-bottom:.75rem;font-size:.875rem;">Résultats par sujet</div>';
+  Object.entries(bySujet).forEach(([suj, v]) => {
+    const p = Math.round((v.correct / v.total) * 100);
+    const color = p >= 70 ? 'var(--green)' : p >= 40 ? 'var(--orange)' : 'var(--red)';
+    rb.innerHTML += `
+      <div class="prog-row">
+        <div class="prog-header"><span class="prog-name">${escHtml(suj)}</span><span class="prog-pct" style="color:${color}">${p}%</span></div>
+        <div class="prog-track"><div class="prog-fill" style="width:${p}%;background:${color}"></div></div>
+      </div>`;
+  });
+
+  // Save to Firebase
+  saveQuizResult(pct, correct, total);
+}
+
+async function saveQuizResult(pct, correct, total) {
+  if (!currentUser) return;
+  try {
+    await db.ref('users/' + currentUser.uid + '/stats/quizCompletes').transaction(v => (v || 0) + 1);
+    await db.ref('quiz_sessions/' + currentUser.uid).push({
+      matiere: selectedMat,
+      score: pct,
+      correct, total,
+      date: Date.now(),
+    });
+    // Update moyenne générale
+    await db.ref('users/' + currentUser.uid + '/stats/moyenneGenerale').transaction(v => {
+      return v ? Math.round((v + pct) / 2) : pct;
+    });
+    $('statQuiz').textContent = (parseInt($('statQuiz').textContent) || 0) + 1;
+  } catch(e) { /* silent */ }
+}
+
+function exitQuiz() {
+  clearInterval(quizTimer);
+  $('quizArena').classList.remove('active');
+  $('quizResults').classList.remove('show');
+  $('quizPicker').style.display = '';
+}
+
+function restartQuiz() {
+  $('quizResults').classList.remove('show');
+  $('quizPicker').style.display = '';
+  document.querySelectorAll('.matiere-card').forEach(c => c.classList.remove('selected'));
+  selectedMat = null;
+  $('startQuizBtn').disabled = true;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EXERCICES
+═══════════════════════════════════════════════════════════ */
+function handleExoImage(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const b64 = e.target.result.split(',')[1];
+    exoImageB64  = b64;
+    exoImageMime = file.type;
+    const preview = $('exoImgPreview');
+    preview.innerHTML = `
+      <div class="img-preview-wrap">
+        <img src="${e.target.result}" alt="exercice">
+        <button class="btn-remove-img" onclick="removeExoImg()"><i class="fas fa-times"></i></button>
+      </div>`;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeExoImg() {
+  exoImageB64 = null; exoImageMime = null;
+  $('exoImgPreview').innerHTML = '';
+  $('exoImageInput').value = '';
+}
+
+function clearExo() {
+  $('exoInput').value = '';
+  removeExoImg();
+  $('exoOutput').innerHTML = `
+    <div class="solution-empty">
+      <i class="fas fa-wand-magic-sparkles"></i>
+      <div>
+        <div style="font-weight:700;color:var(--t2);margin-bottom:.4rem;">Prêt à résoudre</div>
+        <div style="font-size:.78rem;">Colle un exercice et clique sur <strong style="color:var(--green)">Résoudre</strong></div>
+      </div>
+    </div>`;
+  $('exoMatiereDetected').textContent = '';
+  $('copyBtn').style.display = 'none';
+}
+
+async function solveExercice() {
+  const text  = $('exoInput').value.trim();
+  if (!text && !exoImageB64) return;
+
+  const btn = $('solveBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner-sm"></div> Résolution en cours…';
+  $('exoOutput').innerHTML = `
+    <div class="solution-empty">
+      <div class="spinner-sm" style="width:32px;height:32px;border-width:3px;margin:0 auto 1rem;"></div>
+      <div style="color:var(--t2);font-size:.875rem;">L'IA analyse et résout…</div>
+    </div>`;
+
+  const prompt = `Tu es un professeur expert du BAC. Résous cet exercice en détail :
+
+1. Commence par identifier la MATIÈRE et le SUJET (sur une ligne : "Matière : X | Sujet : Y")
+2. Pose les données et hypothèses
+3. Résous étape par étape de façon très détaillée
+4. Donne le résultat final clairement
+5. Ajoute un point méthode à retenir
+
+Exercice :
+${text || '[Voir image fournie]'}
+
+Format : structure ta réponse avec des titres clairs. Utilise **texte** pour les mots importants.`;
+
+  try {
+    // Construction du message (texte + image optionnelle)
+    let userContent;
+    if (exoImageB64) {
+      userContent = [
+        { type: 'text', text: prompt },
+        { type: 'image_url', image_url: { url: `data:${exoImageMime};base64,${exoImageB64}` } },
+      ];
+    } else {
+      userContent = prompt;
+    }
+
+    const resp = await fetch(AI_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${AI_KEY}`,
+        'HTTP-Referer': window.location.href,
+        'X-Title': 'OU TOU BON',
+      },
+      body: JSON.stringify({
+        model: AI_MODEL,
+        messages: [{ role: 'user', content: userContent }],
+        temperature: 0.3,
+        max_tokens: 3000,
+      }),
+    });
+    const data   = await resp.json();
+    if (data.error) throw new Error(`OpenRouter : ${data.error.message || JSON.stringify(data.error)}`);
+    const result = data.choices?.[0]?.message?.content || 'Impossible de résoudre cet exercice.';
+
+    // Detect subject from first line
+    const matLine = result.match(/Mati[èe]re\s*:\s*([^\|]+)/i);
+    const matName = matLine ? matLine[1].trim() : '';
+    if (matName) {
+      $('exoMatiereDetected').innerHTML = `<span style="color:var(--green);font-weight:700;">📚 ${escHtml(matName)}</span>`;
+    }
+
+    // Format output
+    const formatted = result
+      .replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g,'<em>$1</em>')
+      .replace(/^(#{1,3}\s+.+)$/gm, m => `<h4 style="color:var(--green);margin:1rem 0 .4rem;">${m.replace(/^#+\s/,'')}</h4>`)
+      .replace(/^(\d+\.\s.+)$/gm, m => `<div class="step-block">${m}</div>`)
+      .replace(/\n/g,'<br>');
+
+    $('exoOutput').innerHTML = `<div class="solution-content">${formatted}</div>`;
+    $('copyBtn').style.display = '';
+
+    // Increment stats
+    if (currentUser) {
+      db.ref('users/' + currentUser.uid + '/stats/exercicesResolus').transaction(v => (v || 0) + 1).catch(() => {});
+      $('statExos').textContent = (parseInt($('statExos').textContent) || 0) + 1;
+    }
+
+  } catch (err) {
+    $('exoOutput').innerHTML = `<div style="color:var(--red);padding:1rem;">❌ Erreur : ${escHtml(err.message)}</div>`;
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Résoudre avec l\'IA';
+}
+
+function copySolution() {
+  const text = $('exoOutput').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = $('copyBtn');
+    btn.innerHTML = '<i class="fas fa-check"></i>';
+    setTimeout(() => btn.innerHTML = '<i class="fas fa-copy"></i>', 2000);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROGRESSION
+═══════════════════════════════════════════════════════════ */
+function renderProgression() {
+  const diag = userData.diagnostic?.niveauxMatieres || {};
+  const prog = userData.progression || {};
+  const grid = $('progSubjectGrid');
+  grid.innerHTML = '';
+
+  Object.entries(MATS).forEach(([key, mat]) => {
+    const pct    = diag[key] ?? prog[key] ?? 0;
+    const color  = pct >= 70 ? 'var(--green)' : pct >= 40 ? 'var(--orange)' : 'var(--red)';
+    const tags   = getStrengthTags(pct);
+    const card   = document.createElement('div');
+    card.className = 'prog-subject-card';
+    card.innerHTML = `
+      <div class="prog-subject-header">
+        <div class="prog-subject-info">
+          <div class="prog-subject-icon" style="background:${mat.bg};color:${mat.color};">
+            <i class="fas ${mat.icon}"></i>
+          </div>
+          <span class="prog-subject-name">${mat.label}</span>
+        </div>
+        <span class="prog-pct-big" style="color:${color}">${pct}%</span>
+      </div>
+      <div class="prog-track2">
+        <div class="prog-fill2" style="width:0%;background:${mat.color};" data-pct="${pct}"></div>
+      </div>
+      <div class="prog-tags">${tags}</div>`;
+    grid.appendChild(card);
+  });
+
+  setTimeout(() => {
+    grid.querySelectorAll('.prog-fill2').forEach(el => {
+      el.style.width = el.dataset.pct + '%';
+    });
+  }, 100);
+
+  // Profil diag bars
+  const pdBars = $('profilDiagBars');
+  pdBars.innerHTML = '';
+  Object.entries(MATS).forEach(([key, mat]) => {
+    const pct = diag[key] ?? prog[key] ?? 0;
+    pdBars.innerHTML += `
+      <div class="prog-row">
+        <div class="prog-header">
+          <span class="prog-name" style="font-size:.8rem;">${mat.label}</span>
+          <span class="prog-pct" style="color:${mat.color};font-size:.8rem;">${pct}%</span>
+        </div>
+        <div class="prog-track">
+          <div class="prog-fill" style="width:${pct}%;background:${mat.color}"></div>
+        </div>
+      </div>`;
+  });
+
+  buildAchievements();
+}
+
+function getStrengthTags(pct) {
+  if (pct >= 80) return `<span class="prog-tag" style="background:rgba(16,185,129,.15);color:var(--green);">Maîtrisé</span>`;
+  if (pct >= 60) return `<span class="prog-tag" style="background:rgba(37,99,235,.15);color:var(--blue2);">En progrès</span>`;
+  if (pct >= 40) return `<span class="prog-tag" style="background:rgba(249,115,22,.15);color:var(--orange);">À renforcer</span>`;
+  return `<span class="prog-tag" style="background:rgba(239,68,68,.15);color:var(--red);">Lacunes</span>`;
+}
+
+function buildAchievements() {
+  const stats  = userData.stats || {};
+  const diag   = userData.diagnostic || {};
+  const all = [
+    { icon:'🎓', name:'Inscrit',      desc:'Compte créé avec succès',             unlocked: true },
+    { icon:'🧪', name:'Premier test', desc:'Test diagnostique complété',           unlocked: !!diag.completedAt },
+    { icon:'💬', name:'Curieux',      desc:'Première question à l\'IA',            unlocked: (stats.chatMessages || 0) >= 1 },
+    { icon:'⚡', name:'Quizzeur',     desc:'Premier quiz terminé',                 unlocked: (stats.quizCompletes || 0) >= 1 },
+    { icon:'🔥', name:'Assidu',       desc:'Quiz × 5',                             unlocked: (stats.quizCompletes || 0) >= 5 },
+    { icon:'🧮', name:'Solveur',      desc:'Premier exercice résolu',              unlocked: (stats.exercicesResolus || 0) >= 1 },
+    { icon:'📚', name:'Studieux',     desc:'10 exercices résolus',                 unlocked: (stats.exercicesResolus || 0) >= 10 },
+    { icon:'🏆', name:'Champion',     desc:'Score > 80% à un quiz',               unlocked: (stats.topScore || 0) >= 80 },
+  ];
+
+  const grid = $('achievementsGrid');
+  grid.innerHTML = '';
+  all.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'achieve-card' + (a.unlocked ? '' : ' locked');
+    card.innerHTML = `
+      <div class="achieve-icon">${a.icon}</div>
+      <div class="achieve-name">${a.name}</div>
+      <div class="achieve-desc">${a.desc}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LOGOUT
+═══════════════════════════════════════════════════════════ */
+$('logoutBtn').addEventListener('click', async () => {
+  await auth.signOut();
+  window.location.href = '/login/';
+});
+
+/* ═══════════════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════════════ */
+function escHtml(str) {
+  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
+
+
+

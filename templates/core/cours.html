@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+{% block title %}Cours Interactif — OU TOU BON{% endblock %}
+
+{% block extra_css %}
+<style>
+
+html, body { height: 100%; overflow: hidden; }
+.app { height: 100vh; overflow: hidden; }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+.view-area { display: flex; flex-direction: column; align-items: center; overflow-y: auto; flex: 1; }
+.cours-wrap { width: 100%; max-width: 960px; padding: 0 2rem 1.5rem; box-sizing: border-box; }
+.cours-section-title { font-size: 1rem; font-weight: 800; color: var(--t3); text-transform: uppercase; letter-spacing: 0.1em; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(148,163,184,0.12); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cours-launch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.cours-launch-card {
+  position: relative; overflow: hidden; padding: 1.5rem; border-radius: 22px;
+  background: linear-gradient(135deg, rgba(15,23,42,.97), rgba(2,8,23,.93));
+  border: 1px solid rgba(56,189,248,.15); box-shadow: 0 12px 36px rgba(2,8,23,.25);
+  display: flex; flex-direction: column; gap: 0.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cours-launch-card:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(2,8,23,.35); }
+.cours-launch-card::before { content:''; position:absolute; inset:auto -40px -60px auto; width:180px; height:180px; border-radius:50%; pointer-events:none; }
+.cours-card-header { display: flex; align-items: center; gap: 0.85rem; }
+.cours-card-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.cours-launch-card h2 { font-size: 1.2rem; font-weight: 900; margin: 0; letter-spacing: -0.025em; }
+.cours-launch-card p { color: var(--t2); line-height: 1.75; margin: 0; font-size: 0.9rem; flex: 1; }
+.cours-launch-pillrow { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.cours-launch-pill { padding: 0.35rem 0.65rem; border-radius: 999px; background: rgba(15,23,42,.7); border: 1px solid rgba(148,163,184,.14); color: var(--t2); font-size: 0.72rem; font-weight: 700; }
+.cours-launch-cta { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.75rem 1rem; border-radius: 13px; color: #fff; font-weight: 800; font-size: 0.88rem; text-decoration: none; transition: all 0.2s ease; align-self: flex-start; }
+.cours-launch-cta:hover { transform: translateY(-1px); filter: brightness(1.1); }
+
+.card-physique   { border-color: rgba(96,165,250,.45); }
+.card-physique::before { background: radial-gradient(circle, rgba(96,165,250,.2), transparent 70%); }
+.card-physique .cours-card-icon { background: linear-gradient(135deg, rgba(96,165,250,.2), rgba(56,189,248,.15)); color: #60a5fa; }
+.card-physique .cours-launch-cta { background: linear-gradient(135deg, #1d4ed8, #0284c7); }
+
+.card-sc-social { border-color: rgba(52,211,153,.45); }
+.card-sc-social::before { background: radial-gradient(circle, rgba(52,211,153,.2), transparent 70%); }
+.card-sc-social .cours-card-icon { background: linear-gradient(135deg, rgba(52,211,153,.2), rgba(16,185,129,.15)); color: #34d399; }
+.card-sc-social .cours-launch-cta { background: linear-gradient(135deg, #059669, #0d9488); }
+
+.card-math      { border-color: rgba(52,211,153,.45); }
+.card-math::before { background: radial-gradient(circle, rgba(52,211,153,.18), transparent 70%); }
+.card-math .cours-card-icon { background: linear-gradient(135deg, rgba(52,211,153,.2), rgba(16,185,129,.15)); color: #34d399; }
+.card-math .cours-launch-cta { background: linear-gradient(135deg, #065f46, #047857); }
+
+.card-svt       { border-color: rgba(74,222,128,.45); }
+.card-svt::before { background: radial-gradient(circle, rgba(74,222,128,.18), transparent 70%); }
+.card-svt .cours-card-icon { background: linear-gradient(135deg, rgba(74,222,128,.2), rgba(34,197,94,.15)); color: #4ade80; }
+.card-svt .cours-launch-cta { background: linear-gradient(135deg, #15803d, #16a34a); }
+
+.card-kreyol    { border-color: rgba(244,114,182,.45); }
+.card-kreyol::before { background: radial-gradient(circle, rgba(244,114,182,.18), transparent 70%); }
+.card-kreyol .cours-card-icon { background: linear-gradient(135deg, rgba(244,114,182,.2), rgba(236,72,153,.15)); color: #f472b6; }
+.card-kreyol .cours-launch-cta { background: linear-gradient(135deg, #be185d, #db2777); }
+
+.card-chimie    { border-color: rgba(167,139,250,.45); }
+.card-chimie::before { background: radial-gradient(circle, rgba(167,139,250,.18), transparent 70%); }
+.card-chimie .cours-card-icon { background: linear-gradient(135deg, rgba(167,139,250,.2), rgba(124,58,237,.15)); color: #a78bfa; }
+.card-chimie .cours-launch-cta { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+
+.card-anglais   { border-color: rgba(56,189,248,.45); }
+.card-anglais::before { background: radial-gradient(circle, rgba(56,189,248,.18), transparent 70%); }
+.card-anglais .cours-card-icon { background: linear-gradient(135deg, rgba(56,189,248,.2), rgba(2,132,199,.15)); color: #38bdf8; }
+.card-anglais .cours-launch-cta { background: linear-gradient(135deg, #0284c7, #0369a1); }
+
+.card-economie  { border-color: rgba(251,191,36,.45); }
+.card-economie::before { background: radial-gradient(circle, rgba(251,191,36,.18), transparent 70%); }
+.card-economie .cours-card-icon { background: linear-gradient(135deg, rgba(251,191,36,.2), rgba(217,119,6,.15)); color: #fbbf24; }
+.card-economie .cours-launch-cta { background: linear-gradient(135deg, #d97706, #b45309); }
+
+.card-histoire  { border-color: rgba(251,146,60,.45); }
+.card-histoire::before { background: radial-gradient(circle, rgba(251,146,60,.18), transparent 70%); }
+.card-histoire .cours-card-icon { background: linear-gradient(135deg, rgba(251,146,60,.2), rgba(234,88,12,.15)); color: #fb923c; }
+.card-histoire .cours-launch-cta { background: linear-gradient(135deg, #ea580c, #c2410c); }
+
+.card-informatique { border-color: rgba(52,211,153,.45); }
+.card-informatique::before { background: radial-gradient(circle, rgba(52,211,153,.18), transparent 70%); }
+.card-informatique .cours-card-icon { background: linear-gradient(135deg, rgba(52,211,153,.2), rgba(5,150,105,.15)); color: #34d399; }
+.card-informatique .cours-launch-cta { background: linear-gradient(135deg, #059669, #047857); }
+
+.card-philosophie { border-color: rgba(232,121,249,.45); }
+.card-philosophie::before { background: radial-gradient(circle, rgba(232,121,249,.18), transparent 70%); }
+.card-philosophie .cours-card-icon { background: linear-gradient(135deg, rgba(232,121,249,.2), rgba(162,28,175,.15)); color: #e879f9; }
+.card-philosophie .cours-launch-cta { background: linear-gradient(135deg, #a21caf, #86198f); }
+
+.card-art       { border-color: rgba(255,180,0,.45); }
+.card-art::before { background: radial-gradient(circle, rgba(255,180,0,.18), transparent 70%); }
+.card-art .cours-card-icon { background: linear-gradient(135deg, rgba(255,180,0,.2), rgba(234,88,12,.15)); color: #fbbf24; }
+.card-art .cours-launch-cta { background: linear-gradient(135deg, #b45309, #92400e); }
+
+.card-espagnol  { border-color: rgba(251,146,60,.45); }
+.card-espagnol::before { background: radial-gradient(circle, rgba(251,146,60,.18), transparent 70%); }
+.card-espagnol .cours-card-icon { background: linear-gradient(135deg, rgba(251,146,60,.2), rgba(234,88,12,.15)); color: #fb923c; }
+.card-espagnol .cours-launch-cta { background: linear-gradient(135deg, #ea580c, #c2410c); }
+
+@media (max-width: 900px) {
+  .cours-launch-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+@media (max-width: 900px) {
+  .cours-launch-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .cours-launch-grid { grid-template-columns: 1fr; }
+  .cours-section-title { font-size: .82rem; letter-spacing: 0.04em; }
+  .cours-launch-card h2 { font-size: 1rem; }
+  .cours-launch-card p { font-size: .82rem; }
+  .cours-launch-pillrow { display: none; }
+}
+
+.cours-cta-row { display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; }
+.cours-launch-cta-ai {
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.65rem .9rem; border-radius:13px; font-weight:800; font-size:.82rem;
+  background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.3);
+  color:var(--green); cursor:pointer; transition:all .2s; flex-shrink:0;
+}
+.cours-launch-cta-ai:hover { background:rgba(16,185,129,.2); border-color:rgba(16,185,129,.55); transform:translateY(-1px); }
+.cours-launch-cta-ai.open { background:rgba(16,185,129,.18); border-color:var(--green); }
+.cours-launch-cta-ai .chevron { transition:transform .25s; font-size:.7rem; }
+.cours-launch-cta-ai.open .chevron { transform:rotate(180deg); }
+
+.chapter-drawer {
+  overflow:hidden; max-height:0;
+  transition:max-height .35s cubic-bezier(.4,0,.2,1), opacity .25s ease;
+  opacity:0;
+}
+.chapter-drawer.open { max-height:2000px; opacity:1; }
+.chapter-drawer-inner {
+  border-top:1px solid var(--border2); margin-top:.6rem; padding-top:.6rem;
+  display:flex; flex-direction:column; gap:.3rem;
+}
+.chapter-link {
+  display:flex; align-items:center; gap:.65rem;
+  padding:.5rem .7rem; border-radius:10px;
+  text-decoration:none; color:var(--t2);
+  border:1px solid transparent;
+  transition:all .15s; font-size:.8rem;
+}
+.chapter-link:hover { background:rgba(255,255,255,.04); border-color:var(--border2); color:var(--t1); }
+.chapter-link .ch-num {
+  --p: 0;
+  width:24px; height:24px; border-radius:50%;
+  background:conic-gradient(var(--green) calc(var(--p) * 1%), rgba(255,255,255,.08) 0);
+  border:1px solid var(--border2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.65rem; font-weight:800; color:var(--t2); flex-shrink:0;
+  position:relative;
+}
+.chapter-link .ch-num::before {
+  content:'';
+  position:absolute;
+  inset:3px;
+  border-radius:50%;
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.06);
+}
+.chapter-link .ch-num > span {
+  position:relative;
+  z-index:1;
+}
+.chapter-link .ch-title { flex:1; line-height:1.35; }
+.chapter-link .ch-arr { font-size:.65rem; color:var(--t4, var(--t3)); }
+.chapter-link.locked { opacity:.55; cursor:pointer; }
+.chapter-link.locked .ch-num::after {
+  content:'🔒';
+  position:absolute;
+  bottom:-6px;
+  right:-4px;
+  font-size:.55rem;
+  z-index:2;
+}
+.chapter-empty { font-size:.78rem; color:var(--t3); padding:.4rem .2rem; }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="cours" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title"><i class="fas fa-graduation-cap"></i> <span data-i18n="nav_cours">Cours Interactif</span></div>
+    </div>
+    <div class="view-area">
+      <div class="cours-wrap">
+
+        {% for subject, data in chapters_by_subject.items %}
+  {% if subject == 'maths' or subject == 'physique' or subject == 'chimie' or subject == 'svt' or subject == 'informatique' %}
+    {% if forloop.first %}<div class="cours-section-title">Sciences Exactes</div><div class="cours-launch-grid">{% endif %}
+    
+    <article class="cours-launch-card card-{{ subject }}">
+      <div class="cours-card-header">
+        <span class="cours-card-icon"><i class="fas {{ data.info.icon }}"></i></span>
+        <h2>{{ data.info.label }}</h2>
+      </div>
+      <p>{{ data.info.description|default:"Cours complet avec assistant IA." }}</p>
+      <div class="cours-launch-pillrow">
+        {% if subject == 'maths' %}
+          <span class="cours-launch-pill">Méthodes pas à pas</span>
+        {% elif subject == 'physique' %}
+          <span class="cours-launch-pill">Formules & équations</span>
+        {% elif subject == 'chimie' %}
+          <span class="cours-launch-pill">Formules & équations</span>
+        {% elif subject == 'svt' %}
+          <span class="cours-launch-pill">Tableaux & schémas</span>
+        {% elif subject == 'informatique' %}
+          <span class="cours-launch-pill">Algorithmique</span>
+          <span class="cours-launch-pill">Réseaux & Internet</span>
+        {% endif %}
+        <span class="cours-launch-pill">Tuteur IA</span>
+      </div>
+      <div class="cours-cta-row">
+        <button class="cours-launch-cta-ai" onclick="toggleDrawer('{{ subject }}', this)">
+          <i class="fas fa-robot"></i> Cours IA <i class="fas fa-chevron-down chevron"></i>
+        </button>
+      </div>
+      <div class="chapter-drawer" id="drawer-{{ subject }}">
+        <div class="chapter-drawer-inner" id="inner-{{ subject }}"></div>
+      </div>
+    </article>
+    
+    {% if forloop.last %}</div>{% endif %}
+  {% endif %}
+{% endfor %}
+
+        {% for subject, data in chapters_by_subject.items %}
+  {% if subject == 'philosophie' or subject == 'histoire' or subject == 'economie' %}
+    {% if forloop.first %}<div class="cours-section-title">Sciences Humaines</div><div class="cours-launch-grid">{% endif %}
+    
+    {% if subject == 'histoire' %}
+    <article class="cours-launch-card card-sc-social">
+{% else %}
+    <article class="cours-launch-card card-{{ subject }}">
+{% endif %}
+      <div class="cours-card-header">
+        <span class="cours-card-icon"><i class="fas {{ data.info.icon }}"></i></span>
+        <h2>{{ data.info.label }}</h2>
+      </div>
+      <p>{{ data.info.description|default:"Cours complet avec assistant IA." }}</p>
+      <div class="cours-launch-pillrow">
+        {% if subject == 'philosophie' %}
+          <span class="cours-launch-pill">Dissertation</span>
+          <span class="cours-launch-pill">Auteurs & concepts</span>
+        {% elif subject == 'histoire' %}
+          <span class="cours-launch-pill">Haïti & Monde</span>
+        {% elif subject == 'economie' %}
+          <span class="cours-launch-pill">Macro & Micro</span>
+          <span class="cours-launch-pill">Formules & calculs</span>
+        {% endif %}
+        <span class="cours-launch-pill">Tuteur IA</span>
+      </div>
+      <div class="cours-cta-row">
+        <button class="cours-launch-cta-ai" onclick="toggleDrawer('{{ subject }}', this)">
+          <i class="fas fa-robot"></i> Cours IA <i class="fas fa-chevron-down chevron"></i>
+        </button>
+      </div>
+      <div class="chapter-drawer" id="drawer-{{ subject }}">
+        <div class="chapter-drawer-inner" id="inner-{{ subject }}"></div>
+      </div>
+    </article>
+    
+    {% if forloop.last %}</div>{% endif %}
+  {% endif %}
+{% endfor %}
+
+        {% for subject, data in chapters_by_subject.items %}
+  {% if subject == 'francais' or subject == 'anglais' or subject == 'espagnol' %}
+    {% if forloop.first %}<div class="cours-section-title">Langues</div><div class="cours-launch-grid">{% endif %}
+    
+    {% if subject == 'francais' %}
+    <article class="cours-launch-card card-kreyol">
+{% else %}
+    <article class="cours-launch-card card-{{ subject }}">
+{% endif %}
+      <div class="cours-card-header">
+        <span class="cours-card-icon"><i class="fas {{ data.info.icon }}"></i></span>
+        <h2>{{ data.info.label }}</h2>
+      </div>
+      <p>{{ data.info.description|default:"Cours complet avec assistant IA." }}</p>
+      <div class="cours-launch-pillrow">
+        {% if subject == 'francais' %}
+          <span class="cours-launch-pill">Gramè & Vokabilè</span>
+        {% elif subject == 'anglais' %}
+          <span class="cours-launch-pill">Grammaire</span>
+          <span class="cours-launch-pill">Compréhension</span>
+        {% elif subject == 'espagnol' %}
+          <span class="cours-launch-pill">Grammaire</span>
+          <span class="cours-launch-pill">Expression</span>
+        {% endif %}
+        <span class="cours-launch-pill">Tuteur IA</span>
+      </div>
+      <div class="cours-cta-row">
+        <button class="cours-launch-cta-ai" onclick="toggleDrawer('{{ subject }}', this)">
+          <i class="fas fa-robot"></i> Cours IA <i class="fas fa-chevron-down chevron"></i>
+        </button>
+      </div>
+      <div class="chapter-drawer" id="drawer-{{ subject }}">
+        <div class="chapter-drawer-inner" id="inner-{{ subject }}"></div>
+      </div>
+    </article>
+    
+    {% if forloop.last %}</div>{% endif %}
+  {% endif %}
+{% endfor %}
+
+        {% for subject, data in chapters_by_subject.items %}
+  {% if subject == 'art' %}
+    <div class="cours-section-title">Arts & Culture</div>
+    <div class="cours-launch-grid">
+    
+    <article class="cours-launch-card card-{{ subject }}">
+      <div class="cours-card-header">
+        <span class="cours-card-icon"><i class="fas {{ data.info.icon }}"></i></span>
+        <h2>{{ data.info.label }}</h2>
+      </div>
+      <p>{{ data.info.description|default:"Cours complet avec assistant IA." }}</p>
+      <div class="cours-launch-pillrow">
+        <span class="cours-launch-pill">Art haïtien</span>
+        <span class="cours-launch-pill">Tuteur IA</span>
+      </div>
+      <div class="cours-cta-row">
+        <button class="cours-launch-cta-ai" onclick="toggleDrawer('{{ subject }}', this)">
+          <i class="fas fa-robot"></i> Cours IA <i class="fas fa-chevron-down chevron"></i>
+        </button>
+      </div>
+      <div class="chapter-drawer" id="drawer-{{ subject }}">
+        <div class="chapter-drawer-inner" id="inner-{{ subject }}"></div>
+      </div>
+    </article>
+    
+    </div>
+  {% endif %}
+{% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+const CHAPTERS_BY_SUBJ = {
+{% for subj, data in chapters_by_subject.items %}
+  "{{ subj }}": [{% for ch in data.chapters %}{"num":{{ ch.num }},"title":"{{ ch.title|escapejs }}","progress":{{ ch.progress_pct|default:0 }}{% if ch.guest_locked %},"locked":true{% endif %}}{% if not forloop.last %},{% endif %}{% endfor %}]{% if not forloop.last %},{% endif %}
+{% endfor %}
+};
+
+const IS_GUEST_COURS = {{ is_guest|yesno:"true,false" }};
+
+let openSubj = null;
+
+function toggleDrawer(subj, btn) {
+  const drawer = document.getElementById('drawer-' + subj);
+  const inner  = document.getElementById('inner-'  + subj);
+  if (!drawer) return;
+
+  const isOpen = drawer.classList.contains('open');
+
+  if (openSubj && openSubj !== subj) {
+    const prevDrawer = document.getElementById('drawer-' + openSubj);
+    const prevBtn = prevDrawer && prevDrawer.closest('.cours-launch-card').querySelector('.cours-launch-cta-ai');
+    if (prevDrawer) prevDrawer.classList.remove('open');
+    if (prevBtn) prevBtn.classList.remove('open');
+    openSubj = null;
+  }
+
+  if (isOpen) {
+    drawer.classList.remove('open');
+    btn.classList.remove('open');
+    openSubj = null;
+    return;
+  }
+
+  if (!inner.dataset.built) {
+    const chapters = CHAPTERS_BY_SUBJ[subj] || [];
+    if (chapters.length === 0) {
+      inner.innerHTML = '<div class="chapter-empty">Aucun chapitre disponible pour cette matière.</div>';
+    } else {
+      inner.innerHTML = chapters.map(ch => {
+        const locked = ch.locked && IS_GUEST_COURS;
+        const progress = Math.max(0, Math.min(100, Number(ch.progress || 0)));
+        const href = locked ? 'javascript:void(0)' : `/dashboard/cours/${subj}/${ch.num}/`;
+        const onclick = locked ? ' onclick="showGuestCoursModal()"' : '';
+        return `<a href="${href}" class="chapter-link${locked ? ' locked' : ''}"${onclick}>
+          <span class="ch-num" style="--p:${progress}"><span>${ch.num}</span></span>
+          <span class="ch-title">${escHtml(ch.title)}</span>
+          <i class="fas fa-chevron-right ch-arr"></i>
+        </a>`;
+      }).join('');
+    }
+    inner.dataset.built = '1';
+  }
+
+  drawer.classList.add('open');
+  btn.classList.add('open');
+  openSubj = subj;
+
+  setTimeout(() => btn.closest('.cours-launch-card').scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function showGuestCoursModal() {
+  let modal = document.getElementById('guestCoursModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'guestCoursModal';
+    modal.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);animation:fadeIn .2s ease;';
+    modal.innerHTML = `
+      <div style="background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:2rem;max-width:380px;width:90%;text-align:center;animation:slideUp .25s ease;">
+        <div style="font-size:2.5rem;margin-bottom:.75rem;">🔒</div>
+        <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Crée ton compte gratuit !</h3>
+        <p style="color:var(--t2);font-size:.875rem;line-height:1.6;margin-bottom:1.25rem;">
+          Les cours interactifs sont réservés aux membres.<br>
+          Inscris-toi gratuitement pour accéder à tous les chapitres, l'IA explicatrice et bien plus !
+        </p>
+        <a href="/signup/" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;border-radius:12px;font-weight:800;font-size:.9rem;text-decoration:none;transition:filter .15s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">
+          <i class="fas fa-user-plus"></i> Créer un compte
+        </a>
+        <div style="margin-top:.75rem;">
+          <button onclick="document.getElementById('guestCoursModal').remove()" style="background:none;border:none;color:var(--t3);font-size:.8rem;cursor:pointer;padding:.5rem;">Continuer en mode démo</button>
+        </div>
+      </div>`;
+    modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+    document.body.appendChild(modal);
+  }
+}
+
+document.querySelectorAll('.cours-section-title').forEach(function(title) {
+  var grid = title.nextElementSibling;
+  if (grid && grid.querySelectorAll('.cours-launch-card').length === 0) {
+    title.style.display = 'none';
+    grid.style.display = 'none';
+  }
+});
+
+if (IS_GUEST_COURS && new URLSearchParams(window.location.search).get('guest_blocked')) {
+  setTimeout(showGuestCoursModal, 300);
+}
+</script>
+{% endblock %}
+

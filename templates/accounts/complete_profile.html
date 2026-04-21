@@ -1,0 +1,87 @@
+﻿{% extends "base.html" %}
+{% block title %}Compléter mon profil – OU TOU BON{% endblock %}
+{% block body %}
+<div class="auth-page">
+  <div class="auth-card" style="max-width:460px;">
+    <div class="auth-logo"><div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div></div>
+    <div class="auth-title">Encore une étape 🎯</div>
+    <div class="auth-subtitle">
+      Bienvenue, <strong>{{ profile.first_name|default:request.user.first_name }}</strong> !<br>
+      Dis-nous en un peu plus pour personnaliser ton expérience.
+    </div>
+
+    {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
+
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+
+      
+      <div class="form-group">
+        <label class="form-label">Ton lycée <span style="color:var(--t3)">(optionnel)</span></label>
+        <input type="text" name="school" class="form-control"
+               placeholder="Lycée Victor Hugo…"
+               value="{{ profile.school }}">
+      </div>
+
+      
+      <div class="form-group">
+        <label class="form-label">Ta série <span style="color:var(--green)">*</span></label>
+        <select name="serie" id="serieSelect" class="form-control"
+                style="background:var(--card2);color:var(--t1);border:1px solid var(--border);padding:.65rem .9rem;border-radius:10px;width:100%;"
+                required>
+          <option value="" disabled selected>— Choisis ta série —</option>
+          <option value="SVT">🧬 SVT — Sciences de la Vie et de la Terre</option>
+          <option value="SMP">⚗️ SMP — Sciences Mathématiques et Physiques</option>
+          <option value="SES">📊 SES — Sciences Économiques et Sociales</option>
+          <option value="LLA">📚 LLA — Lettres, Langues et Arts</option>
+        </select>
+        <div id="serieInfo" style="margin-top:.5rem;font-size:.78rem;color:var(--t2);line-height:1.5;display:none;background:var(--card2);border-radius:8px;padding:.6rem .8rem;border:1px solid var(--border);"></div>
+      </div>
+
+      
+      <div style="background:var(--card2);border-radius:12px;padding:1rem 1.25rem;margin:.75rem 0 1.25rem;border:1px solid var(--border);">
+        <div style="font-size:.82rem;color:var(--t2);font-weight:600;margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.05em;">Ce qui t'attend ensuite</div>
+        <div style="display:flex;flex-direction:column;gap:.45rem;">
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--t1);">
+            <span style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;">1</span>
+            Diagnostic initial par matière
+          </div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--t1);">
+            <span style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;">2</span>
+            Tableau de bord personnalisé
+          </div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--t1);">
+            <span style="background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;">3</span>
+            Chat IA, quiz, fiches mémo…
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%;padding:.85rem;">
+        Continuer vers le diagnostic <i class="fas fa-arrow-right"></i>
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+const SERIE_INFO = {
+  'SVT':  { matiere: 'SVT (400)', autres: 'Chimie (300) · Philosophie, Histoire, Physique, Anglais, Maths, Kreyòl (200)' },
+  'SMP':  { matiere: 'Maths (400)', autres: 'Physique (300) · Chimie, Philosophie, Histoire, SVT, Anglais, Kreyòl (200)' },
+  'SES':  { matiere: 'Histoire & Éco (400 chacun)', autres: 'Philosophie, Anglais, Maths, Kreyòl (200) · Chimie, SVT, Physique (100)' },
+  'LLA':  { matiere: 'Philosophie, Anglais, Art (300 chacun)', autres: 'Histoire, Kreyòl (200) · Chimie, Maths (100)' },
+};
+document.getElementById('serieSelect').addEventListener('change', function() {
+  const box = document.getElementById('serieInfo');
+  const info = SERIE_INFO[this.value];
+  if (info) {
+    box.style.display = 'block';
+    box.innerHTML = `<strong style="color:var(--green)">Matière principale :</strong> ${info.matiere}<br><span style="color:var(--t3)">${info.autres}</span>`;
+  } else {
+    box.style.display = 'none';
+  }
+});
+</script>
+{% endblock %}
+

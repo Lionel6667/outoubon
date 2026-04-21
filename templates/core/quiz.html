@@ -1,0 +1,787 @@
+{% extends "base.html" %}
+{% block title %}Quiz · OU TOU BON{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="quiz" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title" data-i18n="nav_quiz">Quiz</div></div>
+    <div class="view-area quiz-view">
+
+      
+      <div id="quizPicker" class="quiz-picker-wrap">
+
+        
+        <div style="display:flex;gap:.5rem;background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:.3rem;margin-bottom:1.25rem;">
+          <button id="tabSolo" onclick="setQuizMode('solo')" style="flex:1;padding:.55rem;border-radius:9px;border:none;background:var(--green);color:#fff;font-size:.875rem;font-weight:700;cursor:pointer;transition:all .18s;">
+            <i class="fas fa-bolt"></i> Solo
+          </button>
+          <button id="tabDuel" onclick="setQuizMode('duel')" style="flex:1;padding:.55rem;border-radius:9px;border:none;background:transparent;color:var(--t2);font-size:.875rem;font-weight:700;cursor:pointer;transition:all .18s;">
+            ⚔️ Défier un ami
+          </button>
+        </div>
+
+        
+        <div id="panelSolo">
+          <div style="text-align:center;margin-bottom:1.5rem;">
+            <div style="font-size:2rem;margin-bottom:.5rem;"><i class="fas fa-bolt" style="color:var(--green)"></i></div>
+            <div style="font-weight:700;font-size:1.25rem;margin-bottom:.3rem;" data-i18n="quiz_choisir_mat">Choisis une matière</div>
+            <div style="color:var(--t2);font-size:.875rem;" data-i18n="quiz_desc">10 questions tirées des vrais sujets BAC Haïti — évalue-toi comme à l'examen</div>
+          </div>
+          <div id="svtMatGrid" class="quiz-mat-grid">
+            {% for key, mat in mats.items %}
+            <button class="mat-tile" onclick="{% if key == 'svt' %}pickSVTDiscipline(){% else %}startQuiz('{{ key }}'){% endif %}" style="--color:{{ mat.color }}">
+              <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
+              <div class="mat-tile-label">{{ mat.label }}</div>
+            </button>
+            {% endfor %}
+          </div>
+
+          
+          <div id="svtDiscPicker" style="display:none;">
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
+              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.35rem .7rem;font-size:.8rem;color:var(--t2);cursor:pointer;"><i class="fas fa-arrow-left"></i></button>
+              <div style="font-weight:700;font-size:.95rem;">SVT — Choisir la discipline</div>
+            </div>
+            <div style="color:var(--t2);font-size:.82rem;margin-bottom:1rem;">L'examen SVT est divisé en Biologie (50 pts) et Géologie (50 pts)</div>
+            <div style="display:grid;gap:.75rem;">
+              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';startQuiz('svt','biologie')" style="background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.35);border-radius:14px;padding:1rem 1.25rem;text-align:left;cursor:pointer;transition:all .18s;">
+                <div style="font-weight:700;font-size:.92rem;color:var(--green);margin-bottom:.2rem;"><i class="fas fa-dna" style="margin-right:.4rem"></i>Biologie</div>
+                <div style="font-size:.78rem;color:var(--t2);">Génétique, hérédité, hormones, neurophysiologie, immunologie…</div>
+              </button>
+              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';startQuiz('svt','geologie')" style="background:rgba(245,158,11,.06);border:1.5px solid rgba(245,158,11,.3);border-radius:14px;padding:1rem 1.25rem;text-align:left;cursor:pointer;transition:all .18s;">
+                <div style="font-weight:700;font-size:.92rem;color:#f59e0b;margin-bottom:.2rem;"><i class="fas fa-mountain" style="margin-right:.4rem"></i>Géologie</div>
+                <div style="font-size:.78rem;color:var(--t2);">Structure de la Terre, stratigraphie, volcanism, séismes…</div>
+              </button>
+              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';startQuiz('svt')" style="background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:.8rem 1.25rem;text-align:left;cursor:pointer;transition:all .18s;">
+                <div style="font-weight:700;font-size:.88rem;color:var(--t1);"><i class="fas fa-layer-group" style="margin-right:.4rem;color:var(--t2)"></i>Toutes les questions</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="panelDuel" style="display:none;">
+          
+          <div style="display:flex;gap:.5rem;margin-bottom:1.25rem;">
+            <button id="duelTabCreate" onclick="setDuelTab('create')" style="flex:1;padding:.5rem;border-radius:9px;border:1.5px solid var(--green);background:rgba(16,185,129,.12);color:var(--green);font-size:.83rem;font-weight:700;cursor:pointer;"><i class="fas fa-plus"></i> Créer un duel</button>
+            <button id="duelTabJoin" onclick="setDuelTab('join')" style="flex:1;padding:.5rem;border-radius:9px;border:1.5px solid var(--border2);background:transparent;color:var(--t2);font-size:.83rem;font-weight:700;cursor:pointer;"><i class="fas fa-sign-in-alt"></i> Rejoindre</button>
+          </div>
+
+          
+          <div id="duelPanelCreate">
+            <div style="font-weight:700;font-size:.95rem;margin-bottom:.3rem;">Choisis une matière pour le duel</div>
+            <div style="color:var(--t2);font-size:.82rem;margin-bottom:.9rem;">Les deux joueurs répondront aux mêmes questions en temps réel</div>
+            <div class="quiz-mat-grid">
+              {% for key, mat in mats.items %}
+              <button class="mat-tile" onclick="createDuel('{{ key }}')" style="--color:{{ mat.color }}">
+                <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
+                <div class="mat-tile-label">{{ mat.label }}</div>
+              </button>
+              {% endfor %}
+            </div>
+            <div id="duelCreateError" style="display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;border-radius:10px;padding:.6rem 1rem;font-size:.84rem;margin-top:.75rem;"></div>
+          </div>
+
+          
+          <div id="duelPanelJoin" style="display:none;">
+            <div style="font-weight:700;font-size:.95rem;margin-bottom:.3rem;">Entre le code d'invitation</div>
+            <div style="color:var(--t2);font-size:.82rem;margin-bottom:.9rem;">Demande le code à ton ami qui a créé le duel</div>
+            <input type="text" id="duelJoinInput"
+              maxlength="6" placeholder="ABC123"
+              oninput="this.value=this.value.toUpperCase().replace(/[^A-F0-9]/g,'')"
+              style="width:100%;padding:.85rem 1rem;background:var(--card);border:1.5px solid var(--border2);border-radius:12px;color:var(--t1);font-size:1.5rem;font-weight:800;text-align:center;letter-spacing:.18em;text-transform:uppercase;outline:none;transition:border-color .2s;font-family:'Courier New',monospace;box-sizing:border-box;"
+              onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border2)'">
+            <div id="duelJoinError" style="display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;border-radius:10px;padding:.6rem 1rem;font-size:.84rem;margin-top:.6rem;"></div>
+            <div style="margin-top:1rem;text-align:center;">
+              <button onclick="joinDuel()" style="background:var(--green);color:#fff;border:none;border-radius:12px;padding:.75rem 1.5rem;font-size:.925rem;font-weight:700;cursor:pointer;"><i class="fas fa-play"></i> Rejoindre</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <div id="duelWaiting" style="display:none;max-width:560px;margin:0 auto;text-align:center;padding:2rem 1rem;">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(16,185,129,.15);border:3px solid var(--green);margin:0 auto 1rem;animation:duel-ping 1.2s ease-in-out infinite;"></div>
+        <div style="font-size:1.25rem;font-weight:800;margin-bottom:.4rem;">Duel créé !</div>
+        <div style="color:var(--t2);font-size:.87rem;margin-bottom:1.5rem;">Partage ce code avec ton ami :</div>
+        <div style="background:var(--card);border:2px dashed var(--green);border-radius:16px;padding:1.5rem;margin-bottom:1.25rem;">
+          <div id="duelWaitCode" style="font-size:2.8rem;font-weight:900;letter-spacing:.25em;color:var(--green);font-family:'Courier New',monospace;">——</div>
+          <button onclick="copyDuelCode()" style="margin-top:.5rem;background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:.4rem 1rem;font-size:.82rem;font-weight:700;cursor:pointer;"><i class="fas fa-copy"></i> Copier</button>
+        </div>
+        <div style="color:var(--t2);font-size:.85rem;margin-bottom:1.5rem;">En attente de ton adversaire…</div>
+        <button onclick="cancelDuel()" style="background:transparent;color:var(--t3);border:1px solid var(--border2);border-radius:10px;padding:.55rem 1.2rem;font-size:.85rem;font-weight:700;cursor:pointer;"><i class="fas fa-times"></i> Annuler</button>
+      </div>
+
+      
+      <div id="quizLoading" style="display:none;text-align:center;padding:3rem 0;">
+        <div style="font-size:2.5rem;margin-bottom:1rem">⚡</div>
+        <div style="font-weight:700;font-size:1.1rem;margin-bottom:.5rem;" id="quizLoadMsg" data-i18n="quiz_chargement">Chargement des questions…</div>
+        <div style="color:var(--t2);font-size:.875rem" id="quizLoadSub" data-i18n="quiz_lecture_bac">Lecture des vrais examens BAC Haïti</div>
+        <div class="astra-loader" style="justify-content:center;margin-top:1.5rem;">
+          <div class="astra-row">
+            <div class="astra-dot generating"></div>
+            <div class="astra-dot generating"></div>
+            <div class="astra-dot generating"></div>
+            <div class="astra-dot generating"></div>
+            <div class="astra-dot generating"></div>
+            <div class="astra-dot generating"></div>
+            <div class="astra-dot generating"></div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="quizArena" style="display:none;max-width:700px;margin:0 auto;">
+
+        
+        <div id="duelScoreboard" style="display:none;background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:.7rem 1.1rem;margin-bottom:.85rem;display:none;">
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.5rem;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="font-size:.72rem;color:var(--t3);font-weight:700;margin-bottom:.1rem;" id="dsBoardMyName">Moi</div>
+              <div style="font-size:1.6rem;font-weight:900;color:var(--green);" id="dsBoardMyScore">0</div>
+            </div>
+            <div style="font-size:.9rem;font-weight:900;color:var(--t3);">VS</div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="font-size:.72rem;color:var(--t3);font-weight:700;margin-bottom:.1rem;" id="dsBoardOppName">Adversaire</div>
+              <div style="font-size:1.6rem;font-weight:900;color:#f97316;" id="dsBoardOppScore">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-progress-wrap">
+          <div class="quiz-prog-text" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem;">
+            <span><span id="qNum">1</span>/<span id="qTotal">10</span></span>
+            
+            <span id="timerDisplay" style="font-weight:700;font-size:.9rem;color:var(--green);transition:color .3s;display:flex;align-items:center;gap:.3rem;">
+              <i class="fas fa-clock"></i>
+              <span id="timerVal">30</span><span id="timerTotal" style="font-size:.72rem;opacity:.55;font-weight:500">/30s</span>
+            </span>
+          </div>
+          <div class="quiz-prog-track"><div id="qProgBar" class="quiz-prog-fill"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;">
+          <div id="qSubjectTag" class="quiz-subject-tag"></div>
+          
+          <button id="bookmarkBtn" onclick="toggleBookmark()" title="Sauvegarder cette question"
+            style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.4rem .75rem;font-size:.8rem;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s;gap:.4rem;display:flex;align-items:center;">
+            <i class="fas fa-bookmark"></i> <span data-i18n="quiz_save">Sauvegarder</span>
+          </button>
+        </div>
+        <div class="card quiz-card">
+          <div id="qText" class="quiz-question"></div>
+          <div id="qOptions" class="quiz-options"></div>
+          <button id="nextBtn" class="quiz-next-btn" onclick="nextQuestion()" style="display:none"><span data-i18n="quiz_next">Question suivante</span> <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div id="qFeedback" class="quiz-feedback" style="display:none"></div>
+      </div>
+
+      
+      <div id="quizScore" style="display:none;max-width:600px;margin:0 auto;text-align:center;">
+        <div class="card score-card">
+          <div id="scoreEmoji" style="font-size:2.5rem;margin-bottom:.75rem"><i class="fas fa-star" style="color:var(--yellow)"></i></div>
+          <div style="font-weight:800;font-size:1.5rem;margin-bottom:.5rem;" id="scoreTitle" data-i18n="quiz_termine">Quiz terminé !</div>
+          <div style="color:var(--t2);margin-bottom:1.5rem;" id="scoreSub"></div>
+          <div id="scorePct" class="score-pct"></div>
+          <div id="scoreDetail" class="score-detail"></div>
+          
+          <div id="duelResultBox" style="display:none;margin-bottom:1.25rem;background:var(--card2);border:1px solid var(--border2);border-radius:14px;padding:1.1rem;">
+            <div style="text-align:center;font-size:1.5rem;margin-bottom:.4rem;" id="duelResultEmoji">🏆</div>
+            <div style="text-align:center;font-weight:800;font-size:1.1rem;margin-bottom:.35rem;" id="duelResultTitle"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.75rem;">
+              <div style="background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:.9rem;text-align:center;" id="duelResultMySide">
+                <div style="font-size:.72rem;color:var(--t3);font-weight:700;" id="duelResultMyName">Moi</div>
+                <div style="font-size:1.8rem;font-weight:900;color:var(--green);" id="duelResultMyScore">0</div>
+                <div style="font-size:.7rem;color:var(--t3);">points</div>
+              </div>
+              <div style="background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:.9rem;text-align:center;" id="duelResultOppSide">
+                <div style="font-size:.72rem;color:var(--t3);font-weight:700;" id="duelResultOppName">Adversaire</div>
+                <div style="font-size:1.8rem;font-weight:900;color:#f97316;" id="duelResultOppScore">0</div>
+                <div style="font-size:.7rem;color:var(--t3);">points</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="startQuiz(currentSubject)" data-i18n="quiz_recommencer">Recommencer</button>
+            <button class="btn-outline" onclick="showPicker()" data-i18n="quiz_autre_mat">Autre matière</button>
+            <button id="btnAnalyse" style="background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.3);border-radius:10px;padding:.65rem 1.1rem;font-size:.875rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:.4rem;" onclick="analyseQuiz()">
+              <i class="fas fa-chart-bar"></i> <span data-i18n="quiz_analyse">Analyser mes erreurs</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="analyseModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;padding:1rem">
+
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:20px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;padding:1.5rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem">
+            <div style="font-weight:700;font-size:1.05rem"><i class="fas fa-chart-bar" style="color:#a78bfa;margin-right:.4rem"></i><span data-i18n="quiz_analyse_title">Analyse de vos erreurs</span></div>
+            <button onclick="document.getElementById('analyseModal').style.display='none'" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:1rem">&times;</button>
+          </div>
+          <div id="analyseContent" style="color:var(--t2);font-size:.9rem;line-height:1.65"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let questions = [], currentQ = 0, score = 0, details = [], currentSubject = '';
+let lastSessionId = null;
+let timerInterval = null, timeLeft = 30, totalTime = 30;
+let bookmarkedThisQ = false;
+
+let duelMode    = false;
+let duelCode    = null;
+let duelOppName = 'Adversaire';
+let duelMyScore = 0;
+let duelOppScore = null;
+let duelFinished = false;
+let duelPollInterval = null;
+const DUEL_ME = "{{ request.user.get_full_name|default:request.user.username }}";
+
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const subj = params.get('subject');
+  const chapter = params.get('chapter') || '';
+  if (subj) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { startQuiz(subj, chapter); });
+    } else {
+      startQuiz(subj, chapter);
+    }
+  }
+})();
+
+function computeQuestionTime(q) {
+  let t = 25;
+  const full = (q.enonce || '') + ' ' + (q.options || []).join(' ');
+  const mathPairs = Math.floor(((full.match(/\$/g) || []).length) / 2);
+  t += mathPairs * 4;
+  t += Math.floor(full.split(/\s+/).length / 10) * 3;
+  if (/calcul|résoudr|développ|factori|intégr|dériver|primitiv|détermin/i.test(full)) t += 15;
+  if (/montrer|démontrer|établir|prouver|justifi/i.test(full)) t += 10;
+  if (/génotype|phénotype|schéma|tableau|construi/i.test(full)) t += 10;
+  return Math.min(120, Math.max(20, t));
+}
+
+function startTimer(seconds) {
+  clearInterval(timerInterval);
+  totalTime = seconds || 30;
+  timeLeft = totalTime;
+  updateTimer();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      autoSelectTimeout();
+    }
+  }, 1000);
+}
+
+function updateTimer() {
+  const el = document.getElementById('timerVal');
+  const disp = document.getElementById('timerDisplay');
+  if (!el) return;
+  el.textContent = timeLeft;
+  const totalEl = document.getElementById('timerTotal');
+  if (totalEl) totalEl.textContent = '/' + totalTime + 's';
+  const pct = timeLeft / totalTime;
+  if (pct <= 0.25) { disp.style.color = 'var(--red)'; }
+  else if (pct <= 0.5) { disp.style.color = '#f59e0b'; }
+  else { disp.style.color = 'var(--green)'; }
+}
+
+function autoSelectTimeout() {
+  const q = questions[currentQ];
+  const btns = document.querySelectorAll('.option-btn:not(:disabled)');
+  if (btns.length > 0) {
+    const correctIdx = q.reponse_correcte;
+    btns.forEach(b => b.disabled = true);
+    btns[correctIdx]?.classList.add('correct');
+    const fb = document.getElementById('qFeedback');
+    fb.style.display = 'block';
+    fb.className = 'quiz-feedback wrong';
+    const explHtml2 = q.explication ? `<div style="margin-top:.5rem;padding:.75rem 1rem;background:rgba(16,185,129,.06);border-left:3px solid var(--green);border-radius:0 8px 8px 0"><div style="font-size:.72rem;font-weight:700;color:var(--green);text-transform:uppercase;margin-bottom:.4rem"><i class="fas fa-lightbulb"></i> Explication</div><div class="explication">${renderMarkdown(q.explication)}</div></div>` : '';
+    fb.innerHTML = `<div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">⏰ <strong>Temps écoulé !</strong> La bonne réponse : <strong style="color:var(--green)">${fixLatexControls(q.options[correctIdx])}</strong></div>${explHtml2}`;
+    renderKatex(fb);
+    details.push({
+      question: q.enonce, chosen: '', correct: q.options[correctIdx], ok: false,
+      options: q.options, reponse_correcte: correctIdx,
+      explication: q.explication || '', theme: q.theme || '',
+      _is_review: q._is_review || false, _mistake_id: q._mistake_id || null,
+    });
+    if (currentQ + 1 < questions.length) {
+      document.getElementById('nextBtn').style.display = 'block';
+    } else {
+      setTimeout(showScore, 1500);
+    }
+  }
+}
+
+function toggleBookmark() {
+  const q = questions[currentQ];
+  bookmarkedThisQ = !bookmarkedThisQ;
+  const btn = document.getElementById('bookmarkBtn');
+  btn.style.color = bookmarkedThisQ ? 'var(--green)' : 'var(--t2)';
+  btn.style.borderColor = bookmarkedThisQ ? 'var(--green)' : 'var(--border2)';
+  btn.style.background = bookmarkedThisQ ? 'rgba(16,185,129,.1)' : 'var(--card)';
+  fetch('/dashboard/api/bookmark/', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+    body: JSON.stringify({
+      subject: currentSubject,
+      enonce: q.enonce,
+      options: q.options,
+      reponse_correcte: q.reponse_correcte,
+      explication: q.explication || ''
+    })
+  }).then(r => r.json()).then(d => {
+    showToast(d.action === 'added' ? 'Question sauvegardée' : 'Question retirée des favoris');
+    if (d.action === 'removed') bookmarkedThisQ = false;
+  });
+}
+
+function pickSVTDiscipline() {
+  document.getElementById('svtMatGrid').style.display = 'none';
+  document.getElementById('svtDiscPicker').style.display = 'block';
+}
+
+async function startQuiz(subject, chapter = '') {
+  currentSubject = subject;
+  lastSessionId = null;
+  document.getElementById('quizPicker').style.display = 'none';
+  document.getElementById('quizScore').style.display = 'none';
+  document.getElementById('quizArena').style.display = 'none';
+  document.getElementById('quizLoading').style.display = 'none';
+  if (typeof showLoader === 'function') showLoader('Préparation du quiz…', 'Sélection des meilleures questions pour toi');
+  try {
+    const resp = await fetch(`{% url 'api_quiz_questions' %}?subject=${subject}${chapter ? '&chapter='+encodeURIComponent(chapter) : ''}`, { headers:{'X-CSRFToken': CSRF} });
+    const data = await resp.json();
+    if (data.premium_required) {
+      if (typeof hideLoader === 'function') hideLoader();
+      document.getElementById('quizPicker').style.display = 'block';
+      showPremiumGate(data.message || "Tu as atteint ta limite de quiz gratuits pour aujourd'hui.");
+      return;
+    }
+    if (data.error === 'guest_limit') {
+      if (typeof hideLoader === 'function') hideLoader();
+      document.getElementById('quizPicker').style.display = 'block';
+      showGuestSignupWall();
+      return;
+    }
+    if (data.error) throw new Error(data.error);
+    if (!data.questions || !data.questions.length) throw new Error(data.error || 'Aucune question disponible');
+    questions = data.questions;
+    currentQ = 0; score = 0; details = [];
+    document.getElementById('qTotal').textContent = questions.length;
+    if (typeof hideLoader === 'function') hideLoader();
+    document.getElementById('quizArena').style.display = 'block';
+    renderQuestion();
+  } catch(e) {
+    if (typeof hideLoader === 'function') hideLoader();
+    document.getElementById('quizPicker').style.display = 'block';
+    showToast('Erreur : ' + e.message, 'error');
+  }
+}
+
+function renderQuestion() {
+  clearInterval(timerInterval);
+  bookmarkedThisQ = false;
+  const btn = document.getElementById('bookmarkBtn');
+  btn.style.color = 'var(--t2)';
+  btn.style.borderColor = 'var(--border2)';
+  btn.style.background = 'var(--card)';
+  const q = questions[currentQ];
+  document.getElementById('qNum').textContent = currentQ + 1;
+  document.getElementById('qProgBar').style.width = ((currentQ / questions.length) * 100) + '%';
+  const tag = document.getElementById('qSubjectTag');
+  const rawSujet = q.sujet || currentSubject;
+  const safeTag = rawSujet.includes(':') ? rawSujet.split(':')[0].trim() : rawSujet;
+  if (q._is_review) {
+    tag.innerHTML = `<span style="background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);border-radius:20px;padding:.15rem .6rem;font-size:.72rem;font-weight:700;margin-right:.4rem;"><i class="fas fa-redo" style="font-size:.65rem"></i> Révision</span>${safeTag}`;
+  } else {
+    tag.textContent = safeTag;
+  }
+  const qText = document.getElementById('qText');
+  const cleanEnonce = (q.enonce || '').replace(/^\d+[\.)\-]\s*/, '').trim();
+  renderMathText(qText, cleanEnonce);
+  const opts = document.getElementById('qOptions');
+  opts.style.display = '';
+
+  const letters = ['A','B','C','D'];
+  opts.innerHTML = q.options.map((opt, i) =>
+    `<button class="option-btn" onclick="selectOption(${i})" data-idx="${i}">
+      <span class="option-letter">${letters[i]}</span>
+      <span class="option-text"></span>
+    </button>`
+  ).join('');
+  opts.querySelectorAll('.option-text').forEach((el, i) => {
+    renderMathText(el, q.options[i].replace(/^[A-D]\s*[:.)]\s*/i, ''));
+  });
+  document.getElementById('nextBtn').style.display = 'none';
+  document.getElementById('qFeedback').style.display = 'none';
+  startTimer(computeQuestionTime(q));
+}
+
+function selectOption(idx) {
+  clearInterval(timerInterval);
+  const q = questions[currentQ];
+  const buttons = document.querySelectorAll('.option-btn');
+  buttons.forEach(b => b.disabled = true);
+  const correctIdx = q.reponse_correcte;
+  const isCorrect = idx === correctIdx;
+  if (isCorrect) score++;
+  if (duelMode) {
+    document.getElementById('dsBoardMyScore').textContent = score;
+    duelMyScore = score;
+  }
+  details.push({
+    question: q.enonce, chosen: q.options[idx], correct: q.options[correctIdx], ok: isCorrect,
+    options: q.options, reponse_correcte: correctIdx,
+    explication: q.explication || '', theme: q.theme || '',
+    _is_review: q._is_review || false, _mistake_id: q._mistake_id || null,
+  });
+  buttons[idx].classList.add(isCorrect ? 'correct' : 'wrong');
+  buttons[correctIdx].classList.add('correct');
+  const fb = document.getElementById('qFeedback');
+  fb.style.display = 'block';
+  fb.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'wrong');
+  const explHtml = q.explication
+    ? `<div class="explication">${renderMarkdown(q.explication)}</div>`
+    : '';
+  if (isCorrect) {
+    fb.innerHTML = `<div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem">
+      <i class="fas fa-check-circle" style="font-size:1.1rem;color:var(--green)"></i>
+      <strong style="color:var(--green)">Bonne réponse !</strong>
+    </div>${explHtml}`;
+  } else {
+    const chatQuestion = encodeURIComponent('Je ne comprends pas pourquoi "' + q.options[correctIdx].substring(0, 80) + '" est la réponse de : "' + q.enonce.substring(0, 150) + '". Explique-moi en termes simples s\'il te plaît.');
+    const chatUrl = '{% url "chat" %}?subject=' + currentSubject + '&preload=' + chatQuestion;
+    fb.innerHTML = `<div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">
+      <i class="fas fa-times-circle" style="font-size:1.1rem;color:#f87171"></i>
+      <span><strong style="color:#fca5a5">Mauvaise réponse.</strong> La bonne : <strong style="color:var(--green)">${fixLatexControls(q.options[correctIdx])}</strong></span>
+    </div>
+    ${explHtml ? `<div style="margin-top:.25rem;padding:.75rem 1rem;background:rgba(16,185,129,.06);border-left:3px solid var(--green);border-radius:0 8px 8px 0">
+      <div style="font-size:.72rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem"><i class="fas fa-lightbulb"></i> Explication</div>
+      ${explHtml}
+    </div>` : ''}
+    <div style="margin-top:.75rem;text-align:center;">
+      <a href="${chatUrl}" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.35);border-radius:10px;font-size:.82rem;font-weight:700;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(139,92,246,.28)'" onmouseout="this.style.background='rgba(139,92,246,.15)'">
+        <i class="fas fa-robot"></i> Je n'ai pas compris — Demander à l'IA
+      </a>
+    </div>`;
+  }
+  renderKatex(fb);
+  setTimeout(() => fb.scrollIntoView({behavior: 'smooth', block: 'nearest'}), 50);
+  if (currentQ + 1 < questions.length) {
+    document.getElementById('nextBtn').style.display = 'block';
+  } else {
+    setTimeout(showScore, 1200);
+  }
+}
+
+function nextQuestion() {
+  currentQ++;
+  renderQuestion();
+}
+
+async function showScore() {
+  clearInterval(timerInterval);
+  document.getElementById('quizArena').style.display = 'none';
+  document.getElementById('duelScoreboard').style.display = 'none';
+  const pct = Math.round((score / questions.length) * 100);
+  document.getElementById('quizScore').style.display = 'block';
+  const scoreIcon = pct >= 80
+    ? '<i class="fas fa-trophy" style="color:#facc15"></i>'
+    : pct >= 50
+    ? '<i class="fas fa-thumbs-up" style="color:var(--blue2)"></i>'
+    : '<i class="fas fa-redo" style="color:var(--green)"></i>';
+  document.getElementById('scoreEmoji').innerHTML = scoreIcon;
+  document.getElementById('scoreTitle').textContent = t('quiz_termine') || 'Quiz terminé !';
+  document.getElementById('scoreSub').textContent = `${t('quiz_score')||'Score'} : ${score}/${questions.length}`;
+  document.getElementById('scorePct').textContent = pct + '%';
+  document.getElementById('scorePct').style.color = pct >= 80 ? 'var(--green)' : pct >= 50 ? 'var(--blue2)' : 'var(--orange)';
+
+  const detailEl = document.getElementById('scoreDetail');
+  detailEl.innerHTML = details.map((d, i) =>
+    `<div class="score-row ${d.ok ? 'ok' : 'ko'}">
+      <span class="score-row-num">${i+1}</span>
+      <span class="score-row-q" data-i="${i}" style="flex:1;font-size:.8rem"></span>
+      <span class="score-row-badge">${d.ok
+        ? '<i class="fas fa-check" style="color:var(--green)"></i>'
+        : '<i class="fas fa-times" style="color:#f87171"></i>'}</span>
+    </div>`
+  ).join('');
+  detailEl.querySelectorAll('.score-row-q').forEach(el => {
+    const i = +el.dataset.i;
+    const raw = (details[i].question || '').replace(/^\d+[\.)\-]\s*/, '').trim();
+    renderMathText(el, raw);
+  });
+
+  if (duelMode && duelCode) {
+    duelFinished = true;
+    const duelAnswers = details.map((d, i) => ({ q_idx: i, chosen: d.chosen, correct: d.ok }));
+    try {
+      await postJSON('{% url "api_duel_finish" %}', { code: duelCode, answers: duelAnswers, score });
+    } catch(e) {}
+    startDuelPoll();
+  }
+
+  try {
+    const res = await fetch("{% url 'api_quiz_save' %}", {
+      method: 'POST', headers:{'X-CSRFToken': CSRF, 'Content-Type':'application/json'},
+      body: JSON.stringify({ subject: currentSubject, score, total: questions.length, details })
+    });
+    const data = await res.json();
+    if (data.session_id) lastSessionId = data.session_id;
+  } catch(e) {}
+}
+
+async function analyseQuiz() {
+  const modal = document.getElementById('analyseModal');
+  const content = document.getElementById('analyseContent');
+  modal.style.display = 'flex';
+  content.innerHTML = '<div style="text-align:center;padding:2rem"><i class="fas fa-spinner fa-spin" style="font-size:2rem;color:#a78bfa"></i><div style="margin-top:1rem;color:var(--t2)">L\'IA analyse vos erreurs…</div></div>';
+  const wrongDetails = details.filter(d => !d.ok).map(d => ({
+    enonce: d.question, user_answer: d.chosen, correct_answer: d.correct, ok: false, topic: currentSubject
+  }));
+  if (!wrongDetails.length) {
+    content.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--green)"><i class="fas fa-check-circle" style="font-size:2.5rem;margin-bottom:1rem;display:block"></i><strong>Excellent !</strong><div style="margin-top:.5rem;color:var(--t2)">Vous n\'avez fait aucune erreur dans ce quiz !</div></div>';
+    return;
+  }
+  try {
+    const res = await fetch('/dashboard/api/quiz/analyse/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify({ session_id: lastSessionId, subject: currentSubject, details: wrongDetails })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      let html = '';
+      if (data.analysis) html += `<div style="margin-bottom:1.25rem;padding:1rem;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);border-radius:12px">${renderMarkdown(data.analysis)}</div>`;
+      if (data.weak_tags && data.weak_tags.length) {
+        html += `<div style="margin-bottom:1rem"><div style="font-size:.75rem;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:.5rem">Points à retravailler</div><div style="display:flex;flex-wrap:wrap;gap:.4rem">`;
+        for (const tag of data.weak_tags) {
+          html += `<span style="background:rgba(239,68,68,.1);color:#fca5a5;border-radius:20px;padding:.2rem .65rem;font-size:.78rem;font-weight:600">${tag}</span>`;
+        }
+        html += '</div></div>';
+      }
+      if (data.advice && data.advice.length) {
+        html += '<div style="font-size:.75rem;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:.5rem">Conseils</div><ul style="padding-left:1.25rem;display:flex;flex-direction:column;gap:.5rem">';
+        for (const tip of data.advice) html += `<li style="font-size:.875rem;color:var(--t2)">${tip}</li>`;
+        html += '</ul>';
+      }
+      content.innerHTML = html || '<p>Analyse indisponible.</p>';
+    } else {
+      content.innerHTML = '<div style="color:var(--red)">Erreur lors de l\'analyse.</div>';
+    }
+  } catch(e) {
+    content.innerHTML = '<div style="color:var(--red)">Erreur réseau.</div>';
+  }
+}
+
+function showPicker() {
+  clearInterval(timerInterval);
+  stopDuelPoll();
+  duelMode = false; duelCode = null; duelFinished = false;
+  document.getElementById('quizScore').style.display = 'none';
+  document.getElementById('duelWaiting').style.display = 'none';
+  document.getElementById('quizPicker').style.display = 'block';
+  document.getElementById('duelResultBox').style.display = 'none';
+  document.getElementById('duelScoreboard').style.display = 'none';
+}
+
+function setQuizMode(mode) {
+  const isSolo = mode === 'solo';
+  document.getElementById('tabSolo').style.background  = isSolo ? 'var(--green)' : 'transparent';
+  document.getElementById('tabSolo').style.color       = isSolo ? '#fff' : 'var(--t2)';
+  document.getElementById('tabDuel').style.background  = isSolo ? 'transparent' : 'var(--green)';
+  document.getElementById('tabDuel').style.color       = isSolo ? 'var(--t2)' : '#fff';
+  document.getElementById('panelSolo').style.display   = isSolo ? '' : 'none';
+  document.getElementById('panelDuel').style.display   = isSolo ? 'none' : '';
+}
+
+function setDuelTab(tab) {
+  const isCreate = tab === 'create';
+  document.getElementById('duelPanelCreate').style.display = isCreate ? '' : 'none';
+  document.getElementById('duelPanelJoin').style.display   = isCreate ? 'none' : '';
+  const cBtn = document.getElementById('duelTabCreate');
+  const jBtn = document.getElementById('duelTabJoin');
+  cBtn.style.background    = isCreate ? 'rgba(16,185,129,.12)' : 'transparent';
+  cBtn.style.borderColor   = isCreate ? 'var(--green)' : 'var(--border2)';
+  cBtn.style.color         = isCreate ? 'var(--green)' : 'var(--t2)';
+  jBtn.style.background    = isCreate ? 'transparent' : 'rgba(16,185,129,.12)';
+  jBtn.style.borderColor   = isCreate ? 'var(--border2)' : 'var(--green)';
+  jBtn.style.color         = isCreate ? 'var(--t2)' : 'var(--green)';
+}
+
+async function createDuel(subject) {
+  document.getElementById('duelCreateError').style.display = 'none';
+  currentSubject = subject;
+  if (typeof showLoader === 'function') showLoader('Génération des questions…', 'Préparation du duel');
+  const res = await postJSON('{% url "api_duel_create" %}', { subject, count: 10 });
+  if (typeof hideLoader === 'function') hideLoader();
+  if (!res.ok) {
+    const el = document.getElementById('duelCreateError');
+    el.textContent = res.data.error || 'Erreur lors de la création';
+    el.style.display = '';
+    return;
+  }
+  duelCode = res.data.code;
+  duelMode = true;
+  document.getElementById('duelWaitCode').textContent = duelCode;
+  document.getElementById('quizPicker').style.display = 'none';
+  document.getElementById('duelWaiting').style.display = '';
+  startDuelPoll();
+}
+
+function copyDuelCode() {
+  navigator.clipboard.writeText(duelCode);
+  showToast('Code copié !');
+}
+
+function cancelDuel() {
+  stopDuelPoll();
+  duelCode = null; duelMode = false;
+  document.getElementById('duelWaiting').style.display = 'none';
+  document.getElementById('quizPicker').style.display = '';
+}
+
+async function joinDuel() {
+  const code = document.getElementById('duelJoinInput').value.trim().toUpperCase();
+  document.getElementById('duelJoinError').style.display = 'none';
+  if (code.length !== 6) {
+    showDuelError('duelJoinError', 'Le code doit faire 6 caractères');
+    return;
+  }
+  const res = await postJSON('{% url "api_duel_join" %}', { code });
+  if (!res.ok) {
+    showDuelError('duelJoinError', res.data.error || 'Code invalide');
+    return;
+  }
+  duelCode    = res.data.code;
+  duelMode    = true;
+  duelOppName = res.data.creator || 'Adversaire';
+  currentSubject = res.data.subject;
+  startDuelPoll();
+  document.getElementById('quizPicker').style.display = 'none';
+  if (typeof showLoader === 'function') showLoader('Connexion au duel…', 'Chargement des questions');
+}
+
+async function postJSON(url, data) {
+  const r = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+    body: JSON.stringify(data),
+  });
+  const d = await r.json();
+  return { ok: r.ok, data: d };
+}
+
+function startDuelPoll() { duelPollInterval = setInterval(pollDuelState, 2500); }
+function stopDuelPoll()  { clearInterval(duelPollInterval); duelPollInterval = null; }
+
+async function pollDuelState() {
+  if (!duelCode) return;
+  let r;
+  try { r = await fetch('{% url "api_duel_state" %}?code=' + duelCode); } catch(e) { return; }
+  const d = await r.json();
+  if (!r.ok) return;
+
+  if (document.getElementById('duelScoreboard').style.display !== 'none') {
+    document.getElementById('dsBoardOppScore').textContent = (d.opp_finished || d.status === 'finished') ? d.opp_score : '…';
+  }
+  if (d.opponent_name) {
+    duelOppName = d.opponent_name;
+    document.getElementById('dsBoardOppName').textContent = d.opponent_name;
+  }
+
+  if (d.status === 'active' && questions.length === 0 && d.questions && d.questions.length > 0) {
+    stopDuelPoll();
+    if (typeof hideLoader === 'function') hideLoader();
+    document.getElementById('duelWaiting').style.display = 'none';
+    questions = d.questions;
+    currentQ = 0; score = 0; details = [];
+    document.getElementById('qTotal').textContent = questions.length;
+    document.getElementById('quizArena').style.display = 'block';
+    document.getElementById('duelScoreboard').style.display = '';
+    document.getElementById('dsBoardMyName').textContent = DUEL_ME;
+    document.getElementById('dsBoardOppName').textContent = duelOppName;
+    document.getElementById('dsBoardMyScore').textContent  = 0;
+    document.getElementById('dsBoardOppScore').textContent = '…';
+    renderQuestion();
+    startDuelPoll();
+    return;
+  }
+
+  if (d.status === 'finished' && duelFinished) {
+    stopDuelPoll();
+    showDuelResults(d.my_score, d.opp_score, d.opponent_name);
+    return;
+  }
+  if (d.status === 'expired') {
+    stopDuelPoll();
+    if (typeof hideLoader === 'function') hideLoader();
+    showToast('Ce duel a expiré.', 'error');
+    showPicker();
+  }
+}
+
+function showDuelResults(myS, oppS, oppLabel) {
+  const opp = oppLabel || duelOppName;
+  document.getElementById('duelResultBox').style.display = '';
+  document.getElementById('duelResultMyName').textContent  = DUEL_ME;
+  document.getElementById('duelResultOppName').textContent = opp;
+  document.getElementById('duelResultMyScore').textContent  = myS;
+  document.getElementById('duelResultOppScore').textContent = oppS;
+  let emoji, title;
+  if (myS > oppS)      { emoji = '🏆'; title = 'Tu as gagné !'; }
+  else if (myS < oppS) { emoji = '😢'; title = 'Tu as perdu… Beau match !'; }
+  else                  { emoji = '🤝'; title = 'Égalité — beau match !'; }
+  document.getElementById('duelResultEmoji').textContent = emoji;
+  document.getElementById('duelResultTitle').textContent = title;
+  document.getElementById('duelResultMySide').style.border =
+    myS >= oppS ? '1.5px solid var(--green)' : '1px solid var(--border2)';
+}
+
+function showDuelError(id, msg) {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.style.display = '';
+}
+
+function showGuestSignupWall() {
+  let modal = document.getElementById('guestQuizModal');
+  if (modal) return;
+  modal = document.createElement('div');
+  modal.id = 'guestQuizModal';
+  modal.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);animation:fadeIn .2s ease;';
+  modal.innerHTML = `
+    <div style="background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:2rem;max-width:380px;width:90%;text-align:center;">
+      <div style="font-size:2.5rem;margin-bottom:.75rem;">🌟</div>
+      <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Tu as aimé ? Continue gratuitement !</h3>
+      <p style="color:var(--t2);font-size:.875rem;line-height:1.6;margin-bottom:1.25rem;">
+        Le mode démo est limité à 1 quiz par matière.<br>
+        Crée ton compte pour des quiz illimités, le suivi de progression, et l'IA coach personnalisé !
+      </p>
+      <a href="/signup/" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;border-radius:12px;font-weight:800;font-size:.9rem;text-decoration:none;">
+        <i class="fas fa-user-plus"></i> Créer un compte gratuit
+      </a>
+      <div style="margin-top:.75rem;">
+        <button onclick="document.getElementById('guestQuizModal').remove()" style="background:none;border:none;color:var(--t3);font-size:.8rem;cursor:pointer;padding:.5rem;">Continuer en mode démo</button>
+      </div>
+    </div>`;
+  modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+  document.body.appendChild(modal);
+}
+</script>
+<style>
+@keyframes duel-ping { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.18);opacity:.6} }
+</style>
+{% endblock %}
+

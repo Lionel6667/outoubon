@@ -1,0 +1,166 @@
+﻿{% extends "base.html" %}
+{% block title %}Inscription – OU TOU BON{% endblock %}
+{% block body %}
+<div class="auth-page">
+  <div class="auth-card" style="max-width:460px;">
+    <div class="auth-logo"><div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div></div>
+
+    
+    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.5rem;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">1</div>
+        <span style="font-size:.7rem;color:var(--green);font-weight:600;">Infos</span>
+      </div>
+      <div style="flex:1;height:2px;background:var(--border);max-width:60px;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--t3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">2</div>
+        <span style="font-size:.7rem;color:var(--t3);">École</span>
+      </div>
+      <div style="flex:1;height:2px;background:var(--border);max-width:60px;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--t3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">3</div>
+        <span style="font-size:.7rem;color:var(--t3);">Diagnostic</span>
+      </div>
+    </div>
+
+    <div class="auth-title">Créer mon compte</div>
+    <div class="auth-subtitle">Étape 1 sur 3 — Tes informations personnelles</div>
+
+    {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
+
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      <div class="form-grid2">
+        <div class="form-group">
+          <label class="form-label">Prénom *</label>
+          <input type="text" name="first_name" class="form-control" placeholder="Jean" required
+                 value="{{ form_data.first_name|default:'' }}" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nom</label>
+          <input type="text" name="last_name" class="form-control" placeholder="Dupont"
+                 value="{{ form_data.last_name|default:'' }}">
+        </div>
+      </div>
+
+      
+      <div class="form-group">
+        <div style="display:flex;gap:.5rem;margin-bottom:.5rem;">
+          <button type="button" id="btnEmail" onclick="switchContact('email')"
+                  style="flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;">
+            <i class="fas fa-envelope"></i> Email
+          </button>
+          <button type="button" id="btnPhone" onclick="switchContact('phone')"
+                  style="flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);">
+            <i class="fas fa-phone"></i> Téléphone
+          </button>
+        </div>
+        
+        <div id="contactFlex" style="display:flex;align-items:stretch;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);transition:border-color .2s;">
+          <span id="phonePfxBox" style="display:none;padding:.65rem .75rem;background:rgba(255,255,255,.04);border-right:1px solid var(--border);color:var(--t2);font-weight:600;font-size:.9rem;white-space:nowrap;align-items:center;">🇭🇹 +509</span>
+          <input type="email" name="contact" id="contactInput"
+                 placeholder="ton@email.com"
+                 value="{{ form_data.contact|default:'' }}" required
+                 style="flex:1;background:transparent;border:none;padding:.65rem .75rem;color:var(--t1);outline:none;font-size:.9rem;">
+        </div>
+        <span id="contactHint" style="font-size:.75rem;color:var(--t3);margin-top:.25rem;display:block;">
+          Tu pourras te connecter avec cet email.
+        </span>
+        <input type="hidden" id="contactMode" value="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mot de passe *</label>
+        <div style="position:relative;">
+          <input type="password" name="password1" id="pwd1" class="form-control" placeholder="••••••••" required minlength="8">
+          <button type="button" onclick="togglePwd('pwd1','eye1')"
+                  style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;color:var(--t3);font-size:.9rem;cursor:pointer;border:none;" id="eye1">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirmer le mot de passe *</label>
+        <div style="position:relative;">
+          <input type="password" name="password2" id="pwd2" class="form-control" placeholder="••••••••" required>
+          <button type="button" onclick="togglePwd('pwd2','eye2')"
+                  style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;color:var(--t3);font-size:.9rem;cursor:pointer;border:none;" id="eye2">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+        <div id="pwdMatch" style="font-size:.75rem;margin-top:.25rem;"></div>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%;padding:.85rem;margin-top:.5rem;">
+        Continuer <i class="fas fa-arrow-right"></i>
+      </button>
+    </form>
+    <div class="auth-footer">Déjà un compte ? <a href="{% url 'login' %}">Se connecter</a></div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+function togglePwd(id, eyeId) {
+  const inp = document.getElementById(id);
+  const btn = document.getElementById(eyeId);
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+  btn.innerHTML = inp.type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+}
+
+function switchContact(type) {
+  const inp    = document.getElementById('contactInput');
+  const pfx    = document.getElementById('phonePfxBox');
+  const hint   = document.getElementById('contactHint');
+  const bEmail = document.getElementById('btnEmail');
+  const bPhone = document.getElementById('btnPhone');
+  const mode   = document.getElementById('contactMode');
+  mode.value   = type;
+  if (type === 'email') {
+    inp.placeholder = 'ton@email.com';
+    inp.type        = 'email';
+    pfx.style.display = 'none';
+    if (inp.value.startsWith('+509')) inp.value = inp.value.slice(4).trim();
+    hint.textContent = 'Tu pourras te connecter avec cet email.';
+    bEmail.style.cssText = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;';
+    bPhone.style.cssText  = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);';
+  } else {
+    inp.placeholder = 'xxxx xxxx';
+    inp.type        = 'tel';
+    pfx.style.display = 'flex';
+    hint.textContent = 'Entre ton numéro local — le +509 est ajouté automatiquement.';
+    bPhone.style.cssText = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;';
+    bEmail.style.cssText  = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);';
+  }
+}
+
+document.querySelector('form.auth-form').addEventListener('submit', function() {
+  const mode = document.getElementById('contactMode').value;
+  const inp  = document.getElementById('contactInput');
+  if (mode === 'phone' && inp.value && !inp.value.startsWith('+509')) {
+    inp.value = '+509' + inp.value.replace(/\s+/g, '');
+  }
+});
+
+document.getElementById('pwd2').addEventListener('input', function() {
+  const v1 = document.getElementById('pwd1').value;
+  const ok = v1 === this.value;
+  const el = document.getElementById('pwdMatch');
+  el.textContent = this.value ? (ok ? '✓ Les mots de passe correspondent' : '✗ Les mots de passe ne correspondent pas') : '';
+  el.style.color = ok ? 'var(--green)' : '#ef4444';
+});
+
+document.getElementById('contactInput').addEventListener('focus', () => {
+  document.getElementById('contactFlex').style.borderColor = 'var(--green)';
+});
+document.getElementById('contactInput').addEventListener('blur', () => {
+  document.getElementById('contactFlex').style.borderColor = 'var(--border)';
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const val = document.getElementById('contactInput').value;
+  if (val && !val.includes('@')) switchContact('phone');
+});
+</script>
+{% endblock %}
+

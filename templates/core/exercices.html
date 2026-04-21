@@ -1,0 +1,1584 @@
+{% extends "base.html" %}
+{% block title %}Exercices · OU TOU BON{% endblock %}
+{% block extra_css %}
+<style>
+.exo-page { height:100%; display:flex; flex-direction:column; overflow:hidden; }
+.exo-scroll { flex:1; overflow-y:auto; padding:1.25rem; }
+.exo-scroll > #stepSubject, .exo-scroll > #stepChapter { max-width:720px; margin:0 auto; }
+
+.exo-step3 { display:none; flex:1; flex-direction:column; overflow:hidden; padding:1rem; max-width:760px; margin:0 auto; width:100%; }
+.exo-step3.active { display:flex; }
+.exo-chat-wrap { display:flex; flex-direction:column; flex:1; min-height:0; }
+.exo-card {
+  border-radius:20px; background:var(--card); border:1px solid var(--border2);
+  padding:1.25rem; margin-bottom:1rem; position:relative; flex-shrink:0;
+}
+.exo-badge {
+  display:inline-flex; align-items:center; gap:.4rem; padding:.25rem .65rem;
+  background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.3);
+  border-radius:99px; color:var(--green); font-size:.72rem; font-weight:800;
+  letter-spacing:.08em; text-transform:uppercase;
+}
+.exo-gen-btn {
+  position:absolute; top:1rem; right:1rem;
+  background:var(--card2); border:1px solid var(--border2);
+  border-radius:99px; padding:.3rem .9rem; font-size:.78rem; font-weight:700;
+  color:var(--t2); cursor:pointer; display:flex; align-items:center; gap:.4rem;
+  transition:all .15s;
+}
+.exo-gen-btn:hover { border-color:var(--green); color:var(--green); }
+.exo-title { font-weight:700; font-size:1rem; margin:.6rem 0 .5rem; line-height:1.5; }
+.exo-text { color:var(--t2); font-size:.875rem; line-height:1.7; }
+.exo-meta { display:flex; align-items:center; gap:.5rem; margin-top:.75rem; flex-wrap:wrap; }
+.exo-meta-tag { font-size:.72rem; font-weight:600; padding:.2rem .55rem; border-radius:8px; }
+
+.exo-chat-section { flex:1; display:flex; flex-direction:column; min-height:0; }
+.exo-msgs { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:.15rem; padding:.25rem 0 .5rem; }
+.exo-msg { display:flex; gap:.7rem; align-items:flex-start; animation:msgIn .2s ease; min-width:0; padding:.4rem 0; }
+@keyframes msgIn {
+  0%   { opacity:0; transform:translateY(6px); }
+  100% { opacity:1; transform:none; }
+}
+.exo-msg.ai .exo-bubble {
+  background:var(--card); border:1px solid var(--border2);
+  border-radius:4px 18px 18px 18px; color:var(--t1);
+}
+.exo-msg.user { flex-direction:row-reverse; }
+.exo-msg.user .exo-bubble {
+  background:linear-gradient(135deg,rgba(37,99,235,.9),rgba(109,40,217,.85));
+  color:#fff; border-radius:18px 4px 18px 18px;
+}
+
+.exo-bubble {
+  padding:.72rem 1rem; font-size:.875rem; line-height:1.72;
+  word-break:break-word; overflow-x:auto;
+  min-width:0; max-width:82%;
+}
+
+.exo-msg.ai .exo-bubble h1,.exo-msg.ai .exo-bubble h2,.exo-msg.ai .exo-bubble h3 { font-weight:700; margin:.7rem 0 .35rem; color:var(--t1); }
+.exo-msg.ai .exo-bubble h2 { font-size:1rem; }
+.exo-msg.ai .exo-bubble h3 { font-size:.9rem; }
+.exo-msg.ai .exo-bubble strong { font-weight:700; }
+.exo-msg.ai .exo-bubble em { font-style:italic; }
+.exo-msg.ai .exo-bubble p { margin-bottom:.45rem; }
+.exo-msg.ai .exo-bubble p:last-child { margin-bottom:0; }
+.exo-msg.ai .exo-bubble ul,.exo-msg.ai .exo-bubble ol { padding-left:1.4rem; margin-bottom:.4rem; }
+.exo-msg.ai .exo-bubble li { margin-bottom:.15rem; }
+.exo-msg.ai .exo-bubble code { background:rgba(255,255,255,.08); padding:.1rem .35rem; border-radius:4px; font-family:monospace; font-size:.8em; }
+.exo-msg.ai .exo-bubble pre { background:#0d1117; border-radius:8px; padding:.75rem; overflow-x:auto; margin:.4rem 0; max-width:100%; }
+.exo-msg.ai .exo-bubble pre code { background:none; padding:0; }
+.exo-msg.ai .exo-bubble blockquote { border-left:3px solid var(--green); margin:.4rem 0; padding:.4rem .8rem; background:rgba(16,185,129,.06); border-radius:0 8px 8px 0; font-style:italic; }
+.exo-msg.ai .exo-bubble hr { border:none; border-top:1px solid var(--border2); margin:.5rem 0; }
+
+.exo-bubble .katex-display { margin:.4rem 0; overflow-x:auto; max-width:100%; }
+.exo-bubble .katex { color:var(--t1)!important; }
+
+.exo-msg.ai .exo-bubble .tbl-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; margin:.6rem 0; border-radius:8px; border:1px solid var(--border2); }
+.exo-msg.ai .exo-bubble table { width:100%; min-width:0; border-collapse:collapse; font-size:.78rem; }
+.exo-msg.ai .exo-bubble th { background:rgba(16,185,129,.12); color:var(--t1); font-weight:700; padding:.4rem .7rem; text-align:left; font-size:.76rem; border-bottom:1px solid rgba(16,185,129,.25); }
+.exo-msg.ai .exo-bubble td { padding:.35rem .7rem; border-bottom:1px solid var(--border2); color:var(--t2); }
+.exo-msg.ai .exo-bubble tr:last-child td { border-bottom:none; }
+
+.exo-msg-content { max-width:84%; min-width:0; display:flex; flex-direction:column; gap:.2rem; }
+.exo-msg.user .exo-msg-content { align-items:flex-end; }
+.exo-msg-time { font-size:.66rem; color:var(--t3); padding:0 .2rem; }
+.exo-msg-avatar { width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,var(--green),var(--blue2)); display:flex; align-items:center; justify-content:center; font-size:.75rem; font-weight:800; color:#fff; flex-shrink:0; margin-top:.2rem; }
+.exo-msg-actions { display:flex; gap:.3rem; margin-top:.35rem; }
+.exo-react-btn { background:none; border:none; color:var(--t3); font-size:.9rem; cursor:pointer; padding:.1rem .3rem; border-radius:6px; transition:all .15s; }
+.exo-react-btn:hover { color:var(--t1); background:var(--card2); }
+.exo-footer { padding:.75rem 0 0; border-top:1px solid var(--border); }
+.exo-action-row { display:flex; gap:.5rem; margin-bottom:.6rem; }
+.exo-more-btn { padding:.45rem 1rem; background:var(--card); border:1px solid var(--border2); border-radius:99px; font-size:.82rem; font-weight:700; color:var(--t1); cursor:pointer; transition:all .15s; display:flex; align-items:center; gap:.35rem; }
+.exo-more-btn:hover { border-color:var(--green); color:var(--green); }
+.exo-finish-btn { padding:.45rem 1rem; background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.3); border-radius:99px; font-size:.82rem; font-weight:700; color:var(--green); cursor:pointer; display:flex; align-items:center; gap:.35rem; transition:all .15s; }
+.exo-finish-btn:hover { background:rgba(16,185,129,.25); }
+.exo-input-bar { position:fixed; bottom:0; left:var(--sidebar-w, 240px); right:0; z-index:200; background:var(--bg); border-top:1px solid var(--border); padding:.65rem 1rem .85rem; padding-bottom:calc(.85rem + env(safe-area-inset-bottom, 0px)); display:none; }
+.exo-input-bar.visible { display:block; }
+.exo-input-bar-inner { max-width:760px; margin:0 auto; width:100%; }
+.exo-input-wrap { background:var(--card); border:1px solid var(--border2); border-radius:16px; padding:.6rem .75rem .5rem; transition:border-color .15s; }
+.exo-input-wrap:focus-within { border-color:rgba(16,185,129,.4); }
+.exo-input { width:100%; background:none; border:none; color:var(--t1); font-size:.9rem; resize:none; line-height:1.5; min-height:24px; max-height:100px; overflow-y:auto; font-family:inherit; }
+.exo-input:focus { outline:none; }
+.exo-input::placeholder { color:var(--t3); }
+.exo-input-bottom { display:flex; align-items:center; justify-content:space-between; margin-top:.4rem; }
+.exo-input-icons { display:flex; gap:.3rem; }
+.exo-icon-btn { background:none; border:none; color:var(--t3); font-size:.95rem; cursor:pointer; padding:.25rem; border-radius:6px; transition:color .15s; }
+.exo-icon-btn:hover { color:var(--t1); }
+.exo-speak-btn { background:none; border:none; color:var(--t3); font-size:.82rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:.3rem; transition:color .15s; }
+.exo-speak-btn:hover { color:var(--t1); }
+.exo-send-btn { background:var(--green); border:none; width:32px; height:32px; border-radius:9px; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:opacity .15s; flex-shrink:0; }
+.exo-send-btn:hover { opacity:.85; }
+.exo-send-btn:disabled { opacity:.4; cursor:not-allowed; }
+
+.exo-typing { display:flex; gap:4px; align-items:center; padding:.4rem .5rem; }
+.exo-dot { width:7px; height:7px; border-radius:50%; background:var(--green); animation:dotBounce 1s infinite; }
+.exo-dot:nth-child(2){ animation-delay:.15s; background:var(--blue2); }
+.exo-dot:nth-child(3){ animation-delay:.3s; background:var(--purple); }
+@keyframes dotBounce { 0%,80%,100%{transform:translateY(0);opacity:.4} 40%{transform:translateY(-5px);opacity:1} }
+
+.exo-summary { padding:1.5rem; background:var(--bg2); border:1px solid var(--border2); border-radius:20px; margin-top:1rem; }
+
+.itool-card {
+  background:var(--card); border:1px solid var(--border2); border-radius:14px;
+  padding:1rem 1.1rem; margin-bottom:.65rem; flex-shrink:0;
+}
+.itool-header {
+  display:flex; align-items:center; gap:.5rem; margin-bottom:.75rem;
+}
+.itool-title { font-weight:700; font-size:.88rem; }
+.itool-subtitle { color:var(--t3); font-size:.75rem; margin-left:auto; }
+.itool-badge {
+  font-size:.65rem; font-weight:800; padding:.2rem .5rem; border-radius:99px;
+  text-transform:uppercase; letter-spacing:.06em;
+}
+
+.punnett-wrap { overflow-x:auto; }
+.punnett-table { border-collapse:collapse; margin:0 auto; }
+.punnett-table th, .punnett-table td {
+  width:66px; height:52px; text-align:center; vertical-align:middle;
+  border:1px solid var(--border2); font-size:.9rem; font-weight:600;
+}
+.punnett-table thead th { background:rgba(16,185,129,.08); color:var(--green); }
+.punnett-table tbody th { background:rgba(37,99,235,.08); color:#93c5fd; }
+.punnett-cell {
+  width:58px; height:38px; text-align:center; background:var(--bg2);
+  border:1px solid var(--border); border-radius:6px; font-size:.9rem; font-weight:700;
+  color:var(--t1); font-family:inherit; transition:border-color .15s;
+}
+.punnett-cell:focus { outline:none; border-color:var(--green); background:var(--card2); }
+.punnett-cell.correct { border-color:#22c55e; background:rgba(34,197,94,.1); }
+.punnett-cell.incorrect { border-color:#ef4444; background:rgba(239,68,68,.1); }
+.punnett-cross { font-size:.82rem; color:var(--t2); margin-bottom:.5rem; text-align:center; }
+
+.punnett-legend-section {
+  background:var(--bg2); border:1px solid var(--border); border-radius:10px;
+  padding:.65rem .85rem; margin-bottom:.85rem;
+}
+.legend-title { font-weight:700; font-size:.82rem; color:var(--t2); margin-bottom:.45rem; }
+.legend-row {
+  display:flex; align-items:center; gap:.4rem; margin-bottom:.35rem; flex-wrap:wrap;
+}
+.legend-sym-input {
+  width:46px; padding:.28rem .3rem; text-align:center; font-weight:800; font-size:.9rem;
+  background:var(--card); border:1.5px solid var(--green); border-radius:6px;
+  color:var(--t1); font-family:inherit; transition:border-color .15s;
+}
+.legend-sym-input:focus { outline:none; background:var(--card2); }
+.legend-sym-input.correct { border-color:#22c55e; background:rgba(34,197,94,.1); }
+.legend-sym-input.incorrect { border-color:#ef4444; background:rgba(239,68,68,.1); }
+.legend-eq { font-size:.8rem; color:var(--t2); white-space:nowrap; }
+.legend-desc-input {
+  flex:1; min-width:120px; padding:.28rem .5rem; background:var(--card);
+  border:1px solid var(--border2); border-radius:6px; color:var(--t1);
+  font-size:.8rem; font-family:inherit;
+}
+.legend-desc-input:focus { outline:none; border-color:var(--green); }
+
+.cross-label {
+  font-size:.82rem; font-weight:700; color:var(--t2); margin-bottom:.4rem;
+  display:flex; align-items:center; gap:.4rem;
+}
+.cross-label::before { content:'?'; color:var(--green); font-size:.75rem; }
+
+.punnett-header-input {
+  width:52px; height:34px; text-align:center; font-weight:800; font-size:.88rem;
+  background:var(--bg2); border:1.5px dashed var(--border2); border-radius:5px;
+  color:var(--green); font-family:inherit; transition:border-color .15s;
+}
+.punnett-header-input:focus { outline:none; border-color:var(--green); background:var(--card2); border-style:solid; }
+.punnett-header-input.correct { border-color:#22c55e; background:rgba(34,197,94,.1); border-style:solid; }
+.punnett-header-input.incorrect { border-color:#ef4444; background:rgba(239,68,68,.1); border-style:solid; }
+.punnett-corner { background:transparent!important; border:none!important; }
+
+.analysis-section {
+  margin-top:.75rem; padding:.65rem .75rem;
+  background:var(--bg2); border-radius:8px; border:1px solid var(--border);
+}
+.analysis-title { font-size:.8rem; font-weight:700; color:var(--t2); margin-bottom:.45rem; }
+.analysis-row { display:flex; align-items:center; gap:.5rem; margin-bottom:.35rem; flex-wrap:wrap; }
+.analysis-label { font-size:.78rem; color:var(--t3); white-space:nowrap; min-width:85px; }
+.analysis-input {
+  flex:1; min-width:160px; padding:.3rem .5rem; background:var(--card);
+  border:1px solid var(--border2); border-radius:6px; color:var(--t1);
+  font-size:.8rem; font-family:inherit;
+}
+.analysis-input:focus { outline:none; border-color:var(--green); }
+
+.hint-box {
+  background:rgba(245,158,11,.08); border:1px solid rgba(245,158,11,.25);
+  border-radius:8px; padding:.45rem .7rem; font-size:.79rem; color:var(--t2);
+  margin-top:.35rem; line-height:1.5;
+}
+#exoToolBtn:hover { opacity:.8; }
+
+.avancement-wrap { overflow-x:auto; }
+.avancement-table { border-collapse:collapse; width:100%; min-width:380px; }
+.avancement-table th, .avancement-table td {
+  padding:.45rem .55rem; border:1px solid var(--border2); font-size:.81rem;
+  text-align:center; vertical-align:middle;
+}
+.avancement-table thead th {
+  background:rgba(16,185,129,.08); color:var(--green); font-weight:700; font-size:.78rem;
+}
+.avancement-table tbody td:first-child {
+  font-weight:700; color:var(--t2); white-space:nowrap; text-align:left;
+}
+.avancement-input {
+  width:72px; padding:.25rem .3rem; background:var(--bg2); border:1px solid var(--border);
+  border-radius:5px; color:var(--t1); font-size:.8rem; text-align:center; font-family:inherit;
+}
+.avancement-input:focus { outline:none; border-color:var(--green); }
+.avancement-formula { color:var(--t3); font-style:italic; font-size:.78rem; }
+.itool-validate-btn {
+  margin-top:.65rem; padding:.4rem 1rem; background:var(--green); color:#fff;
+  border:none; border-radius:8px; font-size:.8rem; font-weight:700; cursor:pointer;
+  display:flex; align-items:center; gap:.4rem; transition:opacity .15s;
+}
+.itool-validate-btn:hover { opacity:.85; }
+.itool-toggle-btn {
+  background:none; border:none; color:var(--t3); font-size:.78rem; cursor:pointer;
+  display:flex; align-items:center; gap:.3rem; padding:0; transition:color .15s;
+}
+.itool-toggle-btn:hover { color:var(--t1); }
+.itool-remove-btn {
+  background:none; border:1px solid rgba(239,68,68,.35); border-radius:6px;
+  color:#fca5a5; height:26px; padding:0 .55rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:.72rem;
+  transition:background .15s, border-color .15s;
+}
+.itool-remove-btn:hover { background:rgba(239,68,68,.12); border-color:rgba(239,68,68,.55); }
+
+.exo-text table, .exo-card table {
+  width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.84rem;
+  border-radius:10px; overflow:hidden; box-shadow:0 0 0 1px var(--border2);
+}
+.exo-text th, .exo-card th {
+  padding:.5rem .85rem;
+  background:linear-gradient(135deg,rgba(16,185,129,.18),rgba(37,99,235,.12));
+  color:var(--t1); font-weight:700; text-align:left; font-size:.78rem;
+  letter-spacing:.03em; text-transform:uppercase;
+  border-bottom:2px solid rgba(16,185,129,.4);
+}
+.exo-text td, .exo-card td {
+  padding:.42rem .85rem; border-bottom:1px solid var(--border2);
+  text-align:left; color:var(--t2);
+}
+.exo-text tr:last-child td, .exo-card tr:last-child td { border-bottom:none; }
+.exo-text tbody tr:nth-child(odd) td, .exo-card tbody tr:nth-child(odd) td { background:rgba(255,255,255,.02); }
+.exo-text tbody tr:hover td, .exo-card tbody tr:hover td { background:rgba(16,185,129,.06); color:var(--t1); transition:background .15s; }
+
+.chap-tile-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.65rem; }
+.chap-tile {
+  display:flex; align-items:center; gap:.75rem;
+  padding:.8rem 1rem;
+  background:var(--bg2); border:1px solid var(--border2); border-radius:14px;
+  cursor:pointer; transition:transform .18s,border-color .18s,box-shadow .18s;
+  text-align:left; width:100%;
+}
+.chap-tile:hover { transform:translateY(-2px); border-color:var(--green); box-shadow:0 6px 20px rgba(16,185,129,.15); }
+.chap-tile-icon {
+  width:36px; height:36px; border-radius:10px;
+  background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.2);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--green); font-size:.9rem; flex-shrink:0;
+}
+.chap-tile:hover .chap-tile-icon { background:rgba(16,185,129,.22); }
+.chap-tile-body { display:flex; flex-direction:column; gap:.15rem; min-width:0; }
+.chap-num { font-size:.68rem; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:.05em; }
+.chap-tile-label { font-size:.84rem; font-weight:600; color:var(--t1); line-height:1.35; }
+</style>
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="exercices" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title" data-i18n="nav_exercices">Exercices</div></div>
+    <div class="view-area exo-page" id="exoPage">
+      <div class="exo-scroll" id="exoScroll" style="max-width:760px;margin:0 auto;width:100%;display:block;">
+
+        
+        <div id="stepSubject" style="display:block;">
+          <div style="text-align:center;margin-bottom:1.75rem;padding-top:1rem;">
+            <div style="font-weight:700;font-size:1.2rem;margin-bottom:.3rem;">Choisis une matière</div>
+            <div style="color:var(--t2);font-size:.875rem;">Exercices tirés des vrais examens BAC — l'IA te guide à la solution</div>
+          </div>
+          <div class="quiz-mat-grid">
+            {% for key, mat in mats.items %}
+            <button class="mat-tile" onclick="selectSubject('{{ key }}','{{ mat.label }}')" style="--color:{{ mat.color }}">
+              <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
+              <div class="mat-tile-label">{{ mat.label }}</div>
+            </button>
+            {% endfor %}
+          </div>
+        </div>
+
+        
+        <div id="stepChapter" style="display:none;">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;">
+            <button onclick="backToSubject()" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;color:var(--t2);">
+              <i class="fas fa-arrow-left"></i> Retour
+            </button>
+            <div id="chapterSubjectLabel" style="font-weight:700;font-size:1.05rem;"></div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:1.25rem;margin-bottom:1rem;">
+            <div style="font-weight:700;margin-bottom:1rem;font-size:.95rem;">Choisis un chapitre :</div>
+            <div id="chapterList" class="chap-tile-grid"></div>
+          </div>
+          <button onclick="loadExercise('random')" style="width:100%;padding:.75rem;background:var(--green);border-radius:12px;color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:.5rem;">
+            <i class="fas fa-shuffle"></i> Chapitre aléatoire
+          </button>
+        </div>
+
+      </div>
+
+      
+      <div class="exo-step3" id="stepExercise">
+
+          
+          <div id="exLoading" style="text-align:center;padding:3rem 0;flex-shrink:0;">
+            <div style="font-size:2.2rem;margin-bottom:.75rem;">🔍</div>
+            <div style="font-weight:700;margin-bottom:.3rem;">Recherche dans les examens BAC…</div>
+            <div style="color:var(--t2);font-size:.875rem;" id="exLoadingMsg">Sélection d'un exercice adapté</div>
+            <div class="astra-loader" style="justify-content:center;margin-top:1rem;">
+              <div class="astra-row">
+                <div class="astra-dot generating"></div><div class="astra-dot generating"></div>
+                <div class="astra-dot generating"></div><div class="astra-dot generating"></div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div id="exContent" style="display:none;" class="exo-chat-wrap">
+
+            
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-shrink:0;">
+              <button onclick="backToChapter()" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;color:var(--t2);">
+                <i class="fas fa-arrow-left"></i> Retour
+              </button>
+              <div id="exerciseTitleBar" style="font-weight:700;font-size:.95rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--t2);"></div>
+              <button class="exo-gen-btn" onclick="generateNewExercise()" id="genNewBtn" style="position:static;">
+                <i class="fas fa-sync-alt"></i> Nouvel exercice
+              </button>
+            </div>
+
+            
+            <div class="exo-card" id="exerciseCard" style="overflow-y:auto;max-height:35vh;flex-shrink:0;">
+              <div style="display:flex;align-items:center;gap:.5rem;">
+                <span class="exo-badge">EXERCICE</span>
+              </div>
+              <div class="exo-title" id="exerciseTitle">—</div>
+              <div class="exo-text" id="exerciseText"></div>
+              <div id="exerciseQuestions" style="margin-top:.75rem;"></div>
+              <div class="exo-meta" id="exerciseMeta"></div>
+              
+              <button id="exoToolBtn" onclick="toggleToolPanel()" style="display:none;margin-top:.75rem;align-items:center;gap:.45rem;padding:.38rem .9rem;font-size:.78rem;font-weight:700;background:transparent;border:1.5px solid;border-radius:99px;cursor:pointer;transition:opacity .15s;">
+                <i id="exoToolBtnIcon" class="fas fa-th"></i>
+                <span id="exoToolBtnLabel">Échiquier de Punnett</span>
+              </button>
+            </div>
+
+            
+            <div id="interactiveSection" style="display:none;flex-shrink:0;"></div>
+
+            
+            <div id="exImgPreview" style="display:none;align-items:center;gap:.6rem;background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:.5rem .75rem;margin-bottom:.4rem;flex-shrink:0;">
+              <img id="exImgThumb" style="width:36px;height:36px;border-radius:6px;object-fit:cover;" src="" alt="">
+              <span id="exImgName" style="flex:1;font-size:.78rem;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+              <button onclick="removeExImg()" style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:.9rem;"><i class="fas fa-times"></i></button>
+            </div>
+
+            
+            <div class="exo-chat-section card" style="padding:.75rem 1rem;flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:130px;">
+              <div class="exo-msgs" id="exMsgs"></div>
+            </div>
+
+<div class="exo-input-bar" id="exInputBar">
+  <div class="exo-input-bar-inner">
+    <div class="exo-action-row" style="margin-bottom:.5rem;">
+      <button class="exo-more-btn" onclick="askHint()"><i class="fas fa-lightbulb"></i> Indice</button>
+      <button class="exo-finish-btn" id="exFinishBtn" onclick="finishSession()"><i class="fas fa-check"></i> Terminer</button>
+    </div>
+    <div class="exo-input-wrap">
+      <textarea class="exo-input" id="exInput" placeholder="Écris ta réponse ou pose une question…" rows="1"
+        onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}"
+        oninput="autoResize(this)"></textarea>
+      <div class="exo-input-bottom">
+        <div class="exo-input-icons">
+          <label class="exo-icon-btn" title="Joindre une image">
+            <i class="fas fa-image"></i>
+            <input type="file" id="exImgInput" accept="image
+function selectSubject(key, label) {
+  currentSubject = key;
+  currentSubjectLabel = label;
+  _showStep(2);
+  document.getElementById('chapterSubjectLabel').textContent = label;
+  const chapters = CHAPTERS_BY_SUBJECT[key] || [];
+  const list = document.getElementById('chapterList');
+  if (!chapters.length) {
+    list.innerHTML = '<div style="color:var(--t3);font-size:.875rem;padding:.5rem;">Aucun chapitre disponible.</div>';
+  } else {
+    list.innerHTML = chapters.map(ch => {
+      const numLabel = ch.num ? `<span class="chap-num">Ch.\u00a0${ch.num}</span>` : '';
+      const label = ch.display || ch.title;
+      return `<button onclick="loadExercise(${ch.id})" class="chap-tile">
+        <div class="chap-tile-icon"><i class="fas fa-book-open"></i></div>
+        <div class="chap-tile-body">
+          ${numLabel ? `<span class="chap-num">${numLabel.replace(/<[^>]+>/g,'')}</span>` : ''}
+          <span class="chap-tile-label">${label}</span>
+        </div>
+      </button>`;
+    }).join('');
+  }
+}
+
+function _showStep(step) {
+  document.getElementById('stepSubject').style.display = step===1 ? 'block' : 'none';
+  document.getElementById('stepChapter').style.display = step===2 ? 'block' : 'none';
+  document.getElementById('exoScroll').style.display   = step===3 ? 'none' : 'flex';
+  const s3 = document.getElementById('stepExercise');
+  if (step===3) { s3.classList.add('active'); } else { s3.classList.remove('active'); }
+  const bar = document.getElementById('exInputBar');
+  if (bar) { if (step===3) bar.classList.add('visible'); else bar.classList.remove('visible'); }
+}
+
+function backToSubject() {
+  _showStep(1);
+}
+
+function backToChapter() {
+  _showStep(2);
+}
+
+async function loadExercise(chapterId) {
+  currentChapter = chapterId;
+  const chapters = CHAPTERS_BY_SUBJECT[currentSubject] || [];
+  const chap = (chapterId === 'random') ? null : chapters.find(c => c.id == chapterId);
+  const chapName = chap ? chap.title : 'Aléatoire';
+  const chapLabel = chap ? (chap.display || chap.title) : 'Aléatoire';
+  _showStep(3);
+  document.getElementById('exLoading').style.display = 'block';
+  document.getElementById('exContent').style.display = 'none';
+  document.getElementById('exerciseTitleBar').textContent = currentSubjectLabel + ' — ' + chapLabel;
+  document.getElementById('exMsgs').innerHTML = '';
+  chatHistory = [];
+  hintIndex = 0;
+  const finishBtn = document.getElementById('exFinishBtn');
+  if (finishBtn) { finishBtn.disabled = false; finishBtn.style.opacity = ''; finishBtn.style.pointerEvents = ''; }
+  if (typeof showLoader === 'function') showLoader('Recherche d\'un exercice…', 'Sélection depuis les vrais examens BAC Haïti');
+  try {
+    const params = new URLSearchParams({ subject: currentSubject, chapter: chapName, mode: 'pdf' });
+    const resp = await fetch(`{% url 'api_get_exercise' %}?${params}`, { headers:{'X-CSRFToken':CSRF} });
+    const data = await resp.json();
+    if (typeof hideLoader === 'function') hideLoader();
+    if (data.premium_required) {
+      showPremiumGate(data.message || "Tu as atteint ta limite d'exercices gratuits pour cette matière.");
+      _showStep(2);
+      return;
+    }
+    if (!resp.ok || data.error) throw new Error(data.error || 'Erreur serveur');
+    currentExercise = data.exercise;
+    displayExercise(currentExercise);
+    await startAIChat();
+  } catch(e) {
+    if (typeof hideLoader === 'function') hideLoader();
+    _showStep(2);
+    showToast('? ' + e.message, 'error');
+  }
+}
+
+async function generateNewExercise() {
+  const btn = document.getElementById('genNewBtn');
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  btn.disabled = true;
+  try {
+    const chapters = CHAPTERS_BY_SUBJECT[currentSubject] || [];
+    const chap = (currentChapter === 'random') ? null : chapters.find(c => c.id == currentChapter);
+    const chapName = chap ? chap.title : 'Aléatoire';
+    const params = new URLSearchParams({ subject: currentSubject, chapter: chapName, mode: 'pdf' });
+    const resp = await fetch(`{% url 'api_get_exercise' %}?${params}`, { headers:{'X-CSRFToken':CSRF} });
+    const data = await resp.json();
+    if (data.premium_required) {
+      showPremiumGate(data.message || "Tu as atteint ta limite d'exercices gratuits pour cette matière.");
+      btn.innerHTML = '<i class="fas fa-sync-alt"></i> Nouvel exercice';
+      btn.disabled = false;
+      return;
+    }
+    if (!resp.ok || data.error) throw new Error(data.error || 'Erreur serveur');
+    currentExercise = data.exercise;
+    chatHistory = [];
+    hintIndex = 0;
+    displayExercise(currentExercise);
+    document.getElementById('exMsgs').innerHTML = '';
+    await startAIChat();
+  } catch(e) {
+    showToast('? ' + e.message, 'error');
+  }
+  btn.innerHTML = '<i class="fas fa-sync-alt"></i> Nouvel exercice';
+  btn.disabled = false;
+}
+
+function displayExercise(ex) {
+  const theme = ex.theme || ex.matiere || currentSubjectLabel;
+  document.getElementById('exerciseTitle').textContent = theme;
+
+  const bodyEl = document.getElementById('exerciseText');
+  const consigne = ex.intro || ex.enonce || '';
+  const textPassage = ex.texte || '';
+  let bodyHTML = renderMarkdown(consigne);
+  if (textPassage && textPassage.trim()) {
+    bodyHTML += `<div style="margin-top:.75rem;padding:.85rem 1rem;background:var(--bg2);border-left:3px solid var(--green);border-radius:0 10px 10px 0;font-size:.875rem;line-height:1.8;color:var(--t1);">${renderMarkdown(textPassage)}</div>`;
+  }
+  bodyEl.innerHTML = bodyHTML;
+
+  const qEl = document.getElementById('exerciseQuestions');
+  const questions = (ex.questions || []).filter(q => q && q.toString().trim());
+  qEl.innerHTML = '';
+  if (questions.length) {
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'margin-top:.5rem;padding-top:.6rem;border-top:1px solid var(--border2);';
+    const lbl = document.createElement('div');
+    lbl.style.cssText = 'font-size:.72rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem;';
+    lbl.textContent = 'Questions';
+    wrap.appendChild(lbl);
+    questions.forEach((q, i) => {
+      const row = document.createElement('div');
+      row.style.cssText = 'font-size:.875rem;color:var(--t1);margin-bottom:.45rem;line-height:1.7;display:flex;align-items:baseline;gap:.4rem;';
+      const num = document.createElement('span');
+      num.style.cssText = 'font-weight:700;color:var(--green);flex-shrink:0;';
+      num.textContent = (i + 1) + '.';
+      const txt = document.createElement('span');
+      txt.style.cssText = 'flex:1;min-width:0;';
+      txt.textContent = typeof fixLatexControls === 'function' ? fixLatexControls(String(q)) : String(q);
+      row.appendChild(num);
+      row.appendChild(txt);
+      wrap.appendChild(row);
+    });
+    qEl.appendChild(wrap);
+  }
+
+  const metaEl = document.getElementById('exerciseMeta');
+  const diff = ex.difficulte || 'moyen';
+  const diffColor = diff === 'facile' ? '#22c55e' : diff === 'difficile' ? '#ef4444' : '#f59e0b';
+  const src = (ex.source || '').replace(/\.pdf$/i, '').replace(/\s*—\s*exam_\w+/i, '').trim();
+  metaEl.innerHTML = (src ? `<span class="exo-meta-tag" style="background:rgba(148,163,184,.1);color:var(--t3);">${escapeHtml(src)}</span>` : '')
+    + `<span class="exo-meta-tag" style="color:${diffColor};background:${diffColor}22;">${diff.charAt(0).toUpperCase()+diff.slice(1)}</span>`;
+
+  document.getElementById('exLoading').style.display = 'none';
+  document.getElementById('exContent').style.display = 'flex';
+  document.getElementById('exInput').focus();
+  requestAnimationFrame(() => renderKatex(document.getElementById('exContent')));
+
+  const toolBtn = document.getElementById('exoToolBtn');
+  const toolIcon = document.getElementById('exoToolBtnIcon');
+  const toolLabel = document.getElementById('exoToolBtnLabel');
+  const section = document.getElementById('interactiveSection');
+  section.style.display = 'none';
+  section.innerHTML = '';
+  _punnettConfig = null;
+  _avancementConfig = null;
+  _toolLoaded = false;
+
+  let showTool = false;
+  let toolType = '';
+  if (currentSubject === 'svt') {
+    showTool = true; toolType = 'punnett';
+    toolIcon.className = 'fas fa-th'; toolIcon.style.color = 'var(--green)';
+    toolLabel.textContent = 'Échiquier de Punnett';
+    toolBtn.style.borderColor = 'rgba(16,185,129,.35)';
+    toolBtn.style.color = 'var(--green)';
+  } else if (currentSubject === 'chimie') {
+    const chapName = (() => {
+      const chapters = CHAPTERS_BY_SUBJECT['chimie'] || [];
+      const chap = (currentChapter === 'random') ? null : chapters.find(c => c.id == currentChapter);
+      return (chap ? chap.title : '').toLowerCase();
+    })();
+    const avancKw = ['avancement','r\u00e9action','r\u00e9actif','oxydor\u00e9duction','oxydor','redox','neutralisation','acide','base','st\u0153chiom','stoich','dissociation','solution'];
+    if (avancKw.some(kw => chapName.includes(kw))) {
+      showTool = true; toolType = 'avancement';
+      toolIcon.className = 'fas fa-flask'; toolIcon.style.color = '#fca5a5';
+      toolLabel.textContent = 'Tableau d\'avancement';
+      toolBtn.style.borderColor = 'rgba(239,68,68,.3)';
+      toolBtn.style.color = '#fca5a5';
+    }
+  }
+  toolBtn.style.display = showTool ? 'inline-flex' : 'none';
+  toolBtn.dataset.toolType = toolType;
+}
+
+async function startAIChat() {
+  const questions = (currentExercise.questions || []).filter(q => q && q.toString().trim());
+  let firstMsg;
+  if (questions.length > 0) {
+    firstMsg = `Bonjour ${STUDENT_NAME} ! Commence par lire l'énoncé attentivement. La première question te demande : "${questions[0]}". Quelle est ton approche pour résoudre ça ?`;
+  } else {
+    const intro = (currentExercise.intro || currentExercise.enonce || '').slice(0, 120);
+    firstMsg = `Bonjour ${STUDENT_NAME} ! Lis bien l'énoncé. Pour te lancer, identifie d'abord les données connues et ce qu'on cherche à trouver. Qu'est-ce que tu repères ?`;
+  }
+  appendAIMessage(firstMsg);
+  chatHistory.push({role: 'assistant', content: firstMsg});
+}
+
+function appendAIMessage(text) {
+  const msgs = document.getElementById('exMsgs');
+  const div = document.createElement('div');
+  div.className = 'exo-msg ai';
+  div.innerHTML = `<div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue2))"><i class="fas fa-robot" style="font-size:.7rem;"></i></div>
+    <div class="exo-msg-content">
+      <div class="exo-bubble">${renderMarkdown(text)}</div>
+      <div class="exo-msg-actions">
+        <button class="exo-react-btn" onclick="this.style.color='var(--green)'"><i class="fas fa-thumbs-up"></i></button>
+        <button class="exo-react-btn" onclick="this.style.color='var(--red)'"><i class="fas fa-thumbs-down"></i></button>
+      </div>
+    </div>`;
+  msgs.appendChild(div);
+  renderKatex(div);
+  div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function appendUserMessage(text) {
+  const msgs = document.getElementById('exMsgs');
+  const div = document.createElement('div');
+  div.className = 'exo-msg user';
+  div.innerHTML = `<div class="exo-msg-content" style="align-items:flex-end;">
+      <div class="exo-bubble">${escapeHtml(text)}</div>
+    </div>
+    <div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--blue),var(--purple));font-size:.75rem;font-weight:800;">${STUDENT_NAME[0]||'?'}</div>`;
+  msgs.appendChild(div);
+  div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function appendTypingIndicator() {
+  const msgs = document.getElementById('exMsgs');
+  const div = document.createElement('div');
+  div.className = 'exo-msg ai';
+  div.id = 'typingIndicator';
+  div.innerHTML = `<div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue2))"><i class="fas fa-robot" style="font-size:.7rem;"></i></div>
+    <div class="exo-msg-content"><div class="exo-bubble" style="padding:.5rem .9rem;"><div class="exo-typing"><div class="exo-dot"></div><div class="exo-dot"></div><div class="exo-dot"></div></div></div></div>`;
+  msgs.appendChild(div);
+  div.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  return div;
+}
+
+let _lastExMsg = '';
+function _showExRetry() {
+  const msgs = document.getElementById('exMsgs');
+  const div = document.createElement('div');
+  div.className = 'exo-msg ai';
+  div.innerHTML = `<div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue2))"><i class="fas fa-robot" style="font-size:.7rem;"></i></div>
+    <div class="exo-msg-content"><div class="exo-bubble"><div class="retry-error-card">
+      <div class="retry-error-icon">⚠️</div>
+      <div class="retry-error-text"><strong>Oups ! Connexion instable</strong>L'IA n'a pas pu répondre. Vérifie ta connexion et réessaie.</div>
+      <button class="retry-btn" onclick="this.closest('.exo-msg').remove();_retrySendExMsg()">🔄 Réessayer</button>
+    </div></div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function _retrySendExMsg() {
+  if (!_lastExMsg || !currentExercise) return;
+  const typing = appendTypingIndicator();
+  document.getElementById('exSendBtn').disabled = true;
+  fetch('{% url "api_exercise_chat" %}', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+    body: JSON.stringify({exercise: currentExercise, subject: currentSubject, messages: chatHistory.slice(-8), message: _lastExMsg, student_name: STUDENT_NAME})
+  }).then(r => r.json()).then(data => {
+    typing.remove();
+    if (data.ok && data.response) {
+      let response = data.response;
+      const noteMatch = response.match(/\[NOTE:(\d+(?:\.\d+)?)\/10\]/i);
+      if (noteMatch) { const note = parseFloat(noteMatch[1]); response = response.replace(/\[NOTE:\d+(?:\.\d+)?\/10\]/gi, '').trim(); appendAIMessage(response); chatHistory.push({role:'assistant',content:data.response}); _showSessionNote(note); }
+      else { appendAIMessage(response); chatHistory.push({role:'assistant',content:data.response}); }
+    } else _showExRetry();
+  }).catch(() => { typing.remove(); _showExRetry(); })
+  .finally(() => { document.getElementById('exSendBtn').disabled = false; document.getElementById('exInput').focus(); });
+}
+
+async function sendMessage() {
+  const input = document.getElementById('exInput');
+  const text = input.value.trim();
+  if (!text || !currentExercise) return;
+  input.value = '';
+  autoResize(input);
+  appendUserMessage(text);
+  chatHistory.push({role: 'user', content: text});
+  _lastExMsg = text;
+  const typing = appendTypingIndicator();
+  document.getElementById('exSendBtn').disabled = true;
+  try {
+    const resp = await fetch('{% url "api_exercise_chat" %}', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify({
+        exercise: currentExercise,
+        subject: currentSubject,
+        messages: chatHistory.slice(-8),
+        message: text,
+        student_name: STUDENT_NAME,
+      })
+    });
+    const data = await resp.json();
+    typing.remove();
+    if (data.ok && data.response) {
+      let response = data.response;
+      const noteMatch = response.match(/\[NOTE:(\d+(?:\.\d+)?)\/10\]/i);
+      if (noteMatch) {
+        const note = parseFloat(noteMatch[1]);
+        response = response.replace(/\[NOTE:\d+(?:\.\d+)?\/10\]/gi, '').trim();
+        appendAIMessage(response);
+        chatHistory.push({role: 'assistant', content: data.response});
+        _showSessionNote(note);
+      } else {
+        appendAIMessage(response);
+        chatHistory.push({role: 'assistant', content: data.response});
+      }
+    } else {
+      _showExRetry();
+    }
+  } catch(e) {
+    typing.remove();
+    _showExRetry();
+  }
+  document.getElementById('exSendBtn').disabled = false;
+  input.focus();
+}
+
+function _showSessionNote(note) {
+  const color = note >= 8 ? 'var(--green)' : note >= 5 ? '#f59e0b' : '#ef4444';
+  const emoji = note >= 8 ? '🏆' : note >= 5 ? '👍' : '📖';
+  const mention = note >= 8 ? 'Excellent !' : note >= 6 ? 'Bien !' : note >= 5 ? 'Assez bien' : 'À revoir';
+  const msg = `${emoji} Session terminée — Note : <strong style="color:${color};font-size:1.4em">${note}/10</strong> <span style="color:var(--t2);font-size:.85em">${mention}</span>`;
+  const msgs = document.getElementById('exMsgs');
+  const div = document.createElement('div');
+  div.innerHTML = `<div style="text-align:center;padding:1.1rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.2);border-radius:12px;margin-top:.5rem;">
+    <div style="font-size:1.1rem;margin-bottom:.75rem;">${msg}</div>
+    <div style="display:flex;gap:.5rem;justify-content:center;">
+      <button onclick="generateNewExercise()" style="padding:.4rem .85rem;background:var(--green);color:#fff;border:none;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;">Nouvel exercice</button>
+      <button onclick="backToChapter()" style="padding:.4rem .85rem;background:var(--card2);color:var(--t2);border:1px solid var(--border2);border-radius:8px;font-size:.8rem;cursor:pointer;">Autre chapitre</button>
+    </div>
+  </div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  document.getElementById('exInput').disabled = true;
+  document.getElementById('exSendBtn').disabled = true;
+  fetch('{% url "api_exercise_complete" %}', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+    body: JSON.stringify({score: note, subject: currentSubject}),
+  }).catch(() => {});
+}
+
+async function askHint() {
+  if (!currentExercise) return;
+  const typing = appendTypingIndicator();
+  document.getElementById('exInput').disabled = true;
+  document.getElementById('exSendBtn').disabled = true;
+  try {
+    const resp = await fetch('{% url "api_exercise_chat" %}', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify({
+        exercise: currentExercise,
+        subject: currentSubject,
+        messages: chatHistory.slice(-6),
+        message: '[HINT] Donne un indice précis et utile pour aider l\'élève à avancer sur la question en cours. OBLIGATOIRE : si la question implique une formule ou une loi, cite-la explicitement (ex: $P(A) = P(A|B)P(B) + P(A|\\bar{B})P(\\bar{B})$). Explique à quoi sert cette formule ici. Ne donne PAS la réponse calculée, juste l\'outil à utiliser et comment l\'appliquer. 3-4 phrases max. Ne commence PAS par des points d\'interrogation.',
+        student_name: STUDENT_NAME,
+      })
+    });
+    const data = await resp.json();
+    typing.remove();
+    const hintText = data.response || '💡 Indice : Relis l\'énoncé attentivement et identifie les données connues. Repère ensuite la formule ou la loi qui relie ces données à ce qu\'on te demande de trouver.';
+    appendAIMessage(hintText);
+    chatHistory.push({role: 'assistant', content: hintText});
+  } catch(e) {
+    typing.remove();
+    const fallback = '💡 Indice : Décompose le problème étape par étape. Identifie d\'abord les données, identifie la formule principale du chapitre, puis substitue les valeurs connues.';
+    appendAIMessage(fallback);
+    chatHistory.push({role: 'assistant', content: fallback});
+  } finally {
+    document.getElementById('exInput').disabled = false;
+    document.getElementById('exSendBtn').disabled = false;
+    document.getElementById('exInput').focus();
+  }
+}
+
+async function finishSession() {
+  if (!currentExercise) return;
+  const finishBtn = document.getElementById('exFinishBtn');
+  if (finishBtn) { finishBtn.disabled = true; finishBtn.style.opacity = '0.5'; finishBtn.style.pointerEvents = 'none'; }
+  const typing = appendTypingIndicator();
+  document.getElementById('exInput').disabled = true;
+  document.getElementById('exSendBtn').disabled = true;
+  try {
+    const resp = await fetch('{% url "api_exercise_chat" %}', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify({
+        exercise: currentExercise,
+        subject: currentSubject,
+        messages: chatHistory.slice(-12),
+        message: '[FINISH] Évalue la performance de l\'élève sur cet exercice. Fais un résumé en 2-3 phrases, puis donne obligatoirement la note avec la balise exacte [NOTE:X/10] (exemple : [NOTE:7/10]). Sois juste et encourageant.',
+        student_name: STUDENT_NAME,
+      })
+    });
+    const data = await resp.json();
+    typing.remove();
+    const fullResponse = data.response || 'Bravo pour ce travail ! [NOTE:6/10]';
+    const noteMatch = fullResponse.match(/\[NOTE:(\d+(?:\.\d+)?)\/10\]/i);
+    if (noteMatch) {
+      const note = parseFloat(noteMatch[1]);
+      const summary = fullResponse.replace(/\[NOTE:\d+(?:\.\d+)?\/10\]/gi, '').trim();
+      if (summary) appendAIMessage(summary);
+      chatHistory.push({role: 'assistant', content: fullResponse});
+      _showSessionNote(note);
+    } else {
+      const msgs = document.getElementById('exMsgs');
+      const div = document.createElement('div');
+      div.className = 'exo-msg ai';
+      div.innerHTML = `<div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue2))"><i class="fas fa-robot" style="font-size:.7rem;"></i></div>
+        <div class="exo-msg-content"><div class="exo-bubble" style="border-left:3px solid var(--green);background:rgba(16,185,129,.08);">
+          <div style="font-size:.7rem;font-weight:800;color:var(--green);text-transform:uppercase;margin-bottom:.3rem;">Résumé de session</div>
+          ${renderMarkdown(fullResponse)}
+          <div style="margin-top:.75rem;display:flex;gap:.5rem;">
+            <button onclick="generateNewExercise()" style="padding:.4rem .85rem;background:var(--green);color:#fff;border:none;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;">Nouvel exercice</button>
+            <button onclick="backToChapter()" style="padding:.4rem .85rem;background:var(--card2);color:var(--t2);border:1px solid var(--border2);border-radius:8px;font-size:.8rem;cursor:pointer;">Changer chapitre</button>
+          </div>
+        </div></div>`;
+      msgs.appendChild(div);
+      renderKatex(div);
+      msgs.scrollTop = msgs.scrollHeight;
+      chatHistory.push({role: 'assistant', content: fullResponse});
+      document.getElementById('exInput').disabled = false;
+      document.getElementById('exSendBtn').disabled = false;
+    }
+  } catch(e) {
+    typing.remove();
+    appendAIMessage('Session terminée. Bravo pour ton travail !');
+    document.getElementById('exInput').disabled = false;
+    document.getElementById('exSendBtn').disabled = false;
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 80) + 'px';
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+let exImgFile = null;
+
+function handleExImg(e) {
+  exImgFile = e.target.files[0];
+  if (!exImgFile) return;
+  document.getElementById('exImgThumb').src = URL.createObjectURL(exImgFile);
+  document.getElementById('exImgName').textContent = exImgFile.name;
+  document.getElementById('exImgPreview').style.display = 'flex';
+}
+
+function removeExImg() {
+  exImgFile = null;
+  document.getElementById('exImgInput').value = '';
+  document.getElementById('exImgPreview').style.display = 'none';
+}
+
+const _origSendMessage = sendMessage;
+sendMessage = async function() {
+  const input = document.getElementById('exInput');
+  const text = input.value.trim();
+  if (!text && !exImgFile || !currentExercise) return;
+
+  if (exImgFile) {
+    const imgUrl = URL.createObjectURL(exImgFile);
+    const msgs = document.getElementById('exMsgs');
+    const imgDiv = document.createElement('div');
+    imgDiv.className = 'exo-msg user';
+    imgDiv.innerHTML = `<div><div class="exo-bubble"><img src="${imgUrl}" style="max-width:180px;border-radius:8px;display:block;margin-bottom:.3rem;"><span>${escapeHtml(text)}</span></div></div>
+      <div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--blue),var(--purple));font-size:.75rem;font-weight:800;">${STUDENT_NAME[0]||'?'}</div>`;
+    msgs.appendChild(imgDiv);
+    msgs.scrollTop = msgs.scrollHeight;
+
+    const capturedFile = exImgFile;
+    const capturedMime = capturedFile.type || 'image/jpeg';
+    chatHistory.push({role: 'user', content: (text || 'Image jointe') + ' [image jointe]'});
+    removeExImg();
+    input.value = '';
+    autoResize(input);
+
+    const typing = appendTypingIndicator();
+    document.getElementById('exSendBtn').disabled = true;
+    try {
+      const b64 = await new Promise((res, rej) => {
+        const fr = new FileReader();
+        fr.onload = () => res(fr.result.split(',')[1]);
+        fr.onerror = rej;
+        fr.readAsDataURL(capturedFile);
+      });
+      const resp = await fetch('{% url "api_exercise_chat" %}', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+        body: JSON.stringify({
+          exercise: currentExercise,
+          subject: currentSubject,
+          messages: chatHistory.slice(-8),
+          message: text || 'Voici une image de mon problème.',
+          student_name: STUDENT_NAME,
+          image_b64: b64,
+          image_mime: capturedMime,
+        })
+      });
+      const data = await resp.json();
+      typing.remove();
+      if (data.ok && data.response) { appendAIMessage(data.response); chatHistory.push({role:'assistant',content:data.response}); }
+      else _showExRetry();
+    } catch(e) { typing.remove(); _showExRetry(); }
+    document.getElementById('exSendBtn').disabled = false;
+    input.focus();
+    return;
+  }
+  _origSendMessage();
+};
+
+let calcExpr = '';
+let calcNewNum = false;
+
+function toggleCalc() {
+  const modal = document.getElementById('calcModal');
+  modal.style.display = modal.style.display === 'none' ? 'block' : 'none';
+}
+
+function calcBtn(btn) {
+  const disp = document.getElementById('calcDisplay');
+  if (btn === 'C') { calcExpr = ''; disp.textContent = '0'; return; }
+  if (btn === '?') { calcExpr = calcExpr.slice(0, -1); disp.textContent = calcExpr || '0'; return; }
+  if (btn === '=') {
+    try {
+      const safe = calcExpr.replace(/[^0-9+\-*/.()]/g, '');
+      const result = Function('"use strict"; return (' + safe + ')')();
+      calcExpr = String(Math.round(result * 1e10) / 1e10);
+      disp.textContent = calcExpr;
+    } catch(e) { disp.textContent = 'Erreur'; calcExpr = ''; }
+    return;
+  }
+  calcExpr += btn;
+  disp.textContent = calcExpr;
+}
+
+function calcInsert() {
+  const input = document.getElementById('exInput');
+  input.value += calcExpr;
+  autoResize(input);
+  toggleCalc();
+  input.focus();
+}
+
+let _punnettConfig = null;
+let _avancementConfig = null;
+let _toolLoaded = false;
+
+function toggleToolPanel() {
+  const section = document.getElementById('interactiveSection');
+  if (_toolLoaded) {
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+    return;
+  }
+  analyzeExercise(currentExercise);
+}
+
+async function analyzeExercise(exo) {
+  const section = document.getElementById('interactiveSection');
+  if (!exo) return;
+  section.innerHTML = `<div style="text-align:center;padding:.75rem;color:var(--t3);font-size:.8rem;"><i class="fas fa-spinner fa-spin" style="margin-right:.35rem;"></i>Chargement de l'outil…</div>`;
+  section.style.display = 'block';
+  try {
+    const resp = await fetch('{% url "api_analyze_exercise" %}', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify({
+        subject:   currentSubject,
+        intro:     exo.intro || exo.enonce || '',
+        enonce:    exo.enonce || '',
+        questions: exo.questions || [],
+      })
+    });
+    const data = await resp.json();
+    if (!data.ok) { section.style.display = 'none'; section.innerHTML = ''; return; }
+    _toolLoaded = true;
+
+    if (data.punnett) {
+      _punnettConfig = data.punnett;
+      section.innerHTML = buildPunnettHTML(data.punnett);
+      section.style.display = 'block';
+      renderKatex(section);
+      if (data.note_advice) {
+        const advBox = document.createElement('div');
+        advBox.className = 'hint-box';
+        advBox.style.cssText = 'margin-bottom:.65rem;background:rgba(37,99,235,.07);border-color:rgba(37,99,235,.25);';
+        advBox.innerHTML = `<i class="fas fa-book-open" style="color:#93c5fd;margin-right:.4rem;"></i><strong style="color:#93c5fd;">Rappel de cours :</strong><br>${renderMarkdown(data.note_advice)}`;
+        section.insertBefore(advBox, section.firstChild);
+      }
+    } else if (data.avancement) {
+      _avancementConfig = data.avancement;
+      const av = data.avancement;
+      if (av.reactants && av.reactants.length) {
+        section.innerHTML = buildAvancementHTML(av);
+        section.style.display = 'block';
+        renderKatex(section);
+      }
+    } else if (data.table) {
+      const bodyEl = document.getElementById('exerciseText');
+      if (bodyEl && !bodyEl.querySelector('table')) {
+        bodyEl.innerHTML += '<div style="margin-top:.75rem;">' + renderMarkdown(data.table) + '</div>';
+        renderKatex(bodyEl);
+      }
+      section.style.display = 'none'; section.innerHTML = '';
+    } else {
+      section.style.display = 'none'; section.innerHTML = '';
+    }
+  } catch(e) { section.style.display = 'none'; section.innerHTML = '';  }
+}
+
+function buildPunnettHTML(cfg) {
+  let crosses, legend;
+  if (cfg.crosses && Array.isArray(cfg.crosses)) {
+    crosses = cfg.crosses;
+    legend  = cfg.legend || {};
+  } else {
+    const oldLg = cfg.legend || {};
+    const entries = Object.entries(oldLg);
+    const domE = entries.find(([,v]) => /dominant/i.test(v));
+    const recE = entries.find(([,v]) => /r[ée]cessif/i.test(v));
+    legend = {
+      dominant:  { symbol: domE ? domE[0] : (cfg.alleles_row||['A'])[0], description: domE ? domE[1] : 'allèle dominant' },
+      recessive: { symbol: recE ? recE[0] : (cfg.alleles_col||['a'])[0], description: recE ? recE[1] : 'allèle récessif' },
+    };
+    crosses = [{ label: cfg.cross || 'Croisement', cross: cfg.cross || '',
+      alleles_row: cfg.alleles_row || ['A','a'], alleles_col: cfg.alleles_col || ['A','a'],
+      phenotype_analysis: '', genotype_analysis: '' }];
+  }
+
+  const domSym  = (legend.dominant  && legend.dominant.symbol)      || 'A';
+  const domDesc = (legend.dominant  && legend.dominant.description)  || '';
+  const recSym  = (legend.recessive && legend.recessive.symbol)      || 'a';
+  const recDesc = (legend.recessive && legend.recessive.description) || '';
+
+  let html = `<div class="itool-card" id="punnettCard">
+    <div class="itool-header">
+      <span class="itool-badge" style="background:rgba(16,185,129,.12);color:var(--green);">SVT</span>
+      <span class="itool-title"><i class="fas fa-th" style="color:var(--green);margin-right:.35rem;"></i>Échiquier de Punnett</span>
+      <button class="itool-toggle-btn" onclick="toggleTool('punnettCard')"><i class="fas fa-chevron-up"></i></button>
+    </div>`;
+
+  
+  html += `<div class="punnett-legend-section" id="legendSection">
+    <div class="legend-title"><i class="fas fa-tag" style="margin-right:.35rem;color:var(--green);"></i>Légende :</div>
+    <div class="legend-row">
+      <input class="legend-sym-input" id="lg_dom_sym" maxlength="4" placeholder="A" autocomplete="off" title="Symbole du caractère dominant">
+      <span class="legend-eq"> = caractère dominant —</span>
+      <input class="legend-desc-input" id="lg_dom_desc" placeholder="description du caractère dominant (ex : robe noire)" autocomplete="off">
+    </div>
+    <div class="legend-row">
+      <input class="legend-sym-input" id="lg_rec_sym" maxlength="4" placeholder="a" autocomplete="off" title="Symbole du caractère récessif">
+      <span class="legend-eq"> = caractère récessif —</span>
+      <input class="legend-desc-input" id="lg_rec_desc" placeholder="description du caractère récessif (ex : robe blanche)" autocomplete="off">
+    </div>
+    <div id="legendFeedback" style="margin-top:.35rem;font-size:.78rem;"></div>
+    <div style="display:flex;gap:.5rem;margin-top:.45rem;">
+      <button class="itool-validate-btn" style="margin-top:0;padding:.32rem .85rem;font-size:.77rem;" onclick="validateLegend()"><i class="fas fa-check"></i> Valider la légende</button>
+    </div>
+    <div id="lg_correct" style="display:none"
+      data-dom-sym="${escapeHtml(domSym)}" data-dom-desc="${escapeHtml(domDesc)}"
+      data-rec-sym="${escapeHtml(recSym)}" data-rec-desc="${escapeHtml(recDesc)}"></div>
+  </div>`;
+
+  
+  html += `<div id="crossesContainer">`;
+  crosses.forEach((cross, ci) => {
+    const rows      = cross.alleles_row || ['A','a'];
+    const cols      = cross.alleles_col || ['A','a'];
+    const label     = cross.label || `Croisement ${ci + 1}`;
+    const crossStr  = cross.cross || '';
+    const phenoAns  = cross.phenotype_analysis || '';
+    const genoAns   = cross.genotype_analysis  || '';
+    const sep       = ci > 0 ? 'border-top:1px solid var(--border2);padding-top:1rem;margin-top:1rem;' : '';
+
+    html += `<div class="punnett-cross-section" id="cross_${ci}" style="${sep}">`;
+    html += `<div class="cross-label">${escapeHtml(label)}</div>`;
+    if (crossStr) html += `<div class="punnett-cross">Croisement : <strong>${escapeHtml(crossStr)}</strong></div>`;
+
+    
+    html += `<div class="punnett-wrap"><table class="punnett-table">
+      <thead><tr><th class="punnett-corner"></th>`;
+    cols.forEach((_, ci2) => {
+      html += `<th><input class="punnett-header-input" id="pch_col_${ci}_${ci2}" maxlength="4" placeholder="?" autocomplete="off" title="Gamète du parent 2 (colonne)"></th>`;
+    });
+    html += `</tr></thead><tbody>`;
+    rows.forEach((r, ri) => {
+      html += `<tr><th><input class="punnett-header-input" id="pch_row_${ci}_${ri}" maxlength="4" placeholder="?" autocomplete="off" title="Gamète du parent 1 (ligne)"></th>`;
+      cols.forEach((c, ci2) => {
+        html += `<td><input class="punnett-cell" id="pc_${ci}_${ri}_${ci2}" maxlength="4" placeholder="" autocomplete="off"
+          data-cross="${ci}" data-ri="${ri}" data-ci="${ci2}"
+          data-exp="${escapeHtml(r+c)}" data-exp2="${escapeHtml(c+r)}"></td>`;
+      });
+      html += `</tr>`;
+    });
+    html += `</tbody></table></div>`;
+
+    
+    html += `<div id="cross_correct_${ci}" style="display:none"
+      data-rows="${escapeHtml(rows.join(','))}"
+      data-cols="${escapeHtml(cols.join(','))}"
+      data-f1-genotype="${escapeHtml(cross.f1_genotype || '')}"
+      data-pheno="${escapeHtml(phenoAns)}"
+      data-geno="${escapeHtml(genoAns)}"></div>`;
+
+    
+    html += `<div class="analysis-section" id="analysis_${ci}">
+      <div class="analysis-title"><i class="fas fa-chart-pie" style="margin-right:.3rem;color:var(--green);"></i>Analyse des résultats :</div>
+      <div class="analysis-row">
+        <span class="analysis-label">Phénotypes :</span>
+        <input class="analysis-input" id="pheno_${ci}" placeholder="Ex : 3/4 gris, 1/4 albinos" autocomplete="off">
+      </div>
+      <div class="analysis-row">
+        <span class="analysis-label">Génotypes :</span>
+        <input class="analysis-input" id="geno_${ci}" placeholder="Ex : 1/4 AA, 2/4 Aa, 1/4 aa" autocomplete="off">
+      </div>
+    </div>`;
+
+    html += `<div id="crossFeedback_${ci}" style="margin-top:.4rem;font-size:.8rem;"></div>`;
+    const genLabel = ci === 0 ? 'Générer F2' : `Générer F${ci + 2}`;
+    html += `<div style="display:flex;gap:.5rem;margin-top:.55rem;flex-wrap:wrap;">
+      <button class="itool-validate-btn" style="margin-top:0;" onclick="validateCross(${ci})"><i class="fas fa-check"></i> Valider</button>
+      <button class="itool-validate-btn" style="margin-top:0;background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid rgba(245,158,11,.3);" onclick="hintCross(${ci})"><i class="fas fa-lightbulb"></i> Indice</button>
+      <button class="itool-validate-btn" style="margin-top:0;background:var(--card2);color:var(--t2);border:1px solid var(--border2);" onclick="resetCross(${ci})"><i class="fas fa-redo"></i> Réinitialiser</button>
+      <button class="itool-validate-btn" id="btnGenNext_${ci}" style="margin-top:0;background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.3);" onclick="generateNextCross(${ci})"><i class="fas fa-plus-circle"></i> ${genLabel}</button>
+    </div>`;
+    html += `</div>`;
+  });
+  html += `</div>`;
+  html += `</div>`;
+  return html;
+}
+
+function validateLegend() {
+  const correct = document.getElementById('lg_correct');
+  if (!correct) return;
+  const domSym = correct.dataset.domSym;
+  const recSym = correct.dataset.recSym;
+  const userDomSym = (document.getElementById('lg_dom_sym')?.value || '').trim();
+  const userRecSym = (document.getElementById('lg_rec_sym')?.value || '').trim();
+  const fb = document.getElementById('legendFeedback');
+  if (!userDomSym || !userRecSym) {
+    fb.innerHTML = '<span style="color:#f59e0b;">? Remplis les symboles des deux allèles.</span>';
+    return;
+  }
+  const domOk = userDomSym === domSym;
+  const recOk = userRecSym === recSym;
+  document.getElementById('lg_dom_sym').classList.toggle('correct', domOk);
+  document.getElementById('lg_dom_sym').classList.toggle('incorrect', !domOk);
+  document.getElementById('lg_rec_sym').classList.toggle('correct', recOk);
+  document.getElementById('lg_rec_sym').classList.toggle('incorrect', !recOk);
+  if (domOk && recOk) {
+    fb.innerHTML = '<span style="color:#22c55e;font-weight:700;">? Bonne légende ! Tu peux remplir le tableau.</span>';
+  } else {
+    let hint = '';
+    if (!domOk) hint += `Convention : l'allèle dominant s'écrit en <strong>majuscule</strong> (attendu : <strong>${escapeHtml(domSym)}</strong>). `;
+    if (!recOk) hint += `L'allèle récessif s'écrit en <strong>minuscule</strong> (attendu : <strong>${escapeHtml(recSym)}</strong>).`;
+    fb.innerHTML = `<span style="color:#f59e0b;">? </span><span style="color:var(--t2);">${hint}</span>`;
+  }
+}
+
+function validateCross(ci) {
+  const correct = document.getElementById(`cross_correct_${ci}`);
+  if (!correct) return;
+  const rows = correct.dataset.rows.split(',');
+  const cols = correct.dataset.cols.split(',');
+  const phenoAns = correct.dataset.pheno;
+  const genoAns  = correct.dataset.geno;
+  const fb = document.getElementById(`crossFeedback_${ci}`);
+
+  
+  let headersOk = true;
+  rows.forEach((r, ri) => {
+    const inp = document.getElementById(`pch_row_${ci}_${ri}`);
+    if (!inp) return;
+    const ok = inp.value.trim().toLowerCase() === r.toLowerCase();
+    inp.classList.toggle('correct', ok && !!inp.value.trim());
+    inp.classList.toggle('incorrect', !ok && !!inp.value.trim());
+    if (!ok) headersOk = false;
+  });
+  
+  cols.forEach((c, ci2) => {
+    const inp = document.getElementById(`pch_col_${ci}_${ci2}`);
+    if (!inp) return;
+    const ok = inp.value.trim().toLowerCase() === c.toLowerCase();
+    inp.classList.toggle('correct', ok && !!inp.value.trim());
+    inp.classList.toggle('incorrect', !ok && !!inp.value.trim());
+    if (!ok) headersOk = false;
+  });
+
+  
+  let cellCorrect = 0, cellTotal = rows.length * cols.length;
+  rows.forEach((r, ri) => {
+    cols.forEach((c, ci2) => {
+      const inp = document.getElementById(`pc_${ci}_${ri}_${ci2}`);
+      if (!inp) return;
+      const val = inp.value.trim();
+      const e1 = r + c, e2 = c + r;
+      const ok = val === e1 || val === e2 || val.toLowerCase() === e1.toLowerCase() || val.toLowerCase() === e2.toLowerCase();
+      inp.classList.toggle('correct', ok && !!val);
+      inp.classList.toggle('incorrect', !ok && !!val);
+      if (ok && val) cellCorrect++;
+    });
+  });
+
+  
+  const allHeaders = [...document.querySelectorAll(`#cross_${ci} .punnett-header-input`)];
+  const allCells   = [...document.querySelectorAll(`#cross_${ci} .punnett-cell`)];
+  const allFilled  = [...allHeaders, ...allCells].every(i => i.value.trim());
+  if (!allFilled) {
+    fb.innerHTML = '<span style="color:var(--t3);">Complète d\'abord toutes les cases (gamètes + cellules), puis valide.</span>';
+    return;
+  }
+
+  
+  const userPheno = (document.getElementById(`pheno_${ci}`)?.value || '').trim();
+  const userGeno  = (document.getElementById(`geno_${ci}`)?.value  || '').trim();
+  if (userPheno.length < 4 || userGeno.length < 4) {
+    fb.innerHTML = '<span style="color:#f59e0b;">? Complète également l\'analyse des phénotypes et des génotypes.</span>';
+    return;
+  }
+
+  const allOk = headersOk && cellCorrect === cellTotal;
+  if (allOk) {
+    let msg = `<span style="color:#22c55e;font-weight:700;">? Parfait ! Tableau complet et correct (${cellTotal}/${cellTotal}).</span>`;
+    if (phenoAns || genoAns) {
+      msg += `<div class="hint-box" style="margin-top:.45rem;background:rgba(34,197,94,.07);border-color:rgba(34,197,94,.25);">
+        <strong>Réponse type :</strong><br>
+        ${phenoAns ? `• Phéno : ${escapeHtml(phenoAns)}<br>` : ''}
+        ${genoAns  ? `• Géno  : ${escapeHtml(genoAns)}`      : ''}
+      </div>`;
+    }
+    fb.innerHTML = msg;
+  } else {
+    fb.innerHTML = `<span style="color:#f59e0b;font-weight:700;">${cellCorrect}/${cellTotal} cases correctes.</span> <span style="color:var(--t3);">Vérifie les cases et gamètes en rouge.</span>`;
+  }
+}
+
+function hintCross(ci) {
+  const correct = document.getElementById(`cross_correct_${ci}`);
+  if (!correct) return;
+  const rows     = correct.dataset.rows.split(',');
+  const cols     = correct.dataset.cols.split(',');
+  const phenoAns = correct.dataset.pheno;
+  const genoAns  = correct.dataset.geno;
+  const fb       = document.getElementById(`crossFeedback_${ci}`);
+
+  
+  const headersFilled = [...document.querySelectorAll(`#cross_${ci} .punnett-header-input`)].every(i => i.value.trim());
+  if (!headersFilled) {
+    fb.innerHTML = `<div class="hint-box"><i class="fas fa-lightbulb" style="color:#f59e0b;margin-right:.3rem;"></i>
+      <strong>Indice :</strong> Le parent 1 produit les gamètes <strong>${escapeHtml(rows.join(', '))}</strong> (remplis la colonne de gauche).
+      Le parent 2 produit <strong>${escapeHtml(cols.join(', '))}</strong> (remplis la ligne du haut).
+    </div>`;
+    return;
+  }
+  let cellCorrect = 0, cellTotal = rows.length * cols.length;
+  rows.forEach((r, ri) => {
+    cols.forEach((c, ci2) => {
+      const inp = document.getElementById(`pc_${ci}_${ri}_${ci2}`);
+      const val = (inp?.value || '').trim();
+      if (val === r+c || val === c+r || val.toLowerCase() === (r+c).toLowerCase()) cellCorrect++;
+    });
+  });
+  if (cellCorrect < cellTotal) {
+    fb.innerHTML = `<div class="hint-box"><i class="fas fa-lightbulb" style="color:#f59e0b;margin-right:.3rem;"></i>
+      <strong>Indice :</strong> Chaque case = allèle de la ligne + allèle de la colonne.
+      Exemple : ligne <strong>${escapeHtml(rows[0])}</strong> × colonne <strong>${escapeHtml(cols[0])}</strong>
+      ? case = <strong>${escapeHtml(rows[0]+cols[0])}</strong>.
+    </div>`;
+  } else {
+    fb.innerHTML = `<div class="hint-box"><i class="fas fa-lightbulb" style="color:#f59e0b;margin-right:.3rem;"></i>
+      <strong>Analyse attendue :</strong><br>
+      ${phenoAns ? `• Phénotypes : ${escapeHtml(phenoAns)}<br>` : ''}
+      ${genoAns  ? `• Génotypes  : ${escapeHtml(genoAns)}`      : ''}
+    </div>`;
+  }
+}
+
+function generateNextCross(ci) {
+  if (!_punnettConfig) return;
+  const correct = document.getElementById(`cross_correct_${ci}`);
+  if (!correct) return;
+
+  const btn = document.getElementById(`btnGenNext_${ci}`);
+  if (btn) btn.style.display = 'none';
+
+  const rows = correct.dataset.rows.split(',');
+  const cols = correct.dataset.cols.split(',');
+  const f1Genotype = correct.dataset.f1Genotype || '';
+
+  let nextAlleles;
+  if (f1Genotype) {
+    nextAlleles = f1Genotype.length === 2
+      ? [f1Genotype[0], f1Genotype[1]]
+      : [f1Genotype[0], f1Genotype[0]];
+  } else {
+    const seen = new Set([...rows, ...cols]);
+    nextAlleles = [...seen].slice(0, 2);
+    if (nextAlleles.length < 2) nextAlleles = [nextAlleles[0], nextAlleles[0]];
+  }
+
+  const newCi = ci + 1;
+  const genNum = newCi + 1;
+  const crossStr = `${nextAlleles[0]}${nextAlleles[1]} × ${nextAlleles[0]}${nextAlleles[1]}`;
+
+  const r = nextAlleles[0], c = nextAlleles[1];
+  const cells = [r+r, r+c, c+r, c+c];
+  const dom = r.toUpperCase() === r ? r : c;
+  const rec = r.toUpperCase() === r ? c : r;
+
+  let phenoAns = '';
+  let genoAns = '';
+  if (r !== c) {
+    phenoAns = `3/4 phénotype ${dom}_ (dominant), 1/4 phénotype ${rec}${rec} (récessif)`;
+    genoAns  = `1/4 ${dom}${dom}, 2/4 ${dom}${rec}, 1/4 ${rec}${rec}`;
+  } else {
+    phenoAns = `100% phénotype ${r}${r}`;
+    genoAns  = `100% ${r}${r} homozygotes`;
+  }
+
+  const sep = 'border-top:1px solid var(--border2);padding-top:1rem;margin-top:1rem;';
+  const genLabel = `Générer F${genNum + 1}`;
+  let html = `<div class="punnett-cross-section" id="cross_${newCi}" style="${sep}">`;
+  html += `<div class="cross-label">Croisement F${genNum} (F${genNum - 1} × F${genNum - 1})</div>`;
+  html += `<div class="punnett-cross">Croisement : <strong>${escapeHtml(crossStr)}</strong></div>`;
+
+  
+  html += `<div class="punnett-wrap"><table class="punnett-table">
+    <thead><tr><th class="punnett-corner"></th>`;
+  nextAlleles.forEach((_, ci2) => {
+    html += `<th><input class="punnett-header-input" id="pch_col_${newCi}_${ci2}" maxlength="4" placeholder="?" autocomplete="off"></th>`;
+  });
+  html += `</tr></thead><tbody>`;
+  nextAlleles.forEach((rv, ri) => {
+    html += `<tr><th><input class="punnett-header-input" id="pch_row_${newCi}_${ri}" maxlength="4" placeholder="?" autocomplete="off"></th>`;
+    nextAlleles.forEach((cv, ci2) => {
+      html += `<td><input class="punnett-cell" id="pc_${newCi}_${ri}_${ci2}" maxlength="4" placeholder="" autocomplete="off"
+        data-cross="${newCi}" data-ri="${ri}" data-ci="${ci2}"
+        data-exp="${escapeHtml(rv+cv)}" data-exp2="${escapeHtml(cv+rv)}"></td>`;
+    });
+    html += `</tr>`;
+  });
+  html += `</tbody></table></div>`;
+
+  
+  html += `<div id="cross_correct_${newCi}" style="display:none"
+    data-rows="${escapeHtml(nextAlleles.join(','))}"
+    data-cols="${escapeHtml(nextAlleles.join(','))}"
+    data-f1-genotype="${escapeHtml(r !== c ? r+c : r+r)}"
+    data-pheno="${escapeHtml(phenoAns)}"
+    data-geno="${escapeHtml(genoAns)}"></div>`;
+
+  
+  html += `<div class="analysis-section" id="analysis_${newCi}">
+    <div class="analysis-title"><i class="fas fa-chart-pie" style="margin-right:.3rem;color:var(--green);"></i>Analyse des résultats :</div>
+    <div class="analysis-row">
+      <span class="analysis-label">Phénotypes :</span>
+      <input class="analysis-input" id="pheno_${newCi}" placeholder="Ex : 3/4 dominant, 1/4 récessif" autocomplete="off">
+    </div>
+    <div class="analysis-row">
+      <span class="analysis-label">Génotypes :</span>
+      <input class="analysis-input" id="geno_${newCi}" placeholder="Ex : 1/4 AA, 2/4 Aa, 1/4 aa" autocomplete="off">
+    </div>
+  </div>`;
+
+  html += `<div id="crossFeedback_${newCi}" style="margin-top:.4rem;font-size:.8rem;"></div>`;
+  html += `<div style="display:flex;gap:.5rem;margin-top:.55rem;flex-wrap:wrap;">
+    <button class="itool-validate-btn" style="margin-top:0;" onclick="validateCross(${newCi})"><i class="fas fa-check"></i> Valider</button>
+    <button class="itool-validate-btn" style="margin-top:0;background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid rgba(245,158,11,.3);" onclick="hintCross(${newCi})"><i class="fas fa-lightbulb"></i> Indice</button>
+    <button class="itool-validate-btn" style="margin-top:0;background:var(--card2);color:var(--t2);border:1px solid var(--border2);" onclick="resetCross(${newCi})"><i class="fas fa-redo"></i> Réinitialiser</button>
+    <button class="itool-validate-btn" id="btnGenNext_${newCi}" style="margin-top:0;background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.3);" onclick="generateNextCross(${newCi})"><i class="fas fa-plus-circle"></i> ${genLabel}</button>
+  </div>`;
+  html += `</div>`;
+
+  const container = document.getElementById('crossesContainer');
+  if (container) container.insertAdjacentHTML('beforeend', html);
+
+  if (!_punnettConfig.crosses) _punnettConfig.crosses = [];
+  _punnettConfig.crosses.push({
+    label: `Croisement F${genNum}`,
+    cross: crossStr,
+    alleles_row: nextAlleles,
+    alleles_col: nextAlleles,
+    f1_genotype: r !== c ? r+c : r+r,
+    phenotype_analysis: phenoAns,
+    genotype_analysis: genoAns,
+  });
+
+  const newEl = document.getElementById(`cross_${newCi}`);
+  if (newEl) newEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetCross(ci) {
+  document.querySelectorAll(`#cross_${ci} .punnett-cell, #cross_${ci} .punnett-header-input`).forEach(inp => {
+    inp.value = '';
+    inp.classList.remove('correct','incorrect');
+  });
+  const p = document.getElementById(`pheno_${ci}`); if (p) p.value = '';
+  const g = document.getElementById(`geno_${ci}`);  if (g) g.value = '';
+  document.getElementById(`crossFeedback_${ci}`).innerHTML = '';
+}
+
+function buildAvancementHTML(av) {
+  const reactants = av.reactants || [];
+  const products  = av.products  || [];
+  const equation  = av.equation  || '';
+  const species = [...reactants, ...products];
+  if (!species.length) return '';
+
+  let html = `<div class="itool-card" id="avancementCard">
+    <div class="itool-header">
+      <span class="itool-badge" style="background:rgba(239,68,68,.1);color:#fca5a5;">CHIMIE</span>
+      <span class="itool-title"><i class="fas fa-flask" style="color:#fca5a5;margin-right:.35rem;"></i>Tableau d'avancement</span>
+      <button class="itool-toggle-btn" onclick="toggleTool('avancementCard')"><i class="fas fa-chevron-up"></i></button>
+      <button class="itool-remove-btn" onclick="removeAvancementTool()" title="Supprimer le tableau"><i class="fas fa-trash"></i></button>
+    </div>`;
+  if (equation) html += `<div style="margin-bottom:.6rem;font-size:.82rem;color:var(--t2);">Équation : <strong>${escapeHtml(equation)}</strong></div>`;
+  html += `<div class="avancement-wrap"><table class="avancement-table">
+    <thead><tr><th>État</th>`;
+  reactants.forEach(r => { html += `<th>${escapeHtml(r.name)}<br><span style="opacity:.6;font-size:.7rem;">×${r.coeff || 1}</span></th>`; });
+  html += `<th style="border-left:2px solid var(--green);">?</th>`;
+  products.forEach(p => { html += `<th>${escapeHtml(p.name)}<br><span style="opacity:.6;font-size:.7rem;">×${p.coeff || 1}</span></th>`; });
+  html += `</tr></thead><tbody>`;
+
+  html += `<tr><td>Initial (t = 0)</td>`;
+  reactants.forEach((r, i) => {
+    html += `<td><input class="avancement-input" id="av_init_${i}" placeholder="n0" title="Quantité initiale de ${r.name}"></td>`;
+  });
+  html += `<td style="border-left:2px solid var(--green);color:var(--t3);">—</td>`;
+  products.forEach((p, i) => {
+    html += `<td><input class="avancement-input" id="av_init_p${i}" placeholder="0" title="Quantité initiale de ${p.name}"></td>`;
+  });
+  html += `</tr>`;
+
+  html += `<tr><td>En cours (x)</td>`;
+  reactants.forEach((r, i) => {
+    const c = r.coeff || 1;
+    html += `<td class="avancement-formula">n0 - ${c === 1 ? '' : c}x</td>`;
+  });
+  html += `<td style="border-left:2px solid var(--green);"></td>`;
+  products.forEach((p, i) => {
+    const c = p.coeff || 1;
+    html += `<td class="avancement-formula">${c === 1 ? '' : c}x</td>`;
+  });
+  html += `</tr>`;
+
+  html += `<tr><td>Final (x = x<sub>max</sub>)</td>`;
+  reactants.forEach((r, i) => {
+    html += `<td><input class="avancement-input" id="av_fin_${i}" placeholder="?" title="Quantité finale de ${r.name}"></td>`;
+  });
+  html += `<td style="border-left:2px solid var(--green);color:var(--t3);">—</td>`;
+  products.forEach((p, i) => {
+    html += `<td><input class="avancement-input" id="av_fin_p${i}" placeholder="?" title="Quantité finale de ${p.name}"></td>`;
+  });
+  html += `</tr></tbody></table></div>`;
+  html += `<div style="display:flex;gap:.5rem;margin-top:.65rem;flex-wrap:wrap;">
+    <button class="itool-validate-btn" onclick="validateAvancement()"><i class="fas fa-paper-plane"></i> Envoyer au chat</button>
+    <button class="itool-validate-btn" onclick="computeAvancement()" style="background:rgba(37,99,235,.15);color:#93c5fd;border:1px solid rgba(37,99,235,.3);"><i class="fas fa-calculator"></i> Calculer x<sub>max</sub></button>
+  </div>
+  <div id="avancementFeedback" style="margin-top:.5rem;font-size:.82rem;"></div>
+  </div>`;
+  return html;
+}
+
+function validateAvancement() {
+  if (!_avancementConfig) return;
+  const av = _avancementConfig;
+  const species = [...(av.reactants||[]), ...(av.products||[])];
+  let summary = 'Voici mon tableau d\'avancement :\n';
+  if (av.equation) summary += `Équation : ${av.equation}\n`;
+  summary += '\nÉtat initial :\n';
+  (av.reactants||[]).forEach((r, i) => {
+    const v = document.getElementById(`av_init_${i}`)?.value || '?';
+    summary += `  ${r.name} : ${v} mol\n`;
+  });
+  (av.products||[]).forEach((p, i) => {
+    const v = document.getElementById(`av_init_p${i}`)?.value || '0';
+    summary += `  ${p.name} : ${v} mol\n`;
+  });
+  summary += '\nÉtat final :\n';
+  (av.reactants||[]).forEach((r, i) => {
+    const v = document.getElementById(`av_fin_${i}`)?.value || '?';
+    summary += `  ${r.name} : ${v} mol\n`;
+  });
+  (av.products||[]).forEach((p, i) => {
+    const v = document.getElementById(`av_fin_p${i}`)?.value || '?';
+    summary += `  ${p.name} : ${v} mol\n`;
+  });
+  const input = document.getElementById('exInput');
+  input.value = summary;
+  autoResize(input);
+  document.getElementById('avancementFeedback').innerHTML = '<span style="color:var(--green);">? Tableau envoyé au chat. L\'IA va l\'analyser.</span>';
+}
+
+function computeAvancement() {
+  if (!_avancementConfig) return;
+  const av = _avancementConfig;
+  const fb = document.getElementById('avancementFeedback');
+  const missingInit = (av.reactants||[]).some((r, i) => !document.getElementById(`av_init_${i}`)?.value.trim());
+  if (missingInit) {
+    fb.innerHTML = '<span style="color:#f59e0b;">Remplis d\'abord les quantités initiales.</span>';
+    return;
+  }
+  let xmax = Infinity;
+  let limitant = '';
+  (av.reactants||[]).forEach((r, i) => {
+    const n_val = parseFloat(document.getElementById(`av_init_${i}`)?.value);
+    const coeff = r.coeff || 1;
+    if (!isNaN(n_val)) {
+      const x_i = n_val / coeff;
+      if (x_i < xmax) { xmax = x_i; limitant = r.name; }
+    }
+  });
+  if (!isFinite(xmax)) { fb.innerHTML = '<span style="color:var(--t3);">Impossible de calculer (vérifie les valeurs).</span>'; return; }
+  (av.reactants||[]).forEach((r, i) => {
+    const n0 = parseFloat(document.getElementById(`av_init_${i}`)?.value) || 0;
+    const fin = Math.max(0, n0 - (r.coeff || 1) * xmax);
+    const el = document.getElementById(`av_fin_${i}`);
+    if (el) el.value = fin.toFixed(3).replace(/\.?0+$/,'');
+  });
+  (av.products||[]).forEach((p, i) => {
+    const n0 = parseFloat(document.getElementById(`av_init_p${i}`)?.value) || 0;
+    const fin = n0 + (p.coeff || 1) * xmax;
+    const el = document.getElementById(`av_fin_p${i}`);
+    if (el) el.value = fin.toFixed(3).replace(/\.?0+$/,'');
+  });
+  fb.innerHTML = `<span style="color:#22c55e;font-weight:700;">x<sub>max</sub> = ${xmax.toFixed(4).replace(/\.?0+$/,'')} mol</span><br><span style="color:var(--t3);">Réactif limitant : <strong style="color:var(--t1);">${escapeHtml(limitant)}</strong></span>`;
+}
+
+function removeAvancementTool() {
+  const section = document.getElementById('interactiveSection');
+  if (!section) return;
+  section.innerHTML = '';
+  section.style.display = 'none';
+  _avancementConfig = null;
+  _toolLoaded = false;
+  const btn = document.getElementById('exoToolBtn');
+  if (btn) btn.style.display = 'none';
+  showToast('Tableau d\'avancement supprimé.', 'success');
+}
+
+function toggleTool(cardId) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  const content = card.querySelectorAll(':scope > *:not(.itool-header)');
+  const btn = card.querySelector('.itool-toggle-btn i');
+  const collapsed = btn && btn.classList.contains('fa-chevron-down');
+  content.forEach(el => { el.style.display = collapsed ? '' : 'none'; });
+  if (btn) { btn.classList.toggle('fa-chevron-up', collapsed); btn.classList.toggle('fa-chevron-down', !collapsed); }
+}
+</script>
+{% endblock %}
+

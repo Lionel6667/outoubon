@@ -1,0 +1,831 @@
+﻿{% extends "base.html" %}
+{% block title %}Messages — OU TOU BON{% endblock %}
+
+{% block extra_css %}
+<style>
+
+.view-area { overflow: hidden !important; padding: 0 !important; }
+
+.amis-shell {
+  display: flex;
+  height: calc(100vh - 52px);
+  height: calc(100dvh - 52px);
+  overflow: hidden;
+  background: var(--bg);
+  position: relative;
+}
+
+.am-left {
+  width: 340px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-right: 1px solid var(--border2);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform .28s cubic-bezier(.4,0,.2,1);
+  z-index: 20;
+}
+
+.am-header {
+  padding: 1rem 1.1rem .65rem;
+  border-bottom: 1px solid var(--border2);
+  flex-shrink: 0;
+}
+.am-header-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: .6rem;
+}
+.am-header-title { font-size: 1.18rem; font-weight: 800; color: var(--t1); letter-spacing: -.02em; }
+.am-header-actions { display: flex; gap: .35rem; }
+
+.am-icon-btn {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--bg); border: none; color: var(--t2);
+  font-size: .88rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, color .15s;
+  position: relative; flex-shrink: 0;
+}
+.am-icon-btn:hover { background: rgba(16,185,129,.14); color: var(--green); }
+.am-icon-btn .notif-dot {
+  position: absolute; top: 4px; right: 4px;
+  width: 8px; height: 8px; background: #ef4444;
+  border-radius: 50%; border: 2px solid var(--card);
+}
+
+.am-search { position: relative; }
+.am-search input {
+  width: 100%; padding: .52rem 1rem .52rem 2.3rem;
+  background: var(--bg); border: 1.5px solid var(--border2); border-radius: 22px;
+  color: var(--t1); font-size: .84rem; outline: none; transition: border-color .15s;
+}
+.am-search input:focus { border-color: var(--green); }
+.am-search input::placeholder { color: var(--t3); }
+.am-search i {
+  position: absolute; left: .85rem; top: 50%;
+  transform: translateY(-50%); color: var(--t3);
+  font-size: .78rem; pointer-events: none;
+}
+
+.am-tabs {
+  display: flex; padding: .4rem .8rem 0; gap: .25rem;
+  flex-shrink: 0; border-bottom: 1px solid var(--border2);
+}
+.am-tab {
+  flex: 1; padding: .48rem .35rem; text-align: center;
+  font-size: .77rem; font-weight: 700; color: var(--t3);
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: color .12s, border-color .12s;
+  white-space: nowrap; user-select: none;
+}
+.am-tab.active { color: var(--green); border-bottom-color: var(--green); }
+.am-tab .t-badge {
+  display: inline-block; background: #ef4444; color: #fff;
+  font-size: .6rem; border-radius: 99px; padding: .06rem .28rem;
+  margin-left: .25rem; font-weight: 800; vertical-align: middle;
+}
+
+.am-conv-list { flex: 1; overflow-y: auto; padding: .3rem 0; min-height: 0; }
+.am-conv-list::-webkit-scrollbar { width: 3px; }
+.am-conv-list::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+.am-section-lbl {
+  padding: .55rem 1.1rem .15rem; font-size: .66rem;
+  font-weight: 700; color: var(--t3); text-transform: uppercase; letter-spacing: .06em;
+}
+
+.am-conv-row {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .62rem 1.1rem; cursor: pointer;
+  transition: background .12s; position: relative; user-select: none;
+}
+.am-conv-row:hover { background: rgba(255,255,255,.035); }
+.am-conv-row.active { background: rgba(16,185,129,.09); }
+.am-conv-row.active::before {
+  content: ''; position: absolute; left: 0; top: 18%; bottom: 18%;
+  width: 3px; background: var(--green); border-radius: 0 3px 3px 0;
+}
+
+.am-av {
+  width: 44px; height: 44px; border-radius: 50%;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .95rem; color: #fff; position: relative;
+  background: linear-gradient(135deg, #10b981, #06b6d4);
+}
+.am-av.gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.am-av.sm { width: 38px; height: 38px; font-size: .85rem; }
+.am-av.xs { width: 30px; height: 30px; font-size: .72rem; }
+.am-av.online::after {
+  content: ''; position: absolute; bottom: 2px; right: 2px;
+  width: 10px; height: 10px; background: #22c55e;
+  border-radius: 50%; border: 2px solid var(--card);
+}
+
+.am-conv-info { flex: 1; min-width: 0; }
+.am-conv-name {
+  font-weight: 700; font-size: .88rem; color: var(--t1);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  display: flex; align-items: center; gap: .3rem;
+}
+.am-conv-name .pro-tag {
+  font-size: .6rem; background: linear-gradient(90deg,#fbbf24,#f59e0b);
+  color: #1a1a1a; padding: .05rem .28rem; border-radius: 4px; font-weight: 800; flex-shrink: 0;
+}
+.am-conv-preview {
+  font-size: .77rem; color: var(--t3);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: .1rem;
+}
+.am-conv-preview.unread { color: var(--t2); font-weight: 600; }
+.am-conv-meta { display: flex; flex-direction: column; align-items: flex-end; gap: .22rem; flex-shrink: 0; }
+.am-conv-time { font-size: .67rem; color: var(--t3); }
+.am-conv-badge {
+  background: var(--green); color: #fff; font-size: .6rem; font-weight: 800;
+  border-radius: 99px; min-width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center; padding: 0 .28rem;
+}
+
+.am-conv-row.outoubon { background: linear-gradient(90deg, rgba(251,191,36,.06), transparent); }
+.am-conv-row.outoubon:hover { background: linear-gradient(90deg, rgba(251,191,36,.1), rgba(255,255,255,.02)); }
+.am-conv-row.outoubon .am-conv-name { color: #fbbf24; }
+
+.am-empty { display: flex; flex-direction: column; align-items: center; padding: 3rem 1.5rem; color: var(--t3); text-align: center; }
+.am-empty-icon { font-size: 2.8rem; opacity: .18; margin-bottom: .8rem; }
+.am-empty h4 { font-size: .9rem; font-weight: 700; color: var(--t2); margin-bottom: .25rem; }
+.am-empty p { font-size: .78rem; line-height: 1.6; }
+
+.am-manage { flex: 1; overflow-y: auto; display: none; flex-direction: column; min-height: 0; }
+.am-manage.open { display: flex; }
+.am-manage::-webkit-scrollbar { width: 3px; }
+.am-manage::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+.am-section { padding: .8rem 1rem .6rem; border-bottom: 1px solid var(--border2); }
+.am-section:last-child { border-bottom: none; }
+.am-section-title {
+  font-size: .67rem; font-weight: 800; color: var(--t3);
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem;
+  display: flex; align-items: center; gap: .35rem;
+}
+.am-section-title .t-badge { background: rgba(16,185,129,.2); color: var(--green); font-size: .6rem; padding: .06rem .28rem; border-radius: 99px; font-weight: 800; }
+
+.am-person {
+  display: flex; align-items: center; gap: .65rem; padding: .5rem .6rem;
+  background: var(--bg); border: 1px solid var(--border2); border-radius: 12px;
+  margin-bottom: .3rem; transition: border-color .12s;
+}
+.am-person:hover { border-color: rgba(16,185,129,.28); }
+.am-person-info { flex: 1; min-width: 0; }
+.am-person-name { font-weight: 700; font-size: .83rem; color: var(--t1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.am-person-sub { font-size: .71rem; color: var(--t3); margin-top: .05rem; }
+.am-person-actions { display: flex; gap: .28rem; }
+
+.act-btn {
+  display: inline-flex; align-items: center; gap: .22rem;
+  padding: .3rem .55rem; border-radius: 8px; font-size: .73rem; font-weight: 700;
+  border: 1px solid transparent; cursor: pointer; transition: all .12s; white-space: nowrap;
+}
+.act-accept { background: rgba(16,185,129,.14); color: var(--green); border-color: rgba(16,185,129,.28); }
+.act-accept:hover { background: rgba(16,185,129,.26); }
+.act-decline { background: rgba(239,68,68,.1); color: #ef4444; border-color: rgba(239,68,68,.22); }
+.act-decline:hover { background: rgba(239,68,68,.2); }
+.act-add { background: rgba(59,130,246,.1); color: #60a5fa; border-color: rgba(59,130,246,.28); }
+.act-add:hover { background: rgba(59,130,246,.2); }
+.act-cancel { background: rgba(245,158,11,.09); color: #fbbf24; border-color: rgba(245,158,11,.22); }
+.act-cancel:hover { background: rgba(245,158,11,.18); }
+.act-muted { background: var(--card); color: var(--t3); border-color: var(--border2); cursor: default; opacity: .6; }
+.act-remove { background: var(--card); color: var(--t3); border-color: var(--border2); }
+.act-remove:hover { color: #ef4444; border-color: #ef4444; }
+
+.am-search-input { position: relative; margin-bottom: .5rem; }
+.am-search-input input {
+  width: 100%; padding: .48rem .75rem .48rem 2rem;
+  background: var(--bg); border: 1.5px solid var(--border2); border-radius: 10px;
+  color: var(--t1); font-size: .81rem; outline: none;
+}
+.am-search-input input:focus { border-color: var(--green); }
+.am-search-input i { position: absolute; left: .65rem; top: 50%; transform: translateY(-50%); color: var(--t3); font-size: .78rem; }
+
+.am-right {
+  flex: 1; display: flex; flex-direction: column;
+  background: var(--bg); min-width: 0; overflow: hidden;
+}
+
+.am-welcome {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; color: var(--t3);
+  padding: 2rem; text-align: center; gap: .6rem;
+}
+.am-welcome-icon {
+  font-size: 4rem;
+  background: linear-gradient(135deg, var(--green), #60a5fa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  opacity: .3; margin-bottom: .4rem;
+}
+.am-welcome h3 { font-size: 1.1rem; font-weight: 800; color: var(--t2); }
+.am-welcome p { font-size: .84rem; max-width: 280px; line-height: 1.6; }
+
+.am-chat { display: none; flex-direction: column; flex: 1; min-height: 0; overflow: hidden; }
+.am-chat.open { display: flex; }
+
+.am-chat-header {
+  padding: .65rem 1.2rem; border-bottom: 1px solid var(--border2);
+  display: flex; align-items: center; gap: .8rem;
+  background: var(--card); flex-shrink: 0; min-height: 60px;
+}
+.am-chat-back {
+  display: none; background: none; border: none; color: var(--t2);
+  font-size: 1.05rem; cursor: pointer; padding: .35rem; border-radius: 8px;
+  transition: color .12s, background .12s; margin-right: .05rem;
+}
+.am-chat-back:hover { background: rgba(255,255,255,.06); color: var(--t1); }
+.am-chat-title { flex: 1; min-width: 0; }
+.am-chat-name { font-weight: 700; font-size: .93rem; color: var(--t1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.am-chat-status { font-size: .71rem; color: var(--green); margin-top: .04rem; }
+.am-chat-actions { display: flex; gap: .28rem; }
+.am-chat-actions .am-icon-btn { background: transparent; }
+.am-chat-actions .am-icon-btn:hover { background: rgba(239,68,68,.1); color: #ef4444; }
+
+.am-msgs {
+  flex: 1; overflow-y: auto; padding: 1.1rem 1.3rem;
+  display: flex; flex-direction: column; gap: .15rem; min-height: 0;
+}
+.am-msgs::-webkit-scrollbar { width: 4px; }
+.am-msgs::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+.am-date-sep { text-align: center; margin: .7rem 0 .3rem; flex-shrink: 0; }
+.am-date-sep span {
+  background: var(--card); color: var(--t3); font-size: .68rem;
+  padding: .2rem .65rem; border-radius: 10px; font-weight: 600; border: 1px solid var(--border2);
+}
+
+.am-bubble {
+  max-width: 72%; padding: .5rem .82rem; border-radius: 18px;
+  font-size: .875rem; line-height: 1.55; word-wrap: break-word;
+  flex-shrink: 0; animation: amBubble .16s ease-out;
+}
+@keyframes amBubble { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:translateY(0)} }
+.am-bubble-mine {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #fff; border-bottom-right-radius: 5px;
+}
+.am-bubble-theirs {
+  align-self: flex-start; background: var(--card); color: var(--t1);
+  border: 1px solid var(--border2); border-bottom-left-radius: 5px;
+}
+.am-bubble-admin {
+  align-self: flex-start;
+  background: linear-gradient(135deg, rgba(251,191,36,.12), rgba(16,185,129,.07));
+  color: var(--t1); border: 1px solid rgba(251,191,36,.2); border-bottom-left-radius: 5px;
+}
+.am-bubble-admin-lbl { font-size: .63rem; font-weight: 700; color: #fbbf24; margin-bottom: .22rem; display: flex; align-items: center; gap: .28rem; }
+.am-bubble-time {
+  font-size: .61rem; margin-top: .18rem;
+  display: flex; align-items: center; gap: .25rem; justify-content: flex-end;
+  color: rgba(255,255,255,.5);
+}
+.am-bubble-theirs .am-bubble-time, .am-bubble-admin .am-bubble-time { color: var(--t3); }
+.am-read-check { font-size: .57rem; }
+.am-read-check.read { color: #a7f3d0; }
+
+.am-input-bar {
+  padding: .7rem 1.2rem; border-top: 1px solid var(--border2);
+  display: flex; align-items: center; gap: .55rem;
+  background: var(--card); flex-shrink: 0;
+}
+.am-input-bar input {
+  flex: 1; padding: .58rem 1rem; background: var(--bg);
+  border: 1.5px solid var(--border2); border-radius: 22px;
+  color: var(--t1); font-size: .88rem; outline: none; transition: border-color .15s;
+}
+.am-input-bar input:focus { border-color: var(--green); }
+.am-input-bar input::placeholder { color: var(--t3); }
+.am-send-btn {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--green);
+  border: none; color: #fff; font-size: .9rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .12s; flex-shrink: 0;
+}
+.am-send-btn:hover { background: #059669; transform: scale(1.06); }
+.am-send-btn:disabled { opacity: .4; transform: none; cursor: default; }
+
+.am-premium-bar {
+  padding: .75rem 1.2rem;
+  background: linear-gradient(135deg, rgba(245,158,11,.07), rgba(239,68,68,.05));
+  border-top: 1px solid rgba(245,158,11,.18);
+  display: flex; align-items: center; justify-content: center; gap: .55rem; flex-shrink: 0;
+}
+.am-premium-bar-text { font-size: .81rem; color: #fbbf24; }
+.am-premium-bar a {
+  font-size: .81rem; color: var(--green); font-weight: 700;
+  text-decoration: none; padding: .28rem .6rem; border: 1px solid var(--green); border-radius: 8px;
+  transition: background .12s;
+}
+.am-premium-bar a:hover { background: rgba(16,185,129,.1); }
+
+@media (max-width: 860px) {
+  .am-left {
+    position: absolute; inset: 0; width: 100%; z-index: 30;
+    transition: transform .28s cubic-bezier(.4,0,.2,1);
+  }
+  .am-left.slide-out { transform: translateX(-100%); }
+  .am-right { width: 100%; }
+  .am-chat-back { display: flex !important; }
+  .am-bubble { max-width: 84%; }
+  .am-msgs { padding: .85rem .9rem; }
+  .am-chat-header { padding: .6rem .9rem; }
+  .am-input-bar { padding: .6rem .9rem; }
+}
+@media (max-width: 480px) {
+  .am-header { padding: .75rem .85rem .55rem; }
+  .am-conv-row { padding: .55rem .85rem; }
+  .am-header-title { font-size: 1.05rem; }
+  .am-bubble { max-width: 90%; }
+  .am-premium-bar { flex-wrap: wrap; text-align: center; }
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="amis" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">
+        <i class="fas fa-comments" style="color:var(--green);margin-right:.5rem;"></i>Messages
+      </div>
+    </div>
+    <div class="view-area" style="padding:0;overflow:hidden;">
+
+{% if is_guest %}
+<div style="max-width:460px;margin:4rem auto;padding:2rem;text-align:center;">
+  <div style="font-size:4rem;margin-bottom:1.2rem;"><i class="fas fa-user-friends" style="opacity:.18;"></i></div>
+  <div style="font-weight:800;font-size:1.15rem;color:var(--t1);margin-bottom:.5rem;">Connecte-toi avec tes camarades</div>
+  <div style="font-size:.87rem;color:var(--t2);margin-bottom:1.5rem;line-height:1.7;">Ajoute des amis, echangez vos notes et motivez-vous ensemble pour le BAC !</div>
+  <a href="{% url 'signup' %}" style="display:inline-block;background:var(--green);color:#fff;border-radius:12px;padding:.7rem 1.6rem;font-weight:700;text-decoration:none;font-size:.93rem;">Creer mon compte gratuit</a>
+</div>
+{% else %}
+
+<div class="amis-shell" id="amisShell">
+
+  
+  <aside class="am-left" id="amLeft">
+
+    <div class="am-header">
+      <div class="am-header-row">
+        <span class="am-header-title">Messages</span>
+        <div class="am-header-actions">
+          <button class="am-icon-btn" onclick="showManageTab('search')" title="Ajouter un ami"><i class="fas fa-user-plus"></i></button>
+          <button class="am-icon-btn" id="reqBtn" onclick="showManageTab('requests')" title="Invitations">
+            <i class="fas fa-bell"></i>
+            {% if pending_in %}<span class="notif-dot"></span>{% endif %}
+          </button>
+        </div>
+      </div>
+      <div class="am-search">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Rechercher..." oninput="filterConvs(this.value)" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="am-tabs">
+      <div class="am-tab active" id="tabConv" onclick="switchTab('conv')">
+        <i class="fas fa-comments" style="margin-right:.22rem;font-size:.78rem;"></i>Messages
+      </div>
+      <div class="am-tab" id="tabManage" onclick="switchTab('manage')">
+        <i class="fas fa-users" style="margin-right:.22rem;font-size:.78rem;"></i>Gerer
+        {% if pending_in %}<span class="t-badge">{{ pending_in|length }}</span>{% endif %}
+      </div>
+    </div>
+
+    
+    <div id="convPanel" class="am-conv-list">
+      <div class="am-section-lbl">Epingle</div>
+      <div class="am-conv-row outoubon" data-friend-id="outoubon" data-name="OUTOUBON" onclick="openAdminChat()">
+        <div class="am-av gold sm"><i class="fas fa-crown" style="font-size:.82rem;"></i></div>
+        <div class="am-conv-info">
+          <div class="am-conv-name">OUTOUBON <span class="pro-tag">TEAM</span></div>
+          <div class="am-conv-preview {% if admin_unread %}unread{% endif %}">
+            {% if admin_msg %}{{ admin_msg.content|truncatechars:42 }}{% else %}<em>Messages de l'equipe</em>{% endif %}
+          </div>
+        </div>
+        <div class="am-conv-meta">
+          {% if admin_msg %}<span class="am-conv-time">{{ admin_msg.created_at|date:"H:i" }}</span>{% endif %}
+          {% if admin_unread %}<span class="am-conv-badge">1</span>{% endif %}
+        </div>
+      </div>
+
+      {% if friends %}
+      <div class="am-section-lbl">Conversations</div>
+      {% for f in friends %}
+      <div class="am-conv-row"
+           data-friend-id="{{ f.user.id }}"
+           data-name="{{ f.user.get_full_name|default:f.user.username }}"
+           onclick="openChat({{ f.user.id }}, '{{ f.user.get_full_name|default:f.user.username|escapejs }}', '{{ f.user.username|first|upper }}', {{ f.friendship_id }})">
+        <div class="am-av sm">{{ f.user.username|first|upper }}</div>
+        <div class="am-conv-info">
+          <div class="am-conv-name">{{ f.user.get_full_name|default:f.user.username }}</div>
+          <div class="am-conv-preview {% if f.unread_count %}unread{% endif %}">
+            {% if f.last_message %}
+              {% if f.last_message.sender_id == request.user.id %}<em>Vous :</em> {% endif %}{{ f.last_message.content|truncatechars:40 }}
+            {% else %}<em>Demarrer la conversation</em>{% endif %}
+          </div>
+        </div>
+        <div class="am-conv-meta">
+          {% if f.last_message %}<span class="am-conv-time">{{ f.last_message.created_at|date:"H:i" }}</span>{% endif %}
+          {% if f.unread_count %}<span class="am-conv-badge">{{ f.unread_count }}</span>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="am-empty">
+        <div class="am-empty-icon"><i class="fas fa-user-friends"></i></div>
+        <h4>Aucun ami pour l'instant</h4>
+        <p>Utilise l'onglet <b style="color:var(--green);">Gerer</b> pour en ajouter</p>
+      </div>
+      {% endif %}
+    </div>
+
+    
+    <div class="am-manage" id="managePanel">
+      <div class="am-section">
+        <div class="am-section-title"><i class="fas fa-search"></i> Rechercher un ami</div>
+        <div class="am-search-input">
+          <i class="fas fa-search"></i>
+          <input type="text" id="manageSearchInput" placeholder="Nom ou pseudo..." autocomplete="off" oninput="searchUsers(this.value)">
+        </div>
+        <div id="searchResults" style="max-height:200px;overflow-y:auto;"></div>
+      </div>
+
+      {% if pending_in %}
+      <div class="am-section" id="pendingInSection">
+        <div class="am-section-title">
+          <i class="fas fa-inbox"></i> Invitations recues
+          <span class="t-badge">{{ pending_in|length }}</span>
+        </div>
+        {% for req in pending_in %}
+        <div class="am-person" id="req-{{ req.id }}">
+          <div class="am-av xs">{{ req.from_user.username|first|upper }}</div>
+          <div class="am-person-info">
+            <div class="am-person-name">{{ req.from_user.get_full_name|default:req.from_user.username }}</div>
+            <div class="am-person-sub">{% if req.from_user.profile.school %}{{ req.from_user.profile.school }}{% else %}OU TOU BON{% endif %}</div>
+          </div>
+          <div class="am-person-actions">
+            <button class="act-btn act-accept" onclick="respondRequest({{ req.id }},'accept',this)"><i class="fas fa-check"></i></button>
+            <button class="act-btn act-decline" onclick="respondRequest({{ req.id }},'decline',this)"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if pending_sent %}
+      <div class="am-section">
+        <div class="am-section-title"><i class="fas fa-paper-plane"></i> Invitations envoyees</div>
+        {% for req in pending_sent %}
+        <div class="am-person" id="sent-{{ req.id }}">
+          <div class="am-av xs">{{ req.to_user.username|first|upper }}</div>
+          <div class="am-person-info">
+            <div class="am-person-name">{{ req.to_user.get_full_name|default:req.to_user.username }}</div>
+            <div class="am-person-sub">{% if req.to_user.profile.school %}{{ req.to_user.profile.school }}{% else %}OU TOU BON{% endif %}</div>
+          </div>
+          <div class="am-person-actions">
+            <button class="act-btn act-cancel" onclick="cancelRequest({{ req.to_user.id }},{{ req.id }},this)"><i class="fas fa-ban"></i></button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if suggestions %}
+      <div class="am-section">
+        <div class="am-section-title"><i class="fas fa-lightbulb"></i> Suggestions</div>
+        {% for p in suggestions %}
+        <div class="am-person" id="sug-{{ p.user.id }}">
+          <div class="am-av xs">{{ p.user.username|first|upper }}</div>
+          <div class="am-person-info">
+            <div class="am-person-name">{{ p.user.get_full_name|default:p.user.username }}</div>
+            <div class="am-person-sub">{% if p.school %}{{ p.school }}{% else %}Serie {{ p.serie }}{% endif %}</div>
+          </div>
+          <div class="am-person-actions">
+            <button class="act-btn act-add" onclick="addFriend({{ p.user.id }},this)"><i class="fas fa-user-plus"></i></button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+  </aside>
+
+  
+  <section class="am-right" id="amRight">
+
+    <div class="am-welcome" id="chatWelcome">
+      <div class="am-welcome-icon"><i class="fas fa-comments"></i></div>
+      <h3>Tes messages</h3>
+      <p>Selectionne une conversation pour discuter avec tes camarades du BAC</p>
+    </div>
+
+    <div class="am-chat" id="chatActive">
+
+      <div class="am-chat-header">
+        <button class="am-chat-back" id="chatBackBtn" onclick="closeChat()"><i class="fas fa-arrow-left"></i></button>
+        <div class="am-av sm" id="chatAvatar"></div>
+        <div class="am-chat-title">
+          <div class="am-chat-name" id="chatName"></div>
+          <div class="am-chat-status" id="chatSub">Ami</div>
+        </div>
+        <div class="am-chat-actions">
+          <button class="am-icon-btn" id="removeFriendBtn" onclick="removeFriendFromChat()" title="Retirer cet ami">
+            <i class="fas fa-user-minus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="am-msgs" id="chatMessages">
+        <div style="text-align:center;padding:3rem;color:var(--t3);font-size:.82rem;"><i class="fas fa-spinner fa-spin"></i></div>
+      </div>
+
+      {% if is_premium %}
+      <div class="am-input-bar" id="chatInputBar">
+        <input type="text" id="msgInput" placeholder="Ecris un message..." autocomplete="off"
+               onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendMsg(); }">
+        <button class="am-send-btn" onclick="sendMsg()" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+      {% else %}
+      <div class="am-premium-bar" id="premiumBar">
+        <span class="am-premium-bar-text"><i class="fas fa-lock" style="margin-right:.3rem;"></i>Abonnement PRO requis</span>
+        <a href="{% url 'pricing' %}">Debloquer PRO</a>
+      </div>
+      {% endif %}
+
+    </div>
+  </section>
+
+</div>
+{% endif %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let _friendId = null, _fshipId = null, _pollTimer = null, _searchTimer = null;
+
+function switchTab(tab) {
+  document.getElementById('tabConv').classList.toggle('active', tab === 'conv');
+  document.getElementById('tabManage').classList.toggle('active', tab === 'manage');
+  document.getElementById('convPanel').style.display = tab === 'conv' ? '' : 'none';
+  document.getElementById('managePanel').classList.toggle('open', tab === 'manage');
+}
+
+function showManageTab(focus) {
+  switchTab('manage');
+  if (focus === 'search') setTimeout(() => { const el = document.getElementById('manageSearchInput'); if (el) el.focus(); }, 80);
+}
+
+function filterConvs(q) {
+  const term = q.toLowerCase();
+  document.querySelectorAll('.am-conv-row').forEach(el => {
+    el.style.display = (el.dataset.name || '').toLowerCase().includes(term) ? '' : 'none';
+  });
+}
+
+function openChat(friendId, name, initial, fshipId) {
+  _friendId = friendId; _fshipId = fshipId;
+  const av = document.getElementById('chatAvatar');
+  av.innerHTML = initial; av.style.background = '';
+  document.getElementById('chatName').textContent = name;
+  document.getElementById('chatSub').textContent  = 'Ami';
+  const removeBtn = document.getElementById('removeFriendBtn');
+  if (removeBtn) removeBtn.style.display = '';
+  const inputBar = document.getElementById('chatInputBar');
+  const premBar  = document.getElementById('premiumBar');
+  if (inputBar) inputBar.style.display = '';
+  if (premBar)  premBar.style.display  = '';
+  _showChat();
+  document.querySelectorAll('.am-conv-row').forEach(el => el.classList.remove('active'));
+  const row = document.querySelector(`.am-conv-row[data-friend-id="${friendId}"]`);
+  if (row) { row.classList.add('active'); const b = row.querySelector('.am-conv-badge'); if (b) b.remove(); }
+  document.getElementById('amLeft').classList.add('slide-out');
+  loadMessages(); startPolling();
+}
+
+function _showChat() {
+  document.getElementById('chatWelcome').style.display = 'none';
+  document.getElementById('chatActive').classList.add('open');
+}
+
+function closeChat() {
+  if (_friendId === 'outoubon') {
+    const av = document.getElementById('chatAvatar');
+    if (av) { av.innerHTML = ''; av.style.background = ''; }
+    ['removeFriendBtn','chatInputBar','premiumBar'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = ''; });
+  }
+  _friendId = null; stopPolling();
+  document.getElementById('chatActive').classList.remove('open');
+  document.getElementById('chatWelcome').style.display = '';
+  document.querySelectorAll('.am-conv-row').forEach(el => el.classList.remove('active'));
+  document.getElementById('amLeft').classList.remove('slide-out');
+}
+
+async function loadMessages() {
+  if (!_friendId) return;
+  const box = document.getElementById('chatMessages');
+  box.innerHTML = `<div style="text-align:center;padding:3rem;color:var(--t3);font-size:.82rem;"><i class="fas fa-spinner fa-spin"></i></div>`;
+  try {
+    const r = await fetch('/dashboard/api/amis/messages/' + _friendId + '/', { headers: { 'X-CSRFToken': CSRF } });
+    const d = await r.json();
+    if (d.ok) renderMessages(d.messages);
+    else box.innerHTML = `<div style="text-align:center;padding:2rem;color:#ef4444;font-size:.82rem;">${escHtml(d.error || 'Erreur')}</div>`;
+  } catch(e) {
+    box.innerHTML = `<div style="text-align:center;padding:2rem;color:#ef4444;font-size:.82rem;">Erreur reseau</div>`;
+  }
+}
+
+function renderMessages(msgs) {
+  const box = document.getElementById('chatMessages');
+  if (!msgs.length) {
+    box.innerHTML = `<div style="text-align:center;padding:3.5rem 1.5rem;color:var(--t3);"><i class="fas fa-hand-peace" style="font-size:2rem;opacity:.2;display:block;margin-bottom:.65rem;"></i><span style="font-size:.82rem;">Aucun message — dis bonjour !</span></div>`;
+    return;
+  }
+  let html = '', lastDate = '';
+  msgs.forEach(m => {
+    if (m.date !== lastDate) { html += `<div class="am-date-sep"><span>${escHtml(m.date)}</span></div>`; lastDate = m.date; }
+    const cls   = m.is_mine ? 'am-bubble-mine' : 'am-bubble-theirs';
+    const check = m.is_mine ? `<span class="am-read-check${m.is_read ? ' read' : ''}"><i class="fas fa-check-double"></i></span>` : '';
+    html += `<div class="am-bubble ${cls}">${escHtml(m.content)}<div class="am-bubble-time">${escHtml(m.created_at)} ${check}</div></div>`;
+  });
+  box.innerHTML = html;
+  box.scrollTop = box.scrollHeight;
+}
+
+function escHtml(text) { const d = document.createElement('div'); d.textContent = String(text || ''); return d.innerHTML; }
+
+async function sendMsg() {
+  if (!IS_PREMIUM) { showPremiumGate("L'envoi de messages est reserve aux membres PRO."); return; }
+  const input = document.getElementById('msgInput');
+  const content = (input ? input.value : '').trim();
+  if (!content || !_friendId) return;
+  const btn = document.getElementById('sendBtn');
+  if (btn) btn.disabled = true;
+  input.value = '';
+  try {
+    const r = await fetch('/dashboard/api/amis/send/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+      body: JSON.stringify({ friend_id: _friendId, content })
+    });
+    const d = await r.json();
+    if (d.ok && d.message) {
+      const box = document.getElementById('chatMessages');
+      if (box.querySelector('.fa-hand-peace') || box.innerHTML.includes('fa-spinner')) box.innerHTML = '';
+      const m = d.message;
+      box.innerHTML += `<div class="am-bubble am-bubble-mine">${escHtml(m.content)}<div class="am-bubble-time">${escHtml(m.created_at)} <span class="am-read-check"><i class="fas fa-check-double"></i></span></div></div>`;
+      box.scrollTop = box.scrollHeight;
+      _updateConvPreview(_friendId, 'Vous : ' + content.slice(0,38), m.created_at);
+    } else if (d.premium_required) {
+      showPremiumGate("L'envoi de messages est reserve aux membres PRO."); input.value = content;
+    } else { showToast(d.error || 'Erreur', 'error'); input.value = content; }
+  } catch(e) { showToast('Erreur reseau', 'error'); input.value = content; }
+  if (btn) btn.disabled = false;
+  if (input) input.focus();
+}
+
+function _updateConvPreview(friendId, text, time) {
+  const row = document.querySelector(`.am-conv-row[data-friend-id="${friendId}"]`);
+  if (!row) return;
+  const prev = row.querySelector('.am-conv-preview'); const t = row.querySelector('.am-conv-time');
+  if (prev) prev.textContent = text; if (t) t.textContent = time;
+}
+
+function startPolling() {
+  stopPolling();
+  _pollTimer = setInterval(async () => {
+    if (!_friendId) return;
+    try {
+      const r = await fetch('/dashboard/api/amis/messages/' + _friendId + '/', { headers: { 'X-CSRFToken': CSRF } });
+      const d = await r.json();
+      if (d.ok) { const box = document.getElementById('chatMessages'); if (d.messages.length !== box.querySelectorAll('.am-bubble').length) renderMessages(d.messages); }
+    } catch(e) {}
+  }, 5000);
+}
+function stopPolling() { if (_pollTimer) { clearInterval(_pollTimer); _pollTimer = null; } }
+window.addEventListener('beforeunload', stopPolling);
+
+function _searchActionHtml(u) {
+  if (u.relation_status === 'friends')          return `<button class="act-btn act-muted" disabled><i class="fas fa-user-check"></i></button>`;
+  if (u.relation_status === 'pending_sent')     return `<button class="act-btn act-cancel" onclick="cancelRequest(${u.id},${u.friendship_id||0},this)"><i class="fas fa-ban"></i></button>`;
+  if (u.relation_status === 'pending_received') return `<button class="act-btn act-muted" disabled><i class="fas fa-hourglass-half"></i></button>`;
+  return `<button class="act-btn act-add" onclick="addFriend(${u.id},this)"><i class="fas fa-user-plus"></i></button>`;
+}
+
+function searchUsers(q) {
+  clearTimeout(_searchTimer);
+  const res = document.getElementById('searchResults');
+  if (!q || q.length < 2) { res.innerHTML = ''; return; }
+  _searchTimer = setTimeout(async () => {
+    res.innerHTML = `<div style="color:var(--t3);font-size:.8rem;padding:.45rem .2rem;">Recherche...</div>`;
+    try {
+      const r = await fetch('/dashboard/api/amis/?search=' + encodeURIComponent(q), { headers: { 'X-CSRFToken': CSRF } });
+      const d = await r.json();
+      if (!d.users || !d.users.length) { res.innerHTML = `<div style="color:var(--t3);font-size:.8rem;padding:.45rem .2rem;">Aucun resultat.</div>`; return; }
+      res.innerHTML = d.users.map(u => `
+        <div class="am-person" id="sr-${u.id}">
+          <div class="am-av xs">${escHtml((u.username||'U')[0].toUpperCase())}</div>
+          <div class="am-person-info"><div class="am-person-name">${escHtml(u.name||u.username)}</div><div class="am-person-sub">${escHtml(u.school||(u.serie?'Serie '+u.serie:'OU TOU BON'))}</div></div>
+          <div class="am-person-actions">${_searchActionHtml(u)}</div>
+        </div>`).join('');
+    } catch(e) { res.innerHTML = `<div style="color:#ef4444;font-size:.8rem;padding:.45rem .2rem;">Erreur reseau.</div>`; }
+  }, 380);
+}
+
+async function addFriend(userId, btn) {
+  const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  try {
+    const r = await fetch('/dashboard/api/amis/', { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':CSRF}, body:JSON.stringify({action:'send',user_id:userId}) });
+    const d = await r.json();
+    if (d.ok) {
+      if (d.status === 'accepted') { btn.innerHTML = '<i class="fas fa-user-check"></i>'; btn.className = 'act-btn act-muted'; showToast('Vous etes maintenant amis !','success'); }
+      else { btn.innerHTML = '<i class="fas fa-check"></i>'; btn.className = 'act-btn act-cancel'; btn.onclick = () => cancelRequest(userId,0,btn); btn.disabled = false; showToast('Invitation envoyee !'); }
+    } else { btn.innerHTML = orig; btn.disabled = false; showToast(d.error||'Erreur','error'); }
+  } catch(e) { btn.innerHTML = orig; btn.disabled = false; showToast('Erreur reseau','error'); }
+}
+
+async function cancelRequest(userId, fid, btn) {
+  const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  try {
+    const r = await fetch('/dashboard/api/amis/', { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':CSRF}, body:JSON.stringify({action:'cancel',user_id:userId}) });
+    const d = await r.json();
+    if (d.ok) {
+      const card = document.getElementById('sent-'+fid) || document.getElementById('sr-'+userId);
+      if (card) { card.style.opacity='0'; card.style.transition='opacity .2s'; setTimeout(()=>card.remove(),200); }
+      btn.innerHTML='<i class="fas fa-user-plus"></i>'; btn.className='act-btn act-add'; btn.disabled=false; btn.onclick=()=>addFriend(userId,btn); showToast('Invitation annulee');
+    } else { btn.innerHTML=orig; btn.disabled=false; showToast(d.error||'Erreur','error'); }
+  } catch(e) { btn.innerHTML=orig; btn.disabled=false; showToast('Erreur reseau','error'); }
+}
+
+async function respondRequest(fid, action, btn) {
+  btn.disabled = true;
+  try {
+    const r = await fetch('/dashboard/api/amis/', { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':CSRF}, body:JSON.stringify({action,friendship_id:fid}) });
+    const d = await r.json();
+    if (d.ok) {
+      const card = document.getElementById('req-'+fid);
+      if (card) { card.style.opacity='0'; card.style.transition='opacity .2s'; setTimeout(()=>card.remove(),200); }
+      if (action==='accept') { showToast('Ami ajoute !','success'); setTimeout(()=>location.reload(),900); } else showToast('Invitation refusee');
+    } else showToast(d.error||'Erreur','error');
+  } catch(e) { showToast('Erreur reseau','error'); btn.disabled=false; }
+}
+
+async function removeFriend(userId) {
+  if (!confirm('Retirer cet ami ?')) return;
+  try {
+    const r = await fetch('/dashboard/api/amis/', { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':CSRF}, body:JSON.stringify({action:'remove',user_id:userId}) });
+    const d = await r.json();
+    if (d.ok) { const row=document.querySelector(`.am-conv-row[data-friend-id="${userId}"]`); if(row){row.style.opacity='0';row.style.transition='opacity .25s';setTimeout(()=>row.remove(),250);} showToast('Ami retire'); }
+  } catch(e) { showToast('Erreur reseau','error'); }
+}
+
+function removeFriendFromChat() { if (!_friendId || !_fshipId) return; removeFriend(_friendId); closeChat(); }
+
+async function openAdminChat() {
+  _friendId = 'outoubon'; _fshipId = null;
+  const av = document.getElementById('chatAvatar');
+  av.innerHTML = '<i class="fas fa-crown" style="font-size:.85rem;"></i>';
+  av.style.background = 'linear-gradient(135deg,#fbbf24,#f59e0b)';
+  document.getElementById('chatName').textContent = 'OUTOUBON';
+  document.getElementById('chatSub').textContent  = 'Equipe OU TOU BON';
+  const removeBtn = document.getElementById('removeFriendBtn'); if (removeBtn) removeBtn.style.display = 'none';
+  const inputBar  = document.getElementById('chatInputBar');   if (inputBar)  inputBar.style.display  = 'none';
+  const premBar   = document.getElementById('premiumBar');     if (premBar)   premBar.style.display   = 'none';
+  _showChat();
+  document.querySelectorAll('.am-conv-row').forEach(el => el.classList.remove('active'));
+  const row = document.querySelector('.am-conv-row.outoubon');
+  if (row) { row.classList.add('active'); const b = row.querySelector('.am-conv-badge'); if (b) b.remove(); }
+  document.getElementById('amLeft').classList.add('slide-out');
+  stopPolling();
+  async function _loadAdmin() {
+    const box = document.getElementById('chatMessages');
+    try {
+      const r = await fetch('/dashboard/api/admin-message/', { headers: { 'X-CSRFToken': CSRF } });
+      const d = await r.json();
+      if (d.ok && d.message) {
+        box.innerHTML = `<div class="am-date-sep"><span>${escHtml(d.message.date)}</span></div>
+          <div class="am-bubble am-bubble-admin"><div class="am-bubble-admin-lbl"><i class="fas fa-crown"></i> OUTOUBON</div>${escHtml(d.message.content)}<div class="am-bubble-time">${escHtml(d.message.created_at)}</div></div>`;
+      } else {
+        box.innerHTML = `<div style="text-align:center;padding:3rem;color:var(--t3);"><i class="fas fa-crown" style="font-size:2rem;opacity:.2;color:#fbbf24;display:block;margin-bottom:.65rem;"></i><span style="font-size:.82rem;">Aucun message de l'equipe pour l'instant</span></div>`;
+      }
+      box.scrollTop = box.scrollHeight;
+    } catch(e) { box.innerHTML = `<div style="text-align:center;padding:2rem;color:#ef4444;font-size:.82rem;">Erreur reseau</div>`; }
+  }
+  document.getElementById('chatMessages').innerHTML = `<div style="text-align:center;padding:3rem;color:var(--t3);font-size:.82rem;"><i class="fas fa-spinner fa-spin"></i></div>`;
+  await _loadAdmin();
+  _pollTimer = setInterval(() => { if (_friendId === 'outoubon') _loadAdmin(); else stopPolling(); }, 8000);
+}
+</script>
+{% endblock %}

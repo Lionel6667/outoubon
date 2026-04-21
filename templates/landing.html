@@ -1,0 +1,884 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OU TOU BON - Réussis ton BAC avec l'IA</title>
+<link rel="stylesheet" href="{% static 'css/bac_landing.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.pricing { padding: 80px 8%; background: rgba(15,23,42,0.35); }
+.pricing-header { text-align:center; margin-bottom:40px; }
+.pricing-header h2 { font-size: 36px; margin-bottom: 12px; }
+.pricing-header p { color:#94a3b8; }
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; }
+.plan-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(15,23,42,.97), rgba(2,8,23,.93));
+  border: 1px solid rgba(56,189,248,.35);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 14px 38px rgba(2,8,23,.34), 0 0 0 1px rgba(56,189,248,.08) inset;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.plan-card::before {
+  content: '';
+  position: absolute;
+  right: -60px;
+  bottom: -70px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,189,248,.22), transparent 70%);
+  pointer-events: none;
+}
+.plan-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 55px rgba(2,8,23,.42), 0 0 0 1px rgba(56,189,248,.15) inset;
+}
+.plan-card.featured {
+  border-color: rgba(251,191,36,.55);
+  box-shadow: 0 16px 44px rgba(2,8,23,.4), 0 0 0 1px rgba(251,191,36,.25) inset;
+}
+.plan-card.featured::before {
+  background: radial-gradient(circle, rgba(251,191,36,.22), transparent 72%);
+}
+.plan-badge { display:inline-block; font-size:12px; font-weight:700; color:#fbbf24; background: rgba(245,158,11,.12); border:1px solid rgba(245,158,11,.35); border-radius:999px; padding:4px 10px; margin-bottom:12px; }
+.plan-card h3 { font-size:24px; margin-bottom:8px; }
+.plan-price { font-size:44px; font-weight:800; line-height:1; margin-bottom:8px; }
+.plan-price small { font-size:14px; color:#94a3b8; font-weight:600; }
+.plan-desc { color:#94a3b8; font-size:14px; margin-bottom:14px; }
+.plan-list { list-style:none; display:grid; gap:10px; margin:18px 0 6px; }
+.plan-list li { font-size:14px; color:#cbd5e1; }
+.plan-list i { color:#10B981; margin-right:8px; }
+.plan-save { margin-top:12px; color:#fbbf24; font-size:13px; font-weight:700; }
+.plan-tools-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.plan-tool-pill {
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.28);
+  background: rgba(15,23,42,.72);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+}
+.dream-section { padding: 70px 8%; }
+.dream-header { text-align: center; max-width: 820px; margin: 0 auto 34px; }
+.dream-header h2 { font-size: 34px; margin-bottom: 10px; }
+.dream-header p { color: #94a3b8; }
+.dream-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.dream-card { background: rgba(15, 23, 42, 0.68); border: 1px solid #334155; border-radius: 18px; padding: 18px; }
+.dream-card i { color: #fbbf24; margin-right: 8px; }
+.dream-card h3 { font-size: 17px; margin-bottom: 8px; }
+.dream-card p { color: #cbd5e1; font-size: 14px; line-height: 1.45; }
+.agent-section { padding: 74px 8%; }
+.agent-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(251,191,36,.34);
+  background: linear-gradient(140deg, rgba(30,41,59,.95), rgba(15,23,42,.95));
+  box-shadow: 0 18px 52px rgba(2,8,23,.38), 0 0 0 1px rgba(251,191,36,.15) inset;
+  padding: 30px;
+}
+.agent-shell::before {
+  content: '';
+  position: absolute;
+  right: -70px;
+  top: -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251,191,36,.24), transparent 70%);
+  pointer-events: none;
+}
+.agent-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.agent-title { font-size: 30px; margin: 0 0 8px; }
+.agent-sub { color: #cbd5e1; max-width: 760px; margin: 0; line-height: 1.5; }
+.agent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid rgba(251,191,36,.45);
+  color: #fbbf24;
+  background: rgba(251,191,36,.11);
+}
+.agent-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 18px; }
+.agent-step {
+  border: 1px solid rgba(148,163,184,.24);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(15,23,42,.66);
+}
+.agent-step strong { display: block; font-size: 14px; margin-bottom: 6px; }
+.agent-step p { margin: 0; color: #cbd5e1; font-size: 13px; line-height: 1.45; }
+.agent-step-index {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #0f172a;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+.agent-commission {
+  margin-top: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(16,185,129,.4);
+  background: rgba(16,185,129,.1);
+  padding: 12px 14px;
+  color: #ccfbf1;
+  font-size: 14px;
+}
+.agent-cta-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.agent-note { margin-top: 10px; color: #94a3b8; font-size: 12px; }
+
+.btn-agent {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(251,191,36,.55);
+  background: rgba(251,191,36,.12);
+  color: #fbbf24;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .18s, border-color .18s;
+}
+.btn-agent:hover { background: rgba(251,191,36,.22); border-color: rgba(251,191,36,.8); }
+
+.agent-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(2,8,23,.82);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.agent-modal-overlay.open { display: flex; }
+.agent-modal {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 24px;
+  border: 1px solid rgba(251,191,36,.38);
+  background: linear-gradient(140deg, #1e293b, #0f172a);
+  box-shadow: 0 28px 72px rgba(2,8,23,.6);
+  padding: 32px;
+}
+.agent-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+}
+.agent-modal-close:hover { color: #fff; }
+.agent-modal h2 { font-size: 24px; margin: 0 0 6px; }
+.agent-modal > p { color: #94a3b8; font-size: 14px; margin: 0 0 22px; }
+.agent-perks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+.agent-perk {
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #cbd5e1;
+  background: rgba(15,23,42,.6);
+}
+.agent-perk i { color: #fbbf24; margin-right: 6px; }
+.agent-divider { border: none; border-top: 1px solid rgba(148,163,184,.15); margin: 0 0 20px; }
+.agent-form-label { display: block; font-size: 12px; font-weight: 700; color: #94a3b8; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .07em; }
+.agent-form-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(15,23,42,.8);
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #f1f5f9;
+  margin-bottom: 14px;
+  outline: none;
+  transition: border-color .18s;
+}
+.agent-form-input:focus { border-color: rgba(251,191,36,.55); }
+
+.agent-phone-wrap {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(15,23,42,.8);
+  margin-bottom: 14px;
+  transition: border-color .18s;
+}
+.agent-phone-wrap:focus-within { border-color: rgba(251,191,36,.55); }
+.agent-phone-wrap .pfx {
+  padding: 12px 14px;
+  background: rgba(255,255,255,.05);
+  border-right: 1px solid rgba(148,163,184,.15);
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+.agent-phone-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #f1f5f9;
+  outline: none;
+}
+.agent-phone-wrap input::placeholder { color: #475569; }
+
+.agent-earnings-box {
+  border: 1px solid rgba(251,191,36,.3);
+  border-radius: 14px;
+  background: rgba(251,191,36,.07);
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+.earnings-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #fbbf24;
+  margin-bottom: 6px;
+}
+.earnings-calc {
+  font-size: 18px;
+  font-weight: 900;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+}
+.earnings-calc strong { color: #fbbf24; font-size: 22px; }
+.earnings-tip {
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0;
+}
+.agent-form-submit {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: filter .18s;
+}
+.agent-form-submit:hover { filter: brightness(1.08); }
+.agent-form-note { margin-top: 10px; color: #64748b; font-size: 12px; text-align: center; }
+.agent-auth-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 18px 0 16px;
+}
+.agent-auth-btn {
+  border: 1px solid rgba(148,163,184,.22);
+  background: rgba(15,23,42,.65);
+  color: #94a3b8;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+}
+.agent-auth-btn.active {
+  background: rgba(251,191,36,.14);
+  border-color: rgba(251,191,36,.45);
+  color: #fbbf24;
+}
+.agent-form-error {
+  display: none;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(239,68,68,.25);
+  background: rgba(239,68,68,.1);
+  color: #fca5a5;
+  font-size: 12px;
+}
+.agent-form-error.show { display: block; }
+.agent-redirect-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2,8,23,.92);
+  backdrop-filter: blur(5px);
+}
+.agent-redirect-overlay.show { display: flex; }
+.agent-redirect-card {
+  width: min(92vw, 420px);
+  border-radius: 22px;
+  border: 1px solid rgba(251,191,36,.28);
+  background: linear-gradient(155deg, #172033, #0f172a);
+  box-shadow: 0 28px 72px rgba(2,8,23,.56);
+  padding: 28px;
+  text-align: center;
+}
+.agent-redirect-spinner {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  border-radius: 999px;
+  border: 4px solid rgba(251,191,36,.18);
+  border-top-color: #fbbf24;
+  animation: agentSpin .8s linear infinite;
+}
+@keyframes agentSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (max-width: 768px) {
+  .pricing { padding: 60px 4%; }
+  .pricing-header h2 { font-size: 30px; }
+  .plan-price { font-size: 38px; }
+  .dream-section { padding: 54px 4%; }
+  .dream-header h2 { font-size: 28px; }
+  .agent-section { padding: 54px 4%; }
+  .agent-title { font-size: 25px; }
+  
+  .navbar nav a:not(.nav-agent-btn),
+  .navbar nav button { display: none; }
+  .navbar nav .nav-agent-btn { display: inline-flex !important; }
+  .agent-perks { grid-template-columns: 1fr 1fr; }
+  .agent-modal { padding: 16px; max-height: 100dvh; border-radius: 16px; }
+  .agent-modal h2 { font-size: 18px; }
+  .agent-modal > p { font-size: 13px; margin-bottom: 14px; }
+  .agent-earnings-box { padding: 10px 12px; margin-bottom: 14px; }
+  .earnings-calc { font-size: 15px; }
+  .earnings-calc strong { font-size: 18px; }
+  .earnings-tip { font-size: 11.5px; }
+}
+
+.hero-left {
+  position: relative;
+}
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -80px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16,185,129,.13), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-left::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,189,248,.09), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-left > * { position: relative; z-index: 1; }
+
+.hero-login-reveal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.45s ease, opacity 0.35s ease, margin-top 0.35s ease;
+}
+.hero-login-reveal.visible {
+  max-height: 60px;
+  opacity: 1;
+  margin-top: 14px;
+}
+.hero-login-reveal span {
+  color: #94a3b8;
+  font-size: 14px;
+}
+.hero-login-reveal a {
+  color: #10B981;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity .2s;
+}
+.hero-login-reveal a:hover { opacity: .8; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="agent-modal-overlay" id="agentModal" onclick="if(event.target===this)closeAgentModal()">
+  <div class="agent-modal">
+    <button class="agent-modal-close" onclick="closeAgentModal()">&#x2715;</button>
+    <h2><i class="fas fa-user-tie" style="color:#fbbf24;margin-right:8px;"></i>Deviens Agent de OU TOU BON</h2>
+    <p>Partage ton lien, invite des élèves, encaisse <strong style="color:#fbbf24;">150G</strong> par abonnement payé — directement sur ton compte agent.</p>
+
+    <div class="agent-perks">
+      <div class="agent-perk"><i class="fas fa-link"></i>Lien unique d'affiliation</div>
+      <div class="agent-perk"><i class="fas fa-coins"></i>150G par élève abonné</div>
+      <div class="agent-perk"><i class="fas fa-mobile-alt"></i>Retrait par MonCash</div>
+      <div class="agent-perk"><i class="fas fa-chart-line"></i>Dashboard de suivi</div>
+      <div class="agent-perk"><i class="fas fa-bolt"></i>Commission immédiate</div>
+      <div class="agent-perk"><i class="fas fa-infinity"></i>Sans limite de filleuls</div>
+    </div>
+
+    <hr class="agent-divider">
+
+    <div class="agent-earnings-box">
+      <span class="earnings-label">Exemple concret</span>
+      <div class="earnings-calc">10 élèves abonnés = <strong>1 500 G</strong></div>
+      <p class="earnings-tip">💡 Va présenter la plateforme directement dans les écoles — il y a des centaines d'élèves qui cherchent exactement ce type d'outil pour préparer leur BAC. Avec un petit tour dans quelques établissements, tu peux facilement construire une vraie source de revenus réguliers.</p>
+    </div>
+
+    <form id="agentForm" onsubmit="agentFormSubmit(event)">
+      {% csrf_token %}
+      <input type="hidden" id="agentMode" value="register">
+      <div id="agentFormError" class="agent-form-error"></div>
+      <div class="agent-auth-toggle">
+        <button type="button" class="agent-auth-btn active" id="agentRegisterBtn" onclick="setAgentMode('register')">S'inscrire</button>
+        <button type="button" class="agent-auth-btn" id="agentLoginBtn" onclick="setAgentMode('login')">Se connecter</button>
+      </div>
+      <label class="agent-form-label" for="agentPhone">Numéro de téléphone</label>
+      <div class="agent-phone-wrap">
+        <span class="pfx">🇭🇹 +509</span>
+        <input id="agentPhone" type="tel" placeholder="3X XX XX XX" autocomplete="tel">
+      </div>
+      <label class="agent-form-label" for="agentPass">Mot de passe</label>
+      <input class="agent-form-input" id="agentPass" type="password" placeholder="Choisir un mot de passe">
+      <button type="submit" class="agent-form-submit">Créer mon compte agent</button>
+      <p class="agent-form-note" id="agentFormNote">Inscription et connexion agent directement ici, sans changer de page.</p>
+    </form>
+
+    <p class="agent-form-note" style="margin-top:14px;">Système de paiement automatique en cours d'intégration — ton compte agent sera pleinement actif dès le lancement.</p>
+  </div>
+</div>
+
+<div class="agent-redirect-overlay" id="agentRedirectOverlay">
+  <div class="agent-redirect-card">
+    <div class="agent-redirect-spinner"></div>
+    <h3 style="font-size:22px;margin:0 0 8px;">Ouverture de ton espace agent...</h3>
+    <p style="margin:0;color:#94a3b8;font-size:14px;line-height:1.55;">Ton compte est prêt. On t'envoie directement vers ton dashboard.</p>
+  </div>
+</div>
+
+<header class="navbar">
+  <a href="{% url 'landing' %}" class="logo" style="text-decoration:none;">
+    <i class="fas fa-graduation-cap"></i>
+    OU TOU BON
+  </a>
+  <nav>
+    <a href="#home">Fonctionnalités</a>
+    <a href="#subjects">Matières</a>
+    <a href="#pricing">Tarifs</a>
+    <a href="#" class="btn-agent nav-agent-btn" onclick="openAgentModal();return false;"><i class="fas fa-user-tie"></i>Gagner de l'argent</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-left">
+    <h1>Réussis ton <span>BAC NS4</span> avec OU TOU BON</h1>
+    <p class="subtitle">
+      Notre IA, entraînée sur des centaines d'examens BAC passés, t'explique chaque notion, corrige tes erreurs et te prépare comme dans un vrai centre d'excellence — tu ne révises plus au hasard, tu avances avec méthode.
+    </p>
+    <div class="hero-buttons">
+      <a href="{% url 'signup' %}"><button class="btn-primary">Commencer maintenant</button></a>
+      <a href="{% url 'guest_start' %}"><button class="btn-demo"><i class="fas fa-eye"></i> Explorer sans compte</button></a>
+    </div>
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar">👨‍🎓</div><div class="avatar">👩‍🎓</div><div class="avatar">👨‍🎓</div><div class="avatar">👩‍🎓</div>
+      </div>
+      <span>Rejoint par +2847 élèves</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="chat-header"><i class="fas fa-comments"></i></div>
+      <div class="chat-messages">
+        <div class="message ai">
+          <div class="avatar-chat ai"><i class="fas fa-robot"></i></div>
+          <div class="bubble ai">Envoie ton exercice: je détecte tes erreurs, je t'explique la stratégie BAC et je te donne le plan pour gagner des points.</div>
+        </div>
+        <div class="message user"><div class="bubble user">Parfait. Je veux une correction complète + entraînement ciblé sur mes lacunes.</div></div>
+      </div>
+      <div class="progress-section">
+        <span>Progression personnalisée</span>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div class="progress-text"><strong>Suivi par matière</strong><span style="color:#10B981;font-weight:700;">Temps réel</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dashboard">
+  <div class="dashboard-header">
+    <h2>Des outils professionnels pour viser la mention</h2>
+    <p style="color:#94a3b8; max-width:760px; margin:10px auto 0;">Notre IA a été calibrée sur des examens passés, des corrections types BAC et des patterns d'erreurs d'élèves pour te donner des réponses vraiment utiles, pas des réponses vagues.</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-header"><span>CHAT IA STRATÈGE</span><i class="fas fa-robot"></i></div><div class="stat-number">24/7</div><div class="stat-growth positive"><i class="fas fa-check"></i><span>Comme un répétiteur privé, à toute heure</span></div></div>
+    <div class="stat-card"><div class="stat-header"><span>EXAMEN BLANC PRO</span><i class="fas fa-scroll"></i></div><div class="stat-number">Réel</div><div class="stat-growth positive"><i class="fas fa-check"></i><span>Simulation complète + correction IA détaillée sur 20</span></div></div>
+    <div class="stat-card"><div class="stat-header"><span>COURS + QUIZ + EXOS</span><i class="fas fa-bolt"></i></div><div class="stat-number">Intégré</div><div class="stat-growth positive"><i class="fas fa-check"></i><span>Tu apprends, tu testes, tu corriges, tu progresses</span></div></div>
+  </div>
+</section>
+
+<section class="dream-section">
+  <div class="dream-header">
+    <h2>Pourquoi nos outils font rêver les élèves ambitieux</h2>
+    <p>Chaque fonctionnalité a été pensée pour transformer le stress en confiance, avec une IA nourrie par l'expérience d'examens BAC passés.</p>
+  </div>
+  <div class="dream-grid">
+    <article class="dream-card">
+      <h3><i class="fas fa-crosshairs"></i>Plan d'attaque personnalisé</h3>
+      <p>L'IA construit ton plan selon ton niveau, ta série et tes faiblesses pour éviter de perdre du temps.</p>
+    </article>
+    <article class="dream-card">
+      <h3><i class="fas fa-microscope"></i>Correction intelligente</h3>
+      <p>Tu ne reçois pas juste une note: tu comprends pourquoi tu as raté, comment corriger et comment éviter l'erreur au prochain devoir.</p>
+    </article>
+    <article class="dream-card">
+      <h3><i class="fas fa-bolt"></i>Progression visible</h3>
+      <p>Tu vois clairement tes points forts et les chapitres à rattraper pour progresser de manière mesurable, semaine après semaine.</p>
+    </article>
+    <article class="dream-card">
+      <h3><i class="fas fa-trophy"></i>Préparation mention</h3>
+      <p>Nos contenus t'entraînent au format BAC réel pour arriver prêt, confiant et performant le jour J.</p>
+    </article>
+  </div>
+</section>
+
+<section class="agent-section" id="agent" style="display:none;">
+  <div class="agent-shell">
+    <div class="agent-top">
+      <div>
+        <h2 class="agent-title">Deviens Agent de OU TOU BON</h2>
+        <p class="agent-sub">
+          Invite des élèves avec ton lien unique d'affiliation. Dès qu'un élève que tu as invité paie son abonnement,
+          tu gagnes automatiquement une commission sur ton compte agent.
+        </p>
+      </div>
+      <span class="agent-badge"><i class="fas fa-coins"></i> 150G par élève payé</span>
+    </div>
+
+    <div class="agent-flow">
+      <article class="agent-step">
+        <span class="agent-step-index">1</span>
+        <strong>Reçois ton lien unique</strong>
+        <p>Ton tableau agent te génère un lien d'affiliation personnel à partager sur WhatsApp, Facebook, TikTok ou partout.</p>
+      </article>
+      <article class="agent-step">
+        <span class="agent-step-index">2</span>
+        <strong>Invite des élèves</strong>
+        <p>Chaque élève inscrit via ton lien est automatiquement rattaché à ton compte agent.</p>
+      </article>
+      <article class="agent-step">
+        <span class="agent-step-index">3</span>
+        <strong>Encaisse 150G instantanément</strong>
+        <p>Immédiatement après paiement validé de l'élève, 150G sont ajoutés sur ton solde agent.</p>
+      </article>
+      <article class="agent-step">
+        <span class="agent-step-index">4</span>
+        <strong>Retire par MonCash</strong>
+        <p>Tu peux demander le retrait de ton solde par MonCash directement depuis ton espace agent.</p>
+      </article>
+    </div>
+
+    <div class="agent-commission">
+      <strong>Exemple simple:</strong> 10 élèves abonnés avec ton lien = <strong>1 500G</strong> crédités sur ton compte agent.
+    </div>
+
+    <div class="agent-cta-row">
+      <a href="{% url 'signup' %}" class="btn-primary" style="text-decoration:none;">Créer un compte agent</a>
+      <a href="{% url 'login' %}" class="btn-secondary" style="text-decoration:none;">J'ai déjà un compte</a>
+    </div>
+
+    <p class="agent-note">
+      Version actuelle: la logique d'affiliation est déjà définie, le déclenchement automatique final sera activé dès l'intégration complète du système de paiement.
+    </p>
+  </div>
+</section>
+
+<section style="padding:70px 8%;background:linear-gradient(135deg,#0f172a 0%,#0a1628 100%);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);border-radius:99px;padding:.4rem 1.1rem;margin-bottom:1rem;">
+        <i class="fas fa-trophy" style="color:#fbbf24;font-size:.85rem;"></i>
+        <span style="color:#fbbf24;font-size:.82rem;font-weight:700;letter-spacing:.04em;">SYSTÈME DE LIGUES</span>
+      </div>
+      <h2 style="font-size:2rem;font-weight:900;color:#f8fafc;margin:0 0 .8rem;">Dépasse tous les élèves du site</h2>
+      <p style="color:#94a3b8;font-size:1rem;max-width:620px;margin:0 auto;line-height:1.65;">
+        Chaque quiz réussi, chaque exercice corrigé, chaque message envoyé te donne des XP.
+        Monte dans les ligues et vois ta position en <strong style="color:#10b981;">temps réel</strong> face à tous les autres élèves inscrits sur la plateforme.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:2.5rem;">
+      
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1.6rem 1.4rem;text-align:center;">
+        <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(139,92,246,.1));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+          <i class="fas fa-bolt" style="color:#8b5cf6;font-size:1.3rem;"></i>
+        </div>
+        <div style="font-size:1.6rem;font-weight:900;color:#f8fafc;margin-bottom:.3rem;">+XP</div>
+        <div style="font-size:.88rem;color:#94a3b8;line-height:1.5;">Gagne des points d'expérience à chaque action : quiz, exercices, cours</div>
+      </div>
+      
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(16,185,129,.2);border-radius:18px;padding:1.6rem 1.4rem;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:radial-gradient(rgba(16,185,129,.15),transparent 70%);pointer-events:none;"></div>
+        <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(16,185,129,.25),rgba(16,185,129,.1));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+          <i class="fas fa-users" style="color:#10b981;font-size:1.3rem;"></i>
+        </div>
+        <div style="font-size:1.6rem;font-weight:900;color:#10b981;margin-bottom:.3rem;">{{ global_rank|default:'?' }} / 2500+</div>
+        <div style="font-size:.88rem;color:#94a3b8;line-height:1.5;">Ta position en direct parmi <strong style="color:#f8fafc;">des milliers d'élèves</strong> inscrits sur toute la plateforme</div>
+      </div>
+      
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(251,191,36,.2);border-radius:18px;padding:1.6rem 1.4rem;text-align:center;">
+        <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(251,191,36,.25),rgba(251,191,36,.1));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+          <i class="fas fa-crown" style="color:#fbbf24;font-size:1.3rem;"></i>
+        </div>
+        <div style="font-size:1.1rem;font-weight:900;color:#fbbf24;margin-bottom:.2rem;">{{ top_user_name }}</div>
+        <div style="font-size:.78rem;color:#64748b;margin-bottom:.4rem;">{{ top_user_xp }} XP · #1 Global</div>
+        <div style="font-size:.82rem;color:#94a3b8;line-height:1.5;">Le meilleur élève de la plateforme — <strong style="color:#f8fafc;">tu peux le dépasser</strong></div>
+      </div>
+    </div>
+
+    
+    <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem 2rem;">
+      <div style="font-size:.8rem;font-weight:700;color:#64748b;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.2rem;">30 ligues à débloquer</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+        {% for name, color in league_preview %}
+        <span style="background:{{ color }}18;border:1px solid {{ color }}44;color:{{ color }};border-radius:99px;padding:.3rem .85rem;font-size:.75rem;font-weight:600;">{{ name }}</span>
+        {% empty %}
+        {% for item in league_names_fallback %}
+        <span style="background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);color:#a5b4fc;border-radius:99px;padding:.3rem .85rem;font-size:.75rem;font-weight:600;">{{ item }}</span>
+        {% endfor %}
+        {% endfor %}
+      </div>
+      <div style="margin-top:1.2rem;display:flex;align-items:center;gap:.8rem;">
+        <div style="height:6px;flex:1;background:linear-gradient(90deg,#78716c,#d97706,#f59e0b,#22c55e,#06b6d4,#6366f1,#8b5cf6,#f59e0b);border-radius:99px;"></div>
+        <a href="{% url 'signup' %}" style="background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;border-radius:99px;padding:.6rem 1.4rem;font-size:.85rem;font-weight:700;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:.45rem;"><i class="fas fa-rocket"></i>Commencer à grimper</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="subjects" class="subjects">
+  <div class="subjects-header">
+    <h2>Matières et chapitres disponibles</h2>
+    <p>Chiffres réels basés sur les contenus actuellement chargés dans la plateforme</p>
+  </div>
+
+  <div class="subjects-grid">
+    <div class="subject-card math"><div class="card-icon"><i class="fas fa-calculator"></i></div><h3>Mathématiques</h3><div class="card-stats"><span>6 chapitres</span></div></div>
+    <div class="subject-card physics"><div class="card-icon"><i class="fas fa-atom"></i></div><h3>Physique</h3><div class="card-stats"><span>6 chapitres</span></div></div>
+    <div class="subject-card chemistry"><div class="card-icon"><i class="fas fa-flask"></i></div><h3>Chimie</h3><div class="card-stats"><span>10 chapitres</span></div></div>
+    <div class="subject-card biology"><div class="card-icon"><i class="fas fa-dna"></i></div><h3>SVT</h3><div class="card-stats"><span>32 chapitres</span></div></div>
+    <div class="subject-card french"><div class="card-icon"><i class="fas fa-feather-alt"></i></div><h3>Kreyòl</h3><div class="card-stats"><span>6 chapitres</span></div></div>
+    <div class="subject-card philosophy"><div class="card-icon"><i class="fas fa-brain"></i></div><h3>Philosophie</h3><div class="card-stats"><span>7 chapitres</span></div></div>
+    <div class="subject-card history"><div class="card-icon"><i class="fas fa-landmark"></i></div><h3>Sciences Sociales</h3><div class="card-stats"><span>6 chapitres</span></div></div>
+    <div class="subject-card english"><div class="card-icon"><i class="fas fa-globe"></i></div><h3>Anglais</h3><div class="card-stats"><span>6 chapitres</span></div></div>
+    <div class="subject-card english"><div class="card-icon"><i class="fas fa-language"></i></div><h3>Espagnol</h3><div class="card-stats"><span>4 chapitres</span></div></div>
+    <div class="subject-card history"><div class="card-icon"><i class="fas fa-chart-bar"></i></div><h3>Économie</h3><div class="card-stats"><span>6 chapitres</span></div></div>
+    <div class="subject-card physics"><div class="card-icon"><i class="fas fa-laptop-code"></i></div><h3>Informatique</h3><div class="card-stats"><span>4 chapitres</span></div></div>
+    <div class="subject-card philosophy"><div class="card-icon"><i class="fas fa-palette"></i></div><h3>Art & Musique</h3><div class="card-stats"><span>5 modules</span></div></div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div class="pricing-header">
+    <h2>Tarifs</h2>
+    <p>Investis dans ta réussite avec une formule claire.</p>
+  </div>
+  <div class="pricing-grid">
+    <article class="plan-card">
+      <h3>Abonnement mensuel</h3>
+      <div style="display:inline-block;background:rgba(16,185,129,.15);color:#10b981;font-size:.72rem;font-weight:700;padding:.25rem .7rem;border-radius:99px;border:1px solid rgba(16,185,129,.3);margin-bottom:.6rem;">🎉 Promo -25% jusqu'en juin</div>
+      <div class="plan-price"><span style="text-decoration:line-through;font-size:1rem;color:rgba(148,163,184,.5);margin-right:.4rem;">900G</span>750G <small>/ mois</small></div>
+      <div class="plan-desc">Flexible, sans engagement long.</div>
+      <ul class="plan-list">
+        <li><i class="fas fa-check"></i>Accès complet à TOUS les outils disponibles</li>
+        <li><i class="fas fa-check"></i>Chat IA stratégique entraîné sur examens passés</li>
+        <li><i class="fas fa-check"></i>Quiz intelligents + Exercices corrigés</li>
+        <li><i class="fas fa-check"></i>Examen blanc complet avec note sur 20</li>
+        <li><i class="fas fa-check"></i>Cours interactifs + Fiches mémo + Bibliothèque</li>
+        <li><i class="fas fa-check"></i>Plan de révision IA + Progression + Favoris + Amis</li>
+      </ul>
+      <div class="plan-tools-grid">
+        <span class="plan-tool-pill">Chat IA</span>
+        <span class="plan-tool-pill">Quiz</span>
+        <span class="plan-tool-pill">Exercices</span>
+        <span class="plan-tool-pill">Examen Blanc</span>
+        <span class="plan-tool-pill">Cours Interactif</span>
+        <span class="plan-tool-pill">Fiches Mémo</span>
+        <span class="plan-tool-pill">Plan IA</span>
+        <span class="plan-tool-pill">Bibliothèque</span>
+        <span class="plan-tool-pill">Progression</span>
+        <span class="plan-tool-pill">Favoris</span>
+        <span class="plan-tool-pill">Amis</span>
+      </div>
+      <a href="{% url 'pricing' %}" class="btn-primary" style="margin-top:10px;display:inline-block;text-decoration:none;">Choisir mensuel</a>
+    </article>
+
+    <article class="plan-card featured">
+      <span class="plan-badge">Meilleure offre</span>
+      <h3>Paiement annuel direct</h3>
+      <div class="plan-price">500G <small>/ mois</small></div>
+      <div class="plan-desc">Facturé 1 an: <strong>6 000G</strong></div>
+      <ul class="plan-list">
+        <li><i class="fas fa-check"></i>Même pack complet (tous les outils inclus)</li>
+        <li><i class="fas fa-check"></i>Suivi intensif avec toutes les fonctionnalités premium</li>
+        <li><i class="fas fa-check"></i>Priorité sur nouvelles améliorations IA</li>
+        <li><i class="fas fa-check"></i>Économie: <strong>4 200G/an</strong> vs mensuel</li>
+      </ul>
+      <div class="plan-tools-grid">
+        <span class="plan-tool-pill">Chat IA</span>
+        <span class="plan-tool-pill">Quiz</span>
+        <span class="plan-tool-pill">Exercices</span>
+        <span class="plan-tool-pill">Examen Blanc</span>
+        <span class="plan-tool-pill">Cours Interactif</span>
+        <span class="plan-tool-pill">Fiches Mémo</span>
+        <span class="plan-tool-pill">Plan IA</span>
+        <span class="plan-tool-pill">Bibliothèque</span>
+        <span class="plan-tool-pill">Progression</span>
+        <span class="plan-tool-pill">Favoris</span>
+        <span class="plan-tool-pill">Amis</span>
+      </div>
+      <div class="plan-save">Le meilleur rapport qualité-prix pour préparer le BAC à fond.</div>
+      <a href="{% url 'pricing' %}" class="btn-primary" style="margin-top:14px;display:inline-block;text-decoration:none;">Choisir annuel</a>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-left">
+      <a href="{% url 'landing' %}" class="logo" style="text-decoration:none;"><i class="fas fa-graduation-cap"></i> OU TOU BON</a>
+      <p>Préparation BAC haïtien, version intelligente.</p>
+    </div>
+    <div class="footer-right">
+      <a href="{% url 'signup' %}" class="footer-chat" style="text-decoration:none;"><i class="fas fa-rocket"></i><span>Commencer maintenant</span></a>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 OU TOU BON</p></div>
+</footer>
+
+<script>
+function openAgentModal() {
+  document.getElementById('agentModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAgentModal() {
+  document.getElementById('agentModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function setAgentMode(mode) {
+  document.getElementById('agentMode').value = mode;
+  const isLogin = mode === 'login';
+  document.getElementById('agentRegisterBtn').classList.toggle('active', !isLogin);
+  document.getElementById('agentLoginBtn').classList.toggle('active', isLogin);
+  document.querySelector('.agent-form-submit').textContent = isLogin ? 'Se connecter' : 'Créer mon compte agent';
+  document.getElementById('agentPass').placeholder = isLogin ? 'Entre ton mot de passe' : 'Choisir un mot de passe';
+  document.getElementById('agentFormNote').textContent = isLogin
+    ? 'Connecte-toi ici directement avec ton numéro et ton mot de passe.'
+    : 'Inscription et connexion agent directement ici, sans changer de page.';
+  hideAgentError();
+}
+function showAgentError(message) {
+  const box = document.getElementById('agentFormError');
+  box.textContent = message;
+  box.classList.add('show');
+}
+function hideAgentError() {
+  const box = document.getElementById('agentFormError');
+  box.textContent = '';
+  box.classList.remove('show');
+}
+function startAgentRedirect(url) {
+  const overlay = document.getElementById('agentRedirectOverlay');
+  overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  closeAgentModal();
+  requestAnimationFrame(() => {
+    window.location.replace(url);
+  });
+}
+function agentFormSubmit(e) {
+  e.preventDefault();
+  hideAgentError();
+  const phone = document.getElementById('agentPhone').value.trim();
+  const pass  = document.getElementById('agentPass').value.trim();
+  if (!phone || !pass) { alert('Merci de remplir tous les champs.'); return; }
+  const btn = e.target.querySelector('.agent-form-submit');
+  const mode = document.getElementById('agentMode').value;
+  btn.disabled = true;
+  btn.textContent = mode === 'login' ? 'Connexion...' : 'Création...';
+  const data = new FormData(document.getElementById('agentForm'));
+  data.set('phone', phone);
+  data.set('password', pass);
+  fetch(mode === 'login' ? '/agent/login/' : '/agent/register/', { method: 'POST', body: data })
+    .then(r => r.json())
+    .then(d => {
+      if (d.ok) { startAgentRedirect(d.redirect); }
+      else {
+        showAgentError(d.error || 'Erreur, réessaie.');
+        btn.disabled = false;
+        btn.textContent = mode === 'login' ? 'Se connecter' : 'Créer mon compte agent';
+      }
+    })
+    .catch(() => {
+      showAgentError('Erreur réseau, réessaie.');
+      btn.disabled = false;
+      btn.textContent = mode === 'login' ? 'Se connecter' : 'Créer mon compte agent';
+    });
+}
+</script>
+</body>
+</html>

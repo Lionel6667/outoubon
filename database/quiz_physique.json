@@ -1,0 +1,1942 @@
+{
+  "matiere": "physique",
+  "total": 129,
+  "description": "Quiz Physique — BAC Haïti",
+  "quiz": [
+    {
+      "id": "M1",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lorsque l'accélération d'un solide est nulle, que peut-on dire de son centre d'inertie ?",
+      "correct": "B",
+      "explanation": "Lorsqu'un solide a une accélération nulle, son centre d'inertie soit se déplace d'un mouvement rectiligne uniforme, soit reste au repos. En effet, selon le principe d'inertie ou la première loi de Newton, un objet conserve son état de mouvement ou de repos si aucune force extérieure ne s'applique sur lui. Les autres options sont incorrectes car le repos n'est qu'un cas particulier du mouvement rectiligne uniforme (où la vitesse est nulle), la chute libre implique une accélération non nulle, et un mouvement circulaire uniforme possède une accélération centripète.",
+      "options": [
+        "Il est nécessairement au repos.",
+        "Il se déplace d'un mouvement rectiligne uniforme ou reste au repos.",
+        "Il a un mouvement circulaire uniforme.",
+        "Il est en chute libre."
+      ]
+    },
+    {
+      "id": "M2",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Dans le champ de pesanteur, un corps en chute libre n'est soumis qu'à son poids. Son accélération vaut :",
+      "correct": "B",
+      "explanation": "Dans le champ de pesanteur, un corps en chute libre n'est soumis qu'à son poids, et son accélération est égale à -9,8 m/s² selon l'axe vertical orienté vers le haut. Cela signifie que l'accélération est dirigée vers le bas, mais comme l'axe est orienté vers le haut, elle est négative. Les autres options sont incorrectes car l'accélération de pesanteur est indépendante de la masse, la chute libre implique une accélération non nulle, et l'accélération ne peut pas être nulle ou positive vers le haut.",
+      "options": [
+        "Variable selon la masse.",
+        "-9,8 m/s² (selon l'axe vertical orienté vers le haut).",
+        "0 m/s².",
+        "+9,8 m/s² vers le haut."
+      ]
+    },
+    {
+      "id": "M3",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Une onde mécanique possède une double périodicité :",
+      "correct": "A",
+      "explanation": "Une onde mécanique possède une double périodicité : une période temporelle (la période T) et une période spatiale (la longueur d'onde λ). Cela signifie que l'onde se répète à intervalles réguliers dans le temps et dans l'espace. Les autres options sont incorrectes car la notion de période angulaire n'est pas standard, la fréquence est l'inverse de la période temporelle, et les notions de battement, résonance, période fréquentielle et période amortie ne sont pas des périodicités fondamentales.",
+      "options": [
+        "Période temporelle et période spatiale (longueur d'onde).",
+        "Période spatiale et période angulaire.",
+        "Période de battement et période de résonance.",
+        "Période fréquentielle et période amortie."
+      ]
+    },
+    {
+      "id": "M4",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La période d'oscillation d'un pendule simple dépend :",
+      "correct": "C",
+      "explanation": "La période d'oscillation d'un pendule simple dépend de la longueur du fil et de l'intensité de la pesanteur. En effet, la période T est donnée par la formule T = 2π √(L/g), où L est la longueur du fil et g est l'accélération de pesanteur. Les autres options sont incorrectes car la masse de la boule n'influe pas sur la période (en l'absence de frottement), l'amplitude n'a pas d'influence pour les petites oscillations, et la période ne dépend pas uniquement de la longueur du fil.",
+      "options": [
+        "De la masse de la boule et de la longueur du fil.",
+        "De l'amplitude et de la masse.",
+        "De la longueur du fil et de l'intensité de la pesanteur.",
+        "Uniquement de la longueur du fil."
+      ]
+    },
+    {
+      "id": "M5",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une onde transversale et une onde longitudinale se distinguent par :",
+      "correct": "A",
+      "explanation": "Une onde transversale et une onde longitudinale se distinguent par la direction de la perturbation par rapport à la propagation. Dans une onde transversale, la perturbation est perpendiculaire à la direction de propagation, tandis que dans une onde longitudinale, la perturbation est parallèle à la direction de propagation. Les autres options sont incorrectes car la vitesse de propagation, la fréquence et le milieu de propagation ne sont pas des critères de distinction entre ces deux types d'ondes.",
+      "options": [
+        "La direction de la perturbation par rapport à la propagation.",
+        "La vitesse de propagation.",
+        "La fréquence.",
+        "Le milieu de propagation."
+      ]
+    },
+    {
+      "id": "M6",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La radioactivité β⁻ correspond à l'émission d'un électron, tandis que la radioactivité β⁺ correspond à l'émission :",
+      "correct": "B",
+      "explanation": "La radioactivité β⁺ correspond à l'émission d'un positon (anti-électron). En effet, lors d'une désintégration β⁺, un proton est converti en neutron et un positon est émis. Les autres options sont incorrectes car un neutron est émis dans certains processus mais pas β⁺, un proton n'est pas émis lors d'une désintégration β, et un rayon gamma est un photon, pas une particule β.",
+      "options": [
+        "D'un neutron.",
+        "D'un positon (anti-électron).",
+        "D'un rayon gamma.",
+        "D'un proton."
+      ]
+    },
+    {
+      "id": "M7",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En chute libre (sans frottement), le mouvement d'un corps :",
+      "correct": "A",
+      "explanation": "En chute libre (sans frottement), le mouvement d'un corps ne dépend que des conditions initiales, pas de la masse. En effet, l'accélération de pesanteur est indépendante de la masse, et le mouvement est déterminé par les conditions initiales (position et vitesse) et l'accélération de pesanteur. Les autres options sont incorrectes car la forme du corps n'a pas d'effet sur le mouvement, et le mouvement peut avoir une composante horizontale (projectile).",
+      "options": [
+        "Ne dépend que des conditions initiales, pas de la masse.",
+        "Est toujours vertical.",
+        "Dépend de sa masse et des conditions initiales.",
+        "Dépend de la forme du corps."
+      ]
+    },
+    {
+      "id": "M8",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Une onde transporte :",
+      "correct": "B",
+      "explanation": "Une onde transporte uniquement de l'énergie. En effet, les particules du milieu oscillent sur place, ne se déplacent pas avec l'onde, et l'onde transporte uniquement de l'énergie. Les autres options sont incorrectes car les particules du milieu ne se déplacent pas avec l'onde, et il n'y a pas de transport de matière.",
+      "options": [
+        "De la matière et de l'énergie.",
+        "Uniquement de l'énergie.",
+        "Ni matière ni énergie.",
+        "Uniquement de la matière."
+      ]
+    },
+    {
+      "id": "M9",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lorsqu'un corps tombe en chute libre, la somme des forces extérieures agissant sur lui :",
+      "correct": "D",
+      "explanation": "Lorsqu'un corps tombe en chute libre, la somme des forces extérieures agissant sur lui est égale à son poids, qui est une force non nulle dirigée vers le bas. En effet, la seule force qui agit sur le corps est son poids, qui est une force constante. Les autres options sont incorrectes car la somme des forces n'est pas nulle (cela signifierait que le corps est au repos ou en mouvement rectiligne uniforme), ni constante mais nulle, ni augmentant avec la vitesse. La bonne compréhension de la chute libre montre que le corps accélère sous l'effet de son poids, donc la somme des forces est non nulle et égale au poids.",
+      "options": [
+        "Est constante mais nulle.",
+        "Est nulle.",
+        "Augmente avec la vitesse.",
+        "Est égale à son poids (non nulle)."
+      ]
+    },
+    {
+      "id": "M10",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un phénomène répétitif est dit périodique si :",
+      "correct": "C",
+      "explanation": "Un phénomène répétitif est dit périodique s'il se reproduit identique à lui-même à intervalles de temps égaux. Cela signifie que le phénomène présente une régularité dans sa répétition. Les autres options sont incorrectes car des intervalles de temps quelconques ne définissent pas la périodicité, l'amplitude constante est une caractéristique possible mais non nécessaire de la périodicité, et la forme sinusoïdale n'est qu'un cas particulier de phénomène périodique. La périodicité concerne donc la répétition à intervalles réguliers, indépendamment de la forme du phénomène.",
+      "options": [
+        "Il se reproduit à intervalles de temps quelconques.",
+        "Il possède une amplitude constante.",
+        "Il se reproduit identique à lui-même à intervalles de temps égaux.",
+        "Il est sinusoïdal."
+      ]
+    },
+    {
+      "id": "M11",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un noyau radioactif est :",
+      "correct": "A",
+      "explanation": "Un noyau radioactif est un noyau instable qui se désintègre spontanément en un noyau différent. Cela signifie qu'il émet des particules pour atteindre un état plus stable. Les autres options sont incorrectes car un noyau stable ne se désintègre pas spontanément, la capture électronique est un type de radioactivité mais ne définit pas un noyau radioactif, et un noyau excité n'est pas nécessairement radioactif. La radioactivité implique une transformation spontanée du noyau, ce qui n'est pas le cas des noyaux stables ou simplement excités.",
+      "options": [
+        "Un noyau instable qui se désintègre spontanément en un noyau différent.",
+        "Un noyau qui capture des électrons.",
+        "Un noyau stable qui émet des particules.",
+        "Un noyau excité uniquement."
+      ]
+    },
+    {
+      "id": "M12",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La classification d'une onde en longitudinale ou transversale dépend :",
+      "correct": "C",
+      "explanation": "La classification d'une onde en longitudinale ou transversale dépend du sens de la perturbation par rapport à la propagation. Si la perturbation est parallèle à la direction de propagation, l'onde est longitudinale ; si elle est perpendiculaire, l'onde est transversale. Les autres options sont incorrectes car le milieu peut influencer la vitesse ou la possibilité de propagation de l'onde mais ne détermine pas sa nature longitudinale ou transversale, la fréquence caractérise l'onde mais ne permet pas de la classer ainsi, et l'amplitude décrit l'intensité de l'onde sans indiquer son type.",
+      "options": [
+        "Du milieu.",
+        "De la fréquence.",
+        "Du sens de la perturbation par rapport à la propagation.",
+        "De l'amplitude."
+      ]
+    },
+    {
+      "id": "M13",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dans un référentiel galiléen, le mouvement du centre d'inertie d'un satellite en orbite circulaire est :",
+      "correct": "D",
+      "explanation": "Dans un référentiel galiléen, le mouvement du centre d'inertie d'un satellite en orbite circulaire est uniforme, c'est-à-dire que sa vitesse est constante en norme, bien que sa direction change continuellement. Cela signifie que le satellite parcourt des arcs de cercle égaux en des temps égaux. Les autres options sont incorrectes car le mouvement n'est pas rectiligne (la trajectoire est circulaire), il n'est pas uniformément accéléré (l'accélération est centripète, dirigée vers le centre de la Terre, et de norme constante), et il n'est pas curviligne quelconque (la trajectoire est circulaire).",
+      "options": [
+        "Rectiligne uniforme.",
+        "Curviligne quelconque.",
+        "Uniformément accéléré.",
+        "Uniforme (vitesse constante en norme)."
+      ]
+    },
+    {
+      "id": "M14",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour un pendule simple, la période pour les petites oscillations :",
+      "correct": "C",
+      "explanation": "Pour un pendule simple, la période pour les petites oscillations est donnée par T = 2π √(L/g) et ne dépend pas de l'amplitude. Cela illustre l'isochronisme des oscillations pour les faibles amplitudes. Les autres options sont incorrectes car la période ne dépend pas de la masse du pendule pour les oscillations petites, elle n'augmente pas avec l'amplitude dans le cadre de l'approximation des petites oscillations, et elle n'est pas proportionnelle à la masse. La formule classique montre que la période dépend de la longueur du pendule et de l'accélération de la gravité.",
+      "options": [
+        "Est proportionnelle à la masse.",
+        "Augmente avec l'amplitude.",
+        "Est donnée par T = 2π √(L/g) et ne dépend pas de l'amplitude.",
+        "Dépend de l'amplitude."
+      ]
+    },
+    {
+      "id": "M15",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un objet glisse à vitesse constante sur un plan incliné (avec frottements). La somme des forces extérieures est :",
+      "correct": "A",
+      "explanation": "Un objet glisse à vitesse constante sur un plan incliné (avec frottements) ; la somme des forces extérieures est nulle. En effet, d'après le principe d'inertie, si un corps est en mouvement rectiligne uniforme, la somme des forces qui s'exercent sur lui est nulle. Les autres options sont incorrectes car la somme des forces n'est pas non nulle et dirigée vers le bas (ce serait le cas si l'objet accélère), elle n'est pas égale à la réaction normale (qui compense une partie du poids mais ne rend pas compte du mouvement), et elle n'est pas égale au poids (le poids est compensé par les composantes de la réaction normale et la force de frottement).",
+      "options": [
+        "Nulle, mouvement rectiligne uniforme.",
+        "Non nulle et dirigée vers le bas.",
+        "Égale à la réaction normale.",
+        "Égale au poids."
+      ]
+    },
+    {
+      "id": "M16",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La première loi de Newton (principe d'inertie) énonce qu'un corps non soumis à des forces extérieures :",
+      "correct": "D",
+      "explanation": "La première loi de Newton (principe d'inertie) énonce qu'un corps non soumis à des forces extérieures se déplace en mouvement rectiligne uniforme ou reste au repos. Cela signifie que sans force extérieure, un corps conserve son état de mouvement. Les autres options sont incorrectes car un corps sans force extérieure n'a pas d'accélération constante (il en aurait si une force extérieure agit sur lui), il ne tourne pas nécessairement autour d'un axe (ce serait un mouvement circulaire nécessitant une force centripète), et il n'est pas toujours au repos (il peut aussi avoir un mouvement rectiligne uniforme).",
+      "options": [
+        "A une accélération constante.",
+        "Tourne autour d'un axe.",
+        "Est toujours au repos.",
+        "Se déplace en mouvement rectiligne uniforme ou reste au repos."
+      ]
+    },
+    {
+      "id": "M17",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Comparaison entre force gravitationnelle et force de Coulomb :",
+      "correct": "A",
+      "explanation": "La force gravitationnelle et la force de Coulomb sont deux types de forces fondamentales en physique. La gravitation est toujours attractive, car elle dépend du produit des masses et de la distance entre les objets, sans possibilité de répulsion. En revanche, la force de Coulomb, qui agit entre les charges électriques, peut être attractive ou répulsive selon les signes des charges en interaction. Ainsi, l'option disant que 'La gravitation est toujours attractive, Coulomb est attractive ou répulsive' est juste. Les autres options sont incorrectes car la gravitation ne peut pas être répulsive, et Coulomb peut être attractive ou répulsive selon les charges.",
+      "options": [
+        "La gravitation est toujours attractive, Coulomb est attractive ou répulsive.",
+        "Les deux sont toujours attractives.",
+        "La gravitation peut être répulsive.",
+        "Coulomb est toujours répulsive."
+      ]
+    },
+    {
+      "id": "M18",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La troisième loi de Newton (action-réaction) dit que la force exercée par A sur B :",
+      "correct": "A",
+      "explanation": "La troisième loi de Newton, ou principe d'action-réaction, stipule que pour chaque action, il existe une réaction égale et opposée. Cela signifie que la force exercée par un objet sur un autre est de même module et dans la même direction mais de sens opposé à la force exercée par le deuxième objet sur le premier. Cette loi s'applique à toutes les forces, qu'elles soient de contact ou à distance. L'option 'Est de même module, même direction mais sens opposé' est donc correcte. Les autres options sont incorrectes car les forces d'action et de réaction ne dépendent pas du contact entre les objets, sont égales en module et n'ont pas nécessairement un sens plus grand l'une que l'autre.",
+      "options": [
+        "Est de même module, même direction mais sens opposé.",
+        "N'existe que si A et B sont en contact.",
+        "Est toujours plus grande que celle de B sur A.",
+        "Est de même direction et sens que celle de B sur A."
+      ]
+    },
+    {
+      "id": "M19",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La deuxième loi de Newton (dans un référentiel galiléen) s'écrit :",
+      "correct": "C",
+      "explanation": "La deuxième loi de Newton, ou principe fondamental de la dynamique, relie la force appliquée à un objet à son accélération. Elle est généralement exprimée sous la forme ΣF = m * a, où ΣF est la somme des forces extérieures appliquées, m est la masse de l'objet et a est son accélération. Cette loi est valable dans un référentiel galiléen et pour une masse constante. L'option correcte reflète cette relation classique. Les autres options sont incorrectes car ΣF = 0 correspond à la première loi de Newton (inertie), ΣF = dp/dt est une forme plus générale valable pour les masses variables, et ΣF = m * v n'est pas une expression standard de la deuxième loi.",
+      "options": [
+        "ΣF = 0.",
+        "ΣF = dp/dt mais pas sous forme m*a si masse variable.",
+        "ΣF = m * a (accélération du centre d'inertie).",
+        "ΣF = m * v."
+      ]
+    },
+    {
+      "id": "M20",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un corps vérifiant le principe d'inertie a :",
+      "correct": "A",
+      "explanation": "Le principe d'inertie, ou première loi de Newton, stipule qu'un objet au repos reste au repos et qu'un objet en mouvement continue à se déplacer à une vitesse constante, à moins d'être soumis à une force extérieure. Un corps vérifiant ce principe a un mouvement uniforme, ce qui signifie qu'il suit une trajectoire rectiligne à vitesse constante. L'option correcte décrit ce type de mouvement. Les autres options sont incorrectes car une vitesse nulle n'implique pas nécessairement l'inertie (l'objet peut être soumis à des forces), une accélération constante non nulle contredit l'inertie, et un mouvement circulaire uniforme implique une accélération centripète.",
+      "options": [
+        "Un mouvement uniforme, trajectoire rectiligne, vitesse constante.",
+        "Une vitesse nulle.",
+        "Une accélération constante non nulle.",
+        "Un mouvement circulaire uniforme."
+      ]
+    },
+    {
+      "id": "M21",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dans un mouvement circulaire uniforme, l'accélération tangentielle est nulle et l'accélération normale :",
+      "correct": "A",
+      "explanation": "Dans un mouvement circulaire uniforme, l'accélération tangentielle est nulle car la vitesse tangentielle est constante. L'accélération normale, ou centripète, est dirigée vers le centre de la trajectoire circulaire et est nécessaire pour maintenir le mouvement circulaire. L'option correcte est celle qui indique que l'accélération normale est égale au vecteur accélération totale, ce qui est vrai puisque l'accélération tangentielle est nulle. Les autres options sont incorrectes car l'accélération normale n'est pas tangente à la trajectoire mais dirigée vers le centre, son module est constant (v²/R), et elle n'est pas nulle.",
+      "options": [
+        "Est égale au vecteur accélération totale.",
+        "Est tangente à la trajectoire.",
+        "Varie en module.",
+        "Est nulle aussi."
+      ]
+    },
+    {
+      "id": "M22",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le vecteur accélération est :",
+      "correct": "D",
+      "explanation": "Le vecteur accélération est la dérivée du vecteur vitesse par rapport au temps. Cela reflète la définition fondamentale de l'accélération en physique, qui décrit comment la vitesse d'un objet change au fil du temps. L'option correcte correspond à cette définition. Les autres options sont incorrectes car l'intégrale du vecteur vitesse donne la position, la dérivée seconde de la position par rapport au temps donne également l'accélération mais indirectement, et la dérivée de la vitesse est précisément l'accélération.",
+      "options": [
+        "L'intégrale du vecteur vitesse.",
+        "La dérivée seconde de la vitesse.",
+        "La dérivée du vecteur position par rapport au temps.",
+        "La dérivée du vecteur vitesse par rapport au temps."
+      ]
+    },
+    {
+      "id": "M23",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le vecteur vitesse est :",
+      "correct": "B",
+      "explanation": "Le vecteur vitesse est la dérivée du vecteur position par rapport au temps. C'est une définition fondamentale en cinématique qui permet de décrire la vitesse d'un objet en fonction de sa position en fonction du temps. L'option correcte reflète cette définition. Les autres options sont incorrectes car l'intégrale de l'accélération donne la vitesse (et non l'inverse), la dérivée de l'accélération n'est pas une définition standard de la vitesse, et la primitive de la position est la position elle-même, pas la vitesse.",
+      "options": [
+        "L'intégrale de l'accélération.",
+        "La dérivée du vecteur position par rapport au temps.",
+        "La dérivée du vecteur accélération.",
+        "La primitive de la position."
+      ]
+    },
+    {
+      "id": "M24",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le repère de Frenet est :",
+      "correct": "C",
+      "explanation": "Le repère de Frenet est un système de coordonnées mobiles utilisé pour décrire les trajectoires dans l'espace, particulièrement utile pour les courbes planes ou gauches. Il est constitué de vecteurs orthonormés qui se déplacent avec le mobile, notamment les vecteurs tangentiel et normal. L'option correcte décrit correctement le repère de Frenet. Les autres options sont incorrectes car il n'est pas limité aux mouvements rectilignes, il est mobile et non fixe dans l'espace, et il est principalement utilisé pour des mouvements curvilignes en deux ou trois dimensions.",
+      "options": [
+        "Utilisé uniquement pour les mouvements rectilignes.",
+        "Fixe dans l'espace.",
+        "Constitué de deux vecteurs orthonormés (tangentiel et normal) qui se déplacent avec le mobile.",
+        "Un repère à trois dimensions."
+      ]
+    },
+    {
+      "id": "M25",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un projectile est un objet qui :",
+      "correct": "C",
+      "explanation": "Un projectile est un objet qui subit l'effet de la gravité et se déplace à la fois horizontalement et verticalement. Cela signifie que sa trajectoire est influencée par la force de gravité, ce qui le fait accélérer verticalement tandis qu'il se déplace uniformément horizontalement. L'option 'Subit l'effet de la gravité et se déplace horizontalement et verticalement' est donc correcte. Les autres options sont incorrectes car un projectile ne se meut pas uniquement en ligne droite, il a une accélération verticale due à la gravité, et il subit à la fois des forces horizontale et verticale, pas uniquement horizontale.",
+      "options": [
+        "Se meut en ligne droite.",
+        "N'a pas d'accélération verticale.",
+        "Subit l'effet de la gravité et se déplace horizontalement et verticalement.",
+        "Subit uniquement une force horizontale."
+      ]
+    },
+    {
+      "id": "M26",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Le mouvement vertical d'un projectile (sans frottement) est :",
+      "correct": "C",
+      "explanation": "Le mouvement vertical d'un projectile sans frottement est rectiligne uniformément accéléré, identique à la chute libre. Cela signifie que l'accélération verticale est constante et égale à -g, ce qui entraîne une variation uniforme de la vitesse verticale. L'option 'Rectiligne uniformément accéléré (identique à chute libre)' est donc correcte. Les autres options sont incorrectes car le mouvement vertical n'est pas uniformément varié mais pas rectiligne, il n'est pas rectiligne uniforme, et il n'est pas circulaire.",
+      "options": [
+        "Uniformément varié mais pas rectiligne.",
+        "Rectiligne uniforme.",
+        "Rectiligne uniformément accéléré (identique à chute libre).",
+        "Circulaire."
+      ]
+    },
+    {
+      "id": "M27",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "En chute libre, le travail du poids est égal :",
+      "correct": "D",
+      "explanation": "En chute libre, le travail du poids est égal à la variation d'énergie cinétique, selon le théorème de l'énergie cinétique. Cela signifie que la somme des travaux de toutes les forces est égale à la variation de l'énergie cinétique. L'option 'À la variation d'énergie cinétique (théorème de l'énergie cinétique)' est donc correcte. Les autres options sont incorrectes car le travail du poids n'est pas égal à la variation d'énergie potentielle, il n'est pas égal à zéro, et bien que l'énergie mécanique se conserve, cela ne signifie pas que le travail du poids est égal à la variation d'énergie mécanique.",
+      "options": [
+        "À la variation d'énergie mécanique.",
+        "À la variation d'énergie potentielle.",
+        "À zéro.",
+        "À la variation d'énergie cinétique (théorème de l'énergie cinétique)."
+      ]
+    },
+    {
+      "id": "M28",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L'énergie cinétique est l'énergie due au mouvement. L'énergie potentielle est :",
+      "correct": "D",
+      "explanation": "L'énergie potentielle est l'énergie stockée dans un système due à sa position ou à son état, souvent mesurée par rapport à la Terre pour l'énergie potentielle de pesanteur. Cela signifie qu'elle dépend de la position de l'objet par rapport à un point de référence. L'option 'L'énergie mesurée par rapport à la Terre (énergie de position)' est donc correcte. Les autres options sont incorrectes car l'énergie potentielle n'est pas liée à la température, elle n'est pas toujours nulle, et bien qu'elle puisse être liée à la chimie pour d'autres types d'énergie potentielle, la définition générale est celle d'énergie de position.",
+      "options": [
+        "L'énergie liée à la température.",
+        "L'énergie stockée dans les liaisons chimiques.",
+        "Toujours nulle.",
+        "L'énergie mesurée par rapport à la Terre (énergie de position)."
+      ]
+    },
+    {
+      "id": "M29",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L'énergie mécanique d'un système est :",
+      "correct": "B",
+      "explanation": "L'énergie mécanique d'un système est la somme de ses énergies cinétique et potentielle. Cela signifie qu'elle représente l'énergie totale d'un système due à son mouvement et à sa position. L'option 'La somme des énergies cinétique et potentielle' est donc correcte. Les autres options sont incorrectes car l'énergie mécanique n'est pas l'énergie interne, elle n'est pas la différence entre énergie cinétique et potentielle, et elle n'est pas l'énergie totale relativiste.",
+      "options": [
+        "L'énergie interne.",
+        "La somme des énergies cinétique et potentielle.",
+        "La différence entre énergie cinétique et potentielle.",
+        "L'énergie totale relativiste."
+      ]
+    },
+    {
+      "id": "M30",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le principe de conservation de l'énergie stipule que :",
+      "correct": "A",
+      "explanation": "Le principe de conservation de l'énergie stipule que l'énergie peut changer de forme, mais ne peut être ni créée ni détruite. Cela signifie que l'énergie totale d'un système isolé reste constante, mais elle peut se transformer d'une forme à une autre. Les autres options sont incorrectes car l'énergie ne peut pas être créée, elle ne se perd pas toujours, et elle ne peut pas augmenter avec le temps dans un système isolé.",
+      "options": [
+        "L'énergie peut changer de forme, mais ne peut être ni créée ni détruite.",
+        "L'énergie peut être créée mais pas détruite.",
+        "L'énergie se perd toujours.",
+        "L'énergie totale augmente avec le temps."
+      ]
+    },
+    {
+      "id": "M31",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En chute libre (sans frottement), que se passe-t-il pour l'énergie ?",
+      "correct": "A",
+      "explanation": "En chute libre sans frottement, l'énergie potentielle se transforme en énergie cinétique. Cela signifie que lorsque l'objet tombe, son énergie potentielle due à sa hauteur diminue, tandis que son énergie cinétique augmente. Les autres options sont incorrectes car l'énergie mécanique se conserve, elle n'augmente pas, l'énergie potentielle ne reste pas constante, et l'énergie cinétique ne se transforme pas en énergie potentielle lors de la chute.",
+      "options": [
+        "L'énergie potentielle se transforme en énergie cinétique.",
+        "L'énergie mécanique augmente.",
+        "L'énergie potentielle reste constante.",
+        "L'énergie cinétique se transforme en potentielle."
+      ]
+    },
+    {
+      "id": "M32",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Dans le cas d'un mouvement de projectile (vers le haut), l'énergie cinétique :",
+      "correct": "A",
+      "explanation": "Dans le cas d'un mouvement de projectile vers le haut, l'énergie cinétique se transforme progressivement en énergie potentielle. Cela signifie que lorsque l'objet monte, son énergie cinétique diminue tandis que son énergie potentielle augmente. Les autres options sont incorrectes car l'énergie cinétique ne peut pas augmenter constamment sans frottement, elle ne se transforme pas en chaleur, et elle ne reste pas constante.",
+      "options": [
+        "Se transforme progressivement en énergie potentielle.",
+        "Augmente constamment.",
+        "Se transforme en chaleur.",
+        "Reste constante."
+      ]
+    },
+    {
+      "id": "M33",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Un oscillateur est dit harmonique lorsque :",
+      "correct": "C",
+      "explanation": "Un oscillateur est dit harmonique lorsque l'énergie mécanique se conserve, c'est-à-dire qu'il n'y a pas de pertes d'énergie. Cela signifie que le milieu dans lequel il évolue est sans contrainte, sans frottement. Les autres options sont incorrectes car la présence de frottement conduit à un oscillateur amorti, la dépendance de la période avec l'amplitude n'est pas une caractéristique de l'oscillateur harmonique, et la diminution de l'amplitude est caractéristique d'un oscillateur amorti.",
+      "options": [
+        "Il évolue dans un milieu avec frottement.",
+        "Sa période dépend de l'amplitude.",
+        "Il n'y a pas de pertes d'énergie (milieu sans contrainte).",
+        "Son amplitude diminue."
+      ]
+    },
+    {
+      "id": "M34",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un pendule simple se distingue d'un pendule pesant par :",
+      "correct": "D",
+      "explanation": "Un pendule simple se distingue d'un pendule pesant par le fait que la masse du fil est négligeable devant celle de la boule. C'est cette caractéristique qui permet de considérer le pendule simple comme un système à un degré de liberté, avec une équation de mouvement simplifiée. Les autres options sont incorrectes car l'amplitude est une caractéristique commune aux deux types de pendules, la longueur du fil est également commune, et la masse de la boule n'est pas la caractéristique distinctive entre les deux.",
+      "options": [
+        "L'amplitude.",
+        "La longueur du fil.",
+        "La masse de la boule.",
+        "La masse du fil négligeable devant celle de la boule."
+      ]
+    },
+    {
+      "id": "M35",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Un milieu est dit dispersif si :",
+      "correct": "A",
+      "explanation": "Un milieu est dit dispersif si la célérité des ondes qui s'y propagent dépend de leur fréquence. Cela signifie que les ondes de différentes fréquences se propagent à des vitesses différentes dans ce milieu. Les autres options sont incorrectes car l'absence de propagation n'a rien à voir avec la dispersivité, la dépendance de la célérité avec l'amplitude est une caractéristique non linéaire, et l'amortissement est une perte d'énergie qui n'est pas liée à la dispersivité.",
+      "options": [
+        "La célérité des ondes dépend de leur fréquence.",
+        "Il n'y a pas de propagation.",
+        "La célérité des ondes dépend de leur amplitude.",
+        "Les ondes sont amorties."
+      ]
+    },
+    {
+      "id": "M36",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "D'après la première loi de Kepler, l'orbite de chaque planète est :",
+      "correct": "B",
+      "explanation": "D'après la première loi de Kepler, l'orbite de chaque planète est une ellipse dont le Soleil occupe l'un des foyers. Cela signifie que la trajectoire des planètes est courbe et que le Soleil est situé à un des foyers de cette ellipse. Les autres options sont incorrectes car 'Une hyperbole' est une trajectoire possible pour les comètes, mais pas pour les planètes, 'Un cercle avec le Soleil au centre' est un cas particulier de l'ellipse, et 'Une parabole' est également une trajectoire possible pour les comètes.",
+      "options": [
+        "Une hyperbole.",
+        "Une ellipse dont le Soleil occupe l'un des foyers.",
+        "Un cercle avec le Soleil au centre.",
+        "Une parabole."
+      ]
+    },
+    {
+      "id": "M37",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L'énergie potentielle élastique d'un ressort est :",
+      "correct": "D",
+      "explanation": "L'énergie potentielle élastique d'un ressort est proportionnelle à la raideur et à la déformation au carré. Cela signifie que plus le ressort est raide et plus il est déformé, plus son énergie potentielle est élevée. Les autres options sont incorrectes car la proportionnalité à la raideur et à la déformation est incomplète, l'indépendance de la raideur est fausse, et la proportionnalité à la masse n'a pas de sens dans ce contexte.",
+      "options": [
+        "Proportionnelle à la raideur et à la déformation.",
+        "Indépendante de la raideur.",
+        "Proportionnelle à la masse.",
+        "Proportionnelle à la raideur et à la déformation au carré."
+      ]
+    },
+    {
+      "id": "M38",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dans une oscillation harmonique (non amortie) :",
+      "correct": "A",
+      "explanation": "Dans une oscillation harmonique non amortie, l'énergie mécanique se conserve et la période est propre, c'est-à-dire qu'elle ne dépend pas de l'amplitude. Cela signifie que le système oscille à une fréquence fixe sans perte d'énergie. Les autres options sont incorrectes car la période imposée par les frottements est caractéristique d'un oscillateur amorti, la dépendance de la période avec l'amplitude n'est pas une caractéristique de l'oscillateur harmonique, et la diminution de l'énergie mécanique est caractéristique d'un oscillateur amorti.",
+      "options": [
+        "L'énergie mécanique se conserve et la période est propre.",
+        "La période est imposée par les frottements.",
+        "La période dépend de l'amplitude.",
+        "L'énergie mécanique diminue."
+      ]
+    },
+    {
+      "id": "M39",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "La 3ème loi de Kepler (loi des périodes) dit que le rapport T²/a³ (période² / demi-grand axe³) :",
+      "correct": "C",
+      "explanation": "La 3ème loi de Kepler, ou loi des périodes, dit que le rapport T²/a³ (période² / demi-grand axe³) est constant pour toutes les planètes et ne dépend pas de leur masse. Cela signifie que les planètes qui orbitent autour du même Soleil ont une relation universelle entre leur période et leur distance au Soleil. Les autres options sont incorrectes car la dépendance avec la masse de la planète n'existe pas, la variabilité selon la planète est fausse, et l'égalité à 1 est une simplification incorrecte.",
+      "options": [
+        "Dépend de la masse de la planète.",
+        "Est variable selon la planète.",
+        "Est constant pour toutes les planètes et ne dépend pas de leur masse.",
+        "Est égal à 1."
+      ]
+    },
+    {
+      "id": "M40",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un oscillateur harmonique est un système dont l'évolution temporelle est :",
+      "correct": "A",
+      "explanation": "Un oscillateur harmonique est un système dont l'évolution temporelle est sinusoïdale, c'est-à-dire que sa position, vitesse et accélération varient comme des fonctions sinusoidales du temps. Cela signifie que le système oscille à une fréquence fixe. Les autres options sont incorrectes car une évolution exponentielle est caractéristique d'un système instable ou amorti, une évolution linéaire n'est pas caractéristique d'un oscillateur, et une évolution parabolique n'a pas de sens dans ce contexte.",
+      "options": [
+        "Sinusoïdale.",
+        "Exponentielle.",
+        "Linéaire.",
+        "Parabolique."
+      ]
+    },
+    {
+      "id": "M41",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La radioactivité est :",
+      "correct": "A",
+      "explanation": "La radioactivité est un phénomène physique où des noyaux atomiques instables émettent des particules ou des rayons pour atteindre un état plus stable. C'est une réaction nucléaire spontanée, ce qui signifie qu'elle se produit naturellement sans intervention extérieure. L'option 'Une réaction nucléaire spontanée avec émission de rayons et particules' décrit parfaitement ce concept. Les autres options sont incorrectes car la radioactivité n'est pas une réaction nucléaire provoquée (c'est-à-dire causée par une intervention extérieure), ni une transformation chimique (qui concerne les interactions entre atomes ou molécules, et non les noyaux), ni simplement une émission de lumière (qui est un phénomène beaucoup plus large et ne concerne pas spécifiquement la radioactivité).",
+      "options": [
+        "Une réaction nucléaire spontanée avec émission de rayons et particules.",
+        "Une réaction nucléaire provoquée.",
+        "Une transformation chimique.",
+        "Une émission de lumière."
+      ]
+    },
+    {
+      "id": "M42",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "En relativité restreinte, la vitesse de la lumière dans le vide vaut 300 000 km/s et :",
+      "correct": "A",
+      "explanation": "En relativité restreinte, la vitesse de la lumière dans le vide est une constante universelle qui vaut environ 300 000 km/s. Un aspect fondamental de cette théorie est que le temps n'est pas absolu, mais relatif, c'est-à-dire qu'il dépend de la vitesse de l'observateur. C'est ce qu'on appelle le 'temps propre'. L'option 'Le temps est propre (relatif)' reflète cette idée. Les autres options sont incorrectes car la simultanéité n'est pas absolue en relativité restreinte (deux événements simultanés pour un observateur peuvent ne pas l'être pour un autre), les masses ne sont pas constantes (la masse augmente avec la vitesse), et le temps n'est pas absolu (il dépend de la vitesse de l'observateur).",
+      "options": [
+        "Le temps est propre (relatif).",
+        "La simultanéité est absolue.",
+        "Les masses sont constantes.",
+        "Le temps est absolu."
+      ]
+    },
+    {
+      "id": "M43",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L'échange d'énergie entre la lumière et la matière se fait :",
+      "correct": "D",
+      "explanation": "L'échange d'énergie entre la lumière et la matière se fait de manière quantifiée, c'est-à-dire que l'énergie est transférée sous forme de 'quanta' ou paquets d'énergie, appelés photons. C'est ce qu'on appelle la quantification de l'énergie. L'option 'Par quanta d'énergie (photons)' décrit correctement ce phénomène. Les autres options sont incorrectes car l'échange d'énergie ne se fait pas de façon continue (mais de manière discrète, sous forme de photons), ni uniquement par chaleur (qui est un mode de transfert d'énergie, mais pas le seul), ni par ondes mécaniques (qui sont un type d'onde, mais ne concernent pas directement l'échange d'énergie entre lumière et matière).",
+      "options": [
+        "De façon continue.",
+        "Uniquement par chaleur.",
+        "Par ondes mécaniques.",
+        "Par quanta d'énergie (photons)."
+      ]
+    },
+    {
+      "id": "M44",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les ondes stationnaires sont caractérisées par :",
+      "correct": "B",
+      "explanation": "Les ondes stationnaires sont des ondes qui se forment par la superposition de deux ondes progressives de même fréquence et d'amplitude égale, se propageant dans des directions opposées. Elles sont caractérisées par des points où l'amplitude est nulle (appelés nœuds) et des points où l'amplitude est maximale (appelés ventres). L'option 'Des nœuds et des ventres' décrit parfaitement cette caractéristique. Les autres options sont incorrectes car les ondes stationnaires résultent effectivement d'une superposition d'ondes progressives (et non d'une propagation sans réflexion), leur amplitude n'est pas nulle partout (mais varie entre les nœuds et les ventres), et elles sont associées à une fréquence spécifique (et non à plusieurs fréquences).",
+      "options": [
+        "Une propagation sans réflexion.",
+        "Des nœuds et des ventres.",
+        "Une amplitude nulle partout.",
+        "Une seule fréquence."
+      ]
+    },
+    {
+      "id": "M45",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La période de révolution d'un satellite géostationnaire est :",
+      "correct": "C",
+      "explanation": "La période de révolution d'un satellite géostationnaire est telle qu'il effectue un tour de Terre en même temps que la Terre tourne sur elle-même, ce qui est exactement un jour sidéral, soit environ 23 heures, 56 minutes et 4 secondes. C'est cette caractéristique qui permet au satellite de rester à une position fixe par rapport à un point de la Terre. L'option 'Un jour sidéral (23 h 56 min 4 s)' est donc correcte. Les autres options sont incorrectes car un mois est une période beaucoup plus longue, 24 heures exactement correspondent à un jour solaire (et non sidéral), et 12 heures ne correspondent pas à la période de révolution d'un satellite géostationnaire.",
+      "options": [
+        "1 mois.",
+        "24 h exactement.",
+        "Un jour sidéral (23 h 56 min 4 s).",
+        "12 h."
+      ]
+    },
+    {
+      "id": "M46",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L'énergie potentielle de pesanteur augmente avec l'altitude, et l'énergie cinétique :",
+      "correct": "C",
+      "explanation": "L'énergie potentielle de pesanteur d'un objet augmente avec son altitude, car elle dépend de la hauteur de l'objet par rapport à un niveau de référence. L'énergie cinétique, en revanche, dépend de la vitesse de l'objet et augmente avec celle-ci, selon la formule Ec = ½ mv², où m est la masse et v la vitesse de l'objet. L'option 'Augmente avec la vitesse' décrit donc correctement la relation entre l'énergie cinétique et la vitesse. Les autres options sont incorrectes car l'énergie cinétique n'augmente pas avec l'altitude (mais avec la vitesse), n'est pas indépendante de la vitesse (mais dépend directement de la vitesse), et ne diminue pas avec la vitesse (mais augmente).",
+      "options": [
+        "Augmente avec l'altitude.",
+        "Est indépendante de la vitesse.",
+        "Augmente avec la vitesse.",
+        "Diminue avec la vitesse."
+      ]
+    },
+    {
+      "id": "M47",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La période d'oscillation harmonique d'un pendule simple :",
+      "correct": "B",
+      "explanation": "La période d'oscillation harmonique d'un pendule simple dépend de sa longueur et de l'accélération de la pesanteur, mais est indépendante de la masse du pendule. C'est une caractéristique fondamentale des pendules simples. L'option 'Varie avec la longueur, indépendante de la masse' reflète cette propriété. Les autres options sont incorrectes car la période d'oscillation ne dépend pas de la longueur seule (mais aussi de l'accélération de la pesanteur), et varie effectivement avec la longueur, mais pas avec la masse.",
+      "options": [
+        "Est indépendante de la longueur.",
+        "Varie avec la longueur, indépendante de la masse.",
+        "Varie avec la longueur et la masse.",
+        "Varie avec la masse uniquement."
+      ]
+    },
+    {
+      "id": "M48",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "Quand l'amortissement d'un système oscillant est faible, la résonance :",
+      "correct": "C",
+      "explanation": "Quand l'amortissement d'un système oscillant est faible, la résonance est maximale et la fréquence de résonance est très proche de la fréquence propre du système. C'est une caractéristique importante des systèmes oscillants faiblement amortis. L'option 'Est maximale et la fréquence de résonance est très proche de la fréquence propre' décrit correctement ce phénomène. Les autres options sont incorrectes car la résonance ne se produit pas à une fréquence très éloignée (mais proche de la fréquence propre), ne disparaît pas (mais est au contraire maximale), et n'est pas atténuée (mais au contraire accentuée) lorsque l'amortissement est faible.",
+      "options": [
+        "Se produit à une fréquence très éloignée.",
+        "Disparaît.",
+        "Est maximale et la fréquence de résonance est très proche de la fréquence propre.",
+        "Est atténuée."
+      ]
+    },
+    {
+      "id": "M49",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les ondes électromagnétiques se propagent dans le vide, contrairement aux ondes mécaniques qui :",
+      "correct": "B",
+      "explanation": "Les ondes électromagnétiques ont la particularité de pouvoir se propager dans le vide, ce qui n'est pas le cas des ondes mécaniques. En effet, les ondes mécaniques nécessitent un milieu matériel pour se propager, car elles transmettent de l'énergie mécanique à travers les particules du milieu. C'est pourquoi les ondes mécaniques, contrairement aux ondes électromagnétiques, ont besoin d'un support matériel pour se déplacer. Les options telles que 'Se propagent aussi dans le vide' et 'Sont plus rapides' ou 'Ne se propagent pas du tout' ne décrivent pas correctement les caractéristiques fondamentales des ondes mécaniques en comparaison avec les ondes électromagnétiques.",
+      "options": [
+        "Se propagent aussi dans le vide.",
+        "Nécessitent un milieu matériel.",
+        "Sont plus rapides.",
+        "Ne se propagent pas du tout."
+      ]
+    },
+    {
+      "id": "Mag1",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Le vecteur champ magnétique est tangent aux lignes de champ. Si le champ est uniforme, les lignes sont :",
+      "correct": "A",
+      "explanation": "Lorsqu'il s'agit de champs magnétiques uniformes, les lignes de champ magnétique sont des droites parallèles. Cela est dû au fait qu'un champ magnétique uniforme a une intensité et une direction constantes en tous points de l'espace. Les lignes de champ étant tangentes au vecteur champ magnétique en chaque point, dans le cas d'un champ uniforme, ces lignes doivent être parallèles entre elles. Les autres options, comme 'Des droites concourantes', 'Des spirales' ou 'Des cercles', décrivent des configurations de champs magnétiques différents, notamment des champs radiaux ou des champs produits par des aimants ou des courants particuliers.",
+      "options": [
+        "Des droites parallèles.",
+        "Des droites concourantes.",
+        "Des spirales.",
+        "Des cercles."
+      ]
+    },
+    {
+      "id": "Mag2",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Dans la région centrale d'un solénoïde, le champ magnétique est :",
+      "correct": "C",
+      "explanation": "Dans la région centrale d'un solénoïde, le champ magnétique est uniforme et son sens est donné par la règle de la main droite. Un solénoïde est une bobine longue et cylindrique de fil conducteur ; lorsqu'il est parcouru par un courant électrique, il produit un champ magnétique qui est pratiquement uniforme à l'intérieur, particulièrement dans la région centrale. La règle de la main droite permet de déterminer le sens du champ magnétique en fonction du sens du courant dans le solénoïde. Les autres options, comme 'Nul', 'Variable' ou 'Radial', ne décrivent pas avec précision le champ magnétique au centre d'un solénoïde parcouru par un courant.",
+      "options": [
+        "Nul.",
+        "Variable.",
+        "Uniforme et son sens donné par la règle de la main droite.",
+        "Radial."
+      ]
+    },
+    {
+      "id": "Mag3",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La roue de Barlow est :",
+      "correct": "C",
+      "explanation": "La roue de Barlow est un exemple de moteur électrique, où l'énergie électrique est convertie en énergie mécanique. Elle se compose d'une roue métallique qui tourne entre les pôles d'un aimant permanent lorsqu'un courant électrique la traverse. La force de Lorentz exercée sur les électrons dans la roue due au champ magnétique entraîne la rotation de la roue. Ainsi, la roue de Barlow illustre la conversion d'énergie électrique en énergie mécanique, ce qui correspond à la définition d'un moteur électrique. Les autres options, comme 'Un transformateur', 'Un générateur' ou 'Un aimant', ne correspondent pas à la fonction première de la roue de Barlow.",
+      "options": [
+        "Un transformateur.",
+        "Un générateur (mécanique → électrique).",
+        "Un moteur (électrique → mécanique).",
+        "Un aimant."
+      ]
+    },
+    {
+      "id": "Mag4",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La roue de Faraday transforme :",
+      "correct": "C",
+      "explanation": "La roue de Faraday est un dispositif qui convertit l'énergie mécanique en énergie électrique. Elle est constituée d'une bobine qui tourne dans un champ magnétique, induisant ainsi un courant électrique dans la bobine. Ce principe est fondamental dans la génération d'électricité dans les centrales électriques et les éoliennes. La conversion d'énergie mécanique en énergie électrique est essentielle pour produire de l'électricité à grande échelle. Les autres options, comme 'La chaleur en électricité', 'Le magnétisme en mouvement' ou 'L'énergie électrique en mécanique', ne décrivent pas avec précision la fonction de la roue de Faraday.",
+      "options": [
+        "La chaleur en électricité.",
+        "Le magnétisme en mouvement.",
+        "L'énergie mécanique en électrique.",
+        "L'énergie électrique en mécanique."
+      ]
+    },
+    {
+      "id": "Mag5",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "L'expérience d'Oersted a montré qu'un courant électrique crée un champ magnétique. Peut-on la réaliser avec un courant alternatif ?",
+      "correct": "B",
+      "explanation": "L'expérience d'Oersted a montré qu'un courant électrique crée un champ magnétique. Cependant, pour observer clairement cet effet avec une boussole, il est préférable d'utiliser un courant continu. En effet, un courant alternatif produit un champ magnétique qui change de direction en fonction du temps, ce qui peut entraîner une oscillation de l'aiguille de la boussole sans qu'elle ne pointe dans une direction fixe. Pour une observation nette de la déviation de la boussole due au champ magnétique créé par le courant, il est donc préférable d'utiliser un courant continu. Les autres options ne décrivent pas correctement les conditions nécessaires pour réaliser l'expérience d'Oersted de manière efficace.",
+      "options": [
+        "Non, car le courant alternatif ne produit pas de champ.",
+        "Non, il faut un courant continu car le champ magnétique doit être constant ou orienté.",
+        "Oui, l'effet est identique.",
+        "Oui, mais uniquement avec du courant alternatif basse fréquence."
+      ]
+    },
+    {
+      "id": "Mag6",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dans quels endroits le champ magnétique est-il uniforme ?",
+      "correct": "B",
+      "explanation": "Le champ magnétique est uniforme dans plusieurs configurations spécifiques. Dans l'entrefer d'un aimant en U, au centre d'une bobine longue (solénoïde), et localement au voisinage de la Terre, le champ magnétique peut être considéré comme uniforme. Cela signifie que l'intensité et la direction du champ magnétique sont pratiquement constantes dans ces régions. Les autres options, comme 'Près d'un aimant droit', 'Partout autour d'un fil rectiligne' ou 'À l'intérieur d'un tore', ne présentent pas de champs magnétiques uniformes de manière générale.",
+      "options": [
+        "Près d'un aimant droit.",
+        "Dans l'entrefer d'un aimant en U, au centre d'une bobine longue, et au voisinage de la Terre (localement).",
+        "Partout autour d'un fil rectiligne.",
+        "À l'intérieur d'un tore."
+      ]
+    },
+    {
+      "id": "Mag7",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les lignes de champ magnétique sont orientées :",
+      "correct": "B",
+      "explanation": "Les lignes de champ magnétique sont orientées du pôle nord vers le pôle sud à l'extérieur d'un aimant. Cette convention permet de visualiser la direction du champ magnétique en différents points de l'espace. À l'intérieur de l'aimant, les lignes de champ magnétique vont du pôle sud vers le pôle nord, formant des boucles fermées. Les autres options, comme 'De manière aléatoire', 'Du pôle sud vers le pôle nord à l'extérieur de l'aimant' ou 'Vers l'intérieur de l'aimant', ne décrivent pas correctement l'orientation des lignes de champ magnétique à l'extérieur d'un aimant.",
+      "options": [
+        "De manière aléatoire.",
+        "Du pôle nord vers le pôle sud à l'extérieur.",
+        "Du pôle sud vers le pôle nord à l'extérieur de l'aimant.",
+        "Vers l'intérieur de l'aimant."
+      ]
+    },
+    {
+      "id": "Mag8",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L'induction terrestre en un lieu se décompose en :",
+      "correct": "B",
+      "explanation": "L'induction terrestre en un lieu se décompose en deux composantes : une horizontale et une verticale. En effet, le champ magnétique terrestre peut être représenté par un vecteur qui peut être projeté sur deux axes : l'un horizontal et l'autre vertical. Les autres options sont incorrectes car une seule composante ne permettrait pas de décrire complètement le champ magnétique, trois composantes seraient nécessaires pour décrire un champ dans l'espace 3D mais pas pour l'induction terrestre en un lieu, et une composante Est-Ouest ne correspond à aucune composante standard du champ magnétique terrestre.",
+      "options": [
+        "Une seule composante.",
+        "Une composante horizontale et une verticale.",
+        "Trois composantes.",
+        "Une composante Est-Ouest."
+      ]
+    },
+    {
+      "id": "Mag9",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Le flux d'induction magnétique à travers une surface dans un champ uniforme s'exprime par Φ = B·S (produit scalaire) et son unité est :",
+      "correct": "A",
+      "explanation": "Le flux d'induction magnétique à travers une surface dans un champ uniforme s'exprime par Φ = B·S, où B est le champ magnétique et S la surface. L'unité de ce flux est le Weber (Wb), qui représente la quantité de flux magnétique qui traverse une surface de 1 mètre carré avec un champ magnétique de 1 Tesla. Les autres options sont incorrectes car le Tesla est l'unité du champ magnétique, l'Henry est l'unité de l'inductance, et le Farad est l'unité de la capacité.",
+      "options": [
+        "Weber.",
+        "Tesla.",
+        "Henry.",
+        "Farad."
+      ]
+    },
+    {
+      "id": "Mag10",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "Le spectre magnétique d'un aimant est l'ensemble des lignes de champ. Le flux magnétique est :",
+      "correct": "C",
+      "explanation": "Le spectre magnétique d'un aimant est l'ensemble des lignes de champ qui émergent de l'aimant. Le flux magnétique est une grandeur scalaire associée au nombre de lignes de champ qui traversent une surface donnée. Il quantifie la quantité de champ magnétique qui traverse cette surface. Les autres options sont incorrectes car l'intensité du champ est une caractéristique du champ en un point, le nombre de lignes de champ par unité de surface décrit plutôt la densité de flux, et la force exercée sur un pôle est liée à la force magnétique et non au flux.",
+      "options": [
+        "Le nombre de lignes de champ par unité de surface.",
+        "L'intensité du champ.",
+        "La grandeur scalaire associée au nombre de lignes traversant une surface.",
+        "La force exercée sur un pôle."
+      ]
+    },
+    {
+      "id": "Mag11",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un champ magnétique est uniforme si le vecteur champ magnétique a :",
+      "correct": "C",
+      "explanation": "Un champ magnétique est uniforme si, en tout point de l'espace considéré, le vecteur champ magnétique a même sens, même direction et même valeur. Cela signifie que les lignes de champ sont parallèles et équidistantes. Les autres options sont incorrectes car si le vecteur champ magnétique a même direction et sens mais une intensité variable, le champ n'est pas uniforme, si le vecteur a même valeur mais direction variable, le champ n'est pas uniforme, et si la direction et le sens sont variables, le champ n'est certainement pas uniforme.",
+      "options": [
+        "Même direction et sens, mais intensité variable.",
+        "Même valeur mais direction variable.",
+        "Même sens, même direction et même valeur en tout point.",
+        "Direction et sens variables."
+      ]
+    },
+    {
+      "id": "Mag12",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un électro-aimant est constitué d'un noyau de fer doux placé dans une bobine. Ses pôles :",
+      "correct": "B",
+      "explanation": "Un électro-aimant est constitué d'un noyau de fer doux placé dans une bobine parcourue par un courant électrique. Les pôles de l'électro-aimant changent de nom quand le courant change de sens, car la polarité de l'électro-aimant dépend du sens du courant dans la bobine. Les autres options sont incorrectes car les pôles ne disparaissent pas si le courant est continu, ils sont déterminés par le sens du courant et pas fixes indépendamment du courant, et dire qu'ils sont toujours nord et sud ne tient pas compte du changement de polarité avec le sens du courant.",
+      "options": [
+        "Disparaissent si le courant est continu.",
+        "Changent de nom quand le courant change de sens.",
+        "Sont fixes indépendamment du courant.",
+        "Sont toujours nord et sud."
+      ]
+    },
+    {
+      "id": "Mag13",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 40,
+      "question": "Le flux d'induction à travers un circuit magnétique fermé est le quotient de la force magnétomotrice par :",
+      "correct": "D",
+      "explanation": "Le flux d'induction à travers un circuit magnétique fermé est donné par la loi d'Hopkinson, Φ = Fmm / R, où Φ est le flux magnétique, Fmm la force magnétomotrice et R la réluctance magnétique. La réluctance magnétique est une mesure de l'opposition au flux magnétique dans un circuit magnétique. Les autres options sont incorrectes car la résistance électrique concerne les circuits électriques et non magnétiques, la perméabilité est une propriété des matériaux magnétiques mais n'est pas directement liée au flux par cette formule, et l'inductance est liée aux variations de courant et non directement au flux statique.",
+      "options": [
+        "La résistance électrique.",
+        "La perméabilité.",
+        "L'inductance.",
+        "La réluctance magnétique."
+      ]
+    },
+    {
+      "id": "Mag14",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Un courant électrique traversant un conducteur crée :",
+      "correct": "C",
+      "explanation": "Un courant électrique traversant un conducteur crée un champ magnétique autour de lui. C'est la découverte d'Oersted qui a montré que l'électricité et le magnétisme sont liés. Les autres options sont incorrectes car un courant électrique ne crée pas un champ gravitationnel, il crée bien quelque chose, et il ne crée pas uniquement un champ électrique mais bien un champ magnétique.",
+      "options": [
+        "Un champ gravitationnel.",
+        "Rien.",
+        "Un champ magnétique autour de lui.",
+        "Un champ électrique uniquement."
+      ]
+    },
+    {
+      "id": "Mag15",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "Le champ rémanent persiste après suppression du champ inducteur. Le champ qui annule l'aimantation est appelé :",
+      "correct": "B",
+      "explanation": "Le champ rémanent est l'aimantation qui persiste dans un matériau après la suppression du champ inducteur. Le champ qui annule cette aimantation, ou qui est nécessaire pour ramener l'aimantation à zéro, est appelé champ démagnétisant ou champ coercitif. Les autres options sont incorrectes car le champ rémanent est ce qui reste après l'application du champ, le champ inducteur est le champ appliqué initialement, et le champ de saturation est le champ nécessaire pour atteindre la saturation magnétique.",
+      "options": [
+        "Champ rémanent.",
+        "Champ démagnétisant ou champ coercitif.",
+        "Champ inducteur.",
+        "Champ de saturation."
+      ]
+    },
+    {
+      "id": "Mag16",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Un galvanomètre à cadre mobile utilise la force de Laplace pour :",
+      "correct": "C",
+      "explanation": "Un galvanomètre à cadre mobile utilise la force de Laplace pour détecter de très faibles courants. En effet, lorsque l'on place un cadre mobile dans un champ magnétique et que l'on fait passer un courant dans ce cadre, la force de Laplace exercée sur le cadre est proportionnelle au courant. Cela permet de mesurer des courants très faibles. Les autres options sont incorrectes car le galvanomètre à cadre mobile ne sert pas à mesurer des tensions (c'est le rôle d'un voltmètre), ni à convertir l'énergie mécanique (c'est le rôle d'un moteur), ni à produire un champ magnétique (c'est le rôle d'un électro-aimant).",
+      "options": [
+        "Mesurer des tensions.",
+        "Convertir l'énergie mécanique.",
+        "Détecter de très faibles courants.",
+        "Produire un champ magnétique."
+      ]
+    },
+    {
+      "id": "Mag17",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'hystérésis est le phénomène de :",
+      "correct": "B",
+      "explanation": "L'hystérésis est le phénomène de retard dans l'aimantation lors de la variation du champ. Cela signifie que l'aimantation d'un matériau ferromagnétique dépend non seulement du champ magnétique appliqué, mais également de son histoire précédente. Les autres options sont incorrectes car la linéarité parfaite n'est pas un phénomène physique courant, la supraconductivité est un phénomène différent qui concerne la conductivité électrique, et l'annulation brusque du champ n'est pas liée à l'hystérésis.",
+      "options": [
+        "Linéarité parfaite.",
+        "Retard dans l'aimantation lors de la variation du champ.",
+        "Supraconductivité.",
+        "Annulation brusque du champ."
+      ]
+    },
+    {
+      "id": "Mag18",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Deux barreaux aimantés : les pôles de même nom ______, les pôles de noms contraires ______.",
+      "correct": "C",
+      "explanation": "Deux barreaux aimantés : les pôles de même nom se repoussent, les pôles de noms contraires s'attirent. En effet, les pôles de même nom ont des champs magnétiques qui se repoussent, tandis que les pôles de noms contraires ont des champs magnétiques qui s'attirent. Les autres options sont incorrectes car les pôles de même nom ne s'ignorent pas, et les pôles de noms contraires ne se repoussent pas.",
+      "options": [
+        "S'ignorent.",
+        "S'attirent, se repoussent.",
+        "Se repoussent, s'attirent.",
+        "S'annulent."
+      ]
+    },
+    {
+      "id": "Mag19",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Deux courants rectilignes parallèles :",
+      "correct": "D",
+      "explanation": "Deux courants rectilignes parallèles de même sens s'attirent, de sens contraires se repoussent. En effet, les courants parallèles créent des champs magnétiques qui interagissent : si les courants sont de même sens, les champs magnétiques sont de sens contraires et les courants s'attirent ; si les courants sont de sens contraires, les champs magnétiques sont de même sens et les courants se repoussent. Les autres options sont incorrectes car les courants parallèles interagissent bel et bien, et les options incorrectes ne décrivent pas correctement les interactions.",
+      "options": [
+        "N'interagissent pas.",
+        "De sens contraires s'attirent.",
+        "De même sens se repoussent.",
+        "De même sens s'attirent, de sens contraires se repoussent."
+      ]
+    },
+    {
+      "id": "Mag20",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La balance de Cotton sert à mesurer :",
+      "correct": "C",
+      "explanation": "La balance de Cotton sert à mesurer l'intensité de l'induction d'un champ magnétique uniforme. En effet, cet appareil utilise la force exercée sur un courant placé dans un champ magnétique pour mesurer l'intensité du champ. Les autres options sont incorrectes car la balance de Cotton n'est pas utilisée pour mesurer la capacité (c'est le rôle d'un capacimètre), ni l'intensité d'un courant (c'est le rôle d'un ampèremètre), ni la force électromotrice (c'est le rôle d'un voltmètre).",
+      "options": [
+        "La capacité.",
+        "L'intensité d'un courant.",
+        "L'intensité de l'induction d'un champ magnétique uniforme.",
+        "La force électromotrice."
+      ]
+    },
+    {
+      "id": "Mag21",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La force portante d'un électro-aimant est :",
+      "correct": "B",
+      "explanation": "La force portante d'un électro-aimant est la force maximale qu'il peut exercer sur une armature. En effet, cette force dépend de la conception de l'électro-aimant et de l'armature, et elle représente la force maximale que l'électro-aimant peut exercer. Les autres options sont incorrectes car le poids du noyau n'est pas la force portante, le courant nécessaire à son aimantation n'est pas une force, et la tension d'alimentation n'est pas directement liée à la force portante.",
+      "options": [
+        "Le poids du noyau.",
+        "La force maximale qu'il peut exercer sur une armature.",
+        "Le courant nécessaire à son aimantation.",
+        "La tension d'alimentation."
+      ]
+    },
+    {
+      "id": "Mag22",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Loi de Faraday : toute variation du flux magnétique dans un circuit fermé induit :",
+      "correct": "A",
+      "explanation": "Loi de Faraday : toute variation du flux magnétique dans un circuit fermé induit une force électromotrice et un courant induit temporaire. En effet, la loi de Faraday stipule que la variation du flux magnétique induit une force électromotrice, et si le circuit est fermé, un courant est alors induit. Les autres options sont incorrectes car un champ électrostatique n'est pas directement induit par la variation du flux magnétique, un courant permanent n'est pas nécessairement induit, et une résistance n'est pas induite par la variation du flux magnétique.",
+      "options": [
+        "Une force électromotrice et un courant induit temporaire.",
+        "Un champ électrostatique.",
+        "Un courant permanent.",
+        "Une résistance."
+      ]
+    },
+    {
+      "id": "Mag23",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La f.é.m. instantanée induite est égale à :",
+      "correct": "A",
+      "explanation": "La f.é.m. instantanée induite est égale à l'opposé de la dérivée du flux par rapport au temps. En effet, la loi de Faraday et la loi de Lenz stipulent que la force électromotrice induite est égale à la dérivée du flux magnétique par rapport au temps, avec un signe négatif qui indique que le courant induit s'oppose à la variation du flux. Les autres options sont incorrectes car la dérivée du flux sans le signe négatif n'est pas correcte, l'intégrale du flux n'est pas la bonne relation, et le flux divisé par le temps n'est pas non plus correct.",
+      "options": [
+        "L'opposé de la dérivée du flux par rapport au temps.",
+        "La dérivée du flux.",
+        "L'intégrale du flux.",
+        "Le flux divisé par le temps."
+      ]
+    },
+    {
+      "id": "Mag24",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La sensibilité d'un galvanomètre est le quotient de l'angle de déviation par :",
+      "correct": "D",
+      "explanation": "La sensibilité d'un galvanomètre est une mesure de sa capacité à détecter de faibles courants. Elle est définie comme le quotient de l'angle de déviation par l'intensité du courant, ce qui signifie que plus la sensibilité est élevée, plus le galvanomètre peut détecter de faibles courants. Les autres options sont incorrectes car la tension et la résistance ne sont pas directement liées à la définition de la sensibilité, et le flux est une grandeur physique différente qui concerne les champs magnétiques.",
+      "options": [
+        "La tension.",
+        "Le flux.",
+        "La résistance.",
+        "L'intensité du courant."
+      ]
+    },
+    {
+      "id": "Mag25",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La perméabilité magnétique d'un matériau est sa capacité à :",
+      "correct": "A",
+      "explanation": "La perméabilité magnétique d'un matériau est sa capacité à se laisser traverser par un flux d'induction magnétique. Cela signifie que les matériaux avec une haute perméabilité magnétique peuvent facilement être magnétisés et sont capables de supporter des champs magnétiques importants. Les autres options sont incorrectes car la capacité à stocker de l'énergie électrique concerne les condensateurs, devenir supraconducteur est une propriété différente des matériaux à basse température, et conduire le courant est une propriété des conducteurs électriques.",
+      "options": [
+        "Se laisser traverser par un flux d'induction magnétique.",
+        "Stocker de l'énergie électrique.",
+        "Devenir supraconducteur.",
+        "Conduire le courant."
+      ]
+    },
+    {
+      "id": "Mag26",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La loi de Lenz énonce que le courant induit s'oppose :",
+      "correct": "C",
+      "explanation": "La loi de Lenz énonce que le courant induit s'oppose à la cause qui lui donne naissance. Cela signifie que si un champ magnétique change à proximité d'un circuit, le courant induit dans le circuit sera tel qu'il s'oppose à ce changement de champ magnétique. Les autres options sont incorrectes car le mouvement des électrons n'est pas directement concerné par la loi de Lenz, le champ magnétique extérieur est la cause du courant induit mais ne décrit pas complètement la loi, et la résistance du circuit n'est pas liée à la loi de Lenz.",
+      "options": [
+        "Au mouvement des électrons.",
+        "Au champ magnétique extérieur.",
+        "À la cause qui lui donne naissance.",
+        "À la résistance du circuit."
+      ]
+    },
+    {
+      "id": "Mag27",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La force électromotrice d'auto-induction apparaît dans un circuit lorsque :",
+      "correct": "A",
+      "explanation": "La force électromotrice d'auto-induction apparaît dans un circuit lorsque le courant qui le traverse varie. Cela est dû au fait que la variation du courant crée un champ magnétique changeant qui induit une force électromotrice dans le circuit. Les autres options sont incorrectes car la résistance change n'induit pas de force électromotrice, la tension constante ne produit pas de variation de courant, et un aimant qui s'approche peut induire une force électromotrice mais ce n'est pas de l'auto-induction.",
+      "options": [
+        "Le courant qui le traverse varie.",
+        "La résistance change.",
+        "La tension est constante.",
+        "Un aimant s'en approche."
+      ]
+    },
+    {
+      "id": "Mag28",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "Associez les appareils : La roue de Barlow, balance de Cotton, galvanomètre à cadre mobile utilisent la force de Laplace. La sonnerie électrique, le disjoncteur, le relais utilisent :",
+      "correct": "B",
+      "explanation": "Les appareils tels que la sonnerie électrique, le disjoncteur et le relais utilisent les électro-aimants pour fonctionner. Les électro-aimants sont des composants qui génèrent un champ magnétique lorsqu'ils sont alimentés par un courant électrique, ce qui leur permet d'attirer ou de repousser des objets métalliques. Les autres options sont incorrectes car la force gravitationnelle n'est pas utilisée dans ces appareils, la force électrostatique concerne les interactions entre charges électriques, et l'induction électromagnétique est un phénomène différent qui concerne la génération de courants électriques par des champs magnétiques changeants.",
+      "options": [
+        "La force gravitationnelle.",
+        "Les électro-aimants.",
+        "La force électrostatique.",
+        "L'induction électromagnétique."
+      ]
+    },
+    {
+      "id": "Mag29",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'inverse de la résistance est la conductance (S). L'inverse de la réluctance est :",
+      "correct": "C",
+      "explanation": "L'inverse de la réluctance est la perméance, qui est une mesure de la facilité avec laquelle un matériau peut supporter un flux magnétique. La perméance est exprimée en weber par ampère-tour. Les autres options sont incorrectes car l'impédance concerne les circuits électriques et la résistance au courant alternatif, la capacité concerne les condensateurs et le stockage de charge électrique, et l'inductance concerne la capacité d'un circuit à stocker de l'énergie sous forme de champ magnétique.",
+      "options": [
+        "L'impédance.",
+        "La capacité.",
+        "La perméance, en weber par ampère-tour.",
+        "L'inductance."
+      ]
+    },
+    {
+      "id": "Mag30",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Le cadre d'un galvanomètre est en équilibre lorsque :",
+      "correct": "D",
+      "explanation": "Le cadre d'un galvanomètre est en équilibre lorsque le moment du couple électromagnétique égale le moment du couple de torsion des fils. Cela signifie que la force exercée par le champ magnétique sur le cadre est équilibrée par la torsion des fils qui maintiennent le cadre, ce qui permet au galvanomètre de mesurer avec précision le courant électrique. Les autres options sont incorrectes car le moment du couple électromagnétique nul signifierait qu'il n'y a pas de courant, le courant maximal n'est pas une condition d'équilibre, et il n'y a pas de torsion n'est pas une situation réaliste pour un galvanomètre en fonctionnement.",
+      "options": [
+        "Le moment du couple électromagnétique est nul.",
+        "Il n'y a pas de torsion.",
+        "Le courant est maximal.",
+        "Le moment du couple électromagnétique égale le moment du couple de torsion des fils."
+      ]
+    },
+    {
+      "id": "C1",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un condensateur est caractérisé par sa capacité C, qui relie la charge Q et la tension U par Q = C U. L'unité de capacité est :",
+      "correct": "A",
+      "explanation": "L'unité de capacité est le farad, qui est défini comme la capacité d'un condensateur à stocker une charge de 1 coulomb sous une tension de 1 volt. Les autres options sont incorrectes car l'ohm est l'unité de résistance, le volt est l'unité de tension électrique, et le coulomb est l'unité de charge électrique.",
+      "options": [
+        "Le farad.",
+        "L'ohm.",
+        "Le volt.",
+        "Le coulomb."
+      ]
+    },
+    {
+      "id": "C2",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour des condensateurs en série, la capacité équivalente Ceq vérifie :",
+      "correct": "D",
+      "explanation": "Lorsque des condensateurs sont montés en série, la capacité équivalente Ceq est donnée par la formule 1/Ceq = 1/C1 + 1/C2 + ..., car la charge accumulée sur chaque condensateur est la même et la tension totale est la somme des tensions aux bornes de chaque condensateur. L'option 'Ceq = C1 * C2 / (C1+C2) pour deux' est incorrecte car cela correspond à la formule pour deux condensateurs en parallèle. L'option 'Ceq = C1 + C2 + ...' est également incorrecte car cela correspond à la formule pour des condensateurs en parallèle. L'option 'Ceq = C1 = C2' est fausse car elle ne tient pas compte de la combinaison des condensateurs.",
+      "options": [
+        "Ceq = C1 * C2 / (C1+C2) pour deux.",
+        "Ceq = C1 + C2 + ...",
+        "Ceq = C1 = C2.",
+        "1/Ceq = 1/C1 + 1/C2 + ..."
+      ]
+    },
+    {
+      "id": "C3",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un farad est la capacité d'un condensateur qui emmagasine 1 coulomb sous une tension de :",
+      "correct": "D",
+      "explanation": "Un farad est la capacité d'un condensateur qui emmagasine 1 coulomb sous une tension de 1 volt, car la capacité C est définie comme le rapport entre la charge Q et la tension U, C = Q/U. Les options '1 joule', '1 ohm' et '1 ampère' sont incorrectes car elles correspondent à des unités de grandeurs physiques différentes, respectivement l'énergie, la résistance et l'intensité du courant.",
+      "options": [
+        "1 joule.",
+        "1 ohm.",
+        "1 ampère.",
+        "1 volt."
+      ]
+    },
+    {
+      "id": "C4",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Les charges portées par les deux armatures d'un condensateur sont :",
+      "correct": "A",
+      "explanation": "Les charges portées par les deux armatures d'un condensateur sont égales et opposées, car le condensateur est globalement neutre et les charges sur les deux armatures sont séparées par un isolant. L'option 'Égales et de même signe' est incorrecte car cela signifierait que le condensateur n'est pas neutre. L'option 'Nulles' est également incorrecte car les armatures portent des charges. L'option 'Indépendantes' est fausse car les charges sont liées par la neutralité du condensateur.",
+      "options": [
+        "Égales et opposées.",
+        "Nulles.",
+        "Égales et de même signe.",
+        "Indépendantes."
+      ]
+    },
+    {
+      "id": "C5",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La capacité équivalente d'une association de condensateurs en série est :",
+      "correct": "D",
+      "explanation": "La capacité équivalente d'une association de condensateurs en série est plus petite que la plus petite capacité, car la formule 1/Ceq = 1/C1 + 1/C2 + ... implique que Ceq sera toujours inférieure à la plus petite des capacités. L'option 'Égale à la moyenne' est incorrecte car cela ne correspond pas à la formule. L'option 'Nulle' est également incorrecte car cela signifierait que les condensateurs ne stockent pas de charge. L'option 'Plus grande que la plus grande capacité' est fausse car cela est impossible.",
+      "options": [
+        "Égale à la moyenne.",
+        "Nulle.",
+        "Plus grande que la plus grande capacité.",
+        "Plus petite que la plus petite capacité."
+      ]
+    },
+    {
+      "id": "C6",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La capacité équivalente d'une association de condensateurs en parallèle est :",
+      "correct": "D",
+      "explanation": "La capacité équivalente d'une association de condensateurs en parallèle est plus grande que la plus grande capacité, car la capacité équivalente est donnée par Ceq = C1 + C2 + ..., ce qui implique que Ceq sera toujours supérieure à la plus grande des capacités. L'option 'Inchangée' est incorrecte car cela ne correspond pas à la formule. L'option 'Égale à l'inverse de la somme' est également incorrecte car cela correspond à la formule pour des condensateurs en série. L'option 'Plus petite que la plus petite' est fausse car cela est impossible.",
+      "options": [
+        "Inchangée.",
+        "Égale à l'inverse de la somme.",
+        "Plus petite que la plus petite.",
+        "Plus grande que la plus grande."
+      ]
+    },
+    {
+      "id": "C7",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "En série, les condensateurs accumulent la même charge et la tension totale est :",
+      "correct": "C",
+      "explanation": "En série, les condensateurs accumulent la même charge et la tension totale est la somme des tensions aux bornes de chacun, car la charge est la même sur chaque condensateur et la tension totale est la somme des tensions. L'option 'La même que celle de chaque' est incorrecte car cela signifierait que les tensions sont les mêmes. L'option 'La différence' est également incorrecte car cela ne correspond pas à la formule. L'option 'La plus petite' est fausse car cela est impossible.",
+      "options": [
+        "La même que celle de chaque.",
+        "La différence.",
+        "La somme des tensions aux bornes de chacun.",
+        "La plus petite."
+      ]
+    },
+    {
+      "id": "C8",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le plus ancien condensateur connu est la bouteille de Leyde. Le plus utilisé actuellement est :",
+      "correct": "A",
+      "explanation": "Le plus ancien condensateur connu est la bouteille de Leyde, mais le plus utilisé actuellement n'est pas clairement défini parmi les options ; cependant, le condensateur plan est très communément utilisé. Les options 'Le condensateur variable', 'Le supercondensateur' et 'Le condensateur cylindrique' sont des types de condensateurs mais ne sont pas nécessairement les plus utilisés.",
+      "options": [
+        "Le condensateur plan.",
+        "Le condensateur variable.",
+        "Le supercondensateur.",
+        "Le condensateur cylindrique."
+      ]
+    },
+    {
+      "id": "C9",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un condensateur est constitué de deux conducteurs séparés par un isolant appelé :",
+      "correct": "A",
+      "explanation": "Un condensateur est constitué de deux conducteurs séparés par un isolant appelé diélectrique. Les options 'Conducteur', 'Aimant' et 'Semi-conducteur' sont incorrectes car elles ne correspondent pas au matériau qui sépare les armatures d'un condensateur.",
+      "options": [
+        "Diélectrique.",
+        "Conducteur.",
+        "Aimant.",
+        "Semi-conducteur."
+      ]
+    },
+    {
+      "id": "C10",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Pour n condensateurs identiques de capacité C en série, la capacité équivalente est :",
+      "correct": "B",
+      "explanation": "Lorsqu'on associe des condensateurs en série, la capacité équivalente est donnée par la formule 1/Ceq = 1/C1 + 1/C2 + ... + 1/Cn. Pour n condensateurs identiques de capacité C, cela se simplifie en 1/Ceq = n/C, ce qui donne Ceq = C/n. Les autres options sont incorrectes car la capacité équivalente de condensateurs en parallèle est nC, et les options C et D ne sont pas valables dans le cas de condensateurs en série.",
+      "options": [
+        "nC.",
+        "C/n.",
+        "n²C.",
+        "C."
+      ]
+    },
+    {
+      "id": "C11",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Le champ électrique régnant entre les armatures d'un condensateur plan est égal au rapport :",
+      "correct": "C",
+      "explanation": "Le champ électrique régnant entre les armatures d'un condensateur plan est uniforme et donné par la formule E = U/d, où U est la tension entre les armatures et d la distance entre elles. C'est pourquoi la tension par la distance entre armatures est la bonne réponse. Les autres options sont incorrectes car la densité surfacique de charge est liée à la charge par la surface, l'énergie par le volume est liée à la densité d'énergie, et la capacité par la tension n'a pas de sens physique direct.",
+      "options": [
+        "De l'énergie par le volume.",
+        "De la charge par la surface.",
+        "De la tension par la distance entre armatures.",
+        "De la capacité par la tension."
+      ]
+    },
+    {
+      "id": "C12",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "La tension minimale qui détruit le diélectrique est la tension de claquage. La tension que le condensateur peut supporter sans dommage est :",
+      "correct": "B",
+      "explanation": "La tension nominale ou de service est la tension maximale que le condensateur peut supporter sans dommage. La tension de claquage est la tension minimale qui détruit le diélectrique, donc cette option est incorrecte. Les options A et D sont également incorrectes car la tension de décharge et la tension de charge ne correspondent pas à la tension maximale admissible.",
+      "options": [
+        "La tension de décharge.",
+        "La tension nominale ou de service.",
+        "La tension de claquage.",
+        "La tension de charge."
+      ]
+    },
+    {
+      "id": "C13",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un condensateur en courant continu :",
+      "correct": "D",
+      "explanation": "Un condensateur en courant continu se comporte comme un interrupteur ouvert après avoir chargé, car il bloque le courant continu. Les options 'Laisse passer le courant', 'A une résistance nulle', et 'Se comporte comme un court-circuit' sont incorrectes car un condensateur ne laisse pas passer le courant en régime établi, n'a pas une résistance nulle, et ne se comporte pas comme un court-circuit.",
+      "options": [
+        "Laisse passer le courant.",
+        "A une résistance nulle.",
+        "Se comporte comme un court-circuit.",
+        "Bloque le courant continu (après charge)."
+      ]
+    },
+    {
+      "id": "C14",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L'énergie emmagasinée par un condensateur lors de sa charge est :",
+      "correct": "A",
+      "explanation": "L'énergie emmagasinée par un condensateur lors de sa charge est restituée lors de sa décharge, au moins idéalement. En pratique, une partie de l'énergie est dissipée en chaleur due à la résistance du circuit. Les options 'Dissipée en chaleur', 'Convertie en énergie nucléaire', et 'Perdue définitivement' sont incorrectes car l'énergie n'est pas principalement dissipée en chaleur, convertie en énergie nucléaire, ou perdue définitivement.",
+      "options": [
+        "Restituée lors de sa décharge.",
+        "Dissipée en chaleur.",
+        "Convertie en énergie nucléaire.",
+        "Perdue définitivement."
+      ]
+    },
+    {
+      "id": "C15",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Lorsqu'un condensateur chargé se décharge dans un fil métallique, le courant produit :",
+      "correct": "D",
+      "explanation": "Lorsqu'un condensateur chargé se décharge dans un fil métallique, le courant produit un dégagement de chaleur par effet Joule. Les options 'Une lumière ultraviolette', 'Une réaction chimique', et 'Un champ magnétique' sont incorrectes car si la décharge peut produire une lumière ultraviolette, une réaction chimique, ou un champ magnétique, la question cible spécifiquement l'effet Joule.",
+      "options": [
+        "Une lumière ultraviolette.",
+        "Une réaction chimique.",
+        "Un champ magnétique.",
+        "Un dégagement de chaleur par effet Joule."
+      ]
+    },
+    {
+      "id": "C16",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Un condensateur est un réservoir d'énergie statique. Un galvanomètre balistique sert à mesurer :",
+      "correct": "A",
+      "explanation": "Un galvanomètre balistique sert à mesurer la quantité d'électricité (charge) induite. Les options 'La capacité', 'La tension', et 'La résistance' sont incorrectes car un capacimètre mesure la capacité, un voltmètre mesure la tension, et un ohmmètre mesure la résistance.",
+      "options": [
+        "La quantité d'électricité (charge) induite.",
+        "La capacité.",
+        "La tension.",
+        "La résistance."
+      ]
+    },
+    {
+      "id": "C17",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 40,
+      "question": "Avec n lames mobiles et n lames fixes, on réalise une association en parallèle de (2n-1) condensateurs. Avec n lames mobiles et (n+1) fixes, on obtient :",
+      "correct": "A",
+      "explanation": "Avec n lames mobiles et n lames fixes, on réalise une association en parallèle de (2n-1) condensateurs, mais avec n lames mobiles et (n+1) fixes, on obtient 2n condensateurs. Les options B, C et D sont incorrectes car le nombre de condensateurs ne correspond pas aux descriptions données.",
+      "options": [
+        "2n condensateurs.",
+        "n+1 condensateurs.",
+        "2n-1 condensateurs.",
+        "n² condensateurs."
+      ]
+    },
+    {
+      "id": "C18",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Les charges des deux armatures d'un condensateur sont :",
+      "correct": "C",
+      "explanation": "Lorsqu'on parle d'un condensateur, il est essentiel de comprendre que les charges sur les deux armatures sont toujours égales en magnitude mais opposées en signe. Cela signifie que si une armature a une charge +q, l'autre aura une charge -q. Cette propriété est fondamentale pour le fonctionnement des condensateurs, car elle permet le stockage d'énergie électrique. L'option 'Égales et de même signe' est incorrecte car les charges sont opposées, pas de même signe. L'option 'Nulles' est incorrecte car les armatures portent effectivement des charges, même si elles sont opposées. L'option 'Différentes en magnitude' est également incorrecte car les charges sont égales en magnitude.",
+      "options": [
+        "Égales et de même signe.",
+        "Nulles.",
+        "Égales et opposées.",
+        "Différentes en magnitude."
+      ]
+    },
+    {
+      "id": "C19",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Entre les armatures d'un condensateur plan chargé, il existe :",
+      "correct": "A",
+      "explanation": "Entre les armatures d'un condensateur plan chargé, il existe effectivement un champ électrique. De plus, il y a une charge positive sur une armature et une charge négative sur l'autre. Le champ électrique est dû à la différence de potentiel entre les armatures et est uniforme dans le cas d'un condensateur plan. L'option 'Un vide parfait' est incorrecte car il peut y avoir un diélectrique (comme l'air) entre les armatures. L'option 'Un courant' est incorrecte car il n'y a pas de courant continu entre les armatures d'un condensateur chargé. L'option 'Un champ magnétique' est incorrecte car, pour un condensateur plan avec un champ électrique constant, il n'y a pas de champ magnétique.",
+      "options": [
+        "Un champ électrique, une charge positive et une négative.",
+        "Un vide parfait.",
+        "Un courant.",
+        "Un champ magnétique."
+      ]
+    },
+    {
+      "id": "C20",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "En parallèle, la tension est la même aux bornes de chaque condensateur et la charge totale est :",
+      "correct": "C",
+      "explanation": "Lorsqu'on connecte des condensateurs en parallèle, la tension à leurs bornes est la même. La charge totale stockée est la somme des charges stockées dans chaque condensateur. En effet, chaque condensateur peut stocker une charge différente selon sa capacité et la tension commune à ses bornes. L'option 'La même que celle de chaque' est incorrecte car la charge totale est la somme des charges individuelles. L'option 'La charge du plus grand' est incorrecte car cela ne tient pas compte des charges des autres condensateurs. L'option 'Nulle' est incorrecte car la charge totale est la somme des charges non nulles des condensateurs.",
+      "options": [
+        "La même que celle de chaque.",
+        "La charge du plus grand.",
+        "La somme des charges de chaque condensateur.",
+        "Nulle."
+      ]
+    },
+    {
+      "id": "CA1",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Pour une inductance pure en alternatif, la tension est en avance de phase sur l'intensité de :",
+      "correct": "A",
+      "explanation": "Pour une inductance pure en alternatif, la tension est en avance de phase sur l'intensité de 90° (ou π/2 radian). Cela est dû à la propriété de l'inductance qui s'oppose aux changements de courant, provoquant un décalage de phase entre la tension et le courant. L'option '180°' est incorrecte car cela correspondrait à une opposition de phase, ce qui n'est pas le cas ici. L'option '0°' est incorrecte car cela signifierait que la tension et le courant sont en phase, ce qui est le cas pour une résistance pure. L'option '-90°' est incorrecte car elle correspond à un retard de phase, caractéristique d'un condensateur.",
+      "options": [
+        "90° (π/2).",
+        "180°.",
+        "0°.",
+        "-90°."
+      ]
+    },
+    {
+      "id": "CA2",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Pour un condensateur parfait en alternatif, la tension est en retard de phase sur l'intensité de :",
+      "correct": "B",
+      "explanation": "Pour un condensateur parfait en alternatif, la tension est en retard de phase sur l'intensité de 90° (ou π/2 radian). Cela est dû au fait que le courant dans un condensateur est proportionnel à la dérivée de la tension par rapport au temps, entraînant un décalage de phase. L'option '180°' est incorrecte car cela signifierait une opposition de phase. L'option '0°' est incorrecte car cela signifierait que la tension et le courant sont en phase. L'option '45°' est incorrecte car le décalage de phase est précisément de 90°, pas de 45°.",
+      "options": [
+        "180°.",
+        "90° (π/2).",
+        "0°.",
+        "45°."
+      ]
+    },
+    {
+      "id": "CA3",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La tension efficace et l'intensité efficace se mesurent respectivement avec :",
+      "correct": "D",
+      "explanation": "La tension efficace et l'intensité efficace se mesurent respectivement avec un voltmètre thermique et un ampèremètre thermique. Les appareils thermiques sont capables de mesurer la valeur efficace des grandeurs alternatives, quelle que soit leur forme. L'option 'Un oscilloscope pour les deux' est incorrecte car si un oscilloscope peut afficher les formes d'onde, il ne donne pas directement les valeurs efficaces sans traitement. L'option 'Un multimètre numérique en continu' est incorrecte car les multimètres en continu mesurent les valeurs continues, pas les efficaces en alternatif. L'option 'Un voltmètre magnétoélectrique et un ampèremètre thermique' est incorrecte car les appareils magnétoélectriques mesurent les valeurs continues ou efficaces pour des courants sinusoïdaux.",
+      "options": [
+        "Un oscilloscope pour les deux.",
+        "Un multimètre numérique en continu.",
+        "Un voltmètre magnétoélectrique et un ampèremètre thermique.",
+        "Un voltmètre thermique et un ampèremètre thermique."
+      ]
+    },
+    {
+      "id": "CA4",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 40,
+      "question": "Dans un circuit RLC série en résonance, on a :",
+      "correct": "D",
+      "explanation": "Dans un circuit RLC série en résonance, la condition est que Lω = 1/(Cω), ou de manière équivalente, ω²LC = 1. Cela signifie que la réactance inductive (Lω) est égale à la réactance capacitive (1/(Cω)), ce qui entraîne une impédance minimale. L'option 'L = C' est incorrecte car cela ne tient pas compte de la pulsation ω. L'option 'Lω = Cω' est incorrecte car cela signifierait que les réactances sont égales mais ne correspond pas à la condition de résonance. L'option 'ω = 0' est incorrecte car ω représente la pulsation, qui n'est pas nulle en régime alternatif.",
+      "options": [
+        "L = C.",
+        "Lω = Cω.",
+        "ω = 0.",
+        "Lω = 1/(Cω) → produit L C ω² = 1."
+      ]
+    },
+    {
+      "id": "CA5",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Les effets calorifique et magnétique s'appliquent en continu et en alternatif. L'effet chimique (électrolyse) :",
+      "correct": "C",
+      "explanation": "L'effet chimique de l'électricité, comme l'électrolyse, s'applique aisément seulement en continu. Cela est dû au fait que l'électrolyse implique le déplacement d'ions dans une solution, un processus qui nécessite une polarité constante, ce que seul le courant continu fournit. L'option 'S'applique aussi bien en alternatif' est incorrecte car l'alternatif change de polarité, empêchant un déplacement net d'ions. L'option 'Ne s'applique jamais' est incorrecte car l'électrolyse est bien un phénomène réel. L'option 'S'applique uniquement en alternatif' est incorrecte car cela nie la possibilité de l'électrolyse en continu.",
+      "options": [
+        "S'applique aussi bien en alternatif.",
+        "Ne s'applique jamais.",
+        "S'applique aisément seulement en continu.",
+        "S'applique uniquement en alternatif."
+      ]
+    },
+    {
+      "id": "CA6",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Identique au 5 (redondance). L'effet calorifique et magnétique sont utilisables en continu et alternatif, l'effet chimique :",
+      "correct": "D",
+      "explanation": "L'effet chimique d'un courant électrique est principalement observable en courant continu. En effet, le courant continu peut provoquer des réactions chimiques, comme l'électrolyse, qui ne se produisent pas de la même manière en courant alternatif. Les autres options sont incorrectes car l'effet calorifique et magnétique sont utilisables dans les deux types de courant, tandis que l'effet chimique n'est pas vraiment pertinent en courant alternatif.",
+      "options": [
+        "Dans les deux.",
+        "Seulement en alternatif.",
+        "Jamais.",
+        "Seulement en continu."
+      ]
+    },
+    {
+      "id": "CA7",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La pulsation ω d'un courant alternatif peut se calculer par :",
+      "correct": "C",
+      "explanation": "La pulsation ω d'un courant alternatif est une mesure de la vitesse à laquelle le courant change de direction. Elle est liée à la fréquence f par la relation ω = 2πf, où ω est en radian par seconde et f est en hertz. De plus, ω peut également être exprimé en fonction de la période T par ω = 2π/T, car la période est l'inverse de la fréquence. Les autres options sont incorrectes car ω n'est pas simplement égal à f/T, 1/f ou T/f.",
+      "options": [
+        "ω = 1/f.",
+        "ω = f/T.",
+        "ω = 2πf ou ω = 2π/T.",
+        "ω = T/f."
+      ]
+    },
+    {
+      "id": "CA8",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'intensité efficace d'un courant alternatif est l'intensité du courant continu qui produirait, dans la même résistance et pendant le même temps :",
+      "correct": "A",
+      "explanation": "L'intensité efficace d'un courant alternatif est définie comme l'intensité du courant continu qui produirait le même dégagement de chaleur dans une résistance donnée pendant le même temps. Cela signifie que l'intensité efficace est une mesure de la puissance réelle délivrée par le courant alternatif. Les autres options sont incorrectes car la charge, le champ magnétique et la tension ne sont pas directement liés à la définition de l'intensité efficace.",
+      "options": [
+        "Le même dégagement de chaleur.",
+        "La même charge.",
+        "Le même champ magnétique.",
+        "La même tension."
+      ]
+    },
+    {
+      "id": "CA9",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Un courant alternatif sinusoïdal est caractérisé par :",
+      "correct": "C",
+      "explanation": "Un courant alternatif sinusoïdal est caractérisé par sa période et son amplitude. La période décrit la durée d'un cycle complet du courant, tandis que l'amplitude décrit la valeur maximale du courant. Les autres options sont incorrectes car la valeur moyenne d'un courant alternatif sinusoïdal est nulle, et la fréquence et la phase initiale ne suffisent pas à caractériser complètement le courant.",
+      "options": [
+        "Sa valeur moyenne.",
+        "Sa fréquence et sa phase initiale seulement.",
+        "Sa période et son amplitude.",
+        "Sa tension et sa résistance."
+      ]
+    },
+    {
+      "id": "CA10",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La période T est :",
+      "correct": "C",
+      "explanation": "La période T d'un courant alternatif est la plus petite durée au bout de laquelle le courant reprend la même valeur. Cela signifie que la période est la durée d'un cycle complet du courant. Les autres options sont incorrectes car la période n'est pas simplement le temps pour une alternance, la durée entre deux passages par zéro ou l'inverse de la fréquence.",
+      "options": [
+        "Le temps pour une alternance.",
+        "La durée entre deux passages par zéro.",
+        "La plus petite durée au bout de laquelle le courant reprend la même valeur.",
+        "L'inverse de la fréquence."
+      ]
+    },
+    {
+      "id": "CA11",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dans un circuit RLC série, la résonance a lieu quand :",
+      "correct": "D",
+      "explanation": "Dans un circuit RLC série, la résonance a lieu lorsque l'effet inductif et l'effet capacitif se compensent, ce qui entraîne une impédance minimale. Cela se produit lorsque la fréquence du courant est égale à la fréquence de résonance du circuit. Les autres options sont incorrectes car la résistance n'est pas nécessairement nulle à la résonance, le courant n'est pas nécessairement nul et la tension n'est pas nécessairement maximale aux bornes de la résistance.",
+      "options": [
+        "La résistance est nulle.",
+        "La tension est maximale aux bornes de la résistance.",
+        "Le courant est nul.",
+        "L'effet inductif et l'effet capacitif se compensent (impédance minimale)."
+      ]
+    },
+    {
+      "id": "CA12",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La réactance inductive d'une bobine (inductance L) est :",
+      "correct": "C",
+      "explanation": "La réactance inductive d'une bobine est donnée par X_L = ωL, où ω est la pulsation du courant et L est l'inductance de la bobine. Cela signifie que la réactance inductive augmente avec la fréquence du courant et l'inductance de la bobine. Les autres options sont incorrectes car la réactance inductive n'est pas simplement égale à L, 1/(ωL) ou L/ω.",
+      "options": [
+        "X_L = L / ω.",
+        "X_L = L.",
+        "X_L = ω L.",
+        "X_L = 1/(ωL)."
+      ]
+    },
+    {
+      "id": "CA13",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L'impédance Z d'un dipôle est le quotient de la tension efficace U par :",
+      "correct": "A",
+      "explanation": "L'impédance Z d'un dipôle est le quotient de la tension efficace U par l'intensité efficace I. Cela signifie que l'impédance est une mesure de la résistance totale au courant électrique dans le dipôle. Les autres options sont incorrectes car l'impédance n'est pas directement liée à la fréquence, la puissance ou la tension maximale.",
+      "options": [
+        "L'intensité efficace I.",
+        "La fréquence.",
+        "La puissance.",
+        "La tension maximale."
+      ]
+    },
+    {
+      "id": "CA14",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Le facteur de puissance d'un circuit est le quotient de la puissance active (consommée) par :",
+      "correct": "A",
+      "explanation": "Le facteur de puissance d'un circuit est une mesure de l'efficacité avec laquelle le circuit utilise l'énergie électrique. Il est défini comme le quotient de la puissance active (consommée) par la puissance apparente. La puissance apparente est le produit de la tension efficace et de l'intensité efficace, noté Ueff * Ieff. Les autres options sont incorrectes car la puissance maximale n'est pas une grandeur pertinente dans ce contexte, la puissance réactive est une composante de la puissance apparente mais ne permet pas de définir le facteur de puissance, et la puissance instantanée varie avec le temps et ne permet pas de caractériser le circuit de manière globale.",
+      "options": [
+        "La puissance apparente (Ueff * Ieff).",
+        "La puissance maximale.",
+        "La puissance réactive.",
+        "La puissance instantanée."
+      ]
+    },
+    {
+      "id": "CA15",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Un courant alternatif sinusoïdal est un courant variable dont l'intensité est :",
+      "correct": "B",
+      "explanation": "Un courant alternatif sinusoïdal est un courant électrique variable dont l'intensité varie de manière sinusoïdale avec le temps. Cela signifie que l'intensité est une fonction périodique sinusoïdale du temps. Les autres options sont incorrectes car une fonction constante ne varie pas, une fonction exponentielle ne décrit pas une variation périodique, et une fonction linéaire ne décrit pas une variation sinusoïdale.",
+      "options": [
+        "Une fonction constante.",
+        "Une fonction périodique sinusoïdale du temps.",
+        "Une fonction exponentielle.",
+        "Une fonction linéaire."
+      ]
+    },
+    {
+      "id": "CA16",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La réactance capacitive (capacitance) est :",
+      "correct": "B",
+      "explanation": "La réactance capacitive, notée X_C, est une mesure de l'opposition qu'un condensateur oppose à la variation de la tension à ses bornes. Elle est définie par la relation \"X_C = 1 / (ωC)\", où ω est la pulsation et C la capacité. Cette relation est juste car elle reflète la manière dont un condensateur réagit aux changements de tension dans un circuit.",
+      "options": [
+        "X_C = ωC.",
+        "X_C = 1/(ωC).",
+        "X_C = ω/C.",
+        "X_C = C/ω."
+      ]
+    },
+    {
+      "id": "CA17",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La fréquence N (ou f) d'un phénomène périodique est :",
+      "correct": "B",
+      "explanation": "La fréquence, notée N ou f, d'un phénomène périodique est le nombre de répétitions de ce phénomène par seconde. Elle caractérise la rapidité à laquelle le phénomène se répète. Les autres options sont incorrectes car la période est la durée d'un cycle, l'inverse de la fréquence, et le nombre de répétitions par seconde est justement la définition de la fréquence.",
+      "options": [
+        "La période.",
+        "Le nombre de répétitions par seconde.",
+        "La durée d'un cycle.",
+        "L'inverse de la pulsation."
+      ]
+    },
+    {
+      "id": "CA18",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "L'inverse de la capacité est l'élastance (daraf). L'inverse de l'impédance est :",
+      "correct": "D",
+      "explanation": "L'inverse de l'impédance est appelé admittance, noté Y, et son unité est l'ohm⁻¹. L'admittance est une mesure de la facilité avec laquelle un circuit conduit le courant électrique. Les autres options sont incorrectes car la susceptance est l'inverse de la réactance, la conductance est l'inverse de la résistance, et la réactance est une composante de l'impédance.",
+      "options": [
+        "La susceptance.",
+        "La conductance.",
+        "La réactance.",
+        "L'admittance (ohm⁻¹)."
+      ]
+    },
+    {
+      "id": "CA19",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "Dans un circuit RLC série, lorsque Lω = 1/(Cω), le circuit est dit à charge résistive et :",
+      "correct": "D",
+      "explanation": "Lorsqu'un circuit RLC série est à résonance, c'est-à-dire lorsque Lω = 1 / (Cω), le circuit est dit à charge résistive. Dans ce cas, le courant et la tension sont en phase, c'est-à-dire que l'intensité est en phase avec la tension. Les autres options sont incorrectes car le courant en avance sur la tension dans un circuit capacitif, la tension en avance sur le courant dans un circuit inductif, et le courant nul correspond à un circuit ouvert.",
+      "options": [
+        "Le courant est en avance sur la tension.",
+        "La tension est en avance sur le courant.",
+        "Le courant est nul.",
+        "L'intensité est en phase avec la tension."
+      ]
+    },
+    {
+      "id": "CA20",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un transformateur fonctionne à vide lorsque :",
+      "correct": "B",
+      "explanation": "Un transformateur fonctionne à vide lorsque le secondaire est ouvert, c'est-à-dire qu'il n'y a pas de charge connectée au secondaire. Dans ce cas, le transformateur n'est pas chargé et ne débite pas de courant. Les autres options sont incorrectes car si le primaire est ouvert, le transformateur ne fonctionne pas, si le primaire est court-circuité, le transformateur est en court-circuit, et si le transformateur n'est pas alimenté, il ne fonctionne pas.",
+      "options": [
+        "Le primaire est ouvert.",
+        "Le secondaire est ouvert (aucune charge).",
+        "Le primaire est court-circuité.",
+        "Il n'est pas alimenté."
+      ]
+    },
+    {
+      "id": "CA21",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un alternateur produit une f.é.m. induite dans un circuit induit fixe. Il est basé sur :",
+      "correct": "B",
+      "explanation": "Un alternateur produit une force électromotrice (f.é.m.) induite dans un circuit induit fixe grâce à l'induction électromagnétique. L'induction électromagnétique est le phénomène par lequel un champ magnétique variable induit une force électromotrice dans un circuit électrique. Les autres options sont incorrectes car l'effet photoélectrique concerne la conversion de la lumière en électricité, l'effet thermoélectrique concerne la conversion de la chaleur en électricité, et l'électrostatique concerne les charges électriques au repos.",
+      "options": [
+        "L'effet photoélectrique.",
+        "L'induction électromagnétique.",
+        "L'effet thermoélectrique.",
+        "L'électrostatique."
+      ]
+    },
+    {
+      "id": "CA22",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un alternateur comporte deux organes principaux : le rotor (partie tournante, inducteur) et le stator (partie fixe, induit).",
+      "correct": "A",
+      "explanation": "Un alternateur est un dispositif qui convertit l'énergie mécanique en énergie électrique. Il est composé de deux organes principaux : le rotor, qui est la partie tournante également appelée inducteur, et le stator, qui est la partie fixe également appelée induit. Le rotor produit un champ magnétique qui induit une tension électrique dans le stator. C'est pourquoi l'option affirmant que le rotor est la partie tournante et le stator la partie fixe est correcte. Les autres options sont incorrectes car le rotor et le stator ne tournent pas tous les deux de manière significative dans un alternateur standard, et il n'y a pas d'inversion des rôles entre les deux.",
+      "options": [
+        "Vrai.",
+        "Faux, les deux tournent.",
+        "Faux, c'est l'inverse.",
+        "Faux, les deux sont fixes."
+      ]
+    },
+    {
+      "id": "CA23",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La fréquence d'un courant alternatif sinusoïdal est égale au nombre de :",
+      "correct": "C",
+      "explanation": "La fréquence d'un courant alternatif sinusoïdal est une mesure de la rapidité avec laquelle le courant change de sens. Elle est définie comme le nombre de périodes par seconde. Une période est un cycle complet de variation du courant. La pulsation, qui est le nombre de radians par seconde, est liée à la fréquence mais ne correspond pas à la définition de la fréquence. Les alternances par seconde sont liées à la fréquence mais représentent le nombre de cycles positifs ou négatifs, soit deux fois la fréquence. Les degrés par seconde ne sont pas une mesure standard de la fréquence. Ainsi, la bonne définition de la fréquence est le nombre de périodes par seconde.",
+      "options": [
+        "Radians par seconde.",
+        "Alternances par seconde.",
+        "Périodes par seconde.",
+        "Degrés par seconde."
+      ]
+    },
+    {
+      "id": "CA24",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L'intensité instantanée est la valeur à chaque instant. L'intensité maximale est :",
+      "correct": "C",
+      "explanation": "L'intensité instantanée d'un courant électrique est la valeur de l'intensité à un instant donné. L'intensité maximale, quant à elle, est la plus grande valeur instantanée que l'intensité peut atteindre. Elle est également appelée valeur crête. La valeur efficace est une autre caractéristique du courant, qui représente la valeur d'un courant continu qui produirait la même puissance dans une résistance. La valeur moyenne et la valeur crête à crête sont également des caractéristiques distinctes. Par conséquent, la plus grande valeur instantanée est effectivement l'intensité maximale.",
+      "options": [
+        "La valeur crête à crête.",
+        "La valeur efficace.",
+        "La plus grande valeur instantanée.",
+        "La valeur moyenne."
+      ]
+    },
+    {
+      "id": "CA25",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une résistance pure (non inductive) est un élément où seul l'effet Joule se produit.",
+      "correct": "B",
+      "explanation": "Une résistance pure, ou résistance non inductive, est un élément de circuit qui ne possède que de la résistance et aucune réactance, c'est-à-dire qu'elle ne produit pas de champ magnétique ni de champ électrique variable. Dans cet élément, seul l'effet Joule, ou dissipation d'énergie sous forme de chaleur, se produit lorsque le courant le traverse. Les autres options sont incorrectes car une résistance pure ne possède pas de capacité significative, d'inductance ou ne produit pas de champ magnétique de manière significative.",
+      "options": [
+        "Faux, elle a de la capacité.",
+        "Vrai.",
+        "Faux, elle a aussi de l'inductance.",
+        "Faux, elle produit du champ magnétique."
+      ]
+    },
+    {
+      "id": "CA26",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les alternances d'un courant sinusoïdal sont égales. Leur valeur commune (crête) est :",
+      "correct": "B",
+      "explanation": "Les alternances d'un courant sinusoïdal sont les phases positives et négatives de son cycle. La valeur crête, ou valeur maximale, de ces alternances est liée à la valeur efficace, notée Ueff, par la relation Umax = √2 * Ueff. Cela signifie que la valeur crête est √2 fois la valeur efficace. Les autres options sont incorrectes car la valeur efficace n'est pas la valeur crête, la valeur crête n'est pas Ueff / √2 et n'est pas non plus Ueff * 2.",
+      "options": [
+        "Ueff.",
+        "√2 * Ueff.",
+        "Ueff / √2.",
+        "Ueff * 2."
+      ]
+    },
+    {
+      "id": "CA27",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La fréquence f et la pulsation ω sont liées par :",
+      "correct": "B",
+      "explanation": "La fréquence f et la pulsation ω d'un courant alternatif sont liées par la relation ω = 2πf. La pulsation représente la vitesse angulaire de rotation de la phase du courant dans le plan complexe et est exprimée en radians par seconde. La fréquence, quant à elle, est le nombre de périodes par seconde. La relation entre les deux permet de passer de l'une à l'autre facilement. Les autres options sont incorrectes car ω n'est pas égal à f / 2π, f ou 1/f.",
+      "options": [
+        "ω = f / 2π.",
+        "ω = 2πf.",
+        "ω = f.",
+        "ω = 1/f."
+      ]
+    },
+    {
+      "id": "CA28",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le courant alternatif change de sens :",
+      "correct": "C",
+      "explanation": "Un courant alternatif change de sens deux fois par période. En effet, une période complète du courant correspond à un cycle positif suivi d'un cycle négatif, ce qui signifie que le sens du courant change à la fin du cycle positif pour commencer le cycle négatif, et inversement. Les autres options sont incorrectes car le courant ne change pas de sens quatre fois par période, une fois par période ou jamais.",
+      "options": [
+        "Quatre fois.",
+        "Une fois par période.",
+        "Deux fois par période.",
+        "Jamais."
+      ]
+    },
+    {
+      "id": "CA29",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dans un circuit RLC série, si Lω > 1/(Cω), le circuit est à charge inductive (dominance de l'inductance). Si Lω < 1/(Cω), il est à charge capacitive.",
+      "correct": "A",
+      "explanation": "Dans un circuit RLC série, la nature inductive ou capacitive du circuit dépend de la comparaison entre la réactance inductive (Lω) et la réactance capacitive (1/(Cω)). Si Lω > 1/(Cω), le circuit est inductif, c'est-à-dire qu'il est dominé par l'inductance. Si Lω < 1/(Cω), le circuit est capacitif. Cette affirmation est correcte. Les autres options sont incorrectes car le circuit n'est pas toujours capacitif ou inductif sans considération des valeurs de L, C et ω, et l'inverse de l'affirmation n'est pas vrai.",
+      "options": [
+        "Vrai.",
+        "Toujours capacitif.",
+        "Faux, l'inverse.",
+        "Toujours inductif."
+      ]
+    },
+    {
+      "id": "CA30",
+      "category": "Physique",
+      "difficulty": "moyen",
+      "timer_seconds": 40,
+      "question": "Un circuit bouchon (ou circuit résonant parallèle) est un montage d'une inductance en parallèle avec un condensateur, ajusté pour que :",
+      "correct": "A",
+      "explanation": "Un circuit bouchon, également appelé circuit résonant parallèle, est constitué d'une inductance et d'un condensateur montés en parallèle. Le but de ce montage est d'obtenir une fréquence de résonance spécifique à laquelle l'impédance du circuit est maximale, ce qui signifie que le courant dans le circuit principal est minimal, idéalement nul. C'est pourquoi, à la résonance, le courant dans le circuit principal soit nul est la caractéristique principale d'un circuit bouchon. Les autres options sont incorrectes car le courant dans le circuit principal n'est pas maximal à la résonance dans un circuit parallèle ; la tension n'est pas nécessairement nulle ; et l'impédance est en fait maximale, pas minimale, à la résonance.",
+      "options": [
+        "Le courant dans le circuit principal soit nul (à la résonance).",
+        "Le courant dans le circuit principal soit maximal.",
+        "La tension soit nulle.",
+        "L'impédance soit minimale."
+      ]
+    }
+  ]
+}

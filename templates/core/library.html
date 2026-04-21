@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+{% block title %}Bibliothèque PDF – OU TOU BON{% endblock %}
+{% block extra_css %}
+<style>
+.lib-wrap { padding:1.5rem; max-width:100%; overflow-x:hidden; box-sizing:border-box; }
+.lib-filter { display:flex; gap:.5rem; overflow-x:auto; overflow-y:hidden; padding:.5rem 0; margin-bottom:1.5rem; scroll-behavior:smooth; scrollbar-width:thin; scrollbar-color:rgba(16,185,129,.3) transparent; }
+.lib-filter::-webkit-scrollbar { height:4px; }
+.lib-filter::-webkit-scrollbar-track { background:transparent; }
+.lib-filter::-webkit-scrollbar-thumb { background:rgba(16,185,129,.3); border-radius:2px; }
+.lib-filter::-webkit-scrollbar-thumb:hover { background:rgba(16,185,129,.5); }
+.lib-pill { padding:.4rem .9rem; border-radius:20px; font-size:.8rem; font-weight:600; background:var(--card); border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; text-decoration:none; white-space:nowrap; flex-shrink:0; }
+.lib-pill.active { background:rgba(16,185,129,.15); border-color:var(--green); color:var(--green); }
+.lib-section { margin-bottom:2rem; }
+.lib-section-header { display:flex; align-items:center; gap:.75rem; margin-bottom:1rem; }
+.lib-section-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:.9rem; }
+.lib-section-title { font-weight:700; font-size:1rem; }
+.lib-section-count { font-size:.75rem; color:var(--t3); font-weight:500; }
+.lib-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr)); gap:.75rem; }
+.lib-card { background:var(--card); border:1px solid var(--border2); border-radius:12px; padding:.9rem 1rem; display:flex; align-items:center; gap:.85rem; transition:border-color .15s; }
+.lib-card:hover { border-color:rgba(255,255,255,.15); }
+.lib-card-icon { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; background:rgba(239,68,68,.1); color:#f87171; }
+.lib-card-info { flex:1; min-width:0; }
+.lib-card-name { font-size:.82rem; font-weight:600; color:var(--t1); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:.18rem; }
+.lib-card-meta { font-size:.7rem; color:var(--t3); display:flex; gap:.5rem; align-items:center; }
+.lib-card-actions { display:flex; gap:.3rem; flex-shrink:0; }
+.lib-btn { width:30px; height:30px; border-radius:8px; border:1px solid var(--border2); background:var(--card2); color:var(--t3); display:flex; align-items:center; justify-content:center; font-size:.78rem; cursor:pointer; transition:all .15s; text-decoration:none; }
+.lib-btn:hover { border-color:var(--green); color:var(--green); }
+.lib-btn.ai:hover { border-color:#8b5cf6; color:#8b5cf6; }
+.lib-empty { text-align:center; padding:4rem; color:var(--t3); }
+</style>
+<script>
+function showGuestBlockedToast(msg) {
+  showToast('📚 ' + (msg || 'Créez un compte gratuit pour accéder aux PDFs'), 'info');
+  setTimeout(() => { window.location.href = "{% url 'signup' %}"; }, 1800);
+}
+function showPremiumToast(msg) {
+  showToast('? ' + (msg || 'Passez Premium pour accéder aux PDFs'), 'info');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const filter = document.querySelector('.lib-filter');
+  const activeBtn = filter?.querySelector('.lib-pill.active');
+  if (activeBtn && filter) {
+    setTimeout(() => {
+      activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }, 100);
+  }
+  
+  let isAutoScroll = true;
+  if (filter) {
+    filter.addEventListener('wheel', () => { isAutoScroll = false; }, { passive: true });
+    filter.addEventListener('touchmove', () => { isAutoScroll = false; }, { passive: true });
+  }
+});
+</script>
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="library" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Bibliothèque PDF</div>
+    </div>
+    <div class="view-area" style="overflow-y:auto;">
+      <div class="lib-wrap">
+
+        
+        <div class="lib-filter">
+          <a href="{% url 'library' %}" class="lib-pill {% if not filter_subj or filter_subj == 'all' %}active{% endif %}">Toutes les matières</a>
+          {% for key, mat in mats.items %}
+          <a href="{% url 'library' %}?subject={{ key }}" class="lib-pill {% if filter_subj == key %}active{% endif %}" data-subject="{{ key }}">{{ mat.label }}</a>
+          {% endfor %}
+        </div>
+
+        {% if is_guest %}
+        <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;">
+          <span id="serieBadge" style="display:none;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:var(--green);border-radius:20px;padding:.25rem .75rem;font-size:.78rem;font-weight:700;"></span>
+          <button onclick="showSerieModal()" style="background:transparent;border:1px solid var(--border2);border-radius:20px;padding:.25rem .75rem;font-size:.78rem;color:var(--t3);cursor:pointer;"><i class="fas fa-sliders"></i> Changer de série</button>
+        </div>
+        {% endif %}
+
+        {% if library %}
+          {% for section in library %}
+          <div class="lib-section" data-subject="{{ section.subject }}">
+            <div class="lib-section-header">
+              <div class="lib-section-icon" style="background:{{ section.color }}18;color:{{ section.color }};">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div>
+                <div class="lib-section-title">{{ section.label }}</div>
+                <div class="lib-section-count">{{ section.count }} examen{% if section.count > 1 %}s{% endif %}</div>
+              </div>
+            </div>
+            <div class="lib-grid">
+              {% for f in section.files %}
+              <div class="lib-card">
+                <div class="lib-card-icon"><i class="fas fa-file-pdf"></i></div>
+                <div class="lib-card-info">
+                  <div class="lib-card-name" title="{{ f.name }}">{{ f.name }}</div>
+                  <div class="lib-card-meta">
+                    {% if f.year != '—' %}<span><i class="fas fa-calendar-alt" style="font-size:.6rem;"></i> {{ f.year }}</span>{% endif %}
+                    <span><i class="fas fa-weight-hanging" style="font-size:.6rem;"></i> {{ f.size_kb }} Ko</span>
+                  </div>
+                </div>
+                <div class="lib-card-actions">
+                  {% if is_guest %}
+                  
+                  <button onclick="showGuestBlockedToast('Créez un compte pour accéder aux examens PDF')" class="lib-btn" title="Voir le PDF" style="border:none;cursor:pointer;background:none;">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button onclick="showGuestBlockedToast('Créez un compte pour télécharger les examens')" class="lib-btn" title="Télécharger" style="border:none;cursor:pointer;background:none;">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button onclick="showGuestBlockedToast('Créez un compte pour utiliser le coach IA')" class="lib-btn ai" title="Envoyer à l'IA" style="border:none;cursor:pointer;background:none;">
+                    <i class="fas fa-robot"></i>
+                  </button>
+                  {% elif not is_premium %}
+                  
+                  <button onclick="showPremiumToast('Passez Premium pour voir les examens PDF')" class="lib-btn" title="Voir le PDF (Premium)" style="border:none;cursor:pointer;background:none;">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button onclick="showPremiumToast('Passez Premium pour télécharger les examens')" class="lib-btn" title="Télécharger (Premium)" style="border:none;cursor:pointer;background:none;">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button onclick="sendPdfToChat('{{ f.rel_path|escapejs }}','{{ f.name|escapejs }}')" class="lib-btn ai" title="Envoyer à l'IA" style="border:none;cursor:pointer;background:none;">
+                    <i class="fas fa-robot"></i>
+                  </button>
+                  {% else %}
+                  
+                  <a href="{% url 'api_pdf_serve' %}?path={{ f.rel_path|urlencode }}" target="_blank" class="lib-btn" title="Voir le PDF">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="{% url 'api_pdf_serve' %}?path={{ f.rel_path|urlencode }}&dl=1" class="lib-btn" title="Télécharger">
+                    <i class="fas fa-download"></i>
+                  </a>
+                  <button onclick="sendPdfToChat('{{ f.rel_path|escapejs }}','{{ f.name|escapejs }}')" class="lib-btn ai" title="Envoyer à l'IA" style="border:none;cursor:pointer;background:none;">
+                    <i class="fas fa-robot"></i>
+                  </button>
+                  {% endif %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+        <div class="lib-empty">
+          <i class="fas fa-book-open" style="font-size:3rem;opacity:.2;display:block;margin-bottom:1rem;"></i>
+          <div style="font-weight:600;color:var(--t2);">Aucun examen trouvé pour cette matière.</div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if is_guest %}
+
+<div id="serieModal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:2000;align-items:flex-end;justify-content:center;">
+  <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:24px 24px 0 0;padding:1.75rem 1.5rem 2rem;width:100%;max-width:500px;animation:slideUpModal .35s cubic-bezier(.34,1.56,.64,1);">
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <div style="font-size:1.5rem;margin-bottom:.4rem;">🎓</div>
+      <div style="font-weight:800;font-size:1.05rem;color:var(--t1);margin-bottom:.3rem;">Quelle est ta série ?</div>
+      <div style="font-size:.82rem;color:var(--t3);">On filtrera les matières selon ton programme BAC</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem;">
+      <button onclick="selectGuestSerie('A')" class="serie-btn" data-serie="A">
+        <span style="font-size:1.1rem;font-weight:900;color:#f59e0b;">A</span>
+        <span class="serie-name">Lettres &amp; Arts</span>
+        <span class="serie-subs">Philo · Kreyòl · Anglais · Art</span>
+      </button>
+      <button onclick="selectGuestSerie('B')" class="serie-btn" data-serie="B">
+        <span style="font-size:1.1rem;font-weight:900;color:#6366f1;">B</span>
+        <span class="serie-name">Éco · Sciences Sociales</span>
+        <span class="serie-subs">Économie · Maths · Histoire</span>
+      </button>
+      <button onclick="selectGuestSerie('C')" class="serie-btn" data-serie="C">
+        <span style="font-size:1.1rem;font-weight:900;color:#3b82f6;">C</span>
+        <span class="serie-name">Math · Physique</span>
+        <span class="serie-subs">Maths · Physique · Chimie</span>
+      </button>
+      <button onclick="selectGuestSerie('D')" class="serie-btn" data-serie="D">
+        <span style="font-size:1.1rem;font-weight:900;color:#22c55e;">D</span>
+        <span class="serie-name">Sciences Naturelles</span>
+        <span class="serie-subs">SVT · Physique · Chimie</span>
+      </button>
+      <button onclick="selectGuestSerie('F')" class="serie-btn" data-serie="F">
+        <span style="font-size:1.1rem;font-weight:900;color:#0ea5e9;">F</span>
+        <span class="serie-name">Sciences Techniques</span>
+        <span class="serie-subs">Maths · Physique · Info</span>
+      </button>
+      <button onclick="selectGuestSerie('G')" class="serie-btn" data-serie="G">
+        <span style="font-size:1.1rem;font-weight:900;color:#d946ef;">G</span>
+        <span class="serie-name">Gestion</span>
+        <span class="serie-subs">Éco · Maths · Langues</span>
+      </button>
+    </div>
+    <button onclick="selectGuestSerie('all')" style="width:100%;margin-top:.9rem;padding:.55rem;border:1px solid var(--border2);border-radius:10px;background:transparent;color:var(--t3);font-size:.8rem;cursor:pointer;">
+      Voir toutes les matières
+    </button>
+  </div>
+</div>
+<style>
+  @keyframes slideUpModal { from { transform:translateY(100%); opacity:0; } to { transform:translateY(0); opacity:1; } }
+  .serie-btn { display:flex; flex-direction:column; align-items:flex-start; gap:.18rem; padding:.75rem .9rem; background:var(--card); border:1.5px solid var(--border2); border-radius:14px; cursor:pointer; transition:all .15s; text-align:left; }
+  .serie-btn:hover, .serie-btn.selected { border-color: var(--green); background:rgba(16,185,129,.07); }
+  .serie-name { font-size:.8rem; font-weight:700; color:var(--t1); }
+  .serie-subs { font-size:.7rem; color:var(--t3); }
+</style>
+<script>
+(function(){
+  
+  const SERIE_SUBJECTS = {
+    A: ['francais','philosophie','anglais','espagnol','histoire'],
+    B: ['economie','maths','francais','philosophie','histoire','anglais'],
+    C: ['maths','physique','chimie','francais','philosophie'],
+    D: ['svt','physique','chimie','maths','francais','philosophie'],
+    F: ['maths','physique','chimie','informatique','anglais','francais'],
+    G: ['economie','maths','anglais','espagnol','informatique','francais'],
+    all: null
+  };
+
+  function applySerieFilter(serie) {
+    const subjects = SERIE_SUBJECTS[serie];
+    
+    document.querySelectorAll('.lib-section').forEach(function(sec) {
+      if (!subjects) { sec.style.display = ''; return; }
+      const subj = sec.getAttribute('data-subject');
+      sec.style.display = (subj && subjects.includes(subj)) ? '' : 'none';
+    });
+    
+    document.querySelectorAll('.lib-filter .lib-pill[data-subject]').forEach(function(pill) {
+      if (!subjects) { pill.style.display = ''; return; }
+      const subj = pill.getAttribute('data-subject');
+      pill.style.display = (subj && subjects.includes(subj)) ? '' : 'none';
+    });
+    
+    const badge = document.getElementById('serieBadge');
+    if (badge) badge.textContent = serie === 'all' ? 'Toutes les matières' : 'Série ' + serie;
+    badge && (badge.style.display = 'inline-flex');
+  }
+
+  window.selectGuestSerie = function(serie) {
+    localStorage.setItem('guest_lib_serie', serie);
+    document.getElementById('serieModal').style.display = 'none';
+    applySerieFilter(serie);
+  };
+
+  window.showSerieModal = function() {
+    document.getElementById('serieModal').style.display = 'flex';
+  };
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const saved = localStorage.getItem('guest_lib_serie');
+    if (!saved) {
+      document.getElementById('serieModal').style.display = 'flex';
+    } else {
+      applySerieFilter(saved);
+    }
+  });
+})();
+</script>
+
+{% endif %}
+
+{% if user.is_authenticated %}
+<script>
+window.sendPdfToChat = async function(relPath, pdfName) {
+  const statusDiv = document.getElementById('pdfSendStatus');
+  if (statusDiv) { statusDiv.textContent = 'Extraction en cours…'; statusDiv.style.display = 'block'; }
+  try {
+    const resp = await fetch('{% url "api_pdf_extract_text" %}?path=' + encodeURIComponent(relPath));
+    let data;
+    try { data = await resp.json(); } catch(e) { data = {}; }
+    if (!resp.ok || data.error) {
+      if (statusDiv) { statusDiv.textContent = 'Erreur : ' + (data.error || 'Impossible d\'extraire le texte.'); setTimeout(function(){ statusDiv.style.display='none'; }, 3500); }
+      else alert('Impossible d\'extraire le texte du PDF : ' + (data.error || ''));
+      return;
+    }
+    const chatUrl = '{% url "chat" %}?pdf_text=' + encodeURIComponent(data.text) + '&pdf_name=' + encodeURIComponent(pdfName || data.name || 'exam.pdf');
+    window.location.href = chatUrl;
+  } catch(e) {
+    if (statusDiv) { statusDiv.textContent = 'Erreur réseau. Vérifie ta connexion.'; setTimeout(function(){ statusDiv.style.display='none'; }, 3500); }
+    else alert('Erreur réseau.');
+  }
+};
+</script>
+
+<div id="pdfSendStatus" style="display:none;position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);background:rgba(15,23,42,.97);color:#f1f5f9;padding:.6rem 1.2rem;border-radius:12px;font-size:.82rem;font-weight:600;z-index:9999;border:1px solid rgba(16,185,129,.3);backdrop-filter:blur(12px)"></div>
+{% endif %}
+
+{% endblock %}
+

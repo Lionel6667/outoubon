@@ -1,0 +1,335 @@
+﻿{% extends "base.html" %}
+{% block title %}Test Diagnostique – OU TOU BON{% endblock %}
+{% block body %}
+<div class="auth-page" style="align-items:flex-start;padding:2rem 1rem;min-height:100vh;overflow-y:auto;">
+  <div class="auth-card" style="max-width:720px;width:100%;padding:2rem;">
+
+    
+    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.75rem;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;opacity:.5;">✓</div>
+        <span style="font-size:.7rem;color:var(--t3);">Infos</span>
+      </div>
+      <div style="flex:1;height:2px;background:var(--green);max-width:60px;opacity:.5;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;opacity:.5;">✓</div>
+        <span style="font-size:.7rem;color:var(--t3);">École</span>
+      </div>
+      <div style="flex:1;height:2px;background:var(--green);max-width:60px;opacity:.5;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">3</div>
+        <span style="font-size:.7rem;color:var(--green);font-weight:600;">Diagnostic</span>
+      </div>
+    </div>
+
+    {% if generating %}
+    
+    <div id="genScreen" style="text-align:center;padding:2rem 0;">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">🎯</div>
+      <div style="font-weight:800;font-size:1.3rem;margin-bottom:.4rem;">Préparation de ton diagnostic…</div>
+      <div style="color:var(--t2);font-size:.875rem;margin-bottom:1.75rem;">OU TOU BON charge les mêmes quiz que dans la plateforme, avec 10 questions par matière pour mesurer ton niveau réel.</div>
+
+      <div style="height:6px;background:var(--border);border-radius:999px;overflow:hidden;margin-bottom:1rem;">
+        <div id="genBar" style="height:100%;width:0%;background:var(--green);border-radius:999px;transition:width .6s ease;"></div>
+      </div>
+      <div id="genMsg" style="font-size:.82rem;color:var(--t3);margin-bottom:1.5rem;">Lecture des examens…</div>
+
+      <div class="astra-loader" style="justify-content:center;">
+        <div class="astra-row">
+          <div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div>
+        </div>
+      </div>
+
+      <p id="genError" style="display:none;margin-top:1.5rem;color:#fca5a5;font-size:.85rem;font-weight:600;">
+        ⚠ Une erreur est survenue. <a href="/diagnostic/" style="color:var(--green);text-decoration:underline;">Réessayer</a>
+      </p>
+    </div>
+    
+    <form style="display:none;">{% csrf_token %}</form>
+
+    {% else %}
+    
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <div style="font-size:2rem;margin-bottom:.5rem;">🎯</div>
+      <div style="font-weight:800;font-size:1.3rem;margin-bottom:.4rem;">Test Diagnostique</div>
+      <div style="color:var(--t2);font-size:.875rem;">Même système que le quiz OU TOU BON, mais en version diagnostic complète: 10 questions par matière.</div>
+    </div>
+
+    <div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.4);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start;">
+      <span style="font-size:1.2rem;flex-shrink:0;">🚫</span>
+      <div>
+        <div style="font-weight:700;color:#f59e0b;font-size:.9rem;margin-bottom:.3rem;">Ne triche pas — c'est dans ton intérêt !</div>
+        <div style="font-size:.82rem;color:var(--t2);line-height:1.5;">
+          Ce test n'est <strong>pas noté</strong>. Il sert uniquement à identifier tes <strong>points faibles</strong> pour te proposer des exercices adaptés.
+          <strong>Réponds honnêtement</strong> — même si tu ne sais pas, fais de ton mieux.
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="quiz-progress-wrap" style="margin-bottom:1.5rem;">
+      <div class="quiz-prog-text" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem;">
+        <span>Matière <span id="dNum">1</span>/{{ questions|length }}</span>
+        <span id="subjTag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);background:rgba(16,185,129,.12);padding:.2rem .6rem;border-radius:999px;"></span>
+      </div>
+      <div class="quiz-prog-track"><div id="dProgBar" class="quiz-prog-fill" style="width:0%"></div></div>
+    </div>
+
+    <form method="post" id="diagForm">
+      {% csrf_token %}
+      {% for qset in questions %}
+      <div id="dq-{{ forloop.counter }}"
+           data-subject="{{ qset.subject }}"
+           style="display:{% if forloop.first %}block{% else %}none{% endif %};">
+        {% for q in qset.questions %}
+        <div class="card diag-card" style="padding:1.25rem;margin-bottom:.75rem;"
+             data-correct="{{ q.reponse_correcte }}"
+             data-expl="{{ q.explication|default:''|escape }}">
+          {% if q.difficulte %}
+          <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);margin-bottom:.5rem;opacity:.7;">{{ q.difficulte }}</div>
+          {% endif %}
+          <div class="diag-enonce" style="font-weight:600;margin-bottom:.75rem;line-height:1.6;">{{ q.enonce }}</div>
+          <div class="diag-options">
+            {% for opt in q.options %}
+            <label class="diag-option" onclick="selectOpt(this,'q_{{ qset.subject }}_{{ forloop.parentloop.counter }}')"
+                   data-idx="{{ forloop.counter0 }}">
+              <input type="radio" name="q_{{ qset.subject }}_{{ forloop.parentloop.counter }}" value="{{ forloop.counter0 }}" style="display:none">
+              <span class="option-letter">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% else %}D{% endif %}</span>
+              <span class="diag-opt-text">{{ opt }}</span>
+            </label>
+            {% endfor %}
+          </div>
+          <div class="diag-feedback" style="display:none;margin-top:.75rem;"></div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      <div style="display:flex;gap:.75rem;margin-top:1.25rem;">
+        <button type="button" id="backBtn" onclick="diagBack()" class="btn-outline" style="padding:.75rem 1.5rem;display:none;">← Retour</button>
+        <button type="button" id="nextDiagBtn" onclick="diagNext()" class="btn-primary" style="padding:.75rem 1.5rem;flex:1;">Suivant →</button>
+        <button type="submit" id="submitDiagBtn" style="display:none;flex:1;padding:.75rem 1.5rem;" class="btn-primary">Terminer le test 🎯</button>
+      </div>
+    </form>
+    {% endif %}
+
+  </div>
+</div>
+
+<div id="savingOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,26,.92);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;">
+  <div style="width:56px;height:56px;border:4px solid rgba(16,185,129,.2);border-top-color:var(--green);border-radius:50%;animation:spinLoad 1s linear infinite;"></div>
+  <div style="text-align:center;">
+    <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.4rem;">Analyse de tes résultats…</div>
+    <div style="font-size:.85rem;color:var(--t2);">OU TOU BON calcule tes points forts et points faibles.</div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<style>
+@keyframes spinLoad { to { transform: rotate(360deg); } }
+@keyframes slideIn  {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0);    }
+}
+.diag-card             { animation: slideIn .28s ease both; }
+.diag-option           { transition: background .18s, border-color .18s; }
+.diag-option.correct   { background: rgba(16,185,129,.15) !important; border-color: var(--green) !important; }
+.diag-option.wrong     { background: rgba(239,68,68,.12)  !important; border-color: #ef4444       !important; }
+.diag-option.disabled  { pointer-events: none; cursor: default; }
+.diag-enonce           { font-size:.95rem; }
+</style>
+
+{% if generating %}
+<script>
+(function() {
+  const messages = [
+    'Lecture de la banque de quiz…',
+    'Sélection des matières de ta série…',
+    'Préparation de 10 questions par matière…',
+    'Assemblage du diagnostic complet…',
+    'Finalisation du test…',
+  ];
+  const bar = document.getElementById('genBar');
+  const msg = document.getElementById('genMsg');
+  let step = 0;
+
+  function tick() {
+    if (step >= messages.length) return;
+    bar.style.width = Math.round((step + 1) / messages.length * 88) + '%';
+    msg.textContent = messages[step];
+    step++;
+    if (step < messages.length) setTimeout(tick, 3000);
+  }
+  tick();
+
+  function getCsrf() {
+    const el = document.querySelector('[name=csrfmiddlewaretoken]');
+    if (el) return el.value;
+    const m = document.cookie.match(/csrftoken=([^;]+)/);
+    return m ? m[1] : '';
+  }
+
+  fetch('{% url "diagnostic_generate" %}', {
+    method: 'POST',
+    headers: { 'X-CSRFToken': getCsrf(), 'Content-Type': 'application/json' },
+    body: JSON.stringify({}),
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      bar.style.width = '100%';
+      msg.textContent = 'Questions prêtes !';
+      setTimeout(() => { window.location.href = '{% url "diagnostic" %}'; }, 400);
+    } else { throw new Error(data.error || 'Erreur'); }
+  })
+  .catch(() => {
+    document.getElementById('genError').style.display = 'block';
+    msg.textContent = '';
+    bar.style.background = '#ef4444';
+  });
+})();
+</script>
+{% else %}
+<script>
+const SUBJECT_LABELS = {
+  maths:'Maths', physique:'Physique', chimie:'Chimie', svt:'SVT',
+  francais:'Kreyòl', philosophie:'Philosophie', histoire:'Sciences Sociales',
+  anglais:'Anglais', espagnol:'Espagnol',
+};
+
+function normalizeDiagText(raw, stripChoicePrefix = false) {
+  let txt = String(raw || '');
+  if (stripChoicePrefix) {
+    txt = txt.replace(/^\s*[A-D]\s*[:.)-]\s*/i, '');
+  }
+  return fixLatexControls(txt.replace(/\u00A0/g, ' ').replace(/\u202F/g, ' ').trim());
+}
+
+function selectOpt(label, name) {
+  const card = label.closest('.diag-card');
+  if (card.dataset.answered) return;
+  card.dataset.answered = '1';
+
+  const correctIdx = parseInt(card.dataset.correct, 10);
+  const chosenIdx  = parseInt(label.dataset.idx, 10);
+  const isCorrect  = chosenIdx === correctIdx;
+  const expl       = card.dataset.expl || '';
+  const cleanExpl  = normalizeDiagText(expl, false);
+
+  label.querySelector('input[type=radio]').checked = true;
+
+  const allLabels = card.querySelectorAll('.diag-option');
+  allLabels.forEach(l => l.classList.add('disabled'));
+  label.classList.add(isCorrect ? 'correct' : 'wrong');
+  allLabels[correctIdx].classList.add('correct');
+
+  const fb = card.querySelector('.diag-feedback');
+  const explHtml = '';
+
+  if (isCorrect) {
+    fb.innerHTML = `<div style="display:flex;align-items:center;gap:.4rem;color:var(--green);font-weight:700;font-size:.88rem;">✅ Bonne réponse !</div>${explHtml}`;
+  } else {
+    const correctText = normalizeDiagText(allLabels[correctIdx].querySelector('.diag-opt-text').textContent, true);
+    fb.innerHTML = `<div style="font-size:.88rem;">❌ <strong style="color:#fca5a5;">Mauvaise réponse.</strong> Bonne réponse : <strong style="color:var(--green)">${correctText}</strong></div>${explHtml}`;
+  }
+  fb.style.cssText = 'display:block;margin-top:.75rem;';
+  renderKatex(fb);
+}
+
+let currentBlock = 1;
+const totalBlocks = {{ questions|length }};
+
+function _syncUI() {
+  document.getElementById('dNum').textContent = currentBlock;
+  document.getElementById('dProgBar').style.width = ((currentBlock / totalBlocks) * 100) + '%';
+  const block = document.getElementById('dq-' + currentBlock);
+  if (block) {
+    const subj = block.dataset.subject || '';
+    document.getElementById('subjTag').textContent = SUBJECT_LABELS[subj] || subj;
+    block.querySelectorAll('.diag-card').forEach((c, i) => {
+      c.style.animation = 'none';
+      void c.offsetHeight;
+      c.style.animation = `slideIn .28s ease ${i * 55}ms both`;
+    });
+  }
+  const isLast = currentBlock === totalBlocks;
+  document.getElementById('backBtn').style.display       = currentBlock > 1 ? 'inline-flex' : 'none';
+  document.getElementById('nextDiagBtn').style.display   = isLast ? 'none' : 'block';
+  document.getElementById('submitDiagBtn').style.display = isLast ? 'block' : 'none';
+}
+
+function diagNext() {
+  if (currentBlock < totalBlocks) {
+    document.getElementById('dq-' + currentBlock).style.display = 'none';
+    currentBlock++;
+    document.getElementById('dq-' + currentBlock).style.display = 'block';
+    _syncUI();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+function diagBack() {
+  if (currentBlock > 1) {
+    document.getElementById('dq-' + currentBlock).style.display = 'none';
+    currentBlock--;
+    document.getElementById('dq-' + currentBlock).style.display = 'block';
+    _syncUI();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+_syncUI();
+
+document.getElementById('diagForm').addEventListener('submit', function() {
+  document.getElementById('savingOverlay').style.display = 'flex';
+});
+
+function initDiagnosticMathRender() {
+  document.querySelectorAll('.diag-enonce').forEach(function(el) {
+    var raw = el.textContent;
+    raw = raw.replace(/\u00A0/g, ' ').replace(/\u202F/g, ' ');
+    raw = raw.replace(/^\s*\d+[\.)\-]\s*/, '');
+    el.textContent = fixLatexControls(raw.trim());
+  });
+  document.querySelectorAll('.diag-opt-text').forEach(function(el) {
+    var raw = el.textContent;
+    raw = raw.replace(/\u00A0/g, ' ').replace(/\u202F/g, ' ');
+    raw = raw.replace(/^\s*[A-D]\s*[:.)\-]\s*/i, '');
+    el.textContent = fixLatexControls(raw.trim());
+  });
+
+  var form = document.getElementById('diagForm');
+  if (form && typeof renderMathInElement === 'function') {
+    renderMathInElement(form, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$',  right: '$',  display: false},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+      ],
+      throwOnError: false,
+      errorColor: '#f87171',
+      strict: false,
+      trust: true,
+      macros: {
+        "\\R": "\\mathbb{R}",
+        "\\N": "\\mathbb{N}",
+        "\\Z": "\\mathbb{Z}",
+        "\\C": "\\mathbb{C}"
+      }
+    });
+  }
+}
+
+window.addEventListener('load', initDiagnosticMathRender);
+</script>
+{% endif %}
+{% endblock %}
+

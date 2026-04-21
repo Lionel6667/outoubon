@@ -1,0 +1,1997 @@
+﻿{% extends 'base.html' %}
+{% block title %}{{ course_name }} — OU TOU BON{% endblock %}
+
+{% block extra_css %}
+<style>
+
+.cours-page {
+  --c1: {{ course_color_1|default:"#60a5fa" }};
+  --c2: {{ course_color_2|default:"#f59e0b" }};
+  --c3: {{ course_color_3|default:"#38bdf8" }};
+  --shell: linear-gradient(180deg, rgba(6,16,32,0.96) 0%, rgba(2,8,23,1) 42%, rgba(9,20,35,1) 100%);
+  --glass: rgba(15,23,42,0.72);
+  --line-soft: rgba(148,163,184,0.14);
+  --t1: #f1f5f9; --t2: #cbd5e1; --t3: #94a3b8;
+}
+.cours-page { overflow-x: hidden; overflow-y: auto; }
+.cours-shell { overflow-x: hidden; }
+.chapter-full-content { overflow-x: hidden; }
+.cours-page .view-area {
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--c1) 16%, transparent), transparent 28%),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--c2) 16%, transparent), transparent 24%),
+    var(--shell);
+  overflow-x: hidden;
+}
+.cours-shell { max-width: 1440px; margin: 0 auto; padding: clamp(0.5rem,2vw,1.25rem) clamp(0.5rem,2vw,1.25rem) 3rem; }
+
+.cours-hero {
+  position: relative; overflow: hidden; padding: 2rem;
+  border: 1px solid rgba(96,165,250,0.18); border-radius: 28px;
+  background: linear-gradient(135deg, rgba(8,15,29,0.96), rgba(17,24,39,0.9)),
+              linear-gradient(120deg, color-mix(in srgb, var(--c1) 12%, transparent), color-mix(in srgb, var(--c2) 12%, transparent));
+  box-shadow: 0 30px 90px rgba(2,8,23,0.45);
+}
+.hero-top-row { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1rem; }
+.back-to-cours-btn {
+  display:inline-flex; align-items:center; gap:0.45rem; padding:0.4rem 0.85rem;
+  border-radius:10px; background:rgba(15,23,42,0.6); border:1px solid rgba(148,163,184,0.18);
+  color:#94a3b8; font-size:0.78rem; font-weight:700; text-decoration:none; transition:all 0.2s;
+}
+.back-to-cours-btn:hover { background:rgba(96,165,250,0.12); border-color:rgba(96,165,250,0.3); color:#60a5fa; }
+.hero-kicker {
+  display:inline-flex; align-items:center; gap:0.55rem; padding:0.45rem 0.8rem;
+  border-radius:999px; background:rgba(15,23,42,0.75); border:1px solid color-mix(in srgb, var(--c1) 20%, transparent);
+  color:var(--c1); font-size:0.76rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+}
+.hero-copy h1 { max-width:760px; margin:0 0 0.85rem; font-size:clamp(1.8rem,4vw,3.2rem); line-height:1.05; font-weight:900; letter-spacing:-0.05em; color:var(--t1); }
+.hero-copy p { max-width:760px; color:#e2e8f0; opacity:0.86; font-size:1rem; line-height:1.85; }
+
+.chapters-container { display:grid; opacity:1; transition:opacity 0.3s; width:100%; grid-template-columns:1fr; }
+.chapters-container.hidden { display:none; }
+.cours-hero.hidden { display:none; }
+.chapters-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; margin-top:clamp(1.5rem,4vw,2.5rem); width:100%; align-items:stretch; }
+.chapter-card-btn {
+  position:relative; overflow:visible; width:100%; border-radius:clamp(12px,1.5vw,18px);
+  border:2px solid color-mix(in srgb, var(--c1) 20%, transparent);
+  background:linear-gradient(135deg, rgba(20,30,48,0.92), rgba(25,35,55,0.88));
+  box-shadow:0 12px 32px rgba(2,8,23,0.28); padding:clamp(1.2rem,4vw,1.6rem) clamp(0.9rem,2.5vw,1rem);
+  cursor:pointer; transition:all 0.24s cubic-bezier(0.4,0,0.2,1); display:flex; flex-direction:column;
+  gap:0.85rem; text-align:center; font-family:inherit; justify-content:space-between;
+}
+.chapter-card-btn:hover { transform:translateY(-4px); border-color:color-mix(in srgb, var(--c1) 50%, transparent); box-shadow:0 20px 50px color-mix(in srgb, var(--c1) 25%, transparent); }
+.chapter-card-btn::before { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(120deg, color-mix(in srgb, var(--c1) 8%, transparent), transparent 50%, color-mix(in srgb, var(--c2) 6%, transparent)); }
+.chapter-card-top { display:flex; flex-direction:column; gap:0.6rem; }
+.chapter-number-badge { font-size:clamp(1.1rem,4vw,1.8rem); font-weight:900; color:var(--c1); line-height:1.1; }
+.chapter-title { margin:0; font-size:clamp(0.75rem,2.5vw,0.95rem); font-weight:700; color:var(--t1); line-height:1.4; word-break:break-word; overflow-wrap:break-word; }
+.chapter-progress-bar-container { position:relative; width:100%; height:clamp(4px,1vw,6px); border-radius:3px; background:rgba(148,163,184,0.15); overflow:hidden; }
+.chapter-progress-bar { height:100%; width:0%; border-radius:3px; transition:width 0.3s; box-shadow:0 0 12px color-mix(in srgb, var(--c1) 40%, transparent); }
+.progress-percentage { font-size:clamp(0.65rem,1.5vw,0.75rem); color:#fff; font-weight:700; text-align:center; margin-top:0.3rem; }
+
+.cours-content-area { display:none; }
+.cours-content-area.active { display:grid; }
+.chapter-full {
+  position:relative; overflow:visible; border-radius:clamp(20px,3vw,32px);
+  border:1px solid rgba(96,165,250,0.15); background:linear-gradient(180deg, rgba(5,12,24,0.96), rgba(8,15,28,0.92));
+  box-shadow:0 20px 60px rgba(0,0,0,0.5), inset 0 1px 1px rgba(96,165,250,0.1);
+  padding:clamp(1.5rem,4vw,2.5rem); max-width:900px; margin:0 auto;
+}
+.chapter-full-header {
+  position:sticky; top:0; z-index:10; margin-bottom:clamp(1.4rem,3vw,2.2rem); padding:clamp(.6rem,1.5vw,1rem) 0 clamp(1rem,2vw,1.8rem);
+  border-bottom:2px solid rgba(96,165,250,0.2); display:flex; align-items:center; gap:clamp(1rem,2vw,1.5rem);
+  background:#020c18;
+}
+.chapter-back-btn {
+  background:rgba(96,165,250,0.12); border:1px solid rgba(96,165,250,0.2); color:#60a5fa;
+  padding:0.7rem; border-radius:12px; cursor:pointer; transition:all 0.2s; font-size:1rem;
+  display:flex; align-items:center; justify-content:center; width:40px; height:40px; flex-shrink:0;
+}
+.chapter-back-btn:hover { background:rgba(96,165,250,0.22); border-color:rgba(96,165,250,0.4); }
+.chapter-full h2 {
+  margin:0; font-size:clamp(1.8rem,5vw,2.4rem); line-height:1.1;
+  color:var(--c1);
+  flex:1; word-break:break-word; font-weight:800; letter-spacing:-0.02em;
+}
+
+.chapter-text { color:#cdd9e8; line-height:1.95; font-size:clamp(0.97rem,2.1vw,1.07rem); margin-bottom:clamp(1.8rem,3.5vw,2.4rem); font-weight:400; letter-spacing:0.22px; overflow-wrap:break-word; word-break:break-word; max-width:100%; }
+.chapter-text strong, .chapter-text b { color:#f0f6ff; font-weight:700; }
+.chapter-text em, .chapter-text i { color:#b8d0ea; font-style:italic; }
+.chapter-text code { background:rgba(96,165,250,0.15); color:#60a5fa; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.92em; font-weight:600; }
+.chapter-text h2 {
+  position:relative; margin:2.8rem 0 1.5rem; padding:1rem 1.5rem 1rem 1.2rem;
+  font-size:clamp(1.15rem,2.5vw,1.4rem); font-weight:800; letter-spacing:-0.02em; line-height:1.3;
+  color:#e0e7ff; background:linear-gradient(90deg, rgba(96,165,250,0.08), transparent 60%);
+  border-left:4px solid #60a5fa; border-radius:0 12px 12px 0;
+  box-shadow:0 2px 16px rgba(96,165,250,0.08);
+}
+.chapter-text h3 {
+  position:relative; margin:3rem 0 1.4rem; padding:1.1rem 1.5rem 1.1rem 4.8rem;
+  font-size:clamp(1.05rem,2.3vw,1.3rem); font-weight:800; letter-spacing:-0.015em; line-height:1.4;
+  color:#fcd34d; background:linear-gradient(135deg, rgba(245,158,11,0.13), rgba(249,115,22,0.07));
+  border:1px solid rgba(245,158,11,0.22); border-left:4px solid #f59e0b; border-radius:0 16px 16px 0;
+  box-shadow:0 4px 32px rgba(245,158,11,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.chapter-text h3::before { content:'\f02d'; font-family:'Font Awesome 6 Free'; font-weight:900; color:rgba(255,255,255,0.9); font-size:0.9rem; display:flex; align-items:center; justify-content:center; position:absolute; left:1.1rem; top:50%; transform:translateY(-50%); width:2.4rem; height:2.4rem; background:linear-gradient(135deg, #f59e0b, #ea580c); border-radius:9px; box-shadow:0 0 20px rgba(245,158,11,0.55); }
+.chapter-text h4 { position:relative; margin:2.2rem 0 1rem; padding:0.75rem 1.2rem 0.75rem 1.6rem; font-size:clamp(0.98rem,2vw,1.12rem); font-weight:700; color:#7de8ff; border-left:3px solid #38bdf8; background:linear-gradient(90deg, rgba(56,189,248,0.1), transparent 65%); border-radius:0 10px 10px 0; }
+.chapter-text p { margin:clamp(1rem,2vw,1.4rem) 0; letter-spacing:0.22px; color:#cdd9e8; overflow-wrap:break-word; word-break:break-word; }
+.chapter-text ul, .chapter-text ol { margin:clamp(1.2rem,2.5vw,1.8rem) 0 clamp(1.2rem,2.5vw,1.8rem) clamp(1.6rem,3vw,2.4rem); padding:0; }
+.chapter-text li { margin:clamp(0.55rem,1.1vw,0.82rem) 0; color:#cdd9e8; line-height:1.9; }
+.chapter-text ul > li::marker { color:#60a5fa; font-weight:700; }
+.chapter-text ol > li::marker { color:#f59e0b; font-weight:700; }
+
+.chapter-text .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  width: 100%;
+  margin: 1.8rem 0;
+  border-radius: 14px;
+  border: 1px solid rgba(96,165,250,0.22);
+  box-shadow: 0 4px 24px rgba(96,165,250,0.08);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(96,165,250,0.3) transparent;
+}
+.chapter-text .table-wrap::-webkit-scrollbar { height: 5px; }
+.chapter-text .table-wrap::-webkit-scrollbar-thumb { background: rgba(96,165,250,0.4); border-radius: 4px; }
+.chapter-text table {
+  table-layout: fixed;   
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+.chapter-text thead { position: sticky; top: 0; z-index: 1; }
+.chapter-text th {
+  padding: .65rem 1rem;
+  background: linear-gradient(135deg, rgba(96,165,250,0.22), rgba(56,189,248,0.14));
+  color: #93c5fd;
+  font-weight: 800;
+  text-align: left;
+  font-size: .8rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(96,165,250,0.35);
+  border-right: 1px solid rgba(96,165,250,0.12);
+  white-space: normal;   
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.chapter-text td {
+  padding: .55rem 1rem;
+  border-bottom: 1px solid rgba(148,163,184,0.1);
+  border-right: 1px solid rgba(148,163,184,0.07);
+  color: #cdd9e8;
+  vertical-align: top;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.chapter-text th:last-child, .chapter-text td:last-child { border-right: none; }
+.chapter-text tbody tr:nth-child(odd) td { background: rgba(96,165,250,0.03); }
+.chapter-text tbody tr:hover td { background: rgba(96,165,250,0.08); color: #e2e8f0; transition: background .15s; }
+
+.formula-block, .formula-card {
+  position:relative; margin:2.2rem 0; padding:1.8rem 2rem 1.6rem;
+  background:radial-gradient(ellipse at top, rgba(37,99,235,0.18) 0%, transparent 60%), linear-gradient(135deg, rgba(15,30,80,0.45), rgba(8,20,50,0.4));
+  border:1px solid rgba(96,165,250,0.32); border-top:2px solid rgba(96,165,250,0.6);
+  border-radius:18px; box-shadow:0 0 0 1px rgba(96,165,250,0.06), 0 12px 55px rgba(96,165,250,0.15);
+  overflow-x:auto; text-align:center;
+}
+.formula-block::before, .formula-card::before {
+  content:'FORMULE'; position:absolute; top:-1px; right:1.5rem;
+  background:linear-gradient(135deg, #1e40af, #0369a1); color:#fff; font-size:0.58rem;
+  font-weight:900; letter-spacing:0.14em; padding:0.24rem 0.9rem; border-radius:0 0 11px 11px;
+  box-shadow:0 4px 16px rgba(30,64,175,0.5);
+}
+.katex-display { margin:0 !important; padding:0.5rem 0 !important; overflow-x:auto; }
+.formula-card .katex-display > .katex, .formula-block .katex-display > .katex { font-size:1.35em; }
+.chapter-text .katex:not(.katex-display .katex) { display:inline-block; background:rgba(37,99,235,0.12); padding:0.05rem 0.4rem; border-radius:5px; color:#93c5fd; font-size:1.05em; }
+
+.key-point { position:relative; margin:1.4rem 0; padding:1.15rem 1.5rem 1.15rem 4.2rem; background:linear-gradient(135deg, rgba(245,158,11,0.11), rgba(249,115,22,0.06)); border-left:4px solid #f59e0b; border-radius:0 14px 14px 0; color:#f5e8c8; font-weight:500; line-height:1.85; }
+.key-point::before { content:'💡'; position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:1.35rem; }
+.highlight-box { position:relative; margin:1.5rem 0; padding:1.1rem 1.5rem 1.1rem 4.2rem; border-radius:0 14px 14px 0; border-left:4px solid; line-height:1.85; font-weight:500; }
+.highlight-box::before { position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:1.3rem; }
+.highlight-astuce, .highlight-tip { background:linear-gradient(135deg, rgba(34,197,94,0.11), rgba(16,185,129,0.06)); border-left-color:#22c55e; color:#d1fae5; }
+.highlight-astuce::before, .highlight-tip::before { content:'✅'; }
+.highlight-attention, .highlight-warning { background:linear-gradient(135deg, rgba(239,68,68,0.11), rgba(220,38,38,0.06)); border-left-color:#ef4444; color:#fee2e2; }
+.highlight-attention::before, .highlight-warning::before { content:'⚠️'; }
+.highlight-note, .highlight-info { background:linear-gradient(135deg, rgba(96,165,250,0.11), rgba(56,189,248,0.06)); border-left-color:#60a5fa; color:#dbeafe; }
+.highlight-note::before, .highlight-info::before { content:'📌'; }
+.highlight-important { background:linear-gradient(135deg, rgba(245,158,11,0.13), rgba(217,119,6,0.07)); border-left-color:#f59e0b; color:#fef3c7; }
+.highlight-important::before { content:'⭐'; }
+.highlight-definition { background:linear-gradient(135deg, rgba(168,85,247,0.13), rgba(139,92,246,0.07)); border-left-color:#a855f7; color:#f3e8ff; }
+.highlight-definition::before { content:'📖'; }
+.callout-raisonnement { background:linear-gradient(135deg, rgba(99,102,241,0.13), rgba(79,70,229,0.07)); border-left-color:#818cf8; color:#e0e7ff; }
+.callout-raisonnement::before { content:'🧠'; }
+.callout-cas { background:linear-gradient(135deg, rgba(245,158,11,0.11), rgba(234,88,12,0.06)); border-left-color:#f59e0b; color:#fef3c7; }
+.callout-cas::before { content:'🔍'; }
+.definition-item { position:relative; margin:0.8rem 0; padding:0.95rem 1.2rem 0.95rem 3.8rem; background:linear-gradient(135deg, rgba(96,165,250,0.1), rgba(56,189,248,0.05)); border-left:3px solid #60a5fa; border-radius:0 12px 12px 0; color:#dde8f5; line-height:1.75; font-size:clamp(0.9rem,2vw,1rem); }
+.definition-item::before { content:'Déf'; position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); font-size:0.58rem; font-weight:900; color:#60a5fa; background:rgba(96,165,250,0.18); padding:0.15rem 0.35rem; border-radius:4px; }
+.numbered-block { position:relative; margin:0.9rem 0; padding:1rem 1.3rem 1rem 1.5rem; background:linear-gradient(135deg, rgba(245,158,11,0.09), rgba(249,115,22,0.04)); border-left:3px solid #f59e0b; border-radius:0 13px 13px 0; display:flex; gap:1rem; align-items:flex-start; line-height:1.85; }
+.numbered-block .enum-symbol { color:#f59e0b; font-weight:800; font-size:1.35em; flex-shrink:0; min-width:2.1rem; height:2.1rem; display:flex; align-items:center; justify-content:center; background:rgba(245,158,11,0.14); border-radius:8px; }
+.numbered-block .enum-content { color:#dde6f3; flex:1; font-weight:500; }
+
+.quiz-wrap { width:100%; background:linear-gradient(180deg, rgba(15,23,42,0.4), rgba(15,23,42,0.2)); border:1px solid rgba(96,165,250,0.12); border-radius:clamp(18px,3vw,24px); padding:clamp(1.8rem,3.5vw,2.5rem); margin:clamp(2rem,4vw,3rem) 0; }
+.quiz-grid { display:grid; gap:clamp(1.4rem,2.5vw,1.8rem); margin:clamp(1.4rem,2.5vw,2rem) 0; }
+.quiz-card { background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(99,102,241,0.06)); border:1px solid rgba(59,130,246,0.15); border-radius:clamp(14px,2vw,20px); padding:clamp(1.2rem,2vw,1.6rem); opacity:0; animation:slideIn 0.4s cubic-bezier(0.4,0,0.2,1) forwards; }
+@keyframes slideIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.quiz-card:nth-child(1){animation-delay:.1s}.quiz-card:nth-child(2){animation-delay:.2s}.quiz-card:nth-child(3){animation-delay:.3s}
+.quiz-card h4 { margin:0 0 clamp(1rem,2vw,1.4rem); font-size:clamp(1rem,2vw,1.15rem); font-weight:700; color:#e2e8f0; line-height:1.6; }
+.quiz-options { display:flex; flex-direction:column; gap:clamp(0.8rem,1.5vw,1rem); margin-bottom:clamp(1.2rem,2vw,1.6rem); }
+.quiz-option { display:flex; gap:clamp(0.6rem,1.5vw,0.85rem); align-items:flex-start; width:100%; padding:clamp(0.75rem,1.5vw,0.95rem) clamp(0.9rem,2vw,1.1rem); border-radius:14px; background:rgba(15,23,42,0.6); border:1px solid rgba(148,163,184,0.12); color:var(--t2); text-align:left; cursor:pointer; transition:border-color 0.18s, background 0.18s, transform 0.18s; font-size:clamp(0.9rem,1.8vw,0.95rem); font-weight:500; }
+.quiz-option:hover { transform:translateY(-2px); border-color:rgba(59,130,246,0.25); background:rgba(59,130,246,0.08); }
+.quiz-option.selected { border-color:rgba(59,130,246,0.35); background:linear-gradient(135deg, rgba(59,130,246,0.15), rgba(99,102,241,0.12)); color:var(--t1); }
+.quiz-option.correct-answer { border-color:rgba(34,197,94,0.35); background:linear-gradient(135deg, rgba(34,197,94,0.12), rgba(22,163,74,0.08)); color:#86efac; }
+.quiz-option.wrong-answer { border-color:rgba(239,68,68,0.3); background:linear-gradient(135deg, rgba(239,68,68,0.12), rgba(220,38,38,0.08)); color:#fecaca; }
+.option-letter { width:clamp(28px,3vw,32px); height:clamp(28px,3vw,32px); border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:clamp(0.7rem,1.5vw,0.8rem); font-weight:800; background:rgba(148,163,184,0.12); color:rgba(148,163,184,0.7); }
+.quiz-option.correct-answer .option-letter { background:linear-gradient(135deg, #22c55e, #16a34a); color:#000; }
+.quiz-option.wrong-answer .option-letter { background:linear-gradient(135deg, #ef4444, #dc2626); color:#fff; }
+.quiz-option.selected .option-letter { background:linear-gradient(135deg, #3b82f6, #2563eb); color:#fff; }
+.quiz-explanation { padding:clamp(0.9rem,2vw,1.2rem); background:rgba(99,102,241,0.08); border-left:3px solid #6366f1; border-radius:10px; color:#cbd5e1; line-height:1.6; font-size:clamp(0.9rem,1.8vw,0.95rem); display:none; }
+.quiz-explanation.show { display:block; animation:fadeIn 0.3s ease-in; }
+.quiz-actions { display:flex; gap:1rem; flex-wrap:wrap; margin:clamp(1.5rem,3vw,2rem) 0; }
+.quiz-submit { padding:clamp(0.75rem,1.5vw,0.95rem) clamp(1.2rem,2vw,1.6rem); border-radius:12px; border:none; background:linear-gradient(135deg, #3b82f6, #2563eb); color:white; font-weight:700; cursor:pointer; font-size:clamp(0.85rem,1.8vw,0.95rem); transition:all 0.3s; box-shadow:0 4px 12px rgba(59,130,246,0.3); }
+.quiz-submit:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 20px rgba(59,130,246,0.4); }
+.quiz-submit:disabled { opacity:0.6; cursor:not-allowed; }
+.quiz-reset { padding:clamp(0.75rem,1.5vw,0.95rem) clamp(1.2rem,2vw,1.6rem); border-radius:12px; border:1px solid rgba(148,163,184,0.2); background:rgba(148,163,184,0.08); color:#cbd5e1; font-weight:700; cursor:pointer; font-size:clamp(0.85rem,1.8vw,0.95rem); transition:all 0.3s; }
+
+.ex-wrap { width:100%; background:linear-gradient(180deg,rgba(251,191,36,0.05),rgba(245,158,11,0.02)); border:1px solid rgba(251,191,36,0.18); border-radius:clamp(18px,3vw,24px); padding:clamp(1.8rem,3.5vw,2.5rem); margin:clamp(2rem,4vw,3rem) 0; }
+.ex-header-row { display:flex; align-items:center; gap:.8rem; margin-bottom:1.4rem; padding-bottom:.9rem; border-bottom:2px solid rgba(251,191,36,0.15); }
+.ex-card { background:linear-gradient(135deg,rgba(251,191,36,0.06),rgba(245,158,11,0.03)); border:1px solid rgba(251,191,36,0.12); border-radius:16px; padding:1.4rem 1.6rem; margin-bottom:1.2rem; opacity:0; animation:slideIn 0.4s ease forwards; }
+.ex-card:nth-child(1){animation-delay:.08s}.ex-card:nth-child(2){animation-delay:.18s}.ex-card:nth-child(3){animation-delay:.28s}
+.ex-type-badge { display:inline-block; padding:.25rem .75rem; border-radius:20px; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.25); color:#fbbf24; font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.85rem; }
+.ex-question { color:#e2e8f0; font-size:clamp(.95rem,2vw,1.05rem); line-height:1.7; margin-bottom:1rem; font-weight:500; }
+.ex-source { color:#64748b; font-size:.78rem; margin-bottom:1.1rem; }
+.ex-textarea { width:100%; min-height:110px; padding:.9rem 1.1rem; border-radius:12px; border:1px solid rgba(251,191,36,0.2); background:rgba(15,23,42,0.7); color:#e2e8f0; font-size:.95rem; line-height:1.6; resize:vertical; font-family:inherit; transition:border-color .2s; box-sizing:border-box; }
+.ex-textarea:focus { outline:none; border-color:rgba(251,191,36,0.45); background:rgba(15,23,42,0.85); }
+.ex-submit-btn { margin-top:.8rem; padding:.7rem 1.5rem; border-radius:12px; border:none; background:linear-gradient(135deg,#f59e0b,#d97706); color:#000; font-weight:800; cursor:pointer; font-size:.9rem; transition:all .25s; box-shadow:0 4px 14px rgba(245,158,11,.3); }
+.ex-submit-btn:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 22px rgba(245,158,11,.4); }
+.ex-submit-btn:disabled { opacity:.55; cursor:not-allowed; }
+.ex-feedback { margin-top:1rem; padding:1rem 1.2rem; border-radius:12px; border-left:3px solid #f59e0b; background:rgba(245,158,11,0.07); color:#fde68a; display:none; line-height:1.7; font-size:.93rem; animation:fadeIn .35s ease; }
+.ex-feedback.show { display:block; }
+.ex-feedback.correct { border-color:#22c55e; background:rgba(34,197,94,0.07); color:#86efac; }
+.ex-feedback.partial { border-color:#f59e0b; background:rgba(245,158,11,0.07); color:#fde68a; }
+.ex-feedback.wrong { border-color:#ef4444; background:rgba(239,68,68,0.07); color:#fca5a5; }
+.ex-reveal-btn { margin-top:.6rem; padding:.45rem 1rem; border-radius:9px; border:1px solid rgba(251,191,36,0.25); background:rgba(251,191,36,0.08); color:#fbbf24; font-size:.82rem; font-weight:700; cursor:pointer; transition:all .2s; }
+.ex-reveal-btn:hover { background:rgba(251,191,36,0.15); }
+.ex-official-answer { margin-top:.6rem; padding:.75rem 1rem; border-radius:10px; background:rgba(15,23,42,0.6); border:1px solid rgba(251,191,36,0.12); color:#cbd5e1; font-size:.88rem; line-height:1.6; display:none; }
+.ex-official-answer.show { display:block; animation:fadeIn .3s ease; }
+@media(max-width:640px){.ex-wrap{padding:1.2rem;}.ex-card{padding:1rem 1.1rem;}}
+
+.hint-btn { display:block; width:100%; margin-top:.75rem; padding:.55rem 1rem; border-radius:10px; border:1px solid rgba(139,92,246,0.25); background:rgba(139,92,246,0.08); color:#a78bfa; font-size:.82rem; font-weight:700; cursor:pointer; text-align:left; transition:all .2s; }
+.hint-btn:hover { background:rgba(139,92,246,0.16); border-color:rgba(139,92,246,0.45); color:#c4b5fd; }
+.hint-btn:disabled { opacity:.5; cursor:not-allowed; }
+.hint-panel { margin-top:.65rem; padding:.9rem 1.1rem; border-radius:12px; border-left:3px solid #8b5cf6; background:rgba(139,92,246,0.07); color:#e9d5ff; line-height:1.75; font-size:.9rem; display:none; }
+.hint-panel.show { display:block; animation:fadeIn .3s ease; }
+.hint-content p { margin:.35rem 0; }
+.hint-content p:first-child { margin-top:0; }
+.hint-loading { color:#a78bfa; font-size:.85rem; letter-spacing:.03em; }
+
+.chat-message.ai .katex { color: #e2e8f0 !important; }
+.chat-message.ai .katex:not(.katex-display .katex) .katex-html { background:rgba(99,102,241,0.18); padding:.05rem .35rem; border-radius:5px; }
+.chat-message.ai .katex-display { margin:.5rem 0; overflow-x:auto; }
+
+.key-points-section { margin-top:2.5rem; padding:1.8rem; border-radius:20px; background:linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.07)); border:1px solid rgba(139,92,246,0.25); }
+.key-points-header { display:flex; align-items:center; gap:0.85rem; margin-bottom:1.4rem; padding-bottom:1rem; border-bottom:1px solid rgba(139,92,246,0.2); }
+.key-points-icon { font-size:1.6rem; flex-shrink:0; }
+.key-points-title { margin:0; font-size:1.1rem; font-weight:800; color:#c4b5fd; flex:1; }
+.key-points-refresh-btn { background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.25); color:#a78bfa; padding:0.45rem 0.7rem; border-radius:9px; cursor:pointer; font-size:0.85rem; transition:all 0.2s; }
+.key-points-refresh-btn:hover { background:rgba(139,92,246,0.25); color:#c4b5fd; }
+.key-points-list { display:flex; flex-direction:column; gap:0.75rem; }
+.key-points-loading { display:flex; align-items:center; gap:0.8rem; color:#94a3b8; font-size:0.9rem; }
+.key-point-item { display:flex; gap:0.85rem; align-items:flex-start; padding:0.9rem 1.1rem; background:rgba(99,102,241,0.08); border-left:3px solid #818cf8; border-radius:0 12px 12px 0; color:#e0e7ff; font-size:0.93rem; line-height:1.7; animation:slideIn 0.3s ease forwards; }
+.key-point-num { min-width:1.6rem; height:1.6rem; background:linear-gradient(135deg, #6366f1, #8b5cf6); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:900; color:white; flex-shrink:0; margin-top:0.1rem; }
+
+.step-block { display:flex; gap:1rem; align-items:flex-start; padding:1rem 1.2rem; margin:0.7rem 0; background:linear-gradient(135deg, rgba(30,58,138,0.15), rgba(15,23,42,0.2)); border-left:3px solid #60a5fa; border-radius:0 12px 12px 0; line-height:1.8; }
+.step-label { min-width:2.8rem; height:2rem; background:linear-gradient(135deg, #1e40af, #0369a1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:900; color:white; letter-spacing:0.04em; flex-shrink:0; margin-top:0.2rem; text-transform:uppercase; }
+.step-content { color:#cdd9e8; flex:1; font-size:clamp(0.92rem,2vw,1rem); }
+
+.calc-chain { display:flex; flex-direction:column; gap:0.28rem; padding:1rem 1.25rem; margin:0.9rem 0; background:rgba(37,99,235,0.08); border-radius:12px; border-left:3px solid rgba(96,165,250,0.35); }
+.calc-step { color:#cdd9e8; padding:0.15rem 0; line-height:1.8; font-size:clamp(0.9rem,2vw,1rem); }
+.calc-step:first-child { color:#e2e8f0; font-weight:500; }
+
+.embedded-q { display:flex; gap:0.75rem; padding:0.8rem 1.1rem; margin:0.4rem 0; background:rgba(96,165,250,0.07); border-left:3px solid rgba(96,165,250,0.3); border-radius:0 10px 10px 0; align-items:flex-start; }
+.eq-num { color:#60a5fa; font-weight:800; font-size:0.88em; flex-shrink:0; min-width:2.2rem; }
+.eq-text { color:#cdd9e8; flex:1; line-height:1.7; }
+
+.ai-chat-button { position:fixed; bottom:2rem; right:2rem; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%) !important; border:2px solid rgba(96,165,250,0.4); color:white; font-size:1.8rem; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 8px 32px rgba(96,165,250,0.4); transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); z-index:999; }
+.ai-chat-button.visible { display:flex; animation:slideIn 0.4s ease-out; }
+.ai-chat-button:hover { transform:scale(1.1); }
+.ai-chat-window { position:fixed; bottom:80px; right:2rem; width:380px; height:600px; background:linear-gradient(135deg, rgba(15,23,42,0.95), rgba(8,15,29,0.98)); border:1px solid rgba(96,165,250,0.2); border-radius:20px; display:none; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.5); z-index:1000; overflow:hidden; }
+.ai-chat-window.active { display:flex; animation:slideUp 0.4s ease-out; }
+@keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.chat-header { padding:1rem; border-bottom:1px solid rgba(96,165,250,0.15); display:flex; justify-content:space-between; align-items:center; background:linear-gradient(135deg, rgba(96,165,250,0.1), rgba(56,189,248,0.05)); flex-shrink:0; }
+.chat-header h3 { margin:0; font-size:1rem; color:#f1f5f9; display:flex; align-items:center; gap:0.5rem; }
+.chat-header .close-btn { background:none; border:none; color:#94a3b8; font-size:1.2rem; cursor:pointer; padding:0; display:flex; align-items:center; }
+.chat-messages { flex:1; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:0.75rem; min-height:0; }
+.chat-message { padding:0.8rem 1rem; border-radius:14px; font-size:0.92rem; line-height:1.6; max-width:90%; }
+.chat-message.user { align-self:flex-end; background:linear-gradient(135deg, rgba(96,165,250,0.2), rgba(56,189,248,0.15)); color:#e2e8f0; border-bottom-right-radius:4px; }
+.chat-message.ai { align-self:flex-start; background:rgba(30,41,59,0.8); color:#cbd5e1; border-bottom-left-radius:4px; border:1px solid rgba(96,165,250,0.1); }
+.chat-message.loading { align-self:flex-start; background:rgba(30,41,59,0.5); border:1px solid rgba(96,165,250,0.08); padding:0.8rem 1rem; border-radius:14px; }
+.typing-indicator { display:flex; gap:0.4rem; align-items:center; }
+.typing-dot { width:7px; height:7px; border-radius:50%; background:#60a5fa; animation:bounce 1.2s infinite; }
+.typing-dot:nth-child(2){animation-delay:.15s}.typing-dot:nth-child(3){animation-delay:.3s}
+@keyframes bounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)} }
+.chat-input-area { padding:0.85rem; border-top:1px solid rgba(96,165,250,0.1); display:flex; gap:0.6rem; flex-shrink:0; background:linear-gradient(135deg, rgba(15,23,42,0.95), rgba(8,15,29,0.98)); }
+.chat-input { flex:1; padding:0.7rem 1rem; border-radius:12px; border:1px solid rgba(96,165,250,0.15); background:rgba(15,23,42,0.9); color:#f1f5f9; font-size:0.9rem; outline:none; }
+.chat-input:focus { border-color:rgba(96,165,250,0.35); }
+.chat-send-btn { width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg, #3b82f6, #0ea5e9); border:none; color:white; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; }
+
+@media(max-width:1400px){.chapters-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:1024px){.chapters-grid{grid-template-columns:repeat(3,1fr);gap:0.9rem;}}
+@media(max-width:768px){
+  .cours-shell{padding:0.5rem 0.5rem 2.5rem;}
+  .chapters-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem;margin-top:1.2rem;}
+  .chapter-card-btn{padding:1rem 0.8rem;gap:0.5rem;border-radius:14px;}
+  .chapter-number-badge{font-size:1.4rem;}
+  .chapter-title{font-size:0.8rem;}
+  .chapter-full{padding:clamp(1rem,3vw,1.4rem);border-radius:20px;overflow-x:hidden;}
+  .chapter-full-header{gap:0.75rem;}
+  .chapter-text{font-size:clamp(0.85rem,2vw,0.95rem);}
+  .chapter-text h3{font-size:clamp(1rem,3vw,1.2rem);margin:1.5rem 0 0.8rem;padding-left:1rem;padding-right:0.5rem;}
+  .chapter-text h3::before{left:0.3rem;width:1.8rem;height:1.8rem;}
+  .chapter-text h4{font-size:clamp(0.95rem,2.5vw,1.05rem);}
+  .formula-card,.formula-block{padding:1.2rem 0.8rem 1rem;margin:1.4rem 0;overflow-x:auto;max-width:100%;}
+  .ai-chat-window{width:calc(100vw - 2rem);right:1rem;bottom:100px;}
+  .ai-chat-button{bottom:1rem;right:1rem;width:52px;height:52px;}
+  .key-points-section{padding:1.2rem;margin-top:1.5rem;}
+  .quiz-wrap{padding:1.2rem;}
+  .chapter-text table{font-size:0.79rem;} .chapter-text th,.chapter-text td{padding:.4rem .6rem;} .chapter-text .table-wrap{border-radius:10px;margin:1.2rem 0;}
+}
+@media(max-width:480px){
+  .chapters-grid{grid-template-columns:repeat(2,1fr);gap:0.6rem;}
+  .chapter-card-btn{padding:0.8rem 0.6rem;}
+  .chapter-number-badge{font-size:1.2rem;}
+  .chapter-title{font-size:0.75rem;}
+  .chapter-full{padding:0.9rem;}
+  .chapter-text{font-size:0.88rem;}
+  .formula-card,.formula-block{padding:1rem 0.5rem 0.8rem;}
+  .chapter-text h3{padding:0.9rem 0.8rem 0.9rem 3.8rem;}
+  .chapter-text h3::before{left:0.6rem;width:1.9rem;height:1.9rem;}
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="view-area cours-page">
+  <div class="cours-shell">
+    
+    <div class="cours-hero" id="hero-section">
+      <div class="hero-top-row">
+        <a href="{% url 'cours' %}" class="back-to-cours-btn"><i class="fas fa-arrow-left"></i> Cours</a>
+        <span class="hero-kicker"><i class="{{ course_icon|default:'fas fa-book' }}"></i> {{ course_name }} BAC</span>
+      </div>
+      <div class="hero-copy">
+        <h1>{{ course_title }}</h1>
+        <p>{{ course_desc }}</p>
+      </div>
+    </div>
+
+    
+    <div class="chapters-container" id="chapters-container">
+      <div class="chapters-grid" id="chapters-list"></div>
+    </div>
+
+    
+    <div class="cours-content-area" id="content-area">
+      <div class="chapter-full">
+        <div class="chapter-full-header">
+          <button class="chapter-back-btn" id="back-btn" title="Retour à la liste des chapitres">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <h2 id="chapter-title"></h2>
+        </div>
+        <div class="chapter-full-content">
+          <div class="chapter-text" id="chapter-body"></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <button class="ai-chat-button" id="ai-chat-btn" title="Poser une question à l'IA"><i class="fas fa-comments"></i></button>
+    <div class="ai-chat-window" id="ai-chat-window">
+      <div class="chat-header">
+        <h3><i class="fas fa-robot"></i> Assistant IA — {{ course_name }}</h3>
+        <button class="close-btn" id="close-chat-btn">✕</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Poser une question sur le chapitre...">
+        <button class="chat-send-btn" id="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const courseDataRaw = `{{ course_json|escapejs }}`;
+const COURSE_NAME = '{{ course_name }}';
+const IS_GUEST = {{ is_guest|yesno:"true,false" }};
+const QUIZ_DATA = {};
+
+if (IS_GUEST) {
+  const _urlP = new URLSearchParams(window.location.search);
+  if (_urlP.get('guest_blocked') === 'chapters') {
+    history.replaceState({}, '', window.location.pathname);
+    setTimeout(() => { if(typeof showGuestBlockedToast==='function') showGuestBlockedToast('Créez un compte pour accéder à tous les chapitres'); }, 400);
+  }
+}
+
+let courseData = {};
+let chapters = [];
+let currentChapterIndex = -1;
+let chapterProgress = {};
+let chapterChatHistory = [];
+
+try { courseData = JSON.parse(courseDataRaw); } catch(e) { console.error('JSON parse error:', e); }
+
+function _buildMCQCard(question, options, correctLetter, explanation, qNum) {
+  function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  let html = `<div class="quiz-card">`;
+  html += `<h4>Q${qNum}. ${esc(question)}</h4>`;
+  html += `<div class="quiz-options">`;
+  options.forEach(opt => {
+    let letter, text;
+    if (typeof opt === 'object' && opt.letter) { letter = opt.letter; text = opt.text || ''; }
+    else {
+      const m = String(opt).match(/^([A-D])[):]\s*(.*)/s);
+      if (m) { letter = m[1]; text = m[2].trim(); } else { letter = '?'; text = opt; }
+    }
+    const isCorrect = (String(letter).toUpperCase() === String(correctLetter).toUpperCase());
+    html += `<div class="quiz-option" onclick="selectQuizOption(this)" data-correct="${isCorrect}">`;
+    html += `<span class="option-letter">${esc(letter)}</span><span>${esc(text)}</span>`;
+    html += `</div>`;
+  });
+  html += `</div>`;
+  html += `<div class="quiz-actions">`;
+  html += `<button class="quiz-submit" onclick="submitQuizAnswer(this.closest('.quiz-card'))">✓ Valider</button>`;
+  html += `<button class="quiz-reset" onclick="resetQuiz(this.closest('.quiz-card'))">↻ Réinitialiser</button>`;
+  html += `</div>`;
+  const expl = esc(String(explanation||'').replace(/\*\*/g,''));
+  if (expl) html += `<div class="quiz-explanation"><strong>✓ Réponse ${esc(correctLetter)} :</strong><br/>${expl}</div>`;
+  let _hintAns = correctLetter;
+  options.forEach(opt => {
+    let _ol, _ot;
+    if (typeof opt === 'object' && opt.letter) { _ol = opt.letter; _ot = opt.text || ''; }
+    else { const _hm = String(opt).match(/^([A-D])[):.]\s*(.*)/s); _ol = _hm ? _hm[1] : '?'; _ot = _hm ? _hm[2].trim() : String(opt); }
+    if (String(_ol).toUpperCase() === String(correctLetter).toUpperCase()) _hintAns = correctLetter + ') ' + _ot;
+  });
+  html += `<button class="hint-btn" data-question="${esc(question)}" data-answer="${esc(_hintAns)}" onclick="askForHint(this)">💡 Je ne sais pas</button>`;
+  html += `<div class="hint-panel"></div>`;
+  html += `</div>`;
+  return html;
+}
+
+function _buildQuizSection(title, cards) {
+  if (!cards.length) return '';
+  return `<div class="quiz-wrap">
+    <div style="margin-bottom:1.2rem;padding-bottom:.75rem;border-bottom:2px solid rgba(96,165,250,0.2);">
+      <h3 style="margin:0;font-size:clamp(1.2rem,2.5vw,1.6rem);background:linear-gradient(135deg,#60a5fa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;">📋 ${title}</h3>
+      <p style="margin:.4rem 0 0;color:#cbd5e1;font-size:.85rem;">(${cards.length} question${cards.length>1?'s':''})</p>
+    </div>
+    <div class="quiz-grid">${cards.join('')}</div>
+  </div>`;
+}
+
+function _buildExerciseSection(exercises, chapterIdx) {
+  if (!exercises || !exercises.length) return '';
+  let cards = exercises.map((ex, i) => {
+    function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function escMultiline(s) { return esc(s).replace(/\n/g, '<br>'); }
+    const exIdx = `${chapterIdx}_${i}`;
+    const exJson = JSON.stringify(ex).replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+    const hasMultiLine = (ex.exercice || '').includes('\n');
+    const questionHtml = hasMultiLine ? escMultiline(ex.exercice || ex.enonce || ex.question || '') : esc(ex.exercice || ex.enonce || ex.question || '');
+    const answerHtml = escMultiline(ex.reponse || ex.correction || '');
+    return `<div class="ex-card" id="ex-card-${exIdx}">
+  <div class="ex-type-badge">${esc(ex.type || 'Exercice')}</div>
+  <div class="ex-question">${questionHtml}</div>
+  ${ex.source ? `<div class="ex-source">📄 Source : ${esc(ex.source)}</div>` : ''}
+  <textarea class="ex-textarea" id="ex-ans-${exIdx}" placeholder="Écris ta réponse ici…" rows="${hasMultiLine ? 6 : 4}"></textarea>
+  <div>
+    <button class="ex-submit-btn" onclick="submitExerciseAnswer(this,'${exIdx}')" data-exjson="${exJson}">🤖 Corriger avec l'IA</button>
+    <button class="ex-reveal-btn" onclick="toggleOfficialAnswer('${exIdx}')">👁 Voir la réponse officielle</button>
+  </div>
+  <div class="ex-feedback" id="ex-fb-${exIdx}"></div>
+  <div class="ex-official-answer" id="ex-official-${exIdx}">${answerHtml}</div>
+  <button class="hint-btn" data-question="${esc(String(ex.exercice||ex.enonce||ex.question||'').substring(0,600))}" data-answer="${esc(String(ex.reponse||ex.correction||'').substring(0,400))}" onclick="askForHint(this)">💡 Je ne sais pas</button>
+  <div class="hint-panel"></div>
+</div>`;
+  }).join('');
+  return `<div class="ex-wrap">
+  <div class="ex-header-row">
+    <h3 style="margin:0;font-size:clamp(1.2rem,2.5vw,1.5rem);background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;">📝 Exercices Type Bac</h3>
+    <span style="color:#78716c;font-size:.82rem;">(${exercises.length} exercice${exercises.length>1?'s':''})</span>
+  </div>
+  ${cards}
+</div>`;
+}
+
+function renderValue(value, depth = 0) {
+  if (value === null || value === undefined) return '';
+  
+  if (typeof value === 'string') {
+    if (value.length < 1) return '';
+    const fixedStr = fixMixedMath(value);
+    let html = fixedStr
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\n\n+/g, '</p><p>')
+      .replace(/\n/g, '<br/>');
+    return `<p>${html}</p>`;
+  }
+  
+  if (typeof value === 'number' || typeof value === 'boolean') {
+    return `<p>${value}</p>`;
+  }
+  
+  if (Array.isArray(value)) {
+    if (value.length === 0) return '';
+    
+    if (value[0] && typeof value[0] === 'object' && !Array.isArray(value[0])) {
+      const firstObj = value[0];
+      
+      if (firstObj.nom || firstObj.nom_complet || firstObj.sigle || firstObj.titre || firstObj.enonce) {
+        let html = '<div class="items-list">';
+        value.forEach(item => {
+          html += '<div class="item-card" style="margin:1rem 0; padding:1rem; border-left:3px solid #38bdf8; background:linear-gradient(135deg, rgba(56,189,248,0.08), rgba(96,165,250,0.04)); border-radius:0 8px 8px 0;">';
+          
+          Object.entries(item).forEach(([key, val]) => {
+            if (!val || key === 'id' || key === '_id') return;
+            const keyLabel = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            
+            if (typeof val === 'string' && val.length < 150) {
+              html += `<div><strong>${keyLabel}:</strong> ${fixMixedMath(val)}</div>`;
+            } else if (typeof val === 'string') {
+              html += `<div><strong>${keyLabel}:</strong> <p>${fixMixedMath(val)}</p></div>`;
+            } else if (Array.isArray(val)) {
+              html += `<div><strong>${keyLabel}:</strong><ul>`;
+              val.forEach(v => html += `<li>${typeof v === 'string' ? v : JSON.stringify(v)}</li>`);
+              html += '</ul></div>';
+            } else if (typeof val === 'object') {
+              html += `<div><strong>${keyLabel}:</strong>${renderValue(val, depth + 1)}</div>`;
+            }
+          });
+          
+          html += '</div>';
+        });
+        html += '</div>';
+        return html;
+      }
+      
+      if (firstObj.question !== undefined && Array.isArray(firstObj.options) && firstObj.reponse !== undefined) {
+        let qNum = 0;
+        const cards = value
+          .filter(q => q && q.question && Array.isArray(q.options))
+          .map(q => {
+            qNum++;
+            const correctRaw = String(q.reponse || '').trim();
+            const correctLetter = correctRaw.match(/^[A-D]$/) ? correctRaw : (correctRaw.match(/^([A-D])[):]/) ? correctRaw[0] : correctRaw);
+            return _buildMCQCard(q.question, q.options, correctLetter, q.explication || '', qNum);
+          });
+        return _buildQuizSection('Quiz', cards);
+      }
+
+      if (firstObj.concept || firstObj.explication) {
+        let html = '<div class="concepts-list">';
+        value.forEach((item, idx) => {
+          html += `<div class="concept-card" style="margin:1.5rem 0; padding:1rem; background:linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.04)); border-left:3px solid #8366f8; border-radius:0 8px 8px 0;">`;
+          if (item.concept) html += `<h4 style="margin-top:0; color:#a5b4fc;">${item.concept}</h4>`;
+          if (item.explication) html += `<div style="margin:0.5rem 0; color:#cdd9e8;">${renderValue(item.explication, depth + 1)}</div>`;
+          if (item.importance) html += `<div style="margin-top:0.5rem; font-size:0.875rem; color:#6b7280;"><strong>Importance:</strong> ${item.importance}</div>`;
+          html += '</div>';
+        });
+        html += '</div>';
+        return html;
+      }
+      
+      {
+        let html = '<div class="items-list">';
+        value.forEach((item, idx) => {
+          html += '<div class="item-card" style="margin:1rem 0; padding:1rem; border-left:3px solid #38bdf8; background:linear-gradient(135deg, rgba(56,189,248,0.08), rgba(96,165,250,0.04)); border-radius:0 8px 8px 0;">';
+          
+          Object.entries(item).forEach(([k, v]) => {
+            if (!v || k === 'id' || k === '_id' || k.match(/^id_/i)) return;
+            
+            const fieldLabel = k.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            
+            if (typeof v === 'string') {
+              if (v.length < 80) {
+                html += `<div style="margin:0.3rem 0;"><strong>${fieldLabel}:</strong> ${v}</div>`;
+              } else {
+                html += `<div style="margin:0.5rem 0;"><strong>${fieldLabel}:</strong></div><div style="margin:0.3rem 0; color:#b8d0ea;">${v}</div>`;
+              }
+            } else if (typeof v === 'number') {
+              html += `<div style="margin:0.3rem 0;"><strong>${fieldLabel}:</strong> ${v}</div>`;
+            } else if (Array.isArray(v)) {
+              if (v.length > 0) {
+                html += `<div style="margin:0.5rem 0;"><strong>${fieldLabel}:</strong></div>`;
+                if (typeof v[0] === 'string') {
+                  html += `<ul style="margin:0.3rem 0 0 1rem; padding:0;">`;
+                  v.forEach(item => html += `<li style="margin:0.2rem 0;">${item}</li>`);
+                  html += `</ul>`;
+                } else {
+                  html += renderValue(v, depth + 1);
+                }
+              }
+            } else if (typeof v === 'object') {
+              html += `<div style="margin:0.5rem 0;"><strong>${fieldLabel}:</strong></div>`;
+              html += renderValue(v, depth + 1);
+            }
+          });
+          
+          html += '</div>';
+        });
+        html += '</div>';
+        return html;
+      }
+    }
+    
+    if (typeof value[0] === 'string') {
+      let html = '<ul>';
+      value.forEach(item => html += `<li>${item}</li>`);
+      html += '</ul>';
+      return html;
+    }
+    
+    if (value[0] && typeof value[0] === 'object') {
+      const firstItem = value[0];
+      if (firstItem.question && firstItem.options && firstItem.reponse) {
+        let html = '<div class="quiz-wrap" style="margin: 2rem 0;">';
+        let quizCount = 0;
+        value.forEach((quiz, idx) => {
+          if (!quiz.question || !quiz.options) return;
+          quizCount++;
+          
+          const options = quiz.options.map(opt => {
+            const match = opt.match(/^([A-D])\.\s*(.*)/);
+            const letter = match ? match[1] : String.fromCharCode(65 + idx);
+            const text = match ? match[2] : opt;
+            return { letter, text };
+          });
+          
+          html += `<div class="quiz-card" style="opacity: 1; animation: none;">`;
+          html += `<h4>Q${quizCount}. ${quiz.question}</h4>`;
+          html += `<div class="quiz-options" data-quiz-id="${idx}">`;
+          
+          options.forEach(opt => {
+            const isCorrect = quiz.reponse === opt.letter;
+            html += `<div class="quiz-option" onclick="selectQuizOption(this)" data-correct="${isCorrect ? 'true' : 'false'}">`;
+            html += `<span class="option-letter">${opt.letter}</span>`;
+            html += `<span>${opt.text}</span>`;
+            html += `</div>`;
+          });
+          
+          html += `</div>`;
+          html += `<div class="quiz-actions">`;
+          html += `<button class="quiz-submit" onclick="submitQuizAnswer(this.closest('.quiz-card'))">✓ Valider</button>`;
+          html += `<button class="quiz-reset" onclick="resetQuiz(this.closest('.quiz-card'))">↻ Réinitialiser</button>`;
+          html += `</div>`;
+          html += `<div class="quiz-explanation"><strong>✓ Solution:</strong><br/>${quiz.explication || ''}</div>`;
+          html += `</div>`;
+        });
+        
+        html += `<p style="margin:1.5rem 0 0; color:#6b7280; font-size:0.875rem;">(${quizCount} questions)</p></div>`;
+        return html;
+      }
+    }
+    
+    return value.map(v => renderValue(v, depth + 1)).join('');
+  }
+  
+  if (typeof value === 'object') {
+    let html = '';
+    
+    const levelKeys = ['niveau_debutant', 'niveau_intermediaire', 'niveau_avance'];
+    const hasLevels = levelKeys.some(k => k in value);
+    
+    if (hasLevels) {
+      html += '<div class="levels-container">';
+      levelKeys.forEach(levelKey => {
+        if (levelKey in value) {
+          const level = value[levelKey];
+          const levelLabel = levelKey.replace('niveau_', '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          
+          html += `<div class="level-section" style="margin:1.5rem 0; padding:1rem; background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(99,102,241,0.04)); border-left:4px solid #a78bfa; border-radius:0 8px 8px 0;">`;
+          html += `<h4 style="margin-top:0; color:#c4b5fd; text-transform:capitalize;">${levelLabel}</h4>`;
+          
+          if (typeof level === 'string') {
+            html += renderValue(level, depth + 1);
+          } else if (typeof level === 'object' && !Array.isArray(level)) {
+            Object.entries(level).forEach(([k, v]) => {
+              const subLabel = k.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+              html += `<div style="margin:1rem 0;">`;
+              html += `<h5 style="margin:0.5rem 0; color:#a5b4fc;">${subLabel}</h5>`;
+              if (typeof v === 'string') {
+                html += renderValue(v, depth + 2);
+              } else if (typeof v === 'object') {
+                html += renderValue(v, depth + 2);
+              }
+              html += '</div>';
+            });
+          } else if (Array.isArray(level)) {
+            html += renderValue(level, depth + 1);
+          }
+          
+          html += '</div>';
+        }
+      });
+      html += '</div>';
+      return html;
+    }
+    
+    Object.entries(value).forEach(([key, val]) => {
+      if (!val || (typeof val === 'string' && val.trim().length === 0)) return;
+      
+      if (['id', '__typename', '_id', 'updated_at', 'created_at', 'createdAt', 'updatedAt'].includes(key) || key.match(/^id_/i)) return;
+      
+      const keyLabel = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      
+      if ((key.match(/^quiz/i) || key.includes('quiz')) && Array.isArray(val)) {
+        if (val.length > 0 && val[0].question && val[0].options) {
+          html += `<div style="margin:1rem 0;"><strong style="color:#7dd3fc;">Quiz du Chapitre</strong>`;
+          html += renderValue(val, depth + 1);
+          html += '</div>';
+          return;
+        }
+      }
+      
+      if (typeof val === 'string' && val.length < 150) {
+        html += `<div style="margin:0.5rem 0;"><strong>${keyLabel}:</strong> ${val}</div>`;
+      } else if (typeof val === 'string') {
+        html += `<div style="margin:0.5rem 0;"><strong>${keyLabel}:</strong></div>`;
+        html += renderValue(val, depth + 1);
+      } else if (typeof val === 'number') {
+        html += `<div style="margin:0.5rem 0;"><strong>${keyLabel}:</strong> ${val}</div>`;
+      } else if (Array.isArray(val) && val.length > 0) {
+        html += `<div style="margin:1rem 0;"><strong>${keyLabel}:</strong>`;
+        html += renderValue(val, depth + 1);
+        html += '</div>';
+      } else if (typeof val === 'object' && Object.keys(val).length > 0) {
+        const hasContent = Object.values(val).some(v => v && (typeof v === 'string' || typeof v === 'number'));
+        if (hasContent) {
+          html += `<div style="margin:0.8rem 0; padding:0.6rem; background:rgba(99,102,241,0.06); border-radius:4px;">`;
+          html += `<strong style="color:#a5b4fc;">${keyLabel}</strong>`;
+          Object.entries(val).forEach(([subKey, subVal]) => {
+            if (!subVal || subKey.match(/^id/i)) return;
+            const subLabel = subKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            if (typeof subVal === 'string' && subVal.length < 100) {
+              html += `<div style="margin:0.4rem 0 0 0.8rem; color:#b8d0ea;"><em>${subLabel}:</em> ${subVal}</div>`;
+            } else if (typeof subVal === 'number') {
+              html += `<div style="margin:0.4rem 0 0 0.8rem; color:#b8d0ea;"><em>${subLabel}:</em> ${subVal}</div>`;
+            }
+          });
+          html += `</div>`;
+        }
+      }
+    });
+    
+    return html;
+  }
+  
+  return '';
+}
+
+function extractChapters() {
+  chapters = [];
+  
+  if (courseData && typeof courseData === 'object') {
+    const chaptersArray = courseData.chapitres || courseData.chapters || courseData.sections || null;
+    
+    if (Array.isArray(chaptersArray) && chaptersArray.length > 0) {
+      chaptersArray.forEach((ch, idx) => {
+        let title = ch.chapter_title || ch.titre || ch.title || ch.name || ('Chapitre ' + (idx + 1));
+        
+        let content = '<div class="chapter-content-full">';
+        
+        if (ch.titre || ch.title) {
+          content += `<h2 style="margin-bottom:1.5rem;">${title}</h2>`;
+        }
+        
+        if (ch.description) {
+          content += `<div class="chapter-intro" style="margin-bottom:1.5rem; padding:1rem; background:linear-gradient(135deg, rgba(96,165,250,0.08), rgba(56,189,248,0.04)); border-left:3px solid #60a5fa; color:#cdd9e8; border-radius:0 8px 8px 0;">${ch.description}</div>`;
+        }
+        
+        if (ch.introduction && ch.introduction !== ch.description) {
+          content += `<div class="chapter-intro" style="margin-bottom:1.5rem; padding:1rem; background:linear-gradient(135deg, rgba(96,165,250,0.08), rgba(56,189,248,0.04)); border-left:3px solid #60a5fa; color:#cdd9e8; border-radius:0 8px 8px 0;">${ch.introduction}</div>`;
+        }
+        
+        Object.entries(ch).forEach(([key, value]) => {
+          if (['titre', 'title', 'name', 'description', 'introduction'].includes(key)) return;
+          if (['id', '_id', '__typename', 'created_at', 'updated_at', 'index', 'number'].includes(key)) return;
+          if (!value || (typeof value === 'string' && value.trim().length === 0)) return;
+          
+          const fieldLabel = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+          if (key === 'exercices_type_bac' || key === 'exercices_bac' || key === 'exercices') {
+            if (Array.isArray(value) && value.length > 0 && (value[0].exercice || value[0].enonce || value[0].question)) {
+              content += _buildExerciseSection(value, idx);
+              return;
+            }
+          }
+
+          if (key === 'quiz' || key.match(/^quiz/i)) {
+            let quizArr = null;
+            if (Array.isArray(value) && value.length > 0 && value[0].question !== undefined) {
+              quizArr = value;
+            } else if (value && typeof value === 'object' && !Array.isArray(value)) {
+              quizArr = Object.values(value).filter(Array.isArray).flat().filter(q => q && q.question !== undefined);
+            }
+            if (quizArr && quizArr.length > 0) {
+              let qNum = 0;
+              const cards = quizArr
+                .filter(q => q && q.question && Array.isArray(q.options))
+                .map(q => {
+                  qNum++;
+                  const correctRaw = String(q.reponse || '').trim();
+                  const correctLetter = correctRaw.match(/^[A-D]$/) ? correctRaw : (correctRaw.match(/^([A-D])[):]/) ? correctRaw[0] : correctRaw);
+                  return _buildMCQCard(q.question, q.options, correctLetter, q.explication || '', qNum);
+                });
+              if (cards.length) {
+                content += _buildQuizSection('Quiz du Chapitre', cards);
+                return;
+              }
+            }
+            return;
+          }
+
+          if (key === 'explication_complete' || key === 'explanation') {
+            content += '<div class="explanations-section" style="margin:2rem 0;">';
+            content += '<h3 style="margin-top:0; border-bottom:2px solid #a78bfa; padding-bottom:0.5rem; color:#c4b5fd;">Explications détaillées</h3>';
+            content += renderValue(value, 1);
+            content += '</div>';
+          } else if (key === 'sections' || key === 'concepts') {
+            if (Array.isArray(value) && value.length > 0) {
+              value.forEach((sec, si) => {
+                const secTitle = sec.titre || sec.title || sec.name || `Section ${si+1}`;
+                content += `<div style="margin:2rem 0;border:1px solid rgba(56,189,248,0.18);border-radius:14px;overflow:hidden;">`;
+                content += `<div style="padding:.75rem 1.25rem;background:linear-gradient(135deg,rgba(56,189,248,0.12),rgba(96,165,250,0.06));border-bottom:1px solid rgba(56,189,248,0.15);">`;
+                content += `<h3 style="margin:0;font-size:1rem;font-weight:800;color:#7dd3fc;">${secTitle}</h3></div>`;
+                content += `<div style="padding:1rem 1.25rem;">`;
+                Object.entries(sec).forEach(([sk, sv]) => {
+                  if (['id','_id','titre','title','name'].includes(sk)) return;
+                  if (!sv || (typeof sv === 'string' && sv.trim().length === 0)) return;
+                  const skLabel = sk.replace(/_/g,' ').replace(/\b\w/g,l=>l.toUpperCase());
+                  content += `<div style="margin:.75rem 0;"><strong style="color:#94a3b8;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;">${skLabel}</strong>`;
+                  content += renderValue(sv, 2);
+                  content += `</div>`;
+                });
+                content += `</div></div>`;
+              });
+            } else {
+              content += `<div class="sections-container" style="margin:2rem 0;">`;
+              content += renderValue(value, 1);
+              content += '</div>';
+            }
+          } else if (key.includes('artistes') || key.includes('institutions')) {
+            content += `<div style="margin:2rem 0;">`;
+            content += `<h3 style="border-bottom:2px solid #f59e0b; padding-bottom:0.5rem; color:#fbbf24;">${fieldLabel}</h3>`;
+            content += renderValue(value, 1);
+            content += '</div>';
+          } else if (key.includes('outils') || key.includes('crayons') || key.includes('couleurs') || key.includes('materiel')) {
+            content += `<div style="margin:2rem 0;">`;
+            content += `<h3 style="border-bottom:2px solid #10b981; padding-bottom:0.5rem; color:#6ee7b7;">✏️ ${fieldLabel}</h3>`;
+            content += renderValue(value, 1);
+            content += '</div>';
+          } else if (key === 'methode' || key.includes('method')) {
+            content += `<div style="margin:2rem 0; padding:1rem; background:linear-gradient(135deg, rgba(220,38,38,0.08), rgba(239,68,68,0.04)); border-left:3px solid #ef4444;">`;
+            content += `<h4 style="margin-top:0; color:#fca5a5;">📝 Méthode</h4>`;
+            content += renderValue(value, 1);
+            content += '</div>';
+          } else if (key === 'regle' || key.includes('rule')) {
+            content += `<div style="margin:2rem 0; padding:1rem; background:linear-gradient(135deg, rgba(34,197,94,0.08), rgba(16,185,129,0.04)); border-left:3px solid #22c55e;">`;
+            content += `<h4 style="margin-top:0; color:#86efac;">✓ Règle</h4>`;
+            content += renderValue(value, 1);
+            content += '</div>';
+          } else if (key === 'formation' || key === 'tableau' || key.includes('template')) {
+            content += `<div style="margin:2rem 0;">`;
+            content += `<h4 style="border-bottom:2px solid #8366f8; padding-bottom:0.25rem; color:#a5b4fc;">${fieldLabel}</h4>`;
+            content += renderValue(value, 1);
+            content += '</div>';
+          } else {
+            content += `<div style="margin:1.5rem 0;">`;
+            content += `<h4 style="color:#a5b4fc; margin-bottom:0.5rem;">${fieldLabel}</h4>`;
+            content += renderValue(value, 1);
+            content += '</div>';
+          }
+        });
+        
+        content += '</div>';
+        
+        chapters.push({
+          title: title,
+          text: content,
+          number: idx + 1,
+          isJSON: true
+        });
+      });
+      
+      chapters.forEach((ch, idx) => {
+        chapterProgress[idx] = parseFloat(localStorage.getItem('bacia_chap_prog_' + COURSE_NAME + '_' + idx) || '0');
+      });
+      
+      console.log('Extracted JSON chapters:', chapters.length);
+      return;
+    }
+  }
+  
+  const rawText = courseData.raw_text || (typeof courseDataRaw === 'string' && !courseDataRaw.startsWith('{') ? courseDataRaw : '');
+  if (!rawText) {
+    console.warn('No chapters found in courseData');
+    return;
+  }
+  
+  const lines = rawText.split('\n');
+  let currentChapter = null;
+  let chapterCount = 0;
+
+  const tryMatch = (line) => {
+    let m;
+    if ((m = line.match(/^##\s+CHAPITRE\s+(\d+)/i))) return parseInt(m[1]);
+    if ((m = line.match(/^CHAPITRE\s+(\d+)\s*[—\-:]/i))) return parseInt(m[1]);
+    if ((m = line.match(/^KONPETANS\s+(\d+)\s*[—\-:]/i))) return parseInt(m[1]);
+    if (line.length < 120 && (m = line.match(/^CHAPITRE\s+(\d+)\b/i))) return parseInt(m[1]);
+    if (line.length < 120 && (m = line.match(/^KONPETANS\s+(\d+)\b/i))) return parseInt(m[1]);
+    return null;
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^═+\s*$/.test(line) || /^_{5,}/.test(line)) continue;
+
+    const chapterNum = tryMatch(line);
+    if (chapterNum) {
+      if (currentChapter) chapters.push(currentChapter);
+      const titleClean = line.replace(/^##\s+/, '').trim();
+      currentChapter = { title: titleClean, number: chapterNum, content: [], startLine: i };
+    } else if (currentChapter) {
+      currentChapter.content.push(line);
+    }
+  }
+  if (currentChapter) chapters.push(currentChapter);
+
+  chapters.forEach((ch, idx) => {
+    ch.text = ch.content.join('\n');
+    chapterProgress[idx] = parseFloat(localStorage.getItem('bacia_chap_prog_' + COURSE_NAME + '_' + idx) || '0');
+  });
+
+  console.log('Extracted text chapters:', chapters.length);
+}
+
+function getProgressColor(p) {
+  if (p < 25) return 'linear-gradient(90deg, #ef4444, #f87171)';
+  if (p < 50) return 'linear-gradient(90deg, #f97316, #fb923c)';
+  if (p < 75) return 'linear-gradient(90deg, #eab308, #facc15)';
+  return 'linear-gradient(90deg, #22c55e, #4ade80)';
+}
+
+function saveChapterProgress(idx, value) {
+  const clamped = Math.min(100, Math.max(0, Math.round(value)));
+  if (clamped <= (chapterProgress[idx] || 0)) return;
+  chapterProgress[idx] = clamped;
+  localStorage.setItem('bacia_chap_prog_' + COURSE_NAME + '_' + idx, clamped);
+  const list = document.getElementById('chapters-list');
+  if (list) {
+    const card = list.children[idx];
+    if (card) {
+      const bar = card.querySelector('.chapter-progress-bar');
+      const pct = card.querySelector('.progress-percentage');
+      if (bar) bar.style.width = clamped + '%';
+      if (bar) bar.style.background = getProgressColor(clamped);
+      if (pct) pct.textContent = clamped + '%';
+    }
+  }
+}
+
+function initChaptersGrid() {
+  const list = document.getElementById('chapters-list');
+  if (!list) return;
+  list.innerHTML = '';
+  if (chapters.length === 0) {
+    list.innerHTML = '<div style="padding:2rem;color:#ff6b6b;text-align:center;">⚠️ Aucun chapitre chargé. Vérifiez les données du cours.</div>';
+    return;
+  }
+  chapters.forEach((chapter, index) => {
+    const progress = chapterProgress[index] || 0;
+    const btn = document.createElement('button');
+    btn.className = 'chapter-card-btn';
+    const isLocked = IS_GUEST && index > 0;
+    if (isLocked) {
+      btn.style.position = 'relative';
+      btn.onclick = (e) => { e.preventDefault(); if(typeof showGuestBlockedToast==='function') showGuestBlockedToast('Créez un compte pour accéder à ce chapitre'); };
+    } else {
+      btn.onclick = (e) => { e.preventDefault(); selectChapter(index); };
+    }
+    const shortTitle = chapter.title.replace(/^(?:CHAPITRE|KONPETANS)\s+\d+\s*[—\-:]\s*/i, '').trim();
+    btn.innerHTML = `
+      <div class="chapter-card-top">
+        <div class="chapter-number-badge">${isLocked ? '🔒' : chapter.number}</div>
+        <h3 class="chapter-title">${shortTitle || chapter.title}</h3>
+      </div>
+      <div style="width:100%">
+        <div class="chapter-progress-bar-container">
+          <div class="chapter-progress-bar" style="width:${isLocked ? 0 : progress}%;background:${getProgressColor(progress)}"></div>
+        </div>
+        <div class="progress-percentage">${isLocked ? '—' : Math.round(progress) + '%'}</div>
+      </div>`;
+    if (isLocked) btn.style.opacity = '0.5';
+    list.appendChild(btn);
+  });
+}
+
+function selectChapter(index) {
+  currentChapterIndex = index;
+  saveChapterProgress(index, Math.max(chapterProgress[index] || 0, 25));
+  setTimeout(() => {
+    if (currentChapterIndex === index) saveChapterProgress(index, Math.max(chapterProgress[index] || 0, 45));
+  }, 30000);
+  const chapter = chapters[index];
+  const shortTitle = chapter.title.replace(/^(?:CHAPITRE|KONPETANS)\s+\d+\s*[—\-:]\s*/i, '').trim();
+  document.getElementById('chapter-title').textContent = shortTitle || chapter.title;
+  
+  const chapterBodyContent = chapter.isJSON ? chapter.text : formatContent(chapter.text);
+  document.getElementById('chapter-body').innerHTML = chapterBodyContent;
+
+  setupQuizInteractions(document.getElementById('chapter-body'));
+
+  document.getElementById('chapter-body').querySelectorAll('table').forEach(tbl => {
+    if (!tbl.closest('.table-wrap')) {
+      const wrap = document.createElement('div');
+      wrap.className = 'table-wrap';
+      tbl.parentNode.insertBefore(wrap, tbl);
+      wrap.appendChild(tbl);
+    }
+  });
+
+  if (window.renderMathInElement) {
+    try {
+      renderMathInElement(document.getElementById('chapter-body'), {
+        delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],
+        throwOnError: false
+      });
+      document.getElementById('chapter-body').querySelectorAll('.katex-display').forEach(el => {
+        if (!el.closest('.formula-card') && !el.closest('.formula-block')) {
+          const parent = el.parentNode;
+          const card = document.createElement('div'); card.className = 'formula-card';
+          parent.insertBefore(card, el); card.appendChild(el);
+          const stray = [];
+          card.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE && n.textContent.trim()) stray.push(n); });
+          stray.forEach(n => { const p = document.createElement('p'); p.textContent = n.textContent.trim(); card.parentNode.insertBefore(p, card.nextSibling); n.remove(); });
+        }
+      });
+    } catch(e) { console.warn('KaTeX error:', e); }
+  }
+
+  document.getElementById('chapters-container').classList.add('hidden');
+  document.getElementById('hero-section').classList.add('hidden');
+  document.getElementById('content-area').classList.add('active');
+
+  chatMessages.innerHTML = '';
+  chapterChatHistory = [];
+  updateFloatingButtonVisibility();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function preProcessQuizText(rawText) {
+  const lines = rawText.split('\n');
+  const output = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    const chapQuizMatch = trimmed.match(/^(?:#{1,4}\s+)?QUIZ\s+CHAPITRE\s+(\d+)\s*(?:[—\-]\s*(.+))?$/i);
+    if (chapQuizMatch) {
+      const chapNum = chapQuizMatch[1];
+      const quizTopic = chapQuizMatch[2] ? chapQuizMatch[2].trim() : '';
+      const uniqueId = `quiz_chap_${chapNum}`;
+      i++;
+      while (i < lines.length && !lines[i].trim()) i++;
+      const exercises = [];
+      while (i < lines.length) {
+        const l = lines[i].trim();
+        if (!l) { i++; continue; }
+        if (l.match(/^#{1,4}\s+/) && !l.match(/^(?:#{1,4}\s+)?QUIZ\s+CHAPITRE/i)) break;
+        if (l.match(/^⚡/)) break;
+        const qMBold  = l.match(/^\*\*Q(\d+)\.\*\*\s+(.+)/);
+        const qMPlain = !qMBold && l.match(/^Q(\d+)\.\s+(.+)/);
+        if (!qMBold && !qMPlain) break;
+        const qNum = (qMBold || qMPlain)[1];
+        const question = (qMBold || qMPlain)[2].trim().replace(/\s{2,}$/, '');
+        i++;
+        while (i < lines.length && !lines[i].trim()) i++;
+        let answer = '';
+        if (i < lines.length) {
+          const ansM = lines[i].trim().match(/^\*?\*?R[ée]ponse\s*:\*?\*?\s+(.+)/);
+          if (ansM) { answer = ansM[1].trim(); i++; }
+        }
+        exercises.push({ type: `Q${qNum}`, exercice: question, reponse: answer });
+        while (i < lines.length && !lines[i].trim()) i++;
+      }
+      if (exercises.length > 0) {
+        output.push(
+          `<div style="margin:1.5rem 0 .5rem;padding:.6rem 1.2rem;background:linear-gradient(135deg,rgba(96,165,250,0.08),rgba(56,189,248,0.04));border-radius:12px;border-left:3px solid #60a5fa;">` +
+          `<span style="background:linear-gradient(135deg,#60a5fa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;font-size:1.05rem;">` +
+          `📋 QUIZ CHAPITRE ${chapNum}${quizTopic ? ' — ' + quizTopic : ''}` +
+          `</span></div>`
+        );
+        output.push(_buildExerciseSection(exercises, uniqueId));
+      }
+      continue;
+    }
+
+    const mcqMatch = trimmed.match(/^\*\*Question\s+(\d+)(?:\s*\([^)]*\))?\*\*\s*(?:\([^)]*\))?\s*:?\s*(.+)/);
+    if (mcqMatch) {
+      const qNum = parseInt(mcqMatch[1]);
+      let question = mcqMatch[2].trim();
+      i++;
+      const opts = [];
+      while (i < lines.length) {
+        const l = lines[i].trim();
+        if (!l || l === '---') { i++; continue; }
+        const optM = l.match(/^-\s*([A-D])\)\s*(.+)/);
+        if (optM) { opts.push({ letter: optM[1], text: optM[2].trim() }); i++; }
+        else break;
+      }
+      let explanation = '', correctLetter = '';
+      while (i < lines.length && !lines[i].trim().startsWith('<details>')) {
+        const l = lines[i].trim();
+        if (!l) { i++; continue; }
+        if (!l.startsWith('#') && !l.startsWith('**Question') && !l.match(/^-\s*[A-D]\)/)) i++;
+        else break;
+      }
+      if (i < lines.length && lines[i].trim().startsWith('<details>')) {
+        i++;
+        while (i < lines.length && !lines[i].trim().includes('</summary>')) i++;
+        if (i < lines.length) i++;
+        const exLines = [];
+        while (i < lines.length && !lines[i].trim().startsWith('</details>')) {
+          const l = lines[i].trim();
+          if (l) {
+            if (!correctLetter) {
+              const m = l.match(/^[\*]*([A-D])\)/) || l.match(/\*\*([A-D])\)/);
+              if (m) correctLetter = m[1];
+            }
+            exLines.push(l.replace(/^\*\*/, '').replace(/\*\*$/, '').replace(/\*\*/g, ''));
+          }
+          i++;
+        }
+        if (i < lines.length) i++;
+        explanation = exLines.join(' ').trim();
+      }
+      if (opts.length >= 2) {
+        if (!correctLetter && explanation) {
+          const m = explanation.match(/^([A-D])\)/);
+          if (m) correctLetter = m[1];
+        }
+        output.push(_buildMCQCard(question, opts, correctLetter, explanation, qNum));
+      } else {
+        output.push(line);
+      }
+      continue;
+    }
+
+    const svtQ = trimmed.match(/^\*\*Q(\d+)\.\*\*\s+(.+)/);
+    if (svtQ) {
+      const qNum = svtQ[1];
+      let question = svtQ[2].trim().replace(/\s{2,}$/, '');
+      i++;
+      while (i < lines.length && !lines[i].trim()) i++;
+      let answer = '';
+      if (i < lines.length) {
+        const ansM = lines[i].trim().match(/^\*\*R[ée]ponse\s*:\*\*\s+(.+)/);
+        if (ansM) { answer = ansM[1].trim(); i++; }
+      }
+      output.push(
+        `<div class="qa-card" style="margin:.8rem 0;padding:1rem 1.2rem;background:linear-gradient(135deg,rgba(96,165,250,0.08),rgba(56,189,248,0.04));border-left:3px solid #60a5fa;border-radius:0 10px 10px 0;">` +
+        `<div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#60a5fa;margin-bottom:.4rem;">Q${qNum}</div>` +
+        `<div style="font-weight:600;color:#e2e8f0;line-height:1.6;">${question}</div>` +
+        (answer ? `<div style="margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(96,165,250,0.15);color:#6ee7b7;font-size:.93rem;">✓ ${answer}</div>` : '') +
+        `</div>`
+      );
+      continue;
+    }
+
+    const miniQuizStart = trimmed.match(/^⚡\s+((?:MINI-QUIZ|QUIZ\s+FINAL)(?:\s+CHAPITRE)?\s+\d+)\s*(?:[—\-]\s*(.+))?$/i);
+    if (miniQuizStart) {
+      const fullLabel = miniQuizStart[1].trim();
+      const quizTopic = miniQuizStart[2] ? miniQuizStart[2].trim() : '';
+      const correctionMarker = new RegExp(`^✅\\s+CORRECTION\\s+${fullLabel.replace(/\s+/g, '\\s+')}\\b`, 'i');
+      i++;
+      const exLines = [];
+      while (i < lines.length && !lines[i].trim().match(correctionMarker) && !lines[i].trim().match(/^⚡\s+(?:MINI-QUIZ|QUIZ\s+FINAL)/i)) {
+        exLines.push(lines[i]);
+        i++;
+      }
+      const corrLines = [];
+      if (i < lines.length && lines[i].trim().match(correctionMarker)) {
+        i++;
+        while (i < lines.length && !lines[i].trim().match(/^⚡\s+(?:MINI-QUIZ|QUIZ\s+FINAL)/i) && !lines[i].trim().match(/^#{1,4}\s+.{3,}/)) {
+          corrLines.push(lines[i]);
+          i++;
+        }
+      }
+      const qLineRx = /^Q(\d+)\.\s*(.+)/;
+      const questionMap = {};
+      const answerMap = {};
+      exLines.forEach(l => {
+        const m = l.trim().match(qLineRx);
+        if (m) questionMap[parseInt(m[1])] = m[2].trim();
+      });
+      corrLines.forEach(l => {
+        const m = l.trim().match(qLineRx);
+        if (m) answerMap[parseInt(m[1])] = m[2].trim();
+      });
+      const qNums = Object.keys(questionMap).map(Number).sort((a,b) => a-b);
+
+      const exBlockRx = /^Exercice\s+(\d+)\s*(.*)/i;
+      const exQBlockMap = {};
+      const exABlockMap = {};
+      let curBlock = null;
+      exLines.forEach(l => {
+        const m = l.trim().match(exBlockRx);
+        if (m) { curBlock = parseInt(m[1]); exQBlockMap[curBlock] = { title: m[2].replace(/[()]/g,'').trim(), lines: [] }; }
+        else if (curBlock !== null) exQBlockMap[curBlock].lines.push(l.trim());
+      });
+      curBlock = null;
+      corrLines.forEach(l => {
+        const m = l.trim().match(/^Exercice\s+(\d+)\s*[:\-]?\s*(.*)/i);
+        if (m) { curBlock = parseInt(m[1]); exABlockMap[curBlock] = { lines: [] }; }
+        else if (curBlock !== null) exABlockMap[curBlock].lines.push(l.trim());
+      });
+      const exBlockNums = Object.keys(exQBlockMap).map(Number).sort((a,b) => a-b);
+
+      const uniqueId = fullLabel.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '');
+      const sectionHeader = `<div style="margin:1.5rem 0 .5rem;padding:.6rem 1.2rem;background:linear-gradient(135deg,rgba(96,165,250,0.08),rgba(56,189,248,0.04));border-radius:12px;border-left:3px solid #60a5fa;"><span style="background:linear-gradient(135deg,#60a5fa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;font-size:1.05rem;">⚡ ${fullLabel}${quizTopic ? ' — ' + quizTopic : ''}</span></div>`;
+
+      if (qNums.length >= 2) {
+        const nonQLines = exLines.filter(l => !qLineRx.test(l.trim()) && l.trim());
+        const contextText = nonQLines.join(' ');
+        const exercises = qNums.map(n => ({
+          type: `Q${n}`,
+          exercice: questionMap[n],
+          reponse: answerMap[n] || '',
+          _context: contextText
+        }));
+        output.push(sectionHeader);
+        output.push(_buildExerciseSection(exercises, uniqueId));
+
+      } else if (exBlockNums.length >= 1) {
+        const introLines = exLines.filter(l => !exBlockRx.test(l.trim()) && l.trim() && !exBlockNums.some(n => exQBlockMap[n] && exQBlockMap[n].lines.includes(l.trim())));
+        const contextText = introLines.join(' ');
+        const exercises = exBlockNums.map(n => {
+          const qBlock = exQBlockMap[n];
+          const aBlock = exABlockMap[n];
+          const questionText = qBlock.lines.filter(l => l).join('\n');
+          const answerText = aBlock ? aBlock.lines.filter(l => l).join('\n') : '';
+          return {
+            type: qBlock.title || `Exercice ${n}`,
+            exercice: questionText,
+            reponse: answerText,
+            _context: contextText
+          };
+        });
+        output.push(sectionHeader);
+        output.push(_buildExerciseSection(exercises, uniqueId));
+
+      } else {
+        const exText = exLines.map(l => l.trim()).filter(l => l).join('<br>');
+        const corrText = corrLines.map(l => l.trim()).filter(l => l).join('<br>');
+        output.push(
+          `<div class="quiz-wrap" style="margin:1.5rem 0;">` +
+          `<div style="margin-bottom:1rem;padding-bottom:.6rem;border-bottom:2px solid rgba(96,165,250,0.2);">` +
+          `<h3 style="margin:0;font-size:1.1rem;background:linear-gradient(135deg,#60a5fa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;">⚡ ${fullLabel}${quizTopic ? ' — ' + quizTopic : ''}</h3></div>` +
+          (exText ? `<div style="background:rgba(15,23,42,0.6);border-radius:10px;padding:1rem;margin-bottom:.8rem;color:#e2e8f0;line-height:1.9;font-size:.95rem;">${exText}</div>` : '') +
+          (corrText ? `<details style="margin-top:.4rem;"><summary style="cursor:pointer;padding:.5rem .8rem;background:rgba(96,165,250,0.08);border-radius:8px;color:#60a5fa;font-weight:700;user-select:none;">✅ Voir la correction</summary>` +
+            `<div style="margin-top:.6rem;background:rgba(34,197,94,0.06);border-radius:10px;padding:1rem;color:#d1fae5;line-height:1.9;font-size:.93rem;border-left:3px solid #22c55e;">${corrText}</div></details>` : '') +
+          `</div>`
+        );
+      }
+      continue;
+    }
+
+    output.push(line);
+    i++;
+  }
+  return output.join('\n');
+}
+
+function fixMixedMath(text) {
+  return text.replace(/^(.+)$/gm, (line) => {
+    const t = line.trim();
+    if (t.startsWith('<')) return line;
+    if (!line.includes('$') && !line.includes('\\')) return line;
+
+    let hasOuterCmd = false;
+    let i = 0;
+    while (i < line.length) {
+      if (line[i] === '$') {
+        if (i + 1 < line.length && line[i + 1] === '$') {
+          const close = line.indexOf('$$', i + 2);
+          if (close >= 0) { i = close + 2; continue; }
+        }
+        const close = line.indexOf('$', i + 1);
+        if (close >= 0) { i = close + 1; continue; }
+      }
+      if (line[i] === '\\' && i + 1 < line.length && /[a-zA-Z]/.test(line[i + 1])) {
+        hasOuterCmd = true;
+        break;
+      }
+      i++;
+    }
+    if (!hasOuterCmd) return line;
+
+    const labelMatch = line.match(/^([^$\\]*?\s*:\s*)([\\$][\s\S]*)$/);
+    const textPrefix = labelMatch ? labelMatch[1] : '';
+    const mathPart   = labelMatch ? labelMatch[2] : line;
+
+    const content = mathPart
+      .replace(/\$\$([^$]*)\$\$/g, '$1')
+      .replace(/\$([^$\n]*)\$/g, '$1')
+      .replace(/^\$+|\$+$/g, '')
+      .trim();
+
+    const isDisplay = /\\boxed\b|\\begin\b|\\displaystyle\b/.test(mathPart);
+    return textPrefix + (isDisplay ? `$$${content}$$` : `$${content}$`);
+  });
+}
+
+function formatContent(text) {
+  if (!text) return '<p>Pas de contenu disponible</p>';
+  text = fixMixedMath(text);
+  let result = preProcessQuizText(text);
+
+  result = result.replace(/\*?\*?Question\s+\d+\s*\(QCM\)\s*:?\*?\*?\n[\s\S]*?\*\(R[ée]ponse\s*:\s*[A-D]\)\*/gm, '');
+  result = result.replace(/^\*\(R[ée]ponse\s*:\s*[A-D]\)\*$/gm, '');
+  result = result.replace(/^###\s+R[ÉE]CAPITULONS AVEC UN QCM BILAN[\s\S]*/im, '');
+  result = result.replace(/^###\s+[ÉE]VALUATION COMPL[ÈE]TE[\s\S]*/im, '');
+
+  result = result.replace(/\\\[\s*([\s\S]*?)\s*\\\]/g, (m, c) => '\n$$' + c.trim() + '$$\n');
+  result = result.replace(/\\\(\s*([\s\S]*?)\s*\\\)/g, (m, c) => '$' + c.trim() + '$');
+
+  result = result.replace(/([^\n]*?)(\$\$[\s\S]*?\$\$)([^\n]*)/g, (m, before, formula, after) => {
+    const parts = [];
+    if (before.trim()) parts.push(before.trim());
+    parts.push(formula);
+    if (after.trim()) parts.push(after.trim());
+    return parts.join('\n');
+  });
+
+  result = result.replace(
+    /(\$\$[\s\S]*?\$\$|\$[^$\n]*?\$)|\b([A-Za-zΩωτφθα-ζ]{1,4})_([A-Za-z0-9]{1,8})\b/g,
+    (m, mathBlock, b, s) => mathBlock !== undefined ? mathBlock : '$' + b + '_{' + s + '}$'
+  );
+
+  result = result.replace(/^(Étape|Step|Pas)\s+(\d+)\s*[:\-—]\s*(.+)$/gm, (m, l, n, c) =>
+    `<div class="step-block"><span class="step-label">Ét. ${n}</span><span class="step-content">${c}</span></div>`);
+
+  result = result.replace(/^[═─=]{3,}.*$/gm, '');
+  result = result.replace(/^_{3,}.*$/gm, '');
+  result = result.replace(/^####\s+/gm, '');
+  result = result.replace(/^---+$/gm, '');
+  result = result.replace(/\n\n\n+/g, '\n\n');
+
+  result = result.replace(/^⚠️\s*(.{3,300})$/gm, '<div class="highlight-box highlight-attention"><strong>⚠️</strong> $1</div>');
+  result = result.replace(/^✅\s*(.{3,300})$/gm, '<div class="highlight-box highlight-astuce"><strong>✅</strong> $1</div>');
+  result = result.replace(/^💡\s*(.{3,300})$/gm, '<div class="highlight-box highlight-info"><strong>💡</strong> $1</div>');
+  result = result.replace(/^📌\s*(.{3,300})$/gm, '<div class="highlight-box highlight-note"><strong>📌</strong> $1</div>');
+
+  result = result.replace(/^\*\*(Attention|Note|Important|Astuce|Conseil|Définition)(\s*[:\—]\s*)(.*?)\*\*(.*?)$/gim, (m, label, sep, desc, rest) => {
+    const map = { attention:'highlight-attention', note:'highlight-note', important:'highlight-important', astuce:'highlight-astuce', conseil:'highlight-tip', définition:'highlight-definition' };
+    const cls = map[label.toLowerCase()] || 'highlight-info';
+    return `<div class="highlight-box ${cls}"><strong>${label}${sep}${desc}</strong>${rest}</div>`;
+  });
+
+  result = result.replace(/^PARTIE\s+([\d\.]+)\s*(?:—|-{1,2})\s*(.{3,150})$/gm,
+    '<h3>PARTIE $1 — $2</h3>');
+
+  result = result.replace(/^(\d+\.\d+)\s*(?:—|-{1,2})\s*(.{3,150})$/gm,
+    '<h3>$2</h3>');
+
+  result = result.replace(/^R[EÈ]GLE\s+(\d+)\s*(?:—|-{1,2})\s*(.{3,150})$/gi,
+    (m, n, t) => `<h4>RÈGLE ${n} — ${t}</h4>`);
+
+  result = result.replace(/^(CAS|EXEMPLE)\s+(\d+)\s*(?:—|-{1,2})\s*(.{3,150})$/gi,
+    '<h4>$1 $2 — $3</h4>');
+
+  result = result.replace(/^(TH[EÉ]OR[ÈE]ME|PROPRI[ÉE]T[ÉE]|COROLLAIRE|M[ÉE]THODE|FORMULE\s+CL[EÉ]F?)\s*(?:[:—-])\s*(.{0,150})$/gim,
+    '<h4>$1 : $2</h4>');
+
+  result = result.replace(/^([\u{1F300}-\u{1FAFF}][\uFE0F]?)\s+(.{3,150})$/gmu,
+    '<h3>$1 $2</h3>');
+  result = result.replace(/^([\u{2460}-\u{27FF}][\uFE0F]?)\s+(.{3,150})$/gmu,
+    '<h3>$1 $2</h3>');
+
+  result = result.replace(/^[•·]\s*(.+)$/gm, '<li>$1</li>');
+
+  result = result.replace(/^\d+\.\t\s*(.+)$/gm, '<li>$1</li>');
+
+  result = result.replace(/^[\-\*]\s+(.{1,})$/gm, '<li>$1</li>');
+
+  result = result.replace(/^([^\t<\n]+\t[^\t<\n]+(?:\t[^\t<\n]+)*)$/gm, row => {
+    const cells = row.split('\t').map(c => c.trim()).filter(c => c);
+    if (cells.length < 2) return row;
+    return '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+  });
+
+  result = result.replace(/(<li>[^\n]*<\/li>(?:\n<li>[^\n]*<\/li>)*)/g, m => '<ul>' + m + '</ul>');
+
+  result = result.replace(/^\s*([①②③④⑤⑥⑦⑧⑨⑩])\s+(.+?)$/gm, (m, sym, c) =>
+    `<div class="numbered-block"><strong class="enum-symbol">${sym}</strong><span class="enum-content">${c}</span></div>`);
+
+  result = result.replace(/^>\s+(.+?)$/gm, (m, c) => `<div class="highlight-box highlight-info">${c}</div>`);
+
+  result = result.replace(/^(Q\d+)\.\s+(.+)$/gm, (m, num, text) =>
+    `<div class="embedded-q"><span class="eq-num">${num}.</span><span class="eq-text">${text}</span></div>`);
+
+  let quizHTML = '';
+  const quizKey = `${COURSE_NAME.toLowerCase()}-chapter-${currentChapterIndex + 1}`;
+  const quizzes = QUIZ_DATA[quizKey] || [];
+  if (quizzes.length > 0) {
+    quizHTML = `<div class="quiz-wrap"><div style="margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:2px solid rgba(96,165,250,0.2);">
+      <h3 style="margin:0;font-size:clamp(1.4rem,3vw,1.8rem);background:linear-gradient(135deg,#60a5fa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;">📋 Quiz du Chapitre</h3>
+      <p style="margin:0.5rem 0 0;color:#cbd5e1;font-size:0.95rem;">(${quizzes.length} questions)</p></div><div class="quiz-grid">`;
+    quizzes.forEach(quiz => {
+      const opts = quiz.options.map(o => `<div class="quiz-option" onclick="selectQuizOption(this)" data-correct="${o.correct}"><span class="option-letter">${o.letter}</span><span>${o.text}</span></div>`).join('');
+      quizHTML += `<div class="quiz-card"><h4>Q${quiz.num}. ${quiz.question}</h4><div class="quiz-options" data-quiz-id="${quiz.num}">${opts}</div>
+        <div class="quiz-actions"><button class="quiz-submit" onclick="submitQuizAnswer(this.closest('.quiz-card'))">✓ Valider</button>
+        <button class="quiz-reset" onclick="resetQuiz(this.closest('.quiz-card'))">↻ Réinitialiser</button></div>
+        <div class="quiz-explanation"><strong>✓ Solution:</strong><br/>${quiz.solution}</div></div>`;
+    });
+    quizHTML += '</div></div>';
+  }
+
+  const _fs = [];
+  result = result.replace(/\$\$[\s\S]*?\$\$|\$[^$\n]+?\$/g, m => { _fs.push(m); return '\x00F' + (_fs.length-1) + '\x00'; });
+  result = result.replace(/\*\*([^\*]+?)\*\*/g, '<strong>$1</strong>');
+  result = result.replace(/_([^_\s<>][^_<>]*?)_/g, '<em>$1</em>');
+  result = result.replace(/\x00F(\d+)\x00/g, (m, i) => _fs[parseInt(i)]);
+
+  result = result.replace(/^###\s+(.+?)$/gm, '<h4>$1</h4>');
+  result = result.replace(/^##\s+(.+?)$/gm, '<h3>$1</h3>');
+  result = result.replace(/^#\s+(.+?)$/gm, '<h2>$1</h2>');
+
+  result = result.replace(/^[–—]\s+([A-ZÀÂÇÉÈÊËÎÏÔÙÛÜÆŒ][^a-z\n]{3,120})$/gm, '<h3>$1</h3>');
+  result = result.replace(/^[–—]\s+(.{5,120})$/gm, '<h4>$1</h4>');
+
+  {
+    const tabLines = result.split('\n');
+    const out = [];
+    let tblock = [];
+    const flushTab = () => {
+      if (tblock.length >= 2) {
+        const [hdr, ...rows] = tblock;
+        const toRow = (ln, tag) =>
+          '<tr>' + ln.split('\t').map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
+        out.push(toRow(hdr, 'th'));
+        rows.forEach(r => out.push(toRow(r, 'td')));
+      } else {
+        tblock.forEach(l => out.push(l));
+      }
+      tblock = [];
+    };
+    for (const line of tabLines) {
+      if (line.includes('\t') && !line.trim().startsWith('<')) {
+        tblock.push(line);
+      } else {
+        flushTab();
+        out.push(line);
+      }
+    }
+    flushTab();
+    result = out.join('\n');
+  }
+
+  {
+    const lines3 = result.split('\n');
+    const out3 = [];
+    let pblock = [];
+    const flushPipe = () => {
+      if (pblock.length === 0) return;
+      const rows = pblock.map(ln => {
+        const cells = ln.split('|').slice(1, -1).map(c => c.trim().replace(/\*\*/g, ''));
+        const isSep = cells.every(c => /^[-:\s]+$/.test(c));
+        return { cells, isSep };
+      }).filter(r => !r.isSep);
+      if (rows.length === 0) { pblock.forEach(l => out3.push(l)); pblock = []; return; }
+      const [hdr, ...body] = rows;
+      let html = '<div class="table-wrap"><table><thead><tr>';
+      hdr.cells.forEach(c => html += `<th>${c}</th>`);
+      html += '</tr></thead><tbody>';
+      body.forEach(r => {
+        html += '<tr>'; r.cells.forEach(c => html += `<td>${c}</td>`); html += '</tr>';
+      });
+      html += '</tbody></table></div>';
+      out3.push(html);
+      pblock = [];
+    };
+    for (const line of lines3) {
+      if (/^\s*\|.+\|\s*$/.test(line)) {
+        pblock.push(line);
+      } else {
+        flushPipe();
+        out3.push(line);
+      }
+    }
+    flushPipe();
+    result = out3.join('\n');
+  }
+
+  {
+    const tableLines = result.split('\n');
+    let inTable = false, headDone = false;
+    const processed = [];
+    for (const line of tableLines) {
+      const isRow = line.trim().startsWith('<tr>') || line.trim().startsWith('<tr ');
+      if (isRow) {
+        if (!inTable) {
+          processed.push('<div class="table-wrap"><table><thead>');
+          inTable = true; headDone = false;
+        }
+        const isHeaderRow = line.includes('<th>');
+        if (isHeaderRow && !headDone) {
+          processed.push(line);
+        } else {
+          if (!headDone) { processed.push('</thead><tbody>'); headDone = true; }
+          processed.push(line);
+        }
+      } else {
+        if (inTable) {
+          if (!headDone) processed.push('</thead>');
+          processed.push('</tbody></table></div>');
+          inTable = false; headDone = false;
+        }
+        processed.push(line);
+      }
+    }
+    if (inTable) {
+      if (!headDone) processed.push('</thead>');
+      processed.push('</tbody></table></div>');
+    }
+    result = processed.join('\n');
+  }
+
+  result = result.split('\n').map(line => {
+    const t = line.trim();
+    if (t.startsWith('<') || t.includes('$$')) return line;
+    const eqCount = (t.match(/ = /g) || []).length;
+    if (eqCount >= 2 && /[×÷√²³⁻⁺∫πℝ()i₀-₉⁰-⁹\d]/.test(t)) {
+      const parts = t.split(' = ');
+      return '<div class="calc-chain">' +
+        parts.map((s, i) => `<div class="calc-step">${i > 0 ? '= ' : ''}${s}</div>`).join('') +
+        '</div>';
+    }
+    return line;
+  }).join('\n');
+
+  const lines2 = result.split('\n');
+  let html = [], inPara = false;
+  for (const line of lines2) {
+    const t = line.trim();
+    if (!t) { if (inPara) { html.push('</p>'); inPara = false; } }
+    else if (t.startsWith('<') || t.startsWith('$$') || /^\\\[/.test(t)) {
+      if (inPara) { html.push('</p>'); inPara = false; }
+      html.push(t);
+    } else {
+      if (!inPara) { html.push('<p>'); inPara = true; } else { html.push('<br>'); }
+      html.push(t);
+    }
+  }
+  if (inPara) html.push('</p>');
+  result = html.join('\n');
+  result = result.replace(/<p><\/p>/g, '').replace(/<p>\s*(<h[1-4]|<div|<ul|<ol|<table)/g, '$1').replace(/(<\/h[1-4]>|<\/div>|<\/ul>|<\/table>)\s*<\/p>/g, '$1');
+
+  if (quizHTML && !result.includes('quiz-card')) result += '\n' + quizHTML;
+  return result.trim();
+}
+
+function _getHintMode() {
+  const n = COURSE_NAME.toLowerCase();
+  if (['math', 'mathémat', 'mathemat'].some(s => n.includes(s))) return 'math';
+  if (['physique', 'chimie', 'physic', 'chimi'].some(s => n.includes(s))) return 'science_exact';
+  if (['anglais', 'espagnol', 'kreyol', 'français', 'francais', 'langues'].some(s => n.includes(s))) return 'language';
+  return 'general';
+}
+
+window.askForHint = async function(btn) {
+  const card = btn.closest('.quiz-card, .ex-card');
+
+  let question = btn.dataset.question || '';
+  let officialAnswer = btn.dataset.answer || '';
+
+  if (!question && card && card.classList.contains('quiz-card')) {
+    question = (card.querySelector('h4') || {}).textContent || '';
+    const correctOpt = card.querySelector('.quiz-option[data-correct="true"]');
+    if (correctOpt) officialAnswer = correctOpt.textContent.trim();
+  }
+
+  aiChatWindow.classList.add('active');
+  if (chatMessages.children.length === 0) {
+    loadChatMessages();
+    if (chatMessages.children.length === 0) {
+      const w = document.createElement('div'); w.className = 'chat-message ai';
+      w.textContent = `Salut ! Je suis ton assistant IA pour le cours de ${COURSE_NAME}. Pose-moi ta question !`;
+      chatMessages.appendChild(w);
+    }
+  }
+
+  const shortQ = question.length > 120 ? question.substring(0, 117) + '…' : question;
+  const um = document.createElement('div'); um.className = 'chat-message user';
+  um.textContent = `💡 Je ne sais pas : ${shortQ}`;
+  chatMessages.appendChild(um);
+
+  const loading = document.createElement('div'); loading.className = 'chat-message loading';
+  loading.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+  chatMessages.appendChild(loading);
+  setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Réflexion…';
+
+  const mode = _getHintMode();
+  let prompt;
+
+  if (mode === 'math') {
+    prompt = `Tu es professeur de ${COURSE_NAME} au Bac Haïtien. Un élève bloque sur cette question :\n\n"${question}"\n\nRègles STRICTES :\n- NE donne JAMAIS la réponse finale directement\n- Encourage-le à essayer par lui-même en le guidant\n- Guide avec : (1) les concepts/formules à mobiliser, (2) les étapes de résolution numérotées, (3) un conseil pour ne pas faire d'erreur\n- Termine par une phrase d'encouragement du type "Tu peux y arriver, essaie maintenant !"\n- Maximum 6 lignes, sois pédagogique et motivant`;
+  } else if (mode === 'science_exact') {
+    prompt = `Tu es professeur de ${COURSE_NAME} au Bac Haïtien. Un élève ne connaît pas la réponse à :\n\n"${question}"\n\nDonne :\n1. La réponse correcte en gras\n2. La méthode ou loi scientifique utilisée\n3. Une astuce mnémotechnique simple pour retenir\n\nSois concis (5 lignes max).`;
+  } else if (mode === 'language') {
+    prompt = `Tu es professeur de ${COURSE_NAME} au Bac Haïtien. Un élève bloque sur :\n\n"${question}"\n\nDonne :\n1. La réponse correcte\n2. La règle grammaticale ou de vocabulaire concernée (1 ligne)\n3. Un exemple d'utilisation dans une phrase\n4. Une astuce pour ne plus oublier\n\nSois bref et mémorable.`;
+  } else {
+    prompt = `Tu es professeur de ${COURSE_NAME} au Bac Haïtien. Un élève ne sait pas répondre à :\n\n"${question}"\n\nDonne :\n1. La réponse correcte\n2. 2-3 astuces mnémotechniques concrètes pour la retenir\n3. Pourquoi c'est important / souvent demandé à l'examen\n\nSois concis et percutant (5 lignes max).`;
+  }
+
+  try {
+    const chapterText = (currentChapterIndex >= 0 && chapters[currentChapterIndex])
+      ? chapters[currentChapterIndex].text.substring(0, 3000)
+      : '';
+    const contextStr = (chapterText ? `---CONTENU DU CHAPITRE---\n${chapterText}\n---FIN CONTENU---\n\n` : '')
+      + (officialAnswer ? `Réponse officielle à cette question : ${officialAnswer}` : `Question posée à l'élève : ${question}`);
+    chapterChatHistory.push({ role: 'user', content: question });
+
+    const resp = await fetch('/dashboard/api/course-question/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify({
+        question: prompt,
+        course: COURSE_NAME,
+        context: contextStr,
+        history: chapterChatHistory.slice(0, -1)
+      })
+    });
+
+    loading.remove();
+
+    if (resp.status === 401) {
+      const am = document.createElement('div'); am.className = 'chat-message ai';
+      am.textContent = '⚠️ Connecte-toi pour accéder aux indices IA.';
+      chatMessages.appendChild(am);
+      chapterChatHistory.pop();
+      btn.disabled = false; btn.textContent = '💡 Je ne sais pas';
+      setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+      return;
+    }
+
+    const data = await resp.json();
+    const answerText = (data.success && data.answer) ? data.answer : (data.error || 'Pas de réponse disponible.');
+
+    const am = document.createElement('div'); am.className = 'chat-message ai';
+    _renderAIBubble(am, answerText);
+    chatMessages.appendChild(am);
+    saveChatMessages();
+    if (data.success) chapterChatHistory.push({ role: 'assistant', content: data.answer });
+    setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+
+    btn.disabled = false;
+    btn.textContent = '✅ Réponse dans le chat ↑';
+  } catch(err) {
+    loading.remove();
+    const em = document.createElement('div'); em.className = 'chat-message ai';
+    em.textContent = 'Erreur réseau. Réessaie.';
+    chatMessages.appendChild(em);
+    chapterChatHistory.pop();
+    btn.disabled = false; btn.textContent = '💡 Je ne sais pas';
+    setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+  }
+};
+
+window.toggleOfficialAnswer = function(exIdx) {
+  const el = document.getElementById('ex-official-' + exIdx);
+  if (!el) return;
+  el.classList.toggle('show');
+};
+
+window.submitExerciseAnswer = async function(btn, exIdx) {
+  const card = document.getElementById('ex-card-' + exIdx);
+  const textarea = document.getElementById('ex-ans-' + exIdx);
+  const feedbackEl = document.getElementById('ex-fb-' + exIdx);
+  if (!card || !textarea || !feedbackEl) return;
+
+  const userAnswer = textarea.value.trim();
+  if (!userAnswer) {
+    textarea.style.borderColor = 'rgba(239,68,68,0.5)';
+    setTimeout(() => textarea.style.borderColor = '', 1500);
+    return;
+  }
+
+  let exercise = {};
+  try { exercise = JSON.parse(btn.getAttribute('data-exjson').replace(/&#39;/g, "'").replace(/&quot;/g, '"')); } catch(e) {}
+
+  const questionText = exercise.exercice || exercise.enonce || exercise.question || '';
+  const officialAnswer = exercise.reponse || exercise.correction || '';
+  const contextHint = exercise._context || '';
+  const intro = [
+    contextHint ? `Contexte : ${contextHint}` : '',
+    questionText,
+    officialAnswer ? `Réponse attendue : ${officialAnswer}` : ''
+  ].filter(Boolean).join('\n\n');
+  const exPayload = {
+    intro,
+    questions: [questionText]
+  };
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Correction en cours…';
+  feedbackEl.className = 'ex-feedback';
+  feedbackEl.textContent = '';
+
+  try {
+    const resp = await fetch('/dashboard/api/exercices/correct/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify({ exercise: exPayload, answers: [userAnswer], subject: COURSE_NAME })
+    });
+
+    if (resp.status === 401) {
+      feedbackEl.className = 'ex-feedback partial show';
+      feedbackEl.innerHTML = '⚠️ Connecte-toi pour obtenir la correction IA.';
+      btn.disabled = false; btn.textContent = '🤖 Corriger avec l\'IA';
+      return;
+    }
+
+    const data = await resp.json();
+    const correction = (data.corrections && data.corrections[0]) || {};
+    const score = typeof correction.score === 'number' ? correction.score : (data.global_score || 0);
+    const maxScore = typeof correction.max_score === 'number' ? correction.max_score : (data.max_score || 1);
+    const globalFb = data.global_feedback || '';
+    const explanation = correction.explanation || '';
+    const expectedKey = correction.expected_key || correction.expected_answer || '';
+    const ratio = maxScore > 0 ? score / maxScore : 0;
+    const cls = ratio >= 0.8 ? 'correct' : (ratio >= 0.4 ? 'partial' : 'wrong');
+    const emoji = ratio >= 0.8 ? '✅' : (ratio >= 0.4 ? '⚡' : '❌');
+
+    let fbHtml = `<strong>${emoji} Score : ${score}/${maxScore}</strong>`;
+    if (globalFb) fbHtml += ` — <em>${globalFb}</em>`;
+    if (explanation) fbHtml += `<br><br><strong style="opacity:.8">💬 Analyse :</strong> ${explanation}`;
+    if (expectedKey) fbHtml += `<br><strong style="color:#6ee7b7">✓ Réponse attendue :</strong> <span style="font-family:monospace;background:rgba(0,0,0,.3);padding:.1rem .5rem;border-radius:5px;font-size:.9em">${expectedKey}</span>`;
+
+    feedbackEl.className = `ex-feedback ${cls} show`;
+    feedbackEl.innerHTML = fbHtml;
+  } catch(err) {
+    feedbackEl.className = 'ex-feedback partial show';
+    feedbackEl.textContent = 'Erreur réseau. Réessaie.';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🤖 Corriger avec l\'IA';
+  }
+};
+
+function setupQuizInteractions(container) {
+  container.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.addEventListener('click', () => selectQuizOption(opt));
+  });
+}
+window.selectQuizOption = function(el) {
+  el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+};
+window.submitQuizAnswer = function(card) {
+  const sel = card.querySelector('.quiz-option.selected');
+  if (!sel) { alert('Sélectionne une réponse'); return; }
+  const isCorrect = sel.dataset.correct === 'true';
+  card.querySelectorAll('.quiz-option').forEach(o => { o.style.pointerEvents = 'none'; o.classList.remove('selected'); });
+  sel.classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
+  if (!isCorrect) { const ca = card.querySelector('[data-correct="true"]'); if (ca) ca.classList.add('correct-answer'); }
+  const exp = card.querySelector('.quiz-explanation');
+  if (exp) { exp.classList.add('show'); exp.style.display = 'block'; }
+  const sb = card.querySelector('.quiz-submit'); if (sb) { sb.disabled = true; }
+  const correct = card.querySelector('.quiz-option.correct-answer');
+  if (isCorrect) saveChapterProgress(currentChapterIndex, Math.max(chapterProgress[currentChapterIndex] || 0, 80));
+  else saveChapterProgress(currentChapterIndex, Math.max(chapterProgress[currentChapterIndex] || 0, 50));
+};
+window.resetQuiz = function(card) {
+  card.querySelectorAll('.quiz-option').forEach(o => { o.classList.remove('selected','correct-answer','wrong-answer'); o.style.pointerEvents = 'auto'; });
+  const exp = card.querySelector('.quiz-explanation'); if (exp) { exp.classList.remove('show'); exp.style.display = 'none'; }
+  const sb = card.querySelector('.quiz-submit'); if (sb) { sb.disabled = false; }
+};
+
+document.getElementById('back-btn').addEventListener('click', () => {
+  document.getElementById('content-area').classList.remove('active');
+  document.getElementById('chapters-container').classList.remove('hidden');
+  document.getElementById('hero-section').classList.remove('hidden');
+  currentChapterIndex = -1;
+  updateFloatingButtonVisibility();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+async function loadKeyPoints() {
+  if (currentChapterIndex < 0) return;
+  const chapter = chapters[currentChapterIndex];
+  const listEl = document.getElementById('key-points-list');
+  if (!listEl) return;
+  listEl.innerHTML = `<div class="key-points-loading"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div><span>Chargement du résumé...</span></div>`;
+  try {
+    const res = await fetch('/dashboard/api/chapter-summary/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify({
+        course: COURSE_NAME,
+        chapter_num: currentChapterIndex + 1,
+        chapter_title: chapter.title,
+        context: chapter.text.substring(0, 4000)
+      }),
+    });
+    const data = await res.json();
+    if (data.success && data.summary) {
+      const items = data.summary.split('\n').filter(l => l.trim() && l.trim().length > 10);
+      const points = items.filter(l => /^\d+[\.\)]/.test(l.trim()) || /^[-•]/.test(l.trim())).slice(0, 6);
+      const toShow = points.length > 0 ? points : items.slice(0, 5);
+      const cachedBadge = data.cached ? '' : ' <span style="font-size:0.7rem;color:#6ee7b7;margin-left:0.3rem;">✨ nouveau</span>';
+      listEl.innerHTML = toShow.map((line, i) => {
+        const clean = line.replace(/^\d+[\.\)]\s*/, '').replace(/^[-•]\s*/, '').trim();
+        return `<div class="key-point-item" style="animation-delay:${i*0.08}s"><span class="key-point-num">${i+1}</span><span>${clean}${i===0?cachedBadge:''}</span></div>`;
+      }).join('');
+    } else listEl.innerHTML = '<p style="color:#94a3b8;font-size:0.9rem;">Impossible de générer le résumé.</p>';
+  } catch(e) { listEl.innerHTML = '<p style="color:#fca5a5;font-size:0.9rem;">❌ Erreur de connexion.</p>'; }
+}
+const refreshKpBtn = document.getElementById('key-points-refresh-btn');
+if (refreshKpBtn) refreshKpBtn.addEventListener('click', loadKeyPoints);
+
+const aiChatBtn = document.getElementById('ai-chat-btn');
+const aiChatWindow = document.getElementById('ai-chat-window');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
+const chatSendBtn = document.getElementById('chat-send-btn');
+
+function saveChatMessages() {
+  const messages = Array.from(chatMessages.querySelectorAll('.chat-message')).map(el => ({
+    type: el.className.includes('user') ? 'user' : 'ai',
+    text: el.textContent
+  }));
+  localStorage.setItem(`chat_${COURSE_NAME}`, JSON.stringify(messages));
+}
+
+function loadChatMessages() {
+  const saved = localStorage.getItem(`chat_${COURSE_NAME}`);
+  if (saved) {
+    try {
+      const messages = JSON.parse(saved);
+      chatMessages.innerHTML = '';
+      messages.forEach(msg => {
+        const el = document.createElement('div');
+        el.className = `chat-message ${msg.type}`;
+        el.textContent = msg.text;
+        chatMessages.appendChild(el);
+      });
+      setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+    } catch(e) {
+      console.error('Error loading chat messages:', e);
+    }
+  }
+}
+
+aiChatBtn.addEventListener('click', () => {
+  aiChatWindow.classList.toggle('active');
+  if (aiChatWindow.classList.contains('active')) {
+    if (chatMessages.children.length === 0) {
+      loadChatMessages();
+      if (chatMessages.children.length === 0) {
+        const w = document.createElement('div'); w.className = 'chat-message ai';
+        w.textContent = `Salut ! Je suis ton assistant IA pour le cours de ${COURSE_NAME}. Pose-moi ta question !`;
+        chatMessages.appendChild(w);
+      }
+    }
+    setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; chatInput.focus(); }, 300);
+  }
+});
+document.getElementById('close-chat-btn').addEventListener('click', () => aiChatWindow.classList.remove('active'));
+
+function updateFloatingButtonVisibility() {
+  if (currentChapterIndex >= 0) { aiChatBtn.classList.add('visible'); chatInput.disabled = false; chatSendBtn.disabled = false; }
+  else { aiChatBtn.classList.remove('visible'); aiChatWindow.classList.remove('active'); chatInput.disabled = true; chatSendBtn.disabled = true; }
+}
+
+function _renderAIBubble(el, rawText) {
+  let msg = rawText;
+  if (typeof fixLatexControls === 'function') msg = fixLatexControls(msg);
+  msg = fixMixedMath(msg);
+  msg = msg.replace(/\\\[\s*([\s\S]*?)\s*\\\]/g, (_, c) => '$$' + c.trim() + '$$');
+  msg = msg.replace(/\\\(\s*([\s\S]*?)\s*\\\)/g, (_, c) => '$' + c.trim() + '$');
+  if (typeof renderMarkdown === 'function') {
+    el.innerHTML = renderMarkdown(msg);
+  } else {
+    const parts = msg.split(/(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$)/g);
+    el.innerHTML = parts.map((p, i) => {
+      if (i % 2 === 1) return p;
+      return p.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+               .replace(/\*\*(.+?)\*\*/gs,'<strong>$1</strong>')
+               .replace(/\*(.+?)\*/gs,'<em>$1</em>')
+               .replace(/\n/g,'<br>');
+    }).join('');
+  }
+  if (typeof renderKatex === 'function') renderKatex(el);
+  else if (window.renderMathInElement) {
+    try { renderMathInElement(el, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false}); } catch(e) {}
+  }
+}
+
+async function sendChatMessage() {
+  const message = chatInput.value.trim();
+  if (!message || currentChapterIndex < 0) return;
+  chatInput.disabled = true; chatSendBtn.disabled = true;
+
+  const um = document.createElement('div'); um.className = 'chat-message user'; um.textContent = message;
+  chatMessages.appendChild(um);
+  chatInput.value = '';
+
+  const loading = document.createElement('div'); loading.className = 'chat-message loading';
+  loading.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+  chatMessages.appendChild(loading);
+  setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+
+  chapterChatHistory.push({ role: 'user', content: message });
+
+  try {
+    const chapterCtx = chapters[currentChapterIndex] ? chapters[currentChapterIndex].text.substring(0, 1500) : '';
+    const r = await fetch('/dashboard/api/course-question/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify({
+        question: message,
+        course: COURSE_NAME,
+        context: chapterCtx,
+        history: chapterChatHistory.slice(0, -1)
+      })
+    });
+    const d = await r.json();
+    loading.remove();
+    const am = document.createElement('div'); am.className = 'chat-message ai';
+    const answerText = d.success ? d.answer : ('Erreur: ' + (d.error || 'Réponse indisponible'));
+    _renderAIBubble(am, answerText);
+    chatMessages.appendChild(am);
+    if (d.success) chapterChatHistory.push({ role: 'assistant', content: d.answer });
+  } catch(e) {
+    loading.remove();
+    const em = document.createElement('div'); em.className = 'chat-message ai';
+    em.textContent = 'Erreur réseau. Réessaie.';
+    chatMessages.appendChild(em);
+    chapterChatHistory.pop();
+  } finally {
+    saveChatMessages();
+    chatInput.disabled = false;
+    chatSendBtn.disabled = false;
+    setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+    chatInput.focus();
+  }
+}
+chatSendBtn.addEventListener('click', sendChatMessage);
+chatInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); } });
+
+function getCookie(name) {
+  let v = null;
+  if (document.cookie) document.cookie.split(';').forEach(c => { c = c.trim(); if (c.startsWith(name+'=')) v = decodeURIComponent(c.substring(name.length+1)); });
+  return v;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  extractChapters();
+  initChaptersGrid();
+  if (window.renderMathInElement) {
+    try { renderMathInElement(document.body, { delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}], throwOnError:false }); } catch(e) {}
+  }
+});
+</script>
+
+{% endblock %}
+

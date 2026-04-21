@@ -1,0 +1,389 @@
+{% extends "base.html" %}
+{% block title %}Plan de Révision – OU TOU BON{% endblock %}
+{% block extra_css %}
+<style>
+
+.plan-wrap { padding:1.5rem; max-width:960px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem; }
+
+.plan-hero { background:linear-gradient(135deg,rgba(16,185,129,.12) 0%,rgba(59,130,246,.08) 100%); border:1px solid rgba(16,185,129,.25); border-radius:18px; padding:1.5rem; display:flex; gap:1.5rem; align-items:flex-start; flex-wrap:wrap; }
+.plan-hero-info { flex:1; min-width:200px; }
+.plan-hero-info h2 { font-size:1.15rem; font-weight:800; margin:0 0 .4rem; display:flex; align-items:center; gap:.5rem; }
+.plan-hero-info p { color:var(--t2); font-size:.855rem; line-height:1.6; margin:0; }
+.plan-hero-right { display:flex; flex-direction:column; gap:.6rem; align-items:flex-end; flex-shrink:0; }
+.bac-countdown { font-size:.8rem; color:var(--green); font-weight:700; background:rgba(16,185,129,.1); border:1px solid rgba(16,185,129,.25); border-radius:10px; padding:.4rem .85rem; white-space:nowrap; }
+.btn-gen-plan { background:var(--green); color:#fff; border-radius:11px; padding:.7rem 1.25rem; font-size:.875rem; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:.5rem; white-space:nowrap; transition:opacity .15s; }
+.btn-gen-plan:disabled { opacity:.55; cursor:default; }
+.btn-gen-plan.secondary { background:rgba(59,130,246,.15); color:var(--blue2); border:1px solid rgba(59,130,246,.3); }
+
+.weakness-panel { background:var(--card); border:1px solid var(--border2); border-radius:16px; overflow:hidden; }
+.weakness-panel-header { padding:.85rem 1.25rem; display:flex; align-items:center; gap:.5rem; border-bottom:1px solid var(--border2); }
+.weakness-panel-header .wph-title { font-weight:700; font-size:.9rem; flex:1; }
+.weakness-panel-header .wph-badge { font-size:.72rem; background:rgba(239,68,68,.12); color:#fca5a5; border:1px solid rgba(239,68,68,.25); border-radius:99px; padding:.15rem .55rem; font-weight:700; }
+.weakness-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:.75rem; padding:1rem; }
+.w-item { background:var(--card2); border:1px solid var(--border2); border-radius:11px; padding:.8rem; }
+.w-item-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem; }
+.w-item-label { font-size:.8rem; font-weight:700; }
+.w-item-pct { font-size:.78rem; font-weight:800; }
+.w-bar { height:5px; border-radius:3px; background:rgba(255,255,255,.08); overflow:hidden; }
+.w-bar-fill { height:100%; border-radius:3px; transition:width .5s; }
+.w-empty { grid-column:1/-1; text-align:center; padding:2rem; color:var(--t3); font-size:.85rem; }
+
+.plan-section { background:var(--card); border:1px solid var(--border2); border-radius:16px; overflow:hidden; }
+.plan-section-hdr { padding:.85rem 1.25rem; display:flex; align-items:center; gap:.75rem; border-bottom:1px solid var(--border2); }
+.plan-section-hdr .psh-title { font-weight:700; font-size:.9rem; flex:1; }
+.plan-section-hdr .psh-meta { font-size:.75rem; color:var(--t3); }
+
+.plan-ai-summary { margin:1rem 1.25rem; background:rgba(16,185,129,.07); border:1px solid rgba(16,185,129,.18); border-radius:11px; padding:.85rem 1rem; font-size:.855rem; line-height:1.65; color:var(--t1); }
+
+.week-tabs { display:flex; gap:.4rem; overflow-x:auto; padding:.75rem 1.25rem; border-bottom:1px solid var(--border2); scrollbar-width:none; }
+.week-tabs::-webkit-scrollbar { display:none; }
+.week-tab { flex-shrink:0; padding:.4rem .95rem; border-radius:20px; font-size:.78rem; font-weight:700; border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; background:var(--card2); }
+.week-tab.active { background:rgba(16,185,129,.15); border-color:var(--green); color:var(--green); }
+
+.week-pane { display:none; padding:1rem 1.25rem; }
+.week-pane.active { display:block; }
+.week-focus-banner { font-size:.8rem; color:var(--t2); margin-bottom:.85rem; background:rgba(59,130,246,.07); border:1px solid rgba(59,130,246,.2); border-radius:8px; padding:.45rem .85rem; display:flex; align-items:center; gap:.4rem; }
+.days-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:.85rem; }
+
+.day-card { background:var(--card2); border:1px solid var(--border2); border-radius:12px; padding:.9rem; transition:opacity .2s, transform .15s; position:relative; overflow:hidden; }
+.day-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--green); border-radius:3px 0 0 3px; }
+.day-card.prio-high::before { background:#ef4444; }
+.day-card.prio-medium::before { background:#f59e0b; }
+.day-card.prio-low::before { background:var(--green); }
+.day-card.done { opacity:.38; }
+.day-card.done .day-task, .day-card.done .day-subject { text-decoration:line-through; }
+.day-name { font-size:.68rem; text-transform:uppercase; letter-spacing:.07em; color:var(--t3); margin-bottom:.4rem; }
+.day-subject { font-weight:700; font-size:.88rem; margin-bottom:.3rem; }
+.day-task { font-size:.8rem; color:var(--t2); line-height:1.5; margin-bottom:.6rem; }
+.day-meta { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:.6rem; }
+.day-dur { font-size:.7rem; background:rgba(59,130,246,.1); color:var(--blue2); border-radius:6px; padding:.15rem .45rem; }
+.day-prio-badge { font-size:.7rem; border-radius:6px; padding:.15rem .45rem; font-weight:700; }
+.prio-high .day-prio-badge { background:rgba(239,68,68,.12); color:#fca5a5; }
+.prio-medium .day-prio-badge { background:rgba(245,158,11,.12); color:#fcd34d; }
+.prio-low .day-prio-badge { background:rgba(16,185,129,.1); color:var(--green); }
+.day-actions { display:flex; gap:.35rem; flex-wrap:wrap; }
+.day-act { font-size:.7rem; font-weight:700; border-radius:7px; padding:.3rem .55rem; cursor:pointer; border:1px solid; transition:all .15s; display:inline-flex; align-items:center; gap:.3rem; text-decoration:none; }
+.act-cours { background:rgba(59,130,246,.1); color:var(--blue2); border-color:rgba(59,130,246,.3); }
+.act-cours:hover { background:rgba(59,130,246,.2); }
+.act-exo { background:rgba(245,158,11,.1); color:#fcd34d; border-color:rgba(245,158,11,.3); }
+.act-exo:hover { background:rgba(245,158,11,.2); }
+.act-quiz { background:rgba(139,92,246,.1); color:#c4b5fd; border-color:rgba(139,92,246,.3); }
+.act-quiz:hover { background:rgba(139,92,246,.2); }
+.act-done { background:rgba(16,185,129,.1); color:var(--green); border-color:rgba(16,185,129,.3); }
+.act-done:hover { background:rgba(16,185,129,.2); }
+.act-done.is-done { opacity:.5; cursor:default; }
+
+.plan-progress { display:flex; align-items:center; gap:.75rem; padding:.6rem 1.25rem; border-top:1px solid var(--border2); font-size:.78rem; color:var(--t3); }
+.pp-bar { flex:1; height:5px; background:rgba(255,255,255,.07); border-radius:3px; overflow:hidden; }
+.pp-fill { height:100%; border-radius:3px; background:var(--green); transition:width .4s; }
+
+.plan-empty { text-align:center; padding:4rem 2rem; color:var(--t3); }
+.plan-empty i { font-size:2.75rem; margin-bottom:1rem; display:block; opacity:.22; }
+
+@media(max-width:640px){
+  .plan-hero { flex-direction:column; }
+  .plan-hero-right { align-items:stretch; flex-direction:row; flex-wrap:wrap; }
+  .days-grid { grid-template-columns:1fr; }
+}
+</style>
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="plan" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title" data-i18n="plan_title">Plan de Révision IA</div></div>
+    <div class="view-area" style="overflow-y:auto">
+      <div class="plan-wrap">
+
+        
+        <div class="plan-hero">
+          <div class="plan-hero-info">
+            <h2><i class="fas fa-robot" style="color:var(--green)"></i> Planificateur IA personnalisé</h2>
+            <p>L'IA analyse tes points faibles, puis génère un plan de révision semaine par semaine adapté à ta série <strong>{{ profile.serie }}</strong>. Chaque jour propose un cours, des exercices et un quiz ciblé.</p>
+          </div>
+          <div class="plan-hero-right">
+            <div class="bac-countdown" id="bacCountdown"><i class="fas fa-calendar-check"></i> Calcul…</div>
+            {% if is_guest %}
+            <button class="btn-gen-plan" onclick="showGuestBlockedToast('Créez un compte pour générer votre plan personnalisé')">
+              <i class="fas fa-lock"></i> Générer mon plan
+            </button>
+            {% else %}
+            <button class="btn-gen-plan" id="btnGenPlan" onclick="generatePlan()">
+              <i class="fas fa-magic"></i> Générer mon plan
+            </button>
+            {% if latest_plan %}
+            <button class="btn-gen-plan secondary" onclick="generatePlan()">
+              <i class="fas fa-sync-alt"></i> Recréer
+            </button>
+            {% endif %}
+            {% endif %}
+          </div>
+        </div>
+
+        
+        <div class="weakness-panel" id="weaknessPanel">
+          <div class="weakness-panel-header">
+            <i class="fas fa-chart-bar" style="color:#f59e0b"></i>
+            <span class="wph-title">Analyse de tes faiblesses</span>
+            {% if diag_scores %}
+            <span class="wph-badge"><i class="fas fa-exclamation-triangle"></i> Matières à risque</span>
+            {% endif %}
+          </div>
+          <div class="weakness-grid" id="weaknessGrid">
+            {% if diag_scores %}
+              {% for subject, score in diag_scores.items %}
+              {% with pct=score color=score|floatformat:0 %}
+              <div class="w-item">
+                <div class="w-item-top">
+                  <span class="w-item-label">{{ subject }}</span>
+                  <span class="w-item-pct" style="color:{% if score < 40 %}#f87171{% elif score < 65 %}#fcd34d{% else %}var(--green){% endif %}">{{ score|floatformat:0 }}%</span>
+                </div>
+                <div class="w-bar"><div class="w-bar-fill" style="width:{{ score|floatformat:0 }}%;background:{% if score < 40 %}#ef4444{% elif score < 65 %}#f59e0b{% else %}#10b981{% endif %}"></div></div>
+              </div>
+              {% endwith %}
+              {% endfor %}
+            {% else %}
+            <div class="w-empty">
+              <i class="fas fa-chart-pie" style="font-size:2rem;display:block;margin-bottom:.75rem;opacity:.2"></i>
+              Passe le diagnostic pour que l'IA connaisse tes points faibles et génère un plan optimal.
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        
+        <div id="planDisplay">
+          {% if latest_plan %}
+            {% with p=latest_plan.content %}
+            <div class="plan-section" id="planSection">
+              <div class="plan-section-hdr">
+                <i class="fas fa-calendar-week" style="color:var(--green)"></i>
+                <span class="psh-title">Ton plan de révision</span>
+                <span class="psh-meta" id="planMeta">{% if p.weeks %}{{ p.weeks|length }} semaine{% if p.weeks|length > 1 %}s{% endif %}{% endif %}</span>
+              </div>
+              {% if p.summary %}
+              <div class="plan-ai-summary"><i class="fas fa-robot" style="color:var(--green);margin-right:.4rem"></i>{{ p.summary }}</div>
+              {% endif %}
+              
+              <div class="week-tabs" id="weekTabs">
+                {% for week in p.weeks %}
+                <div class="week-tab {% if forloop.first %}active{% endif %}" onclick="switchWeek({{ forloop.counter0 }},this)">{{ week.label }}</div>
+                {% endfor %}
+              </div>
+              
+              {% for week in p.weeks %}
+              <div class="week-pane {% if forloop.first %}active{% endif %}" id="weekPane{{ forloop.counter0 }}">
+                <div class="week-focus-banner"><i class="fas fa-crosshairs" style="color:var(--blue2)"></i> Focus : {{ week.focus }}</div>
+                <div class="days-grid">
+                  {% for day in week.days %}
+                  {% with card_id="p_"|add:week.label|add:"_"|add:day.day|add:"_"|add:day.subject|slugify|cut:"-" prio=day.priority|default:"medium" %}
+                  <div class="day-card prio-{{ prio }}" id="{{ card_id }}" data-card-id="{{ card_id }}">
+                    <div class="day-name">{{ day.day }}</div>
+                    <div class="day-subject">{{ day.subject }}</div>
+                    <div class="day-task">{{ day.task }}</div>
+                    <div class="day-meta">
+                      <span class="day-dur"><i class="fas fa-clock"></i> {{ day.duration_min }}min</span>
+                      <span class="day-prio-badge">{% if prio == 'high' %}Priorité haute{% elif prio == 'medium' %}Moyen{% else %}Faible{% endif %}</span>
+                    </div>
+                    <div class="day-actions">
+                      {% with sk=day.subject|lower|slice:":4" %}
+                      <a class="day-act act-cours" href="/dashboard/cours/"><i class="fas fa-book-open"></i> Cours</a>
+                      <a class="day-act act-exo" href="/dashboard/exercices/"><i class="fas fa-pen"></i> Exercice</a>
+                      <a class="day-act act-quiz" href="/dashboard/quiz/"><i class="fas fa-bolt"></i> Quiz</a>
+                      {% endwith %}
+                      <button class="day-act act-done" onclick="markDone('{{ card_id }}',this)"><i class="fas fa-check"></i> Fait</button>
+                    </div>
+                  </div>
+                  {% endwith %}
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+              
+              <div class="plan-progress">
+                <span id="planProgressTxt">0 tâche accomplie</span>
+                <div class="pp-bar"><div class="pp-fill" id="planProgressBar" style="width:0%"></div></div>
+                <span id="planProgressPct">0%</span>
+              </div>
+            </div>
+            {% endwith %}
+          {% else %}
+          <div class="plan-empty">
+            <i class="fas fa-calendar-alt"></i>
+            <div style="font-weight:600;font-size:1.05rem;color:var(--t2)">Aucun plan encore</div>
+            <div style="margin-top:.5rem;font-size:.875rem">Clique sur "Générer mon plan" pour que l'IA crée ton planning personnalisé.</div>
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+const SUBJECT_KEY_MAP = {
+  'Mathématiques':'maths','Maths':'maths',
+  'Physique-Chimie':'physique','Physique':'physique','Chimie':'chimie',
+  'SVT':'svt','Biologie':'svt',
+  'Histoire-Géo':'histoire','Histoire':'histoire','Géographie':'histoire',
+  'Philosophie':'philosophie','Philo':'philosophie',
+  'Anglais':'anglais','Espagnol':'espagnol',
+  'Français':'francais','Kreyòl':'francais',
+  'Économie':'economie','Economie':'economie',
+  'Informatique':'informatique','Arts':'art'
+};
+function subjectKey(label){
+  if(!label) return null;
+  for(const [k,v] of Object.entries(SUBJECT_KEY_MAP)){
+    if(label.toLowerCase().includes(k.toLowerCase())) return v;
+  }
+  return null;
+}
+function subjectUrls(label){
+  const k = subjectKey(label);
+  if(!k) return {cours:'/dashboard/cours/',exo:'/dashboard/exercices/',quiz:'/dashboard/quiz/'};
+  return {cours:`/dashboard/cours/${k}/`,exo:`/dashboard/exercices/?subject=${k}`,quiz:`/dashboard/quiz/?subject=${k}`};
+}
+
+const DONE_KEY = 'bacia_plan_done_v2';
+function getDone(){ try{ return new Set(JSON.parse(localStorage.getItem(DONE_KEY)||'[]')); }catch{ return new Set(); } }
+function saveDone(s){ localStorage.setItem(DONE_KEY,JSON.stringify([...s])); }
+
+function markDone(id, btn){
+  const s = getDone(); s.add(id); saveDone(s);
+  const card = document.getElementById(id);
+  if(card){ card.classList.add('done'); }
+  if(btn){ btn.classList.add('is-done'); btn.disabled=true; }
+  updateProgress();
+}
+
+function updateProgress(){
+  const all = document.querySelectorAll('.day-card[data-card-id]');
+  const done = getDone();
+  let total = all.length, doneCount = 0;
+  all.forEach(c => { if(done.has(c.dataset.cardId)) doneCount++; });
+  const pct = total ? Math.round(doneCount/total*100) : 0;
+  const txt = document.getElementById('planProgressTxt');
+  const bar = document.getElementById('planProgressBar');
+  const pctEl = document.getElementById('planProgressPct');
+  if(txt) txt.textContent = `${doneCount} tâche${doneCount>1?'s':''} accomplie${doneCount>1?'s':''}`;
+  if(bar) bar.style.width = pct+'%';
+  if(pctEl) pctEl.textContent = pct+'%';
+}
+
+function switchWeek(idx, tab){
+  document.querySelectorAll('.week-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.week-pane').forEach(p=>p.classList.remove('active'));
+  if(tab) tab.classList.add('active');
+  const pane = document.getElementById('weekPane'+idx);
+  if(pane) pane.classList.add('active');
+}
+
+(function(){
+  const today = new Date();
+  let yr = today.getFullYear();
+  if(today.getMonth()>6) yr++;
+  const bac = new Date(yr,6,31);
+  const days = Math.max(0,Math.round((bac-today)/86400000));
+  const weeks = Math.round(days/7);
+  const el = document.getElementById('bacCountdown');
+  if(el) el.innerHTML = `<i class="fas fa-calendar-check"></i> Environ ${weeks} semaines avant le Bac`;
+})();
+
+async function generatePlan(){
+  showLoader('L\'IA analyse tes faiblesses…','Génération de ton plan personnalisé en cours');
+  const btn = document.getElementById('btnGenPlan');
+  btn.disabled = true;
+  try{
+    const res = await fetch('/dashboard/api/plan/generate/',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body:JSON.stringify({})
+    });
+    const data = await res.json();
+    hideLoader();
+    if(data.ok){
+      renderPlan(data.plan);
+      showToast('Plan de révision généré !');
+    } else {
+      showToast(data.error||'Erreur lors de la génération','error');
+    }
+  } catch(e){
+    hideLoader();
+    showToast('Erreur réseau','error');
+  }
+  btn.disabled = false;
+}
+
+function buildDayCard(d, weekLabel){
+  const id = ('p_'+weekLabel+'_'+(d.day||'')+'_'+(d.subject||'')).replace(/\W+/g,'_');
+  const prio = d.priority||'medium';
+  const done = getDone().has(id);
+  const urls = subjectUrls(d.subject);
+  const prioLabel = prio==='high'?'Priorité haute':prio==='medium'?'Moyen':'Faible';
+  return `
+  <div class="day-card prio-${prio}${done?' done':''}" id="${id}" data-card-id="${id}">
+    <div class="day-name">${d.day||''}</div>
+    <div class="day-subject">${d.subject||''}</div>
+    <div class="day-task">${d.task||''}</div>
+    <div class="day-meta">
+      <span class="day-dur"><i class="fas fa-clock"></i> ${d.duration_min||0}min</span>
+      <span class="day-prio-badge">${prioLabel}</span>
+    </div>
+    <div class="day-actions">
+      <a class="day-act act-cours" href="${urls.cours}"><i class="fas fa-book-open"></i> Cours</a>
+      <a class="day-act act-exo" href="${urls.exo}"><i class="fas fa-pen"></i> Exercice</a>
+      <a class="day-act act-quiz" href="${urls.quiz}"><i class="fas fa-bolt"></i> Quiz</a>
+      <button class="day-act act-done${done?' is-done':''}" ${done?'disabled':''} onclick="markDone('${id}',this)"><i class="fas fa-check"></i> Fait</button>
+    </div>
+  </div>`;
+}
+
+function renderPlan(plan){
+  let tabsHtml = '', panesHtml = '';
+  (plan.weeks||[]).forEach((wk,i)=>{
+    tabsHtml += `<div class="week-tab${i===0?' active':''}" onclick="switchWeek(${i},this)">${wk.label||'Sem '+(i+1)}</div>`;
+    panesHtml += `<div class="week-pane${i===0?' active':''}" id="weekPane${i}">
+      <div class="week-focus-banner"><i class="fas fa-crosshairs" style="color:var(--blue2)"></i> Focus : ${wk.focus||''}</div>
+      <div class="days-grid">${(wk.days||[]).map(d=>buildDayCard(d,wk.label||'')).join('')}</div>
+    </div>`;
+  });
+  const summaryHtml = plan.summary
+    ? `<div class="plan-ai-summary"><i class="fas fa-robot" style="color:var(--green);margin-right:.4rem"></i>${plan.summary}</div>`
+    : '';
+  const weekCount = (plan.weeks||[]).length;
+  document.getElementById('planDisplay').innerHTML = `
+  <div class="plan-section" id="planSection">
+    <div class="plan-section-hdr">
+      <i class="fas fa-calendar-week" style="color:var(--green)"></i>
+      <span class="psh-title">Ton plan de révision</span>
+      <span class="psh-meta">${weekCount} semaine${weekCount>1?'s':''}</span>
+    </div>
+    ${summaryHtml}
+    <div class="week-tabs" id="weekTabs">${tabsHtml}</div>
+    ${panesHtml}
+    <div class="plan-progress">
+      <span id="planProgressTxt">0 tâche accomplie</span>
+      <div class="pp-bar"><div class="pp-fill" id="planProgressBar" style="width:0%"></div></div>
+      <span id="planProgressPct">0%</span>
+    </div>
+  </div>`;
+  updateProgress();
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  const done = getDone();
+  document.querySelectorAll('.day-card[data-card-id]').forEach(el=>{
+    if(done.has(el.dataset.cardId)){
+      el.classList.add('done');
+      const btn = el.querySelector('.act-done');
+      if(btn){ btn.classList.add('is-done'); btn.disabled=true; }
+    }
+  });
+  updateProgress();
+});
+</script>
+{% endblock %}
+

@@ -1,0 +1,1086 @@
+{% extends "base.html" %}
+
+{% load core_extras %}
+
+{% block title %}Accueil · OU TOU BON{% endblock %}
+
+{% block extra_css %}{% endblock %}
+
+{% block body %}
+
+<div class="app has-topbar">
+
+  
+
+  {% include "core/_sidebar.html" with active_page="dashboard" %}
+
+  
+
+  <div class="main">
+
+    <div class="topbar">
+
+      <div class="topbar-title" data-i18n="page_accueil">Accueil</div>
+
+    </div>
+
+    <div class="view-area">
+
+      {% if is_guest %}
+
+      
+
+      <div style="margin:1rem 1.5rem .5rem;background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(217,119,6,.06));border:1px solid rgba(251,191,36,.25);border-radius:14px;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+
+        <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(251,191,36,.15);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🎯</div>
+
+        <div style="flex:1;min-width:200px;">
+
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:.15rem;">Mode démo · Bienvenu, Visiteur !</div>
+
+          <div style="font-size:.8rem;color:var(--t2);line-height:1.5;">Tu explores OU TOU BON en mode découverte. Quiz limités, 2 exercices, pas de cours. <strong>Créez un compte</strong> pour tout d·bloquer !</div>
+
+        </div>
+
+        <a href="{% url 'signup' %}" style="flex-shrink:0;padding:.5rem 1.1rem;background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;border-radius:10px;font-weight:800;font-size:.82rem;text-decoration:none;display:flex;align-items:center;gap:.4rem;">
+
+          <i class="fas fa-user-plus"></i> S'inscrire
+
+        </a>
+
+      </div>
+
+      {% endif %}
+
+      <div class="home-wrap">
+
+        
+
+        <div class="stats-grid">
+
+          <div style="display:none">
+
+            <div class="stat-icon" style="background:rgba(6,182,212,.12);color:#06b6d4"><i class="fas fa-graduation-cap"></i></div>
+
+            <div style="display:flex;align-items:baseline;gap:.3rem;margin-top:.2rem;">
+
+              <span class="stat-val">{% if bac_score %}{{ bac_score }}{% else %}·{% endif %}</span>
+
+              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">{% if bac_score %}/1900{% endif %}</span>
+
+            </div>
+
+            <div class="stat-label">Note estimée BAC</div>
+
+            {% if bac_score %}
+
+            <span class="stat-badge" style="background:rgba(6,182,212,.1);color:#06b6d4;">? Prochain objectif : {{ bac_next_milestone_label }}</span>
+
+            <div style="margin-top:.6rem;">
+
+              <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--t3);margin-bottom:.3rem;">
+
+                <span>{{ bac_next_milestone_label }} ({{ bac_next_milestone_pts }}/1900)</span>
+
+                <span style="color:#06b6d4;font-weight:600;">{{ bac_score }}/{{ bac_next_milestone_pts }}</span>
+
+              </div>
+
+              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
+
+                {% if bac_score >= 1520 %}
+
+                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#10b981,#34d399);border-radius:99px;"></div>
+
+                {% else %}
+
+                  <div style="width:{{ bac_milestone_pct }}%;height:100%;background:linear-gradient(90deg,#06b6d4,#38bdf8);border-radius:99px;transition:width .8s ease;"></div>
+
+                {% endif %}
+
+              </div>
+
+            </div>
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:.35rem;
+
+              {% if bac_score >= 950 %}background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:#10b981;{% else %}background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:#f87171;{% endif %}">
+
+              {% if bac_score >= 950 %}<i class="fas fa-check-circle"></i> BAC passable · continue !
+
+              {% else %}<i class="fas fa-exclamation-triangle"></i> il manque {{ bac_gap_pass }} pts pour le BAC
+
+              {% endif %}
+
+            </div>
+
+            {% else %}
+
+            <span class="stat-badge" style="visibility:hidden;">? placeholder</span>
+
+            <div style="margin-top:.6rem;">
+
+              <div style="height:.7rem;margin-bottom:.3rem;"></div>
+
+              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);"></div>
+
+            </div>
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;visibility:hidden;">·</div>
+
+            {% endif %}
+
+            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
+
+              <span style="width:6px;height:6px;border-radius:50%;background:#06b6d4;animation:pulse 1.4s infinite;display:inline-block;"></span>
+
+              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
+
+            </div>
+
+          </div>
+
+          <div style="display:none">
+
+            <div class="stat-icon" style="background:rgba(59,130,246,.12);color:var(--blue2)"><i class="fas fa-check-circle"></i></div>
+
+            <div style="display:flex;align-items:baseline;gap:.3rem;margin-top:.2rem;">
+
+              <span class="stat-val">{{ stats.exercices_resolus }}</span>
+
+              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">exos</span>
+
+            </div>
+
+            <div class="stat-label" data-i18n="stat_exo_resolus">Exercices résolus</div>
+
+            <span class="stat-badge" style="background:rgba(59,130,246,.1);color:var(--blue2);">? Prochain palier : {{ next_exo_milestone }}</span>
+
+            <div style="margin-top:.6rem;">
+
+              <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--t3);margin-bottom:.3rem;">
+
+                <span>Palier {{ next_exo_milestone }} exos</span>
+
+                <span style="color:var(--blue2);font-weight:600;">{{ stats.exercices_resolus }}/{{ next_exo_milestone }}</span>
+
+              </div>
+
+              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
+
+                <div style="width:{{ exo_milestone_pct }}%;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue2));border-radius:99px;transition:width .8s ease;"></div>
+
+              </div>
+
+            </div>
+
+            {% if exo_focus_subject %}
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:.7rem;color:var(--blue2);font-weight:600;display:flex;align-items:center;gap:.35rem;">
+
+              <i class="fas fa-bullseye"></i> Focus conseillé : {{ exo_focus_subject|capfirst }}
+
+            </div>
+
+            {% else %}
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;visibility:hidden;">·</div>
+
+            {% endif %}
+
+            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
+
+              <span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:pulse 1.4s infinite;display:inline-block;"></span>
+
+              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
+
+            </div>
+
+          </div>
+
+          <div class="card stat-card" style="border-top:3px solid var(--purple)">
+
+            <div class="stat-icon" style="background:rgba(139,92,246,.12);color:var(--purple)"><i class="fas fa-bolt"></i></div>
+
+            <div class="stat-val">{{ stats.quiz_completes }}</div>
+
+            <div class="stat-label" data-i18n="stat_quiz_completes">Quiz complétést·s</div>
+
+            <span class="stat-badge" style="background:rgba(139,92,246,.1);color:var(--purple)" data-i18n="badge_total">? Total</span>
+
+          </div>
+
+          <div class="card stat-card" style="border-top:3px solid var(--orange)">
+
+            <div class="stat-icon" style="background:rgba(249,115,22,.12);color:var(--orange)"><i class="fas fa-fire"></i></div>
+
+            <div class="stat-val">{{ profile.streak }}</div>
+
+            <div class="stat-label" data-i18n="stat_jours_serie">Jours de série</div>
+
+            <span class="stat-badge" style="background:rgba(249,115,22,.1);color:var(--orange);display:flex;align-items:center;gap:.3rem;"><i class="fas fa-fire"></i> Streak</span>
+
+          </div>
+
+          <div class="card stat-card" style="border-top:3px solid #06b6d4;display:flex;flex-direction:column;">
+
+            <div class="stat-icon" style="background:rgba(6,182,212,.12);color:#06b6d4"><i class="fas fa-graduation-cap"></i></div>
+
+            <div style="display:flex;align-items:baseline;gap:.3rem;margin-top:.2rem;">
+
+              <span class="stat-val">{% if bac_score %}{{ bac_score }}{% else %}·{% endif %}</span>
+
+              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">{% if bac_score %}/1900{% endif %}</span>
+
+            </div>
+
+            <div class="stat-label">Note estimée BAC</div>
+
+            {% if bac_score %}
+
+            <span class="stat-badge" style="background:rgba(6,182,212,.1);color:#06b6d4;">? Prochain objectif : {{ bac_next_milestone_label }}</span>
+
+            <div style="margin-top:.6rem;">
+
+              <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--t3);margin-bottom:.3rem;">
+
+                <span>{{ bac_next_milestone_label }} ({{ bac_next_milestone_pts }}/1900)</span>
+
+                <span style="color:#06b6d4;font-weight:600;">{{ bac_score }}/{{ bac_next_milestone_pts }}</span>
+
+              </div>
+
+              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
+
+                {% if bac_score >= 1520 %}
+
+                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#10b981,#34d399);border-radius:99px;"></div>
+
+                {% else %}
+
+                  <div style="width:{{ bac_milestone_pct }}%;height:100%;background:linear-gradient(90deg,#06b6d4,#38bdf8);border-radius:99px;transition:width .8s ease;"></div>
+
+                {% endif %}
+
+              </div>
+
+            </div>
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:.35rem;
+
+              {% if bac_score >= 950 %}background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:#10b981;{% else %}background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:#f87171;{% endif %}">
+
+              {% if bac_score >= 950 %}<i class="fas fa-check-circle"></i> BAC passable · continue !
+
+              {% else %}<i class="fas fa-exclamation-triangle"></i> il manque {{ bac_gap_pass }} pts pour le BAC
+
+              {% endif %}
+
+            </div>
+
+            {% else %}
+
+            <span class="stat-badge" style="visibility:hidden;">? placeholder</span>
+
+            <div style="margin-top:.6rem;">
+
+              <div style="height:.7rem;margin-bottom:.3rem;"></div>
+
+              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);"></div>
+
+            </div>
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;visibility:hidden;">·</div>
+
+            {% endif %}
+
+            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
+
+              <span style="width:6px;height:6px;border-radius:50%;background:#06b6d4;animation:pulse 1.4s infinite;display:inline-block;"></span>
+
+              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
+
+            </div>
+
+          </div>
+
+          <div class="card stat-card" style="border-top:3px solid var(--blue2);display:flex;flex-direction:column;">
+
+            <div class="stat-icon" style="background:rgba(59,130,246,.12);color:var(--blue2)"><i class="fas fa-check-circle"></i></div>
+
+            <div style="display:flex;align-items:baseline;gap:.3rem;margin-top:.2rem;">
+
+              <span class="stat-val">{{ stats.exercices_resolus }}</span>
+
+              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">exos</span>
+
+            </div>
+
+            <div class="stat-label" data-i18n="stat_exo_resolus">Exercices résolus</div>
+
+            <span class="stat-badge" style="background:rgba(59,130,246,.1);color:var(--blue2);">? Prochain palier : {{ next_exo_milestone }}</span>
+
+            <div style="margin-top:.6rem;">
+
+              <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--t3);margin-bottom:.3rem;">
+
+                <span>Palier {{ next_exo_milestone }} exos</span>
+
+                <span style="color:var(--blue2);font-weight:600;">{{ stats.exercices_resolus }}/{{ next_exo_milestone }}</span>
+
+              </div>
+
+              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
+
+                <div style="width:{{ exo_milestone_pct }}%;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue2));border-radius:99px;transition:width .8s ease;"></div>
+
+              </div>
+
+            </div>
+
+            {% if exo_focus_subject %}
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:.7rem;color:var(--blue2);font-weight:600;display:flex;align-items:center;gap:.35rem;">
+
+              <i class="fas fa-bullseye"></i> Focus conseillé : {{ exo_focus_subject|capfirst }}
+
+            </div>
+
+            {% else %}
+
+            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;visibility:hidden;">·</div>
+
+            {% endif %}
+
+            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
+
+              <span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:pulse 1.4s infinite;display:inline-block;"></span>
+
+              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        
+
+        <div style="margin-bottom:1.5rem;">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;">
+
+            <div style="display:flex;align-items:center;gap:.6rem;">
+
+              <div style="width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;">
+
+                <i class="fas fa-robot" style="color:#fff;font-size:.8rem;"></i>
+
+              </div>
+
+              <div>
+
+                <div style="font-weight:700;font-size:.92rem;color:var(--t1);" data-i18n="coach_title">Coach IA</div>
+
+                <div style="font-size:.7rem;color:var(--t3);" data-i18n="coach_sub">Analyse de ton profil en temps réelel</div>
+
+              </div>
+
+            </div>
+
+            <div id="mistakeBadge" style="display:none;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);color:#f59e0b;border-radius:20px;padding:.2rem .7rem;font-size:.75rem;font-weight:700;">
+
+              <i class="fas fa-redo" style="font-size:.65rem;"></i> <span id="mistakeBadgeCount">0</span> <span data-i18n="a_reviser">à réviserviser</span>
+
+            </div>
+
+          </div>
+
+          <div id="coachingCards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.75rem;">
+
+            <div class="coaching-skeleton"></div>
+
+            <div class="coaching-skeleton"></div>
+
+            <div class="coaching-skeleton" style="opacity:.6"></div>
+
+          </div>
+
+        </div>
+
+        
+
+        <div class="home-actions">
+
+          <a href="{% url 'chat' %}" class="action-card">
+
+            <div class="action-icon" style="background:rgba(16,185,129,.12);color:var(--green)"><i class="fas fa-robot"></i></div>
+
+            <div class="action-title" data-i18n="action_demander_ia">Demander à l'IA</div>
+
+            <div class="action-sub" data-i18n="action_demander_ia_sub">Pose une question sur n'importe quelle matièrere</div>
+
+          </a>
+
+          <a href="{% url 'quiz' %}" class="action-card">
+
+            <div class="action-icon" style="background:rgba(59,130,246,.12);color:var(--blue2)"><i class="fas fa-bolt"></i></div>
+
+            <div class="action-title" data-i18n="action_lancer_quiz">Lancer un Quiz</div>
+
+            <div class="action-sub" data-i18n="action_lancer_quiz_sub">Questions tirées des vrais examens BAC</div>
+
+          </a>
+
+          <a href="{% url 'exercices' %}" class="action-card">
+
+            <div class="action-icon" style="background:rgba(139,92,246,.12);color:var(--purple)"><i class="fas fa-calculator"></i></div>
+
+            <div class="action-title" data-i18n="action_exercices_title">Exercices</div>
+
+            <div class="action-sub" data-i18n="action_exercices_sub2">Examine un chapitre avec des exercices réelsels</div>
+
+          </a>
+
+          <a href="{% url 'examen_blanc' %}" class="action-card">
+
+            <div class="action-icon" style="background:rgba(249,115,22,.12);color:var(--orange)"><i class="fas fa-graduation-cap"></i></div>
+
+            <div class="action-title" data-i18n="action_examen_title">Examen Blanc</div>
+
+            <div class="action-sub" data-i18n="action_examen_sub2">Test complet pour simuler le BAC</div>
+
+          </a>
+
+        </div>
+
+        
+
+        <div class="resp-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+
+          <div class="card" style="padding:1.25rem;">
+
+            <div style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;"><i class="fas fa-chart-bar" style="color:#3b82f6;font-size:.95rem;"></i> <span data-i18n="niveau_par_matiere">Niveau par matière</span></div>
+
+            {% for subj, info in mats.items %}
+
+            {% if subj in user_serie_subjects %}
+
+            <div class="prog-row">
+
+              <div class="prog-header">
+
+                <span>{{ info.label }}</span>
+
+                <span style="color:{{ info.color }}">{% if subj in quiz_scores %}{{ quiz_scores|getitem:subj }}%{% else %}·{% endif %}</span>
+
+              </div>
+
+              <div class="prog-track">
+
+                <div class="prog-fill" style="width:{% if subj in quiz_scores %}{{ quiz_scores|getitem:subj }}{% else %}0{% endif %}%;background:{{ info.color }}"></div>
+
+              </div>
+
+            </div>
+
+            {% endif %}
+
+            {% endfor %}
+
+          </div>
+
+          
+
+          <div class="card" style="padding:1.25rem;display:flex;flex-direction:column;gap:.9rem;">
+
+            
+
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+
+              <div style="display:flex;align-items:center;gap:.55rem;">
+
+                <div style="width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,{{ league_color }}22,{{ league_color }}44);">
+
+                  <i class="fas fa-trophy" style="color:{{ league_color }};font-size:.85rem;"></i>
+
+                </div>
+
+                <div>
+
+                  <div style="font-weight:700;font-size:.88rem;color:var(--t1);">Ligue {{ league_name }}</div>
+
+                  <div style="font-size:.7rem;color:var(--t3);">Rang #{{ league_rank }} dans ta ligue · <span title="Ta position parmi tous les élèvesves inscrits sur le site" style="color:var(--t2);font-weight:600;">#{{ global_rank }} sur tout le site</span></div>
+
+                </div>
+
+              </div>
+
+              <div style="text-align:right;">
+
+                <div style="font-size:1.1rem;font-weight:900;color:{{ league_color }};">{{ my_xp }} XP</div>
+
+                <div style="font-size:.68rem;color:var(--t3);">Niveau {{ current_level }}</div>
+
+              </div>
+
+            </div>
+
+            
+
+            <div>
+
+              <div style="height:7px;background:var(--card2);border-radius:99px;overflow:hidden;">
+
+                <div style="height:100%;width:{{ xp_progress_pct }}%;background:linear-gradient(90deg,{{ league_color }},{{ league_color }}cc);border-radius:99px;transition:width .6s ease;"></div>
+
+              </div>
+
+              <div style="font-size:.67rem;color:var(--t3);margin-top:.3rem;">{{ xp_progress_pct }}% — encore <strong>{{ remaining_xp }} XP</strong> pour la ligue <strong style="color:{{ league_color }};">{{ next_league_name }}</strong></div>
+
+            </div>
+
+            
+
+            <div style="display:flex;flex-direction:column;gap:.3rem;max-height:220px;overflow-y:auto;">
+
+              {% for entry in league_data %}
+
+              <div style="display:flex;align-items:center;gap:.6rem;padding:.38rem .55rem;border-radius:9px;{% if entry.is_me %}background:linear-gradient(90deg,rgba({{ league_color|slice:'1:' }},.12),transparent);border:1px solid {{ league_color }}44;{% endif %}">
+
+                <div style="width:22px;text-align:center;font-size:.78rem;font-weight:700;color:{% if entry.rank == 1 %}#f59e0b{% elif entry.rank == 2 %}#94a3b8{% elif entry.rank == 3 %}#b45309{% else %}var(--t3){% endif %};">
+
+                  {% if entry.rank == 1 %}🥇{% elif entry.rank == 2 %}🥈{% elif entry.rank == 3 %}🥉{% else %}{{ entry.rank }}{% endif %}
+
+                </div>
+
+                <div style="flex:1;font-size:.8rem;font-weight:{% if entry.is_me %}700{% else %}500{% endif %};color:{% if entry.is_me %}var(--t1){% else %}var(--t2){% endif %};">{{ entry.name }}{% if entry.is_me %} <span style="font-size:.65rem;color:{{ league_color }};">(toi)</span>{% endif %}</div>
+
+                <div style="font-size:.78rem;font-weight:700;color:{% if entry.is_me %}{{ league_color }}{% else %}var(--t3){% endif %};">{{ entry.xp }} XP</div>
+
+              </div>
+
+              {% empty %}
+
+              <div style="text-align:center;color:var(--t3);font-size:.8rem;padding:1rem;">Sois le premier dans ta ligue!</div>
+
+              {% endfor %}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+
+.coaching-skeleton{
+
+  height:110px;border-radius:14px;
+
+  background:linear-gradient(90deg,var(--card) 25%,rgba(255,255,255,.04) 50%,var(--card) 75%);
+
+  background-size:800px 100%;
+
+  animation:shimmer 1.4s infinite;
+
+}
+
+.coaching-card{
+
+  background:var(--card);border:1px solid var(--border2);border-radius:14px;
+
+  padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;
+
+  transition:transform .18s,border-color .18s;cursor:default;
+
+  position:relative;overflow:hidden;
+
+}
+
+.coaching-card::before{
+
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+
+  background:var(--c-accent);border-radius:14px 14px 0 0;
+
+}
+
+.coaching-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.12);}
+
+.coaching-card-head{display:flex;align-items:center;gap:.65rem;}
+
+.coaching-icon{width:34px;height:34px;border-radius:9px;flex-shrink:0;
+
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+
+.coaching-title{font-weight:700;font-size:.85rem;color:var(--t1);line-height:1.3;}
+
+.coaching-badge{margin-left:auto;border-radius:20px;padding:.18rem .55rem;font-size:.7rem;font-weight:700;flex-shrink:0;}
+
+.coaching-desc{font-size:.78rem;color:var(--t2);line-height:1.5;}
+
+.coaching-action{
+
+  display:inline-flex;align-items:center;gap:.4rem;
+
+  padding:.4rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;
+
+  border:1px solid;text-decoration:none;transition:background .15s;align-self:flex-start;
+
+}
+
+<style>
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+
+.coaching-skeleton{
+
+  height:110px;border-radius:14px;
+
+  background:linear-gradient(90deg,var(--card) 25%,rgba(255,255,255,.04) 50%,var(--card) 75%);
+
+  background-size:800px 100%;
+
+  animation:shimmer 1.4s infinite;
+
+}
+
+.coaching-card{
+
+  background:var(--card);border:1px solid var(--border2);border-radius:14px;
+
+  padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;
+
+  transition:transform .18s,border-color .18s;cursor:default;
+
+  position:relative;overflow:hidden;
+
+}
+
+.coaching-card::before{
+
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+
+  background:var(--c-accent);border-radius:14px 14px 0 0;
+
+}
+
+.coaching-card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.12);}
+
+.coaching-card-head{display:flex;align-items:center;gap:.65rem;}
+
+.coaching-icon{width:34px;height:34px;border-radius:9px;flex-shrink:0;
+
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+
+.coaching-title{font-weight:700;font-size:.85rem;color:var(--t1);line-height:1.3;}
+
+.coaching-badge{margin-left:auto;border-radius:20px;padding:.18rem .55rem;font-size:.7rem;font-weight:700;flex-shrink:0;}
+
+.coaching-desc{font-size:.78rem;color:var(--t2);line-height:1.5;}
+
+.coaching-action{
+
+  display:inline-flex;align-items:center;gap:.4rem;
+
+  padding:.4rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;
+
+  border:1px solid;text-decoration:none;transition:background .15s;align-self:flex-start;
+
+}
+
+</style>
+
+<script>
+
+(function(){
+
+  function hexToRgba(hex, alpha) {
+
+    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+
+    return `rgba(${r},${g},${b},${alpha})`;
+
+  }
+
+  async function loadCoaching() {
+
+    try {
+
+      const coachingUrl = new URL('{% url "api_coaching_cards" %}', window.location.origin);
+
+      {% if is_guest %}
+
+      const guestSerie = sessionStorage.getItem('guest_serie') || 'SVT';
+
+      coachingUrl.searchParams.set('serie', guestSerie);
+
+      {% endif %}
+
+      
+
+      const [coachRes, mistakeRes] = await Promise.all([
+
+        fetch(coachingUrl.toString()),
+
+        fetch('{% url "api_mistakes_summary" %}'),
+
+      ]);
+
+      const coachData   = await coachRes.json();
+
+      const mistakeData = await mistakeRes.json();
+
+      if (mistakeData.due > 0) {
+
+        const badge = document.getElementById('mistakeBadge');
+
+        const cnt   = document.getElementById('mistakeBadgeCount');
+
+        if (badge) { badge.style.display = ''; cnt.textContent = mistakeData.due; }
+
+      }
+
+      const container = document.getElementById('coachingCards');
+
+      if (!container) return;
+
+      const cards = coachData.cards || [];
+
+      if (!cards.length) {
+
+        container.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--t3);font-size:.85rem;">
+
+          <i class="fas fa-check-circle" style="font-size:1.5rem;color:var(--green);margin-bottom:.5rem;display:block;"></i>
+
+          Tout est bon ! Lance un quiz pour que le coach analyse ta progression.
+
+        </div>`;
+
+        return;
+
+      }
+
+      container.innerHTML = cards.map(c => {
+
+        const accentStyle = `--c-accent:${c.color}`;
+
+        const iconBg = hexToRgba(c.color, 0.12);
+
+        const badgeHtml = c.badge
+
+          ? `<span class="coaching-badge" style="background:${hexToRgba(c.color,.12)};color:${c.color};border:1px solid ${hexToRgba(c.color,.25)};">${c.badge}</span>`
+
+          : '';
+
+        return `<div class="coaching-card" style="${accentStyle}">
+
+          <div class="coaching-card-head">
+
+            <div class="coaching-icon" style="background:${iconBg};color:${c.color}"><i class="${c.icon}"></i></div>
+
+            <div class="coaching-title">${c.title}</div>
+
+            ${badgeHtml}
+
+          </div>
+
+          <div class="coaching-desc">${c.description}</div>
+
+          <a href="${c.action_url}" class="coaching-action"
+
+             style="background:${hexToRgba(c.color,.1)};color:${c.color};border-color:${hexToRgba(c.color,.3)};"
+
+             onmouseover="this.style.background='${hexToRgba(c.color,.2)}'"
+
+             onmouseout="this.style.background='${hexToRgba(c.color,.1)}'">
+
+            <i class="${c.icon}" style="font-size:.75rem;"></i> ${c.action_label}
+
+          </a>
+
+        </div>`;
+
+      }).join('');
+
+      if (typeof translatePageContent === 'function' && typeof CURRENT_LANG !== 'undefined' && CURRENT_LANG === 'kr') {
+
+        setTimeout(translatePageContent, 100);
+
+      }
+
+    } catch(e) {
+
+      const container = document.getElementById('coachingCards');
+
+      if (container) container.innerHTML = '';
+
+    }
+
+  }
+
+  if (document.readyState === 'loading') {
+
+    document.addEventListener('DOMContentLoaded', loadCoaching);
+
+  } else {
+
+    loadCoaching();
+
+  }
+
+})();
+
+</script>
+
+{% if is_guest and guest_serie_pending %}
+
+<div id="guestSerieModal" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);">
+
+  <div style="background:#1a2035;border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:2.2rem 1.8rem 2rem;max-width:480px;width:92%;box-shadow:0 24px 80px rgba(0,0,0,.6);text-align:center;">
+
+    <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(16,185,129,.25),rgba(56,189,248,.15));display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.6rem;">🎓</div>
+
+    <h2 style="margin:0 0 .4rem;font-size:1.25rem;font-weight:800;color:#f1f5f9;">Quelle est ta s·rie ?</h2>
+
+    <p style="font-size:.85rem;color:#94a3b8;margin:0 0 1.5rem;line-height:1.65;">Choisis ta s·rie du BAC haïtien pour que le contenu soit adapté à ton programme.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem;margin-bottom:1.3rem;">
+
+      {% for code, emoji, label, subjects in serie_choices %}
+
+      <button onclick="selectGuestSerie('{{ code }}')"
+
+              style="border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:14px;padding:.85rem .6rem;cursor:pointer;transition:all .2s;text-align:center;"
+
+              onmouseover="this.style.borderColor='#10b981';this.style.background='rgba(16,185,129,.12)';this.style.transform='translateY(-2px)'"
+
+              onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.background='rgba(255,255,255,.05)';this.style.transform='translateY(0)'">
+
+        <div style="font-size:1.4rem;margin-bottom:.3rem;">{{ emoji }}</div>
+
+        <div style="font-weight:800;font-size:1rem;color:#f1f5f9;">{{ code }}</div>
+
+        <div style="font-size:.72rem;color:#94a3b8;margin-top:.2rem;line-height:1.35;">{{ label }}</div>
+
+        <div style="font-size:.63rem;color:#64748b;margin-top:.15rem;">{{ subjects }}</div>
+
+      </button>
+
+      {% endfor %}
+
+    </div>
+
+    <button onclick="selectGuestSerie('SVT')" style="font-size:.78rem;color:#64748b;background:none;border:none;cursor:pointer;text-decoration:underline;padding:.2rem .5rem;transition:color .15s;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#64748b'">Pas sûr(e) à choisir SVT par d·faut</button>
+
+  </div>
+
+</div>
+
+<script>
+
+function selectGuestSerie(serie) {
+
+  sessionStorage.setItem('guest_serie', serie);
+
+  const modal = document.getElementById('guestSerieModal');
+
+  if (modal) {
+
+    modal.style.transition = 'opacity .3s';
+
+    modal.style.opacity = '0';
+
+    setTimeout(() => modal.remove(), 300);
+
+  }
+
+}
+
+</script>
+
+{% endif %}
+
+{% if streak_just_earned %}
+
+<div id="streakCelebration" style="position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+
+  <div id="streakCard" style="
+
+    background:linear-gradient(135deg,rgba(15,23,42,.97),rgba(30,41,59,.97));
+
+    border:1px solid rgba(249,115,22,.4);
+
+    border-radius:28px;
+
+    padding:2.2rem 2.5rem 2rem;
+
+    text-align:center;
+
+    max-width:340px;
+
+    width:90vw;
+
+    box-shadow:0 24px 80px rgba(249,115,22,.25),0 0 0 1px rgba(249,115,22,.15);
+
+    pointer-events:all;
+
+    transform:scale(.6) translateY(40px);
+
+    opacity:0;
+
+    transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .35s ease;
+
+  ">
+
+    <div style="font-size:3rem;margin-bottom:.5rem;line-height:1;">🔥</div>
+
+    <div style="font-size:1.4rem;font-weight:900;color:#fb923c;margin-bottom:.3rem;">
+
+      {{ streak_just_earned }} jour{% if streak_just_earned > 1 %}s{% endif %} de suite !
+
+    </div>
+
+    <div style="font-size:.9rem;color:#94a3b8;margin-bottom:1.4rem;line-height:1.55;">
+
+      {% if streak_just_earned == 1 %}Tu es de retour ! Continue comme ça.
+
+      {% elif streak_just_earned == 3 %}3 jours consécutifs — belle régularité !
+
+      {% elif streak_just_earned == 7 %}Une semaine complète ! Tu es en feu 🔥
+
+      {% elif streak_just_earned == 14 %}2 semaines sans s'arrêter — impressionnant !
+
+      {% elif streak_just_earned == 30 %}Un mois de suite ! Tu es une légende. 🏆
+
+      {% else %}{{ streak_just_earned }} jours consécutifs — continue sur ta lancée !{% endif %}
+
+    </div>
+
+    <button onclick="closeStreakCelebration()" style="
+
+      background:linear-gradient(135deg,#f97316,#ea580c);
+
+      color:#fff;border:none;border-radius:14px;
+
+      padding:.65rem 1.8rem;font-weight:800;font-size:.92rem;
+
+      cursor:pointer;transition:opacity .15s;
+
+    " onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+
+      Super, continuons ! 💪
+
+    </button>
+
+  </div>
+
+</div>
+
+<canvas id="streakConfetti" style="position:fixed;inset:0;z-index:99998;pointer-events:none;width:100%;height:100%;"></canvas>
+
+<script>
+
+(function(){
+
+  setTimeout(function(){
+
+    const card = document.getElementById('streakCard');
+
+    if(card){ card.style.transform='scale(1) translateY(0)'; card.style.opacity='1'; }
+
+    launchStreakConfetti();
+
+  }, 400);
+
+  function closeStreakCelebration(){
+
+    const el = document.getElementById('streakCelebration');
+
+    const cv = document.getElementById('streakConfetti');
+
+    if(el){ el.style.transition='opacity .35s'; el.style.opacity='0'; setTimeout(()=>el.remove(),350); }
+
+    if(cv){ cv.style.opacity='0'; setTimeout(()=>cv.remove(),350); }
+
+  }
+
+  window.closeStreakCelebration = closeStreakCelebration;
+
+  setTimeout(closeStreakCelebration, 6000);
+
+  function launchStreakConfetti(){
+
+    const cv = document.getElementById('streakConfetti');
+
+    if(!cv) return;
+
+    const ctx = cv.getContext('2d');
+
+    cv.width = window.innerWidth;
+
+    cv.height = window.innerHeight;
+
+    const colors = ['#f97316','#fb923c','#fed7aa','#fbbf24','#facc15','#ffffff','#10b981','#34d399'];
+
+    const pieces = Array.from({length:90}, ()=>({
+
+      x: Math.random()*cv.width, y: -10 - Math.random()*80,
+
+      r: 3+Math.random()*6, c: colors[Math.floor(Math.random()*colors.length)],
+
+      vx: (Math.random()-.5)*3.5, vy: 2+Math.random()*4,
+
+      rot: Math.random()*360, dr: (Math.random()-.5)*5, alpha:1
+
+    }));
+
+    let frame;
+
+    function draw(){
+
+      ctx.clearRect(0,0,cv.width,cv.height);
+
+      let alive=false;
+
+      for(const p of pieces){
+
+        p.x+=p.vx; p.y+=p.vy; p.rot+=p.dr;
+
+        if(p.y>cv.height*0.85) p.alpha-=0.04;
+
+        if(p.alpha>0){ alive=true; ctx.save(); ctx.globalAlpha=p.alpha; ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180); ctx.fillStyle=p.c; ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r); ctx.restore(); }
+
+      }
+
+      if(alive) frame=requestAnimationFrame(draw);
+
+    }
+
+    draw();
+
+  }
+
+})();
+
+</script>
+
+{% endif %}
+
+{% endblock %}
+

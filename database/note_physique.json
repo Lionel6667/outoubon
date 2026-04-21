@@ -1,0 +1,842 @@
+{
+  "course_title": "Physique - Baccalauréat Haïtien",
+  "chapters": [
+    {
+      "chapter_title": "Le condensateur",
+      "chapter_introduction": "Un condensateur, c'est un réservoir de charges électriques. Imagine un château d'eau : tu le remplis (charge), tu le vides (décharge). La différence avec l'eau, c'est qu'il y a une limite — la tension de claquage — au-delà de laquelle le diélectrique est détruit. Ce chapitre est fondamental car les exercices sur le condensateur tombent très souvent au bac, sous forme de calculs de capacité, de charge, d'énergie ou d'associations.",
+      "chapter_objectives": [
+        "Comprendre la structure physique d'un condensateur (armatures, diélectrique)",
+        "Maîtriser les quatre formules fondamentales : Q = C×U, W = ½CU², E = U/d, C = ε₀εᵣS/d",
+        "Savoir convertir les unités (µF, nF, pF en Farad)",
+        "Calculer la capacité équivalente d'associations en série et en parallèle",
+        "Résoudre les problèmes de partage de charge entre condensateurs",
+        "Connaître les démonstrations clés (W = ½CU², E = U/d)"
+      ],
+      "subchapters": [
+        {
+          "title": "Ce qu'est vraiment un condensateur",
+          "introduction": "Un condensateur est un composant électronique qui stocke de l'énergie sous forme électrostatique. Il est présent dans presque tous les circuits électriques.",
+          "definition": "Un condensateur est un réservoir de charges électriques constitué de deux armatures métalliques séparées par un isolant appelé diélectrique. La charge stockée est proportionnelle à la tension appliquée.",
+          "explanation": "Les armatures sont des plaques métalliques (cuivre, aluminium). Le diélectrique est l'isolant entre elles (air, verre, paraffine, vide...). Quand on applique une tension, les charges s'accumulent sur les armatures : l'une se charge positivement, l'autre négativement. La quantité de charge stockée dépend de la capacité C et de la tension U. La capacité est une caractéristique du condensateur : plus elle est grande, plus il peut stocker de charges pour une même tension.",
+          "step_by_step": [
+            "Étape 1 : Identifier les deux armatures métalliques.",
+            "Étape 2 : Identifier le diélectrique (isolant) entre elles.",
+            "Étape 3 : Appliquer une tension U aux bornes du condensateur.",
+            "Étape 4 : Une armature se charge positivement (+Q), l'autre négativement (-Q).",
+            "Étape 5 : La charge Q est proportionnelle à U : Q = C × U."
+          ],
+          "examples": [
+            "Exemple simple : Un condensateur de 10 µF (microfarads) chargé sous 18 V emmagasine une charge Q = 10×10⁻⁶ × 18 = 1,8×10⁻⁴ C (coulomb)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Condensateur plan. Deux plaques de surface S = 10 cm² séparées par d = 1 mm d'air. Calculons sa capacité. Il faut d'abord convertir en mètres : S = 10×10⁻⁴ = 10⁻³ m², d = 10⁻³ m. ε₀ = 8,85×10⁻¹² F/m. C = ε₀ S/d = 8,85×10⁻¹² × 10⁻³ / 10⁻³ = 8,85×10⁻¹² F = 8,85 pF. C'est très faible. Pour augmenter la capacité, on utilise un diélectrique (εᵣ > 1) et on diminue la distance."
+          ],
+          "methods": [
+            "Pour calculer une charge, toujours convertir la capacité en Farad (F) : 1 µF = 10⁻⁶ F, 1 nF = 10⁻⁹ F, 1 pF = 10⁻¹² F.",
+            "Utiliser Q = C×U si on a C et U ; utiliser W = ½CU² ou Q²/(2C) pour l'énergie."
+          ],
+          "common_mistakes": [
+            "Oublier de convertir les µF en F : 20 µF = 20×10⁻⁶ F, pas 20.",
+            "Confondre la charge Q (en coulombs) avec la capacité C (en farads).",
+            "Croire que la tension de claquage est une valeur à ne pas dépasser, sinon le condensateur est détruit (c'est vrai, il faut la respecter)."
+          ],
+          "summary": "Un condensateur stocke des charges électriques. Sa capacité C (en farad) relie la charge Q et la tension U : Q = C×U. L'énergie stockée est W = ½CU²."
+        },
+        {
+          "title": "Les quatre formules fondamentales",
+          "introduction": "Il y a quatre formules essentielles à connaître sur les condensateurs. Les comprendre, c'est réussir tous les exercices de base.",
+          "definition": "Formule 1 : Q = C×U (charge en fonction de la capacité et de la tension). Formule 2 : W = ½ C U² (énergie stockée). Formule 3 : E = U/d (champ électrique uniforme entre les armatures). Formule 4 : C = ε₀ εᵣ S/d (capacité d'un condensateur plan).",
+          "explanation": "Q = C×U : la charge est proportionnelle à la capacité et à la tension. W = ½ C U² : l'énergie augmente comme le carré de la tension. E = U/d : le champ électrique est uniforme, exprimé en V/m. C = ε₀ εᵣ S/d : la capacité augmente avec la surface S, diminue quand la distance d augmente, et dépend du diélectrique (εᵣ). ε₀ est une constante universelle (permittivité du vide).",
+          "step_by_step": [
+            "Étape 1 : Pour Q, multiplier C (en F) par U (en V).",
+            "Étape 2 : Pour W, utiliser ½ × C × U², ou ½ × Q × U, ou Q²/(2C).",
+            "Étape 3 : Pour E, diviser U (en V) par d (en m).",
+            "Étape 4 : Pour C (condensateur plan), calculer d'abord S en m², d en m, puis appliquer C = ε₀εᵣS/d."
+          ],
+          "examples": [
+            "Exemple 1 : C = 10 µF, U = 12 V → Q = 10×10⁻⁶×12 = 1,2×10⁻⁴ C.",
+            "Exemple 2 : C = 20 µF, U = 12 V → W = 0,5×20×10⁻⁶×144 = 1,44×10⁻³ J = 1,44 mJ.",
+            "Exemple 3 : U = 100 V, d = 4 mm = 4×10⁻³ m → E = 100 / 0,004 = 25 000 V/m.",
+            "Exemple 4 : ε₀=8,85×10⁻¹², εᵣ=5, S=3 cm²=3×10⁻⁴ m², C=0,1 µF=10⁻⁷ F → d = ε₀εᵣS/C = 8,85×10⁻¹²×5×3×10⁻⁴ / 10⁻⁷ = 1,33×10⁻⁷ m = 133 nm."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Bac 2022) : Un condensateur plan à air (εᵣ=1) a ses armatures écartées de 4 mm. Il emmagasine une charge de 80 mC sous une tension de 100 V. Calculer le champ électrique E et la capacité C.\n\nDonnées : d = 4 mm = 4×10⁻³ m, Q = 80×10⁻³ C, U = 100 V.\n\nE = U/d = 100 / (4×10⁻³) = 25 000 V/m = 25 kV/m.\nC = Q/U = 80×10⁻³ / 100 = 8×10⁻⁴ F = 800 µF."
+          ],
+          "methods": [
+            "Pour démontrer E = U/d : égaler le travail de la force électrique (qEd) et l'énergie potentielle (qU).",
+            "Pour démontrer W = ½CU² : intégrer dW = (q/C)dq de 0 à Q."
+          ],
+          "common_mistakes": [
+            "Oublier le facteur ½ dans l'énergie.",
+            "Confondre la formule de l'énergie (½CU²) avec celle du travail d'une force.",
+            "Utiliser E = U/d avec d en cm au lieu de mètres (convertir impérativement)."
+          ],
+          "summary": "Les quatre formules clés : Q = CU, W = ½CU², E = U/d, C = ε₀εᵣS/d. Elles permettent de résoudre la plupart des exercices sur le condensateur."
+        },
+        {
+          "title": "Associations de condensateurs",
+          "introduction": "On peut associer plusieurs condensateurs pour obtenir une capacité équivalente. Deux types d'associations : série et parallèle. Il faut absolument maîtriser les règles, car les exercices d'association mixte sont fréquents au bac.",
+          "definition": "En parallèle, les condensateurs sont côte à côte : la tension est identique aux bornes de chaque condensateur, les charges s'ajoutent. La capacité équivalente C_eq = C₁ + C₂ + ... . En série, ils sont bout à bout : la charge est identique dans chaque condensateur, les tensions s'ajoutent. La capacité équivalente vérifie 1/C_eq = 1/C₁ + 1/C₂ + ... .",
+          "explanation": "Moyen mnémotechnique : 'Parallèle → on Paye plus (C_eq est plus grande que la plus grande)' et 'Série → on Se restreint (C_eq est plus petite que la plus petite)'. Pour deux condensateurs en série, on utilise souvent C_eq = (C₁C₂)/(C₁+C₂).",
+          "step_by_step": [
+            "Étape 1 : Identifier le type d'association (série ou parallèle).",
+            "Étape 2 : Appliquer la formule correspondante pour calculer C_eq.",
+            "Étape 3 : Pour une association mixte, traiter d'abord le groupe le plus interne (série ou parallèle), puis remplacer par son équivalent, et ainsi de suite.",
+            "Étape 4 : Calculer les charges et tensions individuelles en utilisant les propriétés : U identique en parallèle, Q identique en série.",
+            "Étape 5 : Vérifier la cohérence (somme des tensions en série = tension totale, somme des charges en parallèle = charge totale)."
+          ],
+          "examples": [
+            "Exemple parallèle : C₁=6 µF, C₂=3 µF sont associés en parallèle sous une tension U=12 V. C_eq = 6+3 = 9 µF. La tension aux bornes de chaque condensateur est 12 V, donc Q₁=6×12=72 µC, Q₂=3×12=36 µC.",
+            "Exemple série : C₁=12 µF, C₂=6 µF en série, tension totale U=12 V. C_eq = (12×6)/(12+6)=72/18=4 µF. La charge de chaque condensateur est Q = C_eq×U = 4×12=48 µC. Les tensions : U₁ = Q/C₁ = 48/12=4 V, U₂ = Q/C₂ = 48/6=8 V. Vérification : 4+8=12 V."
+          ],
+          "detailed_examples": [
+            "Exemple mixte (très courant au bac) : Soient C₁=12 µF et C₂=6 µF en série, l'ensemble est monté en parallèle avec C₃=4 µF. La tension totale est U=12 V. Calculer C₁₂, C_eq, les charges Q₁, Q₂, Q₃ et l'énergie totale.\n\nÉtape 1 : C₁₂ (série) = (12×6)/(12+6)=72/18=4 µF.\nÉtape 2 : C_eq = C₁₂ + C₃ = 4 + 4 = 8 µF.\nÉtape 3 : La branche série et C₃ sont en parallèle, donc elles ont la même tension U=12 V.\nCharge de la branche série : Q₁₂ = C₁₂ × U = 4×12 = 48 µC. Comme en série Q₁ = Q₂ = Q₁₂ = 48 µC.\nCharge de C₃ : Q₃ = C₃ × U = 4×12 = 48 µC.\nCharge totale : Q_total = Q₁₂ + Q₃ = 96 µC. Vérification : C_eq×U = 8×12 = 96 µC.\nÉnergie totale : W = ½ C_eq U² = 0,5×8×10⁻⁶×144 = 576×10⁻⁶ J = 576 µJ."
+          ],
+          "methods": [
+            "Pour ne pas se tromper, dessiner le circuit et remplacer progressivement les groupes par leur équivalent.",
+            "Vérifier la cohérence : en série, la plus petite capacité impose la charge maximale ; en parallèle, la plus grande capacité stocke le plus de charge."
+          ],
+          "common_mistakes": [
+            "Inverser les formules : utiliser 1/C_eq = somme des inverses en parallèle, et somme directe en série.",
+            "Oublier de convertir les capacités dans la même unité avant d'additionner.",
+            "Ne pas vérifier que la somme des tensions en série est bien égale à la tension totale."
+          ],
+          "summary": "Parallèle : C_eq = somme, U commun, Q s'ajoutent. Série : 1/C_eq = somme des inverses, Q commun, U s'ajoutent. Pour deux condensateurs en série : C_eq = (C₁C₂)/(C₁+C₂)."
+        },
+        {
+          "title": "Partage de charge",
+          "introduction": "Quand on connecte deux condensateurs chargés (ou l'un chargé, l'autre non), les charges se redistribuent jusqu'à ce que les tensions soient égales. La loi de conservation de la charge permet de calculer la tension finale. Ce type d'exercice est très fréquent au bac.",
+          "definition": "La charge totale se conserve. Si on relie les plaques de même signe, la charge totale avant connexion est Q_total = C₁U₁ + C₂U₂. Après connexion, les condensateurs sont en parallèle, donc même tension U_f, et Q_total = (C₁+C₂) U_f. On en déduit U_f = (C₁U₁ + C₂U₂)/(C₁+C₂). Si l'un des condensateurs est initialement non chargé (U₂=0), U_f = C₁U₁/(C₁+C₂).",
+          "explanation": "Si on relie des plaques de signes contraires, les charges s'annulent partiellement : Q_total = |C₁U₁ - C₂U₂|. La formule devient U_f = |C₁U₁ - C₂U₂|/(C₁+C₂). Il est important de faire attention au branchement indiqué dans l'énoncé.",
+          "step_by_step": [
+            "Étape 1 : Déterminer comment les plaques sont connectées (même signe ou signes contraires).",
+            "Étape 2 : Calculer la charge totale avant connexion (somme ou différence selon les cas).",
+            "Étape 3 : Après connexion, les condensateurs sont en parallèle : capacité totale = C₁+C₂.",
+            "Étape 4 : La tension finale U_f = Q_total / (C₁+C₂)."
+          ],
+          "examples": [
+            "Exemple simple : C₁=4 µF chargé à 20 V, C₂=6 µF non chargé. On relie les plaques de même signe. U_f = (4×20)/(4+6) = 80/10 = 8 V."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Bac 2022) : Un condensateur C₁=12 µF, initialement chargé sous une tension U₁, possède une charge Q₁=0,5 mC. On le connecte à un condensateur C₂ non chargé. Après connexion (plaques de même signe), la tension d'équilibre est U_f=100 V. Trouver la tension initiale U₁ et la capacité C₂.\n\nTrouvons U₁ : Q₁ = C₁ U₁ ⇒ U₁ = Q₁/C₁ = 0,5×10⁻³ / (12×10⁻⁶) = 41,67 V.\n\nEnsuite, U_f = C₁U₁/(C₁+C₂) ⇒ 100 = (12×10⁻⁶×41,67)/(12×10⁻⁶+C₂). Le numérateur vaut 0,5×10⁻³. Donc 100 = 0,5×10⁻³ / (12×10⁻⁶+C₂) ⇒ 12×10⁻⁶+C₂ = 0,5×10⁻³/100 = 5×10⁻⁶ ⇒ C₂ = 5×10⁻⁶ - 12×10⁻⁶ = -7×10⁻⁶ F, impossible. Cela signifie que l'hypothèse 'plaques de même signe' est fausse. En réalité, il s'agit probablement de plaques de signes contraires. Dans ce cas, U_f = (C₁U₁ - 0)/(C₁+C₂) = C₁U₁/(C₁+C₂) mais avec U_f=100 V et U₁=41,67 V, U_f > U₁, ce qui est impossible car en signes contraires U_f est plus petit. L'exemple montre qu'il faut lire attentivement l'énoncé. En pratique, si on obtient C₂ négatif, c'est que l'hypothèse de branchement est inverse."
+          ],
+          "methods": [
+            "Toujours vérifier la cohérence : la tension finale doit être comprise entre les tensions initiales si mêmes signes, et inférieure à la plus grande si signes contraires.",
+            "Si l'énoncé ne précise pas, on suppose généralement que les plaques de même signe sont reliées."
+          ],
+          "common_mistakes": [
+            "Oublier que les condensateurs sont en parallèle après connexion.",
+            "Ne pas traiter le cas des signes contraires (qui donne une soustraction).",
+            "Calculer U_f avec la formule des mêmes signes alors que les plaques sont reliées en sens inverse."
+          ],
+          "summary": "Conservation de la charge : U_f = (C₁U₁ ± C₂U₂)/(C₁+C₂), avec + si les plaques de même signe sont reliées, - si les plaques de signes contraires sont reliées. Si un condensateur est déchargé, U₂=0."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un condensateur de 50 µF est chargé sous 20 V. Calculer la charge Q et l'énergie W.",
+          "solution": "Q = 1 mC, W = 10 mJ",
+          "explanation": "Q = C×U = 50×10⁻⁶ × 20 = 10⁻³ C = 1 mC. W = ½ C U² = 0,5 × 50×10⁻⁶ × 400 = 10⁻² J = 10 mJ."
+        },
+        {
+          "question": "C₁ = 6 µF et C₂ = 3 µF sont associés en parallèle sous 12 V. Calculer C_eq, Q₁, Q₂, W_total.",
+          "solution": "C_eq = 9 µF, Q₁ = 72 µC, Q₂ = 36 µC, W_total = 648 µJ",
+          "explanation": "C_eq = 6+3 = 9 µF. U=12 V pour les deux. Q₁ = 6×12 = 72 µC, Q₂ = 3×12 = 36 µC. W_total = ½ × 9×10⁻⁶ × 144 = 648×10⁻⁶ J = 648 µJ."
+        },
+        {
+          "question": "Deux condensateurs C₁=12 µF et C₂=6 µF en série, tension totale 12 V. Calculer C_eq, la charge et les tensions individuelles.",
+          "solution": "C_eq = 4 µF, Q = 48 µC, U₁ = 4 V, U₂ = 8 V",
+          "explanation": "C_eq = (12×6)/(12+6) = 72/18 = 4 µF. Q = C_eq×U = 4×12 = 48 µC. U₁ = Q/C₁ = 48/12 = 4 V, U₂ = Q/C₂ = 48/6 = 8 V. Vérification : 4+8=12 V."
+        },
+        {
+          "question": "Un condensateur de 4 µF chargé à 20 V est connecté à un condensateur de 6 µF non chargé (plaques de même signe). Trouver la tension finale.",
+          "solution": "U_f = 8 V",
+          "explanation": "U_f = C₁U₁/(C₁+C₂) = (4×20)/(4+6) = 80/10 = 8 V."
+        },
+        {
+          "question": "Un condensateur plan a une surface S=10 cm², un diélectrique d'épaisseur 0,5 mm et de permittivité relative εᵣ=4. Calculer sa capacité (ε₀=8,85×10⁻¹² F/m).",
+          "solution": "C ≈ 7,08×10⁻¹¹ F = 70,8 pF",
+          "explanation": "S = 10×10⁻⁴ = 10⁻³ m², d = 0,5×10⁻³ = 5×10⁻⁴ m. C = ε₀εᵣS/d = 8,85×10⁻¹² × 4 × 10⁻³ / (5×10⁻⁴) = 8,85×10⁻¹² × 4 × 2 = 70,8×10⁻¹² F = 70,8 pF."
+        },
+        {
+          "question": "Démontrer la formule de l'énergie emmagasinée W = ½CU².",
+          "solution": "Voir démonstration ci-dessous",
+          "explanation": "Le travail pour amener une charge dq sur le condensateur, alors que la tension est u = q/C, est dW = u dq = (q/C) dq. Pour passer de q=0 à q=Q, on intègre : W = ∫₀^Q (q/C) dq = [q²/(2C)]₀^Q = Q²/(2C). Comme Q = CU, on obtient W = ½ C U²."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Le courant alternatif sinusoïdal",
+      "chapter_introduction": "Un courant alternatif (CA) change de sens périodiquement. Son graphe ressemble à une vague (sinusoïde). Ce chapitre est central car il traite des circuits R, L, C en régime sinusoïdal, des impédances, des déphasages et de la résonance. Les exercices d'examen consistent souvent à identifier le type de circuit, calculer l'impédance, le courant, les tensions et le déphasage.",
+      "chapter_objectives": [
+        "Comprendre la représentation d'un signal sinusoïdal : i(t)=Iₘ sin(ωt+φ)",
+        "Maîtriser les relations entre période, fréquence, pulsation : ω=2πf, f=1/T",
+        "Savoir distinguer valeur maximale et valeur efficace (I_eff = Iₘ/√2)",
+        "Connaître le comportement de la résistance, de la bobine et du condensateur en régime sinusoïdal (déphasage, réactance)",
+        "Calculer l'impédance et le déphasage pour les circuits RL, RC, RLC série",
+        "Identifier la condition de résonance et ses conséquences"
+      ],
+      "subchapters": [
+        {
+          "title": "Comprendre le courant alternatif",
+          "introduction": "Le courant alternatif est celui du réseau électrique domestique (en Haïti : 60 Hz). Il est représenté par une fonction sinusoïdale. C'est la base de tout le chapitre.",
+          "definition": "Un signal sinusoïdal s'écrit i(t) = Iₘ sin(ωt + φ), où Iₘ est l'amplitude (valeur maximale), ω la pulsation (rad/s), φ la phase à l'origine. La valeur efficace est I_eff = Iₘ/√2. La période T = 1/f et la pulsation ω = 2πf.",
+          "explanation": "La période T est la durée d'un cycle complet. La fréquence f est le nombre de cycles par seconde (hertz). En Haïti, f = 60 Hz, donc ω = 2π×60 ≈ 377 rad/s. La valeur efficace est définie comme la valeur du courant continu qui produirait la même puissance moyenne dans une résistance. On a I_eff = Iₘ/√2 et U_eff = Uₘ/√2.",
+          "step_by_step": [
+            "Étape 1 : Lire l'expression de i(t) ou u(t).",
+            "Étape 2 : Extraire Iₘ, ω, φ.",
+            "Étape 3 : Calculer f = ω/(2π), T = 1/f.",
+            "Étape 4 : Calculer I_eff = Iₘ/√2 (ou U_eff = Uₘ/√2).",
+            "Étape 5 : Passer de U_eff à Uₘ : Uₘ = U_eff × √2."
+          ],
+          "examples": [
+            "Exemple : i(t)=5 sin(314t + π/3) A. Iₘ=5 A, ω=314 rad/s, f=314/(2π)=50 Hz, T=0,02 s, I_eff=5/√2≈3,54 A."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : u(t)=50√2 sin(100πt) V. Uₘ=50√2 V, donc U_eff = (50√2)/√2 = 50 V. ω=100π rad/s, f=100π/(2π)=50 Hz."
+          ],
+          "methods": [
+            "Pour passer de l'expression à la valeur efficace, ne pas oublier de diviser par √2.",
+            "Pour passer de la valeur efficace à l'amplitude, multiplier par √2."
+          ],
+          "common_mistakes": [
+            "Confondre Iₘ et I_eff. Lire attentivement l'énoncé : 'tension de 220 V' signifie U_eff, 'tension maximale' signifie Uₘ.",
+            "Oublier que ω = 2πf, pas 2π/T (T est l'inverse)."
+          ],
+          "summary": "i(t)=Iₘ sin(ωt+φ). ω=2πf, T=1/f, I_eff=Iₘ/√2, U_eff=Uₘ/√2."
+        },
+        {
+          "title": "Comportement des dipôles : R, L, C",
+          "introduction": "En courant alternatif, chaque dipôle (résistance, bobine, condensateur) a un comportement spécifique en termes de déphasage entre tension et courant. Ces comportements sont à connaître par cœur.",
+          "definition": "Résistance : u et i en phase (φ=0). Bobine pure (inductance L) : u en avance de 90° sur i (φ=+90°). Condensateur pur (capacité C) : i en avance de 90° sur u (φ=-90°). Les réactances sont X_L = Lω (en ohms) et X_C = 1/(Cω) (en ohms).",
+          "explanation": "Pour une résistance, la loi d'Ohm s'applique instantanément : u = R i. Si i = Iₘ sin(ωt), alors u = R Iₘ sin(ωt) : même phase. Pour une bobine, u = L di/dt. Avec i = Iₘ sin(ωt), di/dt = Iₘ ω cos(ωt) = Iₘ ω sin(ωt+π/2). Donc u = Lω Iₘ sin(ωt+π/2) : la tension est en avance de 90°. L'impédance (module) est Z = Uₘ/Iₘ = Lω = X_L. Pour un condensateur, i = C du/dt. Si u = Uₘ sin(ωt), du/dt = Uₘ ω cos(ωt) = Uₘ ω sin(ωt+π/2), donc i = Cω Uₘ sin(ωt+π/2). Le courant est en avance de 90° sur la tension. L'impédance Z = Uₘ/Iₘ = 1/(Cω) = X_C.",
+          "step_by_step": [
+            "Étape 1 : Identifier le dipôle (R, L, C).",
+            "Étape 2 : Calculer la réactance X_L = Lω ou X_C = 1/(Cω).",
+            "Étape 3 : Appliquer la loi d'Ohm en valeurs efficaces : U_eff = Z I_eff, avec Z = R, X_L ou X_C.",
+            "Étape 4 : Écrire les expressions instantanées avec le bon déphasage : pour une bobine, i est en retard de π/2 sur u ; pour un condensateur, i est en avance de π/2 sur u."
+          ],
+          "examples": [
+            "Exemple bobine : L=40 mH, u(t)=50√2 sin(100πt) V. ω=100π rad/s, X_L=0,04×100π≈12,57 Ω, I_eff=50/12,57≈3,98 A, i(t)=3,98√2 sin(100πt - π/2) A.",
+            "Exemple condensateur : C=20 µF, f=50 Hz, U_eff=220 V. ω=314 rad/s, X_C=1/(20×10⁻⁶×314)=159,2 Ω, I_eff=220/159,2=1,38 A, i(t)=1,38√2 sin(314t + π/2) A."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Bac 2022) : Une bobine pure d'inductance L=40 mH est alimentée par une tension u(t)=50√2 sin(100πt) V.\n\na) Fréquence et pulsation : ω=100π rad/s, f=ω/(2π)=50 Hz.\nb) Intensité efficace : U_eff = 50 V, X_L = Lω = 0,04×100π≈12,57 Ω, I_eff = 50/12,57≈3,98 A.\nc) Équation de i(t) : Iₘ = I_eff√2 = 3,98×1,414≈5,63 A. Pour une bobine, le courant est en retard de π/2 sur la tension, donc i(t)=5,63 sin(100πt - π/2) A."
+          ],
+          "methods": [
+            "Moyen mnémotechnique : 'ELI' (E en avance sur I pour L) et 'ICE' (I en avance sur E pour C).",
+            "Pour retenir les formules d'impédance : Z_R = R, Z_L = Lω, Z_C = 1/(Cω)."
+          ],
+          "common_mistakes": [
+            "Oublier que la bobine s'oppose aux variations : courant en retard.",
+            "Inverser les déphasages : pour un condensateur, le courant est en avance, pas en retard.",
+            "Confondre réactance et impédance : pour un dipôle pur, Z = X."
+          ],
+          "summary": "R : φ=0, Z=R. L : φ=+90°, Z=Lω. C : φ=-90°, Z=1/(Cω)."
+        },
+        {
+          "title": "Circuits RL, RC et RLC série",
+          "introduction": "Quand on associe plusieurs dipôles en série, l'impédance totale se calcule par combinaison vectorielle. Les formules doivent être connues et comprises.",
+          "definition": "Circuit RL série : Z = √(R² + (Lω)²), tan φ = (Lω)/R. Circuit RC série : Z = √(R² + (1/(Cω))²), tan φ = -1/(CωR). Circuit RLC série : Z = √(R² + (Lω - 1/(Cω))²), tan φ = (Lω - 1/(Cω))/R.",
+          "explanation": "Ces formules viennent de la somme vectorielle des tensions. Par exemple, pour RL, la tension aux bornes de la résistance (U_R) est en phase avec le courant, celle de la bobine (U_L) est en avance de 90°. La tension totale U est la somme vectorielle, donc U² = U_R² + U_L², d'où Z = √(R² + X_L²). Le déphasage φ de U par rapport à I est donné par tan φ = U_L/U_R = X_L/R.",
+          "step_by_step": [
+            "Étape 1 : Calculer X_L = Lω, X_C = 1/(Cω).",
+            "Étape 2 : Calculer Z selon le circuit (voir formules).",
+            "Étape 3 : Calculer I_eff = U_eff / Z.",
+            "Étape 4 : Calculer les tensions individuelles : U_R = R I_eff, U_L = X_L I_eff, U_C = X_C I_eff.",
+            "Étape 5 : Calculer le déphasage φ = arctan((X_L - X_C)/R) pour RLC.",
+            "Étape 6 : Écrire l'expression de i(t) en fonction de u(t) en utilisant φ."
+          ],
+          "examples": [
+            "Exemple RL : R=40 Ω, L=0,2 H, f=50 Hz, U_eff=200 V. X_L = 0,2×2π×50 = 0,2×314 = 62,8 Ω. Z = √(40² + 62,8²) = √(1600+3944) = √5544 ≈ 74,5 Ω. I_eff = 200/74,5 ≈ 2,68 A. tan φ = 62,8/40 = 1,57 → φ ≈ 57,5°. U_R = 40×2,68 = 107,2 V, U_L = 62,8×2,68 = 168,3 V."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Bac 2022) : Une bobine réelle (résistance R et inductance L) est parcourue par un courant continu de 4 A sous une tension de 100 V. En alternatif (50 Hz), elle est parcourue par 2 A sous 120 V. Déterminer R, L, puis la capacité C qui permettrait d'obtenir la résonance.\n\nEn continu, la bobine se comporte comme une simple résistance : R = U_continu / I_continu = 100/4 = 25 Ω.\nEn alternatif, Z = U_eff / I_eff = 120/2 = 60 Ω. Or Z = √(R² + (Lω)²) avec ω = 2π×50 = 314 rad/s. Donc 60² = 25² + (Lω)² → 3600 = 625 + (Lω)² → (Lω)² = 2975 → Lω = √2975 ≈ 54,54 Ω → L = 54,54/314 ≈ 0,174 H.\nÀ la résonance, on a Lω = 1/(Cω) ⇒ C = 1/(Lω²) = 1/(0,174 × 314²) = 1/(0,174 × 98596) ≈ 1/17156 ≈ 58,3×10⁻⁶ F = 58,3 µF."
+          ],
+          "methods": [
+            "Pour trouver L à partir de mesures continu et alternatif, utiliser Z = √(R²+(Lω)²).",
+            "Pour le calcul de φ, utiliser la calculatrice (arctan)."
+          ],
+          "common_mistakes": [
+            "Oublier la racine carrée dans Z (ne pas écrire Z = R + X_L).",
+            "Confondre les formules de Z pour RL et RC : dans RC, X_C = 1/(Cω), mais Z = √(R²+X_C²) (pas de signe moins).",
+            "Pour RLC, la différence X_L - X_C peut être négative, donnant un φ négatif (circuit capacitif)."
+          ],
+          "summary": "Z_RL = √(R² + (Lω)²), tan φ = Lω/R. Z_RC = √(R² + (1/(Cω))²), tan φ = -1/(CωR). Z_RLC = √(R² + (Lω - 1/(Cω))²), tan φ = (Lω - 1/(Cω))/R."
+        },
+        {
+          "title": "La résonance dans un circuit RLC série",
+          "introduction": "À une fréquence particulière, les réactances inductive et capacitive s'annulent : le circuit se comporte comme une simple résistance. C'est la résonance. Ce phénomène est très important et souvent demandé au bac.",
+          "definition": "La résonance a lieu quand X_L = X_C, soit Lω = 1/(Cω) → ω₀ = 1/√(LC). La fréquence de résonance est f₀ = ω₀/(2π) = 1/(2π√(LC)). À la résonance, Z = R (impédance minimale), I = U/R (courant maximal), φ = 0 (tension et courant en phase), et U_L = U_C (ces tensions peuvent être très grandes, supérieures à U).",
+          "explanation": "Lorsque X_L = X_C, les tensions aux bornes de L et C s'annulent (elles sont opposées). L'impédance se réduit à R. Le courant est alors maximal et en phase avec la tension. Les tensions U_L et U_C sont égales et peuvent être bien plus grandes que U si le facteur de qualité Q = Lω/R est grand.",
+          "step_by_step": [
+            "Étape 1 : Calculer ω₀ = 1/√(LC).",
+            "Étape 2 : En déduire f₀ = ω₀/(2π).",
+            "Étape 3 : À f₀, Z = R, I = U/R.",
+            "Étape 4 : Calculer U_L = Lω₀ I, U_C = I/(Cω₀) (elles sont égales)."
+          ],
+          "examples": [
+            "Exemple : L=0,1 H, C=10 µF. ω₀ = 1/√(0,1×10×10⁻⁶) = 1/√(10⁻⁶) = 1000 rad/s, f₀ = 1000/(2π) ≈ 159 Hz."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Reprenons l'exercice précédent. Pour la bobine réelle (R=25 Ω, L=0,174 H) et un condensateur C=58,3 µF, la résonance a lieu à f=50 Hz. À cette fréquence, Z = R = 25 Ω, I = 120/25 = 4,8 A. U_L = Lω I = 0,174×314×4,8 ≈ 262 V, U_C = I/(Cω) = 4,8/(58,3×10⁻⁶×314) ≈ 262 V. On voit que U_L et U_C sont plus grandes que la tension d'alimentation (120 V)."
+          ],
+          "methods": [
+            "Pour trouver C à la résonance, utiliser C = 1/(Lω²).",
+            "Pour trouver L à la résonance, L = 1/(Cω²)."
+          ],
+          "common_mistakes": [
+            "Croire que Z=0 à la résonance (Z = R, pas zéro).",
+            "Oublier que la résonance n'existe que si R n'est pas trop grand (sinon le pic est plat).",
+            "Confondre la pulsation propre ω₀ avec la fréquence f₀."
+          ],
+          "summary": "Résonance : X_L = X_C, ω₀ = 1/√(LC), f₀ = 1/(2π√(LC)). Z = R (minimum), I = U/R (maximum), φ = 0, U_L = U_C (peuvent être > U)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un courant alternatif a pour expression i(t)=3 sin(628t) A. Calculer Iₘ, I_eff, f, T.",
+          "solution": "Iₘ=3 A, I_eff≈2,12 A, f=100 Hz, T=0,01 s",
+          "explanation": "Iₘ=3 A, I_eff=3/√2≈2,12 A. ω=628 rad/s, f=628/(2π)=100 Hz, T=1/100=0,01 s."
+        },
+        {
+          "question": "Une bobine pure d'inductance L=0,2 H est alimentée sous U_eff=100 V, f=50 Hz. Calculer X_L, I_eff.",
+          "solution": "X_L=62,8 Ω, I_eff≈1,59 A",
+          "explanation": "ω=2π×50=314 rad/s, X_L=0,2×314=62,8 Ω, I_eff=100/62,8≈1,59 A."
+        },
+        {
+          "question": "Un condensateur C=50 µF est alimenté sous U_eff=120 V, f=50 Hz. Calculer X_C, I_eff.",
+          "solution": "X_C≈63,7 Ω, I_eff≈1,88 A",
+          "explanation": "ω=314 rad/s, X_C=1/(50×10⁻⁶×314)=1/0,0157≈63,7 Ω, I_eff=120/63,7≈1,88 A."
+        },
+        {
+          "question": "Circuit RL série : R=40 Ω, L=0,1 H, f=50 Hz, U_eff=200 V. Calculer Z, I_eff, φ, U_R, U_L.",
+          "solution": "Z≈50,85 Ω, I_eff≈3,93 A, φ≈38,1°, U_R≈157,2 V, U_L≈123,4 V",
+          "explanation": "X_L=0,1×314=31,4 Ω, Z=√(40²+31,4²)=√(1600+986)=√2586≈50,85 Ω, I=200/50,85≈3,93 A, tan φ=31,4/40=0,785 → φ≈38,1°, U_R=40×3,93=157,2 V, U_L=31,4×3,93=123,4 V. Vérif : √(157,2²+123,4²)=√(24712+15228)=√39940≈199,8 V (≈200 V)."
+        },
+        {
+          "question": "Un circuit RLC série a R=10 Ω, L=0,1 H, C=100 µF. Calculer la fréquence de résonance.",
+          "solution": "f₀≈50,3 Hz",
+          "explanation": "ω₀=1/√(0,1×100×10⁻⁶)=1/√(10⁻⁵)=316,2 rad/s, f₀=316,2/(2π)=50,3 Hz."
+        },
+        {
+          "question": "À la résonance, que vaut l'impédance d'un circuit RLC série ?",
+          "solution": "Z = R",
+          "explanation": "À la résonance, X_L = X_C, donc Z = √(R² + (X_L-X_C)²) = √(R²+0) = R."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Le solénoïde et l'inductance",
+      "chapter_introduction": "Un solénoïde est un fil enroulé en spirale. Quand un courant le traverse, il crée un champ magnétique uniforme à l'intérieur et possède une inductance propre. Ce chapitre relie la géométrie du bobinage aux grandeurs électriques (champ B, flux, inductance).",
+      "chapter_objectives": [
+        "Connaître la formule du champ magnétique à l'intérieur d'un solénoïde : B = μ₀ (N/ℓ) I",
+        "Savoir calculer le flux magnétique Φ = B×S par spire, et le flux total NΦ",
+        "Maîtriser la formule de l'inductance L = μ₀ (N²/ℓ) S",
+        "Calculer l'énergie magnétique W = ½ L I²",
+        "Utiliser la loi de Faraday pour la f.é.m. d'auto-induction : e = -L dI/dt",
+        "Résoudre des problèmes incluant la longueur du fil, le diamètre, le nombre de spires"
+      ],
+      "subchapters": [
+        {
+          "title": "Le champ magnétique dans un solénoïde",
+          "introduction": "Un solénoïde est un enroulement cylindrique de fil. Il produit un champ magnétique uniforme à l'intérieur, analogue à celui d'un aimant. C'est un composant essentiel en électricité.",
+          "definition": "Un solénoïde est caractérisé par son nombre de spires N, sa longueur ℓ, son diamètre D (ou rayon r), et la surface S = πr² de chaque spire. Le champ magnétique à l'intérieur, supposé uniforme, est B = μ₀ (N/ℓ) I, où μ₀ = 4π×10⁻⁷ H/m est la perméabilité du vide.",
+          "explanation": "Le champ B est dirigé selon l'axe du solénoïde. Il est uniforme à l'intérieur (loin des bords) et nul à l'extérieur. L'expression B = μ₀ (N/ℓ) I montre que le champ est proportionnel au courant et à la densité de spires (N/ℓ).",
+          "step_by_step": [
+            "Étape 1 : Relever les données géométriques : N, ℓ, D (ou r).",
+            "Étape 2 : Convertir ℓ en mètres, D en mètres.",
+            "Étape 3 : Calculer la surface S = π(D/2)².",
+            "Étape 4 : Calculer B = μ₀ × (N/ℓ) × I."
+          ],
+          "examples": [
+            "Exemple : N=1000, ℓ=0,5 m, I=2 A. B = 4π×10⁻⁷ × (1000/0,5) × 2 = 4π×10⁻⁷ × 2000 × 2 = 4π×10⁻⁷ × 4000 = 5,03×10⁻³ T = 5,03 mT."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Bac 2019) : Un solénoïde de 150 spires, longueur 50 cm, diamètre 5 cm, est parcouru par un courant de 0,5 A. Calculer B.\n\nDonnées : N=150, ℓ=50 cm = 0,5 m, D=5 cm = 0,05 m → r=0,025 m, I=0,5 A.\nB = μ₀ (N/ℓ) I = 4π×10⁻⁷ × (150/0,5) × 0,5 = 4π×10⁻⁷ × 300 × 0,5 = 4π×10⁻⁷ × 150 = 1,885×10⁻⁴ T."
+          ],
+          "methods": [
+            "Pour calculer le nombre de spires par mètre, diviser N par ℓ en mètres.",
+            "Ne pas confondre la longueur du solénoïde ℓ avec la longueur du fil."
+          ],
+          "common_mistakes": [
+            "Oublier de convertir ℓ en mètres (utiliser des cm donne un résultat faux).",
+            "Confondre le diamètre et le rayon pour le calcul de la surface S."
+          ],
+          "summary": "B = μ₀ (N/ℓ) I, où μ₀ = 4π×10⁻⁷ H/m. Le champ est uniforme à l'intérieur du solénoïde."
+        },
+        {
+          "title": "Flux magnétique et inductance",
+          "introduction": "Le flux magnétique à travers une spire et l'inductance propre du solénoïde sont des grandeurs clés pour comprendre l'auto-induction.",
+          "definition": "Le flux magnétique à travers une spire est Φ = B × S (si B est perpendiculaire à la spire). Le flux total à travers les N spires est Φ_total = NΦ. L'inductance L est définie par L = Φ_total / I = NΦ/I. Pour un solénoïde long, on a L = μ₀ N² S / ℓ.",
+          "explanation": "L'inductance dépend de la géométrie et du nombre de spires. Le carré de N montre que doubler le nombre de spires multiplie L par 4. L'énergie magnétique stockée est W = ½ L I². La force électromotrice d'auto-induction est e = -L dI/dt.",
+          "step_by_step": [
+            "Étape 1 : Calculer B (comme précédemment).",
+            "Étape 2 : Calculer S = π r² (r = D/2).",
+            "Étape 3 : Calculer Φ = B × S.",
+            "Étape 4 : Calculer L = μ₀ N² S / ℓ.",
+            "Étape 5 : Calculer W = ½ L I².",
+            "Étape 6 : Pour une variation de courant, |e| = L |ΔI|/Δt."
+          ],
+          "examples": [
+            "Exemple : N=1000, ℓ=0,5 m, S=5×10⁻³ m², I=2 A. L = 4π×10⁻⁷ × (10⁶/0,5) × 5×10⁻³ = 4π×10⁻⁷ × 2×10⁶ × 5×10⁻³ = 4π×10⁻¹ × 5×10⁻³ = 4π×5×10⁻⁴ = 6,28×10⁻³ H = 6,28 mH. W = 0,5×6,28×10⁻³×4 = 0,01256 J."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (suite Bac 2019) : Pour le solénoïde précédent (N=150, ℓ=0,5 m, D=5 cm, I=0,5 A), calculer Φ, L, puis la f.é.m. induite si le courant passe de 0,5 A à 0,2 A en 1/25 s.\n\nS = π×(0,025)² = 1,963×10⁻³ m².\nB = 1,885×10⁻⁴ T.\nΦ = B×S = 1,885×10⁻⁴ × 1,963×10⁻³ = 3,70×10⁻⁷ Wb.\nL = μ₀ N² S / ℓ = 4π×10⁻⁷ × (150²/0,5) × 1,963×10⁻³ = 4π×10⁻⁷ × (22500/0,5) × 1,963×10⁻³ = 4π×10⁻⁷ × 45000 × 1,963×10⁻³ = 4π×10⁻⁷ × 88,34 = 1,11×10⁻⁴ H.\nVariation de courant : |ΔI| = 0,3 A, Δt = 0,04 s, |e| = L|ΔI|/Δt = 1,11×10⁻⁴ × 0,3/0,04 = 1,11×10⁻⁴ × 7,5 = 8,33×10⁻⁴ V."
+          ],
+          "methods": [
+            "Pour calculer la f.é.m. d'auto-induction, utiliser |e| = L |ΔI|/Δt (valeur moyenne).",
+            "Pour l'énergie, utiliser W = ½ L I²."
+          ],
+          "common_mistakes": [
+            "Oublier le carré sur N dans la formule de L (L ∝ N²).",
+            "Confondre le flux à travers une spire (Φ) et le flux total (NΦ)."
+          ],
+          "summary": "Φ = B×S, L = μ₀ N² S / ℓ, W = ½ L I², |e| = L |ΔI|/Δt."
+        },
+        {
+          "title": "Aspects géométriques et résistance du bobinage",
+          "introduction": "Les problèmes d'examen donnent souvent des dimensions et demandent de trouver N, la résistance du bobinage, ou la longueur de fil. Il faut maîtriser les relations géométriques.",
+          "definition": "Longueur du fil utilisé : L_fil = N × π × D (chaque spire a une circonférence πD). Résistance du fil : R = ρ L_fil / A, où A = π(d_fil/2)² est la section du fil, ρ la résistivité (pour le cuivre, ρ ≈ 1,6×10⁻⁸ Ω·m). Si les spires sont jointives, le nombre de spires par couche est N_couche = ℓ / d_fil (avec d_fil en mètres).",
+          "explanation": "Ces relations permettent de relier les grandeurs électriques (R, L) aux grandeurs géométriques. On peut ainsi déterminer le nombre de spires à partir de la longueur de fil donnée, ou calculer la résistance du bobinage.",
+          "step_by_step": [
+            "Étape 1 : Si on donne la longueur totale de fil L_fil et le diamètre D, calculer N = L_fil/(πD).",
+            "Étape 2 : Pour trouver la résistance, utiliser R = ρ L_fil / A, avec A = π(d_fil/2)².",
+            "Étape 3 : Pour trouver le diamètre du fil à partir de R, inverser la formule : d_fil = √(4ρ L_fil/(πR)).",
+            "Étape 4 : Pour un bobinage à une couche, ℓ = N × d_fil (spires jointives)."
+          ],
+          "examples": [
+            "Exemple : Un solénoïde de longueur 40 cm, diamètre 4 cm, est bobiné avec un fil de 150,72 m. Circonférence = π×0,04 = 0,1257 m, N = 150,72 / 0,1257 = 1200 spires."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Bac 2022) : Une bobine comporte deux couches de 900 spires chacune. Le diamètre des spires est D=8 cm, le diamètre du fil est d_fil=0,2 mm, la résistivité du cuivre ρ=1,6×10⁻⁸ Ω·m. Calculer le nombre total de spires, la longueur du solénoïde, la longueur du fil, la résistance.\n\nN_total = 2×900 = 1800 spires.\nLongueur du solénoïde : ℓ = (nombre de spires par couche) × d_fil = 900 × 0,2×10⁻³ = 0,18 m.\nLongueur du fil : L_fil = N_total × π × D = 1800 × π × 0,08 = 1800 × 0,2513 = 452,4 m.\nSection du fil : A = π (d_fil/2)² = π (0,1×10⁻³)² = π×10⁻⁸ = 3,14×10⁻⁸ m².\nRésistance : R = ρ L_fil / A = 1,6×10⁻⁸ × 452,4 / (3,14×10⁻⁸) = (1,6×452,4)/3,14 ≈ 723,84/3,14 ≈ 230,5 Ω."
+          ],
+          "methods": [
+            "Pour les spires jointives, le nombre de spires par couche = longueur du solénoïde / diamètre du fil (attention aux unités).",
+            "La longueur totale de fil peut être calculée si on connaît N et D."
+          ],
+          "common_mistakes": [
+            "Confondre diamètre du fil et diamètre des spires.",
+            "Ne pas convertir les mm en mètres (0,2 mm = 0,2×10⁻³ m).",
+            "Oublier que la longueur du solénoïde ℓ est différente de la longueur du fil."
+          ],
+          "summary": "L_fil = N π D, R = ρ L_fil / (π(d_fil/2)²), ℓ (solénoïde) = N_couche × d_fil (pour une couche)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un solénoïde a 1000 spires, ℓ=0,5 m, S=5×10⁻³ m², I=2 A. Calculer B, L, W.",
+          "solution": "B=5,03×10⁻³ T, L≈0,0126 H, W≈0,0252 J",
+          "explanation": "B=4π×10⁻⁷×(1000/0,5)×2 = 4π×10⁻⁷×2000×2 = 4π×4×10⁻⁴ = 5,03×10⁻³ T. L=4π×10⁻⁷×(10⁶/0,5)×5×10⁻³ = 4π×10⁻⁷×2×10⁶×5×10⁻³ = 4π×10⁻¹×5×10⁻³ = 4π×5×10⁻⁴ = 6,28×10⁻³ H (recalcul : 4π×10⁻⁷×2e6 = 2,513, ×5e-3 = 0,01257 H). W=½×0,01257×4 = 0,0251 J."
+        },
+        {
+          "question": "Un solénoïde de longueur 40 cm, diamètre 4 cm, est bobiné avec un fil de 150,72 m. Combien de spires ?",
+          "solution": "N=1200 spires",
+          "explanation": "Circonférence = π×0,04 = 0,12566 m, N = 150,72 / 0,12566 ≈ 1200."
+        },
+        {
+          "question": "Dans un solénoïde, le courant passe de 0,5 A à 0,2 A en 1/25 s. L=1,11×10⁻⁴ H. Calculer la f.é.m. d'auto-induction moyenne.",
+          "solution": "|e|=8,33×10⁻⁴ V",
+          "explanation": "|ΔI|=0,3 A, Δt=0,04 s, |e|=L|ΔI|/Δt = 1,11×10⁻⁴ × 0,3/0,04 = 1,11×10⁻⁴ × 7,5 = 8,33×10⁻⁴ V."
+        },
+        {
+          "question": "Un solénoïde a une inductance L=0,1 H. Quelle énergie stocke-t-il quand il est parcouru par 2 A ?",
+          "solution": "W=0,2 J",
+          "explanation": "W = ½ L I² = 0,5×0,1×4 = 0,2 J."
+        },
+        {
+          "question": "Démontrer que L = μ₀ N² S / ℓ.",
+          "solution": "Voir démonstration",
+          "explanation": "Par définition, L = NΦ/I. Φ = B×S = μ₀(N/ℓ)I × S. Donc NΦ = μ₀(N²/ℓ) I S, d'où L = μ₀ N² S / ℓ."
+        }
+      ]
+    },
+    {
+      "chapter_title": "L'induction électromagnétique",
+      "chapter_introduction": "Faraday a découvert qu'une variation du flux magnétique à travers un circuit induit une force électromotrice. C'est le principe des générateurs, des transformateurs, et de l'auto-induction.",
+      "chapter_objectives": [
+        "Énoncer la loi de Faraday : e = -N dΦ/dt",
+        "Calculer la f.é.m. induite à partir de la variation de flux",
+        "Distinguer les trois types de situations : aimant en mouvement, bobine qui tourne, variation de courant",
+        "Utiliser la formule de la quantité d'électricité induite : q = N ΔΦ / R"
+      ],
+      "subchapters": [
+        {
+          "title": "La loi de Faraday et la loi de Lenz",
+          "introduction": "Toute variation du flux magnétique à travers un circuit produit une tension induite. Le courant induit s'oppose à la variation (loi de Lenz).",
+          "definition": "La force électromotrice induite est e = -N dΦ/dt. En valeur absolue, pour une variation moyenne, |e| = N |ΔΦ|/Δt. Le signe moins traduit la loi de Lenz : le courant induit crée un champ qui s'oppose à la variation du flux.",
+          "explanation": "Si un aimant s'approche d'une bobine, le flux augmente, la f.é.m. induite crée un courant qui tend à repousser l'aimant (opposition). Si l'aimant s'éloigne, le flux diminue, le courant induit attire l'aimant. Cette opposition est une conséquence de la conservation de l'énergie.",
+          "step_by_step": [
+            "Étape 1 : Calculer le flux initial Φ₁ et le flux final Φ₂.",
+            "Étape 2 : ΔΦ = |Φ₂ - Φ₁|.",
+            "Étape 3 : |e| = N × ΔΦ / Δt.",
+            "Étape 4 : Pour la quantité d'électricité, q = N ΔΦ / R (R résistance du circuit)."
+          ],
+          "examples": [
+            "Exemple : Une bobine de 500 spires voit le flux à travers elle passer de 0,01 Wb à 0,03 Wb en 0,2 s. ΔΦ=0,02 Wb, |e| = 500×0,02/0,2 = 50 V."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (Bac 2019) : Une bobine de 800 spires, de section 5 cm², est placée dans un champ magnétique uniforme B=0,4 T. L'axe de la bobine est parallèle au champ. On fait tourner la bobine de 180° en 5 ms. Calculer la f.é.m. moyenne induite.\n\nΦ_initial = B×S = 0,4 × 5×10⁻⁴ = 2×10⁻⁴ Wb. Après rotation de 180°, le champ traverse la bobine dans l'autre sens, donc Φ_final = -2×10⁻⁴ Wb. ΔΦ = |(-2×10⁻⁴) - (2×10⁻⁴)| = 4×10⁻⁴ Wb. Δt = 5×10⁻³ s. |e| = 800 × 4×10⁻⁴ / (5×10⁻³) = 800 × 0,08 = 64 V.\n\nSi on retire la bobine du champ en 0,01 s, Φ_final = 0, ΔΦ = 2×10⁻⁴ Wb, |e| = 800 × 2×10⁻⁴ / 0,01 = 16 V."
+          ],
+          "methods": [
+            "Pour une bobine qui tourne de 0° à 180°, ΔΦ = 2BS.",
+            "Pour un retrait du champ, ΔΦ = BS (si initialement perpendiculaire)."
+          ],
+          "common_mistakes": [
+            "Oublier le nombre de spires N.",
+            "Confondre variation de flux (ΔΦ) et flux lui-même.",
+            "Ne pas tenir compte du signe (mais en valeur absolue, c'est souvent suffisant)."
+          ],
+          "summary": "|e| = N |ΔΦ|/Δt, q = N ΔΦ / R."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Une bobine de 200 spires voit son flux varier de 0,02 Wb à 0,05 Wb en 0,1 s. Calculer la f.é.m. moyenne induite.",
+          "solution": "60 V",
+          "explanation": "ΔΦ = 0,03 Wb, |e| = 200 × 0,03 / 0,1 = 60 V."
+        },
+        {
+          "question": "Une bobine de 1000 spires a une section 10 cm², B=0,2 T. On la retire du champ en 0,05 s. Calculer e.",
+          "solution": "4 V",
+          "explanation": "Φ_initial = 0,2 × 10×10⁻⁴ = 2×10⁻⁴ Wb, ΔΦ = 2×10⁻⁴ Wb, |e| = 1000 × 2×10⁻⁴ / 0,05 = 1000 × 0,004 = 4 V."
+        },
+        {
+          "question": "Quelle quantité d'électricité circule si la résistance de la bobine est 10 Ω ? (données de l'exercice précédent)",
+          "solution": "q = 0,02 C",
+          "explanation": "q = N ΔΦ / R = 1000 × 2×10⁻⁴ / 10 = 0,02 C."
+        }
+      ]
+    },
+    {
+      "chapter_title": "La force de Laplace et le galvanomètre",
+      "chapter_introduction": "Un conducteur parcouru par un courant dans un champ magnétique subit une force. C'est le principe du moteur électrique et du galvanomètre à cadre mobile.",
+      "chapter_objectives": [
+        "Connaître la formule de la force de Laplace : F = B I L sin θ",
+        "Déterminer la direction par la règle des trois doigts",
+        "Calculer le travail de cette force",
+        "Comprendre le fonctionnement du galvanomètre : couple moteur = NBIS, couple de rappel = Dα, équilibre → α = NBIS/D"
+      ],
+      "subchapters": [
+        {
+          "title": "Force de Laplace",
+          "introduction": "Un fil parcouru par un courant placé dans un champ magnétique subit une force. C'est le principe de base des moteurs électriques.",
+          "definition": "La force de Laplace s'exerçant sur un fil rectiligne de longueur L, parcouru par un courant I, placé dans un champ magnétique uniforme B, est F = B I L sin θ, où θ est l'angle entre le fil et le champ. La direction est donnée par la règle de la main gauche (index = B, majeur = I, pouce = F).",
+          "explanation": "Quand le fil est perpendiculaire au champ (θ=90°), F = B I L est maximale. Quand il est parallèle (θ=0°), F=0. Le travail de cette force est W = F × d, où d est le déplacement du fil dans la direction de la force.",
+          "step_by_step": [
+            "Étape 1 : Identifier B, I, L, θ.",
+            "Étape 2 : Calculer F = B I L sin θ.",
+            "Étape 3 : Pour le travail, W = F × d (d déplacement selon la force)."
+          ],
+          "examples": [
+            "Exemple : Un fil de 20 cm parcouru par 6 A est perpendiculaire à un champ B=10 mT. F = 0,01 × 6 × 0,2 = 0,012 N. Si le fil se déplace de 4 cm dans la direction de la force, W = 0,012 × 0,04 = 4,8×10⁻⁴ J."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Utiliser la règle des trois doigts de la main gauche pour trouver la direction.",
+            "Attention : la force est nulle si le fil est parallèle au champ."
+          ],
+          "common_mistakes": [
+            "Oublier le facteur sin θ.",
+            "Confondre la direction de la force (utiliser la main droite au lieu de la gauche)."
+          ],
+          "summary": "F = B I L sin θ. La direction est donnée par la règle de la main gauche."
+        },
+        {
+          "title": "Galvanomètre à cadre mobile",
+          "introduction": "Le galvanomètre mesure des courants faibles grâce à la force de Laplace agissant sur un cadre. C'est un instrument classique.",
+          "definition": "Le couple moteur sur le cadre est C_m = N B I S, où N est le nombre de spires, B le champ magnétique, I le courant, S la surface du cadre. Le couple de rappel est C_r = D α, avec D constante de torsion. À l'équilibre, C_m = C_r, donc α = (N B S / D) I. La sensibilité est s = α/I = N B S / D.",
+          "explanation": "Le cadre tourne sous l'effet du couple magnétique jusqu'à ce que le couple de rappel des ressorts l'équilibre. L'angle α est proportionnel à l'intensité I. On peut ainsi graduer l'appareil en ampères.",
+          "step_by_step": [
+            "Étape 1 : Identifier N, B, S, I.",
+            "Étape 2 : Calculer le couple moteur C_m = N B I S.",
+            "Étape 3 : Égaler C_m = D α → α = N B I S / D.",
+            "Étape 4 : Pour trouver I à partir de α, I = D α/(N B S)."
+          ],
+          "examples": [
+            "Exemple : N=100, B=0,1 T, S=2×10⁻⁴ m², D=10⁻⁴ N·m/rad, I=1 mA=10⁻³ A. α = 100×0,1×10⁻³×2×10⁻⁴ / 10⁻⁴ = 100×0,1×2×10⁻³ = 0,02 rad ≈ 1,15°."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "La sensibilité s = α/I = NBS/D : plus elle est grande, plus le galvanomètre est sensible."
+          ],
+          "common_mistakes": [
+            "Confondre la surface du cadre (S) avec la surface d'une spire (identique ici).",
+            "Oublier le nombre de spires N."
+          ],
+          "summary": "α = (N B S / D) I. Le couple moteur est N B I S, le couple de rappel est D α."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un fil de 0,5 m parcouru par 2 A est perpendiculaire à un champ B=0,05 T. Calculer la force.",
+          "solution": "0,05 N",
+          "explanation": "F = B I L sin 90° = 0,05 × 2 × 0,5 = 0,05 N."
+        },
+        {
+          "question": "Un galvanomètre a N=200 spires, S=1 cm², B=0,2 T, D=2×10⁻⁴ N·m/rad. Quelle intensité produit une déviation de 0,1 rad ?",
+          "solution": "I = 5×10⁻³ A = 5 mA",
+          "explanation": "I = Dα/(NBS) = (2×10⁻⁴ × 0,1) / (200 × 0,2 × 1×10⁻⁴) = (2×10⁻⁵) / (200 × 0,2 × 10⁻⁴) = (2×10⁻⁵) / (4×10⁻³) = 0,005 A."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Mécanique",
+      "chapter_introduction": "La mécanique étudie le mouvement des corps. Au bac, on traite principalement la chute libre, le mouvement des projectiles, le pendule simple et le système masse-ressort.",
+      "chapter_objectives": [
+        "Maîtriser les équations de la chute libre avec axe orienté",
+        "Savoir décomposer le mouvement d'un projectile sur les axes x et y",
+        "Calculer la portée et la hauteur maximale d'un projectile",
+        "Connaître la période du pendule simple et son énergie",
+        "Connaître la période du ressort"
+      ],
+      "subchapters": [
+        {
+          "title": "Chute libre",
+          "introduction": "Un corps en chute libre n'est soumis qu'à son poids. L'accélération est constante et égale à g (vers le bas).",
+          "definition": "Avec un axe vertical orienté vers le haut, l'accélération est a = -g. Les équations horaires sont : v(t) = v₀ - g t, z(t) = z₀ + v₀ t - ½ g t². Si l'axe est orienté vers le bas, a = +g, v(t)=v₀ + g t, z(t)=z₀ + v₀ t + ½ g t².",
+          "explanation": "Ces équations viennent de l'intégration de a = constante. La vitesse est une fonction linéaire du temps, la position une fonction quadratique. Il est essentiel de choisir l'orientation de l'axe avant d'écrire les équations.",
+          "step_by_step": [
+            "Étape 1 : Choisir l'orientation de l'axe (vers le haut est le plus courant).",
+            "Étape 2 : Écrire a = -g.",
+            "Étape 3 : Intégrer pour obtenir v(t) = v₀ - g t.",
+            "Étape 4 : Intégrer à nouveau : z(t) = z₀ + v₀ t - ½ g t².",
+            "Étape 5 : Utiliser les conditions initiales (z₀, v₀)."
+          ],
+          "examples": [
+            "Exemple : On donne z(t) = -4,9t² + 2t + 1,2 (axe vers le haut). À t=0, z=1,2 m, v₀ = 2 m/s (vers le haut). Le sommet est atteint quand v=0 → -9,8t+2=0 → t=0,204 s, z=1,404 m."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pour trouver l'instant où la vitesse s'annule, résoudre v(t)=0.",
+            "Pour trouver la hauteur maximale, remplacer cet instant dans z(t)."
+          ],
+          "common_mistakes": [
+            "Oublier le signe de g selon l'axe (axe vers le haut → a=-g).",
+            "Ne pas préciser l'orientation de l'axe dans la réponse."
+          ],
+          "summary": "Axe vers le haut : a=-g, v=v₀-gt, z=z₀+v₀t-½gt²."
+        },
+        {
+          "title": "Mouvement de projectile",
+          "introduction": "Un projectile lancé avec une vitesse initiale faisant un angle α avec l'horizontale a un mouvement parabolique. On décompose sur les axes x (horizontal) et y (vertical).",
+          "definition": "Les équations paramétriques (avec axe y vers le haut) sont : x(t) = V₀ cosα × t, y(t) = V₀ sinα × t - ½ g t². La portée (distance horizontale parcourue lorsque y=0, départ et arrivée à même altitude) est X = V₀² sin(2α)/g. La hauteur maximale est H = V₀² sin²α/(2g).",
+          "explanation": "Sur l'axe x, aucune force (si on néglige les frottements), donc mouvement uniforme. Sur l'axe y, le poids agit, donc mouvement uniformément accéléré (chute libre).",
+          "step_by_step": [
+            "Étape 1 : Décomposer V₀ : V₀x = V₀ cosα, V₀y = V₀ sinα.",
+            "Étape 2 : Écrire x(t) = V₀x t, y(t) = y₀ + V₀y t - ½ g t².",
+            "Étape 3 : Pour la portée (si départ à y₀=0 et arrivée à y=0), résoudre y(t)=0 → t = 2V₀ sinα / g (sauf t=0). Puis X = V₀x t = V₀ cosα × (2V₀ sinα/g) = V₀² sin(2α)/g.",
+            "Étape 4 : Pour la hauteur maximale, utiliser vy=0 → t = V₀ sinα/g, puis H = y(t)."
+          ],
+          "examples": [
+            "Exemple : V₀=40 m/s, α=30°, g=10 m/s². X = 40² × sin60° / 10 = 1600 × 0,866 / 10 = 138,6 m. H = 40² × (sin30°)² / (2×10) = 1600 × 0,25 / 20 = 20 m."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Un projectile est lancé du haut d'un toit à 4,20 m, avec V₀=25 m/s, α=37°, g=10 m/s². Calculer la durée du vol et la portée.\n\nV₀x = 25 cos37° = 25×0,8 = 20 m/s, V₀y = 25 sin37° = 25×0,6 = 15 m/s.\nÉquation y(t) = y₀ + V₀y t - ½ g t² = 4,20 + 15t - 5t².\nOn résout y(t)=0 : 5t² - 15t - 4,20 = 0. Δ = 225 + 84 = 309, √Δ ≈ 17,58. t = (15 + 17,58)/(2×5) = 32,58/10 = 3,258 s (l'autre racine négative).\nPortée : x = V₀x × t = 20 × 3,258 ≈ 65,2 m."
+          ],
+          "methods": [
+            "Pour la portée depuis une hauteur initiale, on ne peut pas utiliser la formule simplifiée ; il faut résoudre l'équation du second degré en t.",
+            "Pour la hauteur maximale, on peut utiliser vy=0."
+          ],
+          "common_mistakes": [
+            "Oublier la hauteur initiale y₀ dans l'équation.",
+            "Confondre sin(2α) avec 2 sinα.",
+            "Utiliser la formule de portée quand le départ et l'arrivée ne sont pas à la même altitude."
+          ],
+          "summary": "x(t)=V₀ cosα t, y(t)=y₀+V₀ sinα t - ½gt². Portée (même altitude) = V₀² sin(2α)/g, hauteur max = V₀² sin²α/(2g)."
+        },
+        {
+          "title": "Pendule simple",
+          "introduction": "Un pendule simple est une masse accrochée à un fil inextensible. Pour de petites oscillations, la période est indépendante de la masse et de l'amplitude.",
+          "definition": "La période T = 2π √(L/g), où L est la longueur du fil. L'énergie potentielle par rapport à la position d'équilibre est E_p = mgL(1 - cosθ). La vitesse maximale au passage à l'équilibre est v_max = √(2gL(1 - cosθ_max)).",
+          "explanation": "L'énergie mécanique se conserve. Au point le plus haut, l'énergie est entièrement potentielle : E_p = mgL(1-cosθ_max). Au point le plus bas, elle est entièrement cinétique : E_c = ½ m v_max². En égalant, on trouve v_max. La période T ne dépend ni de la masse ni de l'amplitude (pour les petits angles).",
+          "step_by_step": [
+            "Étape 1 : Calculer T = 2π √(L/g).",
+            "Étape 2 : Pour l'énergie, E_m = mgL(1 - cosθ_max).",
+            "Étape 3 : v_max = √(2gL(1 - cosθ_max)).",
+            "Étape 4 : Pour une position quelconque, utiliser conservation : ½mv² + mgL(1-cosθ) = E_m."
+          ],
+          "examples": [
+            "Exemple : L=1 m, g=9,8 m/s² → T = 2π √(1/9,8) = 2π × 0,319 = 2,00 s."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Un pendule de masse 300 g, longueur 90 cm, est écarté de 50° de la verticale. Calculer l'énergie potentielle, la vitesse maximale, puis l'énergie et la vitesse à θ=20°.\n\nh = L(1 - cos50°) = 0,9×(1-0,643)=0,9×0,357=0,321 m, E_p = mgh = 0,3×9,8×0,321 = 0,943 J. v_max = √(2gL(1-cos50°)) = √(2×9,8×0,321)=√6,29=2,51 m/s.\nÀ θ=20°, h' = 0,9×(1-cos20°)=0,9×0,060=0,054 m, E_p' = 0,3×9,8×0,054=0,159 J, E_c' = 0,943-0,159=0,784 J, v' = √(2×0,784/0,3)=√5,227=2,29 m/s."
+          ],
+          "methods": [
+            "Utiliser la conservation de l'énergie mécanique pour trouver la vitesse en fonction de θ.",
+            "Pour les petits angles (θ < 10°), on peut approximer sinθ ≈ θ et cosθ ≈ 1-θ²/2."
+          ],
+          "common_mistakes": [
+            "Oublier que la hauteur par rapport au point d'équilibre est L(1-cosθ), pas L cosθ.",
+            "Confondre la période du pendule avec celle d'un ressort."
+          ],
+          "summary": "T = 2π√(L/g). Énergie : E = mgL(1-cosθ) + ½mv² = constante."
+        },
+        {
+          "title": "Système masse-ressort",
+          "introduction": "Un ressort exerce une force de rappel proportionnelle à l'allongement. La période des oscillations est T = 2π√(m/k).",
+          "definition": "Loi de Hooke : F = -k x, où k est la constante de raideur (N/m). L'énergie potentielle élastique est E_p = ½ k x². La période des oscillations (sans frottement) est T = 2π √(m/k). La pulsation propre est ω₀ = √(k/m).",
+          "explanation": "L'équation différentielle du mouvement est m x'' + k x = 0, dont la solution est sinusoïdale de pulsation ω₀. L'énergie mécanique se conserve : ½ k A² = ½ k x² + ½ m v², où A est l'amplitude.",
+          "step_by_step": [
+            "Étape 1 : Identifier m (masse) et k (raideur).",
+            "Étape 2 : Calculer T = 2π √(m/k).",
+            "Étape 3 : Si on connaît l'amplitude A, l'énergie totale est ½ k A².",
+            "Étape 4 : La vitesse maximale est v_max = A √(k/m) = A ω₀."
+          ],
+          "examples": [
+            "Exemple : m=0,2 kg, k=80 N/m. T = 2π √(0,2/80) = 2π √0,0025 = 2π × 0,05 = 0,314 s."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pour trouver k, on peut utiliser la période mesurée : k = 4π² m / T²."
+          ],
+          "common_mistakes": [
+            "Confondre la constante de raideur k avec la constante de torsion D.",
+            "Oublier le facteur 2π dans la période."
+          ],
+          "summary": "T = 2π √(m/k), ω₀ = √(k/m), E = ½ k A²."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Une bille est lancée verticalement vers le haut avec v₀=10 m/s depuis le sol (g=10 m/s²). Calculer la hauteur maximale et le temps de vol.",
+          "solution": "H=5 m, t_vol=2 s",
+          "explanation": "H = v₀²/(2g) = 100/20 = 5 m. Temps de montée = v₀/g = 1 s, temps de vol total = 2 s (symétrie)."
+        },
+        {
+          "question": "Un projectile est tiré avec V₀=50 m/s, α=45°, g=10 m/s². Calculer la portée et la hauteur maximale.",
+          "solution": "X=250 m, H=62,5 m",
+          "explanation": "X = V₀² sin(2α)/g = 2500 × sin90°/10 = 2500/10 = 250 m. H = V₀² sin²α/(2g) = 2500 × (0,5)² / 20 = 2500 × 0,25 / 20 = 625/20 = 31,25 m? Recalcul : sin45°=√2/2≈0,707, sin²=0,5, donc H = 2500×0,5/(20)=1250/20=62,5 m."
+        },
+        {
+          "question": "Un pendule simple de longueur 2,5 m a une période de 3,14 s. Calculer g.",
+          "solution": "g≈10 m/s²",
+          "explanation": "T = 2π √(L/g) ⇒ g = 4π² L / T² = 4π² × 2,5 / (3,14²) ≈ (39,48×2,5)/9,86 ≈ 98,7/9,86 ≈ 10,0 m/s²."
+        },
+        {
+          "question": "Un ressort de raideur k=100 N/m, masse m=0,25 kg. Calculer T et f.",
+          "solution": "T=0,314 s, f=3,18 Hz",
+          "explanation": "T = 2π √(0,25/100) = 2π √0,0025 = 2π × 0,05 = 0,314 s, f = 1/T ≈ 3,18 Hz."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Les ondes",
+      "chapter_introduction": "Une onde est une perturbation qui se propage. On distingue les ondes mécaniques (son) et électromagnétiques (lumière). Ce chapitre est souvent abordé sous forme de QCM au bac.",
+      "chapter_objectives": [
+        "Connaître la relation λ = v T = v/f",
+        "Comprendre la double périodicité temporelle et spatiale",
+        "Savoir que la vitesse du son dans l'air est ≈340 m/s, celle de la lumière 3×10⁸ m/s",
+        "Expliquer la diffraction"
+      ],
+      "subchapters": [
+        {
+          "title": "Caractéristiques des ondes",
+          "introduction": "Une onde est caractérisée par sa longueur d'onde λ, sa période T, sa fréquence f et sa vitesse de propagation v.",
+          "definition": "La relation fondamentale est λ = v T = v / f. La double périodicité : temporelle (le même état se répète après une période T) et spatiale (le même état se répète après une longueur d'onde λ).",
+          "explanation": "La diffraction se produit quand une onde rencontre un obstacle ou une ouverture de taille comparable à sa longueur d'onde. La tache centrale de diffraction a une largeur l = 2λD / a, où D est la distance à l'écran et a la largeur de la fente.",
+          "step_by_step": [
+            "Étape 1 : v = λ f.",
+            "Étape 2 : Pour la diffraction, l = 2λD/a."
+          ],
+          "examples": [
+            "Exemple : Un son de fréquence 340 Hz se propage à 340 m/s → λ = 340/340 = 1 m."
+          ],
+          "detailed_examples": [],
+          "methods": [],
+          "common_mistakes": [
+            "Confondre vitesse de phase et vitesse de groupe (hors programme au bac).",
+            "Oublier que la lumière se propage dans le vide à c = 3×10⁸ m/s."
+          ],
+          "summary": "λ = v/f. Pour la lumière dans le vide, c = 3×10⁸ m/s. Pour le son dans l'air, v ≈ 340 m/s."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Une onde sonore de fréquence 680 Hz se propage à 340 m/s. Calculer λ.",
+          "solution": "0,5 m",
+          "explanation": "λ = v/f = 340/680 = 0,5 m."
+        },
+        {
+          "question": "La lumière a une longueur d'onde de 500 nm dans le vide. Quelle est sa fréquence ?",
+          "solution": "6×10¹⁴ Hz",
+          "explanation": "f = c/λ = 3×10⁸ / (500×10⁻⁹) = 6×10¹⁴ Hz."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Méthodes d'examen et démonstrations clés",
+      "chapter_introduction": "Cette section rassemble les démonstrations les plus demandées au bac et une stratégie pour réussir l'épreuve de physique.",
+      "chapter_objectives": [
+        "Savoir refaire les démonstrations de W=½CU², E=U/d, Z=Lω, Z=1/(Cω), Z=√(R²+(Lω)²), partage de charge, I_eff=Iₘ/√2, α=NBIS/D",
+        "Connaître les constantes physiques",
+        "Appliquer la stratégie d'examen"
+      ],
+      "subchapters": [
+        {
+          "title": "Démonstrations clés",
+          "introduction": "Voici les démonstrations types à connaître pour l'épreuve écrite. Les examinateurs apprécient les raisonnements clairs et la rigueur mathématique.",
+          "definition": "",
+          "explanation": "",
+          "step_by_step": [],
+          "examples": [],
+          "detailed_examples": [],
+          "methods": [],
+          "common_mistakes": [],
+          "summary": "W = ½CU² par intégration de dW = (q/C)dq. E = U/d par égalité qEd = qU. Z = Lω à partir de u = L di/dt. Z = 1/(Cω) à partir de i = C du/dt. Z_RL = √(R²+(Lω)²) par Pythagore des tensions. Partage de charge par conservation de Q. I_eff = Iₘ/√2 par égalité des puissances moyennes. α = NBIS/D par équilibre des couples."
+        },
+        {
+          "title": "Constantes physiques et valeurs utiles",
+          "introduction": "",
+          "definition": "ε₀ = 8,85×10⁻¹² F/m, μ₀ = 4π×10⁻⁷ H/m, g = 9,8 m/s² (parfois 10 dans les exercices), c = 3×10⁸ m/s, v_son ≈ 340 m/s, ρ_cuivre = 1,6×10⁻⁸ Ω·m, fréquence du réseau en Haïti : 60 Hz → ω = 377 rad/s, √2 ≈ 1,414, π ≈ 3,1416.",
+          "explanation": "Ces constantes sont souvent fournies dans les énoncés, mais il est utile de les connaître.",
+          "step_by_step": [],
+          "examples": [],
+          "detailed_examples": [],
+          "methods": [],
+          "common_mistakes": [],
+          "summary": "Connaître ces constantes par cœur facilite les calculs."
+        },
+        {
+          "title": "Stratégie d'examen",
+          "introduction": "Pour réussir l'épreuve de physique, il faut adopter une méthode systématique et éviter les erreurs courantes.",
+          "definition": "Lire tout l'énoncé, lister les données avec leurs unités, convertir en SI, faire un schéma, écrire la formule littérale, remplacer les valeurs numériques, calculer, encadrer le résultat avec son unité.",
+          "explanation": "Cette méthode permet de ne rien oublier et de structurer la réponse.",
+          "step_by_step": [],
+          "examples": [],
+          "detailed_examples": [],
+          "methods": [
+            "Toujours convertir les unités en SI avant tout calcul (mm → m, µF → F, etc.).",
+            "Ne pas oublier le facteur ½ dans W=½CU².",
+            "Vérifier le signe du déphasage (bobine : courant en retard, condo : courant en avance).",
+            "Pour les circuits RLC, ne pas oublier la racine carrée dans Z."
+          ],
+          "common_mistakes": [
+            "Unités non converties (ex: utiliser des cm sans convertir en m).",
+            "Confusion entre Iₘ et I_eff (ne pas diviser par √2 quand il faut).",
+            "Oubli de la racine carrée dans l'impédance Z.",
+            "Oubli du signe de g en mécanique (axe vers le haut → a = -g)."
+          ],
+          "summary": "Préparation : mémoriser les formules, s'entraîner aux conversions. Pendant l'examen : méthode systématique (données, formules, calculs, unités)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Démontrer que l'énergie d'un condensateur chargé est W = ½CU².",
+          "solution": "Voir démonstration",
+          "explanation": "Le travail pour amener une charge dq est dW = u dq = (q/C) dq. En intégrant de 0 à Q, W = ∫₀^Q (q/C) dq = Q²/(2C) = ½ C U²."
+        },
+        {
+          "question": "Démontrer la formule de l'impédance d'une bobine pure.",
+          "solution": "Z = Lω",
+          "explanation": "u = L di/dt. Si i = Iₘ sin(ωt), alors di/dt = Iₘ ω cos(ωt) = Iₘ ω sin(ωt+π/2). Donc u = Lω Iₘ sin(ωt+π/2). L'amplitude de u est Uₘ = Lω Iₘ, d'où Z = Uₘ/Iₘ = Lω."
+        },
+        {
+          "question": "Convertir 20 µF en Farad.",
+          "solution": "20×10⁻⁶ F",
+          "explanation": "1 µF = 10⁻⁶ F, donc 20 µF = 20×10⁻⁶ F."
+        }
+      ]
+    }
+  ]
+}

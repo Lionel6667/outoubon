@@ -1,0 +1,991 @@
+﻿{% extends 'base.html' %}
+{% block title %}Exercices Physique - OU TOU BON{% endblock %}
+
+{% block extra_css %}
+.physique-exo-page {
+  --shell: linear-gradient(180deg, rgba(9, 15, 33, 0.98) 0%, rgba(3, 9, 23, 1) 45%, rgba(10, 18, 34, 1) 100%);
+  --glass: rgba(15, 23, 42, 0.72);
+  --glass-strong: rgba(10, 16, 28, 0.9);
+  --line-soft: rgba(148, 163, 184, 0.14);
+  --electric: #60a5fa;
+  --teal: #2dd4bf;
+  --amber: #f59e0b;
+  --ink: #dbeafe;
+}
+
+.physique-exo-page .view-area {
+  width: 100%;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.14), transparent 24%),
+    radial-gradient(circle at top right, rgba(45, 212, 191, 0.1), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.08), transparent 20%),
+    var(--shell);
+}
+
+.physique-exo-shell {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.1rem 1.1rem 2.5rem;
+}
+
+.physique-exo-hero {
+  padding: 1.7rem;
+  border-radius: 28px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  background: linear-gradient(135deg, rgba(8, 13, 25, 0.96), rgba(18, 26, 42, 0.9));
+  box-shadow: 0 30px 90px rgba(2, 8, 23, 0.42);
+}
+
+.physique-exo-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  color: var(--electric);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.physique-exo-hero h1 {
+  margin: 0.95rem 0 0.55rem;
+  font-size: clamp(1.95rem, 4vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.physique-exo-hero p {
+  max-width: 860px;
+  margin: 0;
+  color: var(--ink);
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+.physique-exo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.physique-exo-link,
+.physique-exo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.74rem 1rem;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.physique-exo-btn {
+  background: linear-gradient(135deg, var(--electric), #2563eb);
+  color: #eff6ff;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.28);
+}
+
+.physique-exo-link {
+  background: rgba(15, 23, 42, 0.58);
+  border-color: rgba(148, 163, 184, 0.18);
+  color: var(--ink);
+}
+
+.physique-exo-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.25rem;
+}
+
+.physique-exo-sidebar {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  display: grid;
+  gap: 1rem;
+}
+
+.physique-exo-card {
+  padding: 1rem;
+  border-radius: 22px;
+  background: var(--glass);
+  border: 1px solid var(--line-soft);
+  box-shadow: 0 18px 48px rgba(2, 8, 23, 0.26);
+}
+
+.physique-exo-card h3 {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.exo-toc {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.exo-toc a {
+  display: block;
+  padding: 0.8rem 0.9rem;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.52);
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.exo-toc a.active {
+  background: rgba(18, 26, 42, 0.92);
+  border-color: rgba(96, 165, 250, 0.26);
+}
+
+.exo-toc strong {
+  display: block;
+  font-size: 0.88rem;
+}
+
+.exo-toc span {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.76rem;
+  opacity: 0.8;
+}
+
+.physique-exo-main {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.exo-summary,
+.exo-status,
+.exo-card {
+  padding: 1rem;
+  border-radius: 22px;
+  background: var(--glass-strong);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 20px 54px rgba(2, 8, 23, 0.3);
+}
+
+.exo-summary p,
+.exo-status p,
+.raw-note-flow p {
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+.exo-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.exo-status strong {
+  color: #f8fafc;
+}
+
+.raw-note-flow h2,
+.raw-note-flow h3,
+.raw-note-flow h4 {
+  margin: 1rem 0 0.6rem;
+  line-height: 1.2;
+}
+
+.raw-note-flow ul,
+.raw-note-flow ol {
+  margin: 0.9rem 0;
+  padding-left: 1.15rem;
+  color: var(--ink);
+}
+
+.raw-note-flow li {
+  margin-bottom: 0.4rem;
+  line-height: 1.72;
+}
+
+.formula-block {
+  margin: 0.9rem 0;
+  padding: 0.85rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: rgba(15, 23, 42, 0.74);
+  overflow-x: auto;
+}
+
+.formula-block .katex-display {
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.exercise-question-list {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 0.9rem;
+}
+
+.exercise-question-item {
+  padding: 0.85rem;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.exercise-question-item strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #f8fafc;
+}
+
+.exercise-answer {
+  width: 100%;
+  min-height: 110px;
+  margin-top: 0.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(2, 6, 23, 0.78);
+  color: #e2e8f0;
+  padding: 0.9rem;
+  resize: vertical;
+  font: inherit;
+}
+
+.exercise-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+
+.exercise-feedback {
+  margin-top: 0.9rem;
+  padding: 0.9rem;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.56);
+  border: 1px solid rgba(96, 165, 250, 0.14);
+}
+
+.exercise-feedback h5 {
+  margin: 0 0 0.55rem;
+  color: #f8fafc;
+  font-size: 0.92rem;
+}
+
+.exercise-feedback-item {
+  padding: 0.72rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.exercise-feedback-item:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.exercise-feedback-item p,
+.exercise-feedback > p {
+  margin: 0.3rem 0;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.exercise-loading,
+.exercise-error {
+  padding: 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(15, 23, 42, 0.48);
+  color: var(--ink);
+}
+
+.exercise-error {
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.25);
+  background: rgba(127, 29, 29, 0.2);
+}
+
+.exercise-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.exercise-loading-spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(96, 165, 250, 0.2);
+  border-top-color: var(--electric);
+  animation: physique-exo-spin 0.8s linear infinite;
+}
+
+.exercise-journey {
+  display: grid;
+  gap: 1rem;
+}
+
+.exercise-journey-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.exercise-journey-head strong,
+.exercise-workspace-head strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 0.95rem;
+}
+
+.exercise-journey-head p,
+.exercise-workspace-head p {
+  margin-top: 0.3rem;
+  color: var(--ink);
+  opacity: 0.88;
+  line-height: 1.65;
+}
+
+.exercise-roadmap {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+  padding: 0.4rem 0.2rem 0.2rem;
+}
+
+.exercise-roadmap::before {
+  content: '';
+  position: absolute;
+  left: 2.15rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.35), rgba(37, 99, 235, 0.5));
+  opacity: 0.7;
+}
+
+.exercise-node {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4.3rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding: 0.25rem 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  text-align: left;
+}
+
+.exercise-node.is-right {
+  margin-left: 1.6rem;
+}
+
+.exercise-node.is-left {
+  margin-right: 1.6rem;
+}
+
+.exercise-node-visual {
+  position: relative;
+  z-index: 1;
+  width: 4.3rem;
+  height: 4.3rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(45, 212, 191, 0.16);
+  background: linear-gradient(180deg, rgba(18, 54, 48, 0.92), rgba(8, 31, 30, 0.96));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 34px rgba(2, 8, 23, 0.32);
+}
+
+.exercise-node.is-complete .exercise-node-visual {
+  border-color: rgba(45, 212, 191, 0.32);
+  box-shadow: 0 18px 40px rgba(20, 184, 166, 0.16);
+}
+
+.exercise-node.is-active .exercise-node-visual {
+  background: linear-gradient(180deg, rgba(67, 97, 238, 0.95), rgba(37, 99, 235, 0.88));
+  border-color: rgba(96, 165, 250, 0.52);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18), 0 20px 45px rgba(37, 99, 235, 0.26);
+}
+
+.exercise-node-visual i {
+  font-size: 1.65rem;
+  color: var(--teal);
+}
+
+.exercise-node.is-active .exercise-node-visual i {
+  color: #eff6ff;
+}
+
+.exercise-node-check {
+  position: absolute;
+  top: -0.3rem;
+  right: -0.2rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: #e0f2fe;
+  background: rgba(8, 145, 178, 0.9);
+  border: 1px solid rgba(125, 211, 252, 0.32);
+}
+
+.exercise-node-meta {
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(9, 14, 25, 0.62);
+}
+
+.exercise-node-meta strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 0.92rem;
+}
+
+.exercise-node-meta p {
+  margin-top: 0.28rem;
+  color: var(--ink);
+  opacity: 0.82;
+  line-height: 1.55;
+}
+
+.exercise-node-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
+}
+
+.exercise-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.exercise-pill.stage {
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(45, 212, 191, 0.18);
+}
+
+.exercise-pill.difficulty {
+  color: #bfdbfe;
+  background: rgba(37, 99, 235, 0.14);
+  border: 1px solid rgba(96, 165, 250, 0.22);
+}
+
+.exercise-workspace {
+  min-height: 460px;
+}
+
+.exercise-workspace-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.exercise-workspace-nav {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.exercise-nav-btn {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.62);
+  color: var(--ink);
+}
+
+.exercise-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.exercise-source {
+  margin-top: 0.75rem;
+  color: var(--ink);
+  opacity: 0.74;
+  font-size: 0.8rem;
+}
+
+.exercise-empty-state {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--ink);
+}
+
+.exercise-empty-state i {
+  font-size: 2rem;
+  color: var(--electric);
+  margin-bottom: 0.8rem;
+}
+
+@keyframes physique-exo-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 980px) {
+  .physique-exo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .physique-exo-sidebar {
+    position: static;
+  }
+
+  .exercise-node.is-right,
+  .exercise-node.is-left {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .physique-exo-shell {
+    padding: 0.7rem 0.7rem 1.4rem;
+  }
+
+  .physique-exo-hero,
+  .physique-exo-card,
+  .exo-summary,
+  .exo-status,
+  .exo-card {
+    border-radius: 20px;
+  }
+
+  .exo-status {
+    display: grid;
+  }
+
+  .exercise-journey-head,
+  .exercise-workspace-head {
+    display: grid;
+  }
+
+  .exercise-roadmap::before {
+    left: 1.8rem;
+  }
+
+  .exercise-node {
+    grid-template-columns: 3.6rem minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+
+  .exercise-node-visual {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 1.1rem;
+  }
+}
+{% endblock %}
+
+{% block body %}
+<div class="physique-exo-page">
+  <div class="main">
+    <div class="view-area">
+      <div class="physique-exo-shell">
+        <main class="physique-exo-main">
+          <section class="exo-card exercise-journey">
+            <div class="exercise-journey-head">
+              <div>
+                <strong>Parcours progressif</strong>
+                <p>Les exercices sont rangés du plus simple au plus complexe. Chaque noeud ouvre une page dédiée avec uniquement l'exercice choisi.</p>
+              </div>
+            </div>
+            <div id="exerciseRoadmap" class="exercise-roadmap"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const PHYSIQUE_EXERCISES_URL = '{% url "api_physique_exercises" %}';
+const PHYSIQUE_EXERCISE_PAGE_BASE = '{% url "physique_exercises_page" "__SECTION__" %}';
+const PHYSIQUE_EXERCISE_DETAIL_BASE = `{{ physique_exercise_detail_base|escapejs }}`;
+const PHYSIQUE_OUTLINE = JSON.parse(`{{ physique_outline_json|default:'[]'|escapejs }}`);
+const CURRENT_SECTION = JSON.parse(`{{ physique_current_section_json|escapejs }}`);
+const INITIAL_EXERCISES = JSON.parse(`{{ physique_initial_exercises_json|default:'[]'|escapejs }}`);
+let nextOffset = Number('{{ physique_initial_next_offset|default:0 }}') || 0;
+const DIFFICULTY_ORDER = { facile: 0, moyen: 1, avance: 2, difficile: 3 };
+const DIFFICULTY_LABELS = {
+  facile: 'Simple',
+  moyen: 'Intermédiaire',
+  avance: 'Avancé',
+  difficile: 'Complexe',
+};
+const STAGE_LABELS = ['Niveau 1', 'Niveau 2', 'Niveau 3', 'Niveau 4'];
+
+function updateStatus(message) {
+  console.log('[updateStatus]', message || 'Status update');
+}
+const sectionState = {
+  items: [],
+};
+let loadingMore = false;
+
+function escapeHtml(text) {
+  return String(text || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function formatInline(text) {
+  let html = escapeHtml(text);
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  return html;
+}
+
+function renderMarkdownish(text) {
+  const lines = String(text || '').split('\n');
+  const html = [];
+  let paragraph = [];
+  let listItems = [];
+  let listType = null;
+  let formulaLines = [];
+  let inFormulaBlock = false;
+
+  function flushParagraph() {
+    if (!paragraph.length) return;
+    html.push(`<p>${formatInline(paragraph.join(' '))}</p>`);
+    paragraph = [];
+  }
+
+  function flushList() {
+    if (!listItems.length) return;
+    html.push(`<${listType}>${listItems.map(item => `<li>${formatInline(item)}</li>`).join('')}</${listType}>`);
+    listItems = [];
+    listType = null;
+  }
+
+  function flushFormula() {
+    if (!formulaLines.length) return;
+    html.push(`<div class="formula-block">\\[${escapeHtml(formulaLines.join('\n'))}\\]</div>`);
+    formulaLines = [];
+  }
+
+  lines.forEach(rawLine => {
+    const line = rawLine.trim();
+
+    if (inFormulaBlock) {
+      if (line === '\\]') {
+        inFormulaBlock = false;
+        flushFormula();
+      } else {
+        formulaLines.push(rawLine);
+      }
+      return;
+    }
+
+    if (!line) {
+      flushParagraph();
+      flushList();
+      flushFormula();
+      return;
+    }
+
+    if (line === '\\[') {
+      flushParagraph();
+      flushList();
+      inFormulaBlock = true;
+      formulaLines = [];
+      return;
+    }
+
+    const heading = line.match(/^(#{2,4})\s+(.*)$/);
+    if (heading) {
+      flushParagraph();
+      flushList();
+      flushFormula();
+      const tag = heading[1].length === 2 ? 'h2' : heading[1].length === 3 ? 'h3' : 'h4';
+      html.push(`<${tag}>${formatInline(heading[2])}</${tag}>`);
+      return;
+    }
+
+    const unordered = line.match(/^[-*]\s+(.*)$/);
+    if (unordered) {
+      flushParagraph();
+      if (listType && listType !== 'ul') flushList();
+      listType = 'ul';
+      listItems.push(unordered[1]);
+      return;
+    }
+
+    const ordered = line.match(/^\d+[.)]\s+(.*)$/);
+    if (ordered) {
+      flushParagraph();
+      if (listType && listType !== 'ol') flushList();
+      listType = 'ol';
+      listItems.push(ordered[1]);
+      return;
+    }
+
+    flushList();
+    paragraph.push(line);
+  });
+
+  flushParagraph();
+  flushList();
+  flushFormula();
+  return html.join('');
+}
+
+function wrapKatexDisplays(el) {
+  el.querySelectorAll('.katex-display').forEach(kd => {
+    if (kd.parentElement.classList.contains('formula-block')) return;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'formula-block';
+    kd.parentNode.insertBefore(wrapper, kd);
+    wrapper.appendChild(kd);
+  });
+}
+
+function getProgressiveDifficulty(index) {
+  if (index <= 0) return 'facile';
+  if (index === 1) return 'moyen';
+  if (index === 2) return 'avance';
+  return 'difficile';
+}
+
+function normalizeDifficulty(value, fallbackIndex = 0) {
+  const lowered = String(value || '').trim().toLowerCase();
+  if (Object.prototype.hasOwnProperty.call(DIFFICULTY_ORDER, lowered)) {
+    return lowered;
+  }
+  return getProgressiveDifficulty(fallbackIndex);
+}
+
+function difficultyRank(value) {
+  return DIFFICULTY_ORDER[normalizeDifficulty(value)] ?? 99;
+}
+
+function createExerciseId(index) {
+  return `${CURRENT_SECTION.id}-exercise-${Date.now()}-${index}-${Math.random().toString(36).slice(2, 7)}`;
+}
+
+function stageLabelForExercise(exercise, index) {
+  const rank = difficultyRank(exercise.difficulte);
+  return STAGE_LABELS[Math.min(rank, STAGE_LABELS.length - 1)] || `Niveau ${index + 1}`;
+}
+
+function hydrateExercise(exercise, index) {
+  return {
+    ...exercise,
+    _insertOrder: Number.isFinite(exercise?._insertOrder) ? exercise._insertOrder : index,
+    _clientId: exercise?._clientId || createExerciseId(index),
+    difficulte: normalizeDifficulty(exercise?.difficulte, index),
+  };
+}
+
+function sortExercises() {
+  sectionState.items.sort((left, right) => {
+    const rankDiff = difficultyRank(left.difficulte) - difficultyRank(right.difficulte);
+    if (rankDiff !== 0) return rankDiff;
+    return (left._insertOrder || 0) - (right._insertOrder || 0);
+  });
+}
+
+function appendExercises(exercises, options = {}) {
+  console.log('[appendExercises] Input:', exercises, 'type:', typeof exercises, 'isArray:', Array.isArray(exercises));
+  const baseIndex = sectionState.items.length;
+  const hydrated = (Array.isArray(exercises) ? exercises : []).map((exercise, index) => {
+    console.log(`[hydrateExercise] Index ${index}:`, exercise);
+    return hydrateExercise(exercise, baseIndex + index);
+  });
+  console.log('[appendExercises] hydrated:', hydrated);
+  sectionState.items.push(...hydrated);
+  console.log('[appendExercises] sectionState.items after push:', sectionState.items);
+  sortExercises();
+}
+
+function renderSectionList() {
+  const root = document.getElementById('exerciseSectionList');
+  root.innerHTML = PHYSIQUE_OUTLINE.map(item => {
+    const href = PHYSIQUE_EXERCISE_PAGE_BASE.replace('__SECTION__', item.id);
+    const active = item.id === CURRENT_SECTION.id ? 'active' : '';
+    return `<a class="${active}" href="${href}"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.category || 'Physique')}</span></a>`;
+  }).join('');
+}
+
+function updateHeader() {
+  document.getElementById('exercisePageTitle').textContent = `Exercices — ${CURRENT_SECTION.title}`;
+  document.getElementById('exercisePageSummary').textContent = 'Travaille chapitre par chapitre, un exercice à la fois, puis génère de nouveaux exercices IA similaires quand tu veux continuer.';
+}
+
+function renderRoadmap() {
+  const root = document.getElementById('exerciseRoadmap');
+  console.log('[renderRoadmap] root element:', root);
+  console.log('[renderRoadmap] sectionState.items:', sectionState.items, 'length:', sectionState.items.length);
+  
+  if (!root) {
+    console.error('[renderRoadmap] ERROR: exerciseRoadmap element not found!');
+    return;
+  }
+  
+  if (sectionState.items.length === 0) {
+    console.warn('[renderRoadmap] WARNING: No items to render');
+    root.innerHTML = '<p>Aucun exercice disponible</p>';
+    return;
+  }
+  
+  root.innerHTML = sectionState.items.map((exercise, index) => {
+    const stateClass = index === 0 ? 'is-active' : 'is-complete';
+    const sideClass = index % 2 === 0 ? 'is-left' : 'is-right';
+    const introSnippet = String(exercise.intro || exercise.enonce || '').replace(/\s+/g, ' ').trim().slice(0, 140);
+    const href = PHYSIQUE_EXERCISE_DETAIL_BASE.replace('__INDEX__', String(index));
+    return `
+      <a class="exercise-node ${stateClass} ${sideClass}" href="${href}">
+        <div class="exercise-node-visual">
+          <i class="fas fa-pencil-alt"></i>
+          <span class="exercise-node-check"><i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="exercise-node-meta">
+          <div class="exercise-node-topline">
+            <span class="exercise-pill stage">${escapeHtml(stageLabelForExercise(exercise, index))}</span>
+            <span class="exercise-pill difficulty">${escapeHtml(DIFFICULTY_LABELS[normalizeDifficulty(exercise.difficulte, index)] || 'Progressif')}</span>
+          </div>
+          <strong>${escapeHtml(exercise.title || `Exercice ${index + 1}`)}</strong>
+          <p>${escapeHtml(introSnippet || 'Exercice du chapitre')}</p>
+        </div>
+      </a>
+    `;
+  }).join('');
+  console.log('[renderRoadmap] HTML rendered, items count:', sectionState.items.length);
+  
+  if (typeof renderKatex === 'function') {
+    renderKatex(root);
+  }
+}
+
+async function loadGeneratedExercise() {
+  if (loadingMore) return;
+  loadingMore = true;
+  updateStatus('Generation d un nouvel exercice similaire...');
+  document.getElementById('generateExerciseBtn')?.setAttribute('disabled', 'disabled');
+
+  try {
+    const response = await fetch(PHYSIQUE_EXERCISES_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': CSRF,
+      },
+      body: JSON.stringify({
+        section_id: CURRENT_SECTION.id,
+        offset: nextOffset,
+        limit: 1,
+        force_ai: true,
+      }),
+    });
+    const data = await response.json();
+    if (!response.ok || data.error) {
+      throw new Error(data.error || 'Serie indisponible.');
+    }
+    const items = Array.isArray(data.exercises) ? data.exercises : [];
+    if (!items.length) {
+      updateStatus('Aucun nouvel exercice n a pu etre genere pour le moment.');
+      return;
+    }
+    appendExercises(items, {});
+    nextOffset = Number(data.next_offset || nextOffset);
+    const routeStartIndex = Number(data.route_start_index || 0);
+    updateStatus('Nouvel exercice IA ajoute. Ouverture de la page detail...');
+    window.location.href = PHYSIQUE_EXERCISE_DETAIL_BASE.replace('__INDEX__', String(routeStartIndex));
+  } catch (error) {
+    updateStatus('Impossible de generer un nouvel exercice pour ce chapitre.');
+  } finally {
+    loadingMore = false;
+    document.getElementById('generateExerciseBtn')?.removeAttribute('disabled');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('[DOMContentLoaded] START');
+  console.log('[DOMContentLoaded] INITIAL_EXERCISES:', INITIAL_EXERCISES);
+  console.log('[DOMContentLoaded] INITIAL_EXERCISES.length:', INITIAL_EXERCISES.length);
+  console.log('[DOMContentLoaded] INITIAL_EXERCISES typeof:', typeof INITIAL_EXERCISES);
+  
+  if (INITIAL_EXERCISES && INITIAL_EXERCISES.length > 0) {
+    console.log('[DOMContentLoaded] INITIAL_EXERCISES has items, calling appendExercises...');
+    appendExercises(INITIAL_EXERCISES);
+    sortExercises();
+    renderRoadmap();
+    updateStatus();
+  } else {
+    console.log('[DOMContentLoaded] INITIAL_EXERCISES is empty or null');
+    console.log('[DOMContentLoaded] Calling loadGeneratedExercise to fetch from API...');
+    updateStatus('Chargement des exercices...');
+    fetch(PHYSIQUE_EXERCISES_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': CSRF,
+      },
+      body: JSON.stringify({
+        section_id: CURRENT_SECTION.id,
+        offset: 0,
+        limit: 4,
+        force_ai: false,
+      }),
+    })
+    .then(r => r.json())
+    .then(data => {
+      console.log('[DOMContentLoaded] API response:', data);
+      const exos = Array.isArray(data.exercises) ? data.exercises : [];
+      if (exos.length > 0) {
+        appendExercises(exos);
+        sortExercises();
+        renderRoadmap();
+        updateStatus();
+      } else {
+        updateStatus('Aucun exercice disponible.');
+        renderRoadmap();
+      }
+    })
+    .catch(err => {
+      console.error('[DOMContentLoaded] Error fetching exercises:', err);
+      updateStatus('Erreur au chargement des exercices.');
+      renderRoadmap();
+    });
+  }
+  document.getElementById('generateExerciseBtn')?.addEventListener('click', loadGeneratedExercise);
+});
+</script>
+{% endblock %}

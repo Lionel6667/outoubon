@@ -1,0 +1,1097 @@
+```json
+{
+  "course_title": "Kreyòl - Bakaloreya Ayiti (Kou Konplè pou SES, SMP, SVT, LLA)",
+  "chapters": [
+    {
+      "chapter_title": "Entwodiksyon ak Estrikti Egzamen an",
+      "chapter_introduction": "Egzamen kreyòl bac la divize an 3 gwo pati. Konnen estrikti a pèmèt ou pi byen jere tan ou ak konprann kisa yo mande w.",
+      "chapter_objectives": [
+        "Konprann òganizasyon egzamen an (Pati A, Pati B, Pwodiksyon)",
+        "Idantifye valè chak pati",
+        "Planifye tan ou selon pati yo"
+      ],
+      "subchapters": [
+        {
+          "title": "Òganizasyon Jeneral Egzamen an",
+          "introduction": "Egzamen an gen twa (3) gwo pati. Chak pati teste yon konpetans diferan.",
+          "definition": "Pati A: Konpreyansyon Tèks (30 pwen). Pati B: Gramè, Vokabilè, Tradiksyon (30-40 pwen). Dezyèm Pati: Pwodiksyon Ekri (20-40 pwen). Pou seri LLA, gen yon pati Literati an plis (10-15 pwen).",
+          "explanation": "Konpreyansyon Tèks mande w li yon tèks epi reponn kesyon sou tip tèks la, lide prensipal, rezime, sekans, elatriye. Gramè teste predika, vèb seryèl, reprezantasyon grafik, pwopozisyon sibòdone, elatriye. Pwodiksyon Ekri mande w ekri yon tèks (agimantatif, naratif, lèt, resi, elatriye). Pou LLA, ajoute kesyon sou zèv literè ayisyen.",
+          "step_by_step": [
+            "Etap 1: Gade kantite kesyon yo nan chak pati.",
+            "Etap 2: Kòmanse ak pati ki pi fasil pou ou.",
+            "Etap 3: Pa pase twòp tan sou yon kesyon. Tan rekòmande: Konpreyansyon 45 min, Gramè 45 min, Pwodiksyon 50 min, Relekti 10 min.",
+            "Etap 4: Verifye repons ou yo anvan w remèt kopi."
+          ],
+          "examples": [
+            "Egzanp: Nan yon egzamen, Pati A gen 4 kesyon (tèks, lide prensipal, rezime, sekans). Pati B gen reprezantasyon grafik, idantifikasyon predika, tradiksyon. Dezyèm Pati mande yon lèt fòmèl."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pou byen reyisi, pratike chak kalite egzèsis separeman.",
+            "Chak semèn, fè yon egzèsis konpreyansyon, yon egzèsis gramè, epi ekri yon ti tèks."
+          ],
+          "common_mistakes": [
+            "Pa li tèks la ase fwa (li omwen 2 fwa).",
+            "Mande lè yo fini (sonje tan ou).",
+            "Pa korije fòt gramè."
+          ],
+          "summary": "Egzamen an gen twa pati: Konpreyansyon (30 pwen), Gramè/Vokabilè/Tradiksyon (30-40 pwen), Pwodiksyon (20-40 pwen). LLA gen literati an plis. Planifye tan ou."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Konbyen pwen gen nan Pati A (Konpreyansyon Tèks) jeneralman?",
+          "solution": "30 pwen",
+          "explanation": "Dapre tablo a, Premye Pati A bay 30 pwen."
+        },
+        {
+          "question": "Ki pati ki gen pi fò pwen yo?",
+          "solution": "Pati B (Gramè, Vokabilè, Tradiksyon) bay 30-40 pwen, men Pwodiksyon Ekri ka bay 20-40 pwen tou. An jeneral, tou de gwo pati yo enpòtan.",
+          "explanation": "Pati B ak Dezyèm Pati yo gen valè ki fè diferans lan."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Konpreyansyon Tèks",
+      "chapter_introduction": "Konprann yon tèks se konpetans ki pi debaz. Ou dwe kapab idantifye tip tèks la, lide prensipal, sekans, epi analize tèks pwezik oswa resi fantastik.",
+      "chapter_objectives": [
+        "Rekonèt 8 tip tèks prensipal yo (naratif, deskriptif, agimantatif, enfòmatif, pwezi, teyat, fab, lodyans)",
+        "Jistifye tip tèks la ak referans nan tèks la",
+        "Ekstrè lide prensipal la ak fè rezime",
+        "Idantifye sekans (naratif, deskriptif, agimantatif, dyalòg, eksplikatif, ensitatif)",
+        "Analize yon tèks pwetik (rim, vè, naratè)",
+        "Idantifye karakteristik yon resi fantastik"
+      ],
+      "subchapters": [
+        {
+          "title": "Tip Tèks yo (Jan Literè)",
+          "introduction": "Chak tèks gen yon tip. Aprann rekonèt yo rapidman pou ou ka jistifye repons ou.",
+          "definition": "Tip tèks se kategori ki defini pa objektif ak fòm tèks la. Gen 8 tip prensipal: naratif, deskriptif, agimantatif, enfòmatif/eksplikatif, pwezi, teyat/dyalòg, fab, lodyans.",
+          "explanation": "Naratif rakonte yon istwa (naratè, pèsonaj, evènman). Deskriptif dekri yon moun, yon kote (anpil adjektif, detay sansoryèl). Agimantatif defann yon tèz (agiman, egzanp, konklizyon). Enfòmatif bay enfòmasyon san tèz. Pwezi se vè, rim, imaj. Teyat gen replik ak didaskali. Fab gen bèt ki pale ak yon moral nan fen. Lodyans se yon resi oral bref ayisyen, souvan komik.",
+          "step_by_step": [
+            "Etap 1: Li tèks la rapid pou wè sijè jeneral la.",
+            "Etap 2: Gade si gen yon naratè ki rakonte yon istwa (naratif).",
+            "Etap 3: Gade si gen anpil adjektif ak detay (deskriptif).",
+            "Etap 4: Gade si gen tèz ak agiman (agimantatif).",
+            "Etap 5: Gade si gen rim ak vè (pwezi).",
+            "Etap 6: Gade si gen non pèsonaj ak replik (teyat).",
+            "Etap 7: Gade si gen bèt ki pale ak moral (fab).",
+            "Etap 8: Chwazi tip la epi jistifye ak 2-3 karakteristik ki soti nan tèks la."
+          ],
+          "examples": [
+            "Egzanp: 'Jedeyon Mouri' se yon tèks naratif paske li rakonte lanmò yon nonm, gen naratè, pèsonaj, sekans aksyon."
+          ],
+          "detailed_examples": [
+            "Egzanp jistifikasyon detaye: 'Tèks sa a se yon tèks agimantatif paske: 1) Otè a prezante yon tèz klè: \"Kreyòl dwe sèvi nan lekòl\". 2) Li avanse agiman: paran yo vle bon fòmasyon pou pitit yo, pa nesesèman fransè. 3) Li itilize egzanp: konparezon ak doktè ki bay piki san eksplikasyon. 4) Li fini ak yon konklizyon: \"Se poutèt sa, kreyòl dwe gen plis plas.\"'"
+          ],
+          "methods": [
+            "Fè yon tablo ak tout tip tèks ak karakteristik yo. Etidye li regilyèman.",
+            "Pratike jistifye tip tèks pou chak tèks ou li."
+          ],
+          "common_mistakes": [
+            "Pa jistifye repons lan: 'Se tèks naratif' san bay rezon.",
+            "Konfonn agimantatif ak enfòmatif (enfòmatif pa gen tèz).",
+            "Konfonn fab ak lodyans (fab gen bèt ki pale, lodyans gen moun)."
+          ],
+          "summary": "8 tip tèks: naratif, deskriptif, agimantatif, enfòmatif, pwezi, teyat, fab, lodyans. Toujou jistifye ak 2-3 karakteristik."
+        },
+        {
+          "title": "Lide Prensipal ak Rezime",
+          "introduction": "Lide prensipal se yon sèl fraz ki rezime tout mesaj la. Rezime se 2-3 fraz ki bay kòmansman, devlopman, fen.",
+          "definition": "Lide prensipal = yon sèl fraz ki kaptire mesaj fondamantal tèks la (sijè + tèz/aksyon + konsekans/objektif). Rezime = rezime kout (2-3 fraz) ki dekri sitiyasyon inisyal, evènman prensipal, ak sitiyasyon final.",
+          "explanation": "Pou jwenn lide prensipal, poze tèt ou: 'Kisa tèks la ap pale?' (sijè). 'Kisa otè a di sou sijè sa a?' (tèz/aksyon). 'Poukisa li di sa?' (objektif). Pou rezime, li tèks la, chwazi 3-4 evènman kle, ekri yo nan lòd.",
+          "step_by_step": [
+            "Etap 1: Idantifye sijè tèks la (tèm jeneral).",
+            "Etap 2: Idantifye tèz la si se agimantatif, oswa aksyon prensipal la si se naratif.",
+            "Etap 3: Idantifye objektif otè a (poukisa li ekri tèks sa a).",
+            "Etap 4: Konbine twa eleman yo nan yon fraz.",
+            "Etap 5: Pou rezime, ekri yon fraz sou kòmansman, yon sou devlopman, yon sou fen."
+          ],
+          "examples": [
+            "Egzanp lide prensipal (tèks 'Li Mande Piki, Li Vle Lasante'): 'Tèks la montre ke paran ayisyen yo vle bon fòmasyon pou pitit yo, men sistèm lekòl la twonpe yo lè li prezante fransè kòm sèl chemen siksè.'"
+          ],
+          "detailed_examples": [
+            "Egzanp rezime: 'Nan kòmansman, otè a dekri yon manman k ap mennen pitit li kay doktè. Apre sa, doktè a bay manman an yon piki san li pa konnen poukisa. Finalman, otè a konpare lekòl ak lopital pou montre ke paran yo twonpe lè yo kwè fransè ase pou reyisi.'"
+          ],
+          "methods": [
+            "Pou lide prensipal, itilize fòmil: '[Tèks la] montre ke [tèz] paske [rezon].'",
+            "Pou rezime, itilize konektè tan: 'Dabò... Apre sa... Finalman...'"
+          ],
+          "common_mistakes": [
+            "Lide prensipal twò long oswa ki gen detay segondè.",
+            "Rezime ki se yon kopi fraz nan tèks la san reformulasyon.",
+            "Rezime ki bay opinyon pèsonèl olye de rezime sa tèks la di."
+          ],
+          "summary": "Lide prensipal = yon fraz (sijè + tèz + objektif). Rezime = 2-3 fraz (kòmansman, devlopman, fen)."
+        },
+        {
+          "title": "Sekans nan yon Tèks",
+          "introduction": "Yon tèks ka gen plizyè sekans (pati ki gen fonksyon diferan). Ou dwe kapab idantifye yo.",
+          "definition": "Sekans se yon pasaj ki gen yon fonksyon espesifik: naratif (rakonte), deskriptif (dekri), agimantatif (defann), dyalòg (konvèsasyon), eksplikatif (eksplike), ensitatif (ankouraje).",
+          "explanation": "Pou idantifye yon sekans, gade objektif pasaj la. Si li rakonte yon evènman, se naratif; si li dekri yon pèsònaj oswa yon kote, se deskriptif; si li prezante agiman, se agimantatif; si li montre de moun ap pale, se dyalòg; si li eksplike yon fenomèn, se eksplikatif; si li ankouraje yon aksyon, se ensitatif.",
+          "step_by_step": [
+            "Etap 1: Li tèks la epi make chak chanjman nan kontni oswa ton.",
+            "Etap 2: Pou chak pasaj, mande: 'Fonksyon pasaj sa a se kisa?'",
+            "Etap 3: Chwazi sekans ki pi apwopriye.",
+            "Etap 4: Jistifye ak yon egzanp fraz nan tèks la."
+          ],
+          "examples": [
+            "Egzanp: 'Tèks la gen yon sekans naratif lè li rakonte jan pitit la te tonbe malad, epi yon sekans agimantatif lè li diskite sou kalite swen nan lopital la.'"
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Sekans dominan an se sa ki okipe pi fò nan tèks la.",
+            "Kesyon tipik: 'Apa sekans dominan an, ki lòt sekans ou jwenn?'"
+          ],
+          "common_mistakes": [
+            "Konfonn sekans ak tip tèks (yon tèks agimantatif ka gen yon ti sekans naratif).",
+            "Pa bay jistifikasyon."
+          ],
+          "summary": "Sekans: naratif, deskriptif, agimantatif, dyalòg, eksplikatif, ensitatif. Chak gen fonksyon pa li."
+        },
+        {
+          "title": "Analiz Tèks Pwetik",
+          "introduction": "Pou pwezi, egzamen mande konnen rim, vè, naratè, ak figè estil.",
+          "definition": "Pwezi se yon tèks ki itilize rim, ritm, imaj, ak figè estil. Kalite rim: kwaze (ABAB), anbrase (ABBA), swivi (AABB), rich (son final idantik), pasab (vwayèl final parèy). Kalite vè: oktosil (8 silab), dekasil (10), alèksandren (12), vè lib. Naratè: omnisyan (konnen tout), pèsonaj (ra konte pwòp istwa), ekstèn (obsève sèlman).",
+          "explanation": "Pou detèmine rim, gade dènye silab chak liy. Si liy 1 ak 3 gen menm son, se rim kwaze; si liy 1 ak 4 gen menm son, se rim anbrase; si liy 1 ak 2 gen menm son, se rim swivi. Pou konte silab, pwononse liy la epi konte vwayèl ki pwononse.",
+          "step_by_step": [
+            "Etap 1: Li pwezi a tout antye.",
+            "Etap 2: Make dènye silab chak liy.",
+            "Etap 3: Konpare son yo pou detèmine kalite rim.",
+            "Etap 4: Konte silab chak liy (chak vwayèl ki pwononse).",
+            "Etap 5: Idantifye naratè a (ki moun ki pale?)."
+          ],
+          "examples": [
+            "Egzanp rim kwaze: 'Mwen renmen tè Ayiti a (A) / Ki bèl epi ki plen poezi (B) / Pèp ki gen anpil espwa (A) / M ap goumen pou lavi (B)'"
+          ],
+          "detailed_examples": [
+            "Egzanp konte silab: 'Mwen renmen tè Ayiti a' = Mwen (2), ren(1), men(1), tè(1), A(1), yi(1), ti(1), a(1) = 9? An reyalite, nan kreyòl, 'Mwen' souvan konte 1 silab, 'renmen' 2, 'tè' 1, 'Ayiti' 3, 'a' 1, total 8. Pito konte pa zorèy. Li ak ritm natirèl la."
+          ],
+          "methods": [
+            "Pou rim rich, son final la idantik (konsòn ak vwayèl). Pou rim pasab, se vwayèl sèlman.",
+            "Pou LLA, konnen vè obligatwa (alèksandren, elatriye)."
+          ],
+          "common_mistakes": [
+            "Konfonn rim kwaze ak rim swivi.",
+            "Pa konn diferans ant rim rich ak rim pasab.",
+            "Mal konte silab (ou bliye 'n' ki ka fòme yon silab)."
+          ],
+          "summary": "Rim: kwaze (ABAB), anbrase (ABBA), swivi (AABB). Vè: oktosil (8), dekasil (10), alèksandren (12). Naratè: omnisyan, pèsonaj, ekstèn."
+        },
+        {
+          "title": "Analiz Resi Fantastik",
+          "introduction": "Yon resi fantastik melanje reyèl ak surnatirèl. Li souvan mande nan egzamen.",
+          "definition": "Resi fantastik se yon istwa kote evènman yo ka entèprete swa natirèlman, swa surnatirèlman, sa ki kreye yon doub.",
+          "explanation": "4 karakteristik: 1) Melanj de mond (reyèl + surnatirèl). 2) Eleman ki fè doub entèpretasyon (ka natirèl oswa majik). 3) Yon pèsonaj ki eksperimante yon fenomèn etranj. 4) Enkyetid oswa doub nan nanm pèsonaj la.",
+          "step_by_step": [
+            "Etap 1: Rekonèt si gen yon eleman estrawòdinè.",
+            "Etap 2: Gade si pèsonaj la sezi oswa pa.",
+            "Etap 3: Gade si gen yon eksplikasyon natirèl posib.",
+            "Etap 4: Gade si gen yon eksplikasyon surnatirèl posib.",
+            "Etap 5: Konklide si se reyèl oswa fantastik."
+          ],
+          "examples": [
+            "Egzanp: Yon istwa kote yon moun wè yon pèsonaj ki te mouri. Sa ka yon rèv, yon erè vizyon, oswa yon revenan. Li ouvè doub entèpretasyon."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pou idantifye, poze kesyon: 'Èske tout bagay ka eksplike natirèlman?' Si non, se fantastik."
+          ],
+          "common_mistakes": [
+            "Konfonn fantastik ak majik (majik la aksepte kòm reyèl nan mond lan)."
+          ],
+          "summary": "Resi fantastik: melanj reyèl/surnatirèl, doub entèpretasyon, pèsonaj etone, enkyetid."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Ki tip tèks sa a ye? Jistifye: 'Yon nonm te gen yon chat. Chat la te toujou manje sourit. Yon jou, chat la te fatige. Li deside kite kay la.'",
+          "solution": "Se yon tèks naratif paske li rakonte yon istwa ak yon naratè, gen pèsonaj (nonm, chat), gen aksyon nan yon sekans tan (te gen, te toujou, te fatige, deside).",
+          "explanation": "Jistifikasyon an bay 3 karakteristik."
+        },
+        {
+          "question": "Rele lide prensipal tèks sa a: 'Lekòl yo ta dwe anseye plis kreyòl. Anpil timoun pa konprann sa yo li paske se fransè. Lè yo aprann nan lang yo konnen, yo pi byen. Se poutèt sa, kreyòl dwe gen plis plas nan lekòl.'",
+          "solution": "Tèks la defann ke kreyòl dwe gen plis plas nan lekòl paske timoun aprann pi byen nan lang yo konprann.",
+          "explanation": "Lide prensipal la kaptire tèz la (kreyòl dwe gen plis plas) ak rezon an (timoun aprann pi byen)."
+        },
+        {
+          "question": "Idantifye rim nan vè sa yo: 'Mwen kontan (A) / Lè w la (B) / Mwen santi (A) / Bondye ba nou la (B)'",
+          "solution": "Rim kwaze (ABAB) paske liy 1 ak 3 rim ('kontan' ak 'santi'), liy 2 ak 4 rim ('la' ak 'la').",
+          "explanation": "Liy 1 fini ak 'an', liy 3 fini ak 'an' (rim). Liy 2 fini ak 'a', liy 4 fini ak 'a' (rim)."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Gramè",
+      "chapter_introduction": "Gramè se yon pati ki bay anpil pwen (30-40). Li genyen tip predika, vèb seryèl, oksilyè, reprezantasyon grafik, pwopozisyon sibòdone, diskou dirèk/endirèk, kategori mo, mo omofòn/polisemik, varyasyon fonolojik, estrikti fraz.",
+      "chapter_objectives": [
+        "Idantifye 5 tip predika (vèbal, nominal, adjektival, advèbyal, prepozisyonèl)",
+        "Rekonèt aspè predika (ap, te, pral, fèk, deja, toujou)",
+        "Idantifye vèb seryèl ak diferansye yo ak gwoup vèb modal",
+        "Konnen oksilyè yo (dwe, mèt, kapab, ta, pral) ak valè yo",
+        "Fè reprezantasyon grafik (pyebwa fraz) pou yon fraz senp",
+        "Rekonèt 4 kalite pwopozisyon sibòdone (relatif, konjonktiv, sikonstansyèl, entewogatif endirèk)",
+        "Konvèti diskou dirèk an diskou endirèk",
+        "Klasifye mo pa kategori gramatikal (non, vèb, adjektif, advèb, prepozisyon, konjeksyon, detèminan, pwonon, entèjeksyon)",
+        "Diferansye mo omofòn (menm son, sans diferan) ak mo polisemik (plizyè sans)",
+        "Konprann varyasyon fonolojik kreyòl la (famasi → famasyen, farmasen)",
+        "Distinge fraz senp, fraz konpoze, fraz konplèks"
+      ],
+      "subchapters": [
+        {
+          "title": "Tip Predika ak Aspè",
+          "introduction": "Predika se nwayo fraz la. Li di kisa sijè a fè, kisa li ye, kijan li ye, oswa kote li ye.",
+          "definition": "Predika = gwoup mo ki bay enfòmasyon sou sijè a. Gen 5 tip: Predika Vèbal (PV) – nwayo se vèb aksyon; Predika Nominal (PN) – nwayo se non; Predika Adjektival (PA) – nwayo se adjektif; Predika Advèbyal (PAD) – nwayo se advèb; Predika Prepozisyonèl (PP) – nwayo se gwoup prepozisyon.",
+          "explanation": "Egzanp PV: 'Klerimon travay nan jaden an.' (vèb 'travay'). PN: 'Jan se yon bon elèv.' (non 'elèv'). PA: 'Pitit la tris.' (adjektif 'tris'). PAD: 'Mwen la.' (advèb 'la'). PP: 'Kay la bò dlo.' (prepozisyon 'bò'). Aspè: makè 'ap' (progresif), 'te' (pase), 'pral' (avni), 'fèk' (resansman), 'deja' (akompli), 'toujou' (abityèl).",
+          "step_by_step": [
+            "Etap 1: Jwenn sijè a (ki moun/kisa fè aksyon an).",
+            "Etap 2: Jwenn nwayo predika a (vèb, non, adjektif, advèb, prepozisyon).",
+            "Etap 3: Si nwayo a se vèb aksyon → PV.",
+            "Etap 4: Si nwayo a se non (avek 'se' oswa san 'se') → PN.",
+            "Etap 5: Si nwayo a se adjektif → PA.",
+            "Etap 6: Si nwayo a se advèb → PAD.",
+            "Etap 7: Si nwayo a se prepozisyon → PP.",
+            "Etap 8: Pou aspè, chèche makè yo (ap, te, pral, fèk, deja, toujou)."
+          ],
+          "examples": [
+            "Egzanp: 'Mwen pral pot manje pou malad la.' → PV, pwospèktif (pral).",
+            "Egzanp: 'Joslen prezidan klas la.' → PN, prezan.",
+            "Egzanp: 'Li te tris nan fèt la.' → PA, pasé."
+          ],
+          "detailed_examples": [
+            "Egzanp detaye: 'Chak jou li leve al nan jaden.' – Sijè 'li', vèb aksyon 'leve', 'al' → PV. Aspè abityèl endike pa 'chak jou' (pa yon makè, men kontèks)."
+          ],
+          "methods": [
+            "Toujou kòmanse pa chèche vèb la. Si pa gen vèb aksyon, gade si gen 'se' (PN) oswa adjektif (PA)."
+          ],
+          "common_mistakes": [
+            "Konfonn Predika Adjektival ak Predika Nominal: 'Li bèl' se PA, 'Li se bèl' se PN.",
+            "Pa idantifye aspè lè genyen."
+          ],
+          "summary": "5 tip predika: PV (vèb aksyon), PN (non), PA (adjektif), PAD (advèb), PP (prepozisyon). Aspè: ap (progresif), te (pase), pral/va (avni), fèk (resansman), deja (akompli), toujou (abityèl)."
+        },
+        {
+          "title": "Vèb Seryèl",
+          "introduction": "Vèb seryèl se yon sekans vèb ki suiv youn apre lòt san konjeksyon, pou eksprime yon sèl aksyon konplèks.",
+          "definition": "Vèb seryèl = plizyè vèb (2-4) ki gen menm sijè, ki konekte san 'ak' ni 'epi', epi ki dekri yon mouvman inifye.",
+          "explanation": "Karakteristik: 1) Menm sijè. 2) Pa gen konjeksyon. 3) Sekans aksyon ki fè yon sèl mouvman. Egzanp: 'Li leve mache pwoche kanpe bò kabann nan.' 4 vèb ki montre yon mouvman kontinyèl. Kontrèman, 'Li dwe travay' se yon gwoup vèb modal (oksilyè + vèb prensipal).",
+          "step_by_step": [
+            "Etap 1: Idantifye tout vèb nan fraz la.",
+            "Etap 2: Tcheke si yo gen menm sijè.",
+            "Etap 3: Tcheke si pa gen 'ak' oswa 'epi' ant yo.",
+            "Etap 4: Tcheke si ou ka mete 'li te X, apre sa li Y' san chanje siyifikasyon an? Si siyifikasyon an chanje, se vèb seryèl."
+          ],
+          "examples": [
+            "Egzanp: 'Li kouri frape pòt tout moun.' (2 vèb)",
+            "Egzanp: 'Yo pran kouri desann lan je Rita.' (3 vèb)",
+            "Egzanp: 'Li monte desann eskalye.' (2 vèb)"
+          ],
+          "detailed_examples": [
+            "Egzanp detaye: 'Maryo kouri antre vin pran kòb la.' – 4 vèb (kouri, antre, vin, pran). Sijè 'Maryo' pou tout. Pa gen 'ak'. Siyifikasyon an se yon mouvman rapid, inifye. Si w di 'Maryo te kouri, apre sa li antre, apre sa li vin, apre sa li pran kòb la', siyifikasyon an pa menm (li vin gen ti repo). Se poutèt sa se vèb seryèl."
+          ],
+          "methods": [
+            "Pou tcheke, eseye mete 'epi' ant vèb yo. Si fraz la vin anlè, se vèb seryèl."
+          ],
+          "common_mistakes": [
+            "Konfonn vèb seryèl ak vèb modal (dwe, kapab, pral).",
+            "Pa tcheke si gen menm sijè."
+          ],
+          "summary": "Vèb seryèl se yon sekans vèb (menm sijè, san konjeksyon) ki dekri yon aksyon konplèks. Egzanp: 'li leve mache pwoche.'"
+        },
+        {
+          "title": "Reprezantasyon Grafik (Pyebwa Fraz)",
+          "introduction": "Reprezantasyon grafik montre estrikti yon fraz an fòm pyebwa. Li parèt nan prèske chak egzamen.",
+          "definition": "Yon reprezantasyon grafik se yon dyagram ki divize fraz la an eleman: F (fraz), GNS (gwoup nominal sijè), GV (gwoup vèbal), KOD (konpleman objè dirèk), KOI (konpleman objè endirèk), CSC (konpleman sikonstansyèl), Det (detèminan), Adj (adjektif), Prep (prepozisyon), GN (gwoup nominal).",
+          "explanation": "Prensip: Nwayo se F. Li divize an GNS ak GV. GV ka divize an vèb ak konpleman. KOD reponn 'kisa?' apre vèb. KOI reponn 'pou kisa? pou ki moun?'. CSC reponn 'kote? kilè? kijan? poukisa?'. Detèminan ak adjektif fè pati GNS.",
+          "step_by_step": [
+            "Etap 1: Ekri F anlè.",
+            "Etap 2: Desann, separe GNS ak GV.",
+            "Etap 3: Nan GNS, mete detèminan (si genyen) ak non (sijè).",
+            "Etap 4: Nan GV, mete vèb la.",
+            "Etap 5: Apre vèb, mete KOD (si genyen), KOI (si genyen), CSC (si genyen).",
+            "Etap 6: Si gen plizyè CSC, mete yo chak apa."
+          ],
+          "examples": [
+            "Egzanp: 'Dlo a rete sou tab la.' → F, GNS 'Dlo a', GV 'rete sou tab la'. Nan GV, 'rete' se vèb, 'sou tab la' se CSC lye."
+          ],
+          "detailed_examples": [
+            "Egzanp konplèks: 'Apre dènye priyè, Rita tounen Bwanèf, kay Alibe, kouzen defen papa li.' – F, GNS 'Rita', GV 'tounen' + CSC tan 'Apre dènye priyè' + CSC lye 'Bwanèf' + CSC lye 'kay Alibe, kouzen defen papa li' (apozisyon)."
+          ],
+          "methods": [
+            "Toujou kòmanse pa idantifye vèb la. Lè w gen vèb la, w ka jwenn sijè a (ki moun/kisa ki fè aksyon an).",
+            "Pou KOD, poze kesyon 'kisa?' apre vèb la."
+          ],
+          "common_mistakes": [
+            "Pa mete detèminan nan GNS.",
+            "Konfonn KOD ak CSC (KOD reponn 'kisa?' dirèkteman, CSC reponn 'kote, kilè, kijan, poukisa').",
+            "Pa mete CSC tan anvan lòt CSC."
+          ],
+          "summary": "Reprezantasyon grafik montre estrikti fraz la an pyebwa ak abrevyasyon: F, GNS, GV, KOD, KOI, CSC, Det, Adj, Prep, GN."
+        },
+        {
+          "title": "Pwopozisyon Sibòdone",
+          "introduction": "Yon fraz konplèks gen plizyè pwopozisyon. Pwopozisyon sibòdone depann de pwopozisyon prensipal la.",
+          "definition": "Pwopozisyon sibòdone se yon pwopozisyon ki pa ka rete pou kont li; li bezwen pwopozisyon prensipal la. Gen 4 kalite: relatif, konjonktiv (konpletiv), sikonstansyèl, entewogatif endirèk.",
+          "explanation": "Sibòdone relatif eksplike yon non (makè: ki, ke, kote, kijan, lè). Eg: 'Mwen wè timoun ki kriye.' – 'ki kriye' eksplike 'timoun'. Sibòdone konjonktiv konplete vèb la (makè: ke, si). Eg: 'Mwen espere ke w ap vini.' – 'ke w ap vini' konplete 'espere'. Sibòdone sikonstansyèl eksprime tan, kòz, konsesyon, kondisyon (makè: lè, paske, malgre, si). Eg: 'Lè lapli tonbe, mwen rete.' Sibòdone entewogatif endirèk retransmet yon kesyon (makè: si). Eg: 'Li mande si m prale.'",
+          "step_by_step": [
+            "Etap 1: Jwenn pwopozisyon prensipal la (pwopozisyon ki ka rete pou kont li).",
+            "Etap 2: Jwenn lòt pwopozisyon yo (ki gen vèb konjige).",
+            "Etap 3: Idantifye makè a (ki, ke, lè, paske, si, malgre, etc.).",
+            "Etap 4: Detèmine kalite sibòdone a selon makè ak fonksyon."
+          ],
+          "examples": [
+            "Sibòdone relatif: 'Mwen wè plizyè timoun ki pa jwenn pwoteksyon.'",
+            "Sibòdone konjonktiv: 'Mwen espere w ap retounen demen.'",
+            "Sibòdone sikonstansyèl tan: 'Lè li fin kriye, li leve.'",
+            "Sibòdone entewogatif endirèk: 'Li mande si m ka pase demen.'"
+          ],
+          "detailed_examples": [
+            "Egzanp sibòdone kòz: 'Timoun pa al lekòl paske gen atake.' – 'paske gen atake' eksplike rezon."
+          ],
+          "methods": [
+            "Pou idantifye sibòdone relatif, chache yon 'ki' ki vle di 'ki moun' oswa 'kisa' epi ki ap swiv yon non."
+          ],
+          "common_mistakes": [
+            "Konfonn sibòdone konjonktiv ak sibòdone relatif (makè 'ke' ka tou de, men relatif la eksplike yon non, konjonktiv la konplete vèb)."
+          ],
+          "summary": "4 kalite sibòdone: relatif (ki, ke), konjonktiv (ke, si), sikonstansyèl (lè, paske, malgre, si), entewogatif endirèk (si)."
+        },
+        {
+          "title": "Diskou Dirèk ak Diskou Endirèk",
+          "introduction": "Diskou dirèk rapòte mo egzak yon moun. Diskou endirèk rezime sa yo di san gwiyèmèt.",
+          "definition": "Diskou dirèk sèvi ak gwiyèmèt (« ») pou montre mo egzak yo. Diskou endirèk se yon sibòdone konpletiv (avek 'ke' oswa 'si') ki rapòte lide a san mo egzak yo.",
+          "explanation": "Transfòmasyon: Pwonon 1ye pèsonn (mwen, nou) vin 3yèm pèsonn (li, yo). Vèb prezan vin vèb pasé (m ap travay → li t ap travay). Vèb avni vin kondisyonèl (m pral → li ta pral). Mo kote ak tan: 'demen' vin 'lanndemèn', 'jodi a' vin 'jou sa a', 'isit la' vin 'la'.",
+          "step_by_step": [
+            "Etap 1: Idantifye vèb entwodiksyon an (di, mande, reponn).",
+            "Etap 2: Si gen gwiyèmèt, se dirèk.",
+            "Etap 3: Pou chanje endirèk, retire gwiyèmèt, mete 'ke' oswa 'si'.",
+            "Etap 4: Chanje pwonon (mwen → li, nou → yo, ou → li).",
+            "Etap 5: Chanje tan vèb (prezan → pasé, avni → kondisyonèl).",
+            "Etap 6: Chanje mo kote ak tan (demen → lanndemèn, isit → la)."
+          ],
+          "examples": [
+            "Dirèk: Li di m: « M ap wè ak ou demen maten. »",
+            "Endirèk: Li di m li t ap wè ak mwen lanndemèn maten."
+          ],
+          "detailed_examples": [
+            "Egzanp kesyon: Dirèk: Li mande: « Èske ou vle manje? » → Endirèk: Li mande si m te vle manje."
+          ],
+          "methods": [
+            "Pou kesyon, endirèk la itilize 'si' olye 'ke'."
+          ],
+          "common_mistakes": [
+            "Pa chanje pwonon (mwen rete mwen).",
+            "Pa chanje tan (prezan rete prezan).",
+            "Pa chanje 'demen' an 'lanndemèn'."
+          ],
+          "summary": "Diskou dirèk: mo egzak ak gwiyèmèt. Diskou endirèk: rapò ak 'ke' oswa 'si', ak chanjman pwonon, tan, ak mo kote."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Idantifye tip predika ak aspè nan fraz sa a: 'Li pral travay demen.'",
+          "solution": "PV (predika vèbal), aspè pwospèktif (pral).",
+          "explanation": "Vèb aksyon 'travay', makè 'pral' endike aksyon ki pral fèt."
+        },
+        {
+          "question": "Fè reprezantasyon grafik fraz sa a: 'Timoun nan manje yon pòm.'",
+          "solution": "F (Timoun nan manje yon pòm) → GNS (Timoun nan) + GV (manje yon pòm). Nan GNS: Det (nan) + Non (Timoun). Nan GV: Vèb (manje) + KOD (yon pòm).",
+          "explanation": "Apre vèb 'manje', gen konpleman objè dirèk 'yon pòm' (reponn 'kisa?')."
+        },
+        {
+          "question": "Konvèti an diskou endirèk: Li te di: 'Mwen pa vle ale.'",
+          "solution": "Li te di li pa t vle ale.",
+          "explanation": "Retire gwiyèmèt, mete 'li' olye 'mwen', chanje 'pa vle' an 'pa t vle' (pasé)."
+        },
+        {
+          "question": "Idantifye kalite pwopozisyon sibòdone: 'Mwen konnen ke w ap vini.'",
+          "solution": "Sibòdone konjonktiv (konpletiv) paske 'ke w ap vini' konplete vèb 'konnen'.",
+          "explanation": "Makè 'ke' la pa eksplike yon non, li konplete sans vèb la."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Vokabilè",
+      "chapter_introduction": "Vokabilè enpòtan pou konprann tèks ak pou pwodiksyon ekri. Pati sa a genyen chan leksikal, vokabilè valorizan/devaloizan, sinonim/antonim, mo derive, pwovèb.",
+      "chapter_objectives": [
+        "Diferansye chan leksikal ak rezo leksikal",
+        "Idantifye vokabilè valorizan (melyoratif), devaloizan (pejoratif), ak nevral",
+        "Bay sinonim ak antonim mo yo",
+        "Fòme mo derive ak prefiks ak sifiks",
+        "Eksplike pwovèb ayisyen yo (literal ak figuratif)"
+      ],
+      "subchapters": [
+        {
+          "title": "Chan Leksikal ak Rezo Leksikal",
+          "introduction": "Chan leksikal se tout mo ki fè pati menm domèn. Rezo leksikal se mo ki konekte nan yon tèks espesifik.",
+          "definition": "Chan leksikal: ansanm mo ki gen rapò ak menm domèn (ekonomi, sante, edikasyon, elatriye). Rezo leksikal: mo ki gen lyen semantik nan yon tèks patikilye (yo pa nesesèman menm domèn).",
+          "explanation": "Egzanp chan 'lekòl': pwofesè, elèv, klas, egzamen, kanè, direksyon, rekreyasyon. Egzanp rezo 'lamizè' nan yon tèks: grangou, povrete, soufri, doulè, mizè, dezespwa.",
+          "step_by_step": [
+            "Etap 1: Li tèks la.",
+            "Etap 2: Pou chan leksikal, chache mo ki soti nan menm domèn (pou egzanp, tout mo ki gen rapò ak 'sante').",
+            "Etap 3: Pou rezo leksikal, chache mo ki gen lyen siyifikasyon nan tèks la, menm si yo soti nan domèn diferan.",
+            "Etap 4: Ekri 5 a 10 mo."
+          ],
+          "examples": [
+            "Egzanp chan 'lasante': maladi, moustik, lafyèv, dyare, vomisman, tretman, prevansyon, doktè, lopital, vaksen."
+          ],
+          "detailed_examples": [
+            "Egzanp rezo 'chòk' nan yon tèks: tranbleman, kri, tonbe, pè, sezi, kè sote."
+          ],
+          "methods": [
+            "Pou jwenn chan leksikal, poze tèt ou: 'Ki domèn?' (edikasyon, sante, politik, agrikilti, espò, elatriye)."
+          ],
+          "common_mistakes": [
+            "Konfonn chan leksikal ak rezo leksikal. Chan leksikal se domèn; rezo se lyen nan tèks."
+          ],
+          "summary": "Chan leksikal = mo menm domèn. Rezo leksikal = mo konekte semantikman nan yon tèks."
+        },
+        {
+          "title": "Pwovèb Ayisyen yo",
+          "introduction": "Pwovèb se yon kalite lapawòl popilè ki bay yon leson moral. Egzamen mande eksplike yo.",
+          "definition": "Pwovèb se yon fraz kout, tradisyonèl, ki bay yon konsèy oswa yon verite jeneral ki baze sou eksperyans.",
+          "explanation": "Pwovèb yo itilize imaj ak metafò. Pou eksplike yon pwovèb, ou dwe bay siyifikasyon literal (sa mo yo di mo pou mo) ak siyifikasyon figuratif (sa li vle di vrèman). Lè sa a, ou ka bay yon sitiyasyon kote pwovèb la aplike.",
+          "step_by_step": [
+            "Etap 1: Li pwovèb la.",
+            "Etap 2: Eksplike sa mo yo di literalman (pawòl pou pawòl).",
+            "Etap 3: Eksplike siyifikasyon imajine a (sa li vle di vrèman).",
+            "Etap 4: Bay yon egzanp sitiyasyon kote pwovèb la aplike."
+          ],
+          "examples": [
+            "Egzanp: 'Men anpil, chay pa lou.' Literal: Lè anpil moun mete men yo, chay la pa lou. Figuratif: Travay kolektif pi fasil pase travay sèl. Aplike: Nan yon konbit, tout moun ede, se konsa gwo travay fini vit."
+          ],
+          "detailed_examples": [
+            "Egzanp: 'Kabrit gade je mèt kay avan li antre.' – Literal: Kabrit la gade je mèt kay la anvan li antre. Figuratif: Fòk ou chèche pèmisyon oswa konnen moun nan avan ou aji. Aplike: Ou pa antre nan kay yon moun san frape."
+          ],
+          "methods": [
+            "Pou eksplike, itilize fòmil: 'Sa vle di...', 'Yon lòt fason pou di sa se...', 'Pou egzanp...'"
+          ],
+          "common_mistakes": [
+            "Sèlman bay siyifikasyon literal san figire.",
+            "Pa bay egzanp aplikasyon."
+          ],
+          "summary": "Pwovèb bay leson moral. Pou eksplike, bay siyifikasyon literal, figuratif, ak yon sitiyasyon."
+        },
+        {
+          "title": "Sinonim, Antonim, Mo Derive",
+          "introduction": "Sinonim se mo ki gen menm sans. Antonim se mo ki gen sans opoze. Mo derive se mo ki fòme sou baz yon lòt mo (rasin) ak prefiks oswa sifiks.",
+          "definition": "Sinonim: mo ki ka ranplase youn lòt nan yon kontèks (lajan = kòb = monèt). Antonim: mo ki gen sans opoze (bon ≠ move). Mo derive: rasin + prefiks (de-, re-, an-) oswa sifiks (-è, -asyon, -man).",
+          "explanation": "Egzanp mo derive: 'travay' + sifiks -è = 'travayè'. 'bwè' + sifiks -wason = 'bwason'. 'detripe' = prefiks de- + rasin 'tripe'.",
+          "step_by_step": [
+            "Etap 1: Pou sinonim, chèche yon lòt mo ki gen menm sans.",
+            "Etap 2: Pou antonim, chèche yon mo ki vle di kontrè.",
+            "Etap 3: Pou mo derive, idantifye rasin nan, epi gade si gen yon prefiks oswa yon sifiks."
+          ],
+          "examples": [
+            "Sinonim: 'bèl' = 'joli' (men nan kreyòl, 'bèl' se pi komen).",
+            "Antonim: 'gwo' ≠ 'piti'.",
+            "Mo derive: 'polinize' → 'polinizasyon' (sifiks -asyon)."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pou jwenn sinonim, panse a lòt mo ki ka ranplase li nan fraz la.",
+            "Pou mo derive, konnen prefiks komen: de-, re-, an-, en-, epi sifiks: -è, -yon, -man, -tè, -wason."
+          ],
+          "common_mistakes": [
+            "Konfonn sinonim ak paronim (mo ki sanble men sans diferan)."
+          ],
+          "summary": "Sinonim = menm sans. Antonim = sans opoze. Mo derive = rasin + prefiks/sifiks."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Bay 5 mo nan chan leksikal 'agrikilti'.",
+          "solution": "Jaden, plantasyon, semans, rekòlte, zouti, bèf, chawou, labou, angrè, irigasyon.",
+          "explanation": "Mo sa yo tout gen rapò ak travay latè."
+        },
+        {
+          "question": "Eksplike pwovèb: 'Pakèt bwa a ri dife sann.'",
+          "solution": "Literal: Yon pakèt bwa ri dife ki te vin sann. Figuratif: Sa ki sanble san danje ka vin danjere. Ou pa dwe meprize ti bagay ki kapab vin gwo pwoblèm. Egzanp: Yon ti dife kapab boule tout yon forè si ou pa atansyon.",
+          "explanation": "Pwovèb sa a avèti kont arogans ak mepriz."
+        },
+        {
+          "question": "Bay yon sinonim ak yon antonim pou mo 'bèl'.",
+          "solution": "Sinonim: joli, bèl (menm). Antonim: lèd, move (pou aparans).",
+          "explanation": "Sinonim yo ka varye selon kontèks."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Tradiksyon",
+      "chapter_introduction": "Tradiksyon parèt nan tout egzamen. Li gen 2 sans: kreyòl → fransè ak fransè → kreyòl. Li teste kapasite ou pou w pase soti nan yon lang nan lòt san pèdi sans.",
+      "chapter_objectives": [
+        "Tradui yon tèks kreyòl an fransè (pa lide, pa mo pou mo)",
+        "Tradui yon tèks fransè an kreyòl (itilize vèb seryèl ak makè tan)",
+        "Konnen mo ak ekspresyon difisil yo",
+        "Respekte gramè fransè (akò, genre, tan) lè w ap tradui kreyòl→fransè",
+        "Itilize estrikti kreyòl natirèl (vèb seryèl, fòk, makè ap/te/pral) lè w ap tradui fransè→kreyòl"
+      ],
+      "subchapters": [
+        {
+          "title": "Tradiksyon Kreyòl → Fransè",
+          "introduction": "Lè w ap tradui kreyòl an fransè, atansyon ak gramè fransè (akò, genre, tan). Pa tradui mo pou mo.",
+          "definition": "Tradiksyon se transpoze yon tèks soti nan yon lang nan yon lòt, san chanje siyifikasyon an. Pou kreyòl→fransè, li enpòtan pou w konprann sans global la anvan w kòmanse.",
+          "explanation": "Prensip kle: 1) Konprann sans global la. 2) Tradui pa lide, pa mo pou mo. 3) Verifye akò nan fransè (sijè-vèb, genre non, tan). Egzanp: 'kè m pran danse' → 'mon cœur s'est mis à battre'. Si w tradui mo pou mo, w ap jwenn 'mon cœur prendre danser', ki pa gen sans.",
+          "step_by_step": [
+            "Etap 1: Li fraz la antye.",
+            "Etap 2: Idantifye vèb prensipal la ak makè tan an.",
+            "Etap 3: Chwazi mo fransè ki koresponn (gade lis mo difisil).",
+            "Etap 4: Aplike règ gramè fransè (akò, tan, genre).",
+            "Etap 5: Reli pou tcheke si sans lan menm epi si fraz la natirèl an fransè."
+          ],
+          "examples": [
+            "Egzanp: 'figi tan an mare mòksis' → 'le ciel était menaçant'",
+            "Egzanp: 'li bata fèmen' → 'ses yeux étaient à peine ouverts'",
+            "Egzanp: 'kè li tonbe sere' → 'son cœur s'est serré'"
+          ],
+          "detailed_examples": [
+            "Egzanp: 'Ravin Sèch' – se yon non pwòp, rete 'Ravin Sec'."
+          ],
+          "methods": [
+            "Pou mo ki pa gen ekivalan dirèk, chèche yon perifraz.",
+            "Aprann ekspresyon ki parèt souvan (kè m pran danse, figi tan an mare mòksis)."
+          ],
+          "common_mistakes": [
+            "Tradui mo pou mo (kalk), ki bay fraz ki pa natirèl.",
+            "Pa verifye akò genre (non, adjektif) an fransè.",
+            "Pa chanje tan kòmsadwa."
+          ],
+          "summary": "Tradiksyon kreyòl→fransè: konprann sans, chwazi mo apwopriye, verifye gramè fransè."
+        },
+        {
+          "title": "Tradiksyon Fransè → Kreyòl",
+          "introduction": "Lè w ap tradui fransè an kreyòl, itilize vèb seryèl ak makè tan kreyòl yo (ap, te, pral, fèk). Pa itilize mo fransè dirèkteman.",
+          "definition": "Tradiksyon fransè → kreyòl mande pou w adapte estrikti fransè yo an estrikti kreyòl (vèb seryèl, predika, makè tan). Li dwe son natirèl an kreyòl.",
+          "explanation": "Prensip: 1) Pa itilize mo fransè dirèkteman (pa di 'm ap fini', men 'm ap fini' se kreyòl? 'Fini' se franse, men li entegre; evite 'donc', 'mais' direkteman, itilize 'donk', 'men'). 2) Sèvi ak makè tan kreyòl (ap, te, pral, fèk). 3) Sèvi ak vèb seryèl pou aksyon konplèks. 4) Pou 'il faut que', itilize 'fòk' + vèb san 'ke'.",
+          "step_by_step": [
+            "Etap 1: Li fraz fransè a.",
+            "Etap 2: Idantifye tan an (prezan, pase, avni, kondisyonèl).",
+            "Etap 3: Chwazi makè tan kreyòl ki koresponn (apou prezan, te pou pase, pral pou avni, ta pou kondisyonèl).",
+            "Etap 4: Ranplase mo fransè yo ak mo kreyòl (evite kalk).",
+            "Etap 5: Sèvi ak vèb seryèl si plizyè aksyon.",
+            "Etap 6: Reli pou tcheke natirèl."
+          ],
+          "examples": [
+            "Egzanp: 'Lorsque tu auras reçu la nouvelle, tu pourras venir me voir.' → 'Lè w a resevwa nouvèl la, ou va ka vini wè m.' (makè avni 'a', 'va')",
+            "Egzanp: 'Si j'étais médecin, je soignerais tous les enfants.' → 'Si m te doktè, m ta swen tout timoun yo.' (makè pasé 'te', kondisyonèl 'ta')",
+            "Egzanp: 'Il faut que tous les enfants aillent à l'école chaque jour.' → 'Fòk tout timoun ale lekòl chak jou.' (fòk + vèb san ke)"
+          ],
+          "detailed_examples": [
+            "Egzanp: 'La lecture quotidienne est obligatoire pour augmenter le savoir.' → 'Lekti chak jou obligatwa pou ogmante konesans ou.' (pa itilize 'la lecture' mo pou mo, men 'lekti')"
+          ],
+          "methods": [
+            "Pou 'il faut que', kreyòl itilize 'fòk' + vèb san 'ke'.",
+            "Pou 'si' kondisyonèl, kreyòl itilize 'si' + makè 'ta' nan pwopozisyon prensipal la."
+          ],
+          "common_mistakes": [
+            "Itilize 'ke' apre 'fòk' (fòk ke → pa kòrèk).",
+            "Itilize mo fransè dirèkteman (eg: 'donc' olye 'donk', 'mais' olye 'men').",
+            "Pa chanje tan kòmsadwa (ou bliye 'ta' pou kondisyonèl)."
+          ],
+          "summary": "Tradiksyon fransè→kreyòl: itilize makè tan (te, ap, pral, ta), vèb seryèl, ak fòm kreyòl tankou 'fòk'."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Tradui an fransè: 'Lè li fin manje, li leve ale lakay li.'",
+          "solution": "Quand il a fini de manger, il s'est levé et est allé chez lui.",
+          "explanation": "Atansyon ak tan pase yo (pase konpoze). 'fin manje' → 'a fini de manger', 'leve ale' → 's'est levé et est allé'."
+        },
+        {
+          "question": "Tradui an kreyòl: 'Dès qu'il aura terminé, il viendra me voir.'",
+          "solution": "Le pli vit li a fini, li va vini wè m.",
+          "explanation": "Makè avni 'a' pou 'aura terminé', 'va' pou 'viendra'."
+        },
+        {
+          "question": "Tradui an fransè: 'Kè m pran danse lè m wè sa.'",
+          "solution": "Mon cœur s'est mis à battre quand j'ai vu cela.",
+          "explanation": "Fraz 'kè m pran danse' se yon ekspresyon fiks."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Pwodiksyon Ekri",
+      "chapter_introduction": "Pati pwodiksyon ekri bay 20 a 40 pwen. Ou dwe ekri yon tèks (agimantatif, naratif, lèt, kontrandi, rezime, pwezi) ki byen òganize, ak bon gramè, ak konektè lojik.",
+      "chapter_objectives": [
+        "Ekri yon tèks agimantatif ak tèz, agiman, egzanp, konklizyon",
+        "Ekri yon tèks naratif ak sekans (sitiyasyon inisyal, eleman perturbateur, peripeti, rezolisyon, sitiyasyon final)",
+        "Ekri yon lèt fòmèl ak estrikti apwopriye (kote, dat, adrès, ojbè, apèl, kò, salitasyon)",
+        "Ekri yon lèt motivasyon ak yon CV",
+        "Ekri yon kontrandi (report) reyinyon",
+        "Kreye yon pwezi ak rim (kwaze, swivi, anbrase)"
+      ],
+      "subchapters": [
+        {
+          "title": "Tèks Agimantatif",
+          "introduction": "Yon tèks agimantatif defann yon tèz (opinyon) ak agiman solid ak egzanp. Se yon kalite tèks ki mande yon plan klè.",
+          "definition": "Tèks agimantatif gen yon entwodiksyon (prezante sijè ak tèz), yon kò (2-3 agiman ak egzanp), ak yon konklizyon (rezime ak louvèti). Plan an se entwo, devlopman, konklizyon.",
+          "explanation": "Entwodiksyon: yon akòch (fraz ki atire atansyon), prezantasyon sijè a, tèz ou (opinyon ou), ak anons plan an (si ou vle). Kò: chak agiman nan yon paragraf. Pou chak agiman, bay yon rezon, epi yon egzanp (eksperyans pèsonèl, lekti, aktyalite). Konklizyon: rezime agiman yo, repete tèz ou, epi ouvèti (yon kesyon oswa yon refleksyon pi laj).",
+          "step_by_step": [
+            "Etap 1: Chwazi yon tèz klè (opinyon ou sou sijè a).",
+            "Etap 2: Chache 2-3 rezon pou sipòte tèz ou.",
+            "Etap 3: Pou chak rezon, chache yon egzanp konkrè.",
+            "Etap 4: Ekri yon plan detaye (entwo, agiman 1, agiman 2, konklizyon).",
+            "Etap 5: Ekri entwodiksyon an (3-5 fraz).",
+            "Etap 6: Ekri chak agiman nan yon paragraf (4-6 fraz).",
+            "Etap 7: Ekri konklizyon an (2-3 fraz).",
+            "Etap 8: Reli pou korije fòt epi ajoute konektè lojik."
+          ],
+          "examples": [
+            "Egzanp entwodiksyon: 'Nan peyi Ayiti, ensekirite vin yon gwo pwoblèm. Lekòl yo pa epargne. Daprè mwen, leta dwe pran mezi imedya pou pwoteje elèv yo. Nou pral montre premyèman pwoblèm nan, dezyèmman kòz li yo, finalman solisyon posib yo.'"
+          ],
+          "detailed_examples": [
+            "Egzanp agiman: 'An premye, anpil timoun pè ale lekòl akòz atak. Pa egzanp, nan Pòtoprens, gen plizyè lekòl ki te fèmen pandan semèn akòz menas. Timoun sa yo pèdi anpil tan lekòl. Se poutèt sa, leta dwe renfòse sekirite bò lekòl yo.'"
+          ],
+          "methods": [
+            "Itilize mo koneksyon: an premye, dezyèmman, anplis, sepandan, finalman, se poutèt sa, an konklizyon."
+          ],
+          "common_mistakes": [
+            "Pa gen plan, lide melanje.",
+            "Egzanp ki pa sipòte agiman an.",
+            "Konklizyon ki pa rezime agiman yo."
+          ],
+          "summary": "Tèks agimantatif: entwodiksyon (tèz), kò (2-3 agiman+egzanp), konklizyon (rezime+louvèti)."
+        },
+        {
+          "title": "Lèt Fòmèl",
+          "introduction": "Lèt fòmèl yo ekri pou otorite (direktè lekòl, minis, konpayi). Yo swiv yon estrikti presi epi yo itilize yon langaj respè.",
+          "definition": "Yon lèt fòmèl genyen: kote ak dat (anlè a dwat), adrès moun k ap ekri a, adrès moun k ap resevwa a, ojbè (ki rezime rezon lèt la), apèl (Monsieur, Madame), kò lèt la (entwodiksyon, devlopman, konklizyon), salitasyon ('Je vous prie d'agréer...'), siyati.",
+          "explanation": "Kò lèt la dwe gen yon entwodiksyon (prezante ou, rezon lèt la), yon devlopman (eksplike pwoblèm nan, bay detay), ak yon konklizyon (demann ou, esperans). Itilize 'Monsieur', 'Madame', evite 'Cher'. Salitasyon an ka varye selon relasyon an, men fòmil la komen.",
+          "step_by_step": [
+            "Etap 1: Ekri kote ak dat anlè a dwat.",
+            "Etap 2: Ekri non ou ak adrès ou (sou bò gòch oswa anba dat).",
+            "Etap 3: Ekri non moun k ap resevwa a ak adrès li.",
+            "Etap 4: Ekri ojbè: 'Ojbè: Demand...' oswa 'Objet : ...'",
+            "Etap 5: Ekri apèl: 'Monsieur Direktè,' oswa 'Madame,'.",
+            "Etap 6: Ekri kò lèt la (entwo, devlopman, konklizyon).",
+            "Etap 7: Ekri salitasyon: 'Je vous prie d'agréer, Monsieur, l'expression de mes salutations distinguées.'",
+            "Etap 8: Siyen (non ou, si wi ou ka ajoute 'Prénom Nom')."
+          ],
+          "examples": [
+            "Egzanp ojbè: 'Ojbè: Plent sou pwoblèm blakawout nan zòn nan'"
+          ],
+          "detailed_examples": [
+            "Egzanp kò lèt: 'Mwen, Jean Pierre, rezidan nan zòn nan, ap ekri ou pou atire atansyon ou sou blakawout ki fèt chak jou. Sa kreye anpil domaj nan biznis yo. Mwen mande w pou w pran mezi pou rezoud pwoblèm sa a.'"
+          ],
+          "methods": [
+            "Lèt fòmèl pa dwe gen langaj kreyòl ki twò popilè (pa ekri 'sak pase', 'bonjou').",
+            "Salitasyon an ka tou 'Veuillez agréer, Monsieur, l'expression de mes sentiments respectueux.'"
+          ],
+          "common_mistakes": [
+            "Pa mete dat.",
+            "Pa mete ojbè.",
+            "Salitasyon mal fòmile (pa ekri 'Cordialement' nan lèt fòmèl).",
+            "Kò lèt la twò kout oswa san detay."
+          ],
+          "summary": "Lèt fòmèl gen: kote/dat, adrès, ojbè, apèl, kò (entwo, devlopman, konklizyon), salitasyon, siyati."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Ekri yon tèks agimantatif sou sijè: 'Enpòtans konbit pou devlopman kominote a.' (bwouyon)",
+          "solution": "Entwodiksyon: Konbit se yon tradisyon ayisyen. Mwen kwè li esansyèl pou devlopman kominote yo. Kò: 1) Konbit pèmèt gwo travay san gwo depans. Egzanp: nan zòn riral, yo konstri yon kay ansanm. 2) Li ranfòse solidarite. Egzanp: lè yon moun malad, lòt ede l nan jaden. 3) Li anseye valè travay kolektif. Konklizyon: Konbit se yon modèl pou tout kominote pou avanse ansanm.",
+          "explanation": "Swiv plan agimantatif la (tèz, agiman, egzanp, konklizyon)."
+        },
+        {
+          "question": "Ekri yon lèt bay direktè lekòl pou mande reparasyon yon sifas k ap kraze.",
+          "solution": "Pòtoprens, 19 avril 2025.\nMwen, Jean Pierre, elèv nan klas 12...\nMonsieur Direktè,\n\nOjbè: Demand reparasyon sifas devan lekòl la.\n\nM ap ekri ou pou atire atansyon ou sou sifas devan lekòl la ki gen gwo twou. Elèv yo tonbe chak jou. Sa kreye danje. Mwen mande ou pou w aji vit.\n\nJe vous prie d'agréer, Monsieur, l'expression de mes salutations distinguées.\n\nSiyati: Jean Pierre",
+          "explanation": "Respekte estrikti lèt fòmèl (dat, adrès, ojbè, apèl, kò, salitasyon, siyati)."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Figè Estil",
+      "chapter_introduction": "Figè estil se teknik ke ekriven yo itilize pou fè tèks yo pi ekspresif, pi vivan. Egzamen mande idantifye yo ak eksplike yo. Chak figè gen yon definisyon ak yon efè.",
+      "chapter_objectives": [
+        "Defini chak figè estil (metafò, konparezon, metonimi, pèsonifikasyon, ipèbòl, antitèz, oksimò, anafò, perifraz, sinekdòk, antonomaz, kyas, antifraz, paralelis, akimilasyon, litòt)",
+        "Idantifye figè estil nan yon fraz",
+        "Eksplike efè chak figè estil",
+        "Diferansye metafò ak konparezon",
+        "Rekonèt kalite konparezon (siperyorite, enferyorite, egalite)",
+        "Diferansye anafò leksikal ak anafò gramatikal"
+      ],
+      "subchapters": [
+        {
+          "title": "Metafò ak Konparezon",
+          "introduction": "Metafò ak konparezon se figè ki baze sou resanblans. Metafò fè konparezon san mo 'tankou'; konparezon itilize 'tankou', 'menm jan ak', 'pase'.",
+          "definition": "Metafò: konparezon dirèk san mo ki endike konparezon (tankou, pase). Eg: 'Ti gason tant Èlsi a se yon sèvo.' (li se yon sèvo = li entelijan). Konparezon (simili): konparezon ak mo 'tankou', 'menm jan ak', 'pase', 'pi...pase'. Eg: 'Kò li frèt pase nen chen nan seren.'",
+          "explanation": "Metafò se plis yon idantifikasyon (X se Y). Konparezon se yon asosiyasyon (X tankou Y). Lè w itilize metafò, w di ke yon moun se yon lòt bagay, sa kreye yon imaj pi fò.",
+          "step_by_step": [
+            "Etap 1: Chache mo ki konpare (tankou, pase, menm jan ak). Si genyen, se konparezon.",
+            "Etap 2: Si pa gen mo konparezon men gen idantifikasyon ('se', 'ye', oswa vèb k ap idantifye), se metafò.",
+            "Etap 3: Eksplike ki de bagay yo konpare, epi ki resanblans."
+          ],
+          "examples": [
+            "Metafò: 'Lavi se yon batay.'",
+            "Konparezon: 'Lavi tankou yon batay.'"
+          ],
+          "detailed_examples": [
+            "Egzanp metafò: 'Ti gason tant Èlsi a se yon sèvo.' – Li pa gen yon sèvo literalman; metafò a di li entelijan.",
+            "Egzanp konparezon: 'Kò li frèt pase nen chen nan seren.' – Konparezon siperyorite (frèt + pase)."
+          ],
+          "methods": [
+            "Pou diferansye, mande si fraz la itilize 'tankou', 'pase', 'menm jan'. Si wi, se konparezon. Si non, se metafò."
+          ],
+          "common_mistakes": [
+            "Konfonn metafò ak konparezon."
+          ],
+          "summary": "Metafò = konparezon san mo konparatif. Konparezon = mo 'tankou', 'pase', 'menm jan ak'."
+        },
+        {
+          "title": "Metonimi, Sinekdòk, Antonomaz",
+          "introduction": "Metonimi, sinekdòk, antonomaz se figè ki ranplase yon mo pa yon lòt ki gen yon rapò lojik.",
+          "definition": "Metonimi: ranplase yon bagay pa yon lòt ki gen rapò ak li (kontni pou kontenan, kòz pou efè). Eg: 'Li bwè yon boutèy.' (boutèy = kontni likid). Sinekdòk: itilize yon pati pou tout, oswa tout pou yon pati. Eg: 'Tout bourik tounen filozòf.' (bourik = moun bèt). Antonomaz: itilize yon non pwòp kòm non komen. Eg: 'Wolan se yon gwo ewo.' (Wolan = non yon ewo, vin vle di 'yon ewo').",
+          "explanation": "Metonimi baze sou yon rapò de kontigwite (kontinan/kontenu, objè/materyèl, otè/zyèv). Sinekdòk baze sou yon rapò de pati a tout. Antonomaz se yon metonimi espesyal ak yon non pwòp.",
+          "step_by_step": [
+            "Etap 1: Idantifye mo ranplasan an ak mo ranplase a.",
+            "Etap 2: Si rapò a se kontinan/kontenu, kòz/efè, zouti/rezilta → metonimi.",
+            "Etap 3: Si rapò a se pati/tout → sinekdòk.",
+            "Etap 4: Si se yon non pwòp ki vin yon non komen → antonomaz."
+          ],
+          "examples": [
+            "Metonimi: 'Li renmen li Frankétienne.' (Frankétienne = zèv li).",
+            "Sinekdòk: 'Nou gen 50 tèt nan klas la.' (tèt = moun).",
+            "Antonomaz: 'Li se yon Mozart.' (Mozart = mizisyen jenious)."
+          ],
+          "detailed_examples": [
+            "Egzanp metonimi: 'Li bwè yon boutèy.' – Se pa boutèy vid li bwè, se likid andedan."
+          ],
+          "methods": [
+            "Pou sinekdòk, tcheke si ou ka ranplase mo a pa 'yon pati nan' oswa 'tout la'."
+          ],
+          "common_mistakes": [
+            "Konfonn metonimi ak sinekdòk (sinekdòk se yon kalite metonimi, men se diferan)."
+          ],
+          "summary": "Metonimi: rapò lojik (kontni pou kontenan). Sinekdòk: pati pou tout. Antonomaz: non pwòp vin komen."
+        },
+        {
+          "title": "Pèsonifikasyon, Ipèbòl, Antitèz/Oksimò",
+          "introduction": "Pèsonifikasyon bay objè oswa bèt kalite moun. Ipèbòl egzajere. Antitèz mete kontrè. Oksimò mete kontrè nan menm gwoup.",
+          "definition": "Pèsonifikasyon (pwozopope): bay yon bagay oswa yon bèt kalite yon moun (pale, santi, aji). Ipèbòl: egzajere anpil pou fè efè. Antitèz: mete de lide kontrè nan menm fraz. Oksimò: mete de mo kontrè nan menm gwoup (eg: 'silans kriyan').",
+          "explanation": "Pèsonifikasyon fè lanati vivan. Ipèbòl montre emosyon fò. Antitèz souliye kontradiksyon. Oksimò kreye yon efè etranj.",
+          "step_by_step": [
+            "Etap 1: Gade si yon bagay san lavi aji tankou yon moun → pèsonifikasyon.",
+            "Etap 2: Gade si gen yon egzajerasyon klè (mil, milya, tout, pa janm) → ipèbòl.",
+            "Etap 3: Gade si gen de lide opoze nan fraz → antitèz.",
+            "Etap 4: Gade si gen de mo kontrè kote youn akote lòt → oksimò."
+          ],
+          "examples": [
+            "Pèsonifikasyon: 'Lanmè a ouvri bouch li, li vale bato.'",
+            "Ipèbòl: 'Ala bwòdè w bwòdè!' (egzajere bèlte).",
+            "Antitèz: 'Chak jou pote doulè, chak jou pote lespwa.'",
+            "Oksimò: 'Yon doulè dous.'"
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pou ipèbòl, tcheke si ou ka konprann ke se pa literal."
+          ],
+          "common_mistakes": [
+            "Konfonn antitèz ak oksimò (oksimò se yon kas espesyal antitèz, nan menm gwoup mo)."
+          ],
+          "summary": "Pèsonifikasyon: bagay san lavi aji tankou moun. Ipèbòl: egzajerasyon. Antitèz: opozisyon lide. Oksimò: opozisyon mo."
+        },
+        {
+          "title": "Anafò (Leksikal ak Gramatikal)",
+          "introduction": "Anafò se repetisyon yon mo oswa yon estrikti nan kòmansman fraz oswa vè. Gen anafò leksikal (repetisyon mo) ak anafò gramatikal (repetisyon estrikti).",
+          "definition": "Anafò leksikal: repete menm mo oswa sinonim nan kòmansman plizyè fraz. Anafò gramatikal: repete menm estrikti sentaks (eg: 'Si m wè l... Si m tande l...').",
+          "explanation": "Anafò bay ritm, ensiste sou yon lide, kreye yon efè enumerasyon.",
+          "step_by_step": [
+            "Etap 1: Chache repetisyon nan kòmansman fraz oswa vè.",
+            "Etap 2: Si mo yo idantik, se anafò leksikal.",
+            "Etap 3: Si se menm estrikti (menm kalite mo nan menm lòd), se anafò gramatikal."
+          ],
+          "examples": [
+            "Anafò leksikal: 'Si m wè l... Si m tande l... Si m manke l...' (repetisyon 'Si m')",
+            "Anafò gramatikal: 'Li te vini, li te wè, li te konkeri.' (menm estrikti pwopozisyon)"
+          ],
+          "detailed_examples": [
+            "Egzanp anafò leksikal: 'Vijini Sanpè te ekri pwezi... Premye powetès literati ayisyen an te...' (repetisyon 'te'? Non, sinonim 'Vijini Sanpè' ak 'Premye powetès' se yon fason anafò leksikal)."
+          ],
+          "methods": [
+            "Pou anafò gramatikal, gade si se menm tan, menm kalite vèb, menm longè."
+          ],
+          "common_mistakes": [
+            "Konfonn anafò ak repetisyon senp (anafò mande kòmansman fraz)."
+          ],
+          "summary": "Anafò leksikal: repetisyon mo. Anafò gramatikal: repetisyon estrikti."
+        },
+        {
+          "title": "Lòt Figè Estil (Perifraz, Kyas, Antifraz, Paralelis, Akimilasyon, Litòt)",
+          "introduction": "Gen lòt figè ki mwens souvan men ki ka parèt nan egzamen. Yo chak gen yon efè espesifik.",
+          "definition": "Perifraz: di yon bagay ak plizyè mo olye yon sèl (eg: 'Peyi ki te ban nou lendepandans' = Ayiti). Kyas (chiasme): envestisman lòd mo nan de pati fraz (eg: 'Legliz se nou, nou se legliz'). Antifraz: di kontrè de sa yo panse pou fè iwoni (eg: 'Ala yon bèl erè ou fè!' lè erè a grav). Paralelis: repete menm estrikti nan fraz (eg: 'Etidyan yo mande chanjman, travayè yo vle ankourajman'). Akimilasyon: yon seri mo oswa ekspresyon (eg: 'Pye bannann, nas pwason, kay pay'). Litòt: di mwens pou eksprime plis (eg: 'Li pa mal' pou 'li bon').",
+          "explanation": "Chak figè gen yon efè: perifraz evite repete, kyas montre simetri, antifraz kreye iwoni, paralelis bay balans, akimilasyon enumerasyon, litòt modesti.",
+          "step_by_step": [
+            "Etap 1: Chache si yon bagay di ak anpil mo (perifraz).",
+            "Etap 2: Chache si lòd mo envesti (kyas).",
+            "Etap 3: Chache si se iwoni (antifraz).",
+            "Etap 4: Chache si se menm estrikti (paralelis).",
+            "Etap 5: Chache si se yon seri (akimilasyon).",
+            "Etap 6: Chache si se di mwens pou plis (litòt)."
+          ],
+          "examples": [
+            "Perifraz: 'La Vil Lwizyè' (Pòtoprens).",
+            "Kyas: 'Fòk ou manje pou w viv, pa viv pou w manje.'",
+            "Antifraz: 'Bravo, ou fè yon bèl travay!' (lè travay la mal).",
+            "Paralelis: 'Li renmen chante, li renmen danse, li renmen jwe.'",
+            "Akimilasyon: 'Li achte pen, lèt, bè, kafe, sik.'",
+            "Litòt: 'Sa pa pire.' (vle di sa bon)."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pou chak figè, aprann yon egzanp típik."
+          ],
+          "common_mistakes": [
+            "Konfonn perifraz ak metafò (perifraz la se yon deskripsyon, metafò se idantifikasyon)."
+          ],
+          "summary": "Perifraz: anpil mo pou yon bagay. Kyas: envestisman lòd. Antifraz: iwoni. Paralelis: estrikti idantik. Akimilasyon: enumerasyon. Litòt: modeste."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Idantifye figè estil nan fraz sa a: 'Lavi se yon gwo sèn teyat.'",
+          "solution": "Metafò, paske li konpare lavi ak yon sèn teyat san mo 'tankou'.",
+          "explanation": "Li di 'se', sa endike yon idantifikasyon."
+        },
+        {
+          "question": "Idantifye figè estil: 'Li bwè yon gwo boutèy dlo.' (nan sans ke li bwè anpil)",
+          "solution": "Metonimi (boutèy pou kontni likid).",
+          "explanation": "Li pa bwè boutèy la, li bwè dlo ki andedan."
+        },
+        {
+          "question": "Idantifye figè estil: 'M ap tann ou depi lontan lontan anpil lontan.'",
+          "solution": "Ipèbòl (egzajerasyon tan an).",
+          "explanation": "Lontan lontan anpil lontan egzajere."
+        },
+        {
+          "question": "Idantifye figè estil: 'Silans lan kriye nan mitan lannwit.'",
+          "solution": "Pèsonifikasyon (silans k ap kriye, bagay san lavi aji tankou moun).",
+          "explanation": "Silans pa ka kriye literalman."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Literati Ayisyen (pou LLA)",
+      "chapter_introduction": "Pati literati a genyen pou seri LLA. Li mande konnen zèv, otè, jan literè, ak tèm. Li se yon pati ki bay 10-15 pwen.",
+      "chapter_objectives": [
+        "Konnen zèv ak otè fondamantal literati ayisyen (Frankétienne, Morisseau-Leroy, Oswald Durand, Georges Sylvain, Pauris Jean-Baptiste, Pierre Michel Chéry, Frantz Wainright)",
+        "Idantifye jan literè yon zèv (woman, teyat, pwezi, fab, lodyans, nouvèl, kwonik)",
+        "Konnen tèm prensipal yo (liberasyon, vodou, sosyete, jistis, migrasyon, pòv, sipèstisyon)",
+        "Konprann lodyans, apològ, fab, kwonik",
+        "Konnen terminoloji literè (metatèks, entètèks, otobiyografi, epilòg)"
+      ],
+      "subchapters": [
+        {
+          "title": "Zèv ak Otè Fondamantal",
+          "introduction": "Gen zèv k ap parèt regilyèman nan egzamen an. Ou dwe konnen otè yo ak jan literè yo.",
+          "definition": "Lis zèv enpòtan: 'Dezafi' (Frankétienne) – woman; 'Antigòn' (Félix Morisseau-Leroy) – teyat; 'Dyakout' (Morisseau-Leroy) – pwezi; 'Choukoun' (Oswald Durand) – pwezi; 'Cric-Crac' (Georges Sylvain) – fab/lodyans; 'Bouki ak Malis' (tradisyon oral) – istwa kout; 'Nan Lonbraj Inosans' (Pauris Jean-Baptiste) – woman; 'Bèbè Gòlgota' (Pierre Michel Chéry) – woman; 'Siloyiz' (Frantz Wainright) – nouvèl + pwezi.",
+          "explanation": "Frankétienne se yon ekriven pwozifik (woman, teyat) ak yon pyonye kreyòl. Morisseau-Leroy se powèt ak dramatij ki te tradui 'Antigòn' an kreyòl. Oswald Durand se powèt klasik ('Choukoun'). Georges Sylvain te ekri 'Cric-Crac' (lodyans). Tèm yo varye: liberasyon, vodou, sosyete, jistis, migrasyon, pòv, sipèstisyon.",
+          "step_by_step": [
+            "Etap 1: Aprann tablo otè-zèv-jan pa kè.",
+            "Etap 2: Pou chak zèv, konnen yon ti rezime oswa tèm prensipal.",
+            "Etap 3: Pratike idantifye jan literè a lè w li yon ekstrè."
+          ],
+          "examples": [
+            "Egzanp: 'Dezafi' – Frankétienne – woman – tèm: liberasyon, vodou, sosyete ayisyen.",
+            "Egzanp: 'Antigòn' – Morisseau-Leroy – teyat – tèm: jistis, pouvwa."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Fè fich pou chak otè (non, zèv kle, jan, tèm).",
+            "Li ekstrè nan zèv sa yo si posib."
+          ],
+          "common_mistakes": [
+            "Konfonn otè ak zèv (di 'Dezafi se Morisseau-Leroy' – non, se Frankétienne).",
+            "Pa konnen diferans ant fab ak lodyans."
+          ],
+          "summary": "Konnen otè yo: Frankétienne, Morisseau-Leroy, Oswald Durand, Georges Sylvain, Pauris Jean-Baptiste, Pierre Michel Chéry, Frantz Wainright, ak zèv respektif yo."
+        },
+        {
+          "title": "Jan Literè ak Terminoloji",
+          "introduction": "Gen plizyè jan literè nan literati ayisyen. Ou dwe kapab rekonèt yo.",
+          "definition": "Woman (roman): resi long (Dezafi). Nouvèl (istwa kout): resi kout (Siloyiz). Teyat (pyès): dyalòg (Antigòn). Pwezi: vè (Dyakout, Choukoun). Fab: bèt ki pale ak moral (Cric-Crac). Lodyans: resi oral bref ayisyen (Cric-Crac). Apològ: ti resi ki gen leson moral. Kwonik: resi ki swiv lòd tan. Otobiyografi: resi kote otè a rakonte pwòp lavi li. Metatèks: tèks ki pale sou yon lòt tèks. Entètèks: referans yon tèks fè sou yon lòt. Epilòg: moral fab la.",
+          "explanation": "Lodyans se yon jan espesyalman ayisyen: yon resi oral, kout, souvan komik, ki rakonte yon anèkdòt. Fab la gen bèt ki pale ak yon moral eksplisit. Apològ se yon ti resi (pa nesesèman bèt) ki gen yon leson.",
+          "step_by_step": [
+            "Etap 1: Gade longè tèks la (long = woman, kout = nouvèl).",
+            "Etap 2: Gade si gen vè (pwezi).",
+            "Etap 3: Gade si gen bèt ki pale (fab).",
+            "Etap 4: Gade si gen orijin oral (lodyans)."
+          ],
+          "examples": [
+            "Egzanp: 'Cric-Crac' se yon koleksyon lodyans ak fab.",
+            "Egzanp: 'Antigòn' se teyat.",
+            "Egzanp: 'Dyakout' se pwezi."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Aprann definisyon chak tèm (lodyans, apològ, fab, kwonik, elatriye)."
+          ],
+          "common_mistakes": [
+            "Konfonn lodyans ak fab (fab gen bèt).",
+            "Konfonn apològ ak fab (apològ ka pa gen bèt)."
+          ],
+          "summary": "Woman (long), nouvèl (kout), teyat, pwezi, fab (bèt, moral), lodyans (oral bref), apològ (ti resi moral), kwonik (lòd tan)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Ki otè ki ekri 'Dyakout' ?",
+          "solution": "Félix Morisseau-Leroy.",
+          "explanation": "Dyakout se yon rekèy pwezi."
+        },
+        {
+          "question": "Ki jan literè 'Dezafi' ye?",
+          "solution": "Woman (roman).",
+          "explanation": "Dezafi se premye woman ki ekri an kreyòl."
+        },
+        {
+          "question": "Ki sa yon lodyans?",
+          "solution": "Yon resi oral bref ayisyen, souvan komik, ki fè pati tradisyon 'Cric-Crac'.",
+          "explanation": "Lodyans se yon jan literè karakteristik Ayiti."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Sijè Kiltirèl ak Sosyal",
+      "chapter_introduction": "Egzamen an gen sijè ki touche kilti ak sosyete ayisyèn tankou konbit, lang, vodou, emigrasyon. Ou dwe konnen tèz ak agiman prensipal yo.",
+      "chapter_objectives": [
+        "Eksplike sa konbit ye ak enpòtans li",
+        "Idantifye kwayans popilè (vodou, lwa, wanga)",
+        "Konprann debat sou lang nan lekòl (kreyòl vs fransè)",
+        "Analize pwoblèm sosyal (blakawout, ensekirite, lamizè)"
+      ],
+      "subchapters": [
+        {
+          "title": "Konbit",
+          "introduction": "Konbit se yon sistèm travay kolektif tradisyonèl nan Ayiti. Li reprezante yon valè solidarite.",
+          "definition": "Konbit se yon pratik kote yon gwoup moun travay ansanm sou jaden youn, epi chak fwa se jaden yon lòt. Se yon fòm antray ki baze sou prensip 'men anpil, chay pa lou'.",
+          "explanation": "Konbit pa sèlman ekonomik, li sosyal tou. Li ranfòse lyen kominote. Li pèmèt fè gwo travay san anpil lajan. Li anseye valè patisipasyon, responsablite, ak jenerozite.",
+          "step_by_step": [
+            "Etap 1: Defini konbit.",
+            "Etap 2: Bay 2-3 agiman pou defann li.",
+            "Etap 3: Bay egzanp konkrè.",
+            "Etap 4: Konklizyon sou enpòtans li pou devlopman."
+          ],
+          "examples": [
+            "Agiman 1: Konbit pèmèt akonpli gwo travay san gwo depans. Egzanp: konstriksyon yon kay, rekòt nan jaden.",
+            "Agiman 2: Li ranfòse solidarite. Egzanp: lè yon manm kominote malad, lòt yo ede l.",
+            "Agiman 3: Li anseye valè travay kolektif."
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Pou ekri sou konbit, itilize pwovèb 'Men anpil, chay pa lou'."
+          ],
+          "common_mistakes": [
+            "Konfonn konbit ak koudèt (koudèt se yon lòt fòm antray)."
+          ],
+          "summary": "Konbit se travay kolektif. Li baze sou solidarite, li pèmèt gwo travay, li ranfòse kominote."
+        },
+        {
+          "title": "Debat sou Lang nan Lekòl",
+          "introduction": "Gen yon gwo debat sou si lekòl yo ta dwe anseye an kreyòl oswa an fransè. Chak pozisyon gen agiman.",
+          "definition": "Tèz pro-kreyòl: elèv aprann pi vit nan lang matènèl yo, kreyòl kole ak idantite nasyonal. Tèz pro-fransè: fransè ouvri pòt entènasyonal, majorite resous se an fransè.",
+          "explanation": "Pou defann kreyòl: montre ke anpil timoun echwe paske yo pa konprann fransè. Kreyòl ka fè elèv yo pi konfyans. Pou defann fransè: nan mond travay, fransè toujou domine nan administrasyon ak inivèsite.",
+          "step_by_step": [
+            "Etap 1: Prezante deba a.",
+            "Etap 2: Bay agiman pro-kreyòl.",
+            "Etap 3: Bay agiman pro-fransè.",
+            "Etap 4: Fè yon sentèz (tou de lang enpòtan)."
+          ],
+          "examples": [
+            "Agiman pro-kreyòl: 'Timoun aprann pi vit lè yo anseye nan lang yo pale lakay yo.'",
+            "Agiman pro-fransè: 'Fransè se lang entènasyonal ki pèmèt aksè a plis opòtinite.'"
+          ],
+          "detailed_examples": [],
+          "methods": [
+            "Nan yon tèks agimantatif, ou ka pran pozisyon, men li pi bon montre tou de kote."
+          ],
+          "common_mistakes": [
+            "Mèprize youn nan lang yo."
+          ],
+          "summary": "Deba sou lang: kreyòl (aprantisaj, idantite) vs fransè (entènasyonal, resous). Yon solisyon se bilengwis."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Ki sa konbit ye? Bay yon egzanp.",
+          "solution": "Konbit se yon fòm travay kolektif kote yon gwoup moun travay ansanm sou jaden yon moun, epi apre sou jaden yon lòt. Egzanp: yon gwoup fèmè travay ansanm pou rekòlte mayi.",
+          "explanation": "Li baze sou prensip antray ak solidarite."
+        },
+        {
+          "question": "Bay yon agiman an favè kreyòl nan lekòl.",
+          "solution": "Elèv aprann pi vit lè yo anseye nan lang yo konprann, sa amelyore rezilta yo.",
+          "explanation": "Etid montre ke aprantisaj nan lang matènèl pi efikas."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Estrateji pou Egzamen",
+      "chapter_introduction": "Pou reyisi egzamen an, ou bezwen yon bon jesyon tan, konnen metòd chak pati, epi evite pièj komen.",
+      "chapter_objectives": [
+        "Jere tan ou pandan egzamen an",
+        "Konnen konsey pou chak seksyon",
+        "Itilize mo koneksyon pou byen estriktire repons ou"
+      ],
+      "subchapters": [
+        {
+          "title": "Jesyon Tan ak Konsey",
+          "introduction": "Egzamen an dire 3 a 4 èdtan. Divize tan ou selon valè chak pati.",
+          "definition": "Tan rekòmande: Konpreyansyon Tèks (45 min), Gramè + Tradiksyon (45 min), Pwodiksyon Ekri (50 min), Relekti (10 min).",
+          "explanation": "Kòmanse ak pati ki pi fasil pou ou. Pa pase twòp tan sou yon kesyon. Pou reprezantasyon grafik, pran tan ou. Pou redaksyon, ekri yon bwouyon anvan.",
+          "step_by_step": [
+            "Etap 1: Li tout egzamen an rapid.",
+            "Etap 2: Fè kesyon ki pi fasil yo an premye.",
+            "Etap 3: Pa rete bloke sou yon kesyon difisil.",
+            "Etap 4: Kite 10 minit pou rekòmanse epi korije."
+          ],
+          "examples": [],
+          "detailed_examples": [],
+          "methods": [
+            "Pou reprezantasyon grafik, kòmanse ak nwayo F, desann pa etap."
+          ],
+          "common_mistakes": [
+            "Pase twòp tan sou yon kesyon ti valè.",
+            "Pa li tèks la ase fwa."
+          ],
+          "summary": "Jere tan: 45 min konpreyansyon, 45 min gramè/tradiksyon, 50 min pwodiksyon, 10 min korije."
+        },
+        {
+          "title": "Mo Koneksyon (Konektè Lojik)",
+          "introduction": "Mo koneksyon ede estriktire tèks ou epi montre relasyon ant lide yo.",
+          "definition": "Konektè lojik se mo ki endike ajout, opozisyon, kòz, konsekans, kondisyon, konsesyon, eksanp, tan.",
+          "explanation": "Itilize yo nan pwodiksyon ekri pou fè tèks ou pi lis ak pi klè. Egzanp: 'an premye', 'dezyèmman', 'anplis', 'sepandan', 'se poutèt sa', 'an konklizyon'.",
+          "step_by_step": [
+            "Etap 1: Aprann lis konektè yo.",
+            "Etap 2: Pou chak paragraf, itilize yon konektè ki montre fonksyon l.",
+            "Etap 3: Pa abize ak menm konektè toujou."
+          ],
+          "examples": [
+            "Konektè ajout: epi, anplis, tou, ansanm ak",
+            "Konektè opozisyon: men, sepandan, alòske, poutan, malgre",
+            "Konektè kòz: paske, akòz, kòm, piske",
+            "Konektè konsekans: donk, se poutèt sa, konsa"
+          ],
+          "detailed_examples": [],
+          "methods": [],
+          "common_mistakes": [
+            "Sèvi ak 'men' twòp.",
+            "Pa mete konektè ant lide."
+          ],
+          "summary": "Konektè lojik montre relasyon lide: ajout, opozisyon, kòz, konsekans, elatriye. Itilize yo pou byen òganize tèks."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Kisa ou dwe fè an premye lè w ap fè yon reprezantasyon grafik?",
+          "solution": "Idantifye vèb la epi separe GNS ak GV.",
+          "explanation": "Vèb la se nwayo fraz la, li pèmèt w jwenn sijè a ak konpleman yo."
+        },
+        {
+          "question": "Bay yon konektè opozisyon.",
+          "solution": "Men, sepandan, alòske, poutan.",
+          "explanation": "Konektè sa yo endike yon kontrès ant de lide."
+        }
+      ]
+    }
+  ]
+}
+```

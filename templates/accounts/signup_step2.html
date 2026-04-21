@@ -1,0 +1,332 @@
+﻿{% extends "base.html" %}
+{% block title %}Inscription – École & Série – OU TOU BON{% endblock %}
+{% block body %}
+<div class="auth-page">
+  <div class="auth-card" style="max-width:480px;">
+    <div class="auth-logo"><div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div></div>
+
+    
+    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.5rem;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;opacity:.5;">✓</div>
+        <span style="font-size:.7rem;color:var(--t3);">Infos</span>
+      </div>
+      <div style="flex:1;height:2px;background:var(--green);max-width:60px;opacity:.5;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">2</div>
+        <span style="font-size:.7rem;color:var(--green);font-weight:600;">École</span>
+      </div>
+      <div style="flex:1;height:2px;background:var(--border);max-width:60px;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--t3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">3</div>
+        <span style="font-size:.7rem;color:var(--t3);">Diagnostic</span>
+      </div>
+    </div>
+
+    <div class="auth-title">Ton établissement & ta série</div>
+    <div class="auth-subtitle">Étape 2 sur 3 — On personnalise ton expérience</div>
+
+    {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
+
+    <form method="post" class="auth-form" id="step2Form">
+      {% csrf_token %}
+
+      
+      <div class="form-group">
+        <label class="form-label">Ton établissement (optionnel)</label>
+        <div style="position:relative;">
+          <input type="text" id="schoolInput" class="form-control"
+                 placeholder="Commence à taper le nom de ton école…"
+                 autocomplete="off">
+          
+          <input type="hidden" name="school_name" id="schoolHidden">
+        </div>
+        
+        <div id="schoolDropdown" style="display:none;position:absolute;z-index:200;background:var(--card);border:1px solid var(--border);border-radius:10px;width:100%;max-width:420px;box-shadow:0 8px 24px rgba(0,0,0,.3);overflow:hidden;margin-top:2px;"></div>
+        
+        <div id="schoolSelected" style="display:none;margin-top:.5rem;background:var(--card2);border:1px solid var(--green);border-radius:8px;padding:.5rem .75rem;display:flex;align-items:center;justify-content:space-between;font-size:.85rem;color:var(--green);">
+          <span id="schoolSelectedName"></span>
+          <button type="button" onclick="clearSchool()" style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:.9rem;">✕</button>
+        </div>
+      </div>
+
+      
+      <div class="form-group" style="margin-top:1rem;">
+        <label class="form-label">Ta série <span style="color:var(--green)">*</span></label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.4rem;">
+          {% for val, emoji, label in series %}
+          <label style="cursor:pointer;">
+            <input type="radio" name="serie" value="{{ val }}" style="display:none;" class="serie-radio">
+            <div class="serie-card" data-serie="{{ val }}"
+                 style="border:2px solid var(--border);border-radius:12px;padding:.75rem;text-align:center;transition:all .2s;font-size:.82rem;color:var(--t2);">
+              <div style="font-size:1.3rem;margin-bottom:.25rem;">{{ emoji }}</div>
+              <div style="font-weight:700;color:var(--t1);">{{ val }}</div>
+              <div style="font-size:.7rem;color:var(--t3);line-height:1.3;margin-top:.2rem;">{{ label }}</div>
+            </div>
+          </label>
+          {% endfor %}
+        </div>
+        <div id="serieInfo" style="margin-top:.75rem;font-size:.78rem;color:var(--t2);line-height:1.5;display:none;background:var(--card2);border-radius:8px;padding:.6rem .8rem;border:1px solid var(--border);"></div>
+      </div>
+
+      
+      <div id="langBlock" class="form-group" style="margin-top:1rem;display:none;">
+        <label class="form-label">Langue étrangère <span style="color:var(--green)">*</span></label>
+        <p style="font-size:.78rem;color:var(--t3);margin:.2rem 0 .6rem;">Anglais ou Espagnol ? Choisis la matière que tu passes au Bac.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+          <label style="cursor:pointer;">
+            <input type="radio" name="langue_etrangere" value="anglais" checked style="display:none;" class="lang-radio" id="langAnglais">
+            <div class="lang-card" data-lang="anglais"
+                 style="border:2px solid var(--green);border-radius:12px;padding:.75rem;text-align:center;transition:all .2s;font-size:.82rem;background:rgba(16,185,129,.08);">
+              <div style="font-size:1.3rem;margin-bottom:.25rem;">🇬🇧</div>
+              <div style="font-weight:700;color:var(--t1);">Anglais</div>
+            </div>
+          </label>
+          <label style="cursor:pointer;">
+            <input type="radio" name="langue_etrangere" value="espagnol" style="display:none;" class="lang-radio" id="langEspagnol">
+            <div class="lang-card" data-lang="espagnol"
+                 style="border:2px solid var(--border);border-radius:12px;padding:.75rem;text-align:center;transition:all .2s;font-size:.82rem;">
+              <div style="font-size:1.3rem;margin-bottom:.25rem;">🇪🇸</div>
+              <div style="font-weight:700;color:var(--t1);">Espagnol</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      
+      <div style="margin-top:1.25rem;">
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem;">
+          <i class="fas fa-bullseye" style="color:#10b981;"></i> Ta note cible au BAC
+          <span style="font-size:.73rem;font-weight:400;color:var(--t3);">(optionnel)</span>
+        </div>
+        <div style="font-size:.8rem;color:var(--t2);margin-bottom:.6rem;line-height:1.5;">
+          Quelle note veux-tu obtenir sur 1900 ? Ton coach IA adaptera tes objectifs en conséquence.<br>
+          <span style="color:var(--t3);font-size:.75rem;">Le minimum pour passer le BAC est <strong style="color:#10b981;">950/1900</strong>.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:.4rem;background:var(--card2);border:1.5px solid var(--border);border-radius:10px;padding:.4rem .7rem;flex:1;min-width:140px;">
+            <input type="number" name="bac_target" id="bacTargetInput" min="950" max="1900" step="10"
+                   placeholder="ex : 1400"
+                   style="background:none;border:none;outline:none;color:var(--t1);font-size:1rem;font-weight:700;width:100%;min-width:80px;"
+                   oninput="updateTargetLabel(this.value)">
+            <span style="color:var(--t3);font-size:.85rem;white-space:nowrap;">/1900</span>
+          </div>
+          <div id="targetLabelBadge" style="font-size:.78rem;font-weight:600;padding:.35rem .75rem;border-radius:20px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);color:#10b981;display:none;white-space:nowrap;"></div>
+        </div>
+        
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;">
+          <button type="button" class="bac-preset" data-val="950" style="font-size:.72rem;padding:.28rem .65rem;border-radius:20px;border:1px solid rgba(248,113,113,.3);background:rgba(248,113,113,.07);color:#f87171;font-weight:600;cursor:pointer;">950 — Passable</button>
+          <button type="button" class="bac-preset" data-val="1140" style="font-size:.72rem;padding:.28rem .65rem;border-radius:20px;border:1px solid rgba(245,158,11,.3);background:rgba(245,158,11,.07);color:#f59e0b;font-weight:600;cursor:pointer;">1140 — Bien</button>
+          <button type="button" class="bac-preset" data-val="1330" style="font-size:.72rem;padding:.28rem .65rem;border-radius:20px;border:1px solid rgba(16,185,129,.3);background:rgba(16,185,129,.07);color:#10b981;font-weight:600;cursor:pointer;">1330 — Très Bien</button>
+          <button type="button" class="bac-preset" data-val="1520" style="font-size:.72rem;padding:.28rem .65rem;border-radius:20px;border:1px solid rgba(99,102,241,.3);background:rgba(99,102,241,.07);color:#818cf8;font-weight:600;cursor:pointer;">1520 — Excellence</button>
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;padding:.85rem;margin-top:1.25rem;">
+        Continuer vers le diagnostic <i class="fas fa-arrow-right"></i>
+      </button>
+      <a href="{% url 'signup' %}" style="display:block;text-align:center;margin-top:.75rem;font-size:.82rem;color:var(--t3);">
+        ← Retour à l'étape 1
+      </a>
+    </form>
+  </div>
+</div>
+
+<div id="loadingOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,26,.92);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;">
+  <div style="width:56px;height:56px;border:4px solid rgba(16,185,129,.2);border-top-color:var(--green);border-radius:50%;animation:spinLoad 1s linear infinite;"></div>
+  <div style="text-align:center;">
+    <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.4rem;">Génération de tes questions…</div>
+    <div style="font-size:.85rem;color:var(--t2);">OU TOU BON prépare ton diagnostic personnalisé avec l'IA.</div>
+    <div style="font-size:.8rem;color:var(--t3);margin-top:.5rem;">Cela peut prendre 10–20 secondes.</div>
+  </div>
+  
+  <div style="display:flex;align-items:center;gap:.4rem;">
+    <div style="width:8px;height:8px;border-radius:50%;background:rgba(16,185,129,.4);animation:dotPulse 1.2s ease-in-out infinite;"></div>
+    <div style="width:8px;height:8px;border-radius:50%;background:rgba(16,185,129,.4);animation:dotPulse 1.2s ease-in-out infinite .2s;"></div>
+    <div style="width:8px;height:8px;border-radius:50%;background:rgba(16,185,129,.4);animation:dotPulse 1.2s ease-in-out infinite .4s;"></div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<style>
+@keyframes spinLoad {
+  to { transform: rotate(360deg); }
+}
+@keyframes dotPulse {
+  0%, 80%, 100% { transform: scale(.6); opacity: .4; }
+  40%           { transform: scale(1);  opacity: 1; }
+}
+</style>
+<script>
+const SERIE_INFO = {
+  'SVT': { emoji:'🧬', desc:'Matière principale : SVT (400)', autres:'Chimie (300) · Physique, Maths, Philosophie, Histoire, Anglais, Kreyòl (200)' },
+  'SMP': { emoji:'⚗️', desc:'Matière principale : Maths (400)', autres:'Physique (300) · Chimie, SVT, Philosophie, Histoire, Anglais, Kreyòl (200)' },
+  'SES': { emoji:'📊', desc:'Matières principales : Histoire & Éco (400)', autres:'Philosophie, Anglais, Maths, Kreyòl (200) · Physique, Chimie (100)' },
+  'LLA': { emoji:'📚', desc:'Matières principales : Philo, Anglais, Art (300)', autres:'Histoire, Kreyòl (200) · Chimie, Maths (100)' },
+};
+
+const SERIES = [
+  {val:'SVT', label:'Sciences de la Vie et de la Terre'},
+  {val:'SMP', label:'Sciences Mathématiques et Physiques'},
+  {val:'SES', label:'Sciences Économiques et Sociales'},
+  {val:'LLA', label:'Lettres, Langues et Arts'},
+];
+
+document.querySelectorAll('.serie-radio').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.querySelectorAll('.serie-card').forEach(c => {
+      c.style.borderColor = 'var(--border)';
+      c.style.background  = 'transparent';
+      c.style.color       = 'var(--t2)';
+    });
+    const card = document.querySelector(`.serie-card[data-serie="${this.value}"]`);
+    if (card) {
+      card.style.borderColor = 'var(--green)';
+      card.style.background  = 'rgba(16,185,129,.08)';
+    }
+    const info = SERIE_INFO[this.value];
+    const box = document.getElementById('serieInfo');
+    if (info) {
+      box.style.display = 'block';
+      box.innerHTML = `<strong style="color:var(--green)">${info.desc}</strong><br><span style="color:var(--t3)">${info.autres}</span>`;
+    }
+    const langBlock = document.getElementById('langBlock');
+    langBlock.style.display = (this.value === 'LLA') ? 'none' : 'block';
+  });
+});
+
+document.querySelectorAll('.lang-radio').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.querySelectorAll('.lang-card').forEach(c => {
+      c.style.borderColor = 'var(--border)';
+      c.style.background  = 'transparent';
+    });
+    const card = document.querySelector(`.lang-card[data-lang="${this.value}"]`);
+    if (card) {
+      card.style.borderColor = 'var(--green)';
+      card.style.background  = 'rgba(16,185,129,.08)';
+    }
+  });
+});
+
+let schoolChosen = false;
+const schoolInput    = document.getElementById('schoolInput');
+const schoolHidden   = document.getElementById('schoolHidden');
+const schoolDropdown = document.getElementById('schoolDropdown');
+const schoolSelected = document.getElementById('schoolSelected');
+const schoolSelectedName = document.getElementById('schoolSelectedName');
+
+function clearSchool() {
+  schoolChosen = false;
+  schoolHidden.value = '';
+  schoolInput.value  = '';
+  schoolSelected.style.display = 'none';
+  schoolInput.style.display    = 'block';
+  schoolInput.focus();
+}
+
+function selectSchool(name) {
+  schoolChosen = true;
+  schoolHidden.value = name;
+  schoolSelectedName.textContent = '🏫 ' + name;
+  schoolSelected.style.display = 'flex';
+  schoolInput.style.display    = 'none';
+  schoolDropdown.style.display = 'none';
+}
+
+function renderDropdown(results, query) {
+  schoolDropdown.innerHTML = '';
+  results.forEach(name => {
+    const item = document.createElement('div');
+    item.style.cssText = 'padding:.65rem 1rem;cursor:pointer;font-size:.87rem;color:var(--t1);transition:background .15s;';
+    item.textContent = name;
+    item.addEventListener('mouseenter', () => item.style.background = 'var(--card2)');
+    item.addEventListener('mouseleave', () => item.style.background = 'transparent');
+    item.addEventListener('mousedown', () => selectSchool(name));
+    schoolDropdown.appendChild(item);
+  });
+  if (query.length >= 2) {
+    const addItem = document.createElement('div');
+    addItem.style.cssText = 'padding:.65rem 1rem;cursor:pointer;font-size:.87rem;color:var(--green);font-weight:600;border-top:1px solid var(--border);';
+    addItem.innerHTML = `<i class="fas fa-plus-circle"></i> Ajouter "${query}"`;
+    addItem.addEventListener('mouseenter', () => addItem.style.background = 'var(--card2)');
+    addItem.addEventListener('mouseleave', () => addItem.style.background = 'transparent');
+    addItem.addEventListener('mousedown', () => addNewSchool(query));
+    schoolDropdown.appendChild(addItem);
+  }
+  schoolDropdown.style.display = schoolDropdown.children.length ? 'block' : 'none';
+}
+
+async function addNewSchool(name) {
+  const csrf = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  const resp = await fetch('/schools/', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf },
+    body:    JSON.stringify({ name })
+  });
+  const data = await resp.json();
+  if (data.name) selectSchool(data.name);
+}
+
+let searchTimer;
+schoolInput.addEventListener('input', function() {
+  clearTimeout(searchTimer);
+  const q = this.value.trim();
+  if (!q) { schoolDropdown.style.display = 'none'; return; }
+  searchTimer = setTimeout(async () => {
+    const resp = await fetch('/schools/?q=' + encodeURIComponent(q));
+    const data = await resp.json();
+    renderDropdown(data.results || [], q);
+  }, 250);
+});
+schoolInput.addEventListener('blur', () => {
+  setTimeout(() => { schoolDropdown.style.display = 'none'; }, 150);
+});
+schoolInput.addEventListener('focus', function() {
+  if (this.value.trim()) this.dispatchEvent(new Event('input'));
+});
+
+const TARGET_LABELS = {
+  950:  { label: '🎓 BAC passable', color: '#f87171' },
+  1140: { label: '📘 Bien (60%)',    color: '#f59e0b' },
+  1330: { label: '🌟 Très Bien (70%)', color: '#10b981' },
+  1520: { label: '🏆 Excellence (80%)', color: '#818cf8' },
+};
+function updateTargetLabel(val) {
+  const badge = document.getElementById('targetLabelBadge');
+  const n = parseInt(val);
+  if (!val || isNaN(n) || n < 950 || n > 1900) { badge.style.display='none'; return; }
+  const pct = Math.round(n / 1900 * 100);
+  const preset = Object.keys(TARGET_LABELS).reverse().find(k => n >= parseInt(k));
+  const info = preset ? TARGET_LABELS[preset] : { label: `${pct}%`, color: '#06b6d4' };
+  badge.textContent = `${info.label} — ${pct}%`;
+  badge.style.color = info.color;
+  badge.style.borderColor = info.color + '55';
+  badge.style.background = info.color + '15';
+  badge.style.display = 'inline-block';
+}
+document.querySelectorAll('.bac-preset').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const val = this.dataset.val;
+    document.getElementById('bacTargetInput').value = val;
+    updateTargetLabel(val);
+  });
+});
+
+document.getElementById('step2Form').addEventListener('submit', function(e) {
+  const serie = document.querySelector('.serie-radio:checked');
+  if (!serie) {
+    e.preventDefault();
+    const box = document.getElementById('serieInfo');
+    box.style.display = 'block';
+    box.style.borderColor = '#ef4444';
+    box.innerHTML = '<span style="color:#ef4444;font-weight:600;">⚠ Choisis ta série pour continuer.</span>';
+    box.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+  const overlay = document.getElementById('loadingOverlay');
+  overlay.style.display = 'flex';
+});
+</script>
+{% endblock %}
+

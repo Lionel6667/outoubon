@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merci ! · OU TOU BON</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:linear-gradient(160deg,#0a0e1a 0%,#111827 50%,#0f172a 100%);
+  color:#e2e8f0; min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  padding:1.5rem;
+}
+.ty-container { max-width:480px; width:100%; text-align:center; }
+
+.ty-spinner {
+  width:64px; height:64px; margin:0 auto 1.5rem;
+  border:4px solid rgba(255,255,255,.1);
+  border-top-color:#10b981;
+  border-radius:50%; animation:spin 1s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+.ty-icon {
+  width:80px; height:80px; border-radius:50%;
+  background:rgba(16,185,129,.12); margin:0 auto 1.5rem;
+  display:none; align-items:center; justify-content:center;
+}
+.ty-icon i { font-size:2rem; color:#10b981; }
+
+.ty-title { font-size:1.4rem; font-weight:800; margin-bottom:.5rem; }
+.ty-msg { color:#94a3b8; font-size:.9rem; line-height:1.6; margin-bottom:2rem; }
+.ty-msg strong { color:#e2e8f0; }
+
+.ty-highlight {
+  background:linear-gradient(145deg,#1e293b,#0f172a);
+  border:1px solid rgba(16,185,129,.2);
+  border-radius:16px; padding:1.25rem; margin-bottom:1.5rem;
+  display:none;
+}
+.ty-highlight .check { color:#10b981; font-weight:700; font-size:.95rem; }
+.ty-highlight .sub { color:#94a3b8; font-size:.82rem; margin-top:.25rem; }
+
+.ty-link {
+  display:inline-flex; align-items:center; gap:.5rem;
+  color:#fbbf24; text-decoration:none; font-size:.85rem; font-weight:600;
+}
+.ty-link:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<div class="ty-container">
+  <div class="ty-spinner" id="spinner"></div>
+  <div class="ty-icon" id="successIcon"><i class="fas fa-check"></i></div>
+
+  <h1 class="ty-title" id="tyTitle">Paiement en cours de vérification…</h1>
+  <p class="ty-msg" id="tyMsg">
+    Ton paiement MonCash est en traitement. Cette page se met à jour automatiquement.
+  </p>
+
+  <div class="ty-highlight" id="tyBox">
+    <div class="check"><i class="fas fa-check-circle"></i> Abonnement activé pour {{ student_name }}</div>
+    <div class="sub">{{ student_name }} peut maintenant accéder à tous les outils IA pour préparer son BAC. Merci pour ton soutien ! 🙏❤️</div>
+  </div>
+
+  <a href="/" class="ty-link"><i class="fas fa-external-link-alt"></i> Découvrir OU TOU BON</a>
+</div>
+
+<script>
+(async function(){
+  const ref = '{{ ref_id }}';
+  if (!ref) return;
+
+  for (let i = 0; i < 30; i++) {
+    await new Promise(r => setTimeout(r, 4000));
+    try {
+      const r = await fetch('/gift-payment-status/?ref=' + encodeURIComponent(ref));
+      const d = await r.json();
+      if (d.status === 'completed') {
+        document.getElementById('spinner').style.display = 'none';
+        const icon = document.getElementById('successIcon');
+        icon.style.display = 'flex';
+        document.getElementById('tyTitle').textContent = 'Merci infiniment ! 🎉';
+        document.getElementById('tyMsg').innerHTML =
+          '<strong>{{ student_name }}</strong> peut maintenant accéder à son compte premium et préparer son BAC avec tous les outils IA. ' +
+          'Grâce à toi, il/elle a un avantage incroyable pour réussir. Tu as fait une vraie différence dans sa vie ! 🙏❤️';
+        document.getElementById('tyBox').style.display = 'block';
+        return;
+      }
+    } catch(e) {}
+  }
+  document.getElementById('tyTitle').textContent = 'Vérification en cours…';
+  document.getElementById('tyMsg').textContent = 'Le paiement prend plus de temps que prévu. L\'abonnement sera activé automatiquement dès confirmation.';
+})();
+</script>
+
+</body>
+</html>

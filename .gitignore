@@ -1,0 +1,72 @@
+# ── Secrets & Environment ──
+.env
+.env.*
+*.env
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual environments ──
+.venv*/
+venv/
+env/
+
+# ── Database ──
+*.sqlite3
+db.sqlite3
+
+# ── Static files (collected) ──
+staticfiles/
+
+# ── Media uploads ──
+media/
+
+# ── IDE / Editor ──
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs & temp ──
+*.log
+django_errors.log
+*.tmp
+clean_log*.txt
+scrape_log.txt
+parse_structure_log.txt
+
+# ── Database / large data files (trop volumineux pour GitHub) ──
+# Ces dossiers contiennent les JSON d'examens (512 MB total).
+# À restaurer manuellement sur le serveur de production.
+database/examens_maths/
+database/examens_espagnol/
+database/examens_anglais/
+database/examens_physique/
+database/examens_economie/
+database/examens_chimie/
+database/examens_francais/
+database/examens_art/
+database/examens_svt/
+database/examens_philosophie/
+database/examens_histoire/
+database/examens_informatique/
+database/*.pdf
+
+# ── Coverage & testing ──
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/

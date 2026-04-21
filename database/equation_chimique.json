@@ -1,0 +1,267 @@
+{
+  "exercices": [
+    {
+      "id": 1,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète du méthane. Donner les masses molaires du méthane et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "CH₄ + 2 O₂ → CO₂ + 2 H₂O",
+        "masses_molaires": {
+          "CH₄": "16 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète de l'éthylène (éthène). Donner les masses molaires de l'éthylène et du dioxyde de carbone.",
+      "reponse": {
+        "equation_equilibree": "C₂H₄ + 3 O₂ → 2 CO₂ + 2 H₂O",
+        "masses_molaires": {
+          "C₂H₄": "28 g/mol",
+          "CO₂": "44 g/mol"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète de l'acétylène. Donner les masses molaires de l'acétylène et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "2 C₂H₂ + 5 O₂ → 4 CO₂ + 2 H₂O",
+        "masses_molaires": {
+          "C₂H₂": "26 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète du propane. Donner les masses molaires du propane et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O",
+        "masses_molaires": {
+          "C₃H₈": "44 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète du butane. Donner les masses molaires du butane et du dioxyde de carbone.",
+      "reponse": {
+        "equation_equilibree": "2 C₄H₁₀ + 13 O₂ → 8 CO₂ + 10 H₂O",
+        "masses_molaires": {
+          "C₄H₁₀": "58 g/mol",
+          "CO₂": "44 g/mol"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète du benzène. Donner les masses molaires du benzène et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "2 C₆H₆ + 15 O₂ → 12 CO₂ + 6 H₂O",
+        "masses_molaires": {
+          "C₆H₆": "78 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète de l'éthanol. Donner les masses molaires de l'éthanol et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O",
+        "masses_molaires": {
+          "C₂H₅OH": "46 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "enonce": "Écrire et équilibrer l'équation de la synthèse de l'acétylène par action de l'eau sur le carbure de calcium. Donner les masses molaires du carbure de calcium et de l'hydroxyde de calcium.",
+      "reponse": {
+        "equation_equilibree": "CaC₂ + 2 H₂O → C₂H₂ + Ca(OH)₂",
+        "masses_molaires": {
+          "CaC₂": "64 g/mol",
+          "Ca(OH)₂": "74 g/mol"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "enonce": "Écrire et équilibrer l'équation de l'hydrolyse du carbure d'aluminium (production de méthane et d'hydroxyde d'aluminium). Donner les masses molaires du carbure d'aluminium et du méthane.",
+      "reponse": {
+        "equation_equilibree": "Al₄C₃ + 12 H₂O → 3 CH₄ + 4 Al(OH)₃",
+        "masses_molaires": {
+          "Al₄C₃": "144 g/mol",
+          "CH₄": "16 g/mol"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "enonce": "Écrire et équilibrer l'équation de la décomposition thermique du carbonate de calcium (formation d'oxyde de calcium et de dioxyde de carbone). Donner les masses molaires du carbonate de calcium et de l'oxyde de calcium.",
+      "reponse": {
+        "equation_equilibree": "CaCO₃ → CaO + CO₂",
+        "masses_molaires": {
+          "CaCO₃": "100 g/mol",
+          "CaO": "56 g/mol"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "enonce": "Écrire et équilibrer l'équation de la fermentation alcoolique du glucose (transformation en éthanol et dioxyde de carbone). Donner les masses molaires du glucose et de l'éthanol.",
+      "reponse": {
+        "equation_equilibree": "C₆H₁₂O₆ → 2 C₂H₅OH + 2 CO₂",
+        "masses_molaires": {
+          "C₆H₁₂O₆": "180 g/mol",
+          "C₂H₅OH": "46 g/mol"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "enonce": "Écrire et équilibrer l'équation de l'hydrolyse du saccharose (formation de glucose et fructose). Donner les masses molaires du saccharose et du glucose.",
+      "reponse": {
+        "equation_equilibree": "C₁₂H₂₂O₁₁ + H₂O → C₆H₁₂O₆ + C₆H₁₂O₆",
+        "masses_molaires": {
+          "C₁₂H₂₂O₁₁": "342 g/mol",
+          "C₆H₁₂O₆": "180 g/mol"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "enonce": "Écrire et équilibrer l'équation de l'estérification entre l'acide acétique et l'éthanol (formation d'éthanoate d'éthyle et d'eau). Donner les masses molaires de l'acide acétique et de l'éthanol.",
+      "reponse": {
+        "equation_equilibree": "CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O",
+        "masses_molaires": {
+          "CH₃COOH": "60 g/mol",
+          "C₂H₅OH": "46 g/mol"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "enonce": "Écrire et équilibrer l'équation de l'oxydation ménagée de l'éthanol en éthanal. Donner les masses molaires de l'éthanol et de l'éthanal.",
+      "reponse": {
+        "equation_equilibree": "2 C₂H₅OH + O₂ → 2 CH₃CHO + 2 H₂O",
+        "masses_molaires": {
+          "C₂H₅OH": "46 g/mol",
+          "CH₃CHO": "44 g/mol"
+        }
+      }
+    },
+    {
+      "id": 15,
+      "enonce": "Écrire et équilibrer l'équation de l'oxydation ménagée de l'éthanol en acide acétique. Donner les masses molaires de l'éthanol et de l'acide acétique.",
+      "reponse": {
+        "equation_equilibree": "C₂H₅OH + O₂ → CH₃COOH + H₂O",
+        "masses_molaires": {
+          "C₂H₅OH": "46 g/mol",
+          "CH₃COOH": "60 g/mol"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète de la propanone (acétone). Donner les masses molaires de la propanone et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "CH₃COCH₃ + 4 O₂ → 3 CO₂ + 3 H₂O",
+        "masses_molaires": {
+          "CH₃COCH₃": "58 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète de l'éthanal. Donner les masses molaires de l'éthanal et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "2 CH₃CHO + 5 O₂ → 4 CO₂ + 4 H₂O",
+        "masses_molaires": {
+          "CH₃CHO": "44 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "enonce": "Écrire et équilibrer l'équation de la réaction du carbure de calcium avec le diazote (formation de cyanamide calcique et de carbone). Donner les masses molaires du carbure de calcium et du cyanamide calcique (CaCN₂).",
+      "reponse": {
+        "equation_equilibree": "CaC₂ + N₂ → CaCN₂ + C",
+        "masses_molaires": {
+          "CaC₂": "64 g/mol",
+          "CaCN₂": "80 g/mol"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "enonce": "Écrire et équilibrer l'équation de la réaction de l'hydroxyde de calcium avec le dioxyde de carbone (carbonatation). Donner les masses molaires de l'hydroxyde de calcium et du carbonate de calcium.",
+      "reponse": {
+        "equation_equilibree": "Ca(OH)₂ + CO₂ → CaCO₃ + H₂O",
+        "masses_molaires": {
+          "Ca(OH)₂": "74 g/mol",
+          "CaCO₃": "100 g/mol"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "enonce": "Donner la formule brute d'un alcane possédant 7 atomes de carbone. Calculer sa masse molaire en utilisant la formule M = 14n + 2.",
+      "reponse": {
+        "formule_brute": "C₇H₁₆",
+        "masse_molaire": "100 g/mol"
+      }
+    },
+    {
+      "id": 21,
+      "enonce": "Donner la formule brute d'un alcène possédant 4 atomes de carbone. Calculer sa masse molaire.",
+      "reponse": {
+        "formule_brute": "C₄H₈",
+        "masse_molaire": "56 g/mol"
+      }
+    },
+    {
+      "id": 22,
+      "enonce": "Donner la formule brute d'un alcyne possédant 5 atomes de carbone. Calculer sa masse molaire.",
+      "reponse": {
+        "formule_brute": "C₅H₈",
+        "masse_molaire": "68 g/mol"
+      }
+    },
+    {
+      "id": 23,
+      "enonce": "Donner la formule brute d'un arène (alkylbenzène) possédant 8 atomes de carbone (éthylbenzène). Calculer sa masse molaire.",
+      "reponse": {
+        "formule_brute": "C₈H₁₀",
+        "masse_molaire": "106 g/mol"
+      }
+    },
+    {
+      "id": 24,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète du pentane (C₅H₁₂). Donner les masses molaires du pentane et du dioxygène.",
+      "reponse": {
+        "equation_equilibree": "C₅H₁₂ + 8 O₂ → 5 CO₂ + 6 H₂O",
+        "masses_molaires": {
+          "C₅H₁₂": "72 g/mol",
+          "O₂": "32 g/mol"
+        }
+      }
+    },
+    {
+      "id": 25,
+      "enonce": "Écrire et équilibrer l'équation de la combustion complète de l'hexane (C₆H₁₄). Donner les masses molaires de l'hexane et du dioxyde de carbone.",
+      "reponse": {
+        "equation_equilibree": "2 C₆H₁₄ + 19 O₂ → 12 CO₂ + 14 H₂O",
+        "masses_molaires": {
+          "C₆H₁₄": "86 g/mol",
+          "CO₂": "44 g/mol"
+        }
+      }
+    }
+  ]
+}

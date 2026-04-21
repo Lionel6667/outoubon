@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Paiement en cours · OU TOU BON{% endblock %}
+
+{% block body %}
+<div class="app">
+  {% include "core/_sidebar.html" with active_page="pricing" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title">💳 Paiement</div></div>
+    <div class="view-area" style="display:flex;align-items:center;justify-content:center;min-height:60vh;">
+      <div style="text-align:center;max-width:420px;padding:2rem;">
+        <div id="paySpinner" style="margin-bottom:1.5rem;">
+          <div style="width:56px;height:56px;border:4px solid var(--border2);border-top-color:var(--green);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto;"></div>
+        </div>
+        <div id="payIcon" style="display:none;margin-bottom:1.5rem;">
+          <div style="width:56px;height:56px;background:rgba(16,185,129,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;">
+            <i class="fas fa-check" style="color:var(--green);font-size:1.5rem;"></i>
+          </div>
+        </div>
+        <h2 id="payTitle" style="font-size:1.3rem;font-weight:800;margin-bottom:.5rem;">Paiement en cours de vérification…</h2>
+        <p id="payMsg" style="color:var(--t2);font-size:.9rem;line-height:1.6;">Ton paiement MonCash est en traitement. Cette page se met à jour automatiquement.</p>
+        <a href="{% url 'pricing' %}" class="btn-primary" style="display:inline-block;text-decoration:none;margin-top:1.5rem;width:auto;padding:.7rem 1.5rem;border-radius:12px;">
+          <i class="fas fa-arrow-left"></i> Retour aux plans
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+<script>
+(async function(){
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref') || params.get('referenceId') || '';
+  if (!ref) return;
+  for (let i = 0; i < 30; i++) {
+    await new Promise(r => setTimeout(r, 4000));
+    try {
+      const r = await fetch('{% url "check_payment_status" %}?ref=' + encodeURIComponent(ref));
+      const d = await r.json();
+      if (d.status === 'completed') {
+        document.getElementById('paySpinner').style.display = 'none';
+        document.getElementById('payIcon').style.display = '';
+        document.getElementById('payTitle').textContent = 'Paiement confirmé ✓';
+        document.getElementById('payMsg').textContent = 'Ton abonnement est maintenant actif. Profite de tous les outils !';
+        return;
+      }
+    } catch(e) {}
+  }
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin Login — OTB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#020617;color:#f8fafc;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem}
+    .card{background:#1e293b;border:1px solid #2d3748;border-radius:16px;padding:2.5rem;max-width:380px;width:100%}
+    h1{font-size:1.3rem;font-weight:800;margin-bottom:.3rem;text-align:center}
+    .sub{color:#94a3b8;font-size:.82rem;text-align:center;margin-bottom:1.5rem}
+    label{font-size:.78rem;font-weight:600;color:#94a3b8;display:block;margin-bottom:.3rem;margin-top:1rem}
+    input{width:100%;padding:.65rem .85rem;background:#0f172a;border:1px solid #2d3748;border-radius:10px;color:#f8fafc;font-size:.88rem;outline:none;transition:border .15s}
+    input:focus{border-color:#10B981}
+    .error{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);border-radius:8px;padding:.55rem .75rem;font-size:.78rem;color:#fca5a5;margin-bottom:1rem}
+    button{width:100%;padding:.7rem;background:#10B981;border:none;border-radius:10px;color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:1.5rem;transition:opacity .15s}
+    button:hover{opacity:.85}
+    .lock{text-align:center;font-size:2rem;margin-bottom:1rem}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="lock">🔐</div>
+    {% if is_first %}
+    <h1>Configuration Admin</h1>
+    <p class="sub">Définissez votre mot de passe administrateur.<br>Vous ne pourrez le faire qu'une seule fois.</p>
+    {% else %}
+    <h1>Panneau Admin</h1>
+    <p class="sub">Entrez votre mot de passe pour accéder au tableau de bord.</p>
+    {% endif %}
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <label>Mot de passe</label>
+      <input type="password" name="password" required autofocus placeholder="••••••••"/>
+
+      {% if is_first %}
+      <label>Confirmer le mot de passe</label>
+      <input type="password" name="confirm" required placeholder="••••••••"/>
+      {% endif %}
+
+      <button type="submit">{% if is_first %}Définir & Entrer{% else %}Se connecter{% endif %}</button>
+    </form>
+  </div>
+</body>
+</html>

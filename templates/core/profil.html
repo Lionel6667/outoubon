@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+{% block title %}Mon profil – OU TOU BON{% endblock %}
+{% block extra_css %}
+<style>
+.profil-wrap { max-width: 700px; margin: 0 auto; padding: 1.5rem; }
+
+.profil-hero {
+  position: relative; overflow: hidden; border-radius: 22px; padding: 2rem;
+  background: linear-gradient(135deg, rgba(8,15,29,.97), rgba(17,24,39,.9));
+  border: 1px solid rgba(16,185,129,.18);
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  margin-bottom: 1.5rem;
+}
+.profil-hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 60% at 0% 0%, rgba(16,185,129,.1), transparent 55%),
+              radial-gradient(ellipse 60% 50% at 100% 100%, rgba(59,130,246,.08), transparent 55%);
+}
+.profil-hero-inner { position: relative; display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+.profil-avatar-wrap { position: relative; flex-shrink: 0; }
+.profil-avatar-big {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--blue2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; font-weight: 800; color: #fff;
+  border: 3px solid rgba(16,185,129,.4);
+  box-shadow: 0 0 0 5px rgba(16,185,129,.08), 0 8px 24px rgba(0,0,0,.4);
+  overflow: hidden;
+}
+.profil-avatar-big img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.profil-avatar-edit {
+  position: absolute; bottom: 0; right: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--green); border: 2px solid var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: .7rem; color: #fff;
+  transition: transform .15s;
+}
+.profil-avatar-edit:hover { transform: scale(1.1); }
+.profil-hero-info { flex: 1; min-width: 0; }
+.profil-hero-name { font-size: 1.5rem; font-weight: 900; color: var(--t1); margin-bottom: .2rem; }
+.profil-hero-email { font-size: .82rem; color: var(--t3); margin-bottom: .9rem; }
+.profil-hero-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.25);
+  color: var(--green); font-size: .75rem; font-weight: 700;
+  padding: .28rem .75rem; border-radius: 999px;
+}
+.profil-stats-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+.profil-stat {
+  flex: 1; min-width: 80px; text-align: center; padding: .75rem .5rem;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06);
+  border-radius: 14px;
+}
+.profil-stat-val { font-size: 1.4rem; font-weight: 900; color: var(--t1); }
+.profil-stat-lbl { font-size: .68rem; color: var(--t3); margin-top: .15rem; text-transform: uppercase; letter-spacing: .04em; }
+
+.profil-form-card { background: var(--card); border: 1px solid var(--border2); border-radius: 18px; overflow: hidden; }
+.profil-section { padding: 1.5rem; }
+.profil-section + .profil-section { border-top: 1px solid var(--border2); }
+.profil-section-title { font-size: .8rem; font-weight: 800; color: var(--t3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1.1rem; display: flex; align-items: center; gap: .5rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: .4rem; }
+.form-label { font-size: .78rem; font-weight: 600; color: var(--t2); }
+.form-control {
+  background: rgba(255,255,255,.04); border: 1px solid var(--border2);
+  border-radius: 10px; color: var(--t1); font-size: .875rem; padding: .65rem .9rem;
+  font-family: inherit; outline: none; transition: border-color .15s, background .15s; width: 100%;
+}
+.form-control:focus { border-color: rgba(16,185,129,.5); background: rgba(16,185,129,.04); }
+.form-control[disabled], .form-control[readonly] { opacity: .6; cursor: not-allowed; }
+.profil-save-btn {
+  width: 100%; padding: .8rem; background: var(--green); color: #fff;
+  border: none; border-radius: 12px; font-size: .9rem; font-weight: 800;
+  cursor: pointer; transition: opacity .15s; margin-top: .25rem;
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+}
+.profil-save-btn:hover { opacity: .88; }
+
+#avatarPreviewWrap { display: none; align-items: center; gap: .75rem; padding: .6rem .85rem; background: rgba(16,185,129,.06); border: 1px solid rgba(16,185,129,.2); border-radius: 10px; margin-top: .5rem; }
+#avatarPreviewImg { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(16,185,129,.3); }
+
+@media (max-width: 540px) {
+  .form-row { grid-template-columns: 1fr; }
+  .profil-hero-inner { gap: 1.25rem; }
+  .profil-stats-row { gap: .65rem; }
+  .profil-stat-val { font-size: 1.1rem; }
+}
+</style>
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="profil" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title" data-i18n="profil_title">Mon Profil</div></div>
+    <div class="view-area" style="overflow-y:auto;">
+      <div class="profil-wrap">
+
+        {% if messages %}
+          {% for msg in messages %}
+          <div class="toast {% if msg.tags == 'error' %}error{% else %}success{% endif %}" style="position:relative;top:0;right:0;transform:none;display:flex;margin-bottom:.75rem;opacity:1;border-radius:12px;">{{ msg }}</div>
+          {% endfor %}
+        {% endif %}
+
+        
+        <div class="profil-hero">
+          <div class="profil-hero-inner">
+            <div class="profil-avatar-wrap">
+              <div class="profil-avatar-big" id="heroAvatar">
+                {% if profile.avatar %}
+                  <img src="{{ profile.avatar.url }}" alt="avatar" id="heroAvatarImg">
+                {% else %}
+                  <span id="heroAvatarInitial">{{ request.user.first_name|first|upper|default:request.user.username|first|upper }}</span>
+                {% endif %}
+              </div>
+              <label class="profil-avatar-edit" title="Changer la photo" for="avatarInput">
+                <i class="fas fa-camera"></i>
+              </label>
+            </div>
+            <div class="profil-hero-info">
+              <div class="profil-hero-name">{{ request.user.get_full_name|default:request.user.username }}</div>
+              <div class="profil-hero-email">{{ request.user.email|default:"Aucun email" }}</div>
+              <div class="profil-hero-badge"><i class="fas fa-graduation-cap"></i> Terminale — BAC Haïti</div>
+              <div class="profil-stats-row">
+                <div class="profil-stat">
+                  <div class="profil-stat-val" style="color:var(--green)">{{ profile.streak }}</div>
+                  <div class="profil-stat-lbl">🔥 Streak</div>
+                </div>
+                <div class="profil-stat">
+                  <div class="profil-stat-val" style="color:var(--blue2)">{{ stats.exercices_resolus }}</div>
+                  <div class="profil-stat-lbl">Exercices</div>
+                </div>
+                <div class="profil-stat">
+                  <div class="profil-stat-val" style="color:var(--purple)">{{ stats.quiz_completes }}</div>
+                  <div class="profil-stat-lbl">Quiz</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+          <input type="file" name="avatar" id="avatarInput" accept="image/*" style="display:none" onchange="previewAvatar(this)">
+
+          <div class="profil-form-card">
+
+            
+            <div class="profil-section">
+              <div class="profil-section-title"><i class="fas fa-user"></i> Identité</div>
+              <div class="form-row" style="margin-bottom:.9rem;">
+                <div class="form-group">
+                  <label class="form-label">Prénom</label>
+                  <input type="text" name="first_name" class="form-control" value="{{ request.user.first_name }}" placeholder="Prénom">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nom</label>
+                  <input type="text" name="last_name" class="form-control" value="{{ request.user.last_name }}" placeholder="Nom de famille">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Adresse e-mail</label>
+                <input type="email" class="form-control" value="{{ request.user.email }}" readonly disabled style="opacity:.55;cursor:not-allowed;">
+              </div>
+            </div>
+
+            
+            <div class="profil-section">
+              <div class="profil-section-title"><i class="fas fa-school"></i> Établissement</div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Nom de l'école / Lycée</label>
+                  <input type="text" class="form-control" value="{{ profile.school|default:'Non renseigné' }}" readonly disabled style="opacity:.55;cursor:not-allowed;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Classe</label>
+                  <input type="text" class="form-control" value="Terminale" readonly disabled>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="profil-section">
+              <div class="profil-section-title"><i class="fas fa-image"></i> Photo de profil</div>
+              <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+                <label for="avatarInput" style="display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);border-radius:10px;color:var(--green);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .15s;">
+                  <i class="fas fa-upload"></i> Choisir une photo
+                </label>
+                <span style="font-size:.78rem;color:var(--t3);">JPG, PNG · Max 5 MB · Visible par tes amis</span>
+              </div>
+              <div id="avatarPreviewWrap">
+                <img id="avatarPreviewImg" src="" alt="Aperçu">
+                <div>
+                  <div style="font-size:.82rem;font-weight:600;color:var(--t1);">Nouvelle photo</div>
+                  <div id="avatarUploadStatus" style="font-size:.72rem;color:var(--t3);">Sauvegarde automatique…</div>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="profil-section">
+              <div class="profil-section-title"><i class="fas fa-lock"></i> Changer le mot de passe <span style="font-weight:400;font-size:.72rem;color:var(--t3);text-transform:none;letter-spacing:0;"> — optionnel</span></div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Nouveau mot de passe</label>
+                  <input type="password" name="new_password1" class="form-control" placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Confirmer</label>
+                  <input type="password" name="new_password2" class="form-control" placeholder="••••••••">
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="profil-section" style="padding-top:1rem;padding-bottom:1rem;">
+              <button type="submit" class="profil-save-btn">
+                <i class="fas fa-save"></i> Sauvegarder les modifications
+              </button>
+            </div>
+
+            
+            <div class="profil-section" style="padding-top:0;padding-bottom:1.2rem;border-top:1px solid var(--border2);margin-top:.5rem;">
+              <div style="font-size:.78rem;font-weight:700;color:var(--t2);margin-bottom:.6rem;margin-top:1rem;"><i class="fas fa-lightbulb" style="color:var(--yellow);margin-right:.35rem;"></i>Tutoriel</div>
+              <button type="button" onclick="_ONB.relaunchAll()" style="padding:.5rem 1rem;background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;border:none;border-radius:10px;font-size:.78rem;font-weight:700;cursor:pointer;transition:all .15s;">
+                <i class="fas fa-redo"></i> Relancer le tutoriel
+              </button>
+              <div style="font-size:.68rem;color:var(--t3);margin-top:.35rem;">Relance le guide interactif sur toutes les pages.</div>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+async function previewAvatar(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+
+  const wrap = document.getElementById('avatarPreviewWrap');
+  const img  = document.getElementById('avatarPreviewImg');
+  img.src = url;
+  wrap.style.display = 'flex';
+
+  const heroImg     = document.getElementById('heroAvatarImg');
+  const heroInitial = document.getElementById('heroAvatarInitial');
+  if (heroImg) {
+    heroImg.src = url;
+  } else if (heroInitial) {
+    heroInitial.style.display = 'none';
+    const newImg = document.createElement('img');
+    newImg.src = url; newImg.id = 'heroAvatarImg';
+    newImg.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%;';
+    document.getElementById('heroAvatar').appendChild(newImg);
+  }
+
+  const statusEl = document.getElementById('avatarUploadStatus');
+  statusEl.textContent = '? Sauvegarde en cours…';
+  statusEl.style.color = 'var(--t3)';
+
+  const fd = new FormData();
+  fd.append('avatar', file);
+  try {
+    const res = await fetch('{% url "api_avatar_upload" %}', {
+      method: 'POST',
+      headers: { 'X-CSRFToken': CSRF },
+      body: fd
+    });
+    const data = await res.json();
+    if (data.ok) {
+      statusEl.textContent = '? Photo sauvegardée !';
+      statusEl.style.color = 'var(--green)';
+      const sidebarImg = document.querySelector('.sidebar-avatar img');
+      if (sidebarImg) { sidebarImg.src = data.url; }
+      else {
+        const sa = document.querySelector('.sidebar-avatar');
+        if (sa) { sa.innerHTML = `<img src="${data.url}" style="width:100%;height:100%;object-fit:cover;">`; }
+      }
+    } else {
+      statusEl.textContent = '? ' + (data.error || 'Erreur upload');
+      statusEl.style.color = '#f87171';
+    }
+  } catch(e) {
+    statusEl.textContent = '? Erreur réseau';
+    statusEl.style.color = '#f87171';
+  }
+}
+</script>
+{% endblock %}
+

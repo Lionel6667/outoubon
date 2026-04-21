@@ -1,0 +1,633 @@
+﻿{% extends 'base.html' %}
+{% block title %}Exercice Physique - OU TOU BON{% endblock %}
+
+{% block extra_css %}
+.physique-exo-detail-page {
+  --shell: linear-gradient(180deg, rgba(9, 15, 33, 0.98) 0%, rgba(3, 9, 23, 1) 45%, rgba(10, 18, 34, 1) 100%);
+  --glass: rgba(10, 16, 28, 0.9);
+  --line-soft: rgba(148, 163, 184, 0.16);
+  --electric: #60a5fa;
+  --teal: #2dd4bf;
+  --ink: #dbeafe;
+}
+
+.physique-exo-detail-page .view-area {
+  width: 100%;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.14), transparent 24%),
+    radial-gradient(circle at top right, rgba(45, 212, 191, 0.1), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.08), transparent 20%),
+    var(--shell);
+}
+
+.physique-exo-detail-shell {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.1rem 1.1rem 2.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.physique-exo-detail-hero,
+.physique-exo-detail-card {
+  padding: 1.25rem;
+  border-radius: 24px;
+  background: var(--glass);
+  border: 1px solid var(--line-soft);
+  box-shadow: 0 22px 60px rgba(2, 8, 23, 0.32);
+}
+
+.physique-exo-detail-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.78rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  color: var(--electric);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.physique-exo-detail-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 0.95rem;
+}
+
+.physique-exo-detail-head h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.physique-exo-detail-head p,
+.raw-note-flow p,
+.detail-note {
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+.physique-exo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.physique-exo-link,
+.physique-exo-btn,
+.question-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.74rem 1rem;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.physique-exo-link.icon-only {
+  width: 2.7rem;
+  height: 2.7rem;
+  padding: 0;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.physique-exo-btn {
+  background: linear-gradient(135deg, var(--electric), #2563eb);
+  color: #eff6ff;
+}
+
+.physique-exo-link,
+.question-action-btn.secondary {
+  background: rgba(15, 23, 42, 0.58);
+  border-color: rgba(148, 163, 184, 0.18);
+  color: var(--ink);
+}
+
+.detail-metas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.7rem;
+}
+
+.detail-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.detail-pill.stage {
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(45, 212, 191, 0.18);
+}
+
+.detail-pill.difficulty {
+  color: #bfdbfe;
+  background: rgba(37, 99, 235, 0.14);
+  border: 1px solid rgba(96, 165, 250, 0.22);
+}
+
+.raw-note-flow h2,
+.raw-note-flow h3,
+.raw-note-flow h4 {
+  margin: 1rem 0 0.6rem;
+  line-height: 1.2;
+}
+
+.raw-note-flow ul,
+.raw-note-flow ol {
+  margin: 0.9rem 0;
+  padding-left: 1.15rem;
+  color: var(--ink);
+}
+
+.raw-note-flow li {
+  margin-bottom: 0.4rem;
+  line-height: 1.72;
+}
+
+.formula-block {
+  margin: 0.9rem 0;
+  padding: 0.85rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: rgba(15, 23, 42, 0.74);
+  overflow-x: auto;
+}
+
+.exercise-question-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.detail-bottom-actions {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.detail-bottom-actions form {
+  margin: 0;
+}
+
+.exercise-question-item {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.exercise-question-item strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #f8fafc;
+}
+
+.exercise-answer {
+  width: 100%;
+  min-height: 120px;
+  margin-top: 0.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(2, 6, 23, 0.78);
+  color: #e2e8f0;
+  padding: 0.9rem;
+  resize: vertical;
+  font: inherit;
+}
+
+.question-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+.question-feedback,
+.question-hint {
+  margin-top: 0.85rem;
+  padding: 0.9rem;
+  border-radius: 16px;
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: rgba(15, 23, 42, 0.56);
+}
+
+.question-hint {
+  border-color: rgba(45, 212, 191, 0.18);
+  background: rgba(6, 37, 36, 0.56);
+}
+
+.question-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #a7f3d0;
+  border: 1px solid rgba(45, 212, 191, 0.22);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.exercise-loading,
+.exercise-error {
+  padding: 0.9rem;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(15, 23, 42, 0.48);
+  color: var(--ink);
+}
+
+.exercise-error {
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.25);
+  background: rgba(127, 29, 29, 0.2);
+}
+
+.exercise-loading-spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(96, 165, 250, 0.2);
+  border-top-color: var(--electric);
+  animation: physique-exo-spin 0.8s linear infinite;
+  display: inline-block;
+  margin-right: 0.6rem;
+}
+
+@keyframes physique-exo-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 700px) {
+  .physique-exo-detail-head { display: grid; }
+  .physique-exo-detail-shell { padding: 0.8rem 0.8rem 1.5rem; }
+}
+{% endblock %}
+
+{% block body %}
+<div class="physique-exo-detail-page">
+  <div class="main">
+    <div class="view-area">
+      <div class="physique-exo-detail-shell">
+        <section class="physique-exo-detail-hero">
+          <div class="physique-exo-detail-head">
+            <div>
+              <h1 id="detailExerciseTitle">Exercice de Physique</h1>
+              <div class="detail-metas">
+                <span class="detail-pill stage" id="detailStagePill"></span>
+                <span class="detail-pill difficulty" id="detailDifficultyPill"></span>
+              </div>
+            </div>
+            <div>
+              <p class="detail-note"><strong id="detailCounter"></strong></p>
+            </div>
+          </div>
+          <div class="physique-exo-actions">
+            <a class="physique-exo-link icon-only" href="{{ physique_exercises_page_url }}" aria-label="Retour au parcours" title="Retour au parcours"><i class="fas fa-arrow-left"></i></a>
+          </div>
+        </section>
+
+        <section class="physique-exo-detail-card raw-note-flow">
+          <div id="detailExerciseIntro"></div>
+        </section>
+
+        <section class="physique-exo-detail-card">
+          <div class="exercise-question-list" id="questionListRoot"></div>
+        </section>
+
+        <section class="physique-exo-detail-card detail-bottom-actions">
+          <button id="generateSimilarBtn" class="physique-exo-btn" type="button"><i class="fas fa-wand-magic-sparkles"></i> Faire un exercice similaire</button>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const PHYSIQUE_EXERCISE_CORRECT_URL = '{% url "api_correct_exercise" %}';
+const CURRENT_SECTION = JSON.parse(`{{ physique_current_section_json|escapejs }}`);
+const EXERCISE = JSON.parse(`{{ physique_exercise_json|escapejs }}`);
+const EXERCISE_INDEX = Number('{{ physique_exercise_index }}') || 0;
+const TOTAL_EXERCISES = Number('{{ physique_total_exercises }}') || 0;
+const DIFFICULTY_LABELS = { facile: 'Simple', moyen: 'Intermédiaire', avance: 'Avancé', difficile: 'Complexe' };
+const STAGE_LABELS = ['Niveau 1', 'Niveau 2', 'Niveau 3', 'Niveau 4'];
+const detailState = { answers: {}, feedback: {}, hintOpen: {}, resolved: {} };
+
+function escapeHtml(text) {
+  return String(text || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function formatInline(text) {
+  let html = escapeHtml(text);
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  return html;
+}
+
+function renderMarkdownish(text) {
+  const lines = String(text || '').split('\n');
+  const html = [];
+  let paragraph = [];
+  let listItems = [];
+  let listType = null;
+  let formulaLines = [];
+  let inFormulaBlock = false;
+
+  function flushParagraph() {
+    if (!paragraph.length) return;
+    html.push(`<p>${formatInline(paragraph.join(' '))}</p>`);
+    paragraph = [];
+  }
+
+  function flushList() {
+    if (!listItems.length) return;
+    html.push(`<${listType}>${listItems.map(item => `<li>${formatInline(item)}</li>`).join('')}</${listType}>`);
+    listItems = [];
+    listType = null;
+  }
+
+  function flushFormula() {
+    if (!formulaLines.length) return;
+    html.push(`<div class="formula-block">\\[${escapeHtml(formulaLines.join('\n'))}\\]</div>`);
+    formulaLines = [];
+  }
+
+  lines.forEach(rawLine => {
+    const line = rawLine.trim();
+    if (inFormulaBlock) {
+      if (line === '\\]') {
+        inFormulaBlock = false;
+        flushFormula();
+      } else {
+        formulaLines.push(rawLine);
+      }
+      return;
+    }
+    if (!line) {
+      flushParagraph();
+      flushList();
+      flushFormula();
+      return;
+    }
+    if (line === '\\[') {
+      flushParagraph();
+      flushList();
+      inFormulaBlock = true;
+      formulaLines = [];
+      return;
+    }
+    const heading = line.match(/^(#{2,4})\s+(.*)$/);
+    if (heading) {
+      flushParagraph();
+      flushList();
+      flushFormula();
+      const tag = heading[1].length === 2 ? 'h2' : heading[1].length === 3 ? 'h3' : 'h4';
+      html.push(`<${tag}>${formatInline(heading[2])}</${tag}>`);
+      return;
+    }
+    const unordered = line.match(/^[-*]\s+(.*)$/);
+    if (unordered) {
+      flushParagraph();
+      if (listType && listType !== 'ul') flushList();
+      listType = 'ul';
+      listItems.push(unordered[1]);
+      return;
+    }
+    const ordered = line.match(/^\d+[.)]\s+(.*)$/);
+    if (ordered) {
+      flushParagraph();
+      if (listType && listType !== 'ol') flushList();
+      listType = 'ol';
+      listItems.push(ordered[1]);
+      return;
+    }
+    flushList();
+    paragraph.push(line);
+  });
+
+  flushParagraph();
+  flushList();
+  flushFormula();
+  return html.join('');
+}
+
+function wrapKatexDisplays(el) {
+  el.querySelectorAll('.katex-display').forEach(kd => {
+    if (kd.parentElement.classList.contains('formula-block')) return;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'formula-block';
+    kd.parentNode.insertBefore(wrapper, kd);
+    wrapper.appendChild(kd);
+  });
+}
+
+function stageLabel(index) {
+  return STAGE_LABELS[Math.min(index, STAGE_LABELS.length - 1)] || `Niveau ${index + 1}`;
+}
+
+function normalizedDifficulty() {
+  const lowered = String(EXERCISE.difficulte || '').trim().toLowerCase();
+  return DIFFICULTY_LABELS[lowered] || 'Progressif';
+}
+
+function renderHeader() {
+  document.getElementById('detailExerciseTitle').textContent = EXERCISE.title || `Exercice ${EXERCISE_INDEX + 1}`;
+  document.getElementById('detailStagePill').textContent = stageLabel(EXERCISE_INDEX);
+  document.getElementById('detailDifficultyPill').textContent = normalizedDifficulty();
+  document.getElementById('detailCounter').textContent = `Palier ${EXERCISE_INDEX + 1} sur ${TOTAL_EXERCISES}`;
+  document.getElementById('detailExerciseIntro').innerHTML = renderMarkdownish(EXERCISE.intro || EXERCISE.enonce || '');
+  
+  const introEl = document.getElementById('detailExerciseIntro');
+  if (introEl && typeof renderKatex === 'function') {
+    renderKatex(introEl);
+    wrapKatexDisplays(introEl);
+  }
+}
+
+function currentHint(questionIndex) {
+  const hints = Array.isArray(EXERCISE.hints) ? EXERCISE.hints : [];
+  return hints[questionIndex] || 'Repère la formule utile, l unité attendue et la grandeur exacte demandée avant de répondre.';
+}
+
+function renderFeedbackBlock(questionIndex) {
+  const feedback = detailState.feedback[questionIndex];
+  if (!feedback) return '';
+  if (feedback.loading) {
+    return '<div class="question-feedback"><span class="exercise-loading-spinner"></span>Correction en cours...</div>';
+  }
+  if (feedback.error) {
+    return `<div class="question-feedback"><div class="exercise-error">${escapeHtml(feedback.error)}</div></div>`;
+  }
+  const correction = feedback.correction || {};
+  const unitLine = correction.unit_required
+    ? `<p><strong>Unité attendue:</strong> ${escapeHtml(correction.unit_expected || 'Unité obligatoire')}<br/><strong>Unité fournie:</strong> ${correction.unit_present ? (correction.unit_correct ? 'Correcte' : 'Incorrecte') : 'Absente'}</p>`
+    : '';
+  return `
+    <div class="question-feedback raw-note-flow">
+      <p><strong>Résultat:</strong> ${correction.correct ? 'Correct' : correction.partial ? 'Partiel' : 'À revoir'} (${Number(correction.score || 0)} / 2)</p>
+      ${unitLine}
+      <p><strong>Attendu:</strong> ${formatInline(correction.expected_key || '')}</p>
+      <p><strong>Retour:</strong> ${formatInline(correction.explanation || '')}</p>
+    </div>
+  `;
+}
+
+function renderQuestions() {
+  const root = document.getElementById('questionListRoot');
+  root.innerHTML = (EXERCISE.questions || []).map((question, questionIndex) => {
+    const answer = detailState.answers[questionIndex] || '';
+    const resolved = !!detailState.resolved[questionIndex];
+    const hintOpen = !!detailState.hintOpen[questionIndex];
+    return `
+      <div class="exercise-question-item">
+        <strong>Question ${questionIndex + 1}</strong>
+        <div class="raw-note-flow">${renderMarkdownish(question)}</div>
+        <textarea class="exercise-answer" data-question-index="${questionIndex}" placeholder="Écris ta réponse ici, avec l unité si la question demande une valeur numérique...">${escapeHtml(answer)}</textarea>
+        <div class="question-actions">
+          <button class="question-action-btn secondary" type="button" data-action="hint" data-question-index="${questionIndex}"><i class="fas fa-lightbulb"></i> ${hintOpen ? 'Masquer l indice' : 'Indice'}</button>
+          ${resolved ? '' : `<button class="physique-exo-btn question-action-btn" type="button" data-action="correct" data-question-index="${questionIndex}"><i class="fas fa-check-circle"></i> Corriger cette partie</button>`}
+        </div>
+        ${resolved ? '<div class="question-success"><i class="fas fa-check"></i> Partie validée</div>' : ''}
+        ${hintOpen ? `<div class="question-hint raw-note-flow"><p>${formatInline(currentHint(questionIndex))}</p></div>` : ''}
+        ${renderFeedbackBlock(questionIndex)}
+      </div>
+    `;
+  }).join('');
+
+  root.querySelectorAll('.exercise-answer').forEach(field => {
+    field.addEventListener('input', () => {
+      const questionIndex = Number(field.dataset.questionIndex || 0);
+      detailState.answers[questionIndex] = field.value;
+    });
+  });
+
+  root.querySelectorAll('[data-action="hint"]').forEach(button => {
+    button.addEventListener('click', () => {
+      const questionIndex = Number(button.dataset.questionIndex || 0);
+      detailState.hintOpen[questionIndex] = !detailState.hintOpen[questionIndex];
+      renderQuestions();
+    });
+  });
+
+  root.querySelectorAll('[data-action="correct"]').forEach(button => {
+    button.addEventListener('click', () => correctQuestionPart(Number(button.dataset.questionIndex || 0)));
+  });
+
+  if (typeof renderKatex === 'function') {
+    renderKatex(root);
+    wrapKatexDisplays(root);
+  }
+}
+
+async function correctQuestionPart(questionIndex) {
+  const answer = String(detailState.answers[questionIndex] || '').trim();
+  if (!answer) {
+    detailState.feedback[questionIndex] = { error: 'Écris d abord une réponse avant de demander la correction.' };
+    renderQuestions();
+    return;
+  }
+  detailState.feedback[questionIndex] = { loading: true };
+  renderQuestions();
+
+  try {
+    const response = await fetch(PHYSIQUE_EXERCISE_CORRECT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': CSRF,
+      },
+      body: JSON.stringify({
+        exercise: EXERCISE,
+        answers: [answer],
+        question_index: questionIndex,
+        subject: 'physique',
+        force_lang: 'fr',
+      }),
+    });
+    const data = await response.json();
+    if (!response.ok || data.error) {
+      throw new Error(data.error || 'Correction indisponible.');
+    }
+    const correction = Array.isArray(data.corrections) ? data.corrections[0] : null;
+    detailState.feedback[questionIndex] = { correction };
+    if (correction && correction.correct && (!correction.unit_required || correction.unit_correct)) {
+      detailState.resolved[questionIndex] = true;
+    }
+  } catch (error) {
+    detailState.feedback[questionIndex] = { error: error.message || 'Erreur réseau.' };
+  }
+  renderQuestions();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderHeader();
+  renderQuestions();
+  
+  const generateBtn = document.getElementById('generateSimilarBtn');
+  if (generateBtn) {
+    generateBtn.addEventListener('click', async () => {
+      generateBtn.disabled = true;
+      generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Génération en cours...';
+      
+      try {
+        const response = await fetch('{{ physique_generate_similar_url }}', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': CSRF,
+          },
+        });
+        
+        if (!response.ok) {
+          throw new Error('Erreur lors de la génération');
+        }
+        
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || 'Erreur inconnue');
+        }
+        
+        Object.assign(EXERCISE, data.exercise);
+        Object.assign(detailState, { answers: {}, feedback: {}, hintOpen: {}, resolved: {} });
+        
+        renderHeader();
+        renderQuestions();
+        
+        document.querySelector('.physique-exo-detail-hero')?.scrollIntoView({ behavior: 'smooth' });
+      } catch (error) {
+        alert(`Erreur: ${error.message}`);
+      } finally {
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Faire un exercice similaire';
+      }
+    });
+  }
+});
+</script>
+{% endblock %}

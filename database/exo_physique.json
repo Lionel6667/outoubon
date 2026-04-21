@@ -1,0 +1,1104 @@
+
+## Chapitre « Démonstrations » (uniquement des exercices réels)
+
+**1.** *Source* : `exam_physique_physique-2019-svt-smp-aimentation.pdf`  
+*Énoncé* : Trois condensateurs de capacités respectives \(C_1, C_2, C_3\) sont associés en parallèle et alimentés sous une d.d.p. continue \(U\). Établir la relation \(C = C_1 + C_2 + C_3\) donnant la capacité équivalente \(C\) à l’ensemble des condensateurs.
+
+**2.** *Source* : `exam_physique_physique-2019-svt-smp-aimentation.pdf`  
+*Énoncé* : Un solide de masse \(m\) est accroché à un ressort vertical de raideur \(k\) et de longueur au repos \(\ell_0\). En notant \(x = \ell\), montrer que la projection verticale de la deuxième loi de Newton s’écrit \(m\frac{d^2x}{dt^2} = -k(x-\ell_0) + mg\).
+
+**3.** *Source* : `exam_physique_physique-2019-svt-smp-condensateur.pdf`  
+*Énoncé* : Un solide de masse \(m\) est fixé à l’extrémité d’un ressort de raideur \(k\). Il peut se déplacer sur un plan horizontal. En notant \(x\) l’allongement du ressort, établir l’équation différentielle du mouvement du solide.
+
+**4.** *Source* : `exam_physique_physique-2019-svt-smp-condensateur.pdf`  
+*Énoncé* : Établir la relation \(Z = \frac{1}{C\omega}\) donnant l’impédance \(Z\) d’un condensateur de capacité \(C\) relié aux bornes d’une d.d.p. alternative sinusoïdale de pulsation \(\omega\).
+
+**5.** *Source* : `exam_physique_physique-2019-svt-smp-induction-2.pdf`  
+*Énoncé* : On abandonne sans vitesse initiale une balle de masse \(m\). En considérant la chute libre :  
+a) faire l’inventaire des forces appliquées à la balle ;  
+b) vérifier que le vecteur accélération du centre d’inertie de la balle est \(\vec{a} = \vec{g}\).
+
+**6.** *Source* : `exam_physique_physique-2019-svt-smp-induction-2.pdf`  
+*Énoncé* : Établir la formule \(Z = \frac{1}{C\omega}\) permettant de calculer l’impédance d’un condensateur soumis à une d.d.p. alternative de pulsation \(\omega\). (identique à 4)
+
+**7.** *Source* : `exam_physique_physique-2019-svt-smp-induction.pdf`  
+*Énoncé* : On abandonne sans vitesse initiale une balle de masse \(m\). En considérant la chute libre :  
+a) faire l’inventaire des forces appliquées à la balle ;  
+b) vérifier que le vecteur accélération du centre d’inertie de la balle est \(\vec{a} = \vec{g}\).
+
+**8.** *Source* : `exam_physique_physique-2019-svt-smp_transformateur.pdf`  
+*Énoncé* : Un circuit comprend, disposés en série, un conducteur ohmique de résistance \(R\) et une self pure d’inductance \(L\) soumises à une d.d.p. alternative \(u(t) = U_m\sin\omega t\). À l’aide d’un diagramme de Fresnel, représenter l’intensité du courant dans le circuit et les tensions aux bornes des deux appareils pour établir que l’impédance du circuit est \(Z = \sqrt{R^2 + (L\omega)^2}\).
+
+**9.** *Source* : `exam_physique_physique-2019-svt-smp_transformateur.pdf`  
+*Énoncé* : Un solide de masse \(m\) glisse sans frottement sur un plan incliné d’un angle \(\alpha\) par rapport à l’horizontale.  
+a) Faire le bilan des forces exercées sur le solide.  
+b) En appliquant la 2ème loi de Newton, démontrer que l’accélération du centre d’inertie du solide est \(a = g\sin\alpha\).
+
+**10.** *Source* : `exam_physique_physique-2019_ses_impedance.pdf`  
+*Énoncé* : En interprétant la figure (où une bille de masse \(m\) passe de la position \(Z_{\text{max}}\) à la position \(Z\)), montrer que la vitesse \(V\) a pour valeur \(V = \sqrt{2g(Z_{\text{max}} - Z)}\) pendant la transformation de l’énergie potentielle en énergie cinétique.
+
+**11.** *Source* : `exam_physique_physique-2019_ses_impedance.pdf`  
+*Énoncé* : L’expression \(C = \varepsilon_0\frac{kS}{e}\) permet de calculer la grandeur caractéristique d’un condensateur.  
+a) À l’aide d’un schéma, présenter le type de condensateur dont on parle.  
+b) En interprétant l’expression, identifier tous les éléments accompagnés de leur unité.
+
+**12.** *Source* : `exam_physique_physique-2021-bac-permanent.pdf`  
+*Énoncé* : On calcule la grandeur caractéristique d’un condensateur connu par la relation \(C = \varepsilon_0\frac{kS}{e}\).  
+a) À partir d’un schéma, préciser et représenter le type de condensateur en question.  
+b) Interpréter la relation donnée en identifiant tous les éléments accompagnés de leur unité.
+
+**13.** *Source* : `exam_physique_physique-2021-bac-permanent.pdf`  
+*Énoncé* :  
+a) Énoncer la loi de Laplace et écrire la formule correspondante.  
+b) Qu’indique chacun des doigts dans la règle des trois doigts de la main droite relative à l’expérience de Laplace ?  
+c) Discuter la formule de la force de Laplace suivant les deux valeurs particulières de l’angle \(\alpha\) (0° et 90°).
+
+**14.** *Source* : `exam_physique_physique-2021_ses_bobine.pdf` (identique à 12)
+
+**15.** *Source* : `exam_physique_physique-2021_ses_bobine.pdf` (identique à 13)
+
+**16.** *Source* : `exam_physique_physique-2021_svt-smp_fourneau.pdf`  
+*Énoncé* : Établir la relation \(\alpha = \frac{N\beta S I}{C}\) permettant de calculer l’angle de rotation du cadre d’un galvanomètre à champ radial d’intensité \(\beta\), comportant \(N\) spires de section \(S\), d’un fil conducteur parcouru par un courant constant d’intensité \(I\), \(C\) étant la constante de rappel des fils qui soutiennent le cadre.
+
+**17.** *Source* : `exam_physique_physique-2021_svt-smp_fourneau.pdf`  
+*Énoncé* : Un condensateur plan dont les plaques sont distantes de \(d\) (mètres) est chargé sous une d.d.p. constante \(U\). Établir la formule \(E = \frac{U}{d}\) donnant l’intensité \(E\) du champ électrique régnant entre les plaques du condensateur.
+
+**18.** *Source* : `exam_physique_physique_2022_ses_big-bang.pdf`  
+*Énoncé* : Un courant alternatif sinusoïdal a pour expression mathématique \(i = I_m\sin(\omega t + \varphi)\). Il circule dans un conducteur ohmique de résistance \(R\) qui dégage de la chaleur par effet Joule.  
+a) Que représente chacun des paramètres \(I_m\), \(\omega\) et \(\varphi\) dans cette expression ? Préciser l’unité de chacun d’eux dans le Système International.  
+b) Définir « intensité efficace » puis établir la formule \(I_e = \frac{I_m}{\sqrt{2}}\) permettant de calculer cette intensité efficace.
+
+**19.** *Source* : `exam_physique_physique_2022_ses_big-bang.pdf`  
+*Énoncé* : Un condensateur préalablement chargé, de capacité \(C_1\), partage sa charge \(Q_1\) avec un autre condensateur non chargé de capacité \(C_2\). À l’équilibre de charge, la tension du système s’écrit \(U = \frac{Q_t}{C_t}\).  
+a) Comment les deux condensateurs sont-ils associés pendant le partage de charge ? Faire le schéma du condensateur chargé en partage avec le condensateur non chargé.  
+b) Que représentent \(Q_t\) et \(C_t\) dans la formule ci-dessus ? À quoi est égale chacune des grandeurs \(Q_t\) et \(C_t\) ?
+
+**20.** *Source* : `exam_physique_physique_2022_ses_cosmique.pdf`  
+*Énoncé* : On établit entre les bornes d’un dipôle une tension alternative sinusoïdale \(u(t)\). Dans ce cas, un courant alternatif circule correctement dans le circuit formé. Sachant qu’à l’origine de temps \(t=0\) s, la tension et le courant sont tous les deux nuls, on demande de :  
+a) identifier le dipôle en question et justifier la réponse ;  
+b) faire le schéma du montage et construire le diagramme de Fresnel correspondant.
+
+**21.** *Source* : `exam_physique_physique_2022_ses_cosmique.pdf`  
+*Énoncé* : Aux bornes d’une source de tension continue, on branche \(n\) condensateurs identiques de capacité commune \(C_1\) associés en parallèle. Établir la relation \(C = nC_1\) donnant la capacité équivalente \(C\) à l’ensemble des \(n\) condensateurs.
+
+**22.** *Source* : `exam_physique_physique_2022_ses_electromagnetisme.pdf`  
+*Énoncé* : Le passage d’un courant continu \(I\) dans un enroulement de fil conducteur à vide, produit au centre de cet enroulement un champ magnétique \(\beta_0\). On introduit un noyau de fer doux, de perméabilité relative \(\mu_r\), à l’intérieur de cet enroulement. Établir la formule \(\beta = \mu_r\mu_0\frac{NI}{L}\) donnant la nouvelle valeur du champ magnétique.
+
+**23.** *Source* : `exam_physique_physique_2022_ses_electromagnetisme.pdf`  
+*Énoncé* : L’expression \(C = \varepsilon_0\frac{kS}{e}\) permet de calculer la grandeur caractéristique d’un condensateur.  
+a) À l’aide d’un schéma, préciser et représenter le type de condensateur dont on parle.  
+b) En interprétant l’expression, identifier tous les éléments accompagnés de leurs unités.
+
+**24.** *Source* : `exam_physique_physique_2022_ses_englert.pdf`  
+*Énoncé* : Un condensateur plan est relié à une source de tension continue \(U\).  
+a) Écrire en fonction des paramètres géométriques du condensateur la formule permettant de calculer sa capacité.  
+b) Supposant qu’on rapproche les armatures de ce condensateur, quel effet cela a-t-il sur la charge ?
+
+**25.** *Source* : `exam_physique_physique_2022_ses_etoile.pdf`  
+*Énoncé* : Un oscilloscope présente un retard de phase de \(\pi/2\) rad de la tension par rapport à l’intensité du courant lorsqu’il est branché à un dipôle parcouru par un courant alternatif sinusoïdal de pulsation \(\omega\).  
+a) De quel dipôle s’agit-il ? Justifier en faisant le schéma du montage.  
+b) Représenter graphiquement les vecteurs tournants de Fresnel relatifs à ce circuit et en déduire les équations horaires de l’intensité du courant et de la tension dans ce circuit.
+
+**26.** *Source* : `exam_physique_physique_2022_ses_etoile.pdf`  
+*Énoncé* : Sous une tension continue \(U_1\), on charge les plaques d’un condensateur de capacité \(C_1\) ; sous une tension continue \(U_2\), celles d’un condensateur de capacité \(C_2\). On relie enfin les plaques de même signe entre elles.  
+a) Réaliser trois schémas représentant les situations expliquées ci-dessus.  
+b) Que se passe-t-il lorsqu’on relie les condensateurs entre eux ?  
+c) Écrire la formule de calcul de la tension d’équilibre aux bornes de l’association des condensateurs.
+
+**27.** *Source* : `exam_physique_physique_2022_ses_gravite.pdf`  
+*Énoncé* : Un disque circulaire de surface \(S\) est plongé dans un champ magnétique uniforme \(B\) et traversé par un flux magnétique \(\phi\).  
+1) Écrire la formule permettant de calculer le flux magnétique à travers cette surface. Que représente l’angle \(\alpha\) dans la formule ?  
+2) Que devient le flux magnétique quand : a) \(\alpha = 0^\circ\) ? b) \(\alpha = 90^\circ\) ?  
+3) Dans chacun des cas précédents, comment sont la normale à la surface et les lignes de champ ?
+
+**28.** *Source* : `exam_physique_physique_2022_ses_gravite.pdf`  
+*Énoncé* : On associe 9 condensateurs identiques de capacité \(C_1\) chacun pour former une batterie de trois séries à trois éléments par série.  
+a) Faire le schéma de la batterie ainsi constituée.  
+b) Écrire la formule de calcul de la capacité équivalente de chacune des séries.  
+c) Comparer la capacité \(C_1\) d’un seul condensateur et la capacité équivalente de la batterie.
+
+**29.** *Source* : `exam_physique_physique_2022_ses_kajita.pdf`  
+*Énoncé* : Pour son devoir de laboratoire, Ronald, élève de Terminale, réalise un condensateur en tapissant intérieurement et extérieurement à l’aide de deux feuilles d’aluminium une bouteille de verre.  
+a) Préciser le rôle du verre et celui de l’aluminium.  
+b) Le condensateur réalisé est assimilable à un condensateur plan de capacité \(C\). Écrire la formule permettant de calculer \(C\) en fonction des paramètres géométriques de ce condensateur.
+
+**30.** *Source* : `exam_physique_physique_2022_ses_kajita.pdf`  
+*Énoncé* : Au laboratoire de physique, Harry, élève de Terminale, fait passer un courant alternatif sinusoïdal d’expression \(i(t) = I_m\sin(\omega t)\) dans un dipôle qui peut être une résistance pure, une inductance pure ou une capacité. Un oscilloscope convenablement branché dans le circuit montre que la tension et l’intensité vibrent en phase.  
+a) Identifier le dipôle.  
+b) Écrire l’expression de la tension aux bornes du dipôle.
+
+**31.** *Source* : `exam_physique_physique_2022_ses_marconi.pdf`  
+*Énoncé* : Christelle dispose de quatre condensateurs plans identiques qu’elle souhaite charger pour réaliser une expérience au laboratoire. Elle dispose pour cela d’une source de tension continue de 100 V et d’une source de tension alternative de valeur efficace 120 V.  
+a) Quelle source doit-elle choisir ?  
+b) Ces condensateurs se chargent sans risque d’être claqués si la tension aux bornes de chacun d’eux ne dépasse pas 30 V. Comment doit-elle associer ces condensateurs ?
+
+**32.** *Source* : `exam_physique_physique_2022_ses_marconi.pdf`  
+*Énoncé* : Au laboratoire, Alexis, élève de Terminale, réalise une expérience au cours de laquelle il déplace le pôle Nord d’un barreau aimanté vers le plan d’une petite bobine plate reliée à un galvanomètre à zéro central. Au moment du déplacement de l’aimant, il constate que l’aiguille du galvanomètre dévie, indiquant ainsi le passage d’un courant.  
+a) Quel phénomène Alexis met-il en évidence ?  
+b) Etonné, Alexis éloigne le pôle de l’aimant de la bobine. L’aiguille dévie, mais cette fois, dans le sens opposé à celui observé précédemment. Quelle loi permet de tenir compte du sens du courant produit au cours du phénomène observé ?
+
+**33.** *Source* : `exam_physique_physique_2022_ses_oncle.pdf`  
+*Énoncé* : Une bobine de longueur \(L_b\) et de diamètre \(D_b\) est composée de \(N\) tours de fil. On fait passer un courant d’intensité \(I\) dans l’enroulement de cette bobine.  
+a) Écrire la formule donnant la longueur \(L_f\) du fil constituant l’enroulement de la bobine.  
+b) Définir l’inductance \(L\) de cette bobine, puis donner sa formule de calcul.  
+c) En déduire la relation entre l’inductance \(L\) de la bobine et la longueur du fil \(L_f\) qui la constitue.
+
+**34.** *Source* : `exam_physique_physique_2022_ses_oncle.pdf`  
+*Énoncé* : Aux bornes d’une source de tension continue \(U\), on branche \(n\) condensateurs identiques de capacité commune \(C_1\) associés en série. Établir la relation \(C = \frac{C_1}{n}\) donnant la capacité équivalente \(C\) à l’ensemble des \(n\) condensateurs.
+
+**35.** *Source* : `exam_physique_physique_2022_ses_perl.pdf`  
+*Énoncé* : Julien, élève de secondaire IV, trouve dans un laboratoire de physique un condensateur non chargé sur lequel est donnée la tension maximale d’utilisation \(U\), mais la valeur de la capacité a été effacée. Il décide de le charger pour déterminer approximativement sa capacité. À l’aide d’un générateur à courant continu, il fait passer dans le condensateur un courant d’intensité \(I\) mesurée à l’aide d’un ampèremètre. La charge du condensateur est complète au bout d’une durée \(t\).  
+a) Qu’est-ce qui lui permet de constater que la charge du condensateur est complète ? Faire le schéma du circuit correspondant.  
+b) Présenter les étapes de calcul effectuées par Julien pour déterminer la capacité du condensateur, sachant qu’il dispose de tous les appareils nécessaires pour mesurer les grandeurs dont il a besoin.
+
+**36.** *Source* : `exam_physique_physique_2022_ses_perl.pdf`  
+*Énoncé* : Après avoir étudié l’action d’un champ magnétique sur un élément de courant électrique, Claudy demande à l’un de ses camarades de lui parler de la loi et de la formule qui en découlent.  
+a) Quelle est cette loi ? Puis l’énoncer.  
+b) Écrire la formule découlant de cette loi et entamer sa discussion suivant les valeurs particulières de l’angle qu’elle contient.
+
+**37.** *Source* : `exam_physique_physique_2022_smp-svt_schrodinger-2.pdf`  
+*Énoncé* : Isabelle dispose de deux condensateurs de capacités distinctes \(C_1\) et \(C_2\). Elle les charge successivement avec la même source de tension \(U\). Elle souhaite ensuite les associer pour qu’ils se partagent leurs charges et obtiennent à l’équilibre une tension \(U_s\) entre leurs bornes communes.  
+a) Faire un schéma clair de l’association en indiquant à l’aide des signes (+) et (-) les plaques positives et négatives des deux condensateurs chargés.  
+b) Écrire en fonction de \(C_1\), \(C_2\) et \(U\) la formule donnant la tension d’équilibre \(U_s\) du système de deux condensateurs.
+
+**38.** *Source* : `exam_physique_physique_2022_smp-svt_schrodinger-2.pdf`  
+*Énoncé* : Pour déterminer la nature d’un dipôle qui peut être soit une résistance pure, soit une bobine idéale ou une capacité, Evelyne, élève de Secondaire IV, fait passer dans ce dipôle un courant alternatif sinusoïdal d’expression \(i(t) = I_m\sin(\omega t)\). En visualisant les signaux représentant l’intensité et la tension, elle constate que \(i\) avance de \(\pi/2\) sur \(u\).  
+a) Identifier le dipôle.  
+b) Écrire l’expression mathématique de la tension aux bornes du dipôle.
+
+**39.** *Source* : `exam_physique_physique_2022_smp-svt_becquerel.pdf`  
+*Énoncé* : Steve et Carl, deux élèves de terminale, discutent entre eux. L’un affirme que plus les plaques métalliques d’un condensateur plan se rapprochent, plus sa capacité est grande. L’autre conteste et soutient le contraire. Départagez les deux amis en répondant aux questions suivantes.  
+a) Préciser les éléments caractéristiques qui constituent un condensateur plan et représenter ce dernier par un schéma.  
+b) En déduire la formule de calcul de la capacité de ce condensateur et présenter les relations de proportionnalité entre la capacité du condensateur plan et ses éléments constitutifs.
+
+**40.** *Source* : `exam_physique_physique_2022_smp-svt_becquerel.pdf`  
+*Énoncé* : Répondez aux questions suivantes que vous pose l’un de vos camarades de classe.  
+a) Quel appareil permet de visualiser un signal électrique ? Dessiner l’allure d’un signal continu, puis d’un signal alternatif sinusoïdal.  
+b) Voulant calculer la vitesse angulaire (pulsation) d’un signal électrique alternatif sinusoïdal, que peut-on mesurer dans son allure et quelle formule doit-on utiliser ?
+
+**41.** *Source* : `exam_physique_physique_2022_svt-smp_gps.pdf`  
+*Énoncé* : Établir que l’énergie électromagnétique \(W\) emmagasinée par une bobine parcourue par un courant d’intensité \(I\) est donnée par la relation \(W = \frac12 LI^2\), où \(L\) désigne l’inductance de la bobine.
+
+**42.** *Source* : `exam_physique_physique_2022_svt-smp_gps.pdf`  
+*Énoncé* : Un condensateur de capacité \(C_1\) est chargé sous une tension \(U_1\), un autre de capacité \(C_2\) est chargé sous une tension \(U_2\). On relie les plaques de même signe entre elles (association en parallèle).  
+a) Représenter correctement par un schéma le montage indiqué.  
+b) Démontrer que la tension d’équilibre est donnée par \(U = \frac{C_1U_1 + C_2U_2}{C_1 + C_2}\).
+
+**43.** *Source* : `exam_physique_physique_2022_svt-smp_lumiere.pdf`  
+*Énoncé* : On considère qu’une bobine, de longueur \(L_b\) est composée de \(N\) spires de diamètre \(D_b\). On fait passer un courant d’intensité \(I\) dans cette bobine.  
+a) Écrire la formule de calcul de la longueur du fil formant cette bobine.  
+b) En vous inspirant de la définition de l’inductance d’une bobine, écrire sa formule de calcul.  
+c) Établir la formule mettant en relation l’inductance et la longueur du fil de la bobine.
+
+**44.** *Source* : `exam_physique_physique_2022_svt-smp_lumiere.pdf`  
+*Énoncé* : Les armatures d’un condensateur de capacité \(C\) sont branchées sous une d.d.p. \(U\). Entre ces armatures écartées d’une distance \(d\) règne un champ électrique de module \(E\).  
+a) À l’aide d’un dessin, représenter l’expérience en question.  
+b) Établir la formule de calcul de ce champ électrique.
+
+**45.** *Source* : `exam_physique_physique_2022_svt-smp_plasma.pdf`  
+*Énoncé* : Une tension alternative sinusoïdale de pulsation \(\omega\) est établie aux bornes d’une inductance pure \(L\).  
+a) Construire le diagramme de Fresnel correspondant à ce circuit.  
+b) Écrire les équations instantanées relatives au courant et à la tension de ce circuit.  
+c) Établir la formule donnant l’impédance \(Z\) de ce circuit.
+
+**46.** *Source* : `exam_physique_physique_2022_svt-smp_plasma.pdf`  
+*Énoncé* : Les armatures d’un condensateur de capacité \(C\) sont branchées sous une d.d.p. constante \(U\). Entre ces armatures écartées d’une distance \(d\) règne un champ électrique d’intensité \(E\).  
+a) Schématiser le circuit tout en présentant les lignes du champ électrique entre les armatures de ce condensateur.  
+b) Établir la formule de calcul de ce champ, soit \(E = \frac{U}{d}\).
+
+**47.** *Source* : `exam_physique_physique_2022_svt-smp_quanta.pdf`  
+*Énoncé* : Établir la formule \(q = \frac{\Delta\phi}{R}\) donnant la quantité d’électricité induite dans un circuit de résistance totale \(R\), subissant une variation de flux magnétique \(\Delta\phi\).
+
+**48.** *Source* : `exam_physique_physique_2022_svt-smp_quanta.pdf`  
+*Énoncé* : Aux bornes d’une source de tension continue, on branche \(n\) condensateurs identiques de capacité commune \(C_1\) associés en série. Établir la relation \(C = \frac{C_1}{n}\) donnant la capacité équivalente \(C\) à l’ensemble des \(n\) condensateurs.
+
+**49.** *Source* : `exam_physique_physique_2022_svt-smp_vitesse.pdf`  
+*Énoncé* : On établit une tension instantanée \(u(t) = U_m\sin\omega t\) aux bornes d’un dipôle constitué d’un condensateur \(C\) et d’une résistance \(R\) placés en série.  
+a) Faire le schéma du montage et construire les vecteurs tournants de Fresnel correspondant.  
+b) Écrire l’expression mathématique de l’intensité du courant qui circule dans ce circuit et établir la formule donnant son impédance.
+
+**50.** *Source* : `exam_physique_physique_2022_svt-smp_vitesse.pdf`  
+*Énoncé* : Une batterie est constituée de \(n\) condensateurs identiques de capacité commune \(C_1\) placés en série. On établit aux bornes de la batterie une d.d.p. constante \(U\) pour la charger.  
+a) Schématiser le montage en question.  
+b) Établir la formule de calcul de la capacité équivalente.
+
+---
+
+## Chapitre 1 – Courant alternatif (50 exercices)
+
+### Exercices réels (énoncés complets)
+
+**1.** *Source* : `exam_physique_physique-2019-svt-smp-aimentation.pdf` (exercice III.3)  
+*Énoncé* : La tension maximum d’un courant alternatif est égale à \(120\sqrt{2}\,\text{V}\), dans un circuit où l’impédance vaut \(20\,\Omega\).  
+a) Quelle est l’intensité efficace de ce courant ?  
+b) Quelle est l’inductance d’une bobine pure traversée par ce courant dont la fréquence est 50 Hz ?
+
+**2.** *Source* : `exam_physique_physique-2019-svt-smp-condensateur-2.pdf` (problème II)  
+*Énoncé* : Une bobine de résistance \(r = 8,50\,\Omega\) a une inductance \(L = 42,2\,\text{mH}\).  
+1) Quelle est la tension à ses bornes lorsqu’elle est traversée par un courant constant d’intensité \(i = 1,20\,\text{A}\) ?  
+2) La bobine est traversée par un courant dont l’intensité, exprimée en ampères, varie suivant la loi \(i(t) = 150 - 200t\).  
+a) Quelle est la tension aux bornes de la bobine à la date \(t = 0\) ?  
+b) À quelle date \(t_1\) la tension aux bornes de la bobine est-elle nulle ?
+
+**3.** *Source* : `exam_physique_physique-2019-svt-smp-induction-2.pdf` (exercice III.3)  
+*Énoncé* : Une bobine idéale d’inductance \(L = 0,25\,\text{H}\) est soumise à une tension sinusoïdale de valeur efficace \(110\,\text{V}\) et de pulsation \(200\,\text{rad/s}\).  
+1) Calculer :  
+a) l’impédance de la bobine ;  
+b) l’intensité du courant.  
+2) Écrire l’expression de l’intensité du courant supposée maximale à l’instant \(t = 0\).
+
+**5.** *Source* : `exam_physique_physique-2019-svt-smp_transformateur.pdf` (problème II)  
+*Énoncé* : Un circuit électrique constitué par un conducteur ohmique de résistance \(R = 6\,\Omega\) et d’une inductance pure \(L = 25,5\,\text{mH}\) montés en série est alimenté par une source de tension alternative d’équation horaire \(u(t) = 141,4\sin(100\pi t)\).  
+1) Quelles sont la fréquence et la tension efficace aux bornes du circuit ?  
+2) Calculer :  
+a) l’impédance du circuit ;  
+b) l’intensité efficace du courant ;  
+c) les tensions efficaces aux bornes des deux dipôles du circuit.  
+3) Interpréter graphiquement les résultats de la question précédente.
+
+**6.** *Source* : `exam_physique_physique-2019_ses_impedance.pdf` (problème I)  
+*Énoncé* : Une tension alternative sinusoïdale de valeur efficace \(120\,\text{V}\), de fréquence \(50\,\text{Hz}\), est appliquée à un circuit contenant une inductance pure de \(0,165\,\text{H}\).  
+a) Déterminer l’impédance du circuit.  
+b) Écrire l’expression mathématique de la tension du courant.  
+2) On met à la place de la self pure une résistance pure \(R = 25\,\Omega\).  
+a) Calculer la réactance de la résistance et l’intensité efficace qui la parcourt.  
+b) Calculer la puissance consommée dans la résistance.
+
+**7.** *Source* : `exam_physique_physique-2021-bac-permanent.pdf` (exercice III.1)  
+*Énoncé* : L’équation horaire d’un courant alternatif est \(i = 2\sin(100\pi t)\,\text{A}\). Le courant alimente un condensateur et établit une tension de valeur efficace \(212,3\,\text{V}\) aux bornes de ce condensateur.  
+a) Quelle est l’impédance du circuit fermé ?  
+b) Calculer la capacité de ce condensateur.
+
+
+**9.** *Source* : `exam_physique_physique-2021_ses_courant.pdf` (problème I)  
+*Énoncé* : Une tension alternative sinusoïdale de valeur efficace \(60\,\text{V}\) et de fréquence \(50\,\text{Hz}\) est établie aux bornes d’un condensateur de capacité \(50\,\mu\text{F}\).  
+a) Calculer l’impédance du circuit fermé.  
+b) Quelle est l’intensité efficace qui traverse le circuit ?  
+c) Écrire les expressions de l’intensité et de la tension instantanée du courant dans ce circuit.
+
+**10.** *Source* : `exam_physique_physique-2021_svt-smp_balistique.pdf` (exercice III.1)  
+*Énoncé* : Un courant alternatif de période \(10^{-2}\) seconde et de valeur efficace \(10\,\text{A}\) alimente une inductance pure de réactance \(78,5\,\Omega\).  
+a) Déterminer la fréquence et la pulsation de ce courant.  
+b) Quelle est la self de cette inductance ?
+
+**11.** *Source* : `exam_physique_physique-2021_svt-smp_fourneau.pdf` (exercice III.1)  
+*Énoncé* : Un condensateur de capacité \(C = 10\,\mu\text{F}\) est soumis à une tension alternative \(u = 110\sqrt{2}\sin(314t)\). Calculer son impédance, puis écrire l’expression de l’intensité instantanée \(i\) qu’il laisse circuler dans le circuit.
+
+**12.** *Source* : `exam_physique_physique_2022_ses_big-bang.pdf` (problème 1)  
+*Énoncé* : On dispose d’un condensateur de capacité \(C = 20\,\mu\text{F}\). On établit entre les deux extrémités de ses armatures une tension alternative sinusoïdale de fréquence \(f = 50\,\text{Hz}\) et de valeur efficace \(U_e = 220\,\text{V}\) maintenue constante.  
+1) Calculer l’impédance du condensateur et l’intensité du courant qui le traverse.  
+2) Construire le diagramme de Fresnel correspondant à ce circuit.  
+3) Écrire les équations instantanées de la tension et de l’intensité du courant évoluant dans ce circuit fermé.
+
+**13.** *Source* : `exam_physique_physique_2022_ses_cosmique.pdf` (problème II)  
+*Énoncé* : On ferme une self pure d’inductance \(40\,\text{mH}\) sur une tension alternative sinusoïdale dont l’expression mathématique s’écrit \(u(t) = 50\sqrt{2}\sin(100\pi t)\,\text{V}\).  
+a) Quelles sont la fréquence et la pulsation du courant circulant dans la self ?  
+b) Quelle est l’intensité efficace du courant qui parcourt cette self ?  
+c) Donner l’équation horaire de ce courant et construire le diagramme de Fresnel correspondant.
+
+**14.** *Source* : `exam_physique_physique_2022_ses_electromagnetisme.pdf` (exercice III.1)  
+*Énoncé* : Un courant alternatif sinusoïdal de la forme \(i(t) = I_m\cos(\omega t + \varphi)\) a une période \(T = 20\,\text{ms}\) et une valeur efficace de \(8,5\,\text{A}\).  
+a) Trouver la fréquence et la pulsation de ce courant.  
+b) Écrire son expression mathématique en considérant que la phase à l’origine est \(-\frac{\pi}{6}\) rad.
+
+**15.** *Source* : `exam_physique_physique_2022_ses_englert.pdf` (problème 2)  
+*Énoncé* : Une résistance pure de \(20\,\Omega\) est alimentée par une source de tension alternative sinusoïdale de valeur efficace \(60\,\text{V}\) et de fréquence \(50\,\text{Hz}\). Calculer :  
+a) la pulsation et la période du courant ;  
+b) l’intensité efficace du courant et la quantité de chaleur, exprimée en joules, dégagée dans la résistance en \(10\) minutes.
+
+**16.** *Source* : `exam_physique_physique_2022_ses_etoile.pdf` (problème 1)  
+*Énoncé* : Une tension alternative de valeur instantanée \(u = 120\sqrt{2}\sin(125t)\) alimente une bobine de self \(L\), de résistance négligeable. L’intensité efficace qui parcourt ce circuit est de \(2\,\text{A}\). Déterminer :  
+a) l’impédance du circuit et la fréquence du courant ;  
+b) la valeur de l’inductance \(L\).
+
+**17.** *Source* : `exam_physique_physique_2022_ses_gravite.pdf` (problème 2)  
+*Énoncé* : Un courant alternatif sinusoïdal a pour expression \(i(t) = 8\sqrt{2}\sin(100\pi t)\). Il parcourt une résistance non inductive de valeur \(20\,\Omega\) qui dissipe par effet Joule une quantité d’énergie de \(128\,\text{kJ}\).  
+a) Quelles sont les valeurs efficaces du courant et de la tension ?  
+b) Calculer la fréquence et la période de ce courant.  
+c) Quelle est la durée du passage de ce courant ?  
+2) On remplace dans les mêmes conditions la résistance par une self d’inductance \(L = 25\,\text{mH}\).  
+a) Quelle est la nouvelle valeur de la tension ?  
+b) En déduire son équation horaire.
+
+**18.** *Source* : `exam_physique_physique_2022_ses_kajita.pdf` (problème 1)  
+*Énoncé* : Un condensateur de capacité \(C\) est alimenté par un courant alternatif sinusoïdal de fréquence \(50\,\text{Hz}\).  
+a) Déterminer la période du courant et l’impédance du condensateur.  
+b) Quelle est la phase de la tension par rapport à l’intensité ?  
+c) Quelle est la capacitance du condensateur ?  
+2) La tension imposée aux bornes du condensateur s’écrit sous la forme \(u(t) = U_m\sin(\omega t)\). Écrire l’expression de \(i(t)\).
+
+**19.** *Source* : `exam_physique_physique_2022_ses_marconi.pdf` (problème 1)  
+*Énoncé* : Un générateur impose aux bornes d’un dipôle une tension sinusoïdale en volts : \(u(t) = U_m\sin(\omega t)\). L’intensité, en ampères, qui traverse ce dipôle est de la forme \(i(t) = I_m\sin(\omega t + \varphi)\).  
+a) Calculer l’intensité efficace et la tension efficace aux bornes de ce dipôle.  
+b) Quelle est la fréquence du courant ?  
+c) Déterminer la phase de l’intensité par rapport à la tension.  
+d) Calculer l’impédance \(Z\) du dipôle.  
+2) Le dipôle considéré est une bobine idéale d’inductance \(L\). Quelle est la valeur de \(L\) ?
+
+**20.** *Source* : `exam_physique_physique_2022_ses_oncle.pdf` (problème 2)  
+*Énoncé* : On maintient entre les bornes d’une prise de courant une d.d.p. sinusoïdale de valeur efficace \(U_e = 220\,\text{V}\) et de fréquence \(50\,\text{Hz}\). Dans une première expérience, on branche un conducteur ohmique sur cette prise de courant ; l’intensité efficace du courant est \(2\,\text{A}\) et la quantité de chaleur dégagée est \(13\,200\,\text{J}\). Calculer :  
+a) la résistance de ce conducteur et l’impédance du circuit formé ;  
+b) la durée du passage du courant.  
+Dans une deuxième expérience, le conducteur ohmique est remplacé par un condensateur.  
+c) Quelle doit être la capacité de ce condensateur pour que l’impédance du circuit garde sa même valeur ?  
+d) Écrire les équations horaires de l’intensité et de la tension du circuit.
+
+**21.** *Source* : `exam_physique_physique_2022_ses_perl.pdf` (problème 2)  
+*Énoncé* : Aux bornes d’une résistance non inductive \(R = 20\,\Omega\), on établit une d.d.p. alternative \(u(t) = U_m\sin(\omega t)\).  
+1. Indiquer l’amplitude, la phase à l’origine et la période.  
+2. Écrire l’expression mathématique de l’intensité du courant qui traverse la résistance.  
+3. On remplace la résistance par un condensateur aux bornes de la même d.d.p. alternative. Dans ce cas, l’intensité du courant tombe à \(2,5\,\text{A}\).  
+- Calculer la capacité de ce condensateur.  
+- Écrire la nouvelle équation mathématique de l’intensité du courant.  
+- Construire le diagramme de Fresnel.
+
+**22.** *Source* : `exam_physique_physique_2022_ses_picard-2.pdf` (problème 2)  
+*Énoncé* : On réalise un circuit alternatif comprenant une bobine pure d’inductance \(L\) alimentée par une tension alternative sinusoïdale \(u(t) = U_m\sin(\omega t)\). Un ampèremètre thermique placé sur le circuit indique une intensité efficace \(I_e = 3\,\text{A}\).  
+a) Faire le schéma du circuit.  
+b) Calculer l’impédance du circuit et l’inductance de la bobine.  
+c) Écrire l’expression mathématique de l’intensité du courant.  
+2) On enlève la bobine du circuit et on la remplace par un condensateur de capacité \(C\). Quelle est alors l’intensité du courant dans le nouveau circuit ?
+
+**23.** *Source* : `exam_physique_physique_2022_ses_picard.pdf` (exercice III.2)  
+*Énoncé* : Une tension alternative sinusoïdale de \(98\) volts efficaces, de fréquence \(50\,\text{Hz}\), est appliquée à une résistance pure \(R = 60\,\Omega\).  
+a) Calculer l’intensité efficace du courant.  
+b) Écrire l’équation horaire de l’intensité qui traverse le circuit.
+
+**24.** *Source* : `exam_physique_physique_2022_smp-svt-curien.pdf` (problème II)  
+*Énoncé* : Une bobine de résistance \(R = 80\,\Omega\) et d’inductance \(L = 0,1\,\text{H}\) est soumise à une tension alternative sinusoïdale de fréquence \(f\) et de valeur efficace \(120\,\text{V}\).  
+1. Calculer \(f\) pour que le facteur de puissance de la bobine soit égal à \(0,5\).  
+2. Calculer, dans ces conditions, l’intensité du courant et la puissance réelle consommée.  
+3. La fréquence étant maintenue à \(219\,\text{Hz}\), on place en série avec la bobine précédente un condensateur de capacité \(C\) afin de ramener le facteur de puissance du circuit à l’unité. Quelle doit être la valeur de \(C\) ?  
+4. Représenter, dans ce cas, le diagramme de Fresnel du circuit.
+
+**25.** *Source* : `exam_physique_physique_2022_smp-svt-heiseiberg.pdf` (exercice III.1)  
+*Énoncé* : À l’origine de phase, l’équation d’un courant alternatif s’écrit \(i(t) = 6\sqrt{2}\sin\left(312t + \frac{\pi}{4}\right)\). Ce courant parcourt un condensateur de capacité \(C\).  
+a) Calculer la capacitance de ce condensateur.  
+b) Écrire l’équation horaire de la tension aux bornes de ce condensateur.
+
+**26.** *Source* : `exam_physique_physique_2022_smp-svt_schrodinger-2.pdf` (problème 1)  
+*Énoncé* : Une bobine, alimentée sous une tension de \(100\,\text{V}\), est parcourue par un courant d’intensité \(2,5\,\text{A}\). Alimentée sous une tension sinusoïdale de fréquence \(50\,\text{Hz}\), de valeur efficace \(120\,\text{V}\), elle est parcourue par un courant de \(2\,\text{A}\).  
+1. Calculer l’impédance, la résistance et l’inductance de la bobine.  
+2. Donner la valeur de la phase de la tension par rapport à l’intensité pour une telle tension alternative sinusoïdale appliquée aux bornes de cette bobine.  
+3. Donner les expressions des valeurs instantanées du courant traversant cette bobine et de la tension à ses bornes et construire les vecteurs tournants de Fresnel.  
+4. On veut annuler la phase de la tension par rapport à l’intensité. Pour cela on ajoute, en série avec la bobine, un condensateur de capacité \(C\). Quelle doit être la valeur de \(C\) ?
+
+**27.** *Source* : `exam_physique_physique_2022_smp-svt_becquerel.pdf` (problème II)  
+*Énoncé* : Une bobine est parcourue par un courant de \(5\,\text{A}\) quand elle est alimentée par une tension continue de \(110\,\text{V}\). Alimentée par une tension alternative dont l’équation horaire est \(u(t) = U_m\sin(\omega t)\) (nulle à l’origine du temps), cette bobine est traversée par un courant de \(3\,\text{A}\).  
+a) Calculer son impédance et son inductance.  
+b) Écrire l’équation horaire du courant alternatif \(i(t)\).  
+3) On monte en série avec la bobine, sous la même tension alternative, un condensateur de capacité \(C\).  
+a) Quelle doit être la valeur de \(C\) pour que l’intensité du courant dans le circuit soit maximum ?  
+b) Construire dans ce cas le diagramme des vecteurs tournants de Fresnel.
+
+**28.** *Source* : `exam_physique_physique_2022_smp-svt_charpak-2.pdf` (problème 2)  
+*Énoncé* : On maintient entre deux bornes A et B une tension alternative sinusoïdale de valeur efficace \(100\,\text{V}\) et de pulsation \(\omega\).  
+1. Écrire l’équation de la tension instantanée en la supposant nulle à l’instant \(t = 0\).  
+2. On branche entre les bornes A et B une self pure d’inductance \(L\) en série avec un conducteur de résistance \(R\).  
+a) Déterminer l’intensité du courant qui parcourt le circuit.  
+b) Écrire l’équation donnant à chaque instant l’intensité.  
+c) Déterminer la valeur de la capacité \(C\) à mettre en série avec les appareils du circuit précédent de manière à annuler le déphasage du courant par rapport à la tension. Trouver la valeur de l’intensité efficace.
+
+**29.** *Source* : `exam_physique_physique_2022_smp-svt_laroche.pdf` (problème I)  
+*Énoncé* : Une bobine alimentée sous une tension continue de \(120\,\text{V}\) est parcourue par un courant \(I = 4\,\text{A}\). Elle est parcourue par un courant de \(2\,\text{A}\) quand on lui applique une tension alternative de valeur efficace de \(120\,\text{V}\), à la fréquence de \(50\,\text{Hz}\). Sous la même tension de \(120\,\text{V}\), un condensateur est parcouru par un courant de \(1,5\,\text{A}\).  
+1. Calculer la résistance de la bobine, son inductance et la capacité du condensateur.  
+2. Dans une deuxième expérience, on monte la bobine et le condensateur en série aux bornes de la tension alternative de \(120\,\text{V}\). Calculer l’intensité efficace du courant et la tension efficace aux bornes de la bobine et du condensateur.  
+3. On veut mettre ce circuit en résonance en associant un deuxième condensateur au premier. Comment le brancher et quelle doit être sa capacité ?
+
+**30.** *Source* : `exam_physique_physique_2022_svt-smp_gps.pdf` (exercice III.1)  
+*Énoncé* : Une tension alternative sinusoïdale d’équation \(u(t) = 32\sqrt{2}\cos(200t)\) alimente une bobine idéale d’inductance \(L = 0,16\,\text{H}\).  
+a) Calculer la réactance de la bobine et l’intensité efficace du courant.  
+b) Écrire l’expression mathématique de l’intensité du courant.
+
+**31.** *Source* : `exam_physique_physique_2022_svt-smp_plasma.pdf` (problème 1)  
+*Énoncé* : La tension alternative sinusoïdale appliquée à une portion de circuit comprenant une inductance \(L\) est \(u = 220\sqrt{2}\sin(314t)\) lorsqu’un ampèremètre thermique indiquant une valeur efficace de \(3\,\text{A}\) est placé dans le circuit. On demande :  
+a) l’impédance \(Z\) de la portion de circuit ;  
+b) la valeur \(L\) de l’inductance ;  
+c) l’expression mathématique de l’intensité du courant.  
+B. On ajoute en série dans le circuit un conducteur ohmique de résistance \(40\,\Omega\).  
+a) Quelle est la nouvelle impédance du circuit ?  
+b) Calculer en joule l’énergie dépensée dans le conducteur ohmique en \(10\) minutes.  
+c) Construire les vecteurs tournants de Fresnel correspondant.
+
+**32.** *Source* : `exam_physique_physique_2022_svt-smp_quanta.pdf` (exercice III.2)  
+*Énoncé* : On applique la tension \(u = 12\sqrt{2}\sin\left(100\pi t - \frac{\pi}{3}\right)\) à un circuit dont l’impédance est égale à \(48\,\Omega\).  
+1) Déterminer l’intensité efficace du courant dans ce circuit.  
+2) Calculer la caractéristique du dipôle placé aux bornes de la source de tension si sa tension est en quadrature avance sur l’intensité ; puis écrire l’expression de l’intensité instantanée du courant.
+
+**33.** *Source* : `exam_physique_physique_2022_svt-smp_vitesse.pdf` (problème 1)  
+*Énoncé* : On monte en série une résistance non inductive \(R = 6\,\Omega\) et une inductance pure \(L = 0,0255\,\text{H}\). On alimente ce circuit par un courant alternatif d’intensité \(i = 10\sqrt{2}\sin(314t)\).  
+1) Calculer l’impédance du circuit et son facteur de puissance.  
+2) Déterminer les tensions \(U_e\), \(U_R\) et \(U_L\) aux bornes des différentes parties du circuit.  
+3) Vérifier que \(U_e^2 = U_R^2 + U_L^2\), puis interpréter géométriquement ce circuit.
+
+**34.** *Source* : `exam_physique_physique-2025.pdf` (problème 1)  
+*Énoncé* : Une bobine de résistance \(30\,\Omega\) et d’inductance \(L\) est alimentée par une source de tension alternative sinusoïdale de valeur efficace \(120\) volts et de pulsation \(10\,\text{rad/s}\).  
+a) Calculer l’impédance de la bobine et son inductance sachant que l’intensité efficace du courant vaut \(2\,\text{A}\).  
+b) Écrire l’expression mathématique de l’intensité du courant.  
+2) On monte en série avec la bobine précédente un condensateur de capacité \(50\,\mu\text{F}\). Déterminer :  
+c) l’impédance du circuit ;  
+d) l’intensité efficace du courant ;  
+e) l’expression mathématique de la tension.
+
+**35.** *Source* : `exam_physique_physique-ns4-2025-induction.pdf` (problème I)  
+*Énoncé* : Aux bornes d’un secteur alternatif dont la tension est donnée à tout instant par \(u(t) = 110\sqrt{2}\sin(100\pi t)\), on branche un condensateur de capacité \(C = 50\,\mu\text{F}\).  
+a) Donner l’expression permettant de calculer l’impédance \(Z\) du condensateur et en déduire sa valeur.  
+b) Calculer l’intensité efficace du courant qui parcourt le circuit. En déduire l’expression de l’intensité instantanée du courant.  
+c) On remplace le condensateur par une bobine idéale d’inductance \(L = 2\,\text{mH}\). Calculer la valeur de la réactance inductive puis en déduire l’intensité efficace.
+
+**36.** *Source* : `exam_physique_physique-ns4-2025-ses-gravite.pdf` (problème II)  
+*Énoncé* : On considère une résistance électrique de \(50\,\Omega\), traversée par un courant efficace \(I_e = 3\,\text{A}\) de fréquence \(50\,\text{Hz}\).  
+a) La tension efficace entre les bornes de ce dipôle est : (choix multiples, mais on demande de calculer)  
+b) L’énergie dissipée par effet Joule dans la résistance en \(10\,\text{s}\) est : (calcul)  
+c) L’équation horaire de cette intensité s’écrit : (à déterminer)
+
+**37.** *Source* : `exam_physique_physique-ns4-ses-dilatation.pdf` (problème I)  
+*Énoncé* : Une tension alternative sinusoïdale de valeur efficace \(120\,\text{V}\), de fréquence \(50\,\text{Hz}\), est appliquée à un circuit contenant une inductance pure de \(0,165\,\text{H}\).  
+a) Déterminer l’impédance du circuit.  
+b) Écrire l’expression mathématique de la tension du courant.  
+2) On met à la place du self pure une résistance pure \(R = 25\,\Omega\).  
+a) Calculer la réactance de la résistance et l’intensité efficace qui la parcourt.  
+b) Calculer la puissance consommée dans la résistance.
+
+**38.** *Source* : `exam_physique_physique-ns4-smp-svt-entropie.pdf` (problème II)  
+*Énoncé* : Entre les bornes d’un secteur alternatif, la d.d.p. est donnée en volt par l’expression \(u(t) = 120\sqrt{2}\sin(125t)\).  
+a) Calculer la tension efficace du courant.  
+b) On monte en série aux bornes du secteur alternatif une résistance pure \(R = 500\,\Omega\), une inductance pure \(L = 0,1\,\text{H}\) et un condensateur \(C = 200\,\mu\text{F}\). Quelle est l’expression mathématique de l’intensité du courant ?  
+c) Comment faut-il placer un deuxième condensateur \(C_2\) par rapport au premier et quel doit être sa capacité pour que le circuit soit en résonance ?
+
+**39.** *Source* : `exam_physique_physique-philo-a-2025-quantique.pdf` (problème II)  
+*Énoncé* : Aux bornes d’un secteur alternatif est établie une tension sinusoïdale efficace \(U_e = 120\,\text{V}\) et de fréquence \(50\,\text{Hz}\).  
+a) Écrire l’équation donnant à chaque instant la tension.  
+b) On branche aux bornes du secteur un condensateur de capacité \(C = 200\,\mu\text{F}\). Trouver l’impédance du condensateur et l’intensité efficace du courant.  
+c) On remplace le condensateur par une résistance \(R = 20\,\Omega\). Déterminer l’énergie calorifique dissipée dans la résistance pendant \(5\) minutes.
+
+**40.** *Source* : `exam_physique_physique-philo-a-dynamique.pdf` (problème I)  
+*Énoncé* : Un circuit, comprenant une résistance pure \(R = 30\,\Omega\), est alimenté par un courant alternatif sinusoïdal d’intensité \(i(t) = 3\sqrt{2}\cos(376,8t)\).  
+a) Déterminer la fréquence et l’intensité efficace du courant.  
+b) Calculer la tension efficace aux bornes de la résistance.  
+c) Trouver la puissance consommée dans la résistance.  
+2) On remplace maintenant la résistance par une inductance pure \(L = 0,012\,\text{H}\) traversée par le même courant et de même fréquence.  
+a) Quelle est l’impédance de ce circuit ?  
+b) Donner l’équation horaire de la tension.
+
+**41.** *Source* : `exam_physique_physique-philo-c-d-2025-chaleur.pdf` (problème II)  
+*Énoncé* : Une résistance pure de \(8\,\Omega\) est alimentée par une tension alternative maximale de \(70,7\,\text{V}\). La fréquence du courant alternatif dans le circuit ainsi formé est \(75\,\text{Hz}\). On demande :  
+a) la valeur efficace du courant ;  
+b) la puissance dissipée par effet Joule dans la résistance ;  
+c) les expressions instantanées du courant et de la tension.
+
+**42.** *Source* : `exam_physique_physique-philo-c-d-2025cinetique.pdf` (problème I)  
+*Énoncé* : Un circuit comprend une résistance pure \(R = 30\,\Omega\) et une inductance pure \(L = 0,04\,\text{H}\) placées en série. Le circuit est alimenté par un courant alternatif sinusoïdal d’intensité \(i(t) = 4\sin(100\pi t)\). Déterminer :  
+a) la fréquence du courant ;  
+b) l’impédance du circuit ;  
+c) la tension aux bornes de la résistance et aux bornes du circuit ;  
+d) l’expression mathématique de la tension.
+
+**43.** *Source* : `exam_physique_physique-ses-2025-densite.pdf` (problème II)  
+*Énoncé* : Un courant alternatif de la forme \(i(t) = 2\sin(314t)\) alimente un conducteur ohmique de résistance \(20\,\Omega\). Déterminer :  
+a. l’intensité et la tension efficace du circuit ;  
+b. l’expression mathématique de la tension ;  
+c. la quantité de chaleur dégagée par minute dans le conducteur.  
+2) On remplace le conducteur ohmique par une inductance pure de valeur \(L = 25\,\text{mH}\).  
+a) Quelle est l’impédance du circuit ?  
+b) Construire le diagramme de Fresnel relatif au circuit.
+
+**44.** *Source* : `exam_physique_physique-smp-svt-vitesse.pdf` (exercice III.3)  
+*Énoncé* : À l’origine de phase, l’équation horaire d’un courant alternatif s’écrit \(i(t) = 4\sqrt{2}\sin(100\pi t + \frac{\pi}{4})\). Ce courant parcourt une inductance pure \(L = 0,16\,\text{H}\).  
+a) La réactance inductive est : (calcul)  
+b) L’équation horaire de la tension est : (à écrire)  
+c) La période de ce courant est : (calcul)
+
+**45.** *Source* : `exam_physique_texte-modele-physique-2025-ses.pdf` (problème I)  
+*Énoncé* : Une résistance pure de \(25\,\Omega\) est alimentée par une source de tension alternative de valeur efficace \(120\,\text{V}\) et de fréquence \(50\,\text{Hz}\). Déterminer :  
+a) La pulsation et la période du courant ;  
+b) L’intensité efficace du courant et la quantité de chaleur dégagée dans la résistance en \(5\) minutes.  
+2) Cette source de tension alternative de valeur efficace \(120\,\text{V}\) et de fréquence \(50\,\text{Hz}\) alimente maintenant une inductance pure de \(0,03\,\text{H}\).  
+a) Calculer l’impédance du circuit.  
+b) Écrire les expressions mathématiques de l’intensité et de la tension.
+
+**46.** *Source* : `exam_physique_texte-modele-physique-2025-smp-svt.pdf` (QCM, mais on peut extraire)  
+*Énoncé* : On considère un courant alternatif dont l’intensité instantanée s’écrit \(i(t) = 4\sqrt{2}\cos(314t)\). Ce courant alimente une résistance pure \(R = 20\,\Omega\) et un condensateur de capacité \(C = 40\,\mu\text{F}\) placés en série.  
+a) La valeur de l’impédance est : (à calculer)  
+b) L’amplitude du courant est : (donnée)  
+c) L’équation horaire de la tension dans ce circuit s’écrit : (à déterminer)
+
+**47.** *Source* : `exam_physique_physique_2018_svt-smp_dipole.pdf` (exercice III.3)  
+*Énoncé* : L’intensité efficace d’un courant alternatif dont la période est \(T = 2\,\text{ms}\) mesure \(10\,\text{A}\). Déterminer la pulsation de ce courant et écrire son expression mathématique en considérant une phase nulle à l’origine.
+
+**48.** *Source* : `exam_physique_physique_2016_svt-smp_phytophage.pdf` (problème I)  
+*Énoncé* : Un réseau de distribution électrique fournit une tension alternative de \(120\) volts efficaces à la fréquence de \(50\) périodes par seconde.  
+1) Quelle est l’expression mathématique de cette tension en fonction du temps ?  
+2) Une ampoule d’éclairage \(R\) consomme \(100\) watts lorsqu’elle est alimentée par un courant continu sous une tension de \(120\) volts. On connecte aux bornes du réseau alternatif un circuit comprenant l’ampoule \(R\) en série avec un condensateur \(C\) de \(10\) microfarads. Quelles sont les différences de potentiel efficaces que l’on mesure entre les bornes de \(R\) et de \(C\) ?  
+3) On ajoute en série avec \(R\) et \(C\) une bobine de self-induction dont la résistance est négligeable. Quelle valeur faut-il donner à son coefficient de self-induction pour obtenir l’intensité efficace maximum ?
+
+**49.** *Source* : `exam_physique_physique_2016_svt-smp_phytotron.pdf` (problème II)  
+*Énoncé* : Les impédances d’une bobine \((R, L)\) et d’un condensateur \(C\) placés en série aux bornes d’une source de tension alternative de fréquence \(N\) sont respectivement \(350\,\Omega\) et \(1000\,\Omega\). La tension efficace de la source \(U = 75\,\text{V}\) produit un courant efficace de valeur \(100\,\text{mA}\). Quelles sont alors la réactance et la résistance de la bobine ? En appliquant à ce circuit une fréquence \(N' = 330\,\text{Hz}\), on constate que le courant atteint une valeur maximale. Déterminer, dans ce cas, l’inductance de la bobine et la capacité du condensateur. Quelle a été la valeur de la fréquence \(N\) utilisée précédemment ?
+
+**50.** *Source* : `exam_physique_physique_2015_svt-smp_photon.pdf` (problème I)  
+*Énoncé* : Un circuit (R-L-C) comporte en série un conducteur ohmique de résistance \(R = 60\,\Omega\), une bobine de résistance négligeable et d’inductance \(L = 0,4\,\text{H}\) et un condensateur de capacité variable. L’ensemble est alimenté par une tension sinusoïdale \(u(t)\) de fréquence \(50\,\text{Hz}\).  
+A- Dans un premier temps, le condensateur \(C\) est réglé sur la valeur \(C_0\) qui permet d’obtenir la valeur maximale de l’intensité efficace.  
+1. Quel phénomène met-on en évidence en réglant ainsi la valeur de \(C\) ?  
+2. Quelle relation existe-t-il entre \(f\), \(C_0\) et \(L\) ?  
+3. Calculer la valeur de \(C_0\).  
+B- On modifie la valeur de \(C\). Sachant que \(U_m = 5\,\text{V}\) et que la phase initiale est \(\phi = \frac{\pi}{7}\,\text{rd}\).  
+1. Écrire l’équation \(u(t)\).  
+2. Calculer l’impédance \(Z\) du circuit si l’intensité maximale est \(I_m = 0,06\,\text{A}\).  
+3. En déduire les nouvelles valeurs de \(C\).
+
+
+## Chapitre 2 – Chute libre 
+
+**1. Source :** `exam_physique_physique_2015_svt-smp_photon.pdf` (Problème II)  
+**Énoncé :**  
+Un élève lance verticalement vers le haut une fléchette depuis une altitude de 1,75 m avec une vitesse initiale de 5,0 m•s⁻¹. On néglige l’action de l’air.  
+a) Déterminer les caractéristiques de l’accélération du centre d’inertie G.  
+b) Écrire les expressions de la vitesse V(t) et de l’abscisse Z(t) sur un axe vertical ascendant.  
+c) Quelle est la vitesse au sommet de la trajectoire ?  
+d) En déduire la date T d’atteinte du sommet.  
+e) Quelle hauteur h atteint la fléchette ?  
+f) À quelle date touche‑t‑elle le sol ?
+
+**2. Source :** `exam_physique_physique_2016_svt-smp_phytophage.pdf` (Problème II, question 1)  
+**Énoncé :**  
+Une bille est lancée verticalement vers le haut avec une vitesse initiale \(V_0 = 3,0\,\text{m•s}^{-1}\) depuis un point O situé à une hauteur \(h = 1,2\,\text{m}\) au‑dessus du sol. L’axe vertical (OZ) est orienté vers le haut.  
+1) Établir les expressions de la vitesse v et de l’abscisse z en fonction du temps t.  
+2) Calculer la valeur de la vitesse et de l’abscisse à la date \(t = 0,40\,\text{s}\).  
+3) Reprendre avec l’axe (OZ) orienté vers le bas.  
+4) Comparer les résultats obtenus.
+
+**3. Source :** `exam_physique_physique_2019_svt-smp_condensateur-2.pdf` (Problème I)  
+**Énoncé :**  
+On lance une bille verticalement à t = 0 sur un axe (OZ) orienté vers le haut. Sa position est donnée par \(Z(t) = -4,9t^2 + 2t + 1,2\) (unités SI).  
+1) Quelle est sa position à t = 0 ?  
+2) a) Donner l’expression de la coordonnée Vz(t) du vecteur vitesse.  
+   b) Quelle est sa valeur à t = 0 ?  
+   c) La bille est‑elle lancée vers le haut ou vers le bas ? Justifier.  
+   d) À quel instant la vitesse s’annule‑t‑elle ?  
+   e) Quelle est alors sa position ?  
+3) a) Donner l’expression de la coordonnée az(t) du vecteur accélération.  
+   b) Que peut‑on dire de ce vecteur ?
+
+**4. Source :** `exam_physique_physique-2019-svt-smp-aimentation.pdf` (Problème I)  
+**Énoncé :**  
+Un projectile est lancé depuis l’origine d’un repère \((O,\vec i,\vec j,\vec k)\) avec une vitesse initiale \(V_0 = 200\,\text{m•s}^{-1}\).  
+1) Exprimer la vitesse V du projectile en fonction de son altitude Z.  
+2) Calculer :  
+   a) la vitesse au point d’impact C dans le plan horizontal contenant le point de lancement O ;  
+   b) la vitesse à l’altitude 100 m ;  
+   c) la valeur maximale de la flèche. On prend \(g = 10\,\text{m•s}^{-2}\).
+
+---
+
+## Chapitre 3 – Projectile
+
+**1. Source :** `exam_physique_physique_2018_svt-smp_dipole.pdf` (Problème I)  
+**Énoncé :**  
+Au cours d’une partie de pétanque, les coordonnées du centre d’inertie de la boule sont :  
+\(x(t) = 12t\), \(y(t) = -4,9t^2 + 4,9t + 0,40\) (unités SI).  
+1) Quelle est la position de la boule à \(t = 0\) ?  
+2) a) Déterminer les expressions des coordonnées du vecteur vitesse.  
+   b) Calculer la valeur de la vitesse à \(t = 0\) et l’angle qu’elle forme avec l’horizontale.  
+3) À quel instant la boule touche‑t‑elle le sol (\(y = 0\)) ?
+
+**2. Source :** `exam_physique_physique_2019_ses_impedance.pdf` (Exercice III.1)  
+**Énoncé :**  
+La portée d’un projectile est donnée par \(D = \frac{V_0^2 \sin 2\theta}{g}\) et le temps de vol par \(t = \frac{2V_0 \sin\theta}{g}\). En un lieu où \(g = 10\,\text{m•s}^{-2}\), on lance un projectile à \(V_0 = 20\,\text{m•s}^{-1}\). La durée du vol est 2 s.  
+a) Calculer l’angle de tir.  
+b) Calculer la portée.
+
+**3. Source :** `exam_physique_physique_2021_svt-smp_balistique.pdf` (Problème II)  
+**Énoncé :**  
+Pour étudier le mouvement d’une balle de golf en chute libre, un golfeur lui communique une vitesse initiale \(V_0 = 20\,\text{m•s}^{-1}\) faisant un angle de 45° avec l’horizontale.  
+1) Après combien de temps retombe‑t‑elle au sol ?  
+2) À quelle distance du point de lancement (portée) tombe‑t‑elle ? (On considère le référentiel terrestre galiléen.)
+
+**4. Source :** `exam_physique_physique_2022_svt-smp_quanta.pdf` (Problème II)  
+**Énoncé :**  
+Sur le toit d’une maison situé à 4,20 m du sol, on lance un projectile avec une vitesse initiale de 25 m•s⁻¹ faisant un angle de 37° avec l’horizontale. Calculer :  
+a) la durée du vol (temps pour atteindre le sol) ;  
+b) la portée (distance horizontale). On donne \(g = 10\,\text{m•s}^{-2}\).
+
+**5. Source :** `exam_physique_physique_2022_svt-smp_vitesse.pdf` (Problème II)  
+**Énoncé :**  
+On tire un projectile avec une vitesse de 600 m•s⁻¹ suivant un angle de 60° avec l’horizontale. Calculer :  
+a) la portée horizontale ;  
+b) la hauteur maximale atteinte ;  
+c) sa vitesse au bout de 30 s.  
+2) À quel moment et avec quelle vitesse se trouve‑t‑il à 10 km de hauteur ?
+
+**6. Source :** `exam_physique_physique_2022_svt-smp_gps.pdf` (Problème 2)  
+**Énoncé :**  
+Les coordonnées du centre d’inertie d’une boule lancée sont :  
+\(x(t) = 12t\), \(y(t) = -4,9t^2 + 4,0t + 0,40\) (unités SI).  
+1) Calculer la position à \(t = 0\).  
+2) a) Trouver les expressions des coordonnées du vecteur vitesse.  
+   b) Déterminer la valeur de la vitesse à \(t = 0\) et l’angle avec l’horizontale.  
+3) À quel instant la boule touche‑t‑elle le sol (\(y = 0\)) ?
+
+
+
+## Chapitre 4 – Magnétisme (50 exercices)
+Exercices réels (sources indiquées)
+1. Source : exam_physique_physique-2019-svt-smp-aimentation.pdf (problème II)
+Énoncé : Un circuit électrique comprend un générateur de f.é.m. 6 V et de résistance interne 2 Ω dont les pôles sont reliés à un solénoïde comportant 150 spires de diamètre 5 cm ; la résistance de la bobine est de 10 Ω et sa longueur 50 cm. Calculer :
+a) l’intensité du champ magnétique créé à l’intérieur du solénoïde ;
+b) le flux magnétique à travers le solénoïde ;
+c) l’inductance propre du solénoïde.
+On fait varier le courant dans le solénoïde de 0,5 A à 0,2 A en 125251 s. Calculer :
+a) la f.é.m. d’auto induction créée dans la bobine ;
+b) l’énergie électromagnétique emmagasinée ;
+c) la puissance électrique moyenne mise en jeu.
+2. Source : exam_physique_physique-2019-svt-smp-condensateur-2.pdf (exercice III.3)
+Énoncé : Un fil conducteur de 20 cm de longueur est traversé par un courant d’intensité 6 A. Étant mobile sur un système, il se déplace de 4 cm sous l’influence d’un champ magnétique uniforme de 10 mT, normal au fil et agissant sur toute sa longueur.
+a) Quelle est la valeur de la force qui déplace le fil ?
+b) Quel est le travail accompli par cette force ?
+3. Source : exam_physique_physique-2019-svt-smp-induction-2.pdf (problème I)
+Énoncé : Dans un champ magnétique uniforme d’intensité B=0,4 TB=0,4T, on place une bobine de 800 spires de surface chacune de 5 cm² ; l’axe de la bobine est parallèle aux lignes de champ. Calculer :
+a) le flux magnétique embrassé par la bobine ;
+b) la f.é.m. induite qui prend naissance dans la bobine quand on la fait tourner de 180° en 5 ms ;
+c) la f.é.m. induite produite dans la bobine quand on la retire du champ magnétique en 11001001 s.
+4. Source : exam_physique_physique-2019-svt-smp-induction.pdf (problème I) – identique à 3
+5. Source : exam_physique_physique-2019-svt-smp_transformateur.pdf (exercice III.2)
+Énoncé : Deux conducteurs parallèles de longueur commune 80 cm sont placés à 30 cm l’un de l’autre. Ils sont parcourus par des courants de 10 A et 15 A de même sens.
+a) Calculer la force mutuelle qui s’exerce entre eux.
+b) En quel point situé entre ces deux conducteurs l’induction résultante est elle nulle ?
+6. Source : exam_physique_physique-2019_ses_impedance.pdf (problème II)
+Énoncé : Un solénoïde de longueur 40 cm et de diamètre 8 cm comprend 1000 spires jointives, faites d’un fil de cuivre de 3 mm de diamètre et de résistivité 1,6 μΩ⋅cm1,6μΩ⋅cm.
+1.	Déterminer l’intensité d’un courant II qui, par son passage, crée au centre de la bobine un champ magnétique de 15,7 mT.
+2.	Calculer le flux magnétique embrassé par le solénoïde.
+3.	Déterminer l’inductance propre du solénoïde.
+4.	Calculer la résistance du solénoïde.
+7. Source : exam_physique_physique-2021_ses_courant.pdf (problème I)
+Énoncé : On forme deux rails avec deux conducteurs parallèles sur lesquels on dispose une tige mobile conductrice MNMN (schéma). Cette tige MNMN se trouve placée entre les branches d’un aimant en U large de 6 cm, où règne un champ magnétique descendant uniforme de 200 mT.
+a) Indiquer le sens du déplacement de MNMN par la force de Laplace sur la figure.
+b) Quelle est la valeur de la force ?
+c) On ajuste l’aimant en U de façon que les lignes de champ forment un angle de π66π rad avec l’élément de courant. Que devient alors la force ?
+8. Source : exam_physique_physique-2021_svt-smp_balistique.pdf (problème I)
+Énoncé : Une bobine de 40 cm de longueur comprend 1600 spires de section moyenne 20 cm². Elle est traversée par un courant de 1,5 A.
+1.	Quel est le flux magnétique à travers les spires de cette bobine ?
+2.	Calculer la f.é.m. auto induite qui prend naissance dans la bobine à l’ouverture brusque de son circuit en 150501 s.
+9. Source : exam_physique_physique-2021_svt-smp_fourneau.pdf (exercice III.2)
+Énoncé : Chacune des bobines d’un électro aimant en fer à cheval contient 20 spires par cm et possède une surface de 8 cm². Les spires sont parcourues par un courant de 5 A et la perméabilité du noyau vaut 100.
+a) Quelles sont l’intensité du champ de chaque bobine et la surface totale de contact de cet électro aimant ?
+b) Calculer la force portante de l’appareil.
+10. Source : exam_physique_physique_2022_ses_big-bang.pdf (problème 2)
+Énoncé : On forme un circuit électrique à l’aide d’un générateur de f.é.m. 12 V et de résistance interne 4 Ω dont les pôles sont reliés à un solénoïde comportant 300 spires de diamètre 10 cm, de résistance 20 Ω et de longueur 100 cm. Déterminer :
+a) l’intensité du champ magnétique créé à l’intérieur du solénoïde ;
+b) le flux magnétique à travers le solénoïde ;
+c) l’inductance propre du solénoïde.
+On fait varier le courant linéairement, de sa valeur primitive à zéro, en 125251 s. Calculer :
+a) la f.é.m. d’auto induction créée dans la bobine ;
+b) l’énergie électromagnétique restituée.
+11. Source : exam_physique_physique_2022_ses_cosmique.pdf (problème I)
+Énoncé : La longueur et le diamètre d’un solénoïde sont respectivement 40 cm et 4 cm. Ce dernier comporte NN spires dont chacune est traversée par un courant d’intensité 3 A. Le fil de l’enroulement de ce solénoïde a une longueur de 150,72 m.
+a) Combien de spires a t on enroulé pour former ce solénoïde ?
+b) Quelle est l’intensité du champ magnétique, considéré comme uniforme, au centre de ce solénoïde ?
+c) Déterminer le flux magnétique à travers ce solénoïde.
+d) Calculer la f.é.m. induite moyenne qui prend naissance dans ce solénoïde quand on annule brusquement l’intensité du courant en 125251 s.
+12. Source : exam_physique_physique_2022_ses_electromagnetisme.pdf (exercice III.1)
+Énoncé : Le passage d’un courant continu II dans un enroulement de fil conducteur à vide produit au centre de cet enroulement un champ magnétique β0β0. On introduit un noyau de fer doux, de perméabilité relative μrμr, à l’intérieur de cet enroulement. Établir la formule β=μrμ0NILβ=μrμ0LNI donnant la nouvelle valeur du champ magnétique. (Cet exercice est une démonstration, mais il est inclus dans les exercices de magnétisme.)
+13. Source : exam_physique_physique_2022_ses_englert.pdf (exercice III.2)
+Énoncé : Une bobine assimilable à un solénoïde possède les caractéristiques suivantes : 5 cm de rayon, 500 spires, 1 m de longueur.
+a) Calculer l’inductance LL de la bobine.
+b) Le courant qui circule dans la bobine varie suivant la loi i(t)=ti(t)=t, où ii est exprimée en ampères et tt en secondes. Calculer, en fonction de tt, la f.é.m. d’auto induction.
+14. Source : exam_physique_physique_2022_ses_etoile.pdf (exercice III.1)
+Énoncé : Le noyau d’un électro aimant en fer à cheval a une longueur de 40 cm et un diamètre de 16 cm. Chacune des deux bobines comporte 400 tours de fil. La perméabilité du fer doux le constituant est 2000. On y envoie un courant de 10 A. On demande de calculer :
+a) l’induction magnétique obtenue ;
+b) la force portante de cet électro aimant.
+15. Source : exam_physique_physique_2022_ses_gravite.pdf (exercice III.1)
+Énoncé : Un disque circulaire de surface SS est plongé dans un champ magnétique uniforme BB et traversé par un flux magnétique ϕϕ.
+1.	Écrire la formule permettant de calculer le flux magnétique à travers cette surface. Que représente l’angle αα dans la formule ?
+2.	Que devient le flux magnétique quand : a) α=0∘α=0∘ ? b) α=90∘α=90∘ ?
+3.	Dans chacun des cas précédents, comment sont la normale à la surface et les lignes de champ ?
+16. Source : exam_physique_physique_2022_ses_kajita.pdf (exercice III.2)
+Énoncé : Deux conducteurs parallèles de longueur commune 80 cm sont placés à 30 cm l’un de l’autre. Ils sont parcourus par des courants de 10 A et 15 A de même sens.
+a) Calculer la force mutuelle qui s’exerce entre eux.
+b) En quel point situé entre ces deux conducteurs l’induction résultante est elle nulle ?
+17. Source : exam_physique_physique_2022_ses_marconi.pdf (problème 2)
+Énoncé : On considère une bobine BB, de longueur 1 m, comprenant 1000 spires de surface 19,625 cm219,625cm2 chacune. Un courant constant d’intensité I=8 AI=8A est lancé dans la bobine.
+1.	Calculer le flux magnétique à travers la bobine BB.
+2.	On fait passer le courant dans la bobine de 8 A à 2 A en 11001001 s. Calculer la f.é.m. induite que prend naissance dans une bobine comportant 100 spires de section 10 cm² placée au centre de la bobine BB. Les axes des deux bobines sont confondus.
+3.	La bobine est enlevée et on fait passer dans la bobine BB un courant qui varie suivant la loi i(t)=5−2t2i(t)=5−2t2.
+a) Calculer l’inductance de la bobine BB.
+b) Déterminer, en fonction du temps, l’expression de la force électromotrice auto induite qui prend naissance dans la bobine BB.
+18. Source : exam_physique_physique_2022_ses_oncle.pdf (exercice III.2)
+Énoncé : Une bobine de longueur LbLb et de diamètre DbDb est composée de NN tours de fil. On fait passer un courant d’intensité II dans l’enroulement de cette bobine.
+a) Écrire la formule donnant la longueur LfLf du fil constituant l’enroulement de la bobine.
+b) Définir l’inductance LL de cette bobine, puis donner sa formule de calcul.
+c) En déduire la relation entre l’inductance LL de la bobine et la longueur du fil LfLf qui la constitue.
+19. Source : exam_physique_physique_2022_ses_perl.pdf (problème 1)
+Énoncé : On produit une induction magnétique de 1,256 T dans un électro aimant (fer doux) à l’aide d’une source de courant de 5 A.
+1.	Sachant que la longueur de l’électro aimant est 40 cm, la résistance de son enroulement 8 Ω et la section de ses spires 24 cm², calculer :
+a) le nombre de spires de l’enroulement ;
+b) l’énergie en kilojoule qui s’y dégage en 10 minutes.
+2.	On met en dérivation aux bornes de l’électro aimant un galvanomètre de résistance 2 Ω et on coupe brusquement le courant qui alimente l’électro aimant. On demande alors :
+a) la quantité d’électricité induite dans le galvanomètre ;
+b) la f.é.m. induite, sachant que l’annulation du courant dure 11001001 s.
+20. Source : exam_physique_physique_2022_ses_picard-2.pdf (problème 1)
+Énoncé : Un solénoïde comporte 1000 spires uniformes enroulées sur un manchon de longueur 50 cm et de section 30 cm².
+a) Quelles sont les caractéristiques du champ magnétique créé à l’intérieur du solénoïde par le passage d’un courant d’intensité 5 A dans les spires ?
+b) Calculer le flux magnétique à travers ce solénoïde.
+2) On enroule 400 spires autour et dans la région centrale du solénoïde. Ces spires sont fermées sur un galvanomètre constituant un nouveau circuit fermé dont la résistance est 15 Ω. On ouvre brusquement le circuit du solénoïde en 11001001 s. Calculer la f.é.m. induite et l’intensité du courant induit qui prennent naissance dans le nouveau circuit.
+21. Source : exam_physique_physique_2022_ses_picard.pdf (problème 1) – identique à 20
+22. Source : exam_physique_physique_2022_smp-svt-curien.pdf (exercice III.2)
+Énoncé : Une bobine longue possède les caractéristiques suivantes : diamètre : 10 cm ; nombre de spires : 1000 spires ; longueur de la bobine : 80 cm.
+a) Calculer l’inductance de la bobine.
+b) Cette bobine est parcourue par un courant dont l’intensité varie en fonction du temps suivant la loi i(t)=4−5ti(t)=4−5t (i en ampères, t en secondes). Calculer, en fonction du temps, la f.é.m. d’auto induction dont la bobine est le siège.
+23. Source : exam_physique_physique_2022_smp-svt-heiseiberg.pdf (problème 2)
+Énoncé : L’intensité de l’induction magnétique au centre d’un solénoïde vaut 22,61 mT. Ce solénoïde de 40 cm de longueur et de 10 cm de diamètre est parcouru par un courant de 6 A.
+1.	Calculer le nombre de spires et la longueur du fil formant l’enroulement du solénoïde.
+2.	Quelle est alors son inductance propre ?
+3.	La f.é.m. auto induite qui prend naissance dans le solénoïde lorsque le courant qui le traverse varie de 6 A à une valeur I2I2 en 125251 s est 3,55 V.
+a) Quelle est dans ce cas la valeur de I2I2 ?
+b) Que devient la f.é.m. auto induite lorsque l’enroulement du solénoïde est parcouru par un courant dont l’intensité varie en fonction du temps suivant la relation i(t)=4−5ti(t)=4−5t (t en seconde, i en ampère) ?
+24. Source : exam_physique_physique_2022_smp-svt_schrodinger-2.pdf (exercice III.2)
+Énoncé : Une bobine de 1 m de long est constituée d’une seule couche de spires jointives de 10 cm de diamètre, faites d’un fil conducteur de 1 mm de diamètre. Cette bobine est traversée par un courant qui varie en fonction du temps suivant la relation i(t)=4−5ti(t)=4−5t.
+a) Calculer l’inductance de la bobine.
+b) Quelle est la valeur de la f.é.m. auto induite dont la bobine est le siège ?
+25. Source : exam_physique_physique_2022_smp-svt_becquerel.pdf (exercice III.1)
+Énoncé : Le cadre rectangulaire d’un galvanomètre de 3 cm sur 2 cm est formé de 200 tours de fil et parcouru par un courant constant. Il est retenu par un fil dont la constante de torsion est CC et plongé dans l’entrefer d’un électro aimant en U où le champ magnétique est uniforme et d’intensité 0,2 T.
+a) Déterminer la longueur totale du fil utilisé.
+b) Calculer la sensibilité du galvanomètre.
+26. Source : exam_physique_physique_2022_smp-svt_laroche.pdf (problème II)
+Énoncé : Un solénoïde cylindrique a 12 cm de diamètre et 40 cm de longueur. Il est formé d’une seule couche de spires jointives dont le fil a un diamètre de 0,8 mm. Calculer :
+a) le nombre de spires de ce solénoïde ;
+b) la résistivité du métal dont le fil est formé si la résistance totale du solénoïde est 12 Ω ;
+c) l’inductance du solénoïde.
+2) On relie le solénoïde aux bornes d’un accumulateur de f.é.m. 12 V et de résistance intérieure 2 Ω. Calculer :
+a) l’induction magnétique à l’intérieur du solénoïde ;
+b) le flux d’induction à travers les spires du solénoïde.
+3) Le courant étant coupé en 180801 s, quelle est la valeur de la f.é.m. auto induite ?
+27. Source : exam_physique_physique_2022_smp-svt_wineland_b-2.pdf (problème I)
+Énoncé : Un solénoïde cylindrique a 12 cm de diamètre et 40 cm de longueur. Il est formé d’une seule couche de spires jointives dont le fil a un diamètre de 0,8 mm. Calculer :
+a) le nombre de spires de ce solénoïde ;
+b) la résistivité du métal dont le fil est formé si la résistance totale du solénoïde est 2 Ω ;
+c) l’inductance du solénoïde.
+2) On relie le solénoïde aux bornes d’un accumulateur de f.é.m. 12 V et de résistance intérieure 0,5 Ω. Calculer :
+a) l’induction magnétique à l’intérieur du solénoïde ;
+b) le flux d’induction à travers les spires du solénoïde.
+3) Le courant étant coupé en 180801 s, quelle est la valeur de la f.é.m. auto induite ?
+28. Source : exam_physique_physique_2022_smp-svt_wineland_b.pdf (problème I) – identique à 27
+29. Source : exam_physique_physique_2022_svt-smp_gps.pdf (problème 1)
+Énoncé : Une bobine longue est formée de deux couches de spires de 900 spires chacune, réparties sur un support cylindrique de diamètre 8 cm. Le fil utilisé a un diamètre de 0,2 mm et un isolant d’épaisseur 0,23 mm. Ce solénoïde est parcouru par un courant de 2 A.
+1.	Déterminer la longueur et la résistance du fil utilisé (donnée : ρ=1,6 μΩ⋅cmρ=1,6μΩ⋅cm).
+2.	Calculer la longueur du solénoïde et l’induction magnétique en son centre.
+3.	On introduit une aiguille aimantée à l’intérieur de ce solénoïde, et on néglige l’influence du champ magnétique terrestre.
+a) Quelle est la direction prise par cette aiguille ?
+b) Quelle est l’intensité du champ magnétique qui, perpendiculaire au champ magnétique du solénoïde, dévie l’aiguille de 60° ?
+30. Source : exam_physique_physique_2022_svt-smp_lumiere.pdf (exercice III.2)
+Énoncé : Une bobine longue possède les caractéristiques suivantes : diamètre : 10 cm ; nombre de spires : 1000 spires ; longueur de la bobine : 80 cm.
+a) Calculer l’inductance de la bobine.
+b) Cette bobine est parcourue par un courant dont l’intensité varie en fonction du temps suivant la loi i(t)=4−5ti(t)=4−5t (i en ampères, t en secondes). Calculer, en fonction du temps, la f.é.m. d’auto induction dont la bobine est le siège.
+31. Source : exam_physique_physique_2022_svt-smp_plasma.pdf (exercice III.1)
+Énoncé : Une bobine comporte 1200 spires sur une longueur de 35 cm. Elle est parcourue par un courant de 3 A.
+a) Que vaut l’induction B0B0 sur l’axe de la bobine ?
+b) Quels sont l’induction BB et le flux magnétique total ϕϕ dans un noyau de fer de perméabilité relative de valeur 300, introduit dans cette bobine sachant que la section est de 42 cm² ?
+32. Source : exam_physique_physique_2022_svt-smp_quanta.pdf (problème 1)
+Énoncé : Un solénoïde comporte 1000 spires uniformément enroulées sur un manchon de longueur 40 cm et de section 20 cm².
+1.	Quelles sont les caractéristiques du champ magnétique créé à l’intérieur du solénoïde par le passage d’un courant de 10 A dans les spires ?
+2.	Calculer le flux magnétique à travers ce solénoïde.
+On enroule 200 spires autour et au centre du solénoïde. Ces spires sont fermées sur un galvanomètre constituant ainsi un nouveau circuit fermé dont la résistance est 20 Ω. On ouvre brusquement le circuit du solénoïde en 11001001 s.
+3.	Calculer la f.é.m. d’induction et l’intensité du courant induit qui prennent naissance dans le nouveau circuit.
+33. Source : exam_physique_physique_2022_svt-smp_vitesse.pdf (exercice III.1)
+Énoncé : Une tige métallique de 30 cm de long, traversée par un courant de 2 A, est déposée sur deux rails et placée perpendiculairement aux lignes d’induction d’un champ magnétique uniforme d’intensité 5 mT. Calculer :
+a) la force électromagnétique exercée sur la tige ;
+b) le travail effectué par cette force pour un déplacement de 10 cm de la tige.
+34. Source : exam_physique_texte-modele-physique-2025-ses.pdf (problème II)
+Énoncé : Pour obtenir une bobine de 2200 spires sur un support de 40 cm de longueur, on enroule 800 m d’un fil métallique de résistance 12 Ω.
+1.	Déterminer l’inductance de cette bobine ainsi que son diamètre.
+2.	La bobine est traversée par un flux d’induction magnétique de 200 mWb. Calculer :
+a) les intensités de l’induction magnétique créée au centre de la bobine et du courant qui la traverse ;
+b) la tension aux bornes de la bobine.
+3.	On fait varier ce courant en 150501 s de 1,25 A à 0 A. Quelle est la f.é.m. d’auto induction qui prend naissance dans la bobine ?
+35. Source : exam_physique_texte-modele-physique-2025-smp-svt.pdf (problème II)
+Énoncé : Un ingénieur conçoit un générateur simple, constitué d’une bobine carrée de N=100N=100 spires, de côté L=5L=5 cm, placée dans un champ magnétique uniforme. Initialement, le plan de la bobine est perpendiculaire aux lignes du champ. Le champ magnétique décroît uniformément de β1=0,8 Tβ1=0,8T à β2=0,2 Tβ2=0,2T en un temps Δt=0,1 sΔt=0,1s. La résistance totale du circuit de la bobine est R=2 ΩR=2Ω.
+1.	Quelle est la variation du flux d’induction magnétique (ΔϕΔϕ) à travers la bobine ?
+2.	Quelle est la f.é.m. induite qui prend naissance dans la bobine pendant la décroissance du champ magnétique ?
+3.	Quel est le courant induit qui circule dans la bobine pendant cette période ?
+4.	Si la bobine était enroulée autour d’un noyau ferromagnétique dont la perméabilité relative est μr=500μr=500, que deviennent la f.é.m. et le courant induits ?
+37. Source : exam_physique_physique_2016_svt-smp_phytophage.pdf (exercice III.1)
+Énoncé : La longueur d’une bobine longue est 60 cm. Elle porte 1000 tours de fil de 8 cm² chacun. On établit à ses bornes un courant de 4 A en 31001003 s. Calculer :
+a) l’inductance de cette bobine ;
+b) la f.é.m. auto induite qui y prend naissance.
+
+
+## Chapitre 5 – Condensateur (50 exercices réels)
+1. Source : exam_physique_physique-2019-svt-smp-aimentation.pdf (exercice III.2)
+Énoncé : La capacité équivalente de 5 condensateurs identiques, comme le montre la figure (non reproduite), est 2,5 nF2,5nF.
+a) Calculer la capacité de chacun des condensateurs.
+b) Quel serait l’écart entre les armatures d’un condensateur plan à air de capacité 2,5 μF2,5μF si la surface utile des armatures est 12 dm212dm2 ?
+2. Source : exam_physique_physique-2019-svt-smp-condensateur-2.pdf (exercice III.2)
+Énoncé : On réalise une association de condensateurs comme l’indique la figure (non reproduite). Tous les condensateurs sont identiques et chacun a une capacité de 1 μF1μF.
+a) Calculer la capacité équivalente de l’association.
+b) On charge l’ensemble sous une tension constante de 24 V24V. Quelle est l’énergie emmagasinée par l’association ?
+3. Source : exam_physique_physique-2019-svt-smp-induction-2.pdf (exercice III.2)
+Énoncé : Un condensateur de capacité C=0,1 μFC=0,1μF est constitué de deux plaques métalliques en regard de surface 3 cm23cm2 séparées par un diélectrique de permittivité relative εr=5εr=5. Calculer :
+a) l’épaisseur du diélectrique ;
+b) la charge prise par le condensateur sous une d.d.p. de 18 V18V.
+4. Source : exam_physique_physique-2019-svt-smp-induction.pdf (exercice III.2) – identique à 3
+5. Source : exam_physique_physique-2019-svt-smp_transformateur.pdf (exercice III.3)
+Énoncé : Un condensateur C1=10 μFC1=10μF est chargé de 5 mC5mC sous une tension UU. Il partage sa charge avec un autre condensateur C2=2,5 μFC2=2,5μF, non chargé.
+a) Sous quelle tension C1C1 a t il été chargé ?
+b) Quelle est la tension obtenue aux bornes du système de partage ?
+6. Source : exam_physique_physique-2019_ses_impedance.pdf (exercice III.2)
+Énoncé : Un condensateur plan est constitué d’armatures mesurant 10 dm210dm2 et écartées de 2 mm2mm par un diélectrique de permittivité k=80k=80. Aux bornes d’une d.d.p. UU, ce condensateur emmagasine une énergie de 17,7 mJ17,7mJ.
+a) Quelle est la capacité de ce condensateur ?
+b) Calculer la d.d.p. à ses bornes.
+7. Source : exam_physique_physique-2021-bac-permanent.pdf (exercice III.2)
+Énoncé : On réalise le montage ci contre avec quatre condensateurs identiques de capacité commune 2 μF2μF.
+a) Déterminer la capacité équivalente de chacune des branches.
+b) Quelle est la capacité d’un condensateur unique pouvant remplacer cette batterie de condensateurs ?
+8. Source : exam_physique_physique-2021_ses_bobine.pdf (exercice III.2) – identique à 7
+9. Source : exam_physique_physique-2021_ses_courant.pdf (exercice III.2)
+Énoncé : Un condensateur plan est constitué d’armatures mesurant 10 dm210dm2 et écartées de 2 mm2mm par un diélectrique de permittivité k=80k=80. Aux bornes d’une d.d.p. UU, ce condensateur emmagasine une énergie de 17,7 mJ17,7mJ.
+a) Quelle est la capacité de ce condensateur ?
+b) Calculer la d.d.p. à ses bornes.
+10. Source : exam_physique_physique_2022_ses_big-bang.pdf (exercice III.2)
+Énoncé : Un condensateur est formé de 2 lames conductrices planes de surface utile 50 cm250cm2 séparées par un diélectrique d’épaisseur 0,8 mm0,8mm et de permittivité relative 2,52,5. On soumet les lames conductrices à une tension constante U=1000 VU=1000V.
+a) Faire le schéma du condensateur en question et calculer sa capacité.
+b) Déterminer l’énergie emmagasinée par ce condensateur.
+11. Source : exam_physique_physique_2022_ses_cosmique.pdf (exercice III.2)
+Énoncé : Des condensateurs identiques au nombre de 10, de capacité 1 μF1μF chacun, sont associés en série.
+a) Calculer la capacité équivalente de l’association.
+b) Calculer l’énergie emmagasinée par l’association si on charge l’ensemble sous une tension constante de 24 V24V.
+12. Source : exam_physique_physique_2022_ses_electromagnetisme.pdf (exercice III.2) – identique à 11
+13. Source : exam_physique_physique_2022_ses_englert.pdf (exercice III.1)
+Énoncé : Un condensateur plan, dont les armatures sont séparées de 1 mm1mm, est soumis à une d.d.p. constante de 24 V24V. Sa capacité est 194,7 pF194,7pF et la surface d’une armature est égale à 1 dm21dm2. On demande :
+a) l’intensité du champ électrique entre les armatures ;
+b) la valeur de la constante diélectrique.
+14. Source : exam_physique_physique_2022_ses_etoile.pdf (exercice III.2)
+Énoncé : On associe 8 condensateurs identiques, de capacité 4 μF4μF chacun, pour former une batterie dont la capacité équivalente vaut 0,5 μF0,5μF.
+a) Trouver le mode de groupement de cette association.
+b) Cette batterie est soumise à une tension de 1000 V1000V. Déterminer l’énergie qu’elle emmagasine.
+15. Source : exam_physique_physique_2022_ses_gravite.pdf (exercice III.1)
+Énoncé : La charge prise par un condensateur de capacité 3 mF3mF soumis à une tension UU est 60 mC60mC. Calculer :
+a) l’énergie emmagasinée par ce condensateur à partir de la charge prise et de la capacité du condensateur ;
+b) la tension aux bornes du condensateur.
+16. Source : exam_physique_physique_2022_ses_kajita.pdf (exercice III.1)
+Énoncé : On souhaite réaliser une association de condensateurs identiques équivalente à un condensateur unique de capacité CC. À cet effet, on utilise 10 condensateurs identiques de capacité C1C1 chacun.
+a) Comment doit-on grouper ces condensateurs ?
+b) On charge le condensateur de capacité CC sous la tension de 80 V80V. Quelles sont la charge et l’énergie emmagasinée ?
+17. Source : exam_physique_physique_2022_ses_marconi.pdf (exercice III.1)
+Énoncé : Un condensateur de capacité C1C1 est chargé sous une d.d.p. constante de 90 V90V.
+a) Quelles sont la charge et l’énergie emmagasinée ?
+b) Le condensateur chargé de capacité C1C1 est isolé de la source et ses armatures sont reliées en parallèle à un autre condensateur non chargé de capacité C2=2C1C2=2C1. Quelle est la tension d’équilibre du système ?
+18. Source : exam_physique_physique_2022_ses_oncle.pdf (exercice III.1)
+Énoncé : On associe plusieurs condensateurs identiques de capacité C1=5 μFC1=5μF chacun. La capacité équivalente à l’association vaut C=15 μFC=15μF.
+a) En comparant la capacité équivalente CC et la capacité C1C1 d’un seul condensateur, préciser si les condensateurs sont associés en série ou en parallèle et justifier la réponse.
+b) En déduire le nombre de condensateurs associés.
+19. Source : exam_physique_physique_2022_ses_perl.pdf (exercice III.2)
+Énoncé : Les deux armatures d’un condensateur sont distantes de dd. Il règne entre elles un champ électrique uniforme de 200 kV/m200kV/m.
+a) Quelle est la d.d.p. entre ces armatures ?
+b) Calculer la valeur de la force électrique qui provoque le déplacement des particules d’une armature à l’autre sachant que chacune d’elles est chargée de 0,6 mC0,6mC.
+20. Source : exam_physique_physique_2022_ses_picard-2.pdf (exercice III.1)
+Énoncé : Un condensateur plan à air, dont les armatures sont écartées de 4 mm4mm, emmagasine une charge 80 mC80mC lorsqu’il est chargé sous une d.d.p. de 100 V100V.
+a) Calculer le champ électrique qui règne à travers le diélectrique.
+b) Calculer la capacité de ce condensateur.
+21. Source : exam_physique_physique_2022_ses_picard.pdf (exercice III.1) – identique à 20
+22. Source : exam_physique_physique_2022_smp-svt-curien.pdf (exercice III.1)
+Énoncé : On fabrique un condensateur plan de capacité 389,4 pF389,4pF en plaçant en parallèle deux lames de cuivre entre lesquelles s’engagent une lame de paraffine de 0,1 mm0,1mm d’épaisseur et de permittivité 2,22,2.
+a) Calculer la surface utile des armatures.
+b) On charge le condensateur de capacité 389,4 pF389,4pF sous la tension constante de 12 V12V. Calculer la valeur du champ magnétique régnant entre les armatures du condensateur chargé. (Attention : champ électrique, pas magnétique. L’énoncé original dit "champ magnétique", mais c’est une erreur ; il s’agit du champ électrique.)
+23. Source : exam_physique_physique_2022_smp-svt-heiseiberg.pdf (exercice III.2)
+Énoncé : Six (6) condensateurs identiques de capacité commune C1C1 sont montés d’abord en série, puis en parallèle.
+a) Quelle est la capacité de la batterie formée dans chaque cas ?
+b) Que devient cette capacité si on branche ces condensateurs en 3 séries de 2 éléments ?
+24. Source : exam_physique_physique_2022_smp-svt_schrodinger-2.pdf (exercice III.1)
+Énoncé : Un condensateur plan possède des armatures de 4 cm24cm2 avec un espace d’air de 2 mm2mm. Chaque armature a une charge de 50 pC50pC, mais de polarités opposées.
+a) Quelle est la capacité du condensateur ?
+b) Calculer la tension électrique régnant entre les armatures du condensateur.
+25. Source : exam_physique_physique_2022_smp-svt_becquerel.pdf (exercice III.2)
+Énoncé : Un condensateur de capacité C1C1, préalablement chargé de 0,5 mC0,5mC, partage sa charge avec un autre condensateur de capacité C2C2 non chargé. La tension d’équilibre suite au partage est égale à 100 V100V.
+a) Quelle a été la tension de charge du premier condensateur ?
+b) Déterminer la capacité C2C2 du deuxième condensateur.
+26. Source : exam_physique_physique_2022_smp-svt_laroche.pdf (exercice III.1)
+Énoncé : Un condensateur plan de capacité CC est constitué de deux plaques métalliques en regard de surface 1 dm21dm2 séparées par un diélectrique de permittivité εrεr. Calculer :
+a) l’épaisseur du diélectrique ;
+b) la charge prise par le condensateur sous la tension de 18 V18V.
+27. Source : exam_physique_physique_2022_smp-svt_wineland_b-2.pdf (exercice III.1)
+Énoncé : Un condensateur formé de deux plateaux circulaires de 20 cm20cm de rayon, distants de 2 mm2mm, et entre lesquels se trouve une plaque de verre de constante diélectrique k=6k=6.
+a) Calculer la capacité de ce condensateur.
+b) Déterminer l’énergie emmagasinée par ce condensateur lorsqu’il est soumis à une tension constante de 60 V60V.
+28. Source : exam_physique_physique_2022_smp-svt_wineland_b.pdf (exercice III.1) – identique à 27
+29. Source : exam_physique_physique_2022_svt-smp_gps.pdf (exercice III.2)
+Énoncé : Un condensateur de capacité C=0,1 μFC=0,1μF est constitué de deux plaques métalliques en regard de surface utile 3 cm23cm2 séparées par un diélectrique de permittivité relative μr=5μr=5. Calculer :
+a) l’épaisseur du diélectrique ;
+b) la charge prise par le condensateur sous une d.d.p. constante de 18 V18V.
+30. Source : exam_physique_physique_2022_svt-smp_lumiere.pdf (exercice III.2) – identique à 29
+31. Source : exam_physique_physique_2022_svt-smp_plasma.pdf (exercice III.2)
+Énoncé : Un circuit comprend en série huit condensateurs de capacité 2 μF2μF chacun.
+a) Quelle est la capacité équivalente de l’association ?
+b) On charge l’ensemble sous une d.d.p. de 40 V40V. Calculer l’énergie emmagasinée par l’association.
+32. Source : exam_physique_physique_2022_svt-smp_quanta.pdf (exercice III.1)
+Énoncé : On réalise un circuit à l’aide de 3 condensateurs de capacités respectives C1=2 μFC1=2μF, C2=5 μFC2=5μF et C3=3 μFC3=3μF, où C1C1 est placé en série avec une dérivation formée de C2C2 et C3C3. On établit aux bornes de ce circuit une d.d.p. constante UU.
+a) Schématiser le montage en question et calculer la capacité équivalente de l’association des condensateurs.
+b) Quelle est la valeur de la d.d.p. UU qui permet à l’association d’emmagasiner une énergie de 0,32 mJ0,32mJ ?
+33. Source : exam_physique_physique_2022_svt-smp_vitesse.pdf (exercice III.2)
+Énoncé : Aux bornes d’une tension continue, un condensateur de capacité 12 μF12μF accumule une charge de 80 μC80μC. Ce dernier partage sa charge avec un autre condensateur neutre, de capacité 3 μF3μF.
+a) Sous quelle tension le premier condensateur a t il été chargé ?
+b) Déterminer la tension obtenue aux bornes du système de partage.
+34. Source : exam_physique_texte-modele-physique-2025-ses.pdf (QCM – partie condensateur)
+Énoncé : On considère quatre condensateurs montés en deux séries de deux éléments et chargés sous une d.d.p. constante de 90 V90V, comme illustré dans la figure (non reproduite).
+a) La capacité du condensateur équivalente à l’association est : (à calculer)
+b) La tension entre les bornes du condensateur de 3 μF3μF est : (à calculer)
+c) L’énergie emmagasinée par l’ensemble est : (à calculer)
+35. Source : exam_physique_texte-modele-physique-2025-smp-svt.pdf (QCM – partie condensateur)
+Énoncé : Un condensateur plan, dont les armatures sont séparées d’une distance de 2 cm2cm, est soumis à une d.d.p. de 100 V100V. Sa capacité est de 40 pF40pF.
+a) La charge prise par le condensateur est : (à calculer)
+b) Le champ électrique entre les armatures est : (à calculer)
+c) La force électrique attractive entre les armatures est : (à calculer)
+36. Source : exam_physique_physique_2015_svt-smp_photon.pdf (exercice III.2)
+Énoncé : On charge un condensateur plan sous une tension de 0,5 kV0,5kV. Il emmagasine une charge de 0,1 mC0,1mC. Sachant que l’écart entre les armatures est 2 mm2mm, on demande :
+a) l’intensité de la force d’attraction entre les armatures ;
+b) le champ électrique qui règne entre les armatures.
+37. Source : exam_physique_physique_2016_svt-smp_phytophage.pdf (exercice III.2) – identique à 36
+38. Source : exam_physique_physique_2016_svt-smp_phytotron.pdf (exercice III.2)
+Énoncé : On charge un condensateur plan sous une tension de 0,5 kV0,5kV. Il emmagasine une charge de 0,1 mC0,1mC. Sachant que l’écart entre les armatures est 2 mm2mm, on demande :
+a) l’intensité de la force d’attraction entre les armatures ;
+b) le champ électrique qui règne entre les armatures.
+39. Source : exam_physique_physique_2018_svt-smp_dipole.pdf (exercice III.2)
+Énoncé : Trois condensateurs C1=3 μFC1=3μF, C2=6 μFC2=6μF et C3=4 μFC3=4μF sont associés comme le montre la figure (non reproduite).
+a) Calculer la capacité équivalente de l’ensemble des trois condensateurs.
+b) Quelle est la charge emmagasinée par l’association ?
+## Chapitre 6 – Induction électromagnétique (30 exercices)
+Exercices réels (sources indiquées)
+1. Source : exam_physique_physique-2019-svt-smp-induction-2.pdf (problème I)
+Énoncé : Dans un champ magnétique uniforme d’intensité B=0,4 TB=0,4T, on place une bobine de 800 spires de surface chacune de 5 cm25cm2 ; l’axe de la bobine est parallèle aux lignes de champ. Calculer :
+a) le flux magnétique embrassé par la bobine ;
+b) la f.é.m. induite qui prend naissance dans la bobine quand on la fait tourner de 180∘180∘ en 5 ms5ms ;
+c) la f.é.m. induite produite dans la bobine quand on la retire du champ magnétique en 1100 s1001s.
+2. Source : exam_physique_physique-2019-svt-smp-induction.pdf (problème I) – identique
+3. Source : exam_physique_physique-2019-svt-smp-aimentation.pdf (problème II)
+Énoncé : Un circuit électrique comprend un générateur de f.é.m. 6 V6V et de résistance interne 2 Ω2Ω dont les pôles sont reliés à un solénoïde comportant 150 spires de diamètre 5 cm5cm ; la résistance de la bobine est de 10 Ω10Ω et sa longueur 50 cm50cm. Calculer :
+a) l’intensité du champ magnétique créé à l’intérieur du solénoïde ;
+b) le flux magnétique à travers le solénoïde ;
+c) l’inductance propre du solénoïde.
+On fait varier le courant dans le solénoïde de 0,5 A0,5A à 0,2 A0,2A en 125 s251s. Calculer :
+a) la f.é.m. d’auto induction créée dans la bobine ;
+b) l’énergie électromagnétique emmagasinée ;
+c) la puissance électrique moyenne mise en jeu.
+4. Source : exam_physique_physique-2019_ses_impedance.pdf (problème II)
+Énoncé : Un solénoïde de longueur 40 cm40cm et de diamètre 8 cm8cm comprend 1000 spires jointives, faites d’un fil de cuivre de 3 mm3mm de diamètre et de résistivité 1,6 μΩ⋅cm1,6μΩ⋅cm.
+1.	Déterminer l’intensité d’un courant II qui, par son passage, crée au centre de la bobine un champ magnétique de 15,7 mT15,7mT.
+2.	Calculer le flux magnétique embrassé par le solénoïde.
+3.	Déterminer l’inductance propre du solénoïde.
+4.	Calculer la résistance du solénoïde.
+5. Source : exam_physique_physique-2021-bac-permanent.pdf (problème I)
+Énoncé : Les bornes d’une bobine formée de 1000 tours de fil et de diamètre 10 cm10cm sont reliées à un galvanomètre. En 0,5 s0,5s, la bobine est plongée dans un champ magnétique uniforme de 10 T10T, tout en maintenant les lignes de champ parallèles à son axe. Sachant que la résistance totale du circuit ainsi formée est 50 Ω50Ω, on demande :
+1.	l’intensité du courant induit ;
+2.	la quantité d’électricité induite à travers la bobine pendant la variation du flux magnétique.
+6. Source : exam_physique_physique-2021_ses_courant.pdf (problème I)
+Énoncé : On forme deux rails avec deux conducteurs parallèles sur lesquels on dispose une tige mobile conductrice MNMN (schéma). Cette tige MNMN se trouve placée entre les branches d’un aimant en U large de 6 cm6cm, où règne un champ magnétique descendant uniforme de 200 mT200mT.
+a) Indiquer le sens du déplacement de MNMN par la force de Laplace sur la figure.
+b) Quelle est la valeur de la force ?
+c) On ajuste l’aimant en U de façon que les lignes de champ forment un angle de π6 rad6πrad avec l’élément de courant. Que devient alors la force ?
+7. Source : exam_physique_physique-2021_svt-smp_balistique.pdf (problème I)
+Énoncé : Une bobine de 40 cm40cm de longueur comprend 1600 spires de section moyenne 20 cm220cm2. Elle est traversée par un courant de 1,5 A1,5A.
+1.	Quel est le flux magnétique à travers les spires de cette bobine ?
+2.	Calculer la f.é.m. auto induite qui prend naissance dans la bobine à l’ouverture brusque de son circuit en 150 s501s.
+8. Source : exam_physique_physique_2022_ses_big-bang.pdf (problème 2)
+Énoncé : On forme un circuit électrique à l’aide d’un générateur de f.é.m. 12 V12V et de résistance interne 4 Ω4Ω dont les pôles sont reliés à un solénoïde comportant 300 spires de diamètre 10 cm10cm, de résistance 20 Ω20Ω et de longueur 100 cm100cm. Déterminer :
+a) l’intensité du champ magnétique créé à l’intérieur du solénoïde ;
+b) le flux magnétique à travers le solénoïde ;
+c) l’inductance propre du solénoïde.
+On fait varier le courant linéairement, de sa valeur primitive à zéro, en 125 s251s. Calculer :
+a) la f.é.m. d’auto induction créée dans la bobine ;
+b) l’énergie électromagnétique restituée.
+9. Source : exam_physique_physique_2022_ses_cosmique.pdf (problème I)
+Énoncé : La longueur et le diamètre d’un solénoïde sont respectivement 40 cm40cm et 4 cm4cm. Ce dernier comporte NN spires dont chacune est traversée par un courant d’intensité 3 A3A. Le fil de l’enroulement de ce solénoïde a une longueur de 150,72 m150,72m.
+a) Combien de spires a t on enroulé pour former ce solénoïde ?
+b) Quelle est l’intensité du champ magnétique, considéré comme uniforme, au centre de ce solénoïde ?
+c) Déterminer le flux magnétique à travers ce solénoïde.
+d) Calculer la f.é.m. induite moyenne qui prend naissance dans ce solénoïde quand on annule brusquement l’intensité du courant en 125 s251s.
+10. Source : exam_physique_physique_2022_ses_marconi.pdf (problème 2)
+Énoncé : On considère une bobine BB, de longueur 1 m1m, comprenant 1000 spires de surface 19,625 cm219,625cm2 chacune. Un courant constant d’intensité I=8 AI=8A est lancé dans la bobine.
+1.	Calculer le flux magnétique à travers la bobine BB.
+2.	On fait passer le courant dans la bobine de 8 A8A à 2 A2A en 1100 s1001s. Calculer la f.é.m. induite que prend naissance dans une bobine comportant 100 spires de section 10 cm210cm2 placée au centre de la bobine BB. Les axes des deux bobines sont confondus.
+3.	La bobine est enlevée et on fait passer dans la bobine BB un courant qui varie suivant la loi i(t)=5−2t2i(t)=5−2t2.
+a) Calculer l’inductance de la bobine BB.
+b) Déterminer, en fonction du temps, l’expression de la force électromotrice auto induite qui prend naissance dans la bobine BB.
+11. Source : exam_physique_physique_2022_ses_perl.pdf (problème 1)
+Énoncé : On produit une induction magnétique de 1,256 T1,256T dans un électro aimant (fer doux) à l’aide d’une source de courant de 5 A5A.
+1.	Sachant que la longueur de l’électro aimant est 40 cm40cm, la résistance de son enroulement 8 Ω8Ω et la section de ses spires 24 cm224cm2, calculer :
+a) le nombre de spires de l’enroulement ;
+b) l’énergie en kilojoule qui s’y dégage en 1010 minutes.
+2.	On met en dérivation aux bornes de l’électro aimant un galvanomètre de résistance 2 Ω2Ω et on coupe brusquement le courant qui alimente l’électro aimant. On demande alors :
+a) la quantité d’électricité induite dans le galvanomètre ;
+b) la f.é.m. induite, sachant que l’annulation du courant dure 1100 s1001s.
+12. Source : exam_physique_physique_2022_ses_picard-2.pdf (problème 1)
+Énoncé : Un solénoïde comporte 1000 spires uniformes enroulées sur un manchon de longueur 50 cm50cm et de section 30 cm230cm2.
+a) Quelles sont les caractéristiques du champ magnétique créé à l’intérieur du solénoïde par le passage d’un courant d’intensité 5 A5A dans les spires ?
+b) Calculer le flux magnétique à travers ce solénoïde.
+2) On enroule 400 spires autour et dans la région centrale du solénoïde. Ces spires sont fermées sur un galvanomètre constituant un nouveau circuit fermé dont la résistance est 15 Ω15Ω. On ouvre brusquement le circuit du solénoïde en 1100 s1001s. Calculer la f.é.m. induite et l’intensité du courant induit qui prennent naissance dans le nouveau circuit.
+13. Source : exam_physique_physique_2022_ses_picard.pdf (problème 1) – identique
+14. Source : exam_physique_physique_2022_smp-svt-heiseiberg.pdf (problème 2)
+Énoncé : L’intensité de l’induction magnétique au centre d’un solénoïde vaut 22,61 mT22,61mT. Ce solénoïde de 40 cm40cm de longueur et de 10 cm10cm de diamètre est parcouru par un courant de 6 A6A.
+1.	Calculer le nombre de spires et la longueur du fil formant l’enroulement du solénoïde.
+2.	Quelle est alors son inductance propre ?
+3.	La f.é.m. auto induite qui prend naissance dans le solénoïde lorsque le courant qui le traverse varie de 6 A6A à une valeur I2I2 en 125 s251s est 3,55 V3,55V.
+a) Quelle est dans ce cas la valeur de I2I2 ?
+b) Que devient la f.é.m. auto induite lorsque l’enroulement du solénoïde est parcouru par un courant dont l’intensité varie en fonction du temps suivant la relation i(t)=4−5ti(t)=4−5t (t en seconde, i en ampère) ?
+15. Source : exam_physique_physique_2022_smp-svt_becquerel.pdf (problème II) – partie induction (déjà dans magnétisme)
+16. Source : exam_physique_physique_2022_smp-svt_laroche.pdf (problème II)
+Énoncé : Un solénoïde cylindrique a 12 cm12cm de diamètre et 40 cm40cm de longueur. Il est formé d’une seule couche de spires jointives dont le fil a un diamètre de 0,8 mm0,8mm. Calculer :
+a) le nombre de spires de ce solénoïde ;
+b) la résistivité du métal dont le fil est formé si la résistance totale du solénoïde est 12 Ω12Ω ;
+c) l’inductance du solénoïde.
+2) On relie le solénoïde aux bornes d’un accumulateur de f.é.m. 12 V12V et de résistance intérieure 2 Ω2Ω. Calculer :
+a) l’induction magnétique à l’intérieur du solénoïde ;
+b) le flux d’induction à travers les spires du solénoïde.
+3) Le courant étant coupé en 180 s801s, quelle est la valeur de la f.é.m. auto induite ?
+17. Source : exam_physique_physique_2022_smp-svt_wineland_b-2.pdf (problème I) – identique
+18. Source : exam_physique_physique_2022_smp-svt_wineland_b.pdf (problème I) – identique
+19. Source : exam_physique_physique_2022_svt-smp_quanta.pdf (problème 1)
+Énoncé : Un solénoïde comporte 1000 spires uniformément enroulées sur un manchon de longueur 40 cm40cm et de section 20 cm220cm2.
+1.	Quelles sont les caractéristiques du champ magnétique créé à l’intérieur du solénoïde par le passage d’un courant de 10 A10A dans les spires ?
+2.	Calculer le flux magnétique à travers ce solénoïde.
+On enroule 200 spires autour et au centre du solénoïde. Ces spires sont fermées sur un galvanomètre constituant ainsi un nouveau circuit fermé dont la résistance est 20 Ω20Ω. On ouvre brusquement le circuit du solénoïde en 1100 s1001s.
+3.	Calculer la f.é.m. d’induction et l’intensité du courant induit qui prennent naissance dans le nouveau circuit.
+20. Source : exam_physique_texte-modele-physique-2025-smp-svt.pdf (problème II)
+Énoncé : Un ingénieur conçoit un générateur simple, constitué d’une bobine carrée de N=100N=100 spires, de côté L=5 cmL=5cm, placée dans un champ magnétique uniforme. Initialement, le plan de la bobine est perpendiculaire aux lignes du champ. Le champ magnétique décroît uniformément de β1=0,8 Tβ1=0,8T à β2=0,2 Tβ2=0,2T en un temps Δt=0,1 sΔt=0,1s. La résistance totale du circuit de la bobine est R=2 ΩR=2Ω.
+1.	Quelle est la variation du flux d’induction magnétique (ΔϕΔϕ) à travers la bobine ?
+2.	Quelle est la f.é.m. induite qui prend naissance dans la bobine pendant la décroissance du champ magnétique ?
+3.	Quel est le courant induit qui circule dans la bobine pendant cette période ?
+4.	Si la bobine était enroulée autour d’un noyau ferromagnétique dont la perméabilité relative est μr=500μr=500, que deviennent la f.é.m. et le courant induits ?
+## Chapitre 7 – Pendule 
+
+**1. Source :** `exam_physique_physique_2015_svt-smp_photon.pdf` (Exercice III.2)  
+**Énoncé :**  
+La période propre d’un pendule simple en un point où \(g = 10\,\text{N•kg}^{-1}\) est 0,5 s. Le pendule est constitué d’une masse ponctuelle suspendue à un fil inextensible de longueur L. Calculer L et la fréquence de ce pendule.
+
+**2. Source :** `exam_physique_physique_2019_svt-smp_induction-2.pdf` (Problème I)  
+**Énoncé :**  
+Un pendule simple est écarté de sa position d’équilibre d’un angle \(\theta = 50^\circ\). La masse du solide est \(m = 300\,\text{g}\), la longueur du fil \(l = 90\,\text{cm}\). Le plan horizontal contenant la position d’équilibre est choisi comme référence de l’énergie potentielle de pesanteur.  
+1) a) Exprimer l’énergie potentielle du système en fonction de \(l, m, g\) et \(\theta\).  
+   b) Quelle est la valeur de cette énergie ? (\(g = 9,8\,\text{m•s}^{-2}\))  
+2) Calculer la vitesse avec laquelle le solide passe par sa position d’équilibre.  
+3) Quelles sont les énergies cinétique et potentielle quand \(\theta = 20^\circ\) ?
+
+**3. Source :** `exam_physique_physique_2019_svt-smp_transformateur.pdf` (Problème I)  
+**Énoncé :**  
+Un pendule simple est constitué d’une masse ponctuelle \(m = 0,8\,\text{kg}\) accrochée à un fil sans masse de longueur \(\lambda = 0,5\,\text{m}\). On écarte le pendule d’un angle \(\alpha = 20^\circ\) de sa position d’équilibre et on l’abandonne sans vitesse initiale.  
+1) Calculer la période T (frottements négligeables, \(g = 10\,\text{m•s}^{-2}\)).  
+2) Exprimer l’énergie potentielle du système en fonction de \(m, g, \lambda\).  
+3) Quelle est la vitesse du pendule quand il passe par sa position d’équilibre ?
+
+**4. Source :** `exam_physique_physique_2022_smp-svt-schrodinger-2.pdf` (Problème II)  
+**Énoncé :**  
+Un pendule est constitué d’une masse \(m = 100\,\text{g}\) et d’une tige rigide de longueur \(l = 100\,\text{cm}\) de masse négligeable. La tige peut osciller sans frottement autour d’un axe horizontal. Elle est écartée d’un angle \(\theta\) avec la verticale.  
+1) Écrire l’expression de l’énergie mécanique du pendule.  
+2) Le pendule, faisant un angle de \(36^\circ\) avec la verticale, est lâché sans vitesse initiale.  
+   a) Calculer l’énergie mécanique.  
+   b) Quelle est l’énergie cinétique au passage par la position d’équilibre ? En déduire la vitesse à cet instant.  
+3) Calculer la période des oscillations.
+
+**5. Source :** `exam_physique_physique_2022_smp-svt_wineland_b-2.pdf` (Problème I)  
+**Énoncé :**  
+Une petite bille de masse \(m = 400\,\text{g}\) est accrochée à un point fixe O par un fil inextensible de longueur \(l = 1\,\text{m}\). L’ensemble peut osciller librement autour d’un axe vertical passant par O. On repère la position de la bille par l’angle que fait le fil avec la verticale. Le fil est écarté de la verticale et lâché avec une vitesse \(V_1\). Lorsque \(\theta = 0\), la vitesse initiale vaut \(2\,\text{m•s}^{-1}\).  
+1) Écrire l’expression de l’énergie mécanique de la bille.  
+2) Quelle est la valeur de cette énergie mécanique lorsque la vitesse vaut \(2\,\text{m•s}^{-1}\) ?  
+3) Quelle est la vitesse de la bille lorsqu’elle passe par son point le plus bas ?  
+4) Quelle est la valeur maximale de l’angle que fait le fil avec la verticale au cours des oscillations ?
+
+-

@@ -1,0 +1,71 @@
+﻿{% load core_extras %}
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-icon"><img src="/static/img/logo.png" alt="Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div>
+    <div class="brand-name">OU TOU BON</div>
+  </div>
+  <div class="sidebar-user">
+    <div class="sidebar-avatar">
+      {% if profile and profile.avatar %}
+        <img src="{{ profile.avatar.url }}" alt="{{ profile.get_display_name }}">
+      {% elif is_guest %}
+        <i class="fas fa-user" style="font-size:.85rem;"></i>
+      {% else %}
+        {{ profile.get_display_name|first|upper }}
+      {% endif %}
+    </div>
+    <div>
+      <div class="sidebar-username">{% if is_guest %}Visiteur{% else %}{{ profile.first_name|default:request.user.username }}{% endif %}
+        {% if profile and profile.is_premium %}
+        <span style="display:inline-flex;align-items:center;gap:.2rem;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1e293b;font-size:.55rem;font-weight:800;padding:.1rem .4rem;border-radius:6px;margin-left:.3rem;vertical-align:middle;">
+          <i class="fas fa-crown" style="font-size:.5rem;"></i> PRO
+        </span>
+        {% endif %}
+        {% if is_guest %}
+        <span style="display:inline-flex;align-items:center;gap:.2rem;background:rgba(251,191,36,.15);color:#fbbf24;font-size:.55rem;font-weight:800;padding:.1rem .4rem;border-radius:6px;margin-left:.3rem;vertical-align:middle;">
+          DÉMO
+        </span>
+        {% endif %}
+      </div>
+      <div class="sidebar-level">{% if is_guest %}Mode découverte{% else %}{{ profile.level }}{% endif %}</div>
+    </div>
+  </div>
+  <div class="nav-section" data-i18n="nav_principal">Principal</div>
+  <a href="{% url 'dashboard' %}" class="nav-item {% if active_page == 'dashboard' %}active{% endif %}"><i class="fas fa-home"></i> <span data-i18n="nav_accueil">Accueil</span></a>
+  <a href="{% url 'chat' %}" class="nav-item {% if active_page == 'chat' %}active{% endif %}"><i class="fas fa-robot"></i> <span data-i18n="nav_chat">Chat IA</span></a>
+  <a href="{% url 'quiz' %}" class="nav-item {% if active_page == 'quiz' %}active{% endif %}"><i class="fas fa-bolt"></i> <span data-i18n="nav_quiz">Quiz</span></a>
+  <a href="{% url 'extra_bet' %}" class="nav-item {% if active_page == 'extra_bet' %}active{% endif %}"><i class="fas fa-layer-group"></i> <span>Extra bèt</span></a>
+  <a href="{% url 'exercices' %}" class="nav-item {% if active_page == 'exercices' %}active{% endif %}"><i class="fas fa-table-list"></i> <span data-i18n="nav_exercices">Exercices</span></a>
+  <a href="{% url 'examen_blanc' %}" class="nav-item {% if active_page == 'examen_blanc' %}active{% endif %}"><i class="fas fa-scroll"></i> <span data-i18n="nav_examen">Examen Blanc</span></a>
+  <a href="{% url 'cours' %}" class="nav-item {% if active_page == 'cours' %}active{% endif %}"><i class="fas fa-graduation-cap"></i> <span data-i18n="nav_cours">Cours Interactif</span></a>
+  <div class="nav-section" data-i18n="nav_outils">Outils</div>
+  <a href="{% url 'fiches' %}" class="nav-item {% if active_page == 'fiches' %}active{% endif %}"><i class="fas fa-layer-group"></i> <span data-i18n="nav_fiches">Fiches Mémo</span></a>
+  <a href="{% url 'plan' %}" class="nav-item {% if active_page == 'plan' %}active{% endif %}"><i class="fas fa-calendar-alt"></i> <span data-i18n="nav_plan">Plan de révision</span></a>
+  <a href="{% url 'bookmarks' %}" class="nav-item {% if active_page == 'bookmarks' %}active{% endif %}"><i class="fas fa-bookmark"></i> <span data-i18n="nav_favoris">Favoris</span></a>
+  <a href="{% url 'library' %}" class="nav-item {% if active_page == 'library' %}active{% endif %}"><i class="fas fa-book-open"></i> <span data-i18n="bibliotheque">Bibliothèque</span></a>
+  <a href="{% url 'amis' %}" class="nav-item {% if active_page == 'amis' %}active{% endif %}"><i class="fas fa-comments"></i> <span data-i18n="nav_messages">Messages</span>{% if unread_msg_count %}<span class="msg-badge">{{ unread_msg_count }}</span>{% endif %}</a>
+  <div class="nav-section" data-i18n="nav_suivi">Suivi</div>
+  <a href="{% url 'progression' %}" class="nav-item {% if active_page == 'progression' %}active{% endif %}"><i class="fas fa-chart-line"></i> <span data-i18n="nav_progression">Progression</span></a>
+  <a href="{% url 'profil' %}" class="nav-item {% if active_page == 'profil' %}active{% endif %}"><i class="fas fa-user"></i> <span data-i18n="nav_profil">Mon profil</span></a>
+  <a href="{% url 'pricing' %}" class="nav-item {% if active_page == 'pricing' %}active{% endif %}"><i class="fas fa-crown" style="color:#fbbf24;"></i> <span>Abonnement</span></a>
+  <div class="sidebar-footer">
+    
+    <a href="https://wa.me/50936200585?text=Bonjour%20j'ai%20besoin%20d'aide%20sur%20BacIA" target="_blank" class="nav-item" style="background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2);color:#25cd65;margin-bottom:.6rem;justify-content:center;">
+      <i class="fas fa-comment-dots" style="font-size:.85rem;"></i> <span style="font-size:.75rem;">Assistance</span>
+    </a>
+    
+    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:.6rem;padding:.35rem .6rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.12);border-radius:8px;">
+      <i class="fas fa-clock" style="color:var(--green);font-size:.7rem;"></i>
+      <span id="sessionTimerDisplay" style="font-size:.72rem;font-weight:700;color:var(--green);">Session 0s</span>
+    </div>
+    
+
+    {% if is_guest %}
+    <a href="{% url 'signup' %}" class="logout-btn" style="background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;font-weight:800;text-align:center;border-radius:10px;padding:.55rem;margin-bottom:.4rem;"><i class="fas fa-user-plus"></i> Créer un compte</a>
+    <a href="{% url 'guest_stop' %}" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Quitter le mode démo</a>
+    {% else %}
+    <a href="{% url 'logout' %}" class="logout-btn"><i class="fas fa-sign-out-alt"></i> <span data-i18n="nav_deconnexion">Déconnexion</span></a>
+    {% endif %}
+  </div>
+</aside>
+

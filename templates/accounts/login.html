@@ -1,0 +1,159 @@
+﻿{% extends "base.html" %}
+{% block title %}Connexion – OU TOU BON{% endblock %}
+{% block body %}
+<div class="auth-page" id="authPage" style="visibility:hidden;">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div>
+    </div>
+    <div class="auth-title">Bon retour 👋</div>
+    <div class="auth-subtitle">Connecte-toi à ton compte OU TOU BON</div>
+
+    {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
+    {% if messages %}{% for msg in messages %}<div class="auth-error {% if msg.tags == 'success' %}success{% endif %}">{{ msg }}</div>{% endfor %}{% endif %}
+
+    <form method="post" class="auth-form" id="loginForm">
+      {% csrf_token %}
+      <div class="form-group">
+        
+        <div style="display:flex;gap:.5rem;margin-bottom:.5rem;">
+          <button type="button" id="lBtnEmail" onclick="switchLogin('email')"
+                  style="flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;">
+            <i class="fas fa-envelope"></i> Email
+          </button>
+          <button type="button" id="lBtnPhone" onclick="switchLogin('phone')"
+                  style="flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);">
+            <i class="fas fa-phone"></i> Téléphone
+          </button>
+        </div>
+        <div id="loginFlex" style="display:flex;align-items:stretch;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);transition:border-color .2s;">
+          <span id="lPhonePfx" style="display:none;padding:.65rem .75rem;background:rgba(255,255,255,.04);border-right:1px solid var(--border);color:var(--t2);font-weight:600;font-size:.9rem;white-space:nowrap;align-items:center;">🇭🇹 +509</span>
+          <input type="email" name="identifier" id="loginIdentifier"
+                 placeholder="ton@email.com"
+                 value="{{ request.POST.identifier }}"
+                 required autofocus
+                 style="flex:1;background:transparent;border:none;padding:.65rem .75rem;color:var(--t1);outline:none;font-size:.9rem;">
+        </div>
+        <span id="loginHint" style="font-size:.75rem;color:var(--t3);margin-top:.25rem;display:block;">Entre ton adresse email.</span>
+        <input type="hidden" id="loginMode" value="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mot de passe</label>
+        <div style="position:relative;">
+          <input type="password" name="password" id="pwdInput" class="form-control" placeholder="••••••••" required>
+          <button type="button" onclick="togglePwd()" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;color:var(--t3);font-size:.9rem;cursor:pointer;border:none;" id="eyeBtn">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;padding:.85rem;">Se connecter</button>
+    </form>
+
+    <div class="auth-footer">
+      Pas encore de compte ? <a href="{% url 'signup' %}">Créer un compte</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+function togglePwd() {
+  const inp = document.getElementById('pwdInput');
+  const btn = document.getElementById('eyeBtn');
+  if (inp.type === 'password') {
+    inp.type = 'text';
+    btn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+  } else {
+    inp.type = 'password';
+    btn.innerHTML = '<i class="fas fa-eye"></i>';
+  }
+}
+
+function switchLogin(type) {
+  const inp    = document.getElementById('loginIdentifier');
+  const pfx    = document.getElementById('lPhonePfx');
+  const hint   = document.getElementById('loginHint');
+  const bEmail = document.getElementById('lBtnEmail');
+  const bPhone = document.getElementById('lBtnPhone');
+  document.getElementById('loginMode').value = type;
+  if (type === 'email') {
+    inp.placeholder = 'ton@email.com';
+    inp.type        = 'email';
+    pfx.style.display = 'none';
+    if (inp.value.startsWith('+509')) inp.value = inp.value.slice(4).trim();
+    hint.textContent = 'Entre ton adresse email.';
+    bEmail.style.cssText = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;';
+    bPhone.style.cssText  = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);';
+  } else {
+    inp.placeholder = 'xxxx xxxx';
+    inp.type        = 'tel';
+    pfx.style.display = 'flex';
+    hint.textContent = 'Entre ton numéro local — le +509 est ajouté automatiquement.';
+    bPhone.style.cssText = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;';
+    bEmail.style.cssText  = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);';
+  }
+}
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  const mode = document.getElementById('loginMode').value;
+  const inp  = document.getElementById('loginIdentifier');
+  if (mode === 'phone' && inp.value && !inp.value.startsWith('+509')) {
+    inp.value = '+509' + inp.value.replace(/\s+/g, '');
+  }
+});
+
+document.getElementById('loginIdentifier').addEventListener('focus', () => {
+  document.getElementById('loginFlex').style.borderColor = 'var(--green)';
+});
+document.getElementById('loginIdentifier').addEventListener('blur', () => {
+  document.getElementById('loginFlex').style.borderColor = 'var(--border)';
+});
+
+(function() {
+  const page = document.getElementById('authPage');
+  const token = localStorage.getItem('ou_tou_bon_auth_token');
+  if (!token) {
+    if (page) page.style.visibility = 'visible';
+    return;
+  }
+  const _qpNext = new URLSearchParams(window.location.search).get('next') || '';
+  let _nextUrl = _qpNext;
+  if (!_nextUrl) {
+    try {
+      const ref = document.referrer ? new URL(document.referrer) : null;
+      if (ref && ref.origin === window.location.origin) {
+        const candidate = ref.pathname + (ref.search || '');
+        if (!/^\/\//.test(candidate) && !/^\/(?:login|signup|logout)\//.test(candidate)) {
+          _nextUrl = candidate;
+        }
+      }
+    } catch(e) {}
+  }
+  fetch('/api/auth/token/verify/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token: token, next: _nextUrl || undefined })
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok && data.redirect) {
+        if (data.expires_at) localStorage.setItem('ou_tou_bon_token_exp', data.expires_at);
+        window.location.href = data.redirect;
+      } else {
+        localStorage.removeItem('ou_tou_bon_auth_token');
+        localStorage.removeItem('ou_tou_bon_token_exp');
+        if (page) page.style.visibility = 'visible';
+      }
+    })
+    .catch(() => {
+      if (page) page.style.visibility = 'visible';
+    });
+})();
+
+window.addEventListener('DOMContentLoaded', () => {
+  const val = document.getElementById('loginIdentifier').value;
+  if (val && !val.includes('@') && val) switchLogin('phone');
+});
+</script>
+{% endblock %}
+

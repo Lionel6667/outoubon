@@ -1,0 +1,1979 @@
+{% extends "base.html" %}
+{% block title %}Examen Blanc  OU TOU BON{% endblock %}
+
+{% block body %}
+<style>
+
+.exam-sheet { background:#0f172a; border:1px solid rgba(37,99,235,.22); border-radius:18px; overflow:hidden; box-shadow:0 12px 60px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.03); }
+
+.exam-sheet-header { background:linear-gradient(160deg,#0f2747 0%,#0d1f3c 50%,#111827 100%); border-bottom:2px solid rgba(37,99,235,.3); padding:1.75rem 2rem 1.5rem; position:relative; overflow:hidden; }
+.exam-sheet-header::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 0% 50%,rgba(37,99,235,.08),transparent); pointer-events:none; }
+.exam-sheet-header::after  { content:''; position:absolute; top:-1px; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--green),var(--blue2)); }
+.exam-ministry-block { display:flex; align-items:flex-start; gap:1rem; margin-bottom:.9rem; }
+.exam-ministry-seal { width:42px; height:42px; background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(16,185,129,.15)); border:1px solid rgba(37,99,235,.35); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.exam-ministry-text { font-size:.7rem; line-height:1.5; color:var(--t3); }
+.exam-ministry-text strong { font-size:.78rem; color:var(--t2); display:block; margin-bottom:.1rem; }
+.exam-sheet-header h2 { font-size:1.45rem; font-weight:900; color:var(--t1); margin-bottom:.6rem; letter-spacing:-.01em; }
+.exam-header-details { display:flex; flex-wrap:wrap; gap:.4rem 1rem; margin:.5rem 0 .7rem; }
+.exam-header-details .detail-pill { font-size:.73rem; color:var(--t3); background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:.2rem .65rem; display:flex; align-items:center; gap:.3rem; }
+.exam-header-details .detail-pill i { color:var(--blue2); }
+.exam-header-details .detail-pill strong { color:var(--t2); }
+.exam-rules-bar { display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:.8rem; padding-top:.8rem; border-top:1px solid rgba(255,255,255,.06); }
+.exam-rules-bar span { font-size:.75rem; color:var(--t3); display:flex; align-items:center; gap:.35rem; }
+.exam-rules-bar span i { color:var(--orange); }
+.exam-rules-bar strong { color:var(--t2); }
+
+#examTimerBar { background:rgba(0,0,0,.35); border-bottom:1px solid rgba(255,255,255,.06); padding:.6rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem; }
+.timer-main { display:flex; align-items:center; gap:.75rem; }
+.timer-clock { font-size:1.55rem; font-weight:900; font-variant-numeric:tabular-nums; color:var(--green); font-family:'Courier New',monospace; letter-spacing:.06em; transition:color .3s; }
+.timer-clock.warn   { color:var(--yellow); }
+.timer-clock.danger { color:var(--red); animation:timer-pulse .7s infinite; }
+@keyframes timer-pulse { 0%,100%{opacity:1} 50%{opacity:.55} }
+.timer-label { font-size:.75rem; color:var(--t3); line-height:1.3; }
+.timer-label strong { color:var(--t2); display:block; font-size:.8rem; }
+.timer-progress-wrap { flex:1; min-width:160px; }
+.timer-progress-track { height:5px; background:rgba(255,255,255,.07); border-radius:4px; overflow:hidden; margin-top:.25rem; }
+.timer-progress-fill { height:100%; background:linear-gradient(90deg,var(--green),var(--blue2)); border-radius:4px; transition:width 1s linear,background .5s; }
+.timer-progress-fill.warn   { background:linear-gradient(90deg,var(--yellow),var(--orange)); }
+.timer-progress-fill.danger { background:linear-gradient(90deg,var(--red),#f97316); }
+
+.exam-part { border-top:2px solid rgba(255,255,255,.06); }
+.exam-part-header { background:linear-gradient(90deg,rgba(37,99,235,.07),transparent); padding:.85rem 2rem; border-bottom:1px solid rgba(37,99,235,.12); display:flex; align-items:center; justify-content:space-between; }
+.exam-part-header h3 { font-size:.95rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:#60a5fa; }
+.pts-badge { background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.25); color:var(--green); font-size:.72rem; font-weight:700; padding:.25rem .7rem; border-radius:20px; }
+.choice-notice { display:flex; align-items:flex-start; gap:.5rem; background:rgba(250,204,21,.07); border:1px solid rgba(250,204,21,.25); color:#fbbf24; font-size:.82rem; font-weight:600; padding:.6rem 2rem; line-height:1.5; }
+
+.exam-section { padding:1.4rem 2rem; border-bottom:1px solid rgba(255,255,255,.04); }
+.exam-section:last-child { border-bottom:none; }
+.exam-section-label { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--t3); margin-bottom:1.1rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+.section-pts { color:var(--blue2); font-weight:700; }
+
+.exam-fillblank-item { display:flex; align-items:flex-start; gap:.5rem .4rem; padding:.6rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.9rem; }
+.exam-fillblank-item:last-child { border-bottom:none; }
+.fillblank-num { font-weight:700; color:var(--blue2); min-width:1.6rem; flex-shrink:0; padding-top:.15rem; font-size:.88rem; }
+.fillblank-body { flex:1; display:flex; flex-direction:column; gap:.35rem; }
+.fillblank-text { line-height:1.8; color:var(--t1); }
+.fillblank-answer-row { display:flex; align-items:center; flex-wrap:wrap; gap:.4rem; }
+.fillblank-pts { color:var(--blue2); font-size:.72rem; }
+.blank-line { display:inline-block; min-width:4rem; border-bottom:2px solid rgba(100,116,139,.5); margin:0 .1rem; vertical-align:baseline; }
+.exam-source-badge { display:inline-flex; align-items:center; gap:.25rem; font-size:.68rem; color:var(--t3); background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:4px; padding:.1rem .4rem; margin-left:.45rem; vertical-align:middle; white-space:nowrap; }
+.blank-input { display:inline-block; min-width:180px; max-width:340px; border:none; border-bottom:2px dashed rgba(100,116,139,.5); background:transparent; color:var(--t1); font-size:.9rem; font-family:inherit; padding:.2rem .5rem; transition:all .2s; outline:none; border-radius:2px; }
+.blank-input:focus { border-bottom-color:var(--green); border-bottom-style:solid; background:rgba(16,185,129,.05); }
+.blank-input.corr { border-bottom:2px solid var(--green); background:rgba(16,185,129,.1); color:var(--green); border-radius:4px; }
+.blank-input.wrong { border-bottom:2px solid var(--red); background:rgba(239,68,68,.08); color:#fca5a5; border-radius:4px; }
+.blank-hint { font-size:.78rem; color:var(--green); font-style:italic; margin-left:.4rem; display:none; }
+.blank-hint.on { display:inline; }
+
+.exam-matching-grid { display:grid; grid-template-columns:1fr 26px 1fr; gap:.55rem .75rem; align-items:center; }
+.match-left { font-size:.875rem; font-weight:600; color:var(--t1); padding:.4rem .75rem; background:rgba(255,255,255,.04); border-radius:8px; text-align:right; }
+.match-arrow { color:var(--blue2); text-align:center; }
+.match-select { background:var(--card); border:1px solid var(--border2); color:var(--t1); border-radius:8px; padding:.4rem .6rem; font-size:.82rem; font-family:inherit; cursor:pointer; width:100%; transition:border-color .2s; outline:none; -webkit-appearance:none; appearance:none; padding-right:1.5rem; background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-repeat:no-repeat; background-position:right .4rem center; background-size:1rem; }
+.match-select:focus { border-color:var(--green); }
+.match-select.corr { border-color:var(--green); background-color:rgba(16,185,129,.08); }
+.match-select.wrong { border-color:var(--red); background-color:rgba(239,68,68,.06); }
+
+.heredity-context { background:rgba(37,99,235,.07); border:1px solid rgba(37,99,235,.2); border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.25rem; font-size:.875rem; line-height:1.7; }
+.heredity-label { font-size:.72rem; font-weight:700; text-transform:uppercase; color:var(--blue2); letter-spacing:.06em; margin-bottom:.5rem; }
+
+.exam-open-item { margin-bottom:1.35rem; padding-bottom:1.35rem; border-bottom:1px dashed rgba(255,255,255,.04); }
+.exam-open-item:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+.exam-q-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:rgba(37,99,235,.18); border:1px solid rgba(37,99,235,.3); color:var(--blue2); font-size:.7rem; font-weight:800; margin-right:.5rem; flex-shrink:0; }
+.exam-q-text { font-size:.9rem; color:var(--t1); margin-bottom:.4rem; line-height:1.75; font-weight:500; display:flex; align-items:baseline; gap:0; }
+.exam-q-pts { font-size:.72rem; color:var(--blue2); font-weight:700; margin-bottom:.45rem; margin-left:1.75rem; }
+.exam-textarea { width:100%; background:rgba(255,255,255,.03); border:1px solid var(--border2); border-radius:10px; color:var(--t1); font-family:inherit; font-size:.875rem; padding:.75rem 1rem; resize:vertical; min-height:80px; transition:border-color .2s,background .2s; outline:none; line-height:1.65; }
+.exam-textarea:focus { border-color:var(--blue2); background:rgba(37,99,235,.04); }
+.model-answer { display:none; margin-top:.65rem; padding:.8rem 1.1rem; background:rgba(16,185,129,.05); border-left:3px solid var(--green); border-radius:0 10px 10px 0; font-size:.83rem; color:var(--t2); line-height:1.65; }
+.model-answer.on { display:block; }
+.model-answer-label { font-size:.7rem; font-weight:800; text-transform:uppercase; color:var(--green); letter-spacing:.06em; margin-bottom:.35rem; display:flex; align-items:center; gap:.35rem; }
+
+.exam-q-text table, .model-answer table { 
+  width:100%; 
+  border-collapse:collapse; 
+  margin:.6rem 0; 
+  font-size:.875rem; 
+  overflow-x:auto; 
+  display:block; 
+  -webkit-overflow-scrolling:touch;
+}
+.exam-q-text th, .model-answer th { 
+  background:rgba(37,99,235,.15); 
+  color:var(--blue2); 
+  font-weight:700; 
+  padding:.45rem .75rem; 
+  text-align:left; 
+  border:1px solid rgba(37,99,235,.2); 
+  white-space:nowrap;
+}
+.exam-q-text td, .model-answer td { 
+  padding:.4rem .75rem; 
+  border:1px solid rgba(255,255,255,.07); 
+  color:var(--t2); 
+  white-space:nowrap;
+}
+.exam-q-text tr:nth-child(even) td, .model-answer tr:nth-child(even) td { 
+  background:rgba(255,255,255,.025); 
+}
+
+.exam-q-text .table-wrapper, .model-answer .table-wrapper {
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  margin:.6rem 0;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.02);
+}
+.exam-q-text .table-wrapper table, .model-answer .table-wrapper table {
+  margin:0;
+  display:table;
+  overflow-x:visible;
+}
+
+.exam-passage-block { background:rgba(37,99,235,.04); border:1px solid rgba(37,99,235,.18); border-radius:12px; padding:1.1rem 1.4rem; margin-bottom:1.5rem; }
+.exam-passage-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--blue2); margin-bottom:.75rem; display:flex; align-items:center; gap:.4rem; }
+.exam-passage-content { font-size:.9rem; color:var(--t1); line-height:1.9; white-space:pre-wrap; }
+
+.ai-corr-result { margin-top:.7rem; padding:.8rem 1.1rem; border-radius:10px; font-size:.83rem; line-height:1.6; }
+.ai-corr-result.status-correct  { background:rgba(16,185,129,.08); border-left:3px solid var(--green); }
+.ai-corr-result.status-partial  { background:rgba(245,158,11,.07); border-left:3px solid var(--orange); }
+.ai-corr-result.status-wrong    { background:rgba(239,68,68,.07);  border-left:3px solid var(--red); }
+.ai-corr-result.status-empty    { background:rgba(100,116,139,.07); border-left:3px solid rgba(100,116,139,.4); }
+.ai-corr-badge { display:inline-flex; align-items:center; gap:.3rem; font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.35rem; }
+.ai-corr-pts   { font-weight:900; font-size:.85rem; margin-left:.5rem; }
+
+#aiCorrPanel { background:rgba(37,99,235,.08); border:1px solid rgba(37,99,235,.2); border-radius:14px; padding:1.25rem 1.5rem; margin-top:1.25rem; }
+#aiCorrPanel .acp-header { font-size:.82rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--blue2); margin-bottom:.75rem; display:flex; align-items:center; gap:.5rem; }
+#aiCorrPanel .acp-score  { font-size:2rem; font-weight:900; color:var(--green); }
+#aiCorrPanel .acp-feedback { font-size:.875rem; color:var(--t2); margin-top:.6rem; line-height:1.65; }
+
+.answer-sheet-notice { background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.2); border-radius:10px; padding:.7rem 1.1rem; font-size:.8rem; color:#fbbf24; display:flex; align-items:center; gap:.55rem; margin-bottom:1.25rem; }
+
+.view-area { overscroll-behavior: none; }
+
+.exam-flip-wrap { position:relative; }
+@keyframes slideOutLeft  { from{opacity:1;transform:perspective(900px) rotateY(0)} to{opacity:0;transform:perspective(900px) rotateY(-90deg)} }
+@keyframes slideInRight  { from{opacity:0;transform:perspective(900px) rotateY(90deg)} to{opacity:1;transform:perspective(900px) rotateY(0)} }
+@keyframes slideOutRight { from{opacity:1;transform:perspective(900px) rotateY(0)} to{opacity:0;transform:perspective(900px) rotateY(90deg)} }
+@keyframes slideInLeft   { from{opacity:0;transform:perspective(900px) rotateY(-90deg)} to{opacity:1;transform:perspective(900px) rotateY(0)} }
+.flip-exit-left  { animation:slideOutLeft  .28s ease-in  forwards; pointer-events:none; }
+.flip-enter-right{ animation:slideInRight  .28s ease-out .28s forwards; opacity:0; }
+.flip-exit-right { animation:slideOutRight .28s ease-in  forwards; pointer-events:none; }
+.flip-enter-left { animation:slideInLeft   .28s ease-out .28s forwards; opacity:0; }
+
+#flipFab {
+  position:fixed; bottom:2rem; right:1.5rem; z-index:200;
+  background:linear-gradient(135deg,#1e40af,#0ea5e9);
+  border:none; border-radius:16px;
+  color:#fff; font-size:.82rem; font-weight:800;
+  padding:.7rem 1.1rem; cursor:pointer;
+  display:none; align-items:center; gap:.5rem;
+  box-shadow:0 6px 28px rgba(14,165,233,.45);
+  transition:transform .15s,box-shadow .15s;
+}
+#flipFab:hover { transform:translateY(-2px); box-shadow:0 10px 36px rgba(14,165,233,.55); }
+#flipFab i { font-size:1rem; }
+
+#miseAuNetFace { display:none; }
+.mau-page-wrap {
+  background:#fff; border-radius:18px; overflow:hidden;
+  box-shadow:0 12px 60px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06);
+  min-height:60vh;
+}
+.mau-header {
+  background:linear-gradient(160deg,#0f2747 0%,#0d1f3c 50%,#111827 100%);
+  border-bottom:2px solid rgba(37,99,235,.3);
+  padding:1.25rem 2rem; display:flex; flex-direction:column; gap:.5rem;
+  position:relative;
+}
+.mau-header::after { content:''; position:absolute; top:-1px; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--green),var(--blue2)); }
+.mau-header-title { font-size:1rem; font-weight:900; color:#e2e8f0; letter-spacing:.04em; }
+.mau-header-sub   { font-size:.75rem; color:#94a3b8; }
+.mau-info-row { display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:.35rem; }
+.mau-info-field { display:flex; flex-direction:column; gap:.15rem; flex:1; min-width:120px; }
+.mau-info-label { font-size:.63rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#64748b; }
+.mau-info-input {
+  background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,.18);
+  color:#e2e8f0; font-size:.83rem; font-family:inherit; outline:none; padding:.15rem 0;
+}
+.mau-info-input::placeholder { color:#475569; }
+.mau-body {
+  background:#fff; padding:2rem 2.5rem;
+  min-height:50vh; position:relative;
+}
+.mau-body::before {
+  
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:repeating-linear-gradient(
+    to bottom, transparent, transparent 31px, rgba(219,234,254,.45) 31px, rgba(219,234,254,.45) 32px
+  );
+  background-size:100% 32px;
+  background-position:0 2rem;
+}
+.mau-editor {
+  position:relative; z-index:1;
+  min-height:50vh; outline:none;
+  font-size:.95rem; font-family:'Georgia',serif; line-height:2rem;
+  color:#1e293b; white-space:pre-wrap; word-break:break-word;
+  caret-color:#1e40af;
+}
+.mau-editor:empty::before {
+  content:'Écrivez vos réponses ici — précisez le numéro de l\'exercice avant chaque réponse…';
+  color:#94a3b8; font-style:italic; pointer-events:none;
+}
+.mau-toolbar {
+  border-top:1px solid #e2e8f0; padding:.6rem 2.5rem;
+  background:#f8fafc; display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;
+}
+.mau-toolbar-btn {
+  background:none; border:1px solid #cbd5e1; border-radius:7px;
+  color:#475569; font-size:.78rem; font-weight:700; padding:.3rem .65rem;
+  cursor:pointer; display:flex; align-items:center; gap:.35rem; transition:all .15s;
+}
+.mau-toolbar-btn:hover { background:#e2e8f0; color:#1e293b; }
+.mau-toolbar-sep { width:1px; height:20px; background:#e2e8f0; }
+.mau-send-notice { font-size:.72rem; color:#94a3b8; margin-left:auto; display:flex; align-items:center; gap:.35rem; }
+
+.mau-page-instance { border-top:2px dashed #dbeafe; margin-top:.25rem; }
+.mau-page-instance:first-child { border-top:none; margin-top:0; }
+.mau-page-tab {
+  background:#f0f7ff; padding:.35rem 2.5rem;
+  font-size:.72rem; font-weight:700; color:#2563eb;
+  display:flex; align-items:center; justify-content:space-between; gap:.5rem;
+  border-bottom:1px solid #dbeafe;
+}
+.mau-page-tab .mau-del-btn {
+  background:none; border:1px solid #fca5a5; color:#ef4444; border-radius:5px;
+  font-size:.65rem; padding:.1rem .45rem; cursor:pointer; font-weight:700;
+}
+.mau-page-tab .mau-del-btn:hover { background:#fee2e2; }
+
+@media (max-width: 768px) {
+  
+  .exam-sheet-header { 
+    padding: 0.9rem 0.75rem 0.8rem; 
+  }
+  .exam-sheet-header h2 { 
+    font-size: 1.1rem; 
+    margin-bottom: 0.4rem;
+  }
+  .exam-ministry-block { 
+    gap: 0.6rem; 
+    margin-bottom: 0.5rem;
+  }
+  .exam-ministry-seal { 
+    width: 32px; 
+    height: 32px; 
+    font-size: 0.95rem;
+  }
+  .exam-ministry-text { 
+    font-size: 0.6rem; 
+  }
+  
+  
+  .exam-header-details { 
+    gap: 0.2rem 0.5rem; 
+    margin: 0.3rem 0 0.4rem;
+  }
+  .exam-header-details .detail-pill { 
+    font-size: 0.64rem; 
+    padding: 0.15rem 0.4rem;
+  }
+  .exam-rules-bar { 
+    gap: 0.75rem; 
+    margin-top: 0.4rem; 
+    padding-top: 0.4rem;
+  }
+  .exam-rules-bar span { 
+    font-size: 0.65rem; 
+  }
+  
+  
+  .exam-section { 
+    padding: 0.9rem 0.75rem; 
+  }
+  .exam-section-label { 
+    font-size: 0.75rem; 
+    margin-bottom: 0.8rem;
+  }
+  
+  
+  .exam-part-header { 
+    padding: 0.6rem 0.75rem;
+  }
+  .exam-part-header h3 { 
+    font-size: 0.85rem;
+  }
+  
+  
+  #examTimerBar { 
+    padding: 0.4rem 0.75rem;
+  }
+  .timer-clock { 
+    font-size: 1.1rem;
+  }
+  .timer-label { 
+    font-size: 0.65rem;
+  }
+  
+  
+  .exam-q-text { 
+    font-size: 0.85rem; 
+    line-height: 1.65;
+  }
+  .exam-q-num { 
+    width: 20px; 
+    height: 20px;
+    min-width: 20px;
+    margin-right: 0.35rem;
+  }
+  
+  
+  .exam-fillblank-item { 
+    padding: 0.5rem 0;
+    gap: 0.3rem 0.3rem;
+  }
+  .fillblank-num { 
+    font-size: 0.8rem; 
+    min-width: 1.4rem;
+  }
+  .fillblank-body { 
+    gap: 0.25rem;
+  }
+  .blank-input { 
+    min-width: 50px; 
+    max-width: 120px; 
+    font-size: 0.8rem; 
+  }
+  
+  
+  .exam-matching-grid { 
+    gap: 0.3rem 0.4rem; 
+  }
+  .match-left { 
+    text-align: left; 
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+  }
+  .match-select { 
+    font-size: 0.78rem; 
+    padding: 0.3rem 0.4rem;
+  }
+  
+  
+  .exam-open-item { 
+    margin-bottom: 0.9rem; 
+    padding-bottom: 0.9rem;
+  }
+  .exam-textarea { 
+    min-height: 60px; 
+    font-size: 0.82rem;
+  }
+  
+  
+  .exam-passage-block { 
+    padding: 0.8rem 1rem; 
+    margin-bottom: 1rem;
+  }
+  .exam-passage-content { 
+    font-size: 0.85rem; 
+    line-height: 1.6;
+  }
+  
+  
+  .mau-body { 
+    padding: 1rem 0.75rem; 
+  }
+  .mau-toolbar { 
+    padding: 0.4rem 0.75rem; 
+  }
+  .mau-editor {
+    font-size: 0.88rem; 
+    line-height: 1.8;
+  }
+  
+  
+  #flipFab { 
+    bottom: 0.8rem; 
+    right: 0.8rem; 
+    padding: 0.55rem 0.85rem;
+    font-size: 0.75rem;
+  }
+  
+  
+  .exam-q-text table, .model-answer table { 
+    font-size: 0.8rem;
+  }
+  .exam-q-text th, .model-answer th { 
+    padding: 0.3rem 0.5rem;
+  }
+  .exam-q-text td, .model-answer td { 
+    padding: 0.3rem 0.4rem;
+  }
+  
+  
+  @media (max-width: 480px) {
+    .exam-sheet-header { 
+      padding: 0.7rem 0.6rem;
+    }
+    .exam-sheet-header h2 { 
+      font-size: 0.95rem;
+    }
+    .exam-header-details { 
+      gap: 0.15rem 0.3rem;
+    }
+    .exam-header-details .detail-pill { 
+      font-size: 0.6rem; 
+      padding: 0.1rem 0.3rem;
+    }
+    .exam-section { 
+      padding: 0.7rem 0.6rem;
+    }
+    .exam-q-text { 
+      font-size: 0.8rem;
+    }
+    .blank-input { 
+      min-width: 40px; 
+      max-width: 100px; 
+    }
+    .exam-textarea { 
+      min-height: 50px;
+      font-size: 0.78rem;
+    }
+  }
+}
+
+#mauToolPanel {
+  display:none; margin:.6rem 2rem .25rem;
+  border-radius:12px; overflow:hidden;
+  border:1px solid var(--border2);
+}
+@media (max-width:768px) { #mauToolPanel { margin:.5rem .5rem .25rem; } }
+
+.itool-card {
+  background:var(--card); border-radius:12px;
+  padding:1rem 1.1rem; margin-bottom:.5rem;
+}
+.itool-header {
+  display:flex; align-items:center; gap:.5rem; margin-bottom:.85rem; flex-wrap:wrap;
+}
+.itool-badge {
+  font-size:.65rem; font-weight:800; padding:.2rem .55rem; border-radius:20px;
+  text-transform:uppercase; letter-spacing:.06em;
+}
+.itool-title { font-size:.85rem; font-weight:700; color:var(--t1); flex:1; }
+.itool-toggle-btn {
+  background:none; border:1px solid var(--border2); border-radius:6px;
+  color:var(--t3); width:26px; height:26px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:.7rem;
+  transition:background .15s;
+}
+.itool-toggle-btn:hover { background:var(--card2); }
+.itool-remove-btn {
+  background:none; border:1px solid rgba(239,68,68,.35); border-radius:6px;
+  color:#fca5a5; height:26px; padding:0 .55rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:.72rem;
+  transition:background .15s, border-color .15s;
+}
+.itool-remove-btn:hover { background:rgba(239,68,68,.12); border-color:rgba(239,68,68,.55); }
+.itool-validate-btn {
+  padding:.4rem 1rem; background:var(--green); color:#fff;
+  border:none; border-radius:8px; font-size:.8rem; font-weight:700; cursor:pointer;
+  display:inline-flex; align-items:center; gap:.35rem; transition:opacity .15s;
+}
+.itool-validate-btn:hover { opacity:.85; }
+
+.punnett-builder { margin-bottom:.85rem; }
+.punnett-builder-row { display:flex; gap:.6rem; align-items:flex-end; flex-wrap:wrap; margin-bottom:.6rem; }
+.punnett-builder-field { display:flex; flex-direction:column; gap:.25rem; }
+.punnett-builder-label { font-size:.68rem; font-weight:700; text-transform:uppercase; color:var(--t3); letter-spacing:.04em; }
+.punnett-builder-input {
+  background:var(--bg2); border:1px solid var(--border2); border-radius:7px;
+  color:var(--t1); font-size:.88rem; font-weight:700; padding:.35rem .6rem;
+  width:90px; outline:none; font-family:inherit; text-align:center; letter-spacing:.06em;
+  transition:border-color .15s;
+}
+.punnett-builder-input:focus { border-color:var(--green); }
+.punnett-wrap { overflow-x:auto; margin-bottom:.65rem; }
+.punnett-table { border-collapse:collapse; margin:0 auto; }
+.punnett-table th, .punnett-table td {
+  width:64px; height:50px; text-align:center; vertical-align:middle;
+  border:1px solid var(--border2); font-size:.88rem; font-weight:600;
+}
+.punnett-table thead th { background:rgba(16,185,129,.08); color:var(--green); font-size:.82rem; }
+.punnett-table tbody th { background:rgba(37,99,235,.08); color:#93c5fd; font-size:.82rem; }
+.punnett-corner { background:transparent!important; border:none!important; }
+.punnett-cell-display {
+  padding:.3rem .4rem; border-radius:5px; font-size:.88rem; font-weight:700; color:var(--t2);
+  background:var(--bg2); min-width:44px; display:block;
+}
+.punnett-cross-info { font-size:.78rem; color:var(--t3); margin-bottom:.65rem; text-align:center; }
+.punnett-analysis { margin-top:.75rem; padding:.65rem .75rem; background:rgba(16,185,129,.04); border:1px solid rgba(16,185,129,.15); border-radius:8px; }
+.punnett-analysis-title { font-size:.72rem; font-weight:700; text-transform:uppercase; color:var(--green); margin-bottom:.45rem; letter-spacing:.04em; }
+.punnett-analysis-row { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:.35rem; }
+.punnett-analysis-item { font-size:.82rem; color:var(--t2); flex:1; min-width:160px; }
+.punnett-analysis-item strong { color:var(--t1); }
+
+.avancement-config { margin-bottom:.85rem; }
+.avancement-config-row { display:flex; gap:.5rem; align-items:flex-end; flex-wrap:wrap; margin-bottom:.5rem; }
+.avancement-config-label { font-size:.68rem; font-weight:700; text-transform:uppercase; color:var(--t3); letter-spacing:.04em; margin-bottom:.25rem; }
+.avancement-config-input {
+  background:var(--bg2); border:1px solid var(--border2); border-radius:7px;
+  color:var(--t1); font-size:.82rem; padding:.3rem .55rem; outline:none;
+  font-family:inherit; transition:border-color .15s;
+}
+.avancement-config-input:focus { border-color:var(--orange,#f97316); }
+.avancement-wrap { overflow-x:auto; margin-bottom:.65rem; }
+.avancement-table { border-collapse:collapse; width:100%; min-width:340px; }
+.avancement-table th, .avancement-table td {
+  padding:.4rem .55rem; border:1px solid var(--border2); font-size:.8rem;
+  text-align:center; vertical-align:middle;
+}
+.avancement-table thead th {
+  background:rgba(249,115,22,.08); color:#fb923c; font-weight:700; font-size:.76rem;
+}
+.avancement-table tbody td:first-child {
+  font-weight:700; color:var(--t2); white-space:nowrap; text-align:left; font-size:.78rem;
+}
+.avancement-input {
+  width:72px; padding:.25rem .3rem; background:var(--bg2); border:1px solid var(--border);
+  border-radius:5px; color:var(--t1); font-size:.8rem; text-align:center; font-family:inherit;
+  outline:none; transition:border-color .15s;
+}
+.avancement-input:focus { border-color:var(--orange,#f97316); }
+.avancement-formula { color:var(--t3); font-style:italic; font-size:.77rem; }
+</style>
+
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="examen_blanc" %}
+
+  <div class="main">
+    <div class="topbar"><div class="topbar-title" data-i18n="exam_title">Examen Blanc</div></div>
+    <div class="view-area" style="padding:1.5rem;">
+
+      
+      <div id="examPicker" style="max-width:720px;margin:0 auto;">
+        <div style="text-align:center;margin-bottom:1.75rem;">
+          <div style="font-size:2.5rem;margin-bottom:.5rem;"></div>
+          <div style="font-weight:800;font-size:1.3rem;margin-bottom:.3rem;">Examen Blanc BAC Haïti</div>
+          <div style="color:var(--t2);font-size:.875rem;margin-bottom:1.5rem;">Choisis une matière pour générer un examen original de niveau BAC — corrigé automatique après soumission</div>
+        </div>
+        <div class="quiz-mat-grid">
+          {% for key, mat in mats.items %}
+          <button class="mat-tile" onclick="startExamen('{{ key }}')" style="--color:{{ mat.color }}">
+            <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
+            <div class="mat-tile-label">{{ mat.label }}</div>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      
+      <div id="examLoading" style="display:none;text-align:center;padding:4rem 0;max-width:600px;margin:0 auto;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">⏳</div>
+        <div style="font-weight:700;font-size:1.1rem;margin-bottom:.5rem;">Rédaction de l'examen en cours…</div>
+        <div style="color:var(--t2);font-size:.875rem;margin-bottom:.25rem;">L'IA compose un examen ORIGINAL de niveau Bac Haïti — dissertations, textes, exercices complets</div>
+        <div style="color:var(--t3);font-size:.78rem;margin-bottom:1.5rem;">Format réel des épreuves · Questions ouvertes · Corrigé intégré · 25-35 secondes environ</div>
+        <div class="astra-loader" style="justify-content:center;"><div class="astra-row">
+          <div class="astra-dot generating"></div><div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div><div class="astra-dot generating"></div>
+          <div class="astra-dot generating"></div>
+        </div></div>
+      </div>
+
+      
+      <div id="examSheet" style="display:none;width:100%;margin:0 auto;" class="exam-flip-wrap">
+
+        
+        
+        <div id="stickyTimer" style="position:fixed;top:1rem;right:1rem;z-index:300;display:none;flex-direction:column;align-items:flex-end;gap:.35rem;">
+          <button id="timerPill" onclick="toggleTimerPanel()" style="display:flex;align-items:center;gap:.5rem;background:#0f172a;border:1px solid rgba(37,99,235,.4);border-radius:50px;padding:.45rem .95rem;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.6);">
+            <span style="font-size:.9rem;line-height:1;">?</span>
+            <span id="stickyClockVal" class="timer-clock" style="font-size:1rem;letter-spacing:.04em;">1:00:00</span>
+            <i id="timerChevron" class="fas fa-chevron-down" style="font-size:.6rem;color:var(--t3);margin-left:.1rem;transition:transform .2s;"></i>
+          </button>
+          <div id="timerPanel" style="display:none;background:#0f172a;border:1px solid rgba(37,99,235,.3);border-radius:14px;padding:.9rem 1.1rem;box-shadow:0 8px 32px rgba(0,0,0,.65);min-width:210px;">
+            <div style="font-size:.72rem;color:var(--t3);margin-bottom:.55rem;font-weight:600;">Temps restant</div>
+            <div class="timer-progress-wrap" style="margin-bottom:.7rem;">
+              <div style="display:flex;justify-content:space-between;font-size:.66rem;color:var(--t3);margin-bottom:.25rem;">
+                <span>Début</span><span id="stickyTimerPct">0%</span><span>Fin</span>
+              </div>
+              <div class="timer-progress-track">
+                <div id="stickyTimerFill" class="timer-progress-fill" style="width:0%"></div>
+              </div>
+            </div>
+            <button onclick="submitExam()" id="stickySubmitBtn" style="width:100%;padding:.5rem;background:var(--green);border:none;border-radius:9px;color:#000;font-size:.82rem;font-weight:800;cursor:pointer;">
+              <i class="fas fa-paper-plane"></i> Terminer
+            </button>
+          </div>
+        </div>
+
+        
+        <div id="examFace">
+          <div class="exam-sheet" id="examSheetContent" translate="no"></div>
+          <input type="hidden" id="_examCoeffStore" value="">
+
+          
+          <div id="examActionBar" style="display:flex;gap:.75rem;justify-content:center;margin-top:1.25rem;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="submitExam()" style="padding:.75rem 2.5rem;font-size:.95rem;">
+              <i class="fas fa-paper-plane"></i>&nbsp; Terminer et corriger
+            </button>
+            <button onclick="confirmRestart()" style="padding:.75rem 1.5rem;background:var(--card);border:1px solid var(--border2);border-radius:10px;color:var(--t2);font-size:.875rem;font-weight:600;cursor:pointer;">
+              <i class="fas fa-redo"></i>&nbsp; Recommencer
+            </button>
+          </div>
+        </div>
+
+        
+        <div id="miseAuNetFace">
+          <div class="mau-page-wrap">
+            <div class="mau-header">
+              <div class="mau-header-title"> Mise au Net — Feuille de réponses</div>
+              <div class="mau-header-sub">Rédigez vos réponses ici. Indiquez le numéro de l'exercice avant chaque réponse.</div>
+              <div class="mau-info-row">
+                <div class="mau-info-field">
+                  <div class="mau-info-label">Nom &amp; Prénom</div>
+                  <input class="mau-info-input" id="mauName" type="text" placeholder="Votre nom complet">
+                </div>
+                <div class="mau-info-field">
+                  <div class="mau-info-label">Matière</div>
+                  <input class="mau-info-input" id="mauSubject" type="text" readonly placeholder="">
+                </div>
+                <div class="mau-info-field">
+                  <div class="mau-info-label">Date</div>
+                  <input class="mau-info-input" id="mauDate" type="text" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="mau-toolbar">
+              <button class="mau-toolbar-btn" onclick="mauExecCmd('bold')"><i class="fas fa-bold"></i> Gras</button>
+              <button class="mau-toolbar-btn" onclick="mauExecCmd('italic')"><i class="fas fa-italic"></i> Italique</button>
+              <button class="mau-toolbar-btn" onclick="mauExecCmd('underline')"><i class="fas fa-underline"></i> Souligné</button>
+              <div class="mau-toolbar-sep"></div>
+              <button class="mau-toolbar-btn" onclick="mauInsertExo()"><i class="fas fa-hashtag"></i> Numéro exo</button>
+              <button class="mau-toolbar-btn" onclick="addMauPage()" style="color:#2563eb;border-color:#bfdbfe;"><i class="fas fa-plus"></i> Ajouter une page</button>
+              <button class="mau-toolbar-btn" onclick="mauClear()"><i class="fas fa-trash-alt"></i> Effacer tout</button>
+              <div class="mau-toolbar-sep" id="mauToolSep" style="display:none;"></div>
+              <button class="mau-toolbar-btn" id="mauToolBtn" onclick="toggleMauTool()" style="display:none;">
+                <i id="mauToolIcon" class="fas fa-th"></i> <span id="mauToolLabel">Punnett</span>
+              </button>
+              <div class="mau-send-notice"><i class="fas fa-robot"></i> Envoyé à l'IA avec l'examen pour correction</div>
+            </div>
+            
+            <div id="mauToolPanel"></div>
+            
+            <div id="mauPagesContainer" translate="no">
+              <div class="mau-page-instance" data-page="1">
+                <div class="mau-page-tab"><span><i class="fas fa-file-alt"></i> Page 1</span></div>
+                <div class="mau-body">
+                  <div class="mau-editor" contenteditable="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div style="display:flex;gap:.75rem;justify-content:center;margin-top:1.25rem;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="submitExam()" style="padding:.75rem 2.5rem;font-size:.95rem;">
+              <i class="fas fa-paper-plane"></i>&nbsp; Terminer et corriger
+            </button>
+            <button onclick="confirmRestart()" style="padding:.75rem 1.5rem;background:var(--card);border:1px solid var(--border2);border-radius:10px;color:var(--t2);font-size:.875rem;font-weight:600;cursor:pointer;">
+              <i class="fas fa-redo"></i>&nbsp; Recommencer
+            </button>
+          </div>
+        </div>
+
+        
+        <div id="examResults" style="display:none;margin-top:1.5rem;">
+          <div class="card" style="padding:2rem;text-align:center;border-color:rgba(16,185,129,.25);">
+            <div id="resEmoji" style="font-size:3rem;margin-bottom:.5rem;"></div>
+            <div id="resMention" style="font-size:1.1rem;font-weight:800;margin-bottom:.4rem;"></div>
+            <div id="resScore"   style="font-size:2.5rem;font-weight:900;margin-bottom:.25rem;"></div>
+            <div id="resSub"     style="font-size:.82rem;color:var(--t3);margin-bottom:1.25rem;"></div>
+            <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+              <button class="btn-primary" onclick="startExamen(currentSubject)" style="padding:.65rem 1.5rem;">
+                <i class="fas fa-redo"></i> Nouvel examen
+              </button>
+              <button id="btnAiCorr" onclick="runAICorrection()" style="padding:.65rem 1.25rem;background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.3);border-radius:10px;font-size:.875rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;">
+                <i class="fas fa-robot"></i> Correction IA
+              </button>
+              <button onclick="showPicker()" style="padding:.65rem 1.25rem;background:var(--card);border:1px solid var(--border2);border-radius:10px;color:var(--t2);font-size:.875rem;font-weight:600;cursor:pointer;">
+                Autre matière
+              </button>
+            </div>
+          </div>
+          <div id="aiCorrPanel" style="display:none;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<button id="flipFab" onclick="flipCard()">
+  <i class="fas fa-file-alt" id="flipFabIcon"></i>
+  <span id="flipFabLabel">Mise au net</span>
+</button>
+
+{% block extra_js %}
+<script>
+window.IS_GUEST = {{ is_guest|yesno:"true,false" }};
+window.GUEST_EXAM_DONE = {{ guest_exam_done|default:"0" }};
+
+let currentSubject = '';
+let examSubmitted  = false;
+let _isOnMiseAuNet = false;
+
+function clearExamResults() {
+  const resEmoji = document.getElementById('resEmoji');
+  const resMention = document.getElementById('resMention');
+  const resScore = document.getElementById('resScore');
+  const resSub = document.getElementById('resSub');
+  
+  if (resEmoji) resEmoji.textContent = '';
+  if (resMention) resMention.textContent = '';
+  if (resScore) { resScore.textContent = ''; resScore.style.color = ''; }
+  if (resSub) resSub.textContent = '';
+  
+  const resultsSection = document.getElementById('examResults');
+  if (resultsSection) resultsSection.style.display = 'none';
+  
+  examSubmitted = false;
+  currentSubject = '';
+  
+  const acpPanel = document.getElementById('acpPanel');
+  if (acpPanel) acpPanel.innerHTML = '';
+}
+
+function updateFabLabel() {
+  const icon  = document.getElementById('flipFabIcon');
+  const label = document.getElementById('flipFabLabel');
+  if (!icon || !label) return;
+  if (_isOnMiseAuNet) {
+    icon.className  = 'fas fa-file-lines';
+    label.textContent = 'Voir l\'examen';
+  } else {
+    icon.className  = 'fas fa-file-alt';
+    label.textContent = 'Mise au net';
+  }
+}
+
+function flipCard() {
+  const examFace = document.getElementById('examFace');
+  const mauFace  = document.getElementById('miseAuNetFace');
+  if (!examFace || !mauFace) return;
+
+  const exitCls  = _isOnMiseAuNet ? 'flip-exit-right' : 'flip-exit-left';
+  const enterCls = _isOnMiseAuNet ? 'flip-enter-left'  : 'flip-enter-right';
+  const currentEl = _isOnMiseAuNet ? mauFace : examFace;
+  const nextEl    = _isOnMiseAuNet ? examFace : mauFace;
+
+  currentEl.classList.add(exitCls);
+  setTimeout(() => {
+    currentEl.style.display = 'none';
+    currentEl.classList.remove(exitCls);
+    nextEl.style.display = 'block';
+    nextEl.classList.add(enterCls);
+    setTimeout(() => {
+      nextEl.classList.remove(enterCls);
+      nextEl.style.opacity = '1';
+    }, 300);
+  }, 280);
+
+  _isOnMiseAuNet = !_isOnMiseAuNet;
+  updateFabLabel();
+}
+
+function _getActiveMauEditor() {
+  if (document._lastMauEditor && document.getElementById('mauPagesContainer')?.contains(document._lastMauEditor)) {
+    return document._lastMauEditor;
+  }
+  const editors = document.querySelectorAll('#mauPagesContainer .mau-editor');
+  return editors[editors.length - 1] || null;
+}
+document.addEventListener('focus', function(e) {
+  if (e.target && e.target.classList.contains('mau-editor')) {
+    document._lastMauEditor = e.target;
+  }
+}, true);
+
+function mauExecCmd(cmd) {
+  const editor = _getActiveMauEditor();
+  if (!editor) return;
+  editor.focus();
+  document.execCommand(cmd, false, null);
+}
+let _mauExoCounter = 1;
+function mauInsertExo() {
+  const editor = _getActiveMauEditor();
+  if (!editor) return;
+  editor.focus();
+  const num = _mauExoCounter++;
+  document.execCommand('insertText', false, `\n\n— Exercice ${num} —\n`);
+}
+function mauClear() {
+  if (!confirm('Effacer tout le contenu de la mise au net (toutes les pages) ?')) return;
+  document.querySelectorAll('#mauPagesContainer .mau-editor').forEach(ed => ed.innerHTML = '');
+  const container = document.getElementById('mauPagesContainer');
+  if (container) {
+    const pages = container.querySelectorAll('.mau-page-instance');
+    pages.forEach((p, i) => { if (i > 0) p.remove(); });
+  }
+  _mauExoCounter = 1;
+}
+
+function addMauPage() {
+  const container = document.getElementById('mauPagesContainer');
+  if (!container) return;
+  const pageNum = container.querySelectorAll('.mau-page-instance').length + 1;
+  const div = document.createElement('div');
+  div.className = 'mau-page-instance';
+  div.dataset.page = pageNum;
+  div.innerHTML =
+    `<div class="mau-page-tab"><span><i class="fas fa-file-alt"></i> Page ${pageNum}</span>`
+    + `<button class="mau-del-btn" onclick="deleteMauPage(this)"><i class="fas fa-times"></i> Supprimer</button></div>`
+    + `<div class="mau-body"><div class="mau-editor" contenteditable="true"></div></div>`;
+  container.appendChild(div);
+  const newEd = div.querySelector('.mau-editor');
+  if (newEd) { newEd.focus(); document._lastMauEditor = newEd; }
+  div.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function deleteMauPage(btn) {
+  const pageEl = btn.closest('.mau-page-instance');
+  if (!pageEl) return;
+  const container = document.getElementById('mauPagesContainer');
+  const pages = container.querySelectorAll('.mau-page-instance');
+  if (pages.length <= 1) { showToast('La première page ne peut pas être supprimée.', 'error'); return; }
+  if (!confirm('Supprimer cette page de mise au net ?')) return;
+  pageEl.remove();
+  container.querySelectorAll('.mau-page-instance').forEach((p, i) => {
+    p.dataset.page = i + 1;
+    const tab = p.querySelector('.mau-page-tab span, .mau-page-tab');
+    if (tab) {
+      const spanEl = p.querySelector('.mau-page-tab span');
+      if (spanEl) spanEl.innerHTML = `<i class="fas fa-file-alt"></i> Page ${i + 1}`;
+    }
+  });
+}
+
+const EXAM_DURATION = 3600;
+let _timerSec = EXAM_DURATION;
+let _timerInterval = null;
+let _timerPanelOpen = false;
+
+function toggleTimerPanel() {
+  _timerPanelOpen = !_timerPanelOpen;
+  const panel   = document.getElementById('timerPanel');
+  const chevron = document.getElementById('timerChevron');
+  if (panel)   panel.style.display    = _timerPanelOpen ? 'block' : 'none';
+  if (chevron) chevron.style.transform = _timerPanelOpen ? 'rotate(180deg)' : '';
+}
+
+function startCountdown() {
+  _timerSec = EXAM_DURATION;
+  clearInterval(_timerInterval);
+  const stick  = document.getElementById('stickyTimer');
+  stick.style.display = 'flex';
+
+  _timerInterval = setInterval(() => {
+    _timerSec--;
+    updateCountdownUI();
+    if (_timerSec <= 0) {
+      clearInterval(_timerInterval);
+      if (!examSubmitted) {
+        showToast('? Temps écoulé — correction automatique !', 'success');
+        submitExam();
+      }
+    }
+  }, 1000);
+  updateCountdownUI();
+}
+
+function stopCountdown() {
+  clearInterval(_timerInterval);
+  const stick = document.getElementById('stickyTimer');
+  if (stick) stick.style.display = 'none';
+}
+
+function updateCountdownUI() {
+  const h   = Math.floor(_timerSec / 3600);
+  const m   = Math.floor((_timerSec % 3600) / 60);
+  const s   = _timerSec % 60;
+  const fmt = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  const elapsedPct = Math.min(100, Math.round((1 - _timerSec / EXAM_DURATION) * 100));
+
+  const clockEl = document.getElementById('stickyClockVal');
+  const fillEl  = document.getElementById('stickyTimerFill');
+  const pctEl   = document.getElementById('stickyTimerPct');
+  if (!clockEl) return;
+
+  clockEl.textContent = fmt;
+  if (pctEl) pctEl.textContent = elapsedPct + '%';
+
+  const warn   = _timerSec <= 900;
+  const danger = _timerSec <= 300;
+  clockEl.className = 'timer-clock' + (danger?' danger':warn?' warn':'');
+  if (fillEl) {
+    fillEl.style.width = elapsedPct + '%';
+    fillEl.className   = 'timer-progress-fill' + (danger?' danger':warn?' warn':'');
+  }
+
+  if (!examSubmitted) document.title = `[${fmt}] Examen Blanc — OU TOU BON`;
+}
+
+function sanitizeMath(text) {
+  if (!text) return text;
+
+  text = fixLatexControls(text);
+
+  const saved = [];
+  const save  = m => { saved.push(m); return `?${saved.length-1}?`; };
+  text = text.replace(/\$\$[\s\S]+?\$\$/g, save);
+  text = text.replace(/\$(?:[^\$\\\n]|\\.)+?\$/g, save);
+  text = text.replace(/\\\([\s\S]+?\\\)/g, save);
+  text = text.replace(/\\\[[\s\S]+?\\\]/g, save);
+
+  const BARE_WORD = /(?<!\\)\b(displaystyle|textstyle|scriptstyle|boldsymbol|dfrac|tfrac|cfrac|dbinom|tbinom|hbar|imath|jmath|binom|sqrt|limits|nolimits|infty|leq|geq|neq|approx|equiv|cdot|ldots|vdots|forall|exists|partial|nabla|iff|Rightarrow|Leftarrow|rightarrow|leftarrow|mapsto|hookrightarrow|langle|rangle|lceil|rceil|lfloor|rfloor|oplus|otimes|odot|wedge|vee|cap|cup|emptyset|subset|supset|subseteq|supseteq|notin|perp|parallel|angle|triangle|square|circ|bullet|prime|dagger|ddagger|aleph|hline|underbrace|overbrace|overline|underline|widehat|widetilde|vec|hat|tilde|dot|ddot)\b/g;
+  text = text.replace(BARE_WORD, (m, cmd) => '\\' + cmd);
+  const BARE_PREFIX = /(?<!\\)(?<![a-zA-Z])(mathbb|mathbf|mathit|mathrm|mathsf|mathtt|mathcal|mathfrak|operatorname)(?=[a-zA-Z{(])/g;
+  text = text.replace(BARE_PREFIX, (m, cmd) => '\\' + cmd);
+  text = text.replace(/([A-Za-z])(left|right)([\(\)\[\]\|\\])/g, '$1\\$2$3');
+  text = text.replace(/(?<![a-zA-Z\\])\b(left|right)([\(\)\[\]\|\\])/g, '\\$1$2');
+
+  text = text.replace(
+    /([A-Za-z0-9_+\-=(),.]*?\\left\s*[\(\[\|\\][\s\S]*?\\right\s*[\)\]\|\\](?:[\^_]\{?[^{}?]{0,30}\}?)?)/g,
+    (match) => {
+      if (/\\?/.test(match)) return match;
+      return save('$' + match.trim() + '$');
+    }
+  );
+
+  const MATH_TOKEN = (
+    /\\[a-zA-Z]+(?:\{[^{}?\n]{0,120}\}|\[[^\]?]{0,60}\]|[_^]\{[^{}?\n]{0,60}\}|[_^][a-zA-Z0-9])?/ // \cmd{}{} etc.
+  );
+  let prev = '';
+  while (prev !== text) {
+    prev = text;
+    text = text.replace(
+      /(?<!\$)(\\[a-zA-Z]+(?:\{[^{}?\n]{0,120}\}|\[[^\]?]{0,60}\]|[_^]\{[^{}?\n]{0,60}\}|[_^][a-zA-Z0-9])?(?:\s*(?:[_^]\{[^{}?\n]{0,40}\}|[_^][a-zA-Z0-9]|\+|-|=|[0-9]+|\s*\\[a-zA-Z]+(?:\{[^{}?\n]{0,60}\}|\[[^\]?]{0,40}\]|[_^]\{[^{}?\n]{0,40}\}|[_^][a-zA-Z0-9])?)*)(?:\s*\([^()?\n]{0,80}\))?)(?!\$)/g,
+      (match) => {
+        if (/\\?/.test(match)) return match;
+        const trimmed = match.trim();
+        if (!trimmed || !/\\[a-zA-Z]/.test(trimmed)) return match;
+        return '\$' + trimmed + '\$';
+      }
+    );
+  }
+
+  text = text.replace(
+    /(?<!\$)\b([A-Za-z])(_\{[^{}?\n]{1,30}\}|_[a-zA-Z0-9]{1,8}|\^\{[^{}?\n]{1,20}\}|\^[0-9\-+]{1,4})(?!\$)/g,
+    '$$$1$2$$'
+  );
+
+  text = text.replace(/\?(\d+)\?/g, (_, i) => saved[+i] || '');
+  return text;
+}
+
+async function startExamen(subject) {
+  clearExamResults();
+  
+  if (IS_GUEST && GUEST_EXAM_DONE >= 1) {
+    let modal = document.getElementById('examGuestModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'examGuestModal';
+      modal.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);';
+      modal.innerHTML = `<div style="background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:2rem;max-width:380px;width:90%;text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:.75rem;">🚫</div>
+        <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:.5rem;">Examen gratuit utilisé !</h3>
+        <p style="color:var(--t2);font-size:.875rem;line-height:1.6;margin-bottom:1.25rem;">
+          Tu as déjà passé ton examen blanc demo. Crée un compte gratuit pour passer autant d'examens que tu veux et suivre ta progression !
+        </p>
+        <a href="/signup/" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;border-radius:12px;font-weight:800;font-size:.9rem;text-decoration:none;">
+          <i class="fas fa-user-plus"></i> S'inscrire gratuitement
+        </a>
+        <div style="margin-top:.75rem;">
+          <button onclick="document.getElementById('examGuestModal').remove()" style="background:none;border:none;color:var(--t3);font-size:.8rem;cursor:pointer;padding:.5rem;">Continuer en mode démo</button>
+        </div>
+      </div>`;
+      modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+      document.body.appendChild(modal);
+    }
+    modal.style.display = 'flex';
+    return;
+  }
+  currentSubject = subject;
+  examSubmitted  = false;
+  stopCountdown();
+  document.title = 'Examen Blanc — OU TOU BON';
+  show('examLoading');
+  hide('examPicker'); hide('examSheet'); hide('examResults');
+  document.getElementById('examActionBar').style.display = 'flex';
+
+  try {
+    const r = await fetch(`{% url 'api_generate_exam_v2' %}?subject=${subject}`);
+    const ct = (r.headers.get('content-type') || '').toLowerCase();
+    let d = null;
+    if (ct.includes('application/json')) {
+      d = await r.json();
+    } else {
+      const raw = await r.text();
+      const lower = raw.toLowerCase();
+      if (r.status === 401 || r.status === 403 || lower.includes('login') || lower.includes('connexion')) {
+        throw new Error('Session expirée. Reconnecte-toi puis relance l\'examen.');
+      }
+      throw new Error(`Le serveur a renvoyé une réponse invalide (${r.status}).`);
+    }
+    if (!r.ok) throw new Error(d?.error || `Erreur serveur (${r.status}).`);
+    if (d.error) throw new Error(d.error);
+    if (!d.exam || !d.exam.parts) throw new Error('Données invalides reçues du serveur.');
+    renderExam(d.exam);
+    hide('examLoading'); show('examSheet');
+    const mauSubj = document.getElementById('mauSubject');
+    if (mauSubj && d.exam) {
+      mauSubj.value = (d.exam.title || '').replace(/^BACCALAURÉAT HAÏTI — ÉPREUVE DE /, '');
+    }
+    const mauDate = document.getElementById('mauDate');
+    if (mauDate) mauDate.value = new Date().toLocaleDateString('fr-HT');
+    const mauEditor = document.getElementById('miseAuNetContent');
+    if (mauEditor) mauEditor.innerHTML = '';
+    document.getElementById('examFace').style.display = 'block';
+    document.getElementById('miseAuNetFace').style.display = 'none';
+    _initMauTool(subject);
+    const fab = document.getElementById('flipFab');
+    if (fab) fab.style.display = 'flex';
+    _isOnMiseAuNet = false;
+    updateFabLabel();
+    startCountdown();
+    document.getElementById('examSheet').scrollIntoView({behavior:'smooth',block:'start'});
+  } catch(e) {
+    hide('examLoading'); show('examPicker');
+    showToast('Erreur : ' + e.message, 'error');
+  }
+}
+
+function renderExam(exam) {
+  const el = document.getElementById('examSheetContent');
+  el.innerHTML = buildExamHTML(exam);
+  el.querySelectorAll('.exam-section').forEach(s => renderKatex(s));
+  const coeffEl = document.getElementById('_examCoeffStore');
+  if (coeffEl && exam.coeff != null) coeffEl.value = exam.coeff;
+}
+
+function buildExamHTML(exam) {
+  const annee  = exam.annee  || new Date().getFullYear();
+  const serie  = exam.serie  || 'Toutes séries';
+  const coeff  = exam.coeff  != null ? exam.coeff : '';
+  const coeffBadge = coeff ? `<span class="detail-pill"><i class="fas fa-weight-hanging"></i> <strong>Coefficient :</strong> ${coeff}</span>` : '';
+  const totalPts   = (exam.parts||[]).reduce((a,p)=>(p.sections||[]).reduce((b,s)=>b+(s.pts||0),a),0);
+  const totalBadge = totalPts ? `<span class="detail-pill" style="color:var(--green);border-color:rgba(16,185,129,.2)"><i class="fas fa-star" style="color:var(--green)"></i> <strong>Total :</strong> ${totalPts} pts</span>` : '';
+
+  let h = `
+  <div class="exam-sheet-header">
+    <div class="exam-ministry-block">
+      <div class="exam-ministry-seal">🏛️</div>
+      <div class="exam-ministry-text">
+        <strong>République d'Haïti</strong>
+        Ministère de l'Éducation Nationale et de la Formation Professionnelle (MENFP)<br>
+        Direction de l'Enseignement Secondaire — Service des Examens d'État
+      </div>
+    </div>
+    <h2>${esc(exam.title || 'Examen Blanc')}</h2>
+    <div class="exam-header-details">
+      <span class="detail-pill"><i class="fas fa-calendar-alt"></i> <strong>Année :</strong> ${annee}</span>
+      <span class="detail-pill"><i class="fas fa-graduation-cap"></i> <strong>Classe :</strong> Terminale</span>
+      <span class="detail-pill"><i class="fas fa-layer-group"></i> <strong>Série :</strong> ${esc(serie)}</span>
+      ${coeffBadge}${totalBadge}
+    </div>
+    <div class="exam-rules-bar">
+      <span><i class="fas fa-clock"></i> <strong>Durée :</strong> ${esc(exam.duration||'1 heure')}</span>
+      <span><i class="fas fa-mobile-alt"></i> Téléphone interdit</span>
+      <span><i class="fas fa-pen-nib"></i> Ne rien écrire sur ce texte</span>
+      <span><i class="fas fa-calculator"></i> Calculatrice selon règlement</span>
+    </div>
+  </div>`;
+
+  const _gqc = {n: 0};
+  (exam.parts||[]).forEach((part, pi) => {
+    const pPts = (part.sections||[]).reduce((a,s)=>a+(s.pts||0),0);
+    h += `<div class="exam-part">
+      <div class="exam-part-header">
+        <h3><i class="fas fa-layer-group" style="opacity:.5;font-size:.85em;margin-right:.5rem"></i>${esc(part.label||'Partie '+(pi+1))}</h3>
+        ${pPts?`<span class="pts-badge"><i class="fas fa-star" style="font-size:.65em"></i> ${pPts} pts</span>`:''}
+      </div>
+      ${part.choice_notice?`<div class="choice-notice"><i class="fas fa-info-circle"></i> ${esc(part.choice_notice)}</div>`:''}`; 
+    (part.sections||[]).forEach((sec,si) => {
+      h += buildSection(sec, `p${pi}s${si}`, _gqc);
+    });
+    h += `</div>`;
+  });
+  return h;
+}
+
+function buildSection(sec, key, _gqc) {
+  const type = (sec.type||'open').toLowerCase();
+  let content = '';
+
+  if (type === 'fillblank') {
+    (sec.items||[]).forEach((item, i) => {
+      const sanitized = sanitizeMath(item.text||'');
+      const displayText = renderMarkdown(
+        sanitized.replace(/___/g, '<span class="blank-line"></span>')
+      ).replace(/<\/?p>/g,'').trim();
+
+      const uid   = `blank_${key}_${i}_0`;
+      const ans   = esc(item.answer||'');
+      const pts   = item.pts ? `<small class="fillblank-pts">(${item.pts}pt${item.pts>1?'s':''})</small>` : '';
+      const fbSrc = item.source ? `<span class="exam-source-badge"><i class="fas fa-bookmark"></i> ${esc(item.source)}</span>` : '';
+
+      content += `<div class="exam-fillblank-item">
+        <span class="fillblank-num">${i+1}.</span>
+        <div class="fillblank-body">
+          <div class="fillblank-text">${displayText}</div>
+          <div class="fillblank-answer-row">
+            <input class="blank-input" type="text" placeholder="Votre réponse…"
+              id="${uid}" data-ans="${ans}" data-key="${key}" data-i="${i}" data-pts="${item.pts||2}">
+            <span class="blank-hint" id="bh_${uid}">${ans}</span>
+            ${pts}${fbSrc}
+          </div>
+        </div>
+      </div>`;
+    });
+
+  } else if (type === 'matching') {
+    const left    = sec.left_labels  || [];
+    const right   = sec.right_labels || [];
+    const answers = sec.answers      || [];
+    const opts    = right.map((r,i)=>`<option value="${i}">${esc(r)}</option>`).join('');
+    content = `<div class="exam-matching-grid">`;
+    left.forEach((l, i) => {
+      content += `
+        <div class="match-left">${esc(l)}</div>
+        <div class="match-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <select class="match-select" id="match_${key}_${i}" data-cor="${answers[i]??-1}">
+          <option value="-1">- Choisir -</option>${opts}
+        </select>`;
+    });
+    content += `</div>`;
+
+  } else if (type === 'heredity') {
+    if (sec.context) {
+      content += `<div class="heredity-context">
+        <div class="heredity-label"><i class="fas fa-dna"></i> Contexte du problème</div>
+        ${renderMarkdown(sanitizeMath(sec.context))}
+      </div>`;
+    }
+    (sec.items||[]).forEach((item, i) => { if (!item.is_passage) _gqc.n++; content += buildOpenItem(item, key, i, _gqc.n, sec.label||''); });
+
+  } else {
+    (sec.items||[]).forEach((item, i) => { if (!item.is_passage) _gqc.n++; content += buildOpenItem(item, key, i, _gqc.n, sec.label||''); });
+  }
+
+  return `<div class="exam-section">
+    <div class="exam-section-label">
+      <i class="fas fa-chevron-right" style="font-size:.65em;opacity:.5"></i>
+      ${esc(sec.label||'')}
+      ${sec.pts?`<span class="section-pts">(${sec.pts} pts)</span>`:''}
+    </div>
+    ${content}
+  </div>`;
+}
+
+function buildOpenItem(item, key, i, qNum, secLabel) {
+  if (item.is_passage) {
+    const passageText = renderMarkdown(sanitizeMath(item.text||''));
+    return `<div class="exam-passage-block">
+      <div class="exam-passage-label"><i class="fas fa-book-open"></i> Texte de compréhension — Lisez attentivement</div>
+      <div class="exam-passage-content">${passageText}</div>
+    </div>`;
+  }
+  const numDisplay = qNum > 0 ? qNum : (i+1);
+  const textStartsWithNum = /^\s*\d+[\.\)]\s*/.test(item.text||'');
+  const qNumSpan = textStartsWithNum ? '' : `<span class="exam-q-num">${numDisplay}</span>`;
+  const pts = item.pts ? `<div class="exam-q-pts"><i class="fas fa-star" style="font-size:.65em"></i> ${item.pts} pt${item.pts>1?'s':''}</div>` : '';
+  const srcBadge = item.source ? `<span class="exam-source-badge"><i class="fas fa-bookmark"></i> ${esc(item.source)}</span>` : '';
+  const qText   = renderMarkdown(sanitizeMath(item.text||''));
+  const ansText = renderMarkdown(sanitizeMath(item.answer||'Voir les notes de cours.'));
+  return `<div class="exam-open-item"
+      data-qtext="${esc(item.text||'')}"
+      data-model="${esc(item.answer||'')}"
+      data-pts="${item.pts||0}"
+      data-section="${esc(secLabel||'')}"
+      data-idx="${key}_${i}">
+    <div class="exam-q-text">${qNumSpan}<span>${qText}</span>${srcBadge}</div>
+    ${pts}
+    <div class="model-answer" id="ma_${key}_${i}">
+      <div class="model-answer-label"><i class="fas fa-check-circle"></i> Corrig\u00e9 sugg\u00e9r\u00e9</div>
+      ${ansText}
+    </div>
+    <div class="ai-corr-result" id="air_${key}_${i}" style="display:none"></div>
+  </div>`;
+}
+
+function submitExam() {
+  if (examSubmitted) return;
+
+  const mauNameVal = (document.getElementById('mauName')?.value || '').trim();
+  if (!mauNameVal) {
+    showToast('⚠️ Vous devez écrire votre nom sur la feuille de mise au net avant de soumettre !', 'error');
+    if (!_isOnMiseAuNet) flipCard();
+    setTimeout(() => document.getElementById('mauName')?.focus(), 450);
+    return;
+  }
+
+  const mauPages = document.querySelectorAll('#mauPagesContainer .mau-editor');
+  const miseAuNetText = mauPages.length
+    ? Array.from(mauPages).map(p => (p.innerText || p.textContent || '').trim()).join(' ').trim()
+    : '';
+  
+  if (!miseAuNetText) {
+    showToast('⚠️ Vous devez remplir la mise au net avec vos réponses ! Les réponses écrites directement sur la feuille ne seront pas corrigées. Indiquez le numéro de chaque exercice et écrivez toutes vos réponses finales dans la mise au net.', 'error');
+    if (!_isOnMiseAuNet) flipCard();
+    setTimeout(() => {
+      const firstEditor = document.querySelector('#mauPagesContainer .mau-editor');
+      if (firstEditor) firstEditor.focus();
+    }, 450);
+    return;
+  }
+
+  examSubmitted = true;
+  stopCountdown();
+  document.title = 'Résultat — Examen Blanc — OU TOU BON';
+
+  let earned = 0, total = 0;
+
+  document.querySelectorAll('.blank-input').forEach(inp => {
+    const rawAns = (inp.dataset.ans||'').trim();
+    if (rawAns === '___' || rawAns === '') {
+      inp.classList.add('corr');
+      const hintEl = inp.nextElementSibling;
+      if (hintEl && hintEl.classList.contains('blank-hint')) {
+        hintEl.textContent = ' (correction manuelle)';
+        hintEl.classList.add('on');
+        hintEl.style.color = 'var(--t3)';
+      }
+      return;
+    }
+    const cor = rawAns.toLowerCase().replace(/^(le|la|les|l')\s/,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    const val = inp.value.trim().toLowerCase().replace(/^(le|la|les|l')\s/,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    inp.disabled = true;
+    const ok = val.length>0 && (val===cor || (cor.length>3 && cor.includes(val)) || (val.length>3 && val.includes(cor)));
+    inp.classList.add(ok?'corr':'wrong');
+    const hintEl = inp.nextElementSibling;
+    if (hintEl && hintEl.classList.contains('blank-hint')) hintEl.classList.add('on');
+    if (ok) earned += parseFloat(inp.dataset.pts||2)||2; total += parseFloat(inp.dataset.pts||2)||2;
+  });
+
+  document.querySelectorAll('.match-select').forEach(sel => {
+    const cor = parseInt(sel.dataset.cor??-1);
+    const val = parseInt(sel.value??-1);
+    sel.disabled = true;
+    if (cor >= 0) {
+      const ok = val === cor;
+      sel.classList.add(ok?'corr':'wrong');
+      if (ok) earned++; total++;
+    }
+  });
+
+  document.querySelectorAll('.model-answer').forEach(el => { el.classList.add('on'); renderKatex(el); });
+  document.querySelectorAll('.exam-textarea').forEach(el => el.disabled = true);
+  document.getElementById('examActionBar').style.display = 'none';
+  const fab = document.getElementById('flipFab');
+  if (fab) fab.style.display = 'none';
+  if (_isOnMiseAuNet) {
+    document.getElementById('miseAuNetFace').style.display = 'none';
+    document.getElementById('examFace').style.display = 'block';
+    _isOnMiseAuNet = false;
+  }
+
+  const openCount = document.querySelectorAll('.exam-open-item').length;
+  const manualCount = document.querySelectorAll('.blank-input[data-ans="___"], .blank-input[data-ans=""]').length;
+  if (total > 0) {
+    const pct = Math.round((earned/total)*100);
+    const [emoji, mention, color] =
+      pct>=80 ? ['🏆','Mention Très Bien','var(--green)'] :
+      pct>=70 ? ['🥇','Mention Bien','#34d399'] :
+      pct>=60 ? ['📊','Mention Passable','var(--blue2)'] :
+                ['📚','À retravailler','var(--orange)'];
+    document.getElementById('resEmoji').textContent   = emoji;
+    document.getElementById('resMention').textContent = mention;
+    document.getElementById('resScore').textContent   = pct + '%';
+    document.getElementById('resScore').style.color   = color;
+    document.getElementById('resSub').textContent     = `${earned}/${total} pts auto-corrigés${openCount>0?' · '+openCount+' question(s) écrite(s) en cours de correction IA…':''}`;
+  } else {
+    document.getElementById('resEmoji').textContent   = '⏳';
+    document.getElementById('resMention').textContent = 'Correction IA en cours…';
+    document.getElementById('resScore').textContent   = '…';
+    document.getElementById('resScore').style.color   = 'var(--blue2)';
+    document.getElementById('resSub').textContent     = `${openCount} question(s) ouverte(s) — l'IA analyse vos réponses, veuillez patienter…`;
+  }
+  show('examResults');
+  setTimeout(()=>document.getElementById('examResults').scrollIntoView({behavior:'smooth',block:'start'}), 100);
+
+  fetch('{% url "api_quiz_save" %}',{method:'POST',
+    headers:{'X-CSRFToken':'{{ csrf_token }}','Content-Type':'application/json'},
+    body:JSON.stringify({subject:currentSubject, score:earned, total:total, details:[]})
+  }).catch(()=>{});
+
+  if (openCount > 0) {
+    setTimeout(() => runAICorrection(), 900);
+  }
+}
+
+function confirmRestart() {
+  if (confirm('Générer un nouvel examen pour cette matière ?')) startExamen(currentSubject);
+}
+function showPicker() {
+  stopCountdown();
+  const fab = document.getElementById('flipFab');
+  if (fab) fab.style.display = 'none';
+  hide('examSheet'); show('examPicker'); document.title='Examen Blanc — OU TOU BON';
+}
+function show(id) { const el=document.getElementById(id); if(el) el.style.display='block'; }
+function hide(id) { const el=document.getElementById(id); if(el) el.style.display='none'; }
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+async function runAICorrection() {
+  const btn = document.getElementById('btnAiCorr');
+
+  const items = document.querySelectorAll('.exam-open-item');
+  if (!items.length) return;
+
+  const mauPages = document.querySelectorAll('#mauPagesContainer .mau-editor');
+  const miseAuNetText = mauPages.length
+    ? Array.from(mauPages).map((p, i) => `--- Page ${i+1} ---\n${(p.innerText || p.textContent || '').trim()}`).join('\n\n')
+    : '';
+
+  const qa_pairs = [];
+  items.forEach(el => {
+    qa_pairs.push({
+      question:       el.dataset.qtext     || '',
+      student_answer: '',
+      model_answer:   el.dataset.model     || '',
+      pts:            parseFloat(el.dataset.pts || 0) || 0,
+      section:        el.dataset.section   || '',
+    });
+  });
+
+  if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse…'; }
+  const panel = document.getElementById('aiCorrPanel');
+  if (panel) {
+    panel.style.display = 'block';
+    panel.innerHTML = '<div style="padding:1rem .5rem;color:var(--t3);font-size:.84rem;display:flex;align-items:center;gap:.6rem"><i class="fas fa-circle-notch fa-spin" style="color:var(--blue2)"></i>L\'IA analyse vos réponses…</div>';
+  }
+
+  try {
+    const resp = await fetch('{% url "api_exam_ai_correct" %}', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json', 'X-CSRFToken':'{{ csrf_token }}'},
+      body: JSON.stringify({subject: currentSubject, qa_pairs, mise_au_net: miseAuNetText}),
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(()=>({error:'Erreur réseau '+resp.status}));
+      throw new Error(err.error || 'Erreur '+resp.status);
+    }
+    const data = await resp.json();
+    if (!data.ok) throw new Error(data.error || 'Erreur serveur');
+
+    const corrs    = data.corrections    || [];
+    const estScore = data.estimated_score || 0;
+    const totalPts = data.total_pts       || 0;
+    const pct = totalPts > 0 ? Math.round((estScore / totalPts) * 100) : 0;
+    const mention      = pct>=80?'Mention Très Bien':pct>=70?'Mention Bien':pct>=60?'Mention Passable':'À retravailler';
+    const mentionColor = pct>=80?'var(--green)':pct>=70?'#34d399':pct>=60?'var(--blue2)':'var(--orange)';
+    const emoji        = pct>=80?'🏆':pct>=70?'🥇':pct>=60?'📊':'📚';
+
+    const _coeff = parseFloat(document.getElementById('_examCoeffStore')?.value || '0') || 0;
+    const el_emoji   = document.getElementById('resEmoji');
+    const el_mention = document.getElementById('resMention');
+    const el_score   = document.getElementById('resScore');
+    const el_sub     = document.getElementById('resSub');
+    if (el_emoji)   el_emoji.textContent   = emoji;
+    if (el_mention) el_mention.textContent = mention;
+    if (el_score)   { el_score.textContent = estScore + '/' + totalPts + ' pts'; el_score.style.color = mentionColor; }
+    if (el_sub)     el_sub.innerHTML = `Score IA estimé : ${pct}%  ·  ${corrs.length} kesyon evalye`;
+
+    corrs.forEach((corr, i) => {
+      const itemEl = items[i];
+      if (!itemEl) return;
+      const airEl = document.getElementById('air_' + (itemEl.dataset.idx || ''));
+      if (!airEl) return;
+      const st   = corr.status || 'empty';
+      const icon = st==='correct'?'✅':st==='partial'?'⚠️':st==='wrong'?'❌':'⏳';
+      const col  = st==='correct'?'var(--green)':st==='partial'?'var(--orange)':st==='wrong'?'var(--red)':'var(--t3)';
+      airEl.className = 'ai-corr-result status-' + st;
+      airEl.style.display = 'block';
+      airEl.innerHTML =
+        '<div class="ai-corr-badge" style="color:'+col+'">'+icon+' Correction IA'
+        +'<span class="ai-corr-pts" style="color:'+col+'"> '+corr.scored_pts+'/'+corr.max_pts+' pt'+(corr.max_pts>1?'s':'')+'</span></div>'
+        +'<div style="color:var(--t2);font-size:.84rem">'+esc(corr.feedback||'')+'</div>';
+    });
+
+    if (panel) {
+      panel.innerHTML =
+        '<div class="acp-header"><i class="fas fa-robot"></i> Résultat Correction IA</div>'
+        +'<div style="display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;">'
+        +'<span class="acp-score" style="color:'+mentionColor+'">'+estScore+'/'+totalPts+' pts</span>'
+        +'<span style="font-size:.8rem;color:'+mentionColor+';font-weight:700">('+pct+'% — '+mention+')</span></div>'
+        +'<div class="acp-feedback">'+esc(data.global_feedback||'')+'</div>';
+    }
+
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-redo"></i> Recorriger'; }
+  } catch(err) {
+    console.error('AI correction error:', err);
+    if (panel) panel.innerHTML = '<div style="color:var(--orange);font-size:.84rem;padding:.5rem"><i class="fas fa-exclamation-triangle"></i> ' + esc(err.message) + ' — <a href="#" onclick="runAICorrection();return false;" style="color:var(--blue2)">Réessayer</a></div>';
+    const el_emoji2   = document.getElementById('resEmoji');
+    const el_mention2 = document.getElementById('resMention');
+    const el_score2   = document.getElementById('resScore');
+    if (el_emoji2 && el_emoji2.textContent==='⏳') el_emoji2.textContent = '⏳';
+    if (el_mention2 && el_mention2.textContent.includes('cours')) el_mention2.textContent = 'Correction manuelle';
+    if (el_score2 && el_score2.textContent==='…') { el_score2.textContent='N/A'; el_score2.style.color='var(--t2)'; }
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-robot"></i> Réessayer'; }
+  }
+}
+
+let _mauToolVisible = false;
+let _mauToolType    = '';
+let _mauAvConfig    = null;
+
+function _initMauTool(subject) {
+  const btn  = document.getElementById('mauToolBtn');
+  const sep  = document.getElementById('mauToolSep');
+  const icon = document.getElementById('mauToolIcon');
+  const lbl  = document.getElementById('mauToolLabel');
+  const panel = document.getElementById('mauToolPanel');
+  if (!btn) return;
+
+  _mauToolVisible = false;
+  if (panel) { panel.style.display = 'none'; panel.innerHTML = ''; }
+
+  if (subject === 'svt') {
+    _mauToolType = 'punnett';
+    btn.style.display = 'flex';
+    btn.style.color = 'var(--green)';
+    btn.style.borderColor = 'rgba(16,185,129,.4)';
+    if (icon) { icon.className = 'fas fa-th'; icon.style.color = 'var(--green)'; }
+    if (lbl) lbl.textContent = 'Échiquier de Punnett';
+    if (sep) sep.style.display = 'block';
+  } else if (subject === 'chimie') {
+    _mauToolType = 'avancement';
+    btn.style.display = 'flex';
+    btn.style.color = '#fb923c';
+    btn.style.borderColor = 'rgba(249,115,22,.4)';
+    if (icon) { icon.className = 'fas fa-flask'; icon.style.color = '#fb923c'; }
+    if (lbl) lbl.textContent = 'Tableau d\'avancement';
+    if (sep) sep.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+    if (sep) sep.style.display = 'none';
+    _mauToolType = '';
+  }
+}
+
+function toggleMauTool() {
+  const panel = document.getElementById('mauToolPanel');
+  if (!panel) return;
+  _mauToolVisible = !_mauToolVisible;
+
+  if (_mauToolVisible) {
+    if (_mauToolType === 'punnett') {
+      panel.innerHTML = buildMauPunnettHTML();
+    } else if (_mauToolType === 'avancement') {
+      panel.innerHTML = buildMauAvancementHTML();
+      _mauAvConfig = _defaultAvConfig();
+    }
+    panel.style.display = 'block';
+    panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+  } else {
+    panel.style.display = 'none';
+    panel.innerHTML = '';
+  }
+
+  const btn = document.getElementById('mauToolBtn');
+  if (btn) btn.style.fontWeight = _mauToolVisible ? '800' : '700';
+}
+
+function buildMauPunnettHTML() {
+  return `<div class="itool-card" style="margin:0;border-radius:0;background:var(--bg2);">
+    <div class="itool-header">
+      <span class="itool-badge" style="background:rgba(16,185,129,.12);color:var(--green);">SVT</span>
+      <span class="itool-title"><i class="fas fa-th" style="color:var(--green);margin-right:.35rem;"></i>Échiquier de Punnett</span>
+    </div>
+
+    
+    <div class="punnett-builder">
+      <div class="punnett-builder-row">
+        <div class="punnett-builder-field">
+          <div class="punnett-builder-label">Parent 1 (génotype)</div>
+          <input class="punnett-builder-input" id="mauP1" maxlength="8" placeholder="ex : Aa" autocomplete="off">
+        </div>
+        <div class="punnett-builder-field">
+          <div class="punnett-builder-label">Parent 2 (génotype)</div>
+          <input class="punnett-builder-input" id="mauP2" maxlength="8" placeholder="ex : Aa" autocomplete="off">
+        </div>
+        <div class="punnett-builder-field">
+          <div class="punnett-builder-label">Titre du croisement</div>
+          <input class="punnett-builder-input" id="mauCrossLabel" style="width:160px;"
+            placeholder="ex : F1 × F1" autocomplete="off">
+        </div>
+        <button class="itool-validate-btn" onclick="generateMauPunnett()"
+          style="margin-bottom:0;background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.35);">
+          <i class="fas fa-th"></i> Générer
+        </button>
+      </div>
+      <div style="font-size:.75rem;color:var(--t3);">
+        <i class="fas fa-info-circle" style="margin-right:.3rem;"></i>
+        Exemples : <strong>Aa × Aa</strong> (monohybridisme), <strong>AaBb × AaBb</strong> (dihybridisme),
+        <strong>X^A Y × X^A X^a</strong> (lié au sexe)
+      </div>
+    </div>
+
+    
+    <div id="mauPunnettResult"></div>
+  </div>`;
+}
+
+function _punnettGametes(geno) {
+  
+  geno = geno.trim();
+  if (!geno) return ['?'];
+
+  
+  
+  let loci = [];
+  
+  
+  const simple = geno.match(/[A-Za-z][A-Za-z]/g);
+  if (simple && simple.join('') === geno) {
+    loci = simple;
+  } else {
+    
+    if (geno.length >= 2) {
+      loci = [geno.slice(0, 2)];
+    } else {
+      loci = [geno + geno]; 
+    }
+  }
+
+  
+  let gametes = [''];
+  loci.forEach(pair => {
+    const a1 = pair[0], a2 = pair[1];
+    const newG = [];
+    gametes.forEach(g => { newG.push(g + a1); if (a1 !== a2) newG.push(g + a2); });
+    gametes = newG;
+  });
+  
+  return [...new Set(gametes)].sort();
+}
+
+function _crossGametes(g1, g2) {
+  
+  if (g1.length === g2.length) {
+    let result = '';
+    for (let i = 0; i < g1.length; i++) {
+      const a = g1[i], b = g2[i];
+      result += (a === a.toUpperCase() || (a.toLowerCase() !== b.toLowerCase() && a < b)) ? a + b : b + a;
+    }
+    return result;
+  }
+  return g1 + g2;
+}
+
+function _phenoRatio(cells) {
+  
+  const total = cells.length;
+  if (total === 0) return '';
+  let dom = 0;
+  cells.forEach(c => {
+    
+    if (/[A-Z]/.test(c)) dom++;
+  });
+  const rec = total - dom;
+  if (rec === 0) return `100% phénotype dominant`;
+  if (dom === 0) return `100% phénotype récessif`;
+  const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+  const g = gcd(dom, rec);
+  return `${dom/g} dominant(s) : ${rec/g} récessif(s) — soit ${Math.round((dom/total)*100)}% dominant`;
+}
+
+function _genoRatio(cells) {
+  const counts = {};
+  cells.forEach(c => { counts[c] = (counts[c] || 0) + 1; });
+  return Object.entries(counts).map(([k, v]) => `${v} ${k}`).join(' ; ');
+}
+
+function generateMauPunnett() {
+  const p1 = (document.getElementById('mauP1')?.value || '').trim();
+  const p2 = (document.getElementById('mauP2')?.value || '').trim();
+  const label = (document.getElementById('mauCrossLabel')?.value || '').trim() || `${p1} × ${p2}`;
+  const res = document.getElementById('mauPunnettResult');
+  if (!res) return;
+
+  if (!p1 || !p2) {
+    res.innerHTML = '<div style="color:#f59e0b;font-size:.82rem;padding:.5rem 0;">? Entre les génotypes des deux parents.</div>';
+    return;
+  }
+
+  const rows = _punnettGametes(p1);
+  const cols = _punnettGametes(p2);
+  const cells = [];
+
+  
+  let html = `<div class="punnett-cross-info">Croisement : <strong>${esc(label)}</strong> &nbsp;|&nbsp; ${esc(p1)} × ${esc(p2)}</div>`;
+  html += `<div class="punnett-wrap"><table class="punnett-table"><thead><tr><th class="punnett-corner"></th>`;
+  cols.forEach(c => { html += `<th>${esc(c)}</th>`; });
+  html += `</tr></thead><tbody>`;
+  rows.forEach(r => {
+    html += `<tr><th>${esc(r)}</th>`;
+    cols.forEach(c => {
+      const offspring = _crossGametes(r, c);
+      cells.push(offspring);
+      html += `<td><span class="punnett-cell-display">${esc(offspring)}</span></td>`;
+    });
+    html += `</tr>`;
+  });
+  html += `</tbody></table></div>`;
+
+  
+  const pheno = _phenoRatio(cells);
+  const geno  = _genoRatio(cells);
+  html += `<div class="punnett-analysis">
+    <div class="punnett-analysis-title"><i class="fas fa-chart-pie" style="margin-right:.35rem;"></i>Analyse des résultats</div>
+    <div class="punnett-analysis-row">
+      <div class="punnett-analysis-item"><strong>Descendance :</strong> ${esc(cells.length)} individus</div>
+      <div class="punnett-analysis-item"><strong>Ratio phénotypique :</strong> ${esc(pheno)}</div>
+    </div>
+    <div class="punnett-analysis-row">
+      <div class="punnett-analysis-item" style="min-width:100%;"><strong>Ratio génotypique :</strong> ${esc(geno)}</div>
+    </div>
+  </div>
+  <div style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+    <button class="itool-validate-btn" onclick="mauCopyPunnettToNote()"
+      style="background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.3);">
+      <i class="fas fa-copy"></i> Copier dans la mise au net
+    </button>
+    <button class="itool-validate-btn" onclick="generateMauPunnett()"
+      style="background:rgba(37,99,235,.12);color:#93c5fd;border:1px solid rgba(37,99,235,.3);">
+      <i class="fas fa-redo"></i> Recalculer
+    </button>
+  </div>`;
+
+  res.innerHTML = html;
+}
+
+function mauCopyPunnettToNote() {
+  const p1 = (document.getElementById('mauP1')?.value || '').trim();
+  const p2 = (document.getElementById('mauP2')?.value || '').trim();
+  const label = (document.getElementById('mauCrossLabel')?.value || '').trim() || `${p1} × ${p2}`;
+  if (!p1 || !p2) return;
+
+  const rows = _punnettGametes(p1);
+  const cols = _punnettGametes(p2);
+  let text = `\n— Échiquier de Punnett : ${label} —\n`;
+  text += `Parent 1 (${p1}) × Parent 2 (${p2})\n`;
+  text += `\n      | ` + cols.join(' | ') + ` |\n`;
+  rows.forEach(r => {
+    const rowCells = cols.map(c => _crossGametes(r, c));
+    text += `  ${r}  | ` + rowCells.join(' | ') + ` |\n`;
+  });
+
+  const cells = [];
+  rows.forEach(r => { cols.forEach(c => cells.push(_crossGametes(r, c))); });
+  text += `\nRatio phénotypique : ${_phenoRatio(cells)}\n`;
+  text += `Ratio génotypique  : ${_genoRatio(cells)}\n`;
+
+  const editor = _getActiveMauEditor();
+  if (editor) {
+    editor.focus();
+    document.execCommand('insertText', false, text);
+    showToast('Échiquier copié dans la mise au net.', 'success');
+  }
+}
+
+function _defaultAvConfig() {
+  return {
+    equation: '',
+    reactants: [{name:'Réactif A', coeff:1}, {name:'Réactif B', coeff:1}],
+    products:  [{name:'Produit C', coeff:1}],
+  };
+}
+
+function buildMauAvancementHTML() {
+  return `<div class="itool-card" style="margin:0;border-radius:0;background:var(--bg2);">
+    <div class="itool-header">
+      <span class="itool-badge" style="background:rgba(249,115,22,.1);color:#fb923c;">CHIMIE</span>
+      <span class="itool-title"><i class="fas fa-flask" style="color:#fb923c;margin-right:.35rem;"></i>Tableau d'avancement</span>
+      <button class="itool-remove-btn" onclick="removeMauAvancementPanel()" title="Supprimer le tableau">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+
+    
+    <div class="avancement-config" style="margin-bottom:.75rem;">
+      <div class="avancement-config-label">Équation de réaction</div>
+      <input class="avancement-config-input" id="mauAvEq" style="width:100%;max-width:520px;"
+        placeholder="ex : CH3COOH + C2H5OH ? CH3COOC2H5 + H2O" autocomplete="off">
+    </div>
+
+    
+    <div style="display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:.85rem;">
+      <div style="flex:1;min-width:200px;">
+        <div class="avancement-config-label">Réactifs (nom, coefficient)</div>
+        <div id="mauAvReactants">
+          <div class="avancement-config-row" data-ri="0">
+            <input class="avancement-config-input" style="width:130px;" placeholder="Nom réactif 1" data-field="name">
+            <input class="avancement-config-input" style="width:48px;" placeholder="coeff" data-field="coeff" type="number" min="1" value="1">
+            <button onclick="removeMauAvRow(this,'r')" style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:.85rem;" title="Supprimer">?</button>
+          </div>
+          <div class="avancement-config-row" data-ri="1">
+            <input class="avancement-config-input" style="width:130px;" placeholder="Nom réactif 2" data-field="name">
+            <input class="avancement-config-input" style="width:48px;" placeholder="coeff" data-field="coeff" type="number" min="1" value="1">
+            <button onclick="removeMauAvRow(this,'r')" style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:.85rem;" title="Supprimer">?</button>
+          </div>
+        </div>
+        <button onclick="addMauAvRow('r')" style="font-size:.72rem;color:var(--blue2);background:none;border:none;cursor:pointer;margin-top:.25rem;"><i class="fas fa-plus"></i> Réactif</button>
+      </div>
+      <div style="flex:1;min-width:200px;">
+        <div class="avancement-config-label">Produits (nom, coefficient)</div>
+        <div id="mauAvProducts">
+          <div class="avancement-config-row" data-pi="0">
+            <input class="avancement-config-input" style="width:130px;" placeholder="Nom produit 1" data-field="name">
+            <input class="avancement-config-input" style="width:48px;" placeholder="coeff" data-field="coeff" type="number" min="1" value="1">
+            <button onclick="removeMauAvRow(this,'p')" style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:.85rem;" title="Supprimer">?</button>
+          </div>
+        </div>
+        <button onclick="addMauAvRow('p')" style="font-size:.72rem;color:var(--blue2);background:none;border:none;cursor:pointer;margin-top:.25rem;"><i class="fas fa-plus"></i> Produit</button>
+      </div>
+    </div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.85rem;">
+      <button class="itool-validate-btn" onclick="generateMauAvancement()"
+        style="background:rgba(249,115,22,.15);color:#fb923c;border:1px solid rgba(249,115,22,.35);">
+        <i class="fas fa-table"></i> Générer le tableau
+      </button>
+    </div>
+
+    
+    <div id="mauAvResult"></div>
+  </div>`;
+}
+
+function addMauAvRow(type) {
+  const container = document.getElementById(type === 'r' ? 'mauAvReactants' : 'mauAvProducts');
+  if (!container) return;
+  const existing = container.querySelectorAll('.avancement-config-row').length;
+  const div = document.createElement('div');
+  div.className = 'avancement-config-row';
+  const placeholder = type === 'r' ? `Réactif ${existing + 1}` : `Produit ${existing + 1}`;
+  div.innerHTML = `
+    <input class="avancement-config-input" style="width:130px;" placeholder="${placeholder}" data-field="name">
+    <input class="avancement-config-input" style="width:48px;" placeholder="coeff" data-field="coeff" type="number" min="1" value="1">
+    <button onclick="removeMauAvRow(this,'${type}')" style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:.85rem;" title="Supprimer">?</button>`;
+  container.appendChild(div);
+}
+
+function removeMauAvRow(btn, type) {
+  const row = btn.closest('.avancement-config-row');
+  const container = row?.parentElement;
+  if (!container) return;
+  if (container.querySelectorAll('.avancement-config-row').length <= 1) {
+    showToast('Il faut au moins un ' + (type === 'r' ? 'réactif' : 'produit') + '.', 'error');
+    return;
+  }
+  row.remove();
+}
+
+function _readMauAvConfig() {
+  const eq = (document.getElementById('mauAvEq')?.value || '').trim();
+  const reactants = [], products = [];
+  document.querySelectorAll('#mauAvReactants .avancement-config-row').forEach(row => {
+    const name  = (row.querySelector('[data-field="name"]')?.value  || '').trim();
+    const coeff = parseInt(row.querySelector('[data-field="coeff"]')?.value || 1) || 1;
+    if (name) reactants.push({name, coeff});
+  });
+  document.querySelectorAll('#mauAvProducts .avancement-config-row').forEach(row => {
+    const name  = (row.querySelector('[data-field="name"]')?.value  || '').trim();
+    const coeff = parseInt(row.querySelector('[data-field="coeff"]')?.value || 1) || 1;
+    if (name) products.push({name, coeff});
+  });
+  return {equation: eq, reactants, products};
+}
+
+function generateMauAvancement() {
+  const cfg = _readMauAvConfig();
+  const res = document.getElementById('mauAvResult');
+  if (!res) return;
+
+  if (!cfg.reactants.length || !cfg.products.length) {
+    res.innerHTML = '<div style="color:#f59e0b;font-size:.82rem;padding:.5rem 0;">? Entre au moins un réactif et un produit.</div>';
+    return;
+  }
+  _mauAvConfig = cfg;
+
+  let html = '';
+  if (cfg.equation) {
+    html += `<div style="margin-bottom:.6rem;font-size:.82rem;color:var(--t2);">Équation : <strong>${esc(cfg.equation)}</strong></div>`;
+  }
+
+  
+  html += `<div class="avancement-wrap"><table class="avancement-table"><thead><tr><th>État / Avancement</th>`;
+  cfg.reactants.forEach(r => {
+    html += `<th>${esc(r.name)}<br><span style="opacity:.6;font-size:.7rem;">×${r.coeff}</span></th>`;
+  });
+  html += `<th style="border-left:2px solid #fb923c;color:#fb923c;">?</th>`;
+  cfg.products.forEach(p => {
+    html += `<th>${esc(p.name)}<br><span style="opacity:.6;font-size:.7rem;">×${p.coeff}</span></th>`;
+  });
+  html += `</tr></thead><tbody>`;
+
+  
+  html += `<tr><td>Initial &nbsp;(t = 0)</td>`;
+  cfg.reactants.forEach((r, i) => {
+    html += `<td><input class="avancement-input" id="mav_init_r${i}" placeholder="n0" title="Quantité initiale de ${esc(r.name)}"></td>`;
+  });
+  html += `<td style="border-left:2px solid #fb923c;color:var(--t3);">—</td>`;
+  cfg.products.forEach((p, i) => {
+    html += `<td><input class="avancement-input" id="mav_init_p${i}" placeholder="0" title="Quantité initiale de ${esc(p.name)}"></td>`;
+  });
+  html += `</tr>`;
+
+  
+  html += `<tr><td>En cours &nbsp;(x)</td>`;
+  cfg.reactants.forEach((r, i) => {
+    const c = r.coeff;
+    html += `<td class="avancement-formula">n0 - ${c === 1 ? '' : c}x</td>`;
+  });
+  html += `<td style="border-left:2px solid #fb923c;"></td>`;
+  cfg.products.forEach((p, i) => {
+    const c = p.coeff;
+    html += `<td class="avancement-formula">${c === 1 ? '' : c}x</td>`;
+  });
+  html += `</tr>`;
+
+  
+  html += `<tr><td>Final &nbsp;(x = x<sub>max</sub>)</td>`;
+  cfg.reactants.forEach((r, i) => {
+    html += `<td><input class="avancement-input" id="mav_fin_r${i}" placeholder="?" title="Quantité finale de ${esc(r.name)}"></td>`;
+  });
+  html += `<td style="border-left:2px solid #fb923c;color:var(--t3);">—</td>`;
+  cfg.products.forEach((p, i) => {
+    html += `<td><input class="avancement-input" id="mav_fin_p${i}" placeholder="x·${p.coeff || 1}"></td>`;
+  });
+  html += `</tr></tbody></table></div>`;
+
+  html += `<div style="display:flex;gap:.5rem;margin-top:.65rem;flex-wrap:wrap;">
+    <button class="itool-validate-btn" onclick="computeMauAvancement()"
+      style="background:rgba(249,115,22,.12);color:#fb923c;border:1px solid rgba(249,115,22,.3);">
+      <i class="fas fa-calculator"></i> Calculer x<sub>max</sub>
+    </button>
+    <button class="itool-validate-btn" onclick="mauCopyAvancementToNote()"
+      style="background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.3);">
+      <i class="fas fa-copy"></i> Copier dans la mise au net
+    </button>
+  </div>
+  <div id="mauAvFeedback" style="margin-top:.5rem;font-size:.82rem;"></div>`;
+
+  res.innerHTML = html;
+}
+
+function computeMauAvancement() {
+  if (!_mauAvConfig) return;
+  const cfg = _mauAvConfig;
+  const fb = document.getElementById('mauAvFeedback');
+  const missing = cfg.reactants.some((r, i) => !document.getElementById(`mav_init_r${i}`)?.value.trim());
+  if (missing) {
+    if (fb) fb.innerHTML = '<span style="color:#f59e0b;">? Remplis d\'abord les quantités initiales des réactifs.</span>';
+    return;
+  }
+  
+  let xmax = Infinity, limitant = '';
+  cfg.reactants.forEach((r, i) => {
+    const n0 = parseFloat(document.getElementById(`mav_init_r${i}`)?.value);
+    const coeff = r.coeff || 1;
+    if (!isNaN(n0) && n0 / coeff < xmax) {
+      xmax = n0 / coeff;
+      limitant = r.name;
+    }
+  });
+  if (!isFinite(xmax)) {
+    if (fb) fb.innerHTML = '<span style="color:var(--t3);">Impossible de calculer — vérifie les valeurs initiales.</span>';
+    return;
+  }
+  
+  cfg.reactants.forEach((r, i) => {
+    const n0 = parseFloat(document.getElementById(`mav_init_r${i}`)?.value) || 0;
+    const nf = Math.max(0, n0 - (r.coeff || 1) * xmax);
+    const el = document.getElementById(`mav_fin_r${i}`);
+    if (el) el.value = nf.toFixed(3).replace(/\.?0+$/, '');
+  });
+  cfg.products.forEach((p, i) => {
+    const n0 = parseFloat(document.getElementById(`mav_init_p${i}`)?.value) || 0;
+    const nf = n0 + (p.coeff || 1) * xmax;
+    const el = document.getElementById(`mav_fin_p${i}`);
+    if (el) el.value = nf.toFixed(3).replace(/\.?0+$/, '');
+  });
+  if (fb) fb.innerHTML = `<span style="color:var(--green);"><i class="fas fa-check-circle"></i> x<sub>max</sub> = <strong>${xmax.toFixed(3).replace(/\.?0+$/, '')} mol</strong> — Réactif limitant : <strong>${esc(limitant)}</strong></span>`;
+}
+
+function mauCopyAvancementToNote() {
+  if (!_mauAvConfig) { generateMauAvancement(); return; }
+  const cfg = _mauAvConfig;
+  let text = `\n— Tableau d'avancement —\n`;
+  if (cfg.equation) text += `Équation : ${cfg.equation}\n`;
+  text += '\n';
+  
+  const rNames = cfg.reactants.map(r => r.name);
+  const pNames = cfg.products.map(p => p.name);
+  text += `État\t| ${rNames.join(' | ')} || ${pNames.join(' | ')}\n`;
+  text += `${'-'.repeat(60)}\n`;
+  
+  const rInit = cfg.reactants.map((r, i) => document.getElementById(`mav_init_r${i}`)?.value || '?');
+  const pInit = cfg.products.map((p, i) => document.getElementById(`mav_init_p${i}`)?.value || '0');
+  text += `Initial (t=0)\t| ${rInit.join(' | ')} || ${pInit.join(' | ')}\n`;
+  
+  const rEnCours = cfg.reactants.map(r => `n0 - ${r.coeff === 1 ? '' : r.coeff}x`);
+  const pEnCours = cfg.products.map(p => `${p.coeff === 1 ? '' : p.coeff}x`);
+  text += `En cours (x)\t| ${rEnCours.join(' | ')} || ${pEnCours.join(' | ')}\n`;
+  
+  const rFin = cfg.reactants.map((r, i) => document.getElementById(`mav_fin_r${i}`)?.value || '?');
+  const pFin = cfg.products.map((p, i) => document.getElementById(`mav_fin_p${i}`)?.value || '?');
+  text += `Final (xmax)\t| ${rFin.join(' | ')} || ${pFin.join(' | ')}\n`;
+  
+  const fb = document.getElementById('mauAvFeedback');
+  if (fb && fb.textContent.includes('xmax')) text += '\n' + fb.textContent + '\n';
+
+  const editor = _getActiveMauEditor();
+  if (editor) {
+    editor.focus();
+    document.execCommand('insertText', false, text);
+    showToast('Tableau d\'avancement copié dans la mise au net.', 'success');
+  }
+}
+
+function removeMauAvancementPanel() {
+  const result = document.getElementById('mauAvResult');
+  if (result) result.innerHTML = '';
+  const eq = document.getElementById('mauAvEq');
+  if (eq) eq.value = '';
+  _mauAvConfig = null;
+  showToast('Tableau d\'avancement supprimé.', 'success');
+}
+
+function wrapTablesForResponsive() {
+  document.querySelectorAll('.exam-q-text table, .model-answer table').forEach(table => {
+    if (!table.closest('.table-wrapper')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', wrapTablesForResponsive);
+const observer = new MutationObserver(() => {
+  wrapTablesForResponsive();
+});
+observer.observe(document.body, { childList: true, subtree: true });
+</script>
+{% endblock %}
+{% endblock %}
