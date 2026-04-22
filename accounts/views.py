@@ -50,8 +50,8 @@ def _normalize_diag_question(q):
 
 def _post_auth_redirect(user):
     if hasattr(user, 'agent'):
-        return 'agent_dashboard'
-    return 'dashboard'
+        return '/agent/dashboard/'
+    return '/dashboard/'
 
 
 def _safe_referer_next(request):
@@ -694,62 +694,121 @@ def _agent_referral_link(request, agent):
 @require_POST
 def agent_register_view(request):
     """Inscription agent via le formulaire du modal landing."""
-    phone    = request.POST.get('phone', '').strip()
-    password = request.POST.get('password', '').strip()
+    try:
+        # Nettoyer la session si elle est corrompue
+        if request.session.session_key:
+            try:
+                request.session.save()
+            except Exception:
+                # Si la session est corrompue, en créer une nouvelle
+                request.session.flush()
+                request.session.create()
 
-    if not phone or not password:
-        return JsonResponse({'error': 'Tous les champs sont requis.'}, status=400)
-    if len(password) < 8:
-        return JsonResponse({'error': 'Mot de passe trop court (min 8 caractères).'}, status=400)
-    if not phone.startswith('+509'):
-        phone = '+509' + phone
+        phone    = request.POST.get('phone', '').strip()
+        password = request.POST.get('password', '').strip()
 
-    from .models import Agent
-    if Agent.objects.filter(phone=phone).exists() or UserProfile.objects.filter(phone=phone).exists():
-        return JsonResponse({'error': 'Ce numéro est déjà utilisé.'}, status=400)
+        if not phone or not password:
+            return JsonResponse({'error': 'Tous les champs sont requis.'}, status=400)
+        if len(password) < 8:
+            return JsonResponse({'error': 'Mot de passe trop court (min 8 caractères).'}, status=400)
+        if not phone.startswith('+509'):
+            phone = '+509' + phone
 
-    base     = phone.lstrip('+').replace(' ', '')
-    username = base
-    n = 1
-    while User.objects.filter(username=username).exists():
-        username = f"{base}{n}"; n += 1
+        from .models import Agent
+        if Agent.objects.filter(phone=phone).exists() or UserProfile.objects.filter(phone=phone).exists():
+            return JsonResponse({'error': 'Ce numéro est déjà utilisé.'}, status=400)
 
-    user = User.objects.create_user(username=username, password=password)
-    UserProfile.objects.create(user=user, phone=phone)
-    agent = Agent.objects.create(user=user, phone=phone)
+        base     = phone.lstrip('+').replace(' ', '')
+        username = base
+        n = 1
+        while User.objects.filter(username=username).exists():
+            username = f"{base}{n}"; n += 1
 
-    login(request, user)
-    return JsonResponse({'ok': True, 'redirect': '/agent/dashboard/'})
+        user = User.objects.create_user(username=username, password=password)
+        UserProfile.objects.create(user=user, phone=phone)
+        agent = Agent.objects.create(user=user, phone=phone)
+
+        login(request, user)
+        # Même logique que login_view élève : enregistrer la session + token persistant
+        if request.session.session_key:
+            new_profile = getattr(user, 'profile', None)
+            if new_profile:
+                new_profile.active_session_key = request.session.session_key
+                new_profile.save(update_fields=['active_session_key'])
+        from .models import PersistentAuthToken
+        PersistentAuthToken.objects.filter(user=user).delete()
+        PersistentAuthToken.objects.create(user=user)
+        return JsonResponse({'ok': True, 'redirect': '/agent/dashboard/'})
+    
+    except Exception as e:
+        # En cas d'erreur de session ou autre, nettoyer et retourner une erreur générique
+        try:
+            request.session.flush()
+        except:
+            pass
+        return JsonResponse({'error': 'Erreur d\'inscription. Veuillez réessayer.'}, status=500)
 
 
 @require_POST
 def agent_login_view(request):
-    phone = request.POST.get('phone', '').strip()
-    password = request.POST.get('password', '')
-    if not phone or not password:
-        return JsonResponse({'error': 'Tous les champs sont requis.'}, status=400)
+    try:
+        # Nettoyer la session si elle est corrompue
+        if request.session.session_key:
+            try:
+                request.session.save()
+            except Exception:
+                # Si la session est corrompue, en créer une nouvelle
+                request.session.flush()
+                request.session.create()
 
-    if not phone.startswith('+509'):
-        phone = f'+509{phone}'
+        phone = request.POST.get('phone', '').strip()
+        password = request.POST.get('password', '')
+        if not phone or not password:
+            return JsonResponse({'error': 'Tous les champs sont requis.'}, status=400)
 
-    profile = UserProfile.objects.filter(phone=phone).select_related('user').first()
-    if not profile:
-        return JsonResponse({'error': 'Identifiants incorrects.'}, status=400)
+        if not phone.startswith('+509'):
+            phone = f'+509{phone}'
 
-    user = authenticate(request, username=profile.user.username, password=password)
-    if not user or not hasattr(user, 'agent'):
-        return JsonResponse({'error': 'Identifiants incorrects.'}, status=400)
+        profile = UserProfile.objects.filter(phone=phone).select_related('user').first()
+        if not profile:
+            return JsonResponse({'error': 'Identifiants incorrects.'}, status=400)
 
-    login(request, user)
-    return JsonResponse({'ok': True, 'redirect': '/agent/dashboard/'})
+        user = authenticate(request, username=profile.user.username, password=password)
+        if not user or not hasattr(user, 'agent'):
+            return JsonResponse({'error': 'Identifiants incorrects.'}, status=400)
+
+        login(request, user)
+        # Même logique que login_view élève : enregistrer la session + token persistant
+        if request.session.session_key:
+            profile = getattr(user, 'profile', None)
+            if profile:
+                profile.active_session_key = request.session.session_key
+                profile.save(update_fields=['active_session_key'])
+        from .models import PersistentAuthToken
+        PersistentAuthToken.objects.filter(user=user).delete()
+        PersistentAuthToken.objects.create(user=user)
+        return JsonResponse({'ok': True, 'redirect': '/agent/dashboard/'})
+
+    except Exception as e:
+        # En cas d'erreur de session ou autre, nettoyer et retourner une erreur générique
+        try:
+            request.session.flush()
+        except:
+            pass
+        return JsonResponse({'error': 'Erreur de connexion. Veuillez réessayer.'}, status=500)
 
 
-@login_required
 def agent_dashboard_view(request):
     from .models import Agent, AgentWithdrawal
+    
+    if not request.user.is_authenticated:
+        return redirect('/?agent=1')
+    
     try:
         agent = request.user.agent
     except Agent.DoesNotExist:
+        return redirect('landing')
+    except Exception:
         return redirect('landing')
 
     referral_link = _agent_referral_link(request, agent)
