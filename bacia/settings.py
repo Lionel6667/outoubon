@@ -17,8 +17,12 @@ if not SECRET_KEY:
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
-    h.strip() for h in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',') if h.strip()
+    h.strip() for h in os.getenv(
+        'ALLOWED_HOSTS',
+        'localhost,127.0.0.1,.railway.app,outoubon.com,www.outoubon.com'
+    ).split(',') if h.strip()
 ]
+
 if DEBUG:
     ALLOWED_HOSTS += ['.ngrok-free.dev', '.ngrok.io']
 
