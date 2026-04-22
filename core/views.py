@@ -9572,9 +9572,8 @@ def library_view(request):
                 'count': len(files),
             })
 
-    filter_subj = request.GET.get('subject', '')
-    if filter_subj and filter_subj != 'all':
-        library = [l for l in library if l['subject'] == filter_subj]
+    # Plus de filtrage par sujet - afficher tous les exams de toutes les matières
+    filter_subj = 'all'  # Forcer à 'all' pour ne plus filtrer
 
     # Check premium for gating library actions
     user_is_premium = False
