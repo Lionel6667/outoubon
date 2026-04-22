@@ -947,8 +947,24 @@ function agentFormSubmit(e) {
   const data = new FormData(document.getElementById('agentForm'));
   data.set('phone', phone);
   data.set('password', pass);
-  fetch(mode === 'login' ? '/agent/login/' : '/agent/register/', { method: 'POST', body: data })
-    .then(r => r.json())
+  // Get CSRF token from form hidden input
+  const csrftoken = data.get('csrfmiddlewaretoken') || '';
+  fetch(mode === 'login' ? '/agent/login/' : '/agent/register/', {
+    method: 'POST',
+    body: data,
+    headers: csrftoken ? {'X-CSRFToken': csrftoken} : {},
+    credentials: 'same-origin'
+  })
+    .then(r => {
+      // Handle non-JSON responses (CSRF 403, ALLOWED_HOSTS 400, etc.)
+      const ct = r.headers.get('content-type') || '';
+      if (ct.indexOf('application/json') === -1) {
+        if (r.status === 403) return {error: 'Session expirée. Recharge la page et réessaie.'};
+        if (r.status === 400) return {error: 'Requête invalide. Recharge la page.'};
+        return {error: 'Erreur serveur (' + r.status + '). Réessaie.'};
+      }
+      return r.json();
+    })
     .then(d => {
       if (d.ok) { startAgentRedirect(d.redirect); }
       else {
@@ -958,11 +974,24 @@ function agentFormSubmit(e) {
       }
     })
     .catch(() => {
-      showAgentError('Erreur réseau, réessaie.');
+      showAgentError('Erreur réseau. Vérifie ta connexion et réessaie.');
       btn.disabled = false;
       btn.textContent = mode === 'login' ? 'Se connecter' : 'Créer mon compte agent';
     });
 }
+// Auto-open agent modal when URL has ?agent=1
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('agent') === '1') {
+    // Small delay to ensure page is fully rendered
+    setTimeout(function(){ openAgentModal(); }, 300);
+    // Clean the URL without reloading
+    if (window.history.replaceState) {
+      const clean = window.location.pathname;
+      window.history.replaceState({}, document.title, clean);
+    }
+  }
+})();
 </script>
 </body>
 </html>
