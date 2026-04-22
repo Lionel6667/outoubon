@@ -63,8 +63,9 @@ html, body { height:100%; overflow:hidden; }
   color:#cbd5e1;
   cursor:pointer;
   white-space:nowrap;
-  transition:all .2s ease;
+  transition:all .15s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink:0;
+  transform: scale(1);
 }
 
 .subj-pill:hover {
@@ -616,9 +617,53 @@ html, body { height:100%; overflow:hidden; }
 }
 
 @media (max-width: 768px) {
-  .chat-subj-bar { padding:.62rem .72rem; gap:.42rem; }
-  .subject-focus-hint { margin:.46rem .72rem 0; }
-  .msgs-area { padding:.96rem .66rem 1.35rem; }
+  /* base.html uses a hardcoded 52px padding-top for all pages.
+     Here we compute the real topbar height at runtime (see JS) and use it. */
+  .app.has-topbar .main { padding-top: var(--chat-topbar-h, 52px) !important; }
+  .topbar { 
+    margin-bottom:0 !important; 
+    padding-bottom:0 !important;
+    border-bottom:1px solid rgba(148,163,184,.18) !important;
+  }
+  .chat-subj-bar { 
+    position: fixed !important;
+    top: var(--chat-topbar-h, 52px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 150 !important;
+    padding:.62rem .72rem; 
+    gap:.42rem; 
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    border-top:none !important;
+    border-bottom:1px solid rgba(148,163,184,.16) !important;
+    background:linear-gradient(180deg, rgba(8,15,34,.92), rgba(8,16,35,.7)) !important;
+  }
+  .topbar + .chat-subj-bar { 
+    margin-top:0 !important; 
+    border-top:none !important;
+  }
+  .subject-focus-hint { 
+    position: fixed !important;
+    top: calc(3rem + var(--chat-topbar-h, 52px)) !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 140 !important;
+    margin:.46rem .72rem 0; 
+    display:block !important;
+    background:linear-gradient(135deg, rgba(34,197,94,.1), rgba(14,165,233,.08)) !important;
+    border:1px dashed rgba(34,197,94,.48) !important;
+    border-radius:11px !important;
+    color:#86efac !important;
+    font-size:.76rem !important;
+    font-weight:700 !important;
+    padding:.58rem .82rem !important;
+    animation:hintIn .26s ease-out !important;
+  }
+  .msgs-area { 
+    padding:.96rem .66rem 1.35rem; 
+    margin-top: calc(5.5rem + var(--chat-topbar-h, 52px)) !important;
+  }
   .msg-bubble { font-size:.86rem; padding:.7rem .86rem; }
   .msg-content { max-width:91%; }
   .msg-av { width:30px; height:30px; }
@@ -658,8 +703,45 @@ html, body { height:100%; overflow:hidden; }
         </button>
       </div>
     </div>
-
-    
+    <div id="histOverlay" onclick="toggleHistory()" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,.55);z-index:9998;"></div>
+    <aside id="histPanel" class="hist-panel" aria-hidden="true">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:1rem;">
+        <div style="font-size:.95rem;font-weight:800;color:var(--t1);display:flex;align-items:center;gap:.5rem;">
+          <i class="fas fa-clock-rotate-left" style="color:var(--green);"></i>
+          Historique
+        </div>
+        <button onclick="toggleHistory()" title="Fermer l'historique"
+          style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:1rem;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      {% if conversations %}
+        {% for conv in conversations %}
+        <button
+          type="button"
+          class="hist-entry"
+          onclick="openHistorySession('{{ conv.session_key|escapejs }}')"
+          style="width:100%;text-align:left;cursor:pointer;color:inherit;">
+          <div class="hist-title">{{ conv.preview }}</div>
+          <div class="hist-meta" style="color:var(--t3);font-size:.75rem;justify-content:space-between;">
+            <span>{{ conv.subject|default:"general"|capfirst }}</span>
+            <span>{{ conv.last_msg|date:"d/m H:i" }}</span>
+          </div>
+        </button>
+        {% endfor %}
+        <a href="{% url 'historique' %}" class="hist-entry" style="display:block;margin-top:.75rem;border-style:dashed;">
+          <div class="hist-title">Voir tout l'historique</div>
+          <div class="hist-meta" style="color:var(--t3);font-size:.75rem;">
+            <i class="fas fa-comments"></i>
+            <span>Ouvrir la page complète</span>
+          </div>
+        </a>
+      {% else %}
+      <div style="padding:.85rem .9rem;background:rgba(15,23,42,.84);border:1px solid rgba(148,163,184,.2);border-radius:12px;color:var(--t3);font-size:.82rem;line-height:1.55;">
+        Aucune conversation enregistrée pour le moment.
+      </div>
+      {% endif %}
+    </aside>
     <div class="chat-subj-bar">
       {% for key, mat in mats.items %}
       <button class="subj-pill" data-subj="{{ key }}" onclick="setSubject('{{ key }}',this)">{{ mat.label }}</button>
@@ -768,7 +850,16 @@ html, body { height:100%; overflow:hidden; }
             <div class="input-actions">
               <label class="icon-btn" title="Joindre une image ou PDF">
                 <i class="fas fa-paperclip"></i>
-                <input type="file" id="fileInput" accept="image
+                <input type="file" id="fileInput" accept="image/*,.pdf,application/pdf" multiple style="display:none" onchange="handleFiles(event)">
+              </label>
+              <button class="send-btn" id="sendBtn" onclick="sendMessage()" {% if is_guest %}disabled{% endif %}>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
 let currentSubject    = '';
 let currentSessionKey = '';
 let imgFiles  = [];
@@ -861,7 +952,22 @@ function updateSubjectFocusUI() {
   const hint = document.getElementById('subjectFocusHint');
   const needs = !currentSubject;
   if (bar) bar.classList.toggle('needs-subject', needs);
-  if (hint) hint.classList.toggle('show', needs);
+  if (hint) {
+    hint.classList.toggle('show', needs);
+    // Force display on mobile when no subject selected
+    if (needs && window.innerWidth <= 768) {
+      hint.style.display = 'block';
+      hint.style.opacity = '1';
+      hint.style.transform = 'translateY(0) scale(1)';
+    } else if (!needs) {
+      // Hide when subject is selected
+      hint.style.opacity = '0';
+      hint.style.transform = 'translateY(-10px) scale(0.98)';
+      setTimeout(() => {
+        hint.style.display = 'none';
+      }, 300);
+    }
+  }
 }
 
 function ensureSubjectSelected() {
@@ -871,6 +977,9 @@ function ensureSubjectSelected() {
   if (bar) {
     bar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+  if (typeof showToast === 'function') {
+    showToast('Choisis d’abord une matière pour envoyer ton message.', 'error');
+  }
   return false;
 }
 
@@ -879,6 +988,16 @@ function setSubject(subj, btn) {
   currentSessionKey = '';
   document.querySelectorAll('.subj-pill').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
+  
+  // Animation de sélection
+  btn.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    btn.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+      btn.style.transform = 'scale(1)';
+    }, 150);
+  }, 100);
+  
   updateSubjectFocusUI();
 }
 
@@ -985,6 +1104,10 @@ function newConversation() {
   const ta = document.getElementById('chatInput');
   ta.value = ''; ta.style.height = 'auto';
   renderFilePreviews();
+  if (!currentSubject) {
+    const firstPill = document.querySelector('.subj-pill');
+    if (firstPill) setSubject(firstPill.dataset.subj, firstPill);
+  }
 }
 
 function cleanFollowupMarkers(text) {
@@ -1159,7 +1282,7 @@ function appendMsg(role, text, imageUrl, followups, instant, attNames) {
   const av = `<div class="msg-av">${role==='ai'?'<i class="fas fa-robot" style="font-size:.62rem"></i>':userInitial}</div>`;
 
   let bContent = '';
-  if (imageUrl) bContent += `<img src="${imageUrl}" class="msg-img" alt="">`;
+  if (imageUrl) bContent += '<img src="' + imageUrl + '" class="msg-img" alt="">';
 
   if (role === 'ai') {
     const _rmd = renderMarkdown(text||'');
@@ -1382,24 +1505,69 @@ async function loadSessionHistory(sessionKey) {
   }
 }
 
+function openHistorySession(sessionKey) {
+  if (!sessionKey) return;
+  if (histOpen) toggleHistory();
+  loadSessionHistory(sessionKey);
+}
+
 function toggleHistory() {
   histOpen = !histOpen;
   const panel   = document.getElementById('histPanel');
   const overlay = document.getElementById('histOverlay');
-  panel.classList.toggle('open', histOpen);
-  overlay.style.display = histOpen ? 'block' : 'none';
-  document.getElementById('histBtn').style.borderColor = histOpen ? 'var(--green)' : 'var(--border2)';
+  const btn = document.getElementById('histBtn');
+  if (panel) {
+    panel.classList.toggle('open', histOpen);
+    panel.setAttribute('aria-hidden', histOpen ? 'false' : 'true');
+  }
+  if (overlay) {
+    overlay.style.display = histOpen ? 'block' : 'none';
+  }
+  if (btn) {
+    btn.style.borderColor = histOpen ? 'var(--green)' : 'var(--border2)';
+  }
+}
+
+function _syncChatTopbarOffset() {
+  try {
+    const tb = document.querySelector('.topbar');
+    if (!tb) return;
+    const h = tb.getBoundingClientRect().height;
+    if (h && isFinite(h)) {
+      document.documentElement.style.setProperty('--chat-topbar-h', Math.ceil(h) + 'px');
+    }
+  } catch(e) {}
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  _syncChatTopbarOffset();
+  window.addEventListener('resize', _syncChatTopbarOffset);
+  
+  // Initialize subject selection
   if (PRELOAD_SUBJECT) {
     const preloadPill = document.querySelector(`.subj-pill[data-subj="${PRELOAD_SUBJECT}"]`);
     if (preloadPill) {
       setSubject(PRELOAD_SUBJECT, preloadPill);
-      return;
+    }
+  } else {
+    // Don't auto-select first subject on mobile, show the hint instead
+    if (window.innerWidth > 768) {
+      const firstPill = document.querySelector('.subj-pill');
+      if (firstPill) {
+        setSubject(firstPill.dataset.subj, firstPill);
+      }
     }
   }
+  
+  // Always update focus UI to show/hide hint appropriately
   updateSubjectFocusUI();
+  
+  const preloadSession = '{{ preload_session|default:""|escapejs }}';
+  if (preloadSession) {
+    loadSessionHistory(preloadSession);
+  }
+  
+  setTimeout(_syncChatTopbarOffset, 50);
 });
 </script>
 {% endblock %}

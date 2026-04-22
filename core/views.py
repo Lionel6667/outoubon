@@ -1959,7 +1959,7 @@ def chat_view(request):
         .exclude(session_key='')
         .values('session_key', 'subject')
         .annotate(last_msg=Max('created_at'), msg_count=Count('id'))
-        .order_by('-last_msg')[:10]
+        .order_by('-last_msg')
     )
     # Ajouter le premier message de chaque conversation pour le titre
     conv_list = []
@@ -9833,6 +9833,7 @@ def duel_view(request):
 def api_duel_create(request):
     """Crée une nouvelle session de duel et génère les questions partagées."""
     from .models import QuizDuel
+    from .models import QuizQuestion
     from django.utils import timezone as _tz
     from datetime import timedelta
 
@@ -9851,7 +9852,14 @@ def api_duel_create(request):
 
     questions = _fetch_duel_questions(subject, count=count)
     if not questions:
-        return JsonResponse({'error': 'Impossible de charger les questions. Réessaie.'}, status=500)
+        # Fallback sans IA: pioche dans la table QuizQuestion si elle est peuplée.
+        try:
+            db_qs = list(QuizQuestion.objects.filter(subject=subject).order_by('?')[:count])
+            questions = [q.to_dict() for q in db_qs]
+        except Exception:
+            questions = []
+        if not questions:
+            return JsonResponse({'error': 'Impossible de charger les questions. Réessaie.'}, status=500)
 
     duel = QuizDuel.objects.create(
         code       = code,

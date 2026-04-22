@@ -713,7 +713,17 @@ html, body {
           <div style="display:flex;align-items:center;gap:.4rem;">
             <label class="calc-toggle-btn" title="Joindre une image" style="cursor:pointer;">
               <i class="fas fa-image"></i>
-              <input type="file" id="coursImgInput" accept="image
+              <input type="file" id="coursImgInput" accept="image/*" style="display:none" onchange="handleCoursImg(event)">
+            </label>
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
 const SESSION_ID   = {{ session_id|default:"null" }};
 const INIT_STEP    = {{ progress_step|default:0 }};
 const IS_GUEST     = {{ is_guest|yesno:"true,false" }};

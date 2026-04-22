@@ -1,0 +1,184 @@
+
+============================================================
+[SUJET] Traitement : exams_anglais.json
+  20 examens total | 0 déjà nettoyés | 20 à traiter
+  [  1/20] exam_anglais_anglais-2025.pdf                           ECHEC Trop court (0 chars) (19.0s) - texte original conserve
+  [  2/20] exam_anglais_anglais-modele-ses_svt_smp.pdf             OK 4,107 chars (12.3s)
+  [  3/20] exam_anglais_anglais_2019_lla_catfish.pdf               OK 5,596 chars (15.1s)
+  [  4/20] exam_anglais_anglais_2019_lla_declaim.pdf               OK 5,435 chars (14.3s)
+  [  5/20] exam_anglais_anglais_2019_ses-svt-smo_emulation.pdf     OK 4,293 chars (11.8s)
+  [  6/20] exam_anglais_anglais_2019_ses-svt-smp_country.pdf       OK 5,536 chars (12.6s)
+  [  7/20] exam_anglais_anglais_2019_ses-svt-smp_doleful.pdf       OK 5,387 chars (14.4s)
+  [  8/20] exam_anglais_anglais_2020_lla_business.pdf              ECHEC Trop court (0 chars) (11.3s) - texte original conserve
+  [  9/20] exam_anglais_anglais_2020_lla_currently.pdf             OK 4,094 chars (16.2s)
+  [ 10/20] exam_anglais_anglais_2020_lla_finalcial.pdf             OK 4,291 chars (11.5s)
+  [ 11/20] exam_anglais_anglais_2022_lla_atlanta.pdf               OK 5,424 chars (14.8s)
+  [ 12/20] exam_anglais_anglais_2022_lla_dallas.pdf                OK 4,780 chars (14.8s)
+  [ 13/20] exam_anglais_anglais_2022_lla_detroit.pdf               OK 5,132 chars (15.6s)
+  [ 14/20] exam_anglais_anglais_2022_lla_honolulu.pdf              OK 4,883 chars (15.8s)
+  [ 15/20] exam_anglais_anglais_2022_lla_portland.pdf              OK 5,396 chars (14.7s)
+  [ 16/20] exam_anglais_anglais_2022_ses-smp-svt_cleveland.pdf     OK 4,841 chars (13.6s)
+  [ 17/20] exam_anglais_anglais_2022_ses-smp-svt_indianapolis.pdf  OK 5,306 chars (17.9s)
+  [ 18/20] exam_anglais_anglais_2022_ses-smp-svt_jacksonville.pdf  OK 4,339 chars (12.9s)
+  [ 19/20] exam_anglais_anglais_2022_ses-smp-svt_kansas-city.pdf   OK 4,691 chars (16.6s)
+  [ 20/20] exam_anglais_anglais_2022_ses-smp-svt_tucson.pdf        OK 4,654 chars (13.9s)
+
+============================================================
+[SUJET] Traitement : exams_art.json
+  36 examens total | 0 déjà nettoyés | 36 à traiter
+  [  1/36] exam_art_arts_2002_tambour.pdf                          ECHEC Trop court (0 chars) (13.3s) - texte original conserve
+  [  2/36] exam_art_arts_2015_melodie.pdf                          ECHEC Trop court (0 chars) (11.9s) - texte original conserve
+  [  3/36] exam_art_arts_2016_ibo.pdf                              ECHEC Trop court (0 chars) (9.1s) - texte original conserve
+  [  4/36] exam_art_arts_2016_nago.pdf                             OK 3,477 chars (9.7s)
+  [  5/36] exam_art_arts_2016_tchatcha.pdf                         OK 2,488 chars (9.4s)
+  [  6/36] exam_art_arts_2016_violon.pdf                           ECHEC Trop court (0 chars) (7.8s) - texte original conserve
+  [  7/36] exam_art_arts_2016_yanvalou.pdf                         ECHEC Trop court (0 chars) (9.5s) - texte original conserve
+  [  8/36] exam_art_arts_2018_folklore.pdf                         OK 2,830 chars (10.9s)
+  [  9/36] exam_art_arts_2019_espace-2.pdf                         OK 3,848 chars (11.3s)
+  [ 10/36] exam_art_arts_2019_espace.pdf                           OK 3,551 chars (10.6s)
+  [ 11/36] exam_art_arts_2019_mysticisme-2.pdf                     OK 3,173 chars (12.1s)
+  [ 12/36] exam_art_arts_2019_peinture-2.pdf                       ECHEC Trop court (0 chars) (12.9s) - texte original conserve
+  [ 13/36] exam_art_arts_2019_peinture.pdf                         ECHEC Trop court (0 chars) (12.7s) - texte original conserve
+  [ 14/36] exam_art_arts_2020_lla_chopin.pdf                       ECHEC Trop court (0 chars) (9.8s) - texte original conserve
+  [ 15/36] exam_art_arts_2020_lla_hector.pdf                       ECHEC Trop court (0 chars) (11.7s) - texte original conserve
+  [ 16/36] exam_art_arts_2020_lla_mozart.pdf                       ECHEC Trop court (0 chars) (9.2s) - texte original conserve
+  [ 17/36] exam_art_arts_2020_lla_occide.pdf                       ECHEC Trop court (0 chars) (10.4s) - texte original conserve
+  [ 18/36] exam_art_arts_2021_lla_albert.pdf                       OK 5,512 chars (21.8s)
+  [ 19/36] exam_art_arts_2021_lla_pyramide.pdf                     OK 4,791 chars (15.5s)
+  [ 20/36] exam_art_arts_2021_lla_sebastient.pdf                   OK 5,111 chars (16.9s)
+  [ 21/36] exam_art_arts_2022-rara.pdf                             OK 2,957 chars (11.1s)
+  [ 22/36] exam_art_arts_2022_acapala.pdf                          ECHEC Trop court (0 chars) (9.6s) - texte original conserve
+  [ 23/36] exam_art_arts_2022_carnaval-2.pdf                       OK 2,793 chars (9.4s)
+  [ 24/36] exam_art_arts_2022_carnaval.pdf                         OK 2,833 chars (10.4s)
+  [ 25/36] exam_art_arts_2022_compas.pdf                           ECHEC Trop court (0 chars) (21.8s) - texte original conserve
+  [ 26/36] exam_art_arts_2022_compas_compas.pdf                    OK 3,606 chars (13.0s)
+  [ 27/36] exam_art_arts_2022_lla_souvenance.pdf                   OK 2,547 chars (8.6s)
+  [ 28/36] exam_art_arts_2022_saint-soleil.pdf                     ECHEC Trop court (0 chars) (16.5s) - texte original conserve
+  [ 29/36] exam_art_arts_2022_tambour.pdf                          OK 2,325 chars (13.2s)
+  [ 30/36] exam_art_arts_2022_tiga.pdf                             ECHEC Trop court (0 chars) (17.5s) - texte original conserve
+  [ 31/36] exam_art_arts_2022_yanvalou.pdf                         OK 3,492 chars (12.8s)
+  [ 32/36] exam_chimie_chimie_2022_smp-svt_bartlett.pdf            ECHEC Trop court (0 chars) (14.7s) - texte original conserve
+  [ 33/36] exam_chimie_chimie_2022_smp-svt_barton.pdf              ECHEC Trop court (0 chars) (14.9s) - texte original conserve
+  [ 34/36] exam_maths_mathematiques-ns4-2025-svt-quartile.pdf      ECHEC Trop court (0 chars) (13.4s) - texte original conserve
+  [ 35/36] exam_philosophie_philo_2019_lla_articulation.pdf        OK 4,651 chars (18.4s)
+  [ 36/36] exam_philosophie_philo_2022_smp-svt_descartes-2.pdf     OK 4,550 chars (21.4s)
+
+============================================================
+[SUJET] Traitement : exams_chimie.json
+  66 examens total | 0 déjà nettoyés | 66 à traiter
+  [  1/66] exam_chimie_chimie-2023-ses.pdf                         OK 4,411 chars (13.3s)
+  [  2/66] exam_chimie_chimie-2023-smp-svt-covalente.pdf           ECHEC Trop court (0 chars) (15.0s) - texte original conserve
+  [  3/66] exam_chimie_chimie-2023-smp-svt-hydron.pdf              ECHEC Trop court (0 chars) (18.7s) - texte original conserve
+  [  4/66] exam_chimie_chimie-2025.pdf                             OK 4,579 chars (15.8s)
+  [  5/66] exam_chimie_chimie-modele-ses.pdf                       ECHEC Trop court (0 chars) (22.6s) - texte original conserve
+  [  6/66] exam_chimie_chimie-modele-svt-smp.pdf                   OK 4,417 chars (22.3s)
+  [  7/66] exam_chimie_chimie_020_lla_dioxyde.pdf                  ECHEC Trop court (0 chars) (8.5s) - texte original conserve
+  [  8/66] exam_chimie_chimie_2015_oxydation.pdf                   ECHEC Trop court (0 chars) (15.5s) - texte original conserve
+  [  9/66] exam_chimie_chimie_2016_polyacide.pdf                   ECHEC Trop court (0 chars) (13.9s) - texte original conserve
+  [ 10/66] exam_chimie_chimie_2016_polyamide.pdf                   ECHEC Trop court (0 chars) (13.9s) - texte original conserve
+  [ 11/66] exam_chimie_chimie_2016_polymorphe.pdf                  ECHEC Trop court (0 chars) (13.2s) - texte original conserve
+  [ 12/66] exam_chimie_chimie_2016_polyoside.pdf                   OK 4,814 chars (14.1s)
+  [ 13/66] exam_chimie_chimie_2018_lla_organique-2.pdf             OK 3,322 chars (9.6s)
+  [ 14/66] exam_chimie_chimie_2018_lla_organique.pdf               OK 2,425 chars (11.1s)
+  [ 15/66] exam_chimie_chimie_2018_ses_aldehyde.pdf                ECHEC Trop court (0 chars) (11.1s) - texte original conserve
+  [ 16/66] exam_chimie_chimie_2018_svt-smp_ethanol.pdf             ECHEC Trop court (0 chars) (14.8s) - texte original conserve
+  [ 17/66] exam_chimie_chimie_2019_lla_glucose-2.pdf               ECHEC Trop court (0 chars) (10.8s) - texte original conserve
+  [ 18/66] exam_chimie_chimie_2019_lla_glucose.pdf                 ECHEC Trop court (0 chars) (9.1s) - texte original conserve
+  [ 19/66] exam_chimie_chimie_2019_lla_hydrogene.pdf               OK 3,470 chars (12.2s)
+  [ 20/66] exam_chimie_chimie_2019_lla_lipide.pdf                  OK 3,079 chars (11.7s)
+  [ 21/66] exam_chimie_chimie_2019_ses_alcool.pdf                  OK 4,405 chars (23.5s)
+  [ 22/66] exam_chimie_chimie_2019_ses_amidon.pdf                  ECHEC Trop court (0 chars) (10.3s) - texte original conserve
+  [ 23/66] exam_chimie_chimie_2019_ses_molaire.pdf                 ECHEC Trop court (0 chars) (11.8s) - texte original conserve
+  [ 24/66] exam_chimie_chimie_2019_ses_monoxyde.pdf                OK 3,857 chars (13.3s)
+  [ 25/66] exam_chimie_chimie_2019_ses_tertiaire.pdf               ECHEC Trop court (0 chars) (13.8s) - texte original conserve
+  [ 26/66] exam_chimie_chimie_2019_svt-smp_ethanol.pdf             OK 4,480 chars (13.8s)
+  [ 27/66] exam_chimie_chimie_2019_svt-smp_propene.pdf             OK 4,711 chars (14.8s)
+  [ 28/66] exam_chimie_chimie_2019_svt-smp_substance.pdf           ECHEC Trop court (0 chars) (14.2s) - texte original conserve
+  [ 29/66] exam_chimie_chimie_2020_lla_dioxyde.pdf                 ECHEC Trop court (0 chars) (8.3s) - texte original conserve
+  [ 30/66] exam_chimie_chimie_2020_lla_isomere-2.pdf               ECHEC Trop court (0 chars) (11.8s) - texte original conserve
+  [ 31/66] exam_chimie_chimie_2020_lla_isomere.pdf                 OK 3,414 chars (14.6s)
+  [ 32/66] exam_chimie_chimie_2020_ses_carbure.pdf                 OK 3,074 chars (11.1s)
+  [ 33/66] exam_chimie_chimie_2020_ses_hydrocarbure.pdf            ECHEC Trop court (0 chars) (11.3s) - texte original conserve
+  [ 34/66] exam_chimie_chimie_2020_ses_molaire.pdf                 ECHEC Trop court (0 chars) (11.2s) - texte original conserve
+  [ 35/66] exam_chimie_chimie_2020_svt-smp_sodium.pdf              ECHEC Trop court (0 chars) (12.2s) - texte original conserve
+  [ 36/66] exam_chimie_chimie_2021_ses-lla_geotextile.pdf          ECHEC Trop court (0 chars) (14.0s) - texte original conserve
+  [ 37/66] exam_chimie_chimie_2021_ses-lla_redox.pdf               OK 4,544 chars (15.2s)
+  [ 38/66] exam_chimie_chimie_2021_svt-smp_acide.pdf               ECHEC Trop court (0 chars) (14.3s) - texte original conserve
+  [ 39/66] exam_chimie_chimie_2021_svt-smp_fixateur.pdf            ECHEC Trop court (0 chars) (14.2s) - texte original conserve
+  [ 40/66] exam_chimie_chimie_2021_svt-smp_fondation.pdf           ECHEC Trop court (0 chars) (18.7s) - texte original conserve
+  [ 41/66] exam_chimie_chimie_2021_svt-smp_geoscience.pdf          OK 3,227 chars (10.9s)
+  [ 42/66] exam_chimie_chimie_2022_lla_cobalt-sr.pdf               ECHEC Trop court (0 chars) (9.0s) - texte original conserve
+  [ 43/66] exam_chimie_chimie_2022_lla_covalentes-sr.pdf           OK 3,367 chars (9.5s)
+  [ 44/66] exam_chimie_chimie_2022_lla_organomecanique.pdf         OK 3,712 chars (9.8s)
+  [ 45/66] exam_chimie_chimie_2022_ses_brome.pdf                   ECHEC Trop court (0 chars) (10.4s) - texte original conserve
+  [ 46/66] exam_chimie_chimie_2022_ses_hydrocarbures.pdf           ECHEC Trop court (0 chars) (14.5s) - texte original conserve
+  [ 47/66] exam_chimie_chimie_2022_ses_inorganique.pdf             OK 3,767 chars (16.6s)
+  [ 48/66] exam_chimie_chimie_2022_ses_metabolisme.pdf             OK 3,904 chars (17.9s)
+  [ 49/66] exam_chimie_chimie_2022_ses_polypeptidiques.pdf         ECHEC Trop court (0 chars) (15.1s) - texte original conserve
+  [ 50/66] exam_chimie_chimie_2022_ses_quinine.pdf                 ECHEC Trop court (0 chars) (12.4s) - texte original conserve
+  [ 51/66] exam_chimie_chimie_2022_smp-svt_alcool-sr.pdf           OK 4,014 chars (13.3s)
+  [ 52/66] exam_chimie_chimie_2022_smp-svt_altman.pdf              OK 4,786 chars (13.6s)
+  [ 53/66] exam_chimie_chimie_2022_smp-svt_aston.pdf               OK 4,716 chars (13.6s)
+  [ 54/66] exam_chimie_chimie_2022_smp-svt_atome-sr.pdf            OK 4,338 chars (15.5s)
+  [ 55/66] exam_chimie_chimie_2022_smp-svt_bain.pdf                OK 4,278 chars (16.1s)
+  [ 56/66] exam_chimie_chimie_2022_smp-svt_balandine.pdf           ECHEC Trop court (0 chars) (15.0s) - texte original conserve
+  [ 57/66] exam_chimie_chimie_2022_smp-svt_barbier.pdf             OK 3,798 chars (12.6s)
+  [ 58/66] exam_chimie_chimie_2022_smp-svt_bartlett.pdf            ECHEC Trop court (0 chars) (12.9s) - texte original conserve
+  [ 59/66] exam_chimie_chimie_2022_smp-svt_barton.pdf              OK 4,499 chars (17.6s)
+  [ 60/66] exam_chimie_chimie_2022_smp-svt_darcet.pdf              ECHEC Trop court (0 chars) (16.6s) - texte original conserve
+  [ 61/66] exam_chimie_chimie_2022_smp-svt_ion-sr.pdf              OK 3,686 chars (11.4s)
+  [ 62/66] exam_chimie_chimie_2022_smp-svt_liaison-sr.pdf          OK 3,514 chars (13.6s)
+  [ 63/66] exam_chimie_chimie_2022_smp-svt_macromolecule-sr.pdf    ECHEC Trop court (0 chars) (12.5s) - texte original conserve
+  [ 64/66] exam_chimie_chimie_2022_smp-svt_molecule-sr.pdf         ECHEC Trop court (0 chars) (17.7s) - texte original conserve
+  [ 65/66] exam_chimie_chimie_2022_smp-svt_welsbach.pdf            OK 4,721 chars (14.5s)
+  [ 66/66] exam_chimie_chmie_2020_svt-smp_propanone.pdf            OK 4,259 chars (18.4s)
+
+============================================================
+[SUJET] Traitement : exams_economie.json
+  39 examens total | 39 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_espagnol.json
+  35 examens total | 35 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_francais.json
+  31 examens total | 31 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_histoire.json
+  7 examens total | 7 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_informatique.json
+  5 examens total | 5 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_maths.json
+  84 examens total | 84 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_philosophie.json
+  51 examens total | 51 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_physique.json
+  63 examens total | 63 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+[SUJET] Traitement : exams_svt.json
+  188 examens total | 188 déjà nettoyés | 0 à traiter
+  OK Deja tout nettoye !
+
+============================================================
+
+Termine : 67 nettoyes | 55 ignores
+Les fichiers JSON mis a jour seront utilises automatiquement par pdf_loader.py au prochain rechargement.

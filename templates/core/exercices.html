@@ -406,7 +406,28 @@
         <div class="exo-input-icons">
           <label class="exo-icon-btn" title="Joindre une image">
             <i class="fas fa-image"></i>
-            <input type="file" id="exImgInput" accept="image
+            <input type="file" id="exImgInput" accept="image/*" style="display:none" onchange="handleExImg(event)">
+          </label>
+        </div>
+        <button class="exo-send-btn" id="exSendBtn" onclick="sendMessage()" disabled>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CHAPTERS_BY_SUBJECT = JSON.parse(`{{ chapters_by_subject|default:'{}'|escapejs }}`);
+const STUDENT_NAME = '{{ request.user.first_name|default:"Élève"|escapejs }}' || 'Élève';
+
+let currentSubject = '';
+let currentSubjectLabel = '';
+let currentChapter = null;
+let currentExercise = null;
+let chatHistory = [];
+let hintIndex = 0;
+
 function selectSubject(key, label) {
   currentSubject = key;
   currentSubjectLabel = label;

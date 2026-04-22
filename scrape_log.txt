@@ -1,0 +1,46 @@
+﻿
+============================================================
+  BacIA - Scraper ExamHaiti
+  Destination : C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\database
+============================================================
+
+[PHYSIQUE] -- https://www.examhaiti.com/physique-ns4/
+  -> 78 examens trouves
+  [01/78] [SKIP] Deja telecharge : fhysique_philo_2022_philo-c-d
+  [02/78] [SKIP] Deja telecharge : physique-2019-svt-smp-aimentation
+  [03/78] [SKIP] Deja telecharge : physique-2020-svt-regression
+  [04/78] >> physique-2021-bac-permanent
+       [OK] PDF direct (319 KB) : exam_physique_physique-2021-bac-permanent.pdf
+  [05/78] >> physique-2021-svt-smp-armaturo
+       [OK] PDF direct (616 KB) : exam_physique_physique-2021-svt-smp-armaturo.pdf
+  [06/78] >> physique-2024-bacc-copy
+       [OK] PDF direct (883 KB) : exam_physique_physique-2024-bacc-copy.pdf
+  [07/78] >> physique-2024-ses-continu
+       [OK] PDF direct (883 KB) : exam_physique_physique-2024-ses-continu.pdf
+  [08/78] >> physique-2025
+       [OK] PDF direct (605 KB) : exam_physique_physique-2025.pdf
+  [09/78] >> physique-modele-examen
+       [OK] PDF direct (1056 KB) : exam_physique_physique-modele-examen.pdf
+  [10/78] >> physique-ns4-2025-force
+       [OK] PDF direct (315 KB) : exam_physique_physique-ns4-2025-force.pdf
+  [11/78] >> physique-ns4-2025-induction
+       [OK] PDF direct (399 KB) : exam_physique_physique-ns4-2025-induction.pdf
+  [12/78] >> physique-ns4-2025-ses-gravite
+       [OK] PDF direct (255 KB) : exam_physique_physique-ns4-2025-ses-gravite.pdf
+  [13/78] >> physique-ns4-mecanique-decembre-2025
+       [OK] PDF direct (4520 KB) : exam_physique_physique-ns4-mecanique-decembre-2025.pdf
+  [14/78] >> physique-ns4-ses-dilatation
+       [OK] PDF direct (231 KB) : exam_physique_physique-ns4-ses-dilatation.pdf
+  [15/78] >> physique-ns4-smp-svt-entropie
+       [OK] PDF direct (388 KB) : exam_physique_physique-ns4-smp-svt-entropie.pdf
+  [16/78] >> physique-philo-a-2025-quantique
+       [OK] PDF direct (498 KB) : exam_physique_physique-philo-a-2025-quantique.pdf
+  [17/78] >> physique-philo-a-dynamique
+       [OK] PDF direct (506 KB) : exam_physique_physique-philo-a-dynamique.pdf
+  [18/78] >> physique-philo-c-d-2025-chaleur
+       [OK] PDF direct (318 KB) : exam_physique_physique-philo-c-d-2025-chaleur.pdf
+  [19/78] >> physique-philo-c-d-2025cinetique
+       [OK] PDF direct (501 KB) : exam_physique_physique-philo-c-d-2025cinetique.pdf
+  [20/78] >> physique-ses-2025-densite
+       [OK] PDF direct (400 KB) : exam_physique_physique-ses-2025-densite.pdf
+  [21/78] >> physique-smp-svt-vitesse

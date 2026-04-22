@@ -1526,7 +1526,7 @@ function appendMsg(role, text, imageUrl, followups) {
   const time = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
 
   let content = '';
-  if (imageUrl) content += `<img src="${imageUrl}" class="msg-img" alt="image">`;
+  if (imageUrl) content += '<img src="' + imageUrl + '" class="msg-img" alt="image">';
 
   if (role === 'ai') {
     content += renderMarkdown(text);
