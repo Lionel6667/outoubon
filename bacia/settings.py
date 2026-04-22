@@ -17,17 +17,13 @@ if not SECRET_KEY:
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
-    h.strip() for h in os.getenv(
-        'ALLOWED_HOSTS',
-        'localhost,127.0.0.1,.railway.app,outoubon.com,www.outoubon.com'
-    ).split(',') if h.strip()
+    h.strip() for h in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,outoubon.com,www.outoubon.com').split(',') if h.strip()
 ]
-
 if DEBUG:
     ALLOWED_HOSTS += ['.ngrok-free.dev', '.ngrok.io']
 
 # Local development detection (HTTP localhost / ngrok workflows)
-_LOCAL_ONLY_HOSTS = {'localhost', '127.0.0.1', '.ngrok-free.dev', '.ngrok.io'}
+_LOCAL_ONLY_HOSTS = {'localhost', '127.0.0.1', '.ngrok-free.dev', '.ngrok.io', 'outoubon.com', 'www.outoubon.com'}
 IS_LOCAL_DEV_HOSTS = bool(ALLOWED_HOSTS) and all(h in _LOCAL_ONLY_HOSTS for h in ALLOWED_HOSTS)
 
 INSTALLED_APPS = [
@@ -204,10 +200,10 @@ CSRF_COOKIE_SECURE      = not DEBUG
 CSRF_COOKIE_HTTPONLY     = True
 CSRF_COOKIE_SAMESITE    = 'Lax'
 CSRF_TRUSTED_ORIGINS    = [
-    o.strip() for o in os.getenv('CSRF_TRUSTED_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000').split(',') if o.strip()
+    o.strip() for o in os.getenv('CSRF_TRUSTED_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000,https://outoubon.com,https://www.outoubon.com').split(',') if o.strip()
 ]
 if DEBUG:
-    CSRF_TRUSTED_ORIGINS += ['https://*.ngrok-free.dev', 'https://*.ngrok.io']
+    CSRF_TRUSTED_ORIGINS += ['https://*.ngrok-free.dev', 'https://*.ngrok.io', 'https://outoubon.com', 'https://www.outoubon.com']
 
 # Browser security headers
 SECURE_CONTENT_TYPE_NOSNIFF = True
