@@ -65,19 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="lib-wrap">
 
         
-        <div class="lib-filter">
-          <a href="{% url 'library' %}" class="lib-pill {% if not filter_subj or filter_subj == 'all' %}active{% endif %}">Toutes les matières</a>
-          {% for key, mat in mats.items %}
-          <a href="{% url 'library' %}?subject={{ key }}" class="lib-pill {% if filter_subj == key %}active{% endif %}" data-subject="{{ key }}">{{ mat.label }}</a>
-          {% endfor %}
-        </div>
-
-        {% if is_guest %}
-        <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;">
-          <span id="serieBadge" style="display:none;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:var(--green);border-radius:20px;padding:.25rem .75rem;font-size:.78rem;font-weight:700;"></span>
-          <button onclick="showSerieModal()" style="background:transparent;border:1px solid var(--border2);border-radius:20px;padding:.25rem .75rem;font-size:.78rem;color:var(--t3);cursor:pointer;"><i class="fas fa-sliders"></i> Changer de série</button>
-        </div>
-        {% endif %}
+        <!-- Plus de filtre par matière - afficher tous les exams de toutes les matières -->
 
         {% if library %}
           {% for section in library %}
