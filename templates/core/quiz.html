@@ -114,6 +114,27 @@
       </div>
 
       
+      <!-- Modal pour les comptes demo -->
+      <div id="guestUpgradeModal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);">
+        <div style="background:var(--card);border:1px solid var(--border2);border-radius:24px;padding:2.5rem 2rem;max-width:480px;width:92%;box-shadow:0 24px 80px rgba(0,0,0,.6);text-align:center;">
+          <div style="font-size:3rem;margin-bottom:1rem;"> lock</div>
+          <div style="font-weight:800;font-size:1.4rem;margin-bottom:.8rem;color:var(--t1);">Fonctionnalité Premium</div>
+          <div style="color:var(--t2);font-size:.95rem;line-height:1.5;margin-bottom:2rem;">
+            Les quiz avec amis sont réservés aux comptes premium.<br>
+            Crée un compte pour débloquer toutes les fonctionnalités !
+          </div>
+          <div style="display:flex;gap:.8rem;justify-content:center;">
+            <button onclick="closeGuestUpgradeModal()" style="background:transparent;color:var(--t3);border:1px solid var(--border2);border-radius:12px;padding:.7rem 1.4rem;font-size:.9rem;font-weight:700;cursor:pointer;">
+              Plus tard
+            </button>
+            <button onclick="window.location.href='{% url 'signup' %}'" style="background:var(--green);color:#fff;border:none;border-radius:12px;padding:.7rem 1.4rem;font-size:.9rem;font-weight:700;cursor:pointer;">
+              Créer mon compte
+            </button>
+          </div>
+        </div>
+      </div>
+
+      
       <div id="quizLoading" style="display:none;text-align:center;padding:3rem 0;">
         <div style="font-size:2.5rem;margin-bottom:1rem">⚡</div>
         <div style="font-weight:700;font-size:1.1rem;margin-bottom:.5rem;" id="quizLoadMsg" data-i18n="quiz_chargement">Chargement des questions…</div>
@@ -598,12 +619,20 @@ function showPicker() {
 
 function setQuizMode(mode) {
   const isSolo = mode === 'solo';
+  
   document.getElementById('tabSolo').style.background  = isSolo ? 'var(--green)' : 'transparent';
   document.getElementById('tabSolo').style.color       = isSolo ? '#fff' : 'var(--t2)';
   document.getElementById('tabDuel').style.background  = isSolo ? 'transparent' : 'var(--green)';
   document.getElementById('tabDuel').style.color       = isSolo ? 'var(--t2)' : '#fff';
   document.getElementById('panelSolo').style.display   = isSolo ? '' : 'none';
   document.getElementById('panelDuel').style.display   = isSolo ? 'none' : '';
+  
+  // Vérifier si l'utilisateur est un compte demo pour le mode duel
+  if (!isSolo && {{ is_guest|yesno:"true,false" }}) {
+    // Afficher le modal seulement si on passe en mode duel
+    showGuestUpgradeModal('duel');
+    return;
+  }
 }
 
 function setDuelTab(tab) {
@@ -755,6 +784,22 @@ function showDuelError(id, msg) {
   el.style.display = '';
 }
 
+function showGuestUpgradeModal(feature) {
+  const modal = document.getElementById('guestUpgradeModal');
+  if (modal) {
+    modal.style.display = 'flex';
+  }
+}
+
+function closeGuestUpgradeModal() {
+  const modal = document.getElementById('guestUpgradeModal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+  // Revenir au mode solo
+  setQuizMode('solo');
+}
+
 function showGuestSignupWall() {
   let modal = document.getElementById('guestQuizModal');
   if (modal) return;
@@ -763,7 +808,7 @@ function showGuestSignupWall() {
   modal.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);animation:fadeIn .2s ease;';
   modal.innerHTML = `
     <div style="background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:2rem;max-width:380px;width:90%;text-align:center;">
-      <div style="font-size:2.5rem;margin-bottom:.75rem;">🌟</div>
+      <div style="font-size:2.5rem;margin-bottom:.75rem;">?</div>
       <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Tu as aimé ? Continue gratuitement !</h3>
       <p style="color:var(--t2);font-size:.875rem;line-height:1.6;margin-bottom:1.25rem;">
         Le mode démo est limité à 1 quiz par matière.<br>
