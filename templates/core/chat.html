@@ -645,12 +645,11 @@ html, body { height:100%; overflow:hidden; }
   }
   .subject-focus-hint { 
     position: fixed !important;
-    top: calc(3rem + var(--chat-topbar-h, 52px)) !important;
+    top: calc(var(--chat-subj-bar-h, 3rem) + var(--chat-topbar-h, 52px)) !important;
     left: 0 !important;
     right: 0 !important;
     z-index: 140 !important;
     margin:.46rem .72rem 0; 
-    display:block !important;
     background:linear-gradient(135deg, rgba(34,197,94,.1), rgba(14,165,233,.08)) !important;
     border:1px dashed rgba(34,197,94,.48) !important;
     border-radius:11px !important;
@@ -662,7 +661,7 @@ html, body { height:100%; overflow:hidden; }
   }
   .msgs-area { 
     padding:.96rem .66rem 1.35rem; 
-    margin-top: calc(5.5rem + var(--chat-topbar-h, 52px)) !important;
+    margin-top: var(--chat-subj-offset, 5.5rem) !important;
   }
   .msg-bubble { font-size:.86rem; padding:.7rem .86rem; }
   .msg-content { max-width:91%; }
@@ -968,6 +967,8 @@ function updateSubjectFocusUI() {
       }, 300);
     }
   }
+  // Recalculate layout offset after hint visibility change
+  if (typeof _syncChatTopbarOffset === 'function') _syncChatTopbarOffset();
 }
 
 function ensureSubjectSelected() {
@@ -1535,6 +1536,19 @@ function _syncChatTopbarOffset() {
     const h = tb.getBoundingClientRect().height;
     if (h && isFinite(h)) {
       document.documentElement.style.setProperty('--chat-topbar-h', Math.ceil(h) + 'px');
+    }
+    // Measure subject bar height for mobile offset calculations
+    const subjBar = document.querySelector('.chat-subj-bar');
+    const hint = document.getElementById('subjectFocusHint');
+    if (subjBar && window.innerWidth <= 768) {
+      const subjH = subjBar.getBoundingClientRect().height;
+      if (subjH && isFinite(subjH)) {
+        document.documentElement.style.setProperty('--chat-subj-bar-h', Math.ceil(subjH) + 'px');
+      }
+      // Calculate total offset for msgs-area: subject bar + hint (if visible)
+      const hintH = (hint && hint.classList.contains('show')) ? hint.getBoundingClientRect().height : 0;
+      const totalOffset = Math.ceil(subjH) + Math.ceil(hintH) + 8; // 8px extra margin
+      document.documentElement.style.setProperty('--chat-subj-offset', totalOffset + 'px');
     }
   } catch(e) {}
 }
