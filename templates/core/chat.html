@@ -660,8 +660,11 @@ html, body { height:100%; overflow:hidden; }
     animation:hintIn .26s ease-out !important;
   }
   .msgs-area { 
-    padding:.96rem .66rem 1.35rem; 
-    margin-top: var(--chat-subj-offset, 5.5rem) !important;
+    padding-top: calc(var(--chat-subj-offset, 0px) + .96rem) !important;
+    padding-left: .66rem !important;
+    padding-right: .66rem !important;
+    padding-bottom: 1.35rem !important;
+    margin-top: 0 !important;
   }
   .msg-bubble { font-size:.86rem; padding:.7rem .86rem; }
   .msg-content { max-width:91%; }
@@ -964,6 +967,8 @@ function updateSubjectFocusUI() {
       hint.style.transform = 'translateY(-10px) scale(0.98)';
       setTimeout(() => {
         hint.style.display = 'none';
+        // Recalculate after hint is fully hidden
+        if (typeof _syncChatTopbarOffset === 'function') _syncChatTopbarOffset();
       }, 300);
     }
   }
