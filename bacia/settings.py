@@ -80,11 +80,16 @@ AUTHENTICATION_BACKENDS = [
 
 WSGI_APPLICATION = 'bacia.wsgi.application'
 
+import dj_database_url
+
+# Use dj_database_url to parse the DATABASE_URL environment variable
+# If not set, it defaults to the local SQLite database.
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [
