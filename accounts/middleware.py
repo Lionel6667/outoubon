@@ -76,22 +76,23 @@ class VisitorTrackingMiddleware:
             if request.user.is_authenticated and (request.user.is_staff or request.user.is_superuser):
                 return response
             try:
-                ip = request.META.get('HTTP_X_FORWARDED_FOR', '').split(',')[0].strip()
-                if not ip:
-                    ip = request.META.get('REMOTE_ADDR', '')
-                ip_hash = hashlib.sha256(ip.encode()).hexdigest()[:32]
-
                 from django.utils import timezone as _tz
                 from accounts.models import SiteVisit
-                today = _tz.now().date()
-                # 1 visit per IP per day — skip if already recorded today
-                if not SiteVisit.objects.filter(ip_hash=ip_hash, visited_at__date=today).exists():
+                import uuid
+
+                today_str = _tz.now().date().isoformat()
+                visited_today = request.get_signed_cookie('otb_visitor', default=None)
+
+                # 1 visit per device per day — skip if already recorded today (cookie exists)
+                if visited_today != today_str:
+                    dummy_hash = str(uuid.uuid4()).replace('-', '')[:32]
                     SiteVisit.objects.create(
-                        ip_hash=ip_hash,
+                        ip_hash=dummy_hash,
                         path=request.path[:500],
                         user_agent=request.META.get('HTTP_USER_AGENT', '')[:500],
                         user=request.user if request.user.is_authenticated else None,
                     )
+                    response.set_signed_cookie('otb_visitor', today_str, max_age=86400)
             except Exception:
                 pass  # Never break the response for tracking
 
