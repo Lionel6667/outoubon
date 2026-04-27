@@ -310,6 +310,7 @@ def api_admin_users(request):
             'name': f"{u.first_name} {u.last_name}".strip() or u.username,
             'email': u.email,
             'phone': p.phone if p else '',
+            'school': p.school if p else '',
             'serie': p.serie if p else '',
             'is_premium': p.is_premium if p else False,
             'expiration': p.plan_expiration.strftime('%d/%m/%Y') if p and p.plan_expiration else None,
