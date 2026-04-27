@@ -113,10 +113,13 @@
       .adm-tab{padding:.55rem .65rem;font-size:.72rem}
       .chart-wrap{padding:.75rem}
       .msg-form{padding:.85rem}
-      .tbl-wrap{border-radius:10px}
-      table{font-size:.72rem}
+      .tbl-wrap{border-radius:10px; -webkit-overflow-scrolling:touch;}
+      table{font-size:.72rem; min-width:600px;}
       thead th,tbody td{padding:.4rem .5rem}
       .adm-topbar h1{font-size:.88rem}
+      /* Optional scroll hint */
+      .tbl-wrap::-webkit-scrollbar { height: 4px; display: block; }
+      .tbl-wrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
     }
     @media(max-width:480px){
       .stat-grid{grid-template-columns:1fr 1fr;gap:.4rem}
@@ -212,19 +215,20 @@
     </div>
     <table>
       <thead>
-        <tr><th>Nom</th><th>Email / Tél</th><th>Série</th><th>Statut</th><th>Date</th></tr>
+        <tr><th>Nom</th><th>Email / Tél</th><th>École</th><th>Série</th><th>Statut</th><th>Date</th></tr>
       </thead>
       <tbody>
         {% for u in recent_users|slice:":10" %}
         <tr>
           <td>{{ u.first_name }} {{ u.last_name }}</td>
           <td>{{ u.email|default:u.profile.phone }}</td>
+          <td>{{ u.profile.school|default:"-" }}</td>
           <td>{{ u.profile.serie|default:"-" }}</td>
           <td>{% if u.profile.is_premium %}<span class="badge green">Premium</span>{% else %}<span class="badge blue">Gratuit</span>{% endif %}</td>
           <td>{{ u.date_joined|date:"d/m/Y H:i" }}</td>
         </tr>
         {% empty %}
-        <tr><td colspan="5" style="text-align:center;color:var(--t3);padding:1.5rem">Aucun utilisateur</td></tr>
+        <tr><td colspan="6" style="text-align:center;color:var(--t3);padding:1.5rem">Aucun utilisateur</td></tr>
         {% endfor %}
       </tbody>
     </table>
@@ -259,7 +263,7 @@
     </div>
     <table>
       <thead>
-        <tr><th>#</th><th>Nom</th><th>Contact</th><th>Série</th><th>Premium</th><th>Expiration</th><th>Inscrit</th><th>Dernière activité</th></tr>
+        <tr><th>#</th><th>Nom</th><th>Contact</th><th>École</th><th>Série</th><th>Premium</th><th>Expiration</th><th>Inscrit</th><th>Dernière activité</th></tr>
       </thead>
       <tbody id="usersTbody">
         {% for u in recent_users %}
@@ -267,6 +271,7 @@
           <td>{{ u.id }}</td>
           <td>{{ u.first_name }} {{ u.last_name|default:u.username }}</td>
           <td>{{ u.email|default:u.profile.phone }}</td>
+          <td>{{ u.profile.school|default:"-" }}</td>
           <td>{{ u.profile.serie|default:"-" }}</td>
           <td>{% if u.profile.is_premium %}<span class="badge green">Oui</span>{% else %}<span class="badge red">Non</span>{% endif %}</td>
           <td>{{ u.profile.plan_expiration|date:"d/m/Y"|default:"-" }}</td>
@@ -629,6 +634,7 @@ async function searchUsers(page) {
           <td>${u.id}</td>
           <td>${u.name}</td>
           <td>${u.email || u.phone}</td>
+          <td>${u.school || '-'}</td>
           <td>${u.serie || '-'}</td>
           <td>${u.is_premium ? '<span class="badge green">Oui</span>' : '<span class="badge red">Non</span>'}</td>
           <td>${u.expiration || '-'}</td>
