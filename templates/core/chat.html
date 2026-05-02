@@ -914,6 +914,30 @@ let histOpen = false;
 })();
 {% endif %}
 
+{# Récupère le texte PDF stocké en sessionStorage (évite l'URL trop longue / erreur 414) #}
+(function() {
+  try {
+    const _pending = sessionStorage.getItem('pending_pdf');
+    if (!_pending) return;
+    sessionStorage.removeItem('pending_pdf');
+    const _pd = JSON.parse(_pending);
+    const _pdfName = _pd.name || 'document.pdf';
+    const _pdfText = _pd.text || '';
+    if (!_pdfText) return;
+    const _fakeKey = _pdfName + '_0';
+    pdfTextsCache[_fakeKey] = _pdfText.replace(/\s+/g,' ').trim().substring(0, 8000);
+    pdfFiles.push(new File([''], _pdfName, {type: 'application/pdf'}));
+    function _setInpPdf() {
+      const inp = document.getElementById('chatInput');
+      if (inp && !inp.value) { inp.value = 'Analyse et aide-moi à réviser ce document : ' + _pdfName; autoResize(inp); }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function(){ setTimeout(_setInpPdf, 400); });
+    } else { setTimeout(_setInpPdf, 400); }
+    document.addEventListener('DOMContentLoaded', function() { renderFilePreviews(); });
+  } catch(e) { console.error('pending_pdf sessionStorage error:', e); }
+})();
+
 {% if preload_message %}
 (function() {
   const msg = "{{ preload_message|escapejs }}";

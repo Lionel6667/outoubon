@@ -282,7 +282,9 @@ window.sendPdfToChat = async function(relPath, pdfName) {
     }
     
     if (statusDiv) statusDiv.textContent = 'Texte extrait ! Redirection…';
-    const chatUrl = '{% url "chat" %}?pdf_text=' + encodeURIComponent(data.text) + '&pdf_name=' + encodeURIComponent(pdfName || data.name || 'exam.pdf');
+    // Stocke le texte en sessionStorage pour éviter une URL trop longue (erreur 414 sur Railway)
+    sessionStorage.setItem('pending_pdf', JSON.stringify({text: data.text, name: pdfName || data.name || 'exam.pdf'}));
+    const chatUrl = '{% url "chat" %}?pdf_name=' + encodeURIComponent(pdfName || data.name || 'exam.pdf');
     window.location.href = chatUrl;
   } catch(e) {
     console.error('Fetch error:', e);
