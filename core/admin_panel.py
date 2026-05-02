@@ -16,9 +16,9 @@ from django.contrib.auth.models import User
 
 from accounts.models import (
     UserProfile, Payment, Agent, AgentReferral, AgentWithdrawal,
-    AdminMessage, AdminPanelConfig, SiteVisit, DailyUsage, UserStats,
+    AdminMessage, AdminPanelConfig, SiteVisit, DailyUsage,
 )
-from core.models import ExtraBetPost, ExtraBetAttempt
+from core.models import ExtraBetPost, ExtraBetAttempt, UserStats
 
 
 # ─────────────── AUTH HELPERS ───────────────
