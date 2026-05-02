@@ -172,7 +172,9 @@ def admin_panel_view(request):
     for usage in recent_usage:
         if usage.exercise_subjects:
             for s, c in usage.exercise_subjects.items():
-                subj_map[s] = subj_map.get(s, 0) + c
+                # c peut être un int ou un dict (structure imbriquée) — on normalise
+                count = c if isinstance(c, (int, float)) else (sum(c.values()) if isinstance(c, dict) else 0)
+                subj_map[s] = subj_map.get(s, 0) + int(count)
     popular_subjects = sorted(subj_map.items(), key=lambda x: x[1], reverse=True)[:5]
 
     # ── All users for messaging dropdown (students only) ──
