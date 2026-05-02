@@ -1288,7 +1288,7 @@ function appendMsg(role, text, imageUrl, followups, instant, attNames) {
   const av = `<div class="msg-av">${role==='ai'?'<i class="fas fa-robot" style="font-size:.62rem"></i>':userInitial}</div>`;
 
   let bContent = '';
-  if (imageUrl) bContent += '<img src="' + imageUrl + '" class="msg-img" alt="">';
+  if (imageUrl) bContent += `<img src="${imageUrl}" class="msg-img" alt="">`;
 
   if (role === 'ai') {
     const _rmd = renderMarkdown(text||'');

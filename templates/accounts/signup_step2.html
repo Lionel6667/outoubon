@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Inscription – École & Série – OU TOU BON{% endblock %}
 {% block body %}
 <div class="auth-page">
@@ -324,7 +324,14 @@ document.getElementById('step2Form').addEventListener('submit', function(e) {
     box.scrollIntoView({ behavior:'smooth', block:'center' });
     return;
   }
+  
+  // Sync school if typed but not selected from dropdown
+  if (!schoolHidden.value && schoolInput.value.trim()) {
+    schoolHidden.value = schoolInput.value.trim();
+  }
+  
   const overlay = document.getElementById('loadingOverlay');
+
   overlay.style.display = 'flex';
 });
 </script>

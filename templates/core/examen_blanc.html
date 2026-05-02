@@ -13,8 +13,14 @@
 .exam-ministry-seal { width:42px; height:42px; background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(16,185,129,.15)); border:1px solid rgba(37,99,235,.35); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
 .exam-ministry-text { font-size:.7rem; line-height:1.5; color:var(--t3); }
 .exam-ministry-text strong { font-size:.78rem; color:var(--t2); display:block; margin-bottom:.1rem; }
-.exam-sheet-header h2 { font-size:1.45rem; font-weight:900; color:var(--t1); margin-bottom:.6rem; letter-spacing:-.01em; }
-.exam-header-details { display:flex; flex-wrap:wrap; gap:.4rem 1rem; margin:.5rem 0 .7rem; }
+.exam-sheet-header h2 { font-size:1.45rem; font-weight:900; color:var(--t1); margin-bottom:.6rem; letter-spacing:-.01em; word-break:break-word; overflow-wrap:anywhere; }
+@media (max-width: 600px) {
+  .exam-sheet-header { padding: 1.25rem 1.25rem 1rem; }
+  .exam-sheet-header h2 { font-size: 1.15rem; }
+  .exam-ministry-block { gap: 0.75rem; }
+  .exam-ministry-seal { width: 34px; height: 34px; font-size: 1rem; }
+}
+.exam-header-details { display:flex; flex-wrap:wrap; gap:.4rem 1rem; margin:.5rem 0 .7rem; min-width:0; }
 .exam-header-details .detail-pill { font-size:.73rem; color:var(--t3); background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:.2rem .65rem; display:flex; align-items:center; gap:.3rem; }
 .exam-header-details .detail-pill i { color:var(--blue2); }
 .exam-header-details .detail-pill strong { color:var(--t2); }
@@ -45,7 +51,7 @@
 
 .exam-section { padding:1.4rem 2rem; border-bottom:1px solid rgba(255,255,255,.04); }
 .exam-section:last-child { border-bottom:none; }
-.exam-section-label { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--t3); margin-bottom:1.1rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+.exam-section-label { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--t3); margin-bottom:1.1rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; min-width:0; }
 .section-pts { color:var(--blue2); font-weight:700; }
 
 .exam-fillblank-item { display:flex; align-items:flex-start; gap:.5rem .4rem; padding:.6rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.9rem; }
@@ -56,7 +62,7 @@
 .fillblank-answer-row { display:flex; align-items:center; flex-wrap:wrap; gap:.4rem; }
 .fillblank-pts { color:var(--blue2); font-size:.72rem; }
 .blank-line { display:inline-block; min-width:4rem; border-bottom:2px solid rgba(100,116,139,.5); margin:0 .1rem; vertical-align:baseline; }
-.exam-source-badge { display:inline-flex; align-items:center; gap:.25rem; font-size:.68rem; color:var(--t3); background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:4px; padding:.1rem .4rem; margin-left:.45rem; vertical-align:middle; white-space:nowrap; }
+.exam-source-badge { display:inline-flex; align-items:center; gap:.25rem; font-size:.68rem; color:var(--t3); background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:4px; padding:.1rem .4rem; margin-left:.45rem; vertical-align:middle; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .blank-input { display:inline-block; min-width:180px; max-width:340px; border:none; border-bottom:2px dashed rgba(100,116,139,.5); background:transparent; color:var(--t1); font-size:.9rem; font-family:inherit; padding:.2rem .5rem; transition:all .2s; outline:none; border-radius:2px; }
 .blank-input:focus { border-bottom-color:var(--green); border-bottom-style:solid; background:rgba(16,185,129,.05); }
 .blank-input.corr { border-bottom:2px solid var(--green); background:rgba(16,185,129,.1); color:var(--green); border-radius:4px; }
@@ -712,15 +718,16 @@
   <i class="fas fa-file-alt" id="flipFabIcon"></i>
   <span id="flipFabLabel">Mise au net</span>
 </button>
+{% endblock %}
 
 {% block extra_js %}
 <script>
 window.IS_GUEST = {{ is_guest|yesno:"true,false" }};
 window.GUEST_EXAM_DONE = {{ guest_exam_done|default:"0" }};
 
-let currentSubject = '';
-let examSubmitted  = false;
-let _isOnMiseAuNet = false;
+var currentSubject = '';
+var examSubmitted  = false;
+var _isOnMiseAuNet = false;
 
 function clearExamResults() {
   const resEmoji = document.getElementById('resEmoji');
@@ -801,7 +808,7 @@ function mauExecCmd(cmd) {
   editor.focus();
   document.execCommand(cmd, false, null);
 }
-let _mauExoCounter = 1;
+var _mauExoCounter = 1;
 function mauInsertExo() {
   const editor = _getActiveMauEditor();
   if (!editor) return;
@@ -855,10 +862,10 @@ function deleteMauPage(btn) {
   });
 }
 
-const EXAM_DURATION = 3600;
-let _timerSec = EXAM_DURATION;
-let _timerInterval = null;
-let _timerPanelOpen = false;
+var EXAM_DURATION = 3600;
+var _timerSec = EXAM_DURATION;
+var _timerInterval = null;
+var _timerPanelOpen = false;
 
 function toggleTimerPanel() {
   _timerPanelOpen = !_timerPanelOpen;
@@ -1431,9 +1438,9 @@ async function runAICorrection() {
   }
 }
 
-let _mauToolVisible = false;
-let _mauToolType    = '';
-let _mauAvConfig    = null;
+var _mauToolVisible = false;
+var _mauToolType    = '';
+var _mauAvConfig    = null;
 
 function _initMauTool(subject) {
   const btn  = document.getElementById('mauToolBtn');
@@ -1970,10 +1977,9 @@ function wrapTablesForResponsive() {
 }
 
 document.addEventListener('DOMContentLoaded', wrapTablesForResponsive);
-const observer = new MutationObserver(() => {
+var _examObserver = new MutationObserver(() => {
   wrapTablesForResponsive();
 });
-observer.observe(document.body, { childList: true, subtree: true });
+_examObserver.observe(document.body, { childList: true, subtree: true });
 </script>
-{% endblock %}
 {% endblock %}

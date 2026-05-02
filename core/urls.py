@@ -67,6 +67,7 @@ urlpatterns = [
     path('api/chat/suggestions/',  views.api_chat_suggestions,  name='api_chat_suggestions'),
     path('api/smart-coach/',       views.api_smart_coach,       name='api_smart_coach'),
     path('api/mistakes/summary/',  views.api_mistakes_summary,  name='api_mistakes_summary'),
+    path('api/save-school/',       views.api_save_school,       name='api_save_school'),
 
     # Examen blanc
     path('examen-blanc/',               views.examen_blanc_view,           name='examen_blanc'),

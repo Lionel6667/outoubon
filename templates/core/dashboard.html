@@ -9,6 +9,34 @@
 {% block body %}
 
 <div class="app has-topbar">
+  
+  {% if school_missing and not is_guest %}
+  <div id="schoolModal" class="modal-backdrop">
+    <div class="modal-card premium-glass">
+      <div style="text-align:center;margin-bottom:1.5rem;">
+        <div style="width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;box-shadow:0 10px 20px rgba(59,130,246,0.3);">🎓</div>
+        <h2 style="font-size:1.4rem;font-weight:800;color:var(--t1);margin-bottom:.5rem;">Où étudies-tu ?</h2>
+        <p style="color:var(--t2);font-size:.9rem;line-height:1.5;">Précise ton école pour débloquer ton profil et voir le classement de ton établissement !</p>
+      </div>
+
+      <div class="form-group" style="position:relative;">
+        <label class="form-label">Nom de ton école</label>
+        <div class="input-with-icon">
+          <i class="fas fa-school" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--t3);font-size:.9rem;"></i>
+          <input type="text" id="schoolInput" class="form-control" 
+                 placeholder="Cherche ou tape le nom complet..." 
+                 autocomplete="off" 
+                 style="width:100%;padding:.85rem 1rem .85rem 2.8rem;background:var(--card2);border:1px solid var(--border2);border-radius:12px;color:var(--t1);font-size:.95rem;transition:all .2s;">
+        </div>
+        <div id="schoolSuggestions" class="suggestions-list" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--border2);border-top:none;border-radius:0 0 12px 12px;z-index:100;max-height:200px;overflow-y:auto;box-shadow:0 10px 25px rgba(0,0,0,0.3);"></div>
+      </div>
+
+      <button id="saveSchoolBtn" class="btn-primary" style="margin-top:1.5rem;padding:1rem;display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;">
+        <i class="fas fa-check-circle"></i> Confirmer l'école
+      </button>
+    </div>
+  </div>
+  {% endif %}
 
   
 
@@ -642,6 +670,37 @@
 
 }
 
+.modal-backdrop {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; padding: 1.5rem;
+}
+.premium-glass {
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 28px;
+  padding: 2rem;
+  max-width: 440px; width: 100%;
+  animation: modalPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes modalPop {
+  from { transform: scale(0.85) translateY(30px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.suggestions-list .suggestion-item {
+  padding: .75rem 1rem; cursor: pointer; border-bottom: 1px solid var(--border2); font-size: .88rem; color: var(--t2); transition: all .15s;
+}
+.suggestions-list .suggestion-item:last-child { border-bottom: none; }
+.suggestions-list .suggestion-item:hover { background: rgba(59,130,246,0.1); color: var(--t1); padding-left: 1.25rem; }
+
+#schoolInput:focus { border-color: var(--blue2); background: var(--bg); box-shadow: 0 0 0 4px rgba(59,130,246,0.15); }
+#saveSchoolBtn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+</style>
+
 <style>
 
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -1081,6 +1140,92 @@ function selectGuestSerie(serie) {
 </script>
 
 {% endif %}
+
+<script>
+(function() {
+  window.addEventListener('DOMContentLoaded', () => {
+    // Logic for School Modal
+    const schoolInput = document.getElementById('schoolInput');
+    const suggestionsBox = document.getElementById('schoolSuggestions');
+    const saveBtn = document.getElementById('saveSchoolBtn');
+    const modal = document.getElementById('schoolModal');
+    
+    if (schoolInput) {
+      let debounceTimer;
+      
+      schoolInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        const q = schoolInput.value.trim();
+        if (q.length < 2) {
+          suggestionsBox.style.display = 'none';
+          return;
+        }
+        
+        debounceTimer = setTimeout(async () => {
+          try {
+            const res = await fetch(`/schools/?q=${encodeURIComponent(q)}`);
+            const data = await res.json();
+            if (data.results && data.results.length > 0) {
+              suggestionsBox.innerHTML = data.results.map(s => `<div class="suggestion-item" style="padding:.75rem 1rem;cursor:pointer;border-bottom:1px solid var(--border2);font-size:.88rem;color:var(--t2);transition:all .15s;">${s}</div>`).join('');
+              suggestionsBox.style.display = 'block';
+              
+              suggestionsBox.querySelectorAll('.suggestion-item').forEach(item => {
+                item.addEventListener('click', () => {
+                  schoolInput.value = item.textContent;
+                  suggestionsBox.style.display = 'none';
+                });
+              });
+            } else {
+              suggestionsBox.style.display = 'none';
+            }
+          } catch(e) {}
+        }, 300);
+      });
+      
+      // Close suggestions on outside click
+      document.addEventListener('click', (e) => {
+        if (!schoolInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+          suggestionsBox.style.display = 'none';
+        }
+      });
+      
+      saveBtn.addEventListener('click', async () => {
+        const val = schoolInput.value.trim();
+        if (!val) return;
+        
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enregistrement...';
+        
+        try {
+          const res = await fetch('{% url "api_save_school" %}', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ school: val })
+          });
+          const data = await res.json();
+          if (data.ok) {
+            modal.style.transition = 'all 0.4s ease';
+            modal.style.opacity = '0';
+            modal.style.pointerEvents = 'none';
+            setTimeout(() => modal.remove(), 400);
+          } else {
+            alert(data.error || 'Erreur lors de l\'enregistrement.');
+            saveBtn.disabled = false;
+            saveBtn.textContent = 'Confirmer l\'école';
+          }
+        } catch(e) {
+          alert('Une erreur réseau est survenue.');
+          saveBtn.disabled = false;
+          saveBtn.textContent = 'Confirmer l\'école';
+        }
+      });
+    }
+  });
+})();
+</script>
 
 {% endblock %}
 

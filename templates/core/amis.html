@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Messages — OU TOU BON{% endblock %}
 
 {% block extra_css %}
@@ -279,7 +279,13 @@
   background: linear-gradient(135deg, rgba(251,191,36,.12), rgba(16,185,129,.07));
   color: var(--t1); border: 1px solid rgba(251,191,36,.2); border-bottom-left-radius: 5px;
 }
+.am-bubble-system {
+  align-self: center; background: rgba(255,255,255,.05); color: var(--t3);
+  font-size: .72rem; padding: .4rem .9rem; border-radius: 12px;
+  border: 1px solid var(--border2); margin: .6rem 0; text-align: center; max-width: 85%;
+}
 .am-bubble-admin-lbl { font-size: .63rem; font-weight: 700; color: #fbbf24; margin-bottom: .22rem; display: flex; align-items: center; gap: .28rem; }
+
 .am-bubble-time {
   font-size: .61rem; margin-top: .18rem;
   display: flex; align-items: center; gap: .25rem; justify-content: flex-end;
@@ -656,9 +662,16 @@ function renderMessages(msgs) {
   let html = '', lastDate = '';
   msgs.forEach(m => {
     if (m.date !== lastDate) { html += `<div class="am-date-sep"><span>${escHtml(m.date)}</span></div>`; lastDate = m.date; }
+    
+    if (m.is_system) {
+      html += `<div class="am-bubble-system">${escHtml(m.content)}</div>`;
+      return;
+    }
+
     const cls   = m.is_mine ? 'am-bubble-mine' : 'am-bubble-theirs';
     const check = m.is_mine ? `<span class="am-read-check${m.is_read ? ' read' : ''}"><i class="fas fa-check-double"></i></span>` : '';
     html += `<div class="am-bubble ${cls}">${escHtml(m.content)}<div class="am-bubble-time">${escHtml(m.created_at)} ${check}</div></div>`;
+
   });
   box.innerHTML = html;
   box.scrollTop = box.scrollHeight;
@@ -710,9 +723,10 @@ function startPolling() {
     try {
       const r = await fetch('/dashboard/api/amis/messages/' + _friendId + '/', { headers: { 'X-CSRFToken': CSRF } });
       const d = await r.json();
-      if (d.ok) { const box = document.getElementById('chatMessages'); if (d.messages.length !== box.querySelectorAll('.am-bubble').length) renderMessages(d.messages); }
+      if (d.ok) { const box = document.getElementById('chatMessages'); if (d.messages.length !== box.querySelectorAll('.am-bubble, .am-bubble-system').length) renderMessages(d.messages); }
     } catch(e) {}
-  }, 5000);
+  }, 3000);
+
 }
 function stopPolling() { if (_pollTimer) { clearInterval(_pollTimer); _pollTimer = null; } }
 window.addEventListener('beforeunload', stopPolling);

@@ -18,9 +18,10 @@ from accounts.models import DailyUsage, UserProfile
 
 # ── Limites ──
 FREE_CHAT_PER_DAY = 2
-FREE_QUIZ_PER_DAY = 2
-FREE_EXERCISE_PER_SUBJECT_PER_MONTH = 1
+FREE_QUIZ_PER_DAY = 1
+FREE_EXERCISE_PER_DAY = 1
 FREE_CHAPTERS_PER_SUBJECT = 1
+FREE_EXTRA_BET_PER_DAY = 3
 
 
 def is_premium(user):
@@ -65,26 +66,21 @@ def increment_quiz(user):
     usage.save(update_fields=['quiz_count'])
 
 
-def can_use_exercise(user, subject):
+def can_use_exercise(user):
     if is_premium(user):
         return True, 999
     usage = _get_today_usage(user)
-    # Monthly tracking — use current month key
-    month_key = date.today().strftime('%Y-%m')
     exo_data = usage.exercise_subjects or {}
-    monthly = exo_data.get(month_key, {})
-    used = monthly.get(subject, 0)
-    remaining = max(0, FREE_EXERCISE_PER_SUBJECT_PER_MONTH - used)
+    # On additionne toutes les entrées du jour
+    total_used = sum(v if isinstance(v, int) else 0 for v in exo_data.values())
+    remaining = max(0, FREE_EXERCISE_PER_DAY - total_used)
     return remaining > 0, remaining
 
 
-def increment_exercise(user, subject):
+def increment_exercise(user, subject='general'):
     usage = _get_today_usage(user)
-    month_key = date.today().strftime('%Y-%m')
     exo_data = usage.exercise_subjects or {}
-    if month_key not in exo_data:
-        exo_data[month_key] = {}
-    exo_data[month_key][subject] = exo_data[month_key].get(subject, 0) + 1
+    exo_data[subject] = exo_data.get(subject, 0) + 1
     usage.exercise_subjects = exo_data
     usage.save(update_fields=['exercise_subjects'])
 
@@ -98,11 +94,39 @@ def can_access_chapter(user, subject, chapter_num):
     return chapter_num <= FREE_CHAPTERS_PER_SUBJECT
 
 
+def can_use_extra_bet(user):
+    """Vérifie si l'utilisateur peut répondre à une question Extra Bète."""
+    if is_premium(user):
+        return True, 999
+    usage = _get_today_usage(user)
+    used = getattr(usage, 'extra_bet_count', 0)
+    remaining = max(0, FREE_EXTRA_BET_PER_DAY - used)
+    return remaining > 0, remaining
+
+
+def increment_extra_bet(user):
+    """Incrémente le compteur Extra Bète."""
+    usage = _get_today_usage(user)
+    usage.extra_bet_count = getattr(usage, 'extra_bet_count', 0) + 1
+    usage.save(update_fields=['extra_bet_count'])
+
+
+def get_reset_time():
+    """Retourne une chaîne indiquant le temps restant avant minuit."""
+    from datetime import datetime, timedelta
+    now = datetime.now()
+    tomorrow = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+    diff = tomorrow - now
+    hours = diff.seconds // 3600
+    minutes = (diff.seconds % 3600) // 60
+    return f"{hours}h {minutes}mn"
+
+
 def premium_required_json():
     """Retourne un JsonResponse dict standard pour les endpoints API."""
     return {
         'error': 'premium_required',
         'premium_required': True,
-        'message': 'Cette fonctionnalité nécessite un abonnement premium.',
+        'message': f'Limite journalière atteinte. Veuillez attendre {get_reset_time()} ou passez au Premium !',
         'upgrade_url': '/pricing/',
     }

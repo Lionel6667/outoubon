@@ -29,8 +29,8 @@
 .exo-gen-btn:hover { border-color:var(--green); color:var(--green); }
 .exo-title { font-weight:700; font-size:1rem; margin:.6rem 0 .5rem; line-height:1.5; }
 .exo-text { color:var(--t2); font-size:.875rem; line-height:1.7; }
-.exo-meta { display:flex; align-items:center; gap:.5rem; margin-top:.75rem; flex-wrap:wrap; }
-.exo-meta-tag { font-size:.72rem; font-weight:600; padding:.2rem .55rem; border-radius:8px; }
+.exo-meta { display:flex; align-items:center; gap:.5rem; margin-top:.75rem; flex-wrap:wrap; min-width:0; }
+.exo-meta-tag { font-size:.72rem; font-weight:600; padding:.2rem .55rem; border-radius:8px; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
 .exo-chat-section { flex:1; display:flex; flex-direction:column; min-height:0; }
 .exo-msgs { flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:.15rem; padding:.25rem 0 .5rem; }
@@ -51,7 +51,7 @@
 
 .exo-bubble {
   padding:.72rem 1rem; font-size:.875rem; line-height:1.72;
-  word-break:break-word; overflow-x:auto;
+  word-break:break-word;
   min-width:0; max-width:82%;
 }
 
@@ -351,7 +351,7 @@
           <div id="exContent" style="display:none;" class="exo-chat-wrap">
 
             
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-shrink:0;">
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-shrink:0;min-width:0;">
               <button onclick="backToChapter()" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;color:var(--t2);">
                 <i class="fas fa-arrow-left"></i> Retour
               </button>
@@ -759,7 +759,7 @@ async function sendMessage() {
     typing.remove();
     _showExRetry();
   }
-  document.getElementById('exSendBtn').disabled = false;
+  updateExSendBtnState();
   input.focus();
 }
 
@@ -882,6 +882,16 @@ async function finishSession() {
 function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 80) + 'px';
+  updateExSendBtnState();
+}
+
+function updateExSendBtnState() {
+  const input = document.getElementById('exInput');
+  const btn = document.getElementById('exSendBtn');
+  if (input && btn) {
+    // Enable if there is text OR an image attached
+    btn.disabled = !input.value.trim() && !exImgFile;
+  }
 }
 
 function escapeHtml(s) {
@@ -896,12 +906,14 @@ function handleExImg(e) {
   document.getElementById('exImgThumb').src = URL.createObjectURL(exImgFile);
   document.getElementById('exImgName').textContent = exImgFile.name;
   document.getElementById('exImgPreview').style.display = 'flex';
+  updateExSendBtnState();
 }
 
 function removeExImg() {
   exImgFile = null;
   document.getElementById('exImgInput').value = '';
   document.getElementById('exImgPreview').style.display = 'none';
+  updateExSendBtnState();
 }
 
 const _origSendMessage = sendMessage;
@@ -954,7 +966,7 @@ sendMessage = async function() {
       if (data.ok && data.response) { appendAIMessage(data.response); chatHistory.push({role:'assistant',content:data.response}); }
       else _showExRetry();
     } catch(e) { typing.remove(); _showExRetry(); }
-    document.getElementById('exSendBtn').disabled = false;
+    updateExSendBtnState();
     input.focus();
     return;
   }

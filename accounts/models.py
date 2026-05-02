@@ -256,6 +256,7 @@ class DailyUsage(models.Model):
     chat_count   = models.PositiveIntegerField(default=0)
     quiz_count   = models.PositiveIntegerField(default=0)
     exercise_subjects = models.JSONField(default=dict, blank=True)  # {subject: count}
+    extra_bet_count   = models.PositiveIntegerField(default=0)
 
     class Meta:
         unique_together = ('user', 'date')
@@ -273,6 +274,8 @@ class FriendMessage(models.Model):
     content    = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     is_read    = models.BooleanField(default=False)
+    is_system  = models.BooleanField(default=False)
+
 
     class Meta:
         ordering = ['created_at']

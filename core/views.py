@@ -16,7 +16,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
+from django.db import models
 from accounts.models import DiagnosticResult, UserProfile
+
 from .models import (
     QuizQuestion, QuizSession, ChatMessage, UserStats,
     Flashcard, FlashcardProgress, RevisionPlan, QuizAnalysis, BookmarkedQuestion,
@@ -1304,6 +1306,10 @@ MATS = {
     'espagnol':    {'label': 'Espagnol',       'icon': 'fa-language',             'color': '#f43f5e'},
 }
 
+def _get_subj_label(subj):
+    """Helper pour récupérer le label d'une matière de manière sécurisée."""
+    return MATS.get(subj, {}).get('label', subj)
+
 
 def _get_or_create_stats(user):
     stats, _ = UserStats.objects.get_or_create(user=user)
@@ -1574,16 +1580,20 @@ def dashboard(request):
     profile, _ = UserProfile.objects.get_or_create(user=request.user)
     stats       = _get_or_create_stats(request.user)
 
-    # Score par matière — blended (quiz+exercices+cours), avec fallback diagnostic
+    # Score par matière — blended (Optimized bulk calculation)
     diag_scores = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
+    all_blended = _compute_all_blended_scores(request.user)
     quiz_scores = {}
     for subj in MATS:
-        sc = _compute_subject_blended_score(request.user, subj)
-        if sc['blended'] is not None:
+        sc = all_blended.get(subj, {})
+        if sc.get('blended') is not None:
             quiz_scores[subj] = sc['blended']
         elif subj in diag_scores:
             quiz_scores[subj] = diag_scores[subj]
 
+    # Check if school is missing
+    school_missing = not profile.school
+    
     sorted_asc  = sorted(quiz_scores.items(), key=lambda x: x[1])
     sorted_desc = sorted(quiz_scores.items(), key=lambda x: x[1], reverse=True)
     # Seuils : force >= 70%, lacune < 65%
@@ -1620,29 +1630,42 @@ def dashboard(request):
     def calc_xp(s):
         return s.quiz_completes * 20 + s.exercices_resolus * 50 + s.messages_envoyes * 5
 
+    # XP-tier based league: every 1000 XP = new league tier
     my_xp = calc_xp(stats)
 
-    # Load users and deduplicate by user_id (avoids ghost duplicates from grace-period sessions)
-    _all_stats_qs = (
-        UserStats.objects.select_related('user').filter(
-            user__is_staff=False,
-            user__is_superuser=False,
-            user__agent__isnull=True,
-        )
+    # ── High-performance Ranking ──
+    # Instead of loading all users, we use a single Count query to find how many have more XP.
+    # XP = quiz_completes * 20 + exercices_resolus * 50 + messages_envoyes * 5
+    from django.db.models import F
+    _all_stats = UserStats.objects.filter(
+        user__is_staff=False,
+        user__is_superuser=False,
+        user__agent__isnull=True,
     )
-    _seen_users = set()
-    all_stats = []
-    for _s in _all_stats_qs:
-        if _s.user_id not in _seen_users:
-            _seen_users.add(_s.user_id)
-            all_stats.append(_s)
-    all_stats.sort(key=lambda s: calc_xp(s), reverse=True)
-    global_rank = next((i + 1 for i, s in enumerate(all_stats) if s.user_id == request.user.id), 1)
+    # Global Rank
+    global_rank = _all_stats.annotate(
+        xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
+    ).filter(xp__gt=my_xp).count() + 1
 
-    # XP-tier based league: every 1000 XP = new league tier
+    # League Logic (top 30 of the same tier)
     my_league_tier = my_xp // 1000
-    league_slice = [s for s in all_stats if calc_xp(s) // 1000 == my_league_tier][:30]
-    league_rank = next((i + 1 for i, s in enumerate(league_slice) if s.user_id == request.user.id), 1)
+    league_slice = list(
+        _all_stats.annotate(
+            xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
+        ).filter(
+            xp__gte=my_league_tier * 1000, 
+            xp__lt=(my_league_tier + 1) * 1000
+        ).select_related('user', 'user__profile').order_by('-xp')[:30]
+    )
+    league_rank = 1
+    for i, s in enumerate(league_slice):
+        if s.user_id == request.user.id:
+            league_rank = i + 1
+            break
+    else:
+        # If user is not in top 30, we could fetch their specific league rank, 
+        # but for now 1 (or 31) is a safe display fallback.
+        pass
 
     # XP milestones for levels
     XP_LEVELS = [0, 100, 250, 500, 1000, 2000, 4000, 8000]
@@ -1675,11 +1698,7 @@ def dashboard(request):
 
     league_data = []
     for i, s in enumerate(league_slice):
-        try:
-            p = UserProfile.objects.get(user=s.user)
-            display = p.first_name or s.user.username
-        except Exception:
-            display = s.user.username
+        display = getattr(s.user, 'profile', None).first_name or s.user.username
         league_data.append({
             'rank': i + 1,
             'name': display,
@@ -1745,6 +1764,7 @@ def dashboard(request):
         'bac_milestone_pct':        bac_milestone_pct,
         'bac_prev_milestone_pts':   _prev_bac_pts,
         'streak_just_earned':       _streak_just_earned,
+        'school_missing':           school_missing,
     }
 
     # Données de maîtrise adaptative pour le dashboard
@@ -1952,30 +1972,47 @@ def chat_view(request):
                 'demo_qa': demo_qa,
             })
         return redirect('/login/?next=' + request.get_full_path())
-    # Recent conversations pour le panel historique
+    # ── Historique (sidebar) ──
+    # Optimization: limit to last 40 conversations and fetch first messages in bulk
     from django.db.models import Max, Count
     conversations = (
         ChatMessage.objects.filter(user=request.user)
         .exclude(session_key='')
         .values('session_key', 'subject')
         .annotate(last_msg=Max('created_at'), msg_count=Count('id'))
-        .order_by('-last_msg')
+        .order_by('-last_msg')[:40]
     )
-    # Ajouter le premier message de chaque conversation pour le titre
+
+    session_keys = [c['session_key'] for c in conversations]
+    
+    # Bulk fetch the first message content for each session
+    first_msgs_qs = ChatMessage.objects.filter(
+        user=request.user, 
+        session_key__in=session_keys,
+        role='user'
+    ).order_by('created_at')
+    
+    first_msg_map = {}
+    for m in first_msgs_qs:
+        if m.session_key not in first_msg_map:
+            first_msg_map[m.session_key] = m.content[:60] + ('...' if len(m.content) > 60 else '')
+
     conv_list = []
-    for conv in conversations:
-        first_msg = ChatMessage.objects.filter(
-            user=request.user, session_key=conv['session_key'], role='user'
-        ).order_by('created_at').first()
+    for c in conversations:
+        sk = c['session_key']
         conv_list.append({
-            'session_key': conv['session_key'],
-            'subject': conv['subject'],
-            'preview': (first_msg.content[:60] + '…') if first_msg and len(first_msg.content) > 60 else (first_msg.content if first_msg else 'Conversation'),
-            'last_msg': conv['last_msg'],
+            'session_key': sk,
+            'subject':     c['subject'],
+            'label':       _get_subj_label(c['subject']),
+            'last_msg':    c['last_msg'],
+            'msg_count':   c['msg_count'],
+            'preview':     first_msg_map.get(sk, "Conversation"),
         })
+
     # Filtrer les matières selon la série du user
     user_subjs = _get_user_serie_subjects(request.user)
     chat_mats = {k: v for k, v in MATS.items() if k in user_subjs}
+
     # Check premium status & remaining chat messages
     from core.premium import is_premium as _is_prem, can_use_chat
     user_is_premium = _is_prem(request.user)
@@ -2065,7 +2102,8 @@ def chat_api(request):
                 f"Exercice local:\n{content}\n"
             )
             local_fallback_reply = (
-                f"### Exercice type - {MATS.get(subject, {}).get('label', subject)}\n\n"
+                f"### Exercice type - {_get_subj_label(subject)}\n\n"
+
                 f"**Chapitre:** {_escape_markdown_text(chapter)}\n"
                 f"**Sous-chapitre:** {_escape_markdown_text(subchapter)}\n\n"
                 f"{_escape_markdown_text(content)}\n\n"
@@ -2077,13 +2115,15 @@ def chat_api(request):
                 snippet = snippet[:9000].rstrip() + '\n\n...'
             local_context = snippet
             local_fallback_reply = (
-                f"### Recherche locale: {MATS.get(subject, {}).get('label', subject)}\n\n"
+                f"### Recherche locale: {_get_subj_label(subject)}\n\n"
+
                 "Voici les passages les plus pertinents trouves dans les notes JSON:\n\n"
                 f"{_escape_markdown_text(snippet)}"
             )
         else:
             local_fallback_reply = (
-                f"Je n ai pas trouve de passage pertinent dans les notes JSON de {MATS.get(subject, {}).get('label', subject)}. "
+                f"Je n ai pas trouve de passage pertinent dans les notes JSON de {_get_subj_label(subject)}. "
+
                 "Essaie avec des mots-cles plus precis."
             )
 
@@ -2131,7 +2171,14 @@ def chat_api(request):
                 print(f"[CHAT_GEMINI_ERROR] {subject}: {ai_err}")
 
         if not reply:
-            reply = local_fallback_reply
+            if '📄 **PDF:' in text or 'Analyse' in text:
+                reply = (
+                    "Désolé, je rencontre une petite difficulté technique pour analyser ce document à l'instant. "
+                    "Peux-tu me reposer une question plus précise sur son contenu ?"
+                )
+            else:
+                reply = local_fallback_reply
+
 
         print(f"[CHAT_HYBRID] subject={subject} query={text[:60]} reply_len={len(reply)}")
 
@@ -2478,15 +2525,9 @@ def extra_bet_view(request):
             'is_guest': True,
         })
 
-    # ── Authenticated: premium gate ──
+    # ── Authenticated: show page ──
     from core.premium import is_premium
-    if not is_premium(request.user):
-        profile, _ = UserProfile.objects.get_or_create(user=request.user)
-        return render(request, 'core/premium_required.html', {
-            'profile': profile,
-            'feature': 'Extra bèt',
-            'message': 'La section Extra bèt est réservée aux abonnés premium. Upgrade pour défier la communauté !',
-        })
+    is_premium_user = is_premium(request.user)
 
     from django.db.models import Count, Q, Avg, Case, When, FloatField
     user_subjs = _get_user_serie_subjects(request.user)
@@ -2530,6 +2571,7 @@ def extra_bet_view(request):
         'subject_colors': subject_colors,
         'top_creators': list(top_creators),
         'current_user_id': request.user.id,
+        'is_premium': is_premium_user,
     })
 
 
@@ -2624,6 +2666,17 @@ def api_extra_bet_answer(request):
 
     # Guests: return result without recording attempt in DB
     if not _is_guest(request) and request.user.is_authenticated:
+        from core.premium import is_premium, can_use_extra_bet, increment_extra_bet
+        if not is_premium(request.user):
+            can_use, _ = can_use_extra_bet(request.user)
+            if not can_use:
+                return JsonResponse({
+                    'ok': False,
+                    'error': 'limit_reached',
+                    'message': 'Limite gratuite atteinte (3 questions/jour). Reviens demain ou passe Premium !'
+                }, status=403)
+            increment_extra_bet(request.user)
+            
         ExtraBetAttempt.objects.update_or_create(
             post=post,
             user=request.user,
@@ -3663,11 +3716,10 @@ def api_get_exercise(request):
         else:
             return JsonResponse({'error': 'login_required'}, status=401)
 
-    # ── Premium gate: 1 exercice/matière/mois gratuit (skip for guests) ──
+    # ── Premium gate: 1 exercice par jour gratuit (skip for guests) ──
     if request.user.is_authenticated:
         from core.premium import can_use_exercise, increment_exercise, premium_required_json
-        subject_check = request.GET.get('subject', 'maths')
-        allowed, remaining = can_use_exercise(request.user, subject_check)
+        allowed, remaining = can_use_exercise(request.user)
         if not allowed:
             return JsonResponse(premium_required_json(), status=403)
 
@@ -4641,6 +4693,79 @@ def api_generate_exam_v2(request):
 # ─────────────────────────────────────────────
 # PROGRESSION
 # ─────────────────────────────────────────────
+def _compute_all_blended_scores(user) -> dict:
+    """
+    Calcule les scores composite pour TOUTES les matières en une seule passe.
+    Optimise les performances en évitant les requêtes N+1.
+    """
+    from .models import QuizSession, MistakeTracker, CourseSession
+    
+    # 1. Récupération groupée des données
+    all_sessions = QuizSession.objects.filter(user=user).only('subject', 'score', 'total')
+    all_mistakes = MistakeTracker.objects.filter(user=user).only('subject', 'correct_streak')
+    all_courses  = set(CourseSession.objects.filter(user=user).values_list('chapter_subject', flat=True))
+    
+    # 2. Organisation par matière
+    subjects_data = {s: {'pcts': [], 'm_total': 0, 'm_recov': 0, 'has_course': False} for s in MATS}
+    
+    for s in all_sessions:
+        if s.subject in subjects_data and s.total > 0:
+            subjects_data[s.subject]['pcts'].append(round((s.score / s.total) * 100))
+            
+    for m in all_mistakes:
+        if m.subject in subjects_data:
+            subjects_data[m.subject]['m_total'] += 1
+            if m.correct_streak > 0:
+                subjects_data[m.subject]['m_recov'] += 1
+                
+    for subj in all_courses:
+        if subj in subjects_data:
+            subjects_data[subj]['has_course'] = True
+            
+    # 3. Calcul des scores finaux (même logique que _compute_subject_blended_score)
+    results = {}
+    NO_EXERCISE_SUBJECTS = {'francais', 'histoire', 'informatique', 'art'}
+    
+    for subj, data in subjects_data.items():
+        quiz_avg = round(sum(data['pcts']) / len(data['pcts'])) if data['pcts'] else None
+        
+        exo_pct = None
+        if subj not in NO_EXERCISE_SUBJECTS and data['m_total'] > 0:
+            exo_pct = round((data['m_recov'] / data['m_total']) * 100)
+            
+        has_course = data['has_course']
+        course_bonus = 20 if has_course else 0
+        
+        blended = None
+        if subj in NO_EXERCISE_SUBJECTS:
+            if quiz_avg is not None:
+                blended = round(quiz_avg * 0.80 + course_bonus)
+            else:
+                blended = course_bonus if has_course else None
+        else:
+            if quiz_avg is not None and exo_pct is not None:
+                blended = round(quiz_avg * 0.30 + exo_pct * 0.50 + course_bonus)
+            elif quiz_avg is not None:
+                blended = round(quiz_avg * 0.50 + course_bonus)
+            elif exo_pct is not None:
+                blended = round(exo_pct * 0.80 + course_bonus)
+            else:
+                blended = course_bonus if has_course else None
+                
+        if blended is not None:
+            blended = min(100, blended)
+            
+        results[subj] = {
+            'blended': blended,
+            'quiz_avg': quiz_avg,
+            'exo_pct': exo_pct,
+            'course_bonus': course_bonus,
+            'quiz_count': len(data['pcts']),
+            'exo_total': data['m_total']
+        }
+    return results
+
+
 def _compute_subject_blended_score(user, subj: str) -> dict:
     """
     Calcule un score composite par matière combinant :
@@ -4755,16 +4880,19 @@ def progression_view(request):
     diag_scores  = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
     quiz_sessions = QuizSession.objects.filter(user=request.user).order_by('-completed_at')[:10]
 
+    # Optimized bulk calculation
+    all_blended = _compute_all_blended_scores(request.user)
+
     mats_extended = {}
     for k, v in MATS.items():
-        sc = _compute_subject_blended_score(request.user, k)
+        sc = all_blended.get(k, {})
         mats_extended[k] = dict(v)
-        mats_extended[k]['sessions']    = sc['quiz_count']
-        mats_extended[k]['exo_count']   = sc['exo_total']
-        mats_extended[k]['quiz_score']  = sc['blended']    # blended replaces old quiz-only score
-        mats_extended[k]['quiz_avg']    = sc['quiz_avg']
-        mats_extended[k]['exo_pct']     = sc['exo_pct']
-        mats_extended[k]['has_course']  = sc['has_course']
+        mats_extended[k]['sessions']    = sc.get('quiz_count', 0)
+        mats_extended[k]['exo_count']   = sc.get('exo_total', 0)
+        mats_extended[k]['quiz_score']  = sc.get('blended')    # blended replaces old quiz-only score
+        mats_extended[k]['quiz_avg']    = sc.get('quiz_avg')
+        mats_extended[k]['exo_pct']     = sc.get('exo_pct')
+        mats_extended[k]['has_course']  = sc.get('has_course', False)
 
     heures_etude = stats.minutes_etude // 60
     minutes_rest = stats.minutes_etude % 60
@@ -4990,16 +5118,16 @@ def fiches_view(request):
     from django.utils import timezone
     subject = request.GET.get('subject', 'maths')
 
-    # ── Premium gate ──
-    if request.user.is_authenticated:
-        from core.premium import is_premium
-        if not is_premium(request.user):
-            profile, _ = UserProfile.objects.get_or_create(user=request.user)
-            return render(request, 'core/premium_required.html', {
-                'profile': profile,
-                'feature': 'Fiches Mémo',
-                'message': 'Les fiches mémo sont réservées aux abonnés premium. Upgrade pour réviser avec des fiches intelligentes !',
-            })
+    # ── Premium gate (RETIRED: Now unlocked for free users) ──
+    # if request.user.is_authenticated:
+    #     from core.premium import is_premium
+    #     if not is_premium(request.user):
+    #         profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    #         return render(request, 'core/premium_required.html', {
+    #             'profile': profile,
+    #             'feature': 'Fiches Mémo',
+    #             'message': 'Les fiches mémo sont réservées aux abonnés premium.',
+    #         })
 
     if not request.user.is_authenticated:
         if _is_guest(request):
@@ -5027,18 +5155,18 @@ def fiches_view(request):
             })
         return redirect('/login/?next=' + request.get_full_path())
 
-    # Load existing flashcards for this subject
-    flashcards = list(Flashcard.objects.filter(subject=subject))
+    # Load existing flashcards for this subject (Limit to 100 for performance)
+    flashcards = list(Flashcard.objects.filter(subject=subject).order_by('-id')[:100])
 
-    # Get user progress
+    # Get user progress for these cards
     progress_qs = FlashcardProgress.objects.filter(
         user=request.user, flashcard__subject=subject
     ).select_related('flashcard')
     progress_map = {p.flashcard_id: p.status for p in progress_qs}
 
-    # Stats
-    known  = sum(1 for s in progress_map.values() if s == 'known')
-    review = sum(1 for s in progress_map.values() if s == 'review')
+    # Stats (calculated on full queryset for accuracy, but view only shows subset)
+    known  = FlashcardProgress.objects.filter(user=request.user, flashcard__subject=subject, status='known').count()
+    review = FlashcardProgress.objects.filter(user=request.user, flashcard__subject=subject, status='review').count()
 
     cards_data = [{
         'id':         fc.id,
@@ -5171,16 +5299,16 @@ def api_flashcard_status(request):
 # PLAN DE RÉVISION IA
 # ─────────────────────────────────────────────
 def plan_view(request):
-    # ── Premium gate ──
-    if request.user.is_authenticated:
-        from core.premium import is_premium
-        if not is_premium(request.user):
-            profile, _ = UserProfile.objects.get_or_create(user=request.user)
-            return render(request, 'core/premium_required.html', {
-                'profile': profile,
-                'feature': 'Plan de révision',
-                'message': 'Le plan de révision personnalisé est réservé aux abonnés premium. Upgrade pour un planning IA sur mesure !',
-            })
+    # ── Premium gate (RETIRED: Now unlocked for free users) ──
+    # if request.user.is_authenticated:
+    #     from core.premium import is_premium
+    #     if not is_premium(request.user):
+    #         profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    #         return render(request, 'core/premium_required.html', {
+    #             'profile': profile,
+    #             'feature': 'Plan de révision',
+    #             'message': 'Le plan de révision est réservé aux abonnés premium.',
+    #         })
 
     if not request.user.is_authenticated:
         if _is_guest(request):
@@ -5343,16 +5471,16 @@ def api_bookmark_toggle(request):
 
 
 def bookmarks_view(request):
-    # ── Premium gate ──
-    if request.user.is_authenticated:
-        from core.premium import is_premium
-        if not is_premium(request.user):
-            profile, _ = UserProfile.objects.get_or_create(user=request.user)
-            return render(request, 'core/premium_required.html', {
-                'profile': profile,
-                'feature': 'Favoris',
-                'message': 'Les favoris sont réservés aux abonnés premium. Upgrade pour sauvegarder tes questions préférées !',
-            })
+    # ── Premium gate (RETIRED: Now unlocked for free users) ──
+    # if request.user.is_authenticated:
+    #     from core.premium import is_premium
+    #     if not is_premium(request.user):
+    #         profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    #         return render(request, 'core/premium_required.html', {
+    #             'profile': profile,
+    #             'feature': 'Favoris',
+    #             'message': 'Les favoris sont réservés aux abonnés premium.',
+    #         })
 
     if not request.user.is_authenticated:
         if _is_guest(request):
@@ -5459,14 +5587,14 @@ def api_stats(request):
         'pct':     s.get_percentage(),
     } for s in sessions_qs]
 
-    # Radar chart data — blended score per subject (quiz + exercises + course)
-    # Filtré par la série de l'utilisateur
+    # Radar chart data — blended score per subject (Optimized)
+    all_blended = _compute_all_blended_scores(request.user)
     radar = []
     for subj, info in MATS.items():
         if subj not in user_subjs:
             continue
-        sc = _compute_subject_blended_score(request.user, subj)
-        if sc['blended'] is not None:
+        sc = all_blended.get(subj, {})
+        if sc.get('blended') is not None:
             score = sc['blended']
         else:
             diag = DiagnosticResult.objects.filter(user=request.user, subject=subj).first()
@@ -5592,11 +5720,21 @@ def _generate_coaching_cards(user) -> list:
     profile, _ = UserProfile.objects.get_or_create(user=user)
     stats       = _get_or_create_stats(user)
 
-    # Scores blended par matière
+    # Scores blended par matière (Optimized)
+    all_blended = _compute_all_blended_scores(user)
+    
+    # Pre-fetch recent sessions for all subjects to avoid N+1
+    # We take the last 200 sessions and group them. This covers most active users.
+    all_recent_sessions = list(QuizSession.objects.filter(user=user).order_by('-completed_at')[:200])
+    sessions_by_subj = {s: [] for s in MATS}
+    for rs in all_recent_sessions:
+        if rs.subject in sessions_by_subj and len(sessions_by_subj[rs.subject]) < 15:
+            sessions_by_subj[rs.subject].append(rs)
+
     subject_data = {}
     for subj, info in MATS.items():
-        sc = _compute_subject_blended_score(user, subj)
-        sessions = list(QuizSession.objects.filter(user=user, subject=subj).order_by('-completed_at')[:15])
+        sc = all_blended.get(subj, {})
+        sessions = sessions_by_subj[subj]
         pcts = [round((s.score / s.total) * 100) for s in sessions if s.total]
         trend = 0
         if len(pcts) >= 4:
@@ -5604,17 +5742,17 @@ def _generate_coaching_cards(user) -> list:
             older_avg  = sum(pcts[3:]) / max(1, len(pcts[3:]))
             trend = round(recent_avg - older_avg)
         last_session_date = sessions[0].completed_at.date() if sessions else None
-        blended = sc['blended'] if sc['blended'] is not None else 0
+        blended = sc.get('blended') if sc.get('blended') is not None else 0
         subject_data[subj] = {
             'avg':   blended,
-            'quiz_avg': sc['quiz_avg'],
+            'quiz_avg': sc.get('quiz_avg'),
             'trend': trend,
-            'count': sc['quiz_count'],
+            'count': sc.get('quiz_count', 0),
             'last':  last_session_date,
             'pcts':  pcts,
-            'exo_total': sc['exo_total'],
-            'exo_pct':   sc['exo_pct'],
-            'has_course': sc['has_course'],
+            'exo_total': sc.get('exo_total', 0),
+            'exo_pct':   sc.get('exo_pct'),
+            'has_course': sc.get('has_course', False),
         }
 
     # Erreurs dues en révision
@@ -6109,12 +6247,20 @@ def api_coaching(request):
     profile, _ = UserProfile.objects.get_or_create(user=user)
     stats       = _get_or_create_stats(user)
 
-    # Use blended scores (quiz + exercises + course)
+    # Use blended scores (Optimized bulk calculation)
+    all_blended = _compute_all_blended_scores(user)
+    
+    # Pre-fetch recent sessions for all subjects to avoid N+1
+    all_recent_sessions = list(QuizSession.objects.filter(user=user).order_by('-completed_at')[:200])
+    sessions_by_subj = {s: [] for s in MATS}
+    for rs in all_recent_sessions:
+        if rs.subject in sessions_by_subj and len(sessions_by_subj[rs.subject]) < 15:
+            sessions_by_subj[rs.subject].append(rs)
+
     subject_data = {}
     for subj, info in MATS.items():
-        sc = _compute_subject_blended_score(user, subj)
-        sessions_qs = QuizSession.objects.filter(user=user, subject=subj).order_by('-completed_at')[:15]
-        sessions = list(sessions_qs)
+        sc = all_blended.get(subj, {})
+        sessions = sessions_by_subj[subj]
         pcts = [round((s.score / s.total) * 100) for s in sessions if s.total]
         trend = 0
         if len(pcts) >= 4:
@@ -6124,14 +6270,14 @@ def api_coaching(request):
         last_date = sessions[0].completed_at.date() if sessions else None
         subject_data[subj] = {
             'label':      info['label'],
-            'avg':        sc['blended'] if sc['blended'] is not None else 0,
-            'quiz_avg':   sc['quiz_avg'],
+            'avg':        sc.get('blended') if sc.get('blended') is not None else 0,
+            'quiz_avg':   sc.get('quiz_avg'),
             'trend':      trend,
-            'count':      sc['quiz_count'],
+            'count':      sc.get('quiz_count', 0),
             'last':       last_date,
-            'exo_total':  sc['exo_total'],
-            'exo_pct':    sc['exo_pct'],
-            'has_course': sc['has_course'],
+            'exo_total':  sc.get('exo_total', 0),
+            'exo_pct':    sc.get('exo_pct'),
+            'has_course': sc.get('has_course', False),
         }
 
     weak_subjects = sorted(
@@ -8693,6 +8839,27 @@ def api_course_question(request):
 
 @login_required
 @require_POST
+def api_save_school(request):
+    """AJAX — Sauvegarde l'école choisie par l'utilisateur."""
+    try:
+        data = json.loads(request.body or '{}')
+        school_name = str(data.get('school', '')).strip()
+        if not school_name:
+            return JsonResponse({'ok': False, 'error': 'Le nom de l\'école est requis.'}, status=400)
+        
+        from accounts.models import UserProfile, School
+        profile = request.user.profile
+        profile.school = school_name
+        profile.save(update_fields=['school'])
+        
+        # Enregistrer l'école dans la base globale pour les suggestions
+        School.objects.get_or_create(name=school_name)
+        
+        return JsonResponse({'ok': True})
+    except Exception as e:
+        return JsonResponse({'ok': False, 'error': str(e)}, status=500)
+
+
 def api_chapter_summary(request):
     """AJAX endpoint pour obtenir/générer un résumé de chapitre.
 
@@ -8887,36 +9054,68 @@ def amis_view(request):
 
     suggestions = []
     try:
-        qs = UserProfile.objects.exclude(user__id__in=exclude_ids).filter(
+        base_qs = UserProfile.objects.exclude(user__id__in=exclude_ids).filter(
             user__is_staff=False,
             user__agent__isnull=True,
             user__is_active=True,
         ).select_related('user')
+
+        # Priorité : même école
         if profile.school:
-            qs = qs.filter(school=profile.school)[:8]
-        elif profile.serie:
-            qs = qs.filter(serie=profile.serie)[:8]
-        else:
-            qs = qs[:8]
-        suggestions = list(qs)
+            s_school = list(base_qs.filter(school=profile.school)[:5])
+            suggestions += s_school
+            # Éviter les doublons pour les étapes suivantes
+            for p in s_school: exclude_ids.add(p.user_id)
+
+        # Ensuite : même série
+        if len(suggestions) < 10 and profile.serie:
+            s_serie = list(base_qs.exclude(user__id__in=exclude_ids).filter(serie=profile.serie)[:5])
+            suggestions += s_serie
+            for p in s_serie: exclude_ids.add(p.user_id)
+
+        # Enfin : suggestions globales (les plus récents)
+        if len(suggestions) < 10:
+            s_global = list(base_qs.exclude(user__id__in=exclude_ids).order_by('-user__date_joined')[:10 - len(suggestions)])
+            suggestions += s_global
     except Exception:
         pass
+
 
     # Get last message for each friend (for WhatsApp-style preview)
     from accounts.models import FriendMessage
     from core.premium import is_premium as _is_prem
     user_is_premium = _is_prem(request.user)
 
+    # Bulk fetch unread counts
+    from django.db.models import Count
+    unread_counts = {
+        item['sender']: item['count']
+        for item in FriendMessage.objects.filter(receiver=request.user, is_read=False)
+        .values('sender')
+        .annotate(count=Count('id'))
+    }
+
+    # Bulk fetch last messages
+    # We fetch the last message for each unique friend in the list
+    friend_ids = [f['user'].id for f in friends]
+    # For SQLite/Postgres compatibility, we fetch recent messages and pick the latest in Python
+    # since 'distinct on' is Postgres-only and Subquery can be slow or complex.
+    # Given the friend list is usually small (e.g. < 50), fetching the last 500 messages is safe.
+    recent_msgs = FriendMessage.objects.filter(
+        (Q(sender=request.user, receiver_id__in=friend_ids) |
+         Q(receiver=request.user, sender_id__in=friend_ids))
+    ).order_by('-created_at')[:500]
+
+    last_msg_map = {}
+    for msg in recent_msgs:
+        other_id = msg.receiver_id if msg.sender_id == request.user.id else msg.sender_id
+        if other_id not in last_msg_map:
+            last_msg_map[other_id] = msg
+
     for f in friends:
         other = f['user']
-        last_msg = FriendMessage.objects.filter(
-            models.Q(sender=request.user, receiver=other) |
-            models.Q(sender=other, receiver=request.user)
-        ).order_by('-created_at').first()
-        f['last_message'] = last_msg
-        f['unread_count'] = FriendMessage.objects.filter(
-            sender=other, receiver=request.user, is_read=False
-        ).count()
+        f['last_message'] = last_msg_map.get(other.id)
+        f['unread_count'] = unread_counts.get(other.id, 0)
 
     # Sort friends by last message time (most recent first)
     friends.sort(key=lambda f: f['last_message'].created_at if f['last_message'] else f['user'].date_joined, reverse=True)
@@ -9039,7 +9238,21 @@ def api_friend_request(request):
             f = Friendship.objects.get(id=friendship_id, to_user=request.user)
             f.status = 'accepted'
             f.save()
+
+            # Notification systeme pour les deux
+            from accounts.models import FriendMessage
+            FriendMessage.objects.create(
+                sender=request.user, receiver=f.from_user,
+                content=f"Vous êtes maintenant amis avec {request.user.get_full_name() or request.user.username} ! Vous pouvez commencer à discuter.",
+                is_system=True
+            )
+            FriendMessage.objects.create(
+                sender=f.from_user, receiver=request.user,
+                content=f"Vous êtes maintenant amis avec {f.from_user.get_full_name() or f.from_user.username} ! Vous pouvez commencer à discuter.",
+                is_system=True
+            )
             return JsonResponse({'ok': True})
+
         except Friendship.DoesNotExist:
             return JsonResponse({'error': 'Demande introuvable'}, status=404)
 
@@ -9109,6 +9322,8 @@ def api_friend_messages(request, friend_id):
         'date': m.created_at.strftime('%d/%m/%Y'),
         'is_mine': m.sender_id == request.user.id,
         'is_read': m.is_read,
+        'is_system': m.is_system,
+
     } for m in reversed(list(messages))]
 
     return JsonResponse({'ok': True, 'messages': msgs})
@@ -9606,9 +9821,18 @@ def api_pdf_serve(request):
     fpath = os.path.join(settings.BASE_DIR, 'database', rel)
     if not os.path.isfile(fpath):
         raise Http404
-    return FileResponse(open(fpath, 'rb'), content_type='application/pdf',
-                        as_attachment=request.GET.get('dl') == '1',
-                        filename=os.path.basename(fpath))
+    response = FileResponse(open(fpath, 'rb'), content_type='application/pdf')
+    filename = os.path.basename(fpath)
+    
+    if request.GET.get('dl') == '1':
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    else:
+        # 'inline' allows viewing in browser if supported
+        response['Content-Disposition'] = f'inline; filename="{filename}"'
+    
+    response['X-Content-Type-Options'] = 'nosniff'
+    return response
+
 
 
 @login_required

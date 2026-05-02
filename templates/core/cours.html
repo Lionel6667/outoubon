@@ -347,6 +347,7 @@ const CHAPTERS_BY_SUBJ = {
 };
 
 const IS_GUEST_COURS = {{ is_guest|yesno:"true,false" }};
+const IS_PREMIUM_COURS = {{ profile.is_premium|default:False|yesno:"true,false" }};
 
 let openSubj = null;
 
@@ -378,10 +379,10 @@ function toggleDrawer(subj, btn) {
       inner.innerHTML = '<div class="chapter-empty">Aucun chapitre disponible pour cette matière.</div>';
     } else {
       inner.innerHTML = chapters.map(ch => {
-        const locked = ch.locked && IS_GUEST_COURS;
+        const locked = ch.locked || (!IS_PREMIUM_COURS && ch.num > 1);
         const progress = Math.max(0, Math.min(100, Number(ch.progress || 0)));
         const href = locked ? 'javascript:void(0)' : `/dashboard/cours/${subj}/${ch.num}/`;
-        const onclick = locked ? ' onclick="showGuestCoursModal()"' : '';
+        const onclick = locked ? (IS_GUEST_COURS ? ' onclick="showGuestCoursModal()"' : ' onclick="showPremiumCoursModal()"') : '';
         return `<a href="${href}" class="chapter-link${locked ? ' locked' : ''}"${onclick}>
           <span class="ch-num" style="--p:${progress}"><span>${ch.num}</span></span>
           <span class="ch-title">${escHtml(ch.title)}</span>
@@ -422,6 +423,32 @@ function showGuestCoursModal() {
         </a>
         <div style="margin-top:.75rem;">
           <button onclick="document.getElementById('guestCoursModal').remove()" style="background:none;border:none;color:var(--t3);font-size:.8rem;cursor:pointer;padding:.5rem;">Continuer en mode démo</button>
+        </div>
+      </div>`;
+    modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+    document.body.appendChild(modal);
+  }
+}
+
+function showPremiumCoursModal() {
+  let modal = document.getElementById('premiumCoursModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'premiumCoursModal';
+    modal.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);animation:fadeIn .2s ease;';
+    modal.innerHTML = `
+      <div style="background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:2rem;max-width:380px;width:90%;text-align:center;animation:slideUp .25s ease;">
+        <div style="font-size:2.5rem;margin-bottom:.75rem;">👑</div>
+        <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Passe au Premium !</h3>
+        <p style="color:var(--t2);font-size:.875rem;line-height:1.6;margin-bottom:1.25rem;">
+          L'accès complet aux cours interactifs (au-delà du chapitre 1) est réservé aux membres Premium.<br>
+          Débloque tous les chapitres et les explications IA illimitées !
+        </p>
+        <a href="/pricing/" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1e293b;border-radius:12px;font-weight:800;font-size:.9rem;text-decoration:none;transition:filter .15s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter=''">
+          <i class="fas fa-crown"></i> Voir les offres
+        </a>
+        <div style="margin-top:.75rem;">
+          <button onclick="document.getElementById('premiumCoursModal').remove()" style="background:none;border:none;color:var(--t3);font-size:.8rem;cursor:pointer;padding:.5rem;">Peut-être plus tard</button>
         </div>
       </div>`;
     modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });

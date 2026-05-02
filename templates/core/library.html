@@ -257,23 +257,51 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 window.sendPdfToChat = async function(relPath, pdfName) {
   const statusDiv = document.getElementById('pdfSendStatus');
-  if (statusDiv) { statusDiv.textContent = 'Extraction en cours…'; statusDiv.style.display = 'block'; }
+
+  if (statusDiv) { 
+    statusDiv.textContent = 'Extraction du texte…'; 
+    statusDiv.style.display = 'block'; 
+    statusDiv.style.background = 'rgba(15,23,42,.97)';
+  }
+
   try {
-    const resp = await fetch('{% url "api_pdf_extract_text" %}?path=' + encodeURIComponent(relPath));
+    const url = '{% url "api_pdf_extract_text" %}?path=' + encodeURIComponent(relPath);
+    console.log('Fetching:', url);
+    const resp = await fetch(url);
     let data;
     try { data = await resp.json(); } catch(e) { data = {}; }
+
     if (!resp.ok || data.error) {
-      if (statusDiv) { statusDiv.textContent = 'Erreur : ' + (data.error || 'Impossible d\'extraire le texte.'); setTimeout(function(){ statusDiv.style.display='none'; }, 3500); }
-      else alert('Impossible d\'extraire le texte du PDF : ' + (data.error || ''));
+      const msg = data.error || 'Erreur ' + resp.status;
+      if (statusDiv) { 
+        statusDiv.textContent = 'Erreur : ' + msg; 
+        statusDiv.style.background = '#7f1d1d';
+        setTimeout(() => { statusDiv.style.display='none'; }, 5000); 
+      } else alert('Erreur : ' + msg);
       return;
     }
+    
+    if (statusDiv) statusDiv.textContent = 'Texte extrait ! Redirection…';
     const chatUrl = '{% url "chat" %}?pdf_text=' + encodeURIComponent(data.text) + '&pdf_name=' + encodeURIComponent(pdfName || data.name || 'exam.pdf');
     window.location.href = chatUrl;
   } catch(e) {
-    if (statusDiv) { statusDiv.textContent = 'Erreur réseau. Vérifie ta connexion.'; setTimeout(function(){ statusDiv.style.display='none'; }, 3500); }
-    else alert('Erreur réseau.');
+    console.error('Fetch error:', e);
+    let errorMsg = 'Erreur réseau (Vérifie ton serveur ou ton IP)';
+    
+    // Si on est sur mobile + 127.0.0.1, c'est presque sûr que c'est ça le problème
+    if (window.location.hostname === '127.0.0.1' && /Mobi|Android/i.test(navigator.userAgent)) {
+      errorMsg = "⚠️ Sur mobile, n'utilise pas 127.0.0.1. Utilise l'IP locale de ton PC (ex: 192.168.x.x).";
+    }
+
+    if (statusDiv) { 
+      statusDiv.textContent = errorMsg; 
+      statusDiv.style.background = '#7f1d1d';
+      setTimeout(() => { statusDiv.style.display='none'; }, 6000); 
+    } else alert(errorMsg);
   }
 };
+
+
 </script>
 
 <div id="pdfSendStatus" style="display:none;position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);background:rgba(15,23,42,.97);color:#f1f5f9;padding:.6rem 1.2rem;border-radius:12px;font-size:.82rem;font-weight:600;z-index:9999;border:1px solid rgba(16,185,129,.3);backdrop-filter:blur(12px)"></div>

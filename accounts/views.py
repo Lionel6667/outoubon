@@ -120,25 +120,23 @@ def landing(request):
     if request.user.is_authenticated:
         return redirect(_post_auth_redirect(request.user))
 
-    # Fetch top user stats for league section on landing page
+    # Fetch top user stats for league section on landing page (Optimized)
     try:
         from core.models import UserStats
-        def _lxp(s): return s.quiz_completes * 20 + s.exercices_resolus * 50 + s.messages_envoyes * 5
-        all_landing_stats = list(
-            UserStats.objects.select_related('user', 'user__profile').filter(
-                user__is_staff=False, user__is_superuser=False, user__agent__isnull=True,
-            )
+        from django.db.models import F
+        
+        base_stats = UserStats.objects.filter(
+            user__is_staff=False, user__is_superuser=False, user__agent__isnull=True,
+        ).annotate(
+            xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
         )
-        all_landing_stats.sort(key=_lxp, reverse=True)
-        total_users = len(all_landing_stats)
-        top_stat = all_landing_stats[0] if all_landing_stats else None
+        
+        total_users = base_stats.count()
+        top_stat = base_stats.select_related('user', 'user__profile').order_by('-xp').first()
+        
         if top_stat:
-            try:
-                p = top_stat.user.profile
-                top_user_name = (p.first_name or top_stat.user.username)
-            except Exception:
-                top_user_name = top_stat.user.username
-            top_user_xp = _lxp(top_stat)
+            top_user_name = getattr(top_stat.user, 'profile', None).first_name or top_stat.user.username
+            top_user_xp = top_stat.xp
         else:
             top_user_name = '—'
             top_user_xp = 0
@@ -163,11 +161,12 @@ def landing(request):
 
 
 def login_view(request):
+    next_url = (request.POST.get('next') or request.GET.get('next') or '').strip()
+    ref_next = _safe_referer_next(request)
+    
     if request.user.is_authenticated:
-        next_url = (request.POST.get('next') or request.GET.get('next') or '').strip()
         if next_url and next_url.startswith('/') and not next_url.startswith('//'):
             return redirect(next_url)
-        ref_next = _safe_referer_next(request)
         if ref_next:
             return redirect(ref_next)
         return redirect(_post_auth_redirect(request.user))
@@ -191,23 +190,28 @@ def login_view(request):
             if user:
                 login(request, user)
                 # Enregistrer la session active pour le middleware single-device
-                if request.session.session_key:
-                    profile = getattr(user, 'profile', None)
-                    if profile:
-                        profile.active_session_key = request.session.session_key
-                        profile.save(update_fields=['active_session_key'])
+                if not request.session.session_key:
+                    request.session.save()
+                
+                profile = getattr(user, 'profile', None)
+                if profile:
+                    profile.active_session_key = request.session.session_key
+                    profile.save(update_fields=['active_session_key'])
                 # Générer un nouveau token persistant à chaque connexion
                 from .models import PersistentAuthToken
                 PersistentAuthToken.objects.filter(user=user).delete()
-                PersistentAuthToken.objects.create(user=user)
+                token_obj = PersistentAuthToken.objects.create(user=user)
                 # Respect ?next= so users land back on the page they were trying to visit
-                next_url = (request.POST.get('next') or request.GET.get('next') or '').strip()
+                target = _post_auth_redirect(user)
                 if next_url and next_url.startswith('/') and not next_url.startswith('//'):
-                    return redirect(next_url)
-                ref_next = _safe_referer_next(request)
-                if ref_next:
-                    return redirect(ref_next)
-                return redirect(_post_auth_redirect(user))
+                    target = next_url
+                elif ref_next:
+                    target = ref_next
+                
+                response = redirect(target)
+                # Cookie longue durée (1 an) pour l'auto-login instantané
+                response.set_cookie('otb_persistent_token', token_obj.token, max_age=31536000, samesite='Lax', secure=not settings.DEBUG)
+                return response
             error = 'Mot de passe incorrect.'
     return render(request, 'accounts/login.html', {'error': error})
 
@@ -333,12 +337,13 @@ def school_search_view(request):
     return JsonResponse({'results': results})
 
 def logout_view(request):
-    # Supprimer le token avant de déloguer l'utilisateur
     if request.user.is_authenticated:
         from .models import PersistentAuthToken
         PersistentAuthToken.objects.filter(user=request.user).delete()
     logout(request)
-    return redirect('landing')
+    response = redirect('landing')
+    response.delete_cookie('otb_persistent_token')
+    return response
 
 
 @login_required
@@ -376,6 +381,7 @@ def verify_auth_token_view(request):
 
     token = (data.get('token') or request.POST.get('token', '') or '').strip()
     if not token:
+        # Don't throw 401 here, just a 400 for missing parameter to avoid console noise on auto-login attempts
         return JsonResponse({'error': 'no token'}, status=400)
 
     from .models import PersistentAuthToken
@@ -390,11 +396,13 @@ def verify_auth_token_view(request):
     auth_login(request, user)
     
     # Enregistrer la session active pour le middleware single-device
-    if request.session.session_key:
-        profile = getattr(user, 'profile', None)
-        if profile:
-            profile.active_session_key = request.session.session_key
-            profile.save(update_fields=['active_session_key'])
+    if not request.session.session_key:
+        request.session.save()
+        
+    profile = getattr(user, 'profile', None)
+    if profile:
+        profile.active_session_key = request.session.session_key
+        profile.save(update_fields=['active_session_key'])
 
     # Rolling renewal — extend token on each successful verify
     token_obj.expires_at = timezone.now() + timedelta(days=365)
@@ -436,10 +444,13 @@ def complete_profile_view(request):
                 'error': 'Choisis ta série.',
                 'profile': profile,
             })
+        if school:
+            School.objects.get_or_create(name=school)
         profile.school = school
         profile.serie  = serie
         profile.level  = 'Terminale'
         profile.save()
+
         return redirect('diagnostic')
 
     return render(request, 'accounts/complete_profile.html', {'profile': profile})
@@ -512,7 +523,10 @@ def diagnostic_view(request):
                     first_name=first_name,
                     last_name=last_name,
                 )
+                if school_name:
+                    School.objects.get_or_create(name=school_name)
                 UserProfile.objects.create(
+
                     user=user,
                     first_name=first_name,
                     last_name=last_name,
@@ -554,7 +568,16 @@ def diagnostic_view(request):
 
         request.session.pop('diagnostic_qs', None)
         request.session.pop('diagnostic_subjects', None)
-        return redirect(_post_auth_redirect(user))
+        
+        # Générer le token persistant pour le nouvel utilisateur
+        from .models import PersistentAuthToken
+        PersistentAuthToken.objects.filter(user=user).delete()
+        token_obj = PersistentAuthToken.objects.create(user=user)
+        
+        response = redirect(_post_auth_redirect(user))
+        # Cookie longue durée (1 an) pour l'auto-login instantané
+        response.set_cookie('otb_persistent_token', token_obj.token, max_age=31536000, samesite='Lax', secure=not settings.DEBUG)
+        return response
 
     # ── GET ──
     session_qs = request.session.get('diagnostic_qs')

@@ -8,14 +8,40 @@
   <meta name="mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <meta name="user-authenticated" content="{% if user.is_authenticated %}true{% else %}false{% endif %}"/>
+  <script>
+    (function() {
+      const k = 'ou_tou_bon_auth_token', c = 'otb_persistent_token';
+      const lt = localStorage.getItem(k), ct = document.cookie.match('(^| )'+c+'=([^;]+)')?.[2];
+      const isA = {% if user.is_authenticated %}true{% else %}false{% endif %};
+      
+      if (lt && !ct && isA) {
+        // Déjà connecté mais cookie manquant (nettoyé?) -> on remet le cookie pour la persistance
+        document.cookie = c+'='+lt+'; path=/; max-age=31536000; samesite=Lax';
+      } else if (lt && !ct && !isA) {
+        // Token présent mais serveur dit non-authentifié -> le middleware a échoué ou session expirée
+        // On synchronise le cookie pour la prochaine tentative ou on nettoie si vraiment invalide
+        document.cookie = c+'='+lt+'; path=/; max-age=31536000; samesite=Lax';
+      } else if (ct && !lt) {
+        // Cookie présent mais localStorage vide -> on synchronise vers localStorage
+        localStorage.setItem(k, ct);
+      }
+      
+      // Nettoyage si déconnexion explicite (plus de cookie et plus de session)
+      if (!isA && !ct && lt) {
+        localStorage.removeItem(k);
+        localStorage.removeItem('ou_tou_bon_token_exp');
+      }
+    })();
+  </script>
   <title>{% block title %}OU TOU BON{% endblock %}</title>
   <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}"/>
   <link rel="apple-touch-icon" href="{% static 'img/logo.png' %}"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.5/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/></noscript>
   <script>
     window._mathJaxQueue = [];
     window.MathJax = {
@@ -253,6 +279,28 @@
     .action-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto .9rem; font-size: 1.3rem; }
     .action-title { font-weight: 700; font-size: .95rem; }
     .action-sub { color: var(--t2); font-size: .8rem; margin-top: .3rem; }
+
+    /* Button Loading State */
+    .btn-loading {
+      position: relative !important;
+      color: transparent !important;
+      pointer-events: none !important;
+    }
+    .btn-loading::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin: -10px 0 0 -10px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      z-index: 2;
+    }
+    .btn-primary.btn-loading::after { border-top-color: #fff; }
 
     
     .spinner { width: 20px; height: 20px; border: 2px solid var(--border2); border-top-color: var(--green); border-radius: 50%; animation: spin .8s linear infinite; display: inline-block; }
@@ -2024,11 +2072,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% if user.is_authenticated %}
 
-<script src="https://openfpcdn.io/fingerprintjs/v4/iife.min.js"></script>
+<script src="https://openfpcdn.io/fingerprintjs/v4/iife.min.js" async id="fpjs-script"></script>
 <script>
 let _otbDeviceFP = '';
-(async function(){
+async function _runFingerprintCheck() {
   try {
+    if (typeof FingerprintJS === 'undefined') return;
     const fp = await FingerprintJS.load();
     const result = await fp.get();
     _otbDeviceFP = result.visitorId;
@@ -2059,7 +2108,13 @@ let _otbDeviceFP = '';
   } catch(e) {
     console.warn('[BacIA] Fingerprint check skipped:', e);
   }
-})();
+}
+const _fpScriptEl = document.getElementById('fpjs-script');
+if (_fpScriptEl) {
+  _fpScriptEl.addEventListener('load', _runFingerprintCheck);
+} else {
+  _runFingerprintCheck();
+}
 
 function _showDeviceBanner(msg, type) {
   let existing = document.getElementById('otb-device-banner');
@@ -2186,10 +2241,29 @@ document.addEventListener('DOMContentLoaded', function() {
       handleLogout();
     });
   });
+
+  // Global form loading state
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      // Find the submit button(s)
+      const subBtns = form.querySelectorAll('button[type="submit"], input[type="submit"]');
+      if (subBtns.length > 0) {
+        // Only add loading if form is valid (for HTML5 validation)
+        if (form.checkValidity()) {
+          subBtns.forEach(btn => {
+            btn.classList.add('btn-loading');
+            // For input type submit, we can't use ::after easily, but we'll try
+            if (btn.tagName === 'INPUT') btn.style.color = 'transparent';
+          });
+        }
+      }
+    });
+  });
 });
 </script>
 
 {% block extra_js %}{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.5/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 </body>
 </html>
 

@@ -5518,3 +5518,449 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'api_history_list' not found.
 [2026-04-22 06:33:49,935] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
 [2026-04-22 06:33:51,304] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
 [2026-04-22 06:33:51,305] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 09:31:00,857] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 09:31:00,865] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 09:35:07,219] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 09:35:07,225] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 09:37:20,596] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 09:37:20,596] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 09:37:22,744] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 09:37:22,749] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 09:37:33,278] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 09:37:33,280] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 09:42:54,280] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 09:42:54,283] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:13:59,777] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:13:59,793] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:16:20,774] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:16:20,780] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:18:36,141] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:18:36,143] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:18:36,200] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:18:36,203] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:18:38,064] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:18:38,066] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:22:40,176] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:22:40,182] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:22:40,311] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:22:40,313] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:22:42,483] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:22:42,489] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:25:04,479] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:25:04,482] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:25:04,590] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:25:04,596] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:25:06,382] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:25:06,384] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:25:08,377] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:25:08,381] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:27:05,132] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:27:05,143] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:27:05,232] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:27:05,234] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:27:06,760] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:27:06,760] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:27:08,829] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:27:08,835] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:28:39,959] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:28:39,976] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:28:40,068] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:28:40,092] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:28:41,468] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:28:41,489] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:28:43,042] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:28:43,047] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:29:00,380] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:29:00,386] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:29:08,300] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:29:08,306] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:29:12,646] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:29:12,651] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:29:20,554] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:29:20,554] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:34,725] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:34,734] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:34,820] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:34,826] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:35,644] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:35,649] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:35,782] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:35,788] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:35,873] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:35,882] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:35,961] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:35,962] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:36,994] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:36,998] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:41,369] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:41,369] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:31:43,464] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:31:43,470] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 10:32:01,323] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 10:32:01,326] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:57:48,653] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:57:48,664] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:58:11,677] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:58:11,680] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:58:36,576] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:58:36,579] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:58:46,917] WARNING django.request: Bad Request: /agent/register/
+[2026-04-22 16:58:46,919] WARNING django.server: "POST /agent/register/ HTTP/1.1" 400 60
+[2026-04-22 16:59:22,938] WARNING django.request: Bad Request: /agent/register/
+[2026-04-22 16:59:22,942] WARNING django.server: "POST /agent/register/ HTTP/1.1" 400 60
+[2026-04-22 16:59:29,215] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:29,223] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:33,593] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:33,606] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:33,749] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:33,761] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:36,624] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:36,635] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:38,281] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:38,284] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:39,353] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:39,355] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:40,105] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:40,108] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:40,929] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:40,931] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:41,145] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:41,147] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 16:59:44,814] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 16:59:44,815] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:00:01,542] WARNING django.request: Not Found: /l
+[2026-04-22 17:00:01,545] WARNING django.server: "GET /l HTTP/1.1" 404 7306
+[2026-04-22 17:00:01,676] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:00:01,677] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:00:07,289] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:00:07,292] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:04:13,637] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:04:13,641] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:05:52,590] WARNING django.request: Bad Request: /agent/register/
+[2026-04-22 17:05:52,593] WARNING django.server: "POST /agent/register/ HTTP/1.1" 400 60
+[2026-04-22 17:06:00,874] WARNING django.request: Bad Request: /agent/register/
+[2026-04-22 17:06:00,878] WARNING django.server: "POST /agent/register/ HTTP/1.1" 400 60
+[2026-04-22 17:06:05,402] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:06:05,405] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:06:07,827] WARNING django.request: Not Found: /l
+[2026-04-22 17:06:07,827] WARNING django.server: "GET /l HTTP/1.1" 404 7306
+[2026-04-22 17:06:07,912] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:06:07,913] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:06:10,237] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:06:10,238] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:06:10,269] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:06:10,273] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:06:11,855] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:06:11,856] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:16:09,069] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:16:09,072] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:16:11,002] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:16:11,008] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:16:17,328] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 17:16:17,329] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-22 17:24:08,447] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /dashboard/api/study/ping/
+[2026-04-22 17:24:08,448] WARNING django.server: "POST /dashboard/api/study/ping/ HTTP/1.1" 403 2541
+[2026-04-22 17:26:08,460] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /dashboard/api/study/ping/
+[2026-04-22 17:26:08,466] WARNING django.server: "POST /dashboard/api/study/ping/ HTTP/1.1" 403 2541
+[2026-04-22 17:28:08,354] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /dashboard/api/study/ping/
+[2026-04-22 17:28:08,356] WARNING django.server: "POST /dashboard/api/study/ping/ HTTP/1.1" 403 2541
+[2026-04-22 17:30:08,338] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /dashboard/api/study/ping/
+[2026-04-22 17:30:08,338] WARNING django.server: "POST /dashboard/api/study/ping/ HTTP/1.1" 403 2541
+[2026-04-22 17:31:51,322] WARNING django.request: Bad Request: /agent/register/
+[2026-04-22 17:31:51,323] WARNING django.server: "POST /agent/register/ HTTP/1.1" 400 60
+[2026-04-22 18:01:17,708] WARNING django.request: Not Found: /favicon.ico
+[2026-04-22 18:01:17,717] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 7336
+[2026-04-22 19:21:36,367] WARNING django.request: Bad Request: /agent/register/
+[2026-04-22 19:21:36,373] WARNING django.server: "POST /agent/register/ HTTP/1.1" 400 60
+[2026-04-22 19:22:04,969] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-22 19:22:04,986] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-23 04:59:34,946] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-23 04:59:34,955] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-23 05:12:39,492] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-23 05:12:39,496] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7447
+[2026-04-30 04:21:19,181] WARNING django.request: Unauthorized: /api/auth/token/verify/
+[2026-04-30 04:21:19,183] WARNING django.server: "POST /api/auth/token/verify/ HTTP/1.1" 401 37
+[2026-04-30 04:21:49,247] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /login/
+[2026-04-30 04:21:49,498] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /login/
+[2026-04-30 04:21:49,507] WARNING django.server: "POST /login/?next=/dashboard/chat/ HTTP/1.1" 403 1083
+[2026-04-30 04:21:49,696] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /login/
+[2026-04-30 04:21:53,346] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 04:21:53,360] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 04:29:51,563] ERROR django.request: Internal Server Error: /dashboard/amis/
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column accounts_friendmessage.is_system does not exist
+LINE 1: ..."created_at", "accounts_friendmessage"."is_read", "accounts_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\core\views.py", line 8917, in amis_view
+    ).order_by('-created_at').first()
+                              ^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 1059, in first
+    for obj in queryset[:1]:
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 1886, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column accounts_friendmessage.is_system does not exist
+LINE 1: ..."created_at", "accounts_friendmessage"."is_read", "accounts_...
+                                                             ^
+
+[2026-04-30 04:29:51,724] ERROR django.server: "GET /dashboard/amis/ HTTP/1.1" 500 2935
+[2026-04-30 04:29:58,121] ERROR django.request: Internal Server Error: /dashboard/amis/
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column accounts_friendmessage.is_system does not exist
+LINE 1: ..."created_at", "accounts_friendmessage"."is_read", "accounts_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\core\views.py", line 8917, in amis_view
+    ).order_by('-created_at').first()
+                              ^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 1059, in first
+    for obj in queryset[:1]:
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 1886, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column accounts_friendmessage.is_system does not exist
+LINE 1: ..."created_at", "accounts_friendmessage"."is_read", "accounts_...
+                                                             ^
+
+[2026-04-30 04:29:58,136] ERROR django.server: "GET /dashboard/amis/ HTTP/1.1" 500 2935
+[2026-04-30 04:30:06,141] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 04:30:06,150] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 04:44:06,767] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 04:44:06,774] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 04:46:52,287] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 04:46:52,295] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 04:52:12,371] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 04:52:12,381] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 04:55:58,079] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 04:55:58,082] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 04:56:11,268] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 04:56:11,274] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:00:48,555] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:00:48,596] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:00:51,261] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:00:51,265] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:00:55,358] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:00:55,359] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:00:55,968] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:00:55,971] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:00:55,995] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:00:56,008] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:00:58,002] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:00:58,004] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:01:05,431] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:01:05,437] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:02:17,641] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:02:17,644] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:02:45,100] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:02:45,105] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:04:36,471] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:04:36,477] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:25:04,613] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:25:04,618] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:25:14,606] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:25:14,610] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:25:33,867] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:25:33,868] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:26:00,071] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 05:26:00,074] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 05:30:10,760] WARNING django.request: Unprocessable Entity: /dashboard/api/pdf-extract-text/
+[2026-04-30 05:30:10,762] WARNING django.server: "GET /dashboard/api/pdf-extract-text/?path=examens_maths%2Fexam_maths_math-philo-c-d-2019-aleatoire.pdf HTTP/1.1" 422 48
+[2026-04-30 05:30:48,380] WARNING django.request: Unauthorized: /dashboard/api/chat/
+[2026-04-30 05:30:48,384] WARNING django.server: "POST /dashboard/api/chat/ HTTP/1.1" 401 60
+[2026-04-30 05:30:59,229] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /dashboard/api/study/ping/
+[2026-04-30 05:30:59,230] WARNING django.server: "POST /dashboard/api/study/ping/ HTTP/1.1" 403 1083
+[2026-04-30 05:45:09,955] WARNING django.request: Unauthorized: /dashboard/api/mistakes/summary/
+[2026-04-30 05:45:09,958] WARNING django.request: Unauthorized: /dashboard/api/coaching/cards/
+[2026-04-30 05:45:09,961] WARNING django.server: "GET /dashboard/api/mistakes/summary/ HTTP/1.1" 401 26
+[2026-04-30 05:45:09,961] WARNING django.server: "GET /dashboard/api/coaching/cards/ HTTP/1.1" 401 26
+[2026-04-30 06:19:13,127] WARNING django.security.csrf: Forbidden (CSRF token from POST incorrect.): /dashboard/api/study/ping/
+[2026-04-30 06:19:13,134] WARNING django.server: "POST /dashboard/api/study/ping/ HTTP/1.1" 403 1083
+[2026-04-30 07:26:05,489] WARNING django.request: Unauthorized: /dashboard/api/coaching/cards/
+[2026-04-30 07:26:05,491] WARNING django.request: Unauthorized: /dashboard/api/mistakes/summary/
+[2026-04-30 07:26:05,494] WARNING django.server: "GET /dashboard/api/coaching/cards/ HTTP/1.1" 401 26
+[2026-04-30 07:26:05,496] WARNING django.server: "GET /dashboard/api/mistakes/summary/ HTTP/1.1" 401 26
+[2026-04-30 07:28:08,067] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 07:28:08,073] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 07:53:35,666] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 07:53:35,681] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 08:25:14,295] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 08:25:14,307] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 08:25:39,162] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 08:25:39,163] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:19:25,653] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:19:25,655] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:19:34,933] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:19:34,934] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:40:06,287] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:40:06,296] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:40:15,537] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:40:15,551] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:40:19,795] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:40:19,795] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:40:29,589] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:40:29,593] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:40:29,999] WARNING django.request: Unauthorized: /dashboard/api/coaching/cards/
+[2026-04-30 10:40:29,999] WARNING django.request: Unauthorized: /dashboard/api/mistakes/summary/
+[2026-04-30 10:40:30,006] WARNING django.server: "GET /dashboard/api/mistakes/summary/ HTTP/1.1" 401 26
+[2026-04-30 10:40:30,006] WARNING django.server: "GET /dashboard/api/coaching/cards/ HTTP/1.1" 401 26
+[2026-04-30 10:40:52,627] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:40:52,629] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:41:02,336] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 10:41:02,340] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 10:53:06,815] ERROR django.security.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+[2026-04-30 10:53:06,885] WARNING django.server: "GET / HTTP/1.1" 400 2956
+[2026-04-30 10:53:19,821] ERROR django.security.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+[2026-04-30 10:53:19,841] WARNING django.server: "GET / HTTP/1.1" 400 2956
+[2026-04-30 10:53:23,005] ERROR django.security.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+[2026-04-30 10:53:23,017] WARNING django.server: "GET / HTTP/1.1" 400 2956
+[2026-04-30 10:54:58,288] ERROR django.security.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LE SANG DE JESUS\OneDrive\Desktop\project coding\BacIA_Django\.venv-1\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'dorsispinal-marketta-zinciferous.ngrok-free.dev'. You may need to add 'dorsispinal-marketta-zinciferous.ngrok-free.dev' to ALLOWED_HOSTS.
+[2026-04-30 10:54:58,316] WARNING django.server: "GET / HTTP/1.1" 400 2956
+[2026-04-30 12:06:11,821] WARNING django.request: Not Found: /favicon.ico
+[2026-04-30 12:06:11,824] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 2951
+[2026-04-30 13:28:05,505] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 13:28:05,534] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 13:28:09,568] WARNING django.request: Unauthorized: /api/auth/token/verify/
+[2026-04-30 13:28:09,581] WARNING django.server: "POST /api/auth/token/verify/ HTTP/1.1" 401 37
+[2026-04-30 13:28:22,358] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 13:28:22,387] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:33:54,643] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:33:54,663] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:34:33,195] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:34:33,197] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:35:52,594] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:35:52,600] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:36:05,861] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:36:05,864] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:51:34,036] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:51:34,069] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:52:02,762] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:52:02,763] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:52:40,419] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:52:40,425] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:52:47,176] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:52:47,183] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:52:56,798] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:52:56,806] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:53:09,875] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2026-04-30 14:53:09,878] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2951
+[2026-04-30 14:55:35,660] WARNING django.request: Not Found: /driver/
+[2026-04-30 14:55:35,670] WARNING django.server: "GET /driver/ HTTP/1.1" 404 2951

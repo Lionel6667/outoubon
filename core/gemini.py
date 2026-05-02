@@ -1,4 +1,4 @@
-﻿"""
+"""
 Service IA BacIA — Groq API
 Modèle principal : openai/gpt-oss-120b  (raisonnement, cours interactif, chat profond)
 Modèle léger      : openai/gpt-oss-20b  (génération structurée JSON, tâches répétitives)
@@ -10,8 +10,10 @@ import os
 from collections import Counter
 
 MODEL      = 'openai/gpt-oss-120b'    # Raisonnement pédagogique profond
-FAST_MODEL = 'openai/gpt-oss-20b'     # Génération JSON structurée — 6× moins cher
-CREOLE_MODEL = FAST_MODEL              # Créole : 20b suffit (traduction UI supprimée)
+FAST_MODEL = 'openai/gpt-oss-20b'     # Génération JSON structurée
+CREOLE_MODEL = 'openai/gpt-oss-120b'  # Qualité créole maximale
+
+
 
 
 # ─── Prompt statiques — Groq prefix caching ──────────────────────────────────
@@ -710,6 +712,8 @@ MATS = {
 }
 
 VISION_MODEL = 'meta-llama/llama-4-scout-17b-16e-instruct'
+
+
 
 
 # ─────────────────────────────────────────────────────────────────────────────

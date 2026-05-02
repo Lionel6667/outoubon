@@ -19,8 +19,9 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = [
     h.strip() for h in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,outoubon.com,www.outoubon.com').split(',') if h.strip()
 ]
-if DEBUG:
-    ALLOWED_HOSTS += ['.ngrok-free.dev', '.ngrok.io']
+# Allow ngrok for local testing/previews even if DEBUG=False
+ALLOWED_HOSTS += ['.ngrok-free.dev', '.ngrok.io', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = list(set(ALLOWED_HOSTS)) # Remove duplicates
 
 # Local development detection (HTTP localhost / ngrok workflows)
 _LOCAL_ONLY_HOSTS = {'localhost', '127.0.0.1', '.ngrok-free.dev', '.ngrok.io', 'outoubon.com', 'www.outoubon.com'}
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'accounts.middleware.PersistentAuthMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'core.security.RateLimitMiddleware',
@@ -198,7 +200,7 @@ if not DEBUG:
 SESSION_COOKIE_SECURE   = not DEBUG
 SESSION_COOKIE_HTTPONLY  = True
 SESSION_COOKIE_SAMESITE  = 'Lax'
-SESSION_COOKIE_AGE       = 2592000            # 30 jours
+SESSION_COOKIE_AGE       = 31536000            # 1 an
 
 # CSRF security
 CSRF_COOKIE_SECURE      = not DEBUG
@@ -207,8 +209,9 @@ CSRF_COOKIE_SAMESITE    = 'Lax'
 CSRF_TRUSTED_ORIGINS    = [
     o.strip() for o in os.getenv('CSRF_TRUSTED_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000,https://outoubon.com,https://www.outoubon.com').split(',') if o.strip()
 ]
-if DEBUG:
-    CSRF_TRUSTED_ORIGINS += ['https://*.ngrok-free.dev', 'https://*.ngrok.io', 'https://outoubon.com', 'https://www.outoubon.com']
+# Always trust ngrok origins for testing/preview purposes
+CSRF_TRUSTED_ORIGINS += ['https://*.ngrok-free.dev', 'https://*.ngrok.io']
+CSRF_TRUSTED_ORIGINS = list(set(CSRF_TRUSTED_ORIGINS)) # Remove duplicates
 
 # Browser security headers
 SECURE_CONTENT_TYPE_NOSNIFF = True

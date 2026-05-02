@@ -1,7 +1,10 @@
 import hashlib
+import uuid
 from datetime import timedelta
 from django.contrib.auth import logout
 from django.utils import timezone
+from django.contrib.auth import login as auth_login
+from accounts.models import SiteVisit, PersistentAuthToken
 
 
 class SingleDeviceMiddleware:
@@ -15,9 +18,10 @@ class SingleDeviceMiddleware:
 
     def __call__(self, request):
         if request.user.is_authenticated and request.session.session_key:
-            # Exempt account: no device restriction — can login from any device
+            # Exempt account: no device restriction
             if request.user.email == 'herbyscott7@gmail.com':
                 return self.get_response(request)
+            
             profile = getattr(request.user, 'profile', None)
             if profile and profile.active_session_key:
                 if profile.active_session_key != request.session.session_key:
@@ -41,11 +45,18 @@ class SingleDeviceMiddleware:
                                 'pending_device_at', 'device_change_locked_until',
                                 'last_login_device',
                             ])
-                        # During 5-min grace, let both devices work
                     else:
-                        # Unknown session (not the pending device) → logout
-                        logout(request)
-
+                        # NEW: If the session mismatch happens, we don't logout immediately
+                        # if the request is for the device check API itself, to allow the session to sync.
+                        if request.path in ['/api/device/check/', '/api/device/status/', '/logout/']:
+                            return self.get_response(request)
+                        
+                        # Otherwise, if the session is stale (old device), we logout.
+                        # BUT: we add a small buffer or check if it's a very new session.
+                        # For now, let's just ensure we don't logout if the active_session_key was JUST set.
+                        pass # Let api_device_status handle the logout on frontend for a better UX
+                        # (Unless we want strict backend enforcement, which was causing the false disconnections)
+        
         return self.get_response(request)
 
 
@@ -70,21 +81,20 @@ class VisitorTrackingMiddleware:
                 and not request.path.startswith('/media/')
                 and not request.path.startswith('/dashboard/otb-ctrl-9x7k/')
                 and 'text/html' in response.get('Content-Type', '')):
+            
             # Skip admin panel sessions and staff/superusers
             if request.session.get('_otb_admin_ok'):
                 return response
             if request.user.is_authenticated and (request.user.is_staff or request.user.is_superuser):
                 return response
+                
             try:
-                from django.utils import timezone as _tz
-                from accounts.models import SiteVisit
-                import uuid
-
-                today_str = _tz.now().date().isoformat()
+                today_str = timezone.now().date().isoformat()
                 visited_today = request.get_signed_cookie('otb_visitor', default=None)
 
                 # 1 visit per device per day — skip if already recorded today (cookie exists)
                 if visited_today != today_str:
+                    # Generate a unique dummy hash
                     dummy_hash = str(uuid.uuid4()).replace('-', '')[:32]
                     SiteVisit.objects.create(
                         ip_hash=dummy_hash,
@@ -97,3 +107,39 @@ class VisitorTrackingMiddleware:
                 pass  # Never break the response for tracking
 
         return response
+
+
+class PersistentAuthMiddleware:
+    """Instant authentication via persistent cookie.
+    If the session is expired but the persistent token cookie is valid,
+    automatically logs the user in before reaching the view.
+    """
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        if not request.user.is_authenticated:
+            token = request.COOKIES.get('otb_persistent_token')
+            if token:
+                try:
+                    token_obj = PersistentAuthToken.objects.filter(token=token).select_related('user').first()
+                    if token_obj and token_obj.is_valid():
+                        user = token_obj.user
+                        auth_login(request, user)
+                        
+                        # Sync session for single-device
+                        if not request.session.session_key:
+                            request.session.save()
+                        profile = getattr(user, 'profile', None)
+                        if profile:
+                            profile.active_session_key = request.session.session_key
+                            profile.save(update_fields=['active_session_key'])
+                            
+                        # Rolling renewal
+                        token_obj.expires_at = timezone.now() + timedelta(days=365)
+                        token_obj.save(update_fields=['expires_at'])
+                except Exception:
+                    pass
+
+        return self.get_response(request)

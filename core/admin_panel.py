@@ -16,8 +16,9 @@ from django.contrib.auth.models import User
 
 from accounts.models import (
     UserProfile, Payment, Agent, AgentReferral, AgentWithdrawal,
-    AdminMessage, AdminPanelConfig, SiteVisit, DailyUsage,
+    AdminMessage, AdminPanelConfig, SiteVisit, DailyUsage, UserStats,
 )
+from core.models import ExtraBetPost, ExtraBetAttempt
 
 
 # ─────────────── AUTH HELPERS ───────────────
@@ -151,6 +152,29 @@ def admin_panel_view(request):
     # ── Admin messages sent ──
     admin_msgs_count = AdminMessage.objects.count()
 
+    # ── Extra Bète stats ──
+    extra_bet_posts = ExtraBetPost.objects.count()
+    extra_bet_answers = ExtraBetAttempt.objects.count()
+
+    # ── Real-time Active (last 15 min) ──
+    realtime_active = SiteVisit.objects.filter(visited_at__gte=now - timedelta(minutes=15)).values('ip_hash').distinct().count()
+
+    # ── Top 5 Leaderboard ──
+    top_users = UserStats.objects.select_related('user', 'user__profile').annotate(
+        xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
+    ).order_by('-xp')[:5]
+
+    # ── Popular Subjects (approximate from recent DailyUsage) ──
+    # We look at the last 1000 DailyUsage entries to find which subjects are hot
+    popular_subjects = []
+    recent_usage = DailyUsage.objects.order_by('-id')[:200]
+    subj_map = {}
+    for usage in recent_usage:
+        if usage.exercise_subjects:
+            for s, c in usage.exercise_subjects.items():
+                subj_map[s] = subj_map.get(s, 0) + c
+    popular_subjects = sorted(subj_map.items(), key=lambda x: x[1], reverse=True)[:5]
+
     # ── All users for messaging dropdown (students only) ──
     all_users = _student_qs.select_related('profile').order_by('first_name', 'username')[:500]
 
@@ -186,6 +210,11 @@ def admin_panel_view(request):
         'total_chats': total_chats,
         'total_quizzes': total_quizzes,
         'admin_msgs_count': admin_msgs_count,
+        'extra_bet_posts':   extra_bet_posts,
+        'extra_bet_answers': extra_bet_answers,
+        'realtime_active':   realtime_active,
+        'top_users':         top_users,
+        'popular_subjects':  popular_subjects,
         'agents': agents,
         'all_users': all_users,
     }
