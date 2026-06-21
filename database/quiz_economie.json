@@ -1,0 +1,3007 @@
+{
+  "matiere": "economie",
+  "total": 200,
+  "description": "Quiz Économie — BAC Haïti",
+  "quiz": [
+    {
+      "id": "E1",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La fonction de production Y = F(K, N) exprime la relation entre :",
+      "correct": "C",
+      "explanation": "La fonction de production Y = F(K, N) exprime la relation entre la production, le capital (K) et le travail (N). En effet, cette fonction représente la manière dont les entreprises produisent des biens et services en utilisant des facteurs de production tels que le capital (machines, équipements) et le travail (main-d'œuvre). Les autres options sont incorrectes car la consommation et le revenu sont liés par la fonction de consommation, les prix sont liés à la production par la loi de l'offre et de la demande, et l'offre et la demande sont liées par la loi de l'offre et de la demande.",
+      "options": [
+        "La consommation et le revenu",
+        "La production et les prix",
+        "La production, le capital (K) et le travail (N)",
+        "L’offre et la demande"
+      ]
+    },
+    {
+      "id": "E2",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans la fonction de production Y = F(K, N), une augmentation de la production à technologie constante peut être due à :",
+      "correct": "A",
+      "explanation": "Une augmentation de la production à technologie constante peut être due à une augmentation du capital (K) ou du travail (N). En effet, si la technologie reste constante, la seule façon d'augmenter la production est d'augmenter les quantités de facteurs de production utilisés, c'est-à-dire le capital ou le travail. Les autres options sont incorrectes car une dévaluation monétaire affecte les exportations et les importations, une hausse des prix affecte la demande et une baisse des impôts peut affecter la consommation et l'investissement.",
+      "options": [
+        "Une augmentation du capital (K) ou du travail (N)",
+        "Une dévaluation monétaire",
+        "Une hausse des prix",
+        "Une baisse des impôts"
+      ]
+    },
+    {
+      "id": "E3",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le produit intérieur brut (PIB) est la somme des valeurs ajoutées des entreprises situées :",
+      "correct": "D",
+      "explanation": "Le produit intérieur brut (PIB) est la somme des valeurs ajoutées des entreprises situées sur le territoire national, quelle que soit leur nationalité. En effet, le PIB mesure la production totale de biens et services sur un territoire donné, qu'elle soit réalisée par des entreprises nationales ou étrangères. Les autres options sont incorrectes car le PNB (Produit National Brut) prend en compte les entreprises nationales, quel que soit leur lieu d'implantation, et les autres options sont trop restrictives ou incorrectes.",
+      "options": [
+        "Uniquement des entreprises publiques",
+        "À l’étranger pour les entreprises nationales",
+        "Des entreprises ayant leur siège social dans le pays",
+        "Sur le territoire national, quelle que soit leur nationalité"
+      ]
+    },
+    {
+      "id": "E4",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La formule du PIB par l’approche des dépenses (économie fermée) est :",
+      "correct": "C",
+      "explanation": "La formule du PIB par l'approche des dépenses en économie fermée est 'PIB = C + I + G'. En effet, dans une économie fermée, la demande globale est composée de la consommation (C), de l'investissement (I) et des dépenses publiques (G). Les autres options sont incorrectes car 'W + R + I + P' ne sont pas des composantes de la demande globale, 'C + I' est incomplète car elle ne prend pas en compte les dépenses publiques, et 'C + I + G + X – M' correspond à l'économie ouverte.",
+      "options": [
+        "PIB = W + R + I + P",
+        "PIB = C + I",
+        "PIB = C + I + G",
+        "PIB = C + I + G + X – M"
+      ]
+    },
+    {
+      "id": "E5",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Selon le modèle keynésien simple, la courbe d’offre agrégée est :",
+      "correct": "A",
+      "explanation": "Selon le modèle keynésien simple, la courbe d'offre agrégée est horizontale à un niveau de prix fixe. En effet, dans le modèle keynésien simple, les entreprises sont supposées produire à un niveau de prix fixe, ce qui implique que la courbe d'offre agrégée est horizontale. Les autres options sont incorrectes car la courbe d'offre classique est verticale, la courbe d'offre décroissante n'est pas une caractéristique du modèle keynésien simple et la courbe d'offre croissante n'est pas horizontale.",
+      "options": [
+        "Horizontale à un niveau de prix fixe",
+        "Décroissante",
+        "Croissante",
+        "Verticale"
+      ]
+    },
+    {
+      "id": "E6",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La demande agrégée (DA) se compose de :",
+      "correct": "B",
+      "explanation": "La demande agrégée (DA) se compose de 'C + I + G + (X - M)'. En effet, la demande agrégée est composée de la consommation (C), de l'investissement (I), des dépenses publiques (G) et des exportations nettes (X - M). Les autres options sont incorrectes car 'C + I + G' est incomplète car elle ne prend pas en compte les exportations nettes, 'C + I + (X – M)' est également incomplète car elle ne prend pas en compte les dépenses publiques, et 'C + I' est encore plus incomplète.",
+      "options": [
+        "C + I + G",
+        "C + I + G + (X – M)",
+        "C + I + (X – M)",
+        "C + I"
+      ]
+    },
+    {
+      "id": "E7",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La propension marginale à consommer (PmC) est :",
+      "correct": "D",
+      "explanation": "La propension marginale à consommer (PmC) est la part de chaque gourde supplémentaire consommée. En effet, la PmC mesure la variation de la consommation en fonction de la variation du revenu disponible. Les autres options sont incorrectes car la propension moyenne à consommer est la part du revenu total consommée, la propension marginale à épargner est la part du revenu supplémentaire épargnée et le rapport entre consommation et investissement n'est pas la PmC.",
+      "options": [
+        "La part du revenu épargnée",
+        "La part du revenu total consommée",
+        "Le rapport entre consommation et investissement",
+        "La part de chaque gourde supplémentaire consommée"
+      ]
+    },
+    {
+      "id": "E8",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Si la PmC = 0,8, le multiplicateur keynésien (en l’absence d’impôts) est :",
+      "correct": "C",
+      "explanation": "Si la PmC = 0,8, le multiplicateur keynésien (en l'absence d'impôts) est 5. En effet, le multiplicateur keynésien est donné par la formule 1 / (1 - PmC), ce qui implique que si la PmC = 0,8, le multiplicateur est de 1 / (1 - 0,8) = 5. Les autres options sont incorrectes car la PmC n'est pas égale au multiplicateur, la PmS (propension marginale à épargner) est liée au multiplicateur mais n'est pas égale à 0,2 et 1,25 n'est pas le résultat de la formule du multiplicateur.",
+      "options": [
+        "0,8",
+        "0,2",
+        "5",
+        "1,25"
+      ]
+    },
+    {
+      "id": "E9",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La fonction de consommation keynésienne s’écrit :",
+      "correct": "C",
+      "explanation": "La fonction de consommation keynésienne s’écrit 'C = a + bY'. En effet, cette fonction prend en compte une consommation incompressible 'a' et une partie qui dépend du revenu 'bY'. Les autres options sont incorrectes car 'C = bY' n'a pas de consommation incompressible, 'C = aY' est incorrecte car 'a' n'est pas la propension marginale à consommer, et 'C = a – bY' est décroissante ce qui n'est pas conforme à la théorie keynésienne.",
+      "options": [
+        "C = bY",
+        "C = aY",
+        "C = a + bY",
+        "C = a – bY"
+      ]
+    },
+    {
+      "id": "E10",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans l’équation C = a + bY, que représente a ?",
+      "correct": "C",
+      "explanation": "Dans l’équation 'C = a + bY', 'a' représente la consommation incompressible (autonome). En effet, 'a' est la partie de la consommation qui ne dépend pas du revenu. Les autres options sont incorrectes car 'b' représente la propension marginale à consommer, 'Y' représente le revenu disponible, et 'I' représente l’investissement.",
+      "options": [
+        "La propension marginale à consommer",
+        "Le revenu disponible",
+        "La consommation incompressible (autonome)",
+        "L’investissement"
+      ]
+    },
+    {
+      "id": "E11",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La monnaie fiduciaire est constituée de :",
+      "correct": "D",
+      "explanation": "La monnaie fiduciaire est constituée de 'Pièces et billets'. En effet, la monnaie fiduciaire est la monnaie physique qui circule dans l'économie. Les autres options sont incorrectes car les dépôts bancaires sont une forme de monnaie scripturale, les chèques et cartes de crédit sont des moyens de paiement, et les cryptomonnaies sont des monnaies numériques.",
+      "options": [
+        "Dépôts bancaires",
+        "Chèques et cartes de crédit",
+        "Cryptomonnaies",
+        "Pièces et billets"
+      ]
+    },
+    {
+      "id": "E12",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La monnaie scripturale est créée principalement par :",
+      "correct": "D",
+      "explanation": "La monnaie scripturale est créée principalement par les banques commerciales (crédits). En effet, les banques commerciales créent de la monnaie scripturale en accordant des crédits aux agents économiques, ce qui se traduit par des dépôts dans les comptes bancaires. Les autres options sont incorrectes car les ménages ne créent pas de monnaie, la Banque centrale crée de la monnaie fiduciaire, et le Trésor public n'est pas directement impliqué dans la création de monnaie scripturale.",
+      "options": [
+        "Les ménages",
+        "Le Trésor public",
+        "La Banque centrale",
+        "Les banques commerciales (crédits)"
+      ]
+    },
+    {
+      "id": "E13",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Selon la théorie quantitative de la monnaie, l’inflation est due à :",
+      "correct": "A",
+      "explanation": "La théorie quantitative de la monnaie stipule que l'inflation est principalement causée par une augmentation trop rapide de la masse monétaire. En effet, selon l'équation MV = PY, si la masse monétaire (M) augmente plus vite que la production (Y), les prix (P) augmenteront, entraînant une inflation. Les autres options, comme une baisse de la production, un déficit budgétaire ou une hausse des salaires, peuvent contribuer à l'inflation, mais ne sont pas considérées comme la cause première selon cette théorie.",
+      "options": [
+        "Une augmentation trop rapide de la masse monétaire",
+        "Une baisse de la production",
+        "Un déficit budgétaire",
+        "Une hausse des salaires"
+      ]
+    },
+    {
+      "id": "E14",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Banque centrale peut réduire la masse monétaire en :",
+      "correct": "D",
+      "explanation": "La Banque centrale peut réduire la masse monétaire en vendant des titres sur le marché, également appelé 'open market'. Lorsqu'elle vend des titres, elle retire des liquidités du marché, ce qui réduit la masse monétaire en circulation. À l'inverse, acheter des titres sur le marché injecte des liquidités et augmente la masse monétaire. Baisser le taux directeur ou diminuer les réserves obligatoires sont des mesures expansionnistes qui augmentent la masse monétaire.",
+      "options": [
+        "Baissant le taux directeur",
+        "Diminuant les réserves obligatoires",
+        "Achetant des titres sur le marché (open market)",
+        "Vendant des titres sur le marché (open market)"
+      ]
+    },
+    {
+      "id": "E15",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une politique monétaire restrictive vise à :",
+      "correct": "A",
+      "explanation": "Une politique monétaire restrictive vise principalement à lutter contre l'inflation. Pour ce faire, la Banque centrale adopte des mesures qui réduisent la masse monétaire en circulation ou augmentent les coûts d'emprunt, ce qui a pour effet de ralentir l'activité économique et de faire baisser les prix. Les options B, C et D correspondent à des objectifs de politique monétaire expansionniste, qui visent à augmenter la masse monétaire, à relancer la croissance ou à baisser le chômage.",
+      "options": [
+        "Lutter contre l’inflation",
+        "Augmenter la masse monétaire",
+        "Relancer la croissance",
+        "Baisser le chômage"
+      ]
+    },
+    {
+      "id": "E16",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le taux d’intérêt réel est égal au taux d’intérêt nominal :",
+      "correct": "C",
+      "explanation": "Le taux d'intérêt réel est égal au taux d'intérêt nominal moins le taux d'inflation. C'est ce qu'on appelle l'équation de Fisher approchée. Cela signifie que si vous connaissez le taux d'intérêt nominal et le taux d'inflation, vous pouvez calculer le taux d'intérêt réel. Les autres options ne décrivent pas correctement cette relation.",
+      "options": [
+        "Multiplié par l’inflation",
+        "Divisée par l’inflation",
+        "Moins le taux d’inflation",
+        "Plus le taux d’inflation"
+      ]
+    },
+    {
+      "id": "E17",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chômage frictionnel est lié :",
+      "correct": "B",
+      "explanation": "Le chômage frictionnel est une situation où des individus sont temporairement au chômage lors de leur transition entre deux emplois. C'est lié au passage d'un emploi à un autre, car les travailleurs peuvent choisir de quitter leur emploi actuel pour rechercher un nouveau ou peuvent être licenciés et prendre du temps pour trouver un nouvel emploi. Les autres options sont incorrectes car le progrès technique est lié au chômage technologique, les fluctuations économiques sont liées au chômage conjoncturel, et l'inadéquation des qualifications est liée au chômage structurel.",
+      "options": [
+        "Au progrès technique",
+        "Au passage d’un emploi à un autre",
+        "Aux fluctuations économiques",
+        "À l’inadéquation des qualifications"
+      ]
+    },
+    {
+      "id": "E18",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La courbe de Phillips montre une relation :",
+      "correct": "B",
+      "explanation": "La courbe de Phillips montre une relation négative entre le taux de chômage et le taux d'inflation dans une économie. Cela signifie que lorsque le chômage est élevé, l'inflation tend à être faible, et vice versa. Cette relation est généralement observée à court terme. Les autres options sont incorrectes car une relation positive entre chômage et inflation n'est pas soutenue par la théorie économique, une relation négative entre PIB et inflation est plus proche de la courbe de demande globale, et une relation positive entre PIB et chômage est contradictoire avec la loi d'Okun.",
+      "options": [
+        "Positive entre chômage et inflation",
+        "Négative entre chômage et inflation",
+        "Négative entre PIB et inflation",
+        "Positive entre PIB et chômage"
+      ]
+    },
+    {
+      "id": "E19",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le développement durable repose sur trois piliers :",
+      "correct": "A",
+      "explanation": "Le développement durable est un concept qui vise à concilier la croissance économique, le bien-être social et la protection de l'environnement. Il repose sur trois piliers fondamentaux : économique, social et environnemental. Ces piliers sont essentiels pour assurer un développement qui profite à tous sans compromettre la capacité des générations futures à répondre à leurs propres besoins. Les autres options sont incorrectes car elles ne reflètent pas les fondements du développement durable.",
+      "options": [
+        "Économique, social, environnemental",
+        "Industriel, agricole, commercial",
+        "Politique, culturel, religieux",
+        "Local, national, international"
+      ]
+    },
+    {
+      "id": "E20",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’indice de développement humain (IDH) combine :",
+      "correct": "B",
+      "explanation": "L'indice de développement humain (IDH) est un indicateur composite qui mesure le niveau de développement d'un pays en fonction de trois critères : le revenu par habitant (ou PIB/habitant), l'espérance de vie à la naissance et le taux d'alphabétisation (ou niveau d'éducation). Ces critères reflètent les dimensions essentielles du développement humain. Les autres options sont incorrectes car elles ne correspondent pas aux composantes de l'IDH.",
+      "options": [
+        "Exportations, importations, balance commerciale",
+        "PIB/habitant, taux d’alphabétisation, espérance de vie",
+        "PIB, dette, chômage",
+        "Inflation, taux d’intérêt, croissance"
+      ]
+    },
+    {
+      "id": "E21",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une entreprise en situation de monopole maximise son profit lorsque :",
+      "correct": "C",
+      "explanation": "Une entreprise en situation de monopole maximise son profit lorsque la recette marginale est égale au coût marginal. Cela signifie que l'entreprise produit jusqu'au point où le revenu supplémentaire généré par la vente d'une unité supplémentaire de produit est égal au coût supplémentaire engagé pour produire cette unité. Les autres options sont incorrectes car fixer le prix égal au coût marginal est caractéristique de la concurrence parfaite, la recette totale maximale n'est pas un objectif de maximisation du profit, et la recette moyenne égale au coût moyen correspond au seuil de rentabilité.",
+      "options": [
+        "Prix = Coût marginal",
+        "Recette totale maximale",
+        "Recette marginale = Coût marginal",
+        "Recette moyenne = Coût moyen"
+      ]
+    },
+    {
+      "id": "E22",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un monopoleur fait face à une demande :",
+      "correct": "B",
+      "explanation": "Un monopoleur fait face à une demande qui est généralement peu élastique, c'est-à-dire que la quantité demandée ne varie pas fortement en réponse à une variation du prix. Cependant, cette demande a une pente négative, signifiant que si le monopoleur augmente son prix, la quantité demandée diminuera. Les autres options sont incorrectes car une demande parfaitement inélastique est verticale, une demande parfaitement élastique est horizontale, et une demande verticale ne permettrait pas au monopoleur de modifier la quantité demandée en changeant le prix.",
+      "options": [
+        "Parfaitement inélastique",
+        "Peu élastique (pente négative)",
+        "Verticale",
+        "Parfaitement élastique"
+      ]
+    },
+    {
+      "id": "E23",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La recette marginale d’un monopoleur est :",
+      "correct": "A",
+      "explanation": "La recette marginale d'un monopoleur est inférieure au prix de vente du produit. Cela est dû au fait que pour augmenter ses ventes, le monopoleur doit baisser son prix, ce qui affecte non seulement la dernière unité vendue mais aussi toutes les unités précédentes qui auraient pu être vendues à un prix plus élevé. Les autres options sont incorrectes car la recette marginale n'est pas supérieure au prix en monopole, elle n'est pas nulle à moins que le monopoleur ne décide de ne pas produire, et elle n'est pas égale au prix comme en concurrence parfaite.",
+      "options": [
+        "Inférieure au prix",
+        "Supérieure au prix",
+        "Nulle",
+        "Égale au prix"
+      ]
+    },
+    {
+      "id": "E24",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La balance des paiements comprend principalement :",
+      "correct": "A",
+      "explanation": "La balance des paiements d'un pays comprend principalement deux comptes : le compte courant et le compte de capital et financier. Le compte courant enregistre les transactions liées au commerce international de biens et services, ainsi que les revenus et les transferts courants. Le compte de capital et financier enregistre les transactions liées aux mouvements de capitaux et aux opérations financières. Les autres options sont incorrectes car elles ne reflètent pas les composantes de la balance des paiements.",
+      "options": [
+        "Le compte courant et le compte de capital/financier",
+        "Le PIB et le PNB",
+        "Les dépenses publiques et recettes",
+        "L’inflation et le chômage"
+      ]
+    },
+    {
+      "id": "E25",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le solde du compte courant est excédentaire si :",
+      "correct": "C",
+      "explanation": "Le solde du compte courant est excédentaire si les exportations (X) sont supérieures aux importations (M), ce qui se traduit par X - M > 0. C'est la définition d'un excédent du compte courant. Si X - M < 0, le pays a un déficit ; si X + M = 0, le compte courant est équilibré ; et si X = M, il n'y a ni excédent ni déficit.",
+      "options": [
+        "X – M < 0",
+        "X + M = 0",
+        "X – M > 0",
+        "X = M"
+      ]
+    },
+    {
+      "id": "E26",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une dépréciation de la gourde (monnaie haïtienne) rend :",
+      "correct": "A",
+      "explanation": "Une dépréciation de la gourde haïtienne rend les exportations haïtiennes moins chères pour les acheteurs étrangers et les importations plus chères pour les consommateurs haïtiens. C'est pourquoi l'option 'Les exportations moins chères et les importations plus chères' est la bonne réponse. Une dépréciation de la monnaie locale augmente le prix des biens importés et diminue le prix compétitif des biens exportés.",
+      "options": [
+        "Les exportations moins chères et les importations plus chères",
+        "Tous les biens plus chers",
+        "Tous les biens moins chers",
+        "Les exportations plus chères et les importations moins chères"
+      ]
+    },
+    {
+      "id": "E27",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Selon la loi de l’offre et de la demande, si la demande augmente et l’offre reste constante, le prix :",
+      "correct": "D",
+      "explanation": "Selon la loi de l'offre et de la demande, lorsque la demande augmente et que l'offre reste constante, le prix a tendance à augmenter. Cela se produit parce que plus de gens veulent acheter le bien qu'il n'y en a disponible, ce qui pousse les prix à la hausse. C'est pourquoi l'option \"Augmente\" est la bonne réponse. Les autres options sont incorrectes car si la demande reste stable ou baisse, ou si l'offre augmente, le prix pourrait rester stable, baisser, ou il n'y a pas de raison pour que le prix devienne nul.",
+      "options": [
+        "Reste stable",
+        "Baisse",
+        "Devient nul",
+        "Augmente"
+      ]
+    },
+    {
+      "id": "E28",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un bien inférieur est un bien dont la demande diminue lorsque :",
+      "correct": "D",
+      "explanation": "Un bien inférieur est défini comme un bien dont la demande diminue lorsque le revenu du consommateur augmente. Cela signifie que les consommateurs achètent moins de ce bien à mesure qu'ils deviennent plus riches. C'est pourquoi l'option \"Le revenu du consommateur augmente\" est la bonne réponse. Les autres options sont incorrectes car la loi de la demande décrit comment la quantité demandée réagit à un changement de prix, pas de revenu ; une diminution du revenu pourrait augmenter la demande pour un bien inférieur ; et une diminution du prix augmenterait généralement la demande.",
+      "options": [
+        "Le revenu diminue",
+        "Le prix augmente",
+        "Le prix diminue",
+        "Le revenu du consommateur augmente"
+      ]
+    },
+    {
+      "id": "E29",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’élasticité-prix de la demande mesure :",
+      "correct": "D",
+      "explanation": "L'élasticité-prix de la demande mesure la sensibilité de la quantité demandée d'un bien à une variation de son prix. Elle nous indique à quel point les consommateurs sont sensibles au prix d'un bien. C'est pourquoi l'option 'La sensibilité de la quantité demandée à la variation du prix' est la bonne réponse. Les autres options sont incorrectes car l'élasticité-prix de l'offre concerne la réaction des producteurs à un changement de prix ; l'élasticité-revenu concerne la réaction de la demande à un changement de revenu ; et l'option A décrit une relation inverse de celle qui est mesurée par l'élasticité-prix de la demande.",
+      "options": [
+        "La variation du prix en fonction de la demande",
+        "La sensibilité de l’offre au prix",
+        "La sensibilité de la demande au revenu",
+        "La sensibilité de la quantité demandée à la variation du prix"
+      ]
+    },
+    {
+      "id": "E30",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Si l’élasticité-prix de la demande est égale à –0,5, la demande est :",
+      "correct": "A",
+      "explanation": "Si l'élasticité-prix de la demande est égale à –0,5, cela signifie que la demande est inélastique. L'élasticité est considérée comme inélastique lorsque sa valeur absolue est inférieure à 1. C'est pourquoi l'option \"Inélastique\" est la bonne réponse. Les autres options sont incorrectes car une élasticité de 1 est unitaire ; une élasticité infinie est parfaitement élastique ; et une élasticité supérieure à 1 en valeur absolue est élastique.",
+      "options": [
+        "Inélastique",
+        "Unitaire",
+        "Parfaitement élastique",
+        "Élastique"
+      ]
+    },
+    {
+      "id": "E31",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le surplus du consommateur est :",
+      "correct": "C",
+      "explanation": "Le surplus du consommateur représente la différence entre le prix maximum qu'un consommateur est prêt à payer pour un bien et le prix qu'il paie effectivement. Il mesure le bénéfice que les consommateurs retirent de l'achat d'un bien. C'est pourquoi l'option \"La différence entre le prix maximum qu'il est prêt à payer et le prix payé\" est la bonne réponse. Les autres options sont incorrectes car le profit du producteur concerne les producteurs, pas les consommateurs ; la somme des coûts de production est liée à l'offre, pas à la demande ; et la différence entre le prix d'achat et le prix de vente concerne les transactions, pas directement le surplus du consommateur.",
+      "options": [
+        "Le profit du producteur",
+        "La somme des coûts de production",
+        "La différence entre le prix maximum qu’il est prêt à payer et le prix payé",
+        "La différence entre le prix d’achat et le prix de vente"
+      ]
+    },
+    {
+      "id": "E32",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une taxe sur un bien entraîne généralement :",
+      "correct": "A",
+      "explanation": "Lorsqu'une taxe est imposée sur un bien, elle peut entraîner une hausse du prix payé par les consommateurs et une baisse du prix reçu par les producteurs. Cela se produit parce que la taxe est généralement partagée entre les consommateurs et les producteurs. C'est pourquoi l'option \"Une hausse du prix payé par le consommateur et une baisse du prix reçu par le producteur\" est la bonne réponse. Les autres options sont incorrectes car une taxe n'entraîne généralement pas une hausse du prix pour les deux ou une baisse du prix pour les deux ; et elle a généralement un effet sur le marché.",
+      "options": [
+        "Une hausse du prix payé par le consommateur et une baisse du prix reçu par le producteur",
+        "Une hausse du prix pour les deux",
+        "Une baisse du prix pour les deux",
+        "Aucun effet"
+      ]
+    },
+    {
+      "id": "E33",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La productivité du travail est mesurée par :",
+      "correct": "B",
+      "explanation": "La productivité du travail est mesurée par le rapport entre le PIB et le nombre d'heures travaillées ou par travailleur. Cela reflète l'efficacité avec laquelle le travail est utilisé dans le processus de production. L'option 'Le PIB / capital' est incorrecte car elle représente la productivité du capital. L'option 'Le PIB / consommation' n'a pas de sens dans ce contexte, car la consommation est une composante du PIB et non un facteur de production. L'option 'Le PIB / population active' est également incorrecte car elle ne tient pas compte des heures travaillées.",
+      "options": [
+        "Le PIB / capital",
+        "Le PIB / nombre d’heures travaillées (ou par travailleur)",
+        "Le PIB / consommation",
+        "Le PIB / population active"
+      ]
+    },
+    {
+      "id": "E34",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le capital humain désigne :",
+      "correct": "D",
+      "explanation": "Le capital humain désigne les compétences, qualifications et santé des travailleurs, qui sont des éléments essentiels pour augmenter la productivité et la croissance économique. Les autres options sont incorrectes car 'Les bâtiments publics' et 'Les machines et équipements' font partie du capital physique, tandis que 'Les ressources naturelles' constituent un facteur de production distinct. Ainsi, les options incorrectes confondent le capital humain avec d'autres formes de capital ou de ressources.",
+      "options": [
+        "Les bâtiments publics",
+        "Les machines et équipements",
+        "Les ressources naturelles",
+        "Les compétences, qualifications et santé des travailleurs"
+      ]
+    },
+    {
+      "id": "E35",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le progrès technique permet de :",
+      "correct": "C",
+      "explanation": "Le progrès technique permet de produire plus avec les mêmes facteurs, ce qui signifie qu'il accroît la productivité. L'option 'Augmenter les prix' n'est pas directement liée au progrès technique. 'Produire moins avec plus de facteurs' est l'opposé de ce que le progrès technique vise à accomplir. 'Réduire l'emploi nécessairement' n'est pas une conséquence directe du progrès technique, car celui-ci peut aussi conduire à une croissance économique sans perte d'emplois.",
+      "options": [
+        "Augmenter les prix",
+        "Produire moins avec plus de facteurs",
+        "Produire plus avec les mêmes facteurs",
+        "Réduire l’emploi nécessairement"
+      ]
+    },
+    {
+      "id": "E36",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Keynes, en période de récession, l’État doit :",
+      "correct": "C",
+      "explanation": "Selon Keynes, en période de récession, l'État doit augmenter ses dépenses pour stimuler l'économie, ce qui correspond à une politique budgétaire expansionniste. 'Augmenter les impôts' et 'Réduire ses dépenses' sont des politiques restrictives qui aggraveraient la récession. 'Laisser faire le marché' est une approche classique qui ne convient pas en situation de crise.",
+      "options": [
+        "Augmenter les impôts",
+        "Laisser faire le marché",
+        "Augmenter ses dépenses (politique budgétaire expansionniste)",
+        "Réduire ses dépenses"
+      ]
+    },
+    {
+      "id": "E37",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La politique budgétaire utilise les instruments :",
+      "correct": "A",
+      "explanation": "La politique budgétaire utilise les dépenses publiques et les impôts comme instruments pour influencer l'activité économique. 'Open market', 'Taux d'intérêt et masse monétaire', ainsi que 'Réserves obligatoires' sont des instruments de politique monétaire, et non budgétaire.",
+      "options": [
+        "Dépenses publiques et impôts",
+        "Open market",
+        "Taux d’intérêt et masse monétaire",
+        "Réserves obligatoires"
+      ]
+    },
+    {
+      "id": "E38",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un budget de l’État est en déficit lorsque :",
+      "correct": "C",
+      "explanation": "Un budget de l'État est en déficit lorsque les recettes sont inférieures aux dépenses. Lorsque les recettes sont supérieures aux dépenses, il y a un excédent. Si les recettes et les dépenses sont égales, le budget est équilibré. L'option 'Impôts = 0' n'est pas pertinente pour définir un déficit budgétaire.",
+      "options": [
+        "Recettes = Dépenses",
+        "Recettes > Dépenses",
+        "Recettes < Dépenses",
+        "Impôts = 0"
+      ]
+    },
+    {
+      "id": "E39",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La dette publique est :",
+      "correct": "C",
+      "explanation": "La dette publique représente l'ensemble des emprunts contractés par l'État pour financer ses activités et ses projets. L'option 'Les impôts non perçus' décrit un phénomène différent, lié aux recettes fiscales. L'option 'Le déficit budgétaire annuel' concerne le déficit financier annuel de l'État, qui est un flux et non un stock comme la dette publique. Les réserves de la Banque centrale sont des actifs détenus par la banque centrale d'un pays, distincts de la dette publique.",
+      "options": [
+        "Les impôts non perçus",
+        "Le déficit budgétaire annuel",
+        "L’ensemble des emprunts de l’État",
+        "Les réserves de la Banque centrale"
+      ]
+    },
+    {
+      "id": "E40",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La croissance économique est mesurée par l’augmentation :",
+      "correct": "D",
+      "explanation": "La croissance économique est mesurée par l'augmentation du PIB réel sur une longue période, ce qui reflète l'accroissement de la production de biens et services dans un pays, corrigé des effets de l'inflation. L'option 'Du PIB nominal' peut inclure les effets de l'inflation, ce qui ne reflète pas la croissance économique réelle. L'option 'Des prix' concerne l'inflation et non la croissance économique. L'option 'De la population' décrit la croissance démographique.",
+      "options": [
+        "Du PIB nominal",
+        "Des prix",
+        "De la population",
+        "Du PIB réel sur une longue période"
+      ]
+    },
+    {
+      "id": "E41",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le PIB réel par habitant est un indicateur de :",
+      "correct": "B",
+      "explanation": "Le PIB réel par habitant est un indicateur qui reflète le niveau de vie moyen d'une population. En effet, il correspond au produit intérieur brut (PIB) d'un pays divisé par sa population, et corrigé des variations de prix, ce qui permet de comparer le niveau de production et de richesse d'un pays à un autre. Les autres options sont incorrectes car l'inflation est mesurée par des indicateurs tels que l'indice des prix à la consommation, le chômage est mesuré par le taux de chômage, et la répartition des revenus est étudiée à l'aide de la courbe de Lorenz et du coefficient de Gini.",
+      "options": [
+        "L’inflation",
+        "Le niveau de vie moyen",
+        "Le chômage",
+        "La répartition des revenus"
+      ]
+    },
+    {
+      "id": "E42",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La consommation intermédiaire désigne :",
+      "correct": "D",
+      "explanation": "La consommation intermédiaire désigne les biens et services utilisés dans le processus de production et détruits ou transformés. Cela signifie que ces biens et services sont nécessaires à la production d'autres biens et services, mais qu'ils ne sont pas destinés à la consommation finale. Les autres options sont incorrectes car les biens d'équipement sont des biens de production durables, les biens achetés par les ménages sont des biens de consommation finale, et les exportations sont des biens et services produits dans un pays et vendus à l'étranger.",
+      "options": [
+        "Les biens d’équipement",
+        "Les biens achetés par les ménages",
+        "Les exportations",
+        "Les biens et services utilisés dans le processus de production et détruits ou transformés"
+      ]
+    },
+    {
+      "id": "E43",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La valeur ajoutée d’une entreprise est :",
+      "correct": "C",
+      "explanation": "La valeur ajoutée d'une entreprise est la différence entre sa production et sa consommation intermédiaire. Cela signifie qu'il s'agit de la valeur que l'entreprise ajoute aux biens et services qu'elle produit, en les transformant ou en les assemblant. Les autres options sont incorrectes car les impôts sur les bénéfices sont des prélèvements obligatoires, le chiffre d'affaires moins toutes les charges est le bénéfice net, et le bénéfice net est le résultat de l'entreprise après avoir payé toutes ses charges et impôts.",
+      "options": [
+        "Impôts sur les bénéfices",
+        "Chiffre d’affaires – toutes charges",
+        "Production – consommation intermédiaire",
+        "Bénéfice net"
+      ]
+    },
+    {
+      "id": "E44",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le taux de chômage est le rapport entre :",
+      "correct": "A",
+      "explanation": "Le taux de chômage est le rapport entre le nombre de chômeurs et la population active. La population active comprend les personnes qui ont un emploi et celles qui sont sans emploi mais qui cherchent activement du travail. Les autres options sont incorrectes car le rapport entre les emplois et la population active est le taux d'emploi, le rapport entre les inactifs et la population active n'est pas un indicateur standard, et le rapport entre les chômeurs et la population totale ne prend pas en compte les personnes qui ne cherchent pas de travail.",
+      "options": [
+        "Chômeurs et population active",
+        "Emplois et population active",
+        "Inactifs et population active",
+        "Chômeurs et population totale"
+      ]
+    },
+    {
+      "id": "E45",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chômage structurel est dû à :",
+      "correct": "D",
+      "explanation": "Le chômage structurel est dû à des inadéquations entre l'offre et la demande de travail, en termes de qualifications, de localisation, de secteur d'activité, etc. Cela signifie que les chômeurs n'ont pas les compétences ou les qualifications nécessaires pour occuper les emplois disponibles. Les autres options sont incorrectes car le chômage conjoncturel est dû à une insuffisance de la demande globale, les fluctuations saisonnières sont des variations régulières de l'activité économique, et les mouvements entre emplois sont une cause de chômage frictionnel.",
+      "options": [
+        "Une insuffisance de la demande globale",
+        "Des mouvements entre emplois",
+        "Des fluctuations saisonnières",
+        "Des inadéquations entre offre et demande de travail (qualifications, localisation)"
+      ]
+    },
+    {
+      "id": "E46",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La courbe de Lorenz mesure :",
+      "correct": "A",
+      "explanation": "La courbe de Lorenz mesure les inégalités de revenus dans une population. Elle représente graphiquement la répartition des revenus, en comparant la part de la population et la part des revenus correspondante. Les autres options sont incorrectes car l'inflation est mesurée par des indicateurs tels que l'indice des prix à la consommation, la productivité est la production par unité de travail ou de facteur de production, et la croissance est l'augmentation de la production ou du revenu national.",
+      "options": [
+        "Les inégalités de revenus",
+        "L’inflation",
+        "La productivité",
+        "La croissance"
+      ]
+    },
+    {
+      "id": "E47",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le coefficient de Gini varie entre :",
+      "correct": "C",
+      "explanation": "Le coefficient de Gini varie entre 0 et 1. Il est utilisé pour mesurer les inégalités de revenus, avec une valeur de 0 correspondant à une égalité parfaite (tous les individus ont le même revenu) et une valeur de 1 correspondant à une inégalité totale (un seul individu détient tout le revenu). Les autres options sont incorrectes car le coefficient de Gini ne peut pas être négatif, il ne varie pas entre 0 et 100, et il ne peut pas tendre vers l'infini.",
+      "options": [
+        "-1 et 1",
+        "0 et 100",
+        "0 et 1",
+        "0 et l’infini"
+      ]
+    },
+    {
+      "id": "E48",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La robotisation d’une entreprise peut entraîner :",
+      "correct": "C",
+      "explanation": "La robotisation d'une entreprise peut entraîner une hausse du chômage temporaire, car les machines et les ordinateurs peuvent remplacer certains travailleurs, et une hausse de la productivité, car les machines peuvent produire plus vite et avec moins d'erreurs que les humains. Les autres options sont incorrectes car la robotisation peut augmenter les profits à long terme, même si elle peut entraîner des coûts de restructuration à court terme, elle n'entraîne généralement pas de baisse de la productivité, et elle peut entraîner des changements dans la structure des salaires, mais pas nécessairement une hausse des salaires à court terme.",
+      "options": [
+        "Une baisse des profits",
+        "Une baisse de la productivité",
+        "Une hausse du chômage temporaire et une hausse de la productivité",
+        "Une hausse des salaires à court terme"
+      ]
+    },
+    {
+      "id": "E49",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’autofinancement est le financement des investissements par :",
+      "correct": "C",
+      "explanation": "L'autofinancement est une source de financement interne qui consiste à utiliser les fonds propres de l'entreprise, tels que les bénéfices non distribués, pour financer les investissements. C'est une stratégie qui permet à l'entreprise de maintenir son indépendance et de ne pas recourir à des financements externes. Les autres options, telles que l'émission d'actions, les subventions publiques et les emprunts bancaires, sont des sources de financement externes. L'option 'Fonds propres de l’entreprise (bénéfices non distribués)' est donc la bonne réponse car elle correspond à la définition de l'autofinancement.",
+      "options": [
+        "Émission d’actions",
+        "Subventions publiques",
+        "Fonds propres de l’entreprise (bénéfices non distribués)",
+        "Emprunts bancaires"
+      ]
+    },
+    {
+      "id": "E50",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le crédit à long terme (6 à 25 ans) est destiné à financer :",
+      "correct": "A",
+      "explanation": "Le crédit à long terme est destiné à financer les investissements lourds, tels que l'achat de machines ou la construction d'usines, qui ont une durée de vie supérieure à 6 ans. Ce type de crédit permet aux entreprises de financer des projets à long terme et de bénéficier d'une période de remboursement plus longue. Les autres options, telles que les besoins de trésorerie, les salaires et les achats de matières premières, sont des dépenses courantes qui nécessitent des financements à court terme. L'option 'Les investissements lourds (machines, usines)' est donc la bonne réponse car elle correspond à l'utilisation typique du crédit à long terme.",
+      "options": [
+        "Les investissements lourds (machines, usines)",
+        "Les besoins de trésorerie",
+        "Les salaires",
+        "Les achats de matières premières"
+      ]
+    },
+    {
+      "id": "E51",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les réserves obligatoires imposées par la Banque centrale ont pour but de :",
+      "correct": "A",
+      "explanation": "Les réserves obligatoires imposées par la Banque centrale ont pour but de limiter la création monétaire des banques. En effet, les banques sont tenues de déposer une partie de leurs dépôts auprès de la Banque centrale, ce qui réduit la quantité de monnaie disponible pour les prêts. Cela permet de contrôler l'inflation et de maintenir la stabilité financière. Les autres options, telles que l'augmentation des profits des banques, le financement de l'État et la baisse des taux d'intérêt, ne sont pas les objectifs principaux des réserves obligatoires. L'option 'Limiter la création monétaire des banques' est donc la bonne réponse car elle correspond à la fonction première des réserves obligatoires.",
+      "options": [
+        "Limiter la création monétaire des banques",
+        "Augmenter les profits des banques",
+        "Financer l’État",
+        "Baisser les taux d’intérêt"
+      ]
+    },
+    {
+      "id": "E52",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’inflation par la demande est due à :",
+      "correct": "B",
+      "explanation": "L'inflation par la demande est due à une demande globale supérieure à l'offre potentielle. Cela signifie que la demande de biens et services est trop élevée par rapport à la capacité de production de l'économie, ce qui entraîne une hausse des prix. Les autres options, telles qu'une augmentation de la masse monétaire sans effet réel, une hausse des coûts de production et une hausse des impôts, peuvent avoir des effets sur l'inflation, mais ne correspondent pas à la définition de l'inflation par la demande. L'option 'Une demande globale supérieure à l’offre potentielle' est donc la bonne réponse car elle correspond à la cause principale de l'inflation par la demande.",
+      "options": [
+        "Une augmentation de la masse monétaire sans effet réel",
+        "Une demande globale supérieure à l’offre potentielle",
+        "Une hausse des coûts de production",
+        "Une hausse des impôts"
+      ]
+    },
+    {
+      "id": "E53",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La désinflation est :",
+      "correct": "A",
+      "explanation": "La désinflation est un ralentissement de l'inflation, c'est-à-dire une diminution du taux d'inflation. Cela ne signifie pas une baisse du niveau général des prix, mais plutôt une réduction de la vitesse à laquelle les prix augmentent. Les autres options, telles qu'une baisse du niveau général des prix (déflation), une stabilité des prix et une hausse de l'inflation, ne correspondent pas à la définition de la désinflation. L'option 'Un ralentissement de l’inflation' est donc la bonne réponse car elle correspond à la définition de la désinflation.",
+      "options": [
+        "Un ralentissement de l’inflation",
+        "Une baisse du niveau général des prix",
+        "Une stabilité des prix",
+        "Une hausse de l’inflation"
+      ]
+    },
+    {
+      "id": "E54",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le PIB nominal est calculé :",
+      "correct": "B",
+      "explanation": "Le PIB nominal est calculé aux prix courants, c'est-à-dire aux prix en vigueur pendant la période considérée. Cela signifie que le PIB nominal reflète les variations des prix et des quantités produites. Les autres options, telles que les prix constants (PIB réel), les dollars constants et la parité de pouvoir d'achat, sont des méthodes de calcul du PIB qui corrigent les effets de l'inflation ou des variations des prix. L'option 'Aux prix courants' est donc la bonne réponse car elle correspond à la définition du PIB nominal.",
+      "options": [
+        "Aux prix constants",
+        "Aux prix courants",
+        "En dollars constants",
+        "En parité de pouvoir d’achat"
+      ]
+    },
+    {
+      "id": "E55",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La croissance extensive repose sur :",
+      "correct": "A",
+      "explanation": "La croissance extensive repose sur l'augmentation des facteurs de production, tels que le capital (K) et le travail (N). Cela signifie que la croissance économique est obtenue en augmentant la quantité de facteurs de production, plutôt qu'en améliorant leur efficacité. Les autres options, telles que le progrès technique, l'innovation et la hausse de la productivité, sont des sources de croissance intensive. L'option 'L’augmentation des facteurs de production (K, N)' est donc la bonne réponse car elle correspond à la définition de la croissance extensive.",
+      "options": [
+        "L’augmentation des facteurs de production (K, N)",
+        "Le progrès technique",
+        "L’innovation",
+        "La hausse de la productivité"
+      ]
+    },
+    {
+      "id": "E56",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le revenu disponible des ménages est égal au revenu primaire :",
+      "correct": "C",
+      "explanation": "Le revenu disponible des ménages est égal au revenu primaire moins les impôts directs et plus les transferts sociaux. Cela signifie que le revenu disponible est le revenu qui reste aux ménages après avoir payé les impôts et avoir reçu des transferts sociaux. Les autres options, telles que le revenu primaire moins les cotisations sociales uniquement, le revenu primaire plus les impôts moins les transferts et le revenu brut, ne correspondent pas à la définition du revenu disponible. L'option 'Moins les impôts directs plus les transferts sociaux' est donc la bonne réponse car elle correspond à la définition du revenu disponible.",
+      "options": [
+        "Moins les cotisations sociales uniquement",
+        "Plus les impôts moins les transferts",
+        "Moins les impôts directs plus les transferts sociaux",
+        "Brut"
+      ]
+    },
+    {
+      "id": "E57",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’épargne nationale est la somme de :",
+      "correct": "C",
+      "explanation": "L'épargne nationale est la somme de l'épargne des ménages, de l'épargne des entreprises et de l'épargne publique. L'option 'Épargne des ménages uniquement' est incomplète car elle exclut les autres secteurs. L'option 'Épargne des entreprises' ne représente qu'une partie de l'épargne nationale. L'option 'Investissement' est un concept distinct qui concerne les dépenses consacrées à l'acquisition de biens de production.",
+      "options": [
+        "Épargne des ménages uniquement",
+        "Épargne des entreprises",
+        "Épargne des ménages + épargne des entreprises + épargne publique",
+        "Investissement"
+      ]
+    },
+    {
+      "id": "E58",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’investissement en économie correspond à :",
+      "correct": "C",
+      "explanation": "L'investissement en économie correspond à l'acquisition de biens durables de production, tels que des machines ou des usines, qui augmentent la capacité productive d'une économie. L'option 'L'achat d'actions' est un placement financier. L'option 'L'achat d'une maison par un ménage' est considéré comme une consommation. L'option 'Le dépôt d'argent en banque' est une opération financière qui ne constitue pas un investissement au sens économique.",
+      "options": [
+        "L’achat d’actions",
+        "L’achat d’une maison par un ménage (consommation)",
+        "L’acquisition de biens durables de production (machines, usines)",
+        "Le dépôt d’argent en banque"
+      ]
+    },
+    {
+      "id": "E59",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le multiplicateur d’investissement keynésien exprime :",
+      "correct": "D",
+      "explanation": "Le multiplicateur d'investissement keynésien exprime la variation du revenu induite par une variation de l'investissement. L'option 'Le rapport entre consommation et revenu' décrit une relation différente. L'option 'Le rapport entre épargne et investissement' concerne l'équilibre entre l'épargne et l'investissement. L'option 'La variation de l'investissement induite par une variation du revenu' est liée au concept d'accélérateur.",
+      "options": [
+        "Le rapport entre consommation et revenu",
+        "Le rapport entre épargne et investissement",
+        "La variation de l’investissement induite par une variation du revenu",
+        "La variation du revenu induite par une variation de l’investissement"
+      ]
+    },
+    {
+      "id": "E60",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’État haïtien peut lutter contre l’inflation en :",
+      "correct": "A",
+      "explanation": "L'État haïtien peut lutter contre l'inflation en augmentant les impôts ou en baissant les dépenses, ce qui correspond à une politique restrictive. L'option 'Baissant les taux d'intérêt' peut stimuler l'économie mais ne lutte pas directement contre l'inflation. L'option 'Subventionnant les produits alimentaires' peut atténuer les effets de l'inflation sur les ménages mais ne s'attaque pas à ses causes. L'option 'Augmentant la masse monétaire' peut exacerber l'inflation.",
+      "options": [
+        "Augmentant les impôts ou baissant les dépenses (politique restrictive)",
+        "Baissant les taux d’intérêt",
+        "Subventionnant les produits alimentaires",
+        "Augmentant la masse monétaire"
+      ]
+    },
+    {
+      "id": "E61",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un seuil de rentabilité est atteint lorsque :",
+      "correct": "A",
+      "explanation": "Le seuil de rentabilité est atteint lorsque la recette totale égale le coût total. En effet, à ce stade, l'entreprise ne réalise ni profit ni perte. Les autres options sont incorrectes car le profit maximal (option 'Profit maximal') correspond à une situation où la différence entre la recette totale et le coût total est la plus élevée, et les options 'Coût marginal = 0' et 'Recette marginale = 0' ne sont pas directement liées au seuil de rentabilité.",
+      "options": [
+        "Recette totale = Coût total",
+        "Profit maximal",
+        "Coût marginal = 0",
+        "Recette marginale = 0"
+      ]
+    },
+    {
+      "id": "E62",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La loi des rendements décroissants (à court terme) stipule qu’au-delà d’un certain point, :",
+      "correct": "B",
+      "explanation": "La loi des rendements décroissants stipule qu'au-delà d'un certain point, le produit marginal du travail diminue. Cela signifie que l'augmentation de la quantité de travail utilisée entraînera une diminution de la production supplémentaire obtenue. Les autres options sont incorrectes car le coût marginal (option 'Le coût marginal diminue') peut varier en fonction de la production, le produit total (option 'Le produit total diminue') n'est pas nécessairement affecté de cette manière, et le produit marginal du travail qui augmente (option 'Le produit marginal du travail augmente') est le contraire de ce que stipule la loi des rendements décroissants.",
+      "options": [
+        "Le coût marginal diminue",
+        "Le produit marginal du travail diminue",
+        "Le produit marginal du travail augmente",
+        "Le produit total diminue"
+      ]
+    },
+    {
+      "id": "E63",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La concurrence parfaite suppose :",
+      "correct": "D",
+      "explanation": "La concurrence parfaite suppose un grand nombre d'acheteurs et de vendeurs, un produit homogène et une libre entrée. Cela signifie que les entreprises produisent des biens identiques et que les consommateurs ont une parfaite connaissance du marché. Les autres options sont incorrectes car un seul vendeur (option 'Un seul vendeur') correspond à un monopole, les produits différenciés (option 'Produits différenciés') et les barrières à l'entrée (option 'Barrières à l’entrée') caractérisent d'autres structures de marché comme la concurrence monopolistique ou l'oligopole.",
+      "options": [
+        "Un seul vendeur",
+        "Produits différenciés",
+        "Barrières à l’entrée",
+        "Un grand nombre d’acheteurs et de vendeurs, produit homogène, libre entrée"
+      ]
+    },
+    {
+      "id": "E64",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans une entreprise en concurrence parfaite, le prix est fixé par :",
+      "correct": "A",
+      "explanation": "Dans une entreprise en concurrence parfaite, le prix est fixé par le marché, c'est-à-dire par l'offre et la demande. Cela signifie que les entreprises sont preneuses de prix et n'ont pas de pouvoir sur le prix de marché. Les autres options sont incorrectes car le syndicat (option 'Le syndicat') et l'État (option 'L’État') peuvent influencer les salaires et les conditions de travail mais ne fixent pas le prix de marché dans une économie de concurrence parfaite, et l'entreprise (option 'L’entreprise') n'a pas de pouvoir de fixation des prix.",
+      "options": [
+        "Le marché (offre et demande)",
+        "Le syndicat",
+        "L’État",
+        "L’entreprise"
+      ]
+    },
+    {
+      "id": "E65",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’oligopole est une structure de marché avec :",
+      "correct": "C",
+      "explanation": "L'oligopole est une structure de marché caractérisée par la présence de quelques vendeurs, ce qui signifie que le marché est dominé par un petit nombre d'entreprises. Cela se distingue du monopole, où il n'y a qu'un seul vendeur, et de la concurrence parfaite, où il y a de très nombreux vendeurs. L'option 'Un seul vendeur' décrit un monopole, tandis que 'Un seul acheteur' décrit un monopsone, et 'De très nombreux vendeurs' décrit une situation de concurrence parfaite.",
+      "options": [
+        "Un seul acheteur",
+        "Un seul vendeur",
+        "Quelques vendeurs",
+        "De très nombreux vendeurs"
+      ]
+    },
+    {
+      "id": "E66",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La théorie des jeux est souvent utilisée pour analyser :",
+      "correct": "C",
+      "explanation": "La théorie des jeux est un outil d'analyse utilisé pour étudier les interactions stratégiques entre les agents économiques, notamment dans les situations où les décisions de chaque agent affectent les résultats de l'autre. Elle est particulièrement utile pour analyser l'oligopole, où les entreprises sont interdépendantes et doivent prendre en compte les actions de leurs concurrents. Les situations de concurrence parfaite, monopole et concurrence monopolistique ne nécessitent pas forcément l'utilisation de la théorie des jeux, car les décisions des agents sont moins dépendantes les unes des autres.",
+      "options": [
+        "La concurrence parfaite",
+        "La concurrence monopolistique",
+        "L’oligopole (interdépendance stratégique)",
+        "Le monopole"
+      ]
+    },
+    {
+      "id": "E67",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La balance commerciale est la différence entre :",
+      "correct": "B",
+      "explanation": "La balance commerciale est une composante de la balance des paiements qui enregistre la différence entre les exportations et les importations de biens d'un pays. Elle ne concerne que les échanges de biens, et non les services, les capitaux ou les recettes et dépenses courantes. L'option 'Exportations et importations de services' décrit la balance des services, tandis que 'Capitaux entrants et sortants' et 'Recettes et dépenses courantes' concernent d'autres aspects de la balance des paiements.",
+      "options": [
+        "Exportations et importations de services",
+        "Exportations et importations de biens",
+        "Capitaux entrants et sortants",
+        "Recettes et dépenses courantes"
+      ]
+    },
+    {
+      "id": "E68",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’Union européenne est une :",
+      "correct": "A",
+      "explanation": "L'Union européenne est un exemple d'intégration économique régionale poussée, qui va au-delà d'une simple zone de libre-échange ou d'une union douanière. Elle constitue une union économique et monétaire, avec une politique économique commune et une monnaie unique, l'euro. Les autres options décrivent des formes d'intégration économique moins poussées : une zone de libre-échange élimine les droits de douane sur les échanges de biens et services, une union douanière ajoute une politique commerciale commune, tandis qu'un marché commun implique la libre circulation des biens, services, capitaux et travail.",
+      "options": [
+        "Union économique et monétaire (intégration poussée)",
+        "Union douanière",
+        "Zone de libre-échange",
+        "Marché commun"
+      ]
+    },
+    {
+      "id": "E69",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protectionnisme vise à :",
+      "correct": "B",
+      "explanation": "Le protectionnisme est une politique économique qui vise à protéger les producteurs nationaux contre la concurrence étrangère, en limitant les importations à travers des droits de douane, des quotas ou d'autres restrictions. Cela se distingue du libre-échange, qui préconise l'ouverture des frontières et la libre circulation des biens et services. Les options 'Ouvrir les frontières', 'Réduire les droits de douane' et 'Favoriser les importations' décrivent des politiques de libre-échange.",
+      "options": [
+        "Ouvrir les frontières",
+        "Protéger les producteurs nationaux contre la concurrence étrangère",
+        "Réduire les droits de douane",
+        "Favoriser les importations"
+      ]
+    },
+    {
+      "id": "E70",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un droit de douane est une taxe sur :",
+      "correct": "A",
+      "explanation": "Un droit de douane est une taxe imposée sur les importations de biens, qui vise à protéger les producteurs nationaux en rendant les produits étrangers plus chers. Il ne s'applique pas aux exportations, au revenu ou à la production nationale. L'option 'Les exportations' décrit une taxe à l'exportation, qui est différente d'un droit de douane.",
+      "options": [
+        "Les importations",
+        "Les exportations",
+        "Le revenu",
+        "La production nationale"
+      ]
+    },
+    {
+      "id": "E71",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le dumping consiste à :",
+      "correct": "B",
+      "explanation": "Le dumping consiste à vendre des produits à perte à l'étranger, souvent pour conquérir des parts de marché ou éliminer la concurrence. Cela peut être considéré comme une pratique déloyale de concurrence. Les autres options ne décrivent pas le dumping : subventionner les exportations est une politique de soutien aux exportateurs, fixer des prix minimums est une pratique visant à stabiliser les prix, et limiter les importations est une mesure protectionniste.",
+      "options": [
+        "Subventionner les exportations",
+        "Vendre à perte à l’étranger pour conquérir des marchés",
+        "Fixer des prix minimums",
+        "Limiter les importations"
+      ]
+    },
+    {
+      "id": "E72",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La parité de pouvoir d’achat (PPA) permet de :",
+      "correct": "B",
+      "explanation": "La parité de pouvoir d'achat (PPA) est un concept économique qui permet de comparer les niveaux de vie entre pays en éliminant les différences de prix. Elle donne une image plus précise de la situation économique réelle des pays en tenant compte du coût de la vie. Les autres options ne décrivent pas la PPA : mesurer l'inflation concerne la variation des prix au sein d'un pays, évaluer la balance commerciale concerne les échanges extérieurs d'un pays, et calculer le taux de change nominal concerne la valeur de la monnaie d'un pays par rapport à d'autres.",
+      "options": [
+        "Mesurer l’inflation",
+        "Comparer les niveaux de vie entre pays en éliminant les différences de prix",
+        "Évaluer la balance commerciale",
+        "Calculer le taux de change nominal"
+      ]
+    },
+    {
+      "id": "E73",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Banque centrale haïtienne (BRH) a pour mission principale :",
+      "correct": "B",
+      "explanation": "La mission principale de la Banque centrale haïtienne (BRH) est d'assurer la stabilité des prix. Cela signifie qu'elle cherche à maintenir un niveau de prix stable et à contrôler l'inflation. Les autres options sont incorrectes car la gestion des impôts relève du Trésor public, le financement du déficit budgétaire est une fonction du gouvernement et non de la Banque centrale, et la distribution de crédits aux entreprises est une fonction des banques commerciales.",
+      "options": [
+        "Gérer les impôts",
+        "Assurer la stabilité des prix",
+        "Financer le déficit budgétaire",
+        "Distribuer des crédits aux entreprises"
+      ]
+    },
+    {
+      "id": "E74",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’inflation en Haïti en 2021-2022 a été fortement alimentée par :",
+      "correct": "D",
+      "explanation": "L'inflation en Haïti en 2021-2022 a été fortement alimentée par la hausse des prix des produits alimentaires et du transport. En effet, ces deux facteurs ont un impact direct sur le coût de la vie et peuvent entraîner une augmentation généralisée des prix. Les autres options sont incorrectes car une baisse de la masse monétaire pourrait entraîner une déflation, une revalorisation de la gourde (la monnaie haïtienne) pourrait réduire l'inflation importée, et une baisse des prix du pétrole pourrait réduire les coûts de production et de transport.",
+      "options": [
+        "La baisse de la masse monétaire",
+        "La revalorisation de la gourde",
+        "La baisse des prix du pétrole",
+        "La hausse des prix des produits alimentaires et du transport"
+      ]
+    },
+    {
+      "id": "E75",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En Haïti, le secteur informel occupe environ :",
+      "correct": "D",
+      "explanation": "En Haïti, le secteur informel occupe environ 60% de la population active. Cela signifie que plus de la moitié de la population active travaille dans des emplois non déclarés ou non réglementés. Les autres options sont incorrectes car 10% et 20% sont des chiffres trop bas, et 80% est un chiffre trop élevé.",
+      "options": [
+        "10%",
+        "20% de la population active",
+        "80%",
+        "60% de la population active"
+      ]
+    },
+    {
+      "id": "E76",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon le texte sur le développement durable, le rapport Brundtland date de :",
+      "correct": "C",
+      "explanation": "Le rapport Brundtland, qui a défini le concept de développement durable, date de 1987. Ce rapport a été publié par la Commission mondiale sur l'environnement et le développement et a souligné l'importance de prendre en compte les besoins des générations futures dans les décisions économiques et environnementales. Les autres options sont incorrectes car 1972 est la date de la Conférence de Stockholm sur l'environnement, 2000 est une date postérieure au rapport Brundtland, et 1992 est la date de la Conférence de Rio sur l'environnement et le développement.",
+      "options": [
+        "2000",
+        "1972",
+        "1987",
+        "1992"
+      ]
+    },
+    {
+      "id": "E77",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La solidarité intergénérationnelle est un principe du :",
+      "correct": "B",
+      "explanation": "La solidarité intergénérationnelle est un principe du développement durable. Cela signifie que les décisions économiques et environnementales doivent prendre en compte les besoins et les intérêts des générations futures. Les autres options sont incorrectes car le mercantilisme est une théorie économique qui met l'accent sur l'accumulation de richesses, le keynésianisme est une théorie économique qui met l'accent sur la demande globale, et le libéralisme est une théorie économique qui met l'accent sur la liberté individuelle.",
+      "options": [
+        "Mercantilisme",
+        "Développement durable",
+        "Keynésianisme",
+        "Libéralisme"
+      ]
+    },
+    {
+      "id": "E78",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le PIB par habitant en Haïti se situe, par rapport à la moyenne de l’Amérique latine :",
+      "correct": "C",
+      "explanation": "Le PIB par habitant en Haïti se situe nettement en dessous de la moyenne de l'Amérique latine, étant inférieur à un cinquième de cette moyenne. Cela signifie que le niveau de vie en Haïti est nettement inférieur à celui de la plupart des pays d'Amérique latine. Les autres options sont incorrectes car un PIB par habitant légèrement inférieur ou égal à la moyenne de l'Amérique latine ne reflète pas la réalité haïtienne, et un PIB par habitant nettement supérieur est clairement incorrect.",
+      "options": [
+        "Légèrement inférieur",
+        "Égal",
+        "Nettement inférieur (moins d’un cinquième)",
+        "Nettement supérieur"
+      ]
+    },
+    {
+      "id": "E79",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le taux de chômage en Haïti est estimé à environ :",
+      "correct": "B",
+      "explanation": "Le taux de chômage en Haïti est estimé à environ 70%. Cela signifie que plus de la moitié de la population active est sans emploi. Les autres options sont incorrectes car 10%, 30% et 50% sont des chiffres trop bas.",
+      "options": [
+        "50%",
+        "70%",
+        "30%",
+        "10%"
+      ]
+    },
+    {
+      "id": "E80",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La fonction de production Cobb-Douglas est souvent de la forme :",
+      "correct": "C",
+      "explanation": "La fonction de production Cobb-Douglas est souvent de la forme Y = K^α L^(1-α). Cette fonction de production est une représentation mathématique de la relation entre les inputs (le capital K et le travail L) et la production Y. Les autres options sont incorrectes car la fonction de production linéaire est de la forme Y = a + bK + cL, la fonction de production de Leontief est de la forme Y = min(K, L), et la fonction de production Y = K + L est une fonction de production à facteurs substituables.",
+      "options": [
+        "Y = a + bK + cL",
+        "Y = min(K, L)",
+        "Y = K^α L^(1-α)",
+        "Y = K + L"
+      ]
+    },
+    {
+      "id": "E81",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chômage volontaire, selon les néoclassiques, est dû à :",
+      "correct": "D",
+      "explanation": "Le chômage volontaire, selon les néoclassiques, est dû à un refus de travailler au salaire d'équilibre. Cela signifie que les travailleurs qui sont au chômage volontaire préfèrent ne pas travailler au salaire courant plutôt que de travailler à un salaire inférieur. Les autres options sont incorrectes car un salaire minimum trop élevé (option 'Un salaire minimum trop élevé') conduit à du chômage involontaire, une insuffisance de la demande (option 'Une insuffisance de la demande') est une cause de chômage keynésien, et un progrès technique (option 'Un progrès technique') peut entraîner des changements structurels sur le marché du travail.",
+      "options": [
+        "Un salaire minimum trop élevé",
+        "Une insuffisance de la demande",
+        "Un progrès technique",
+        "Un refus de travailler au salaire d’équilibre"
+      ]
+    },
+    {
+      "id": "E82",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans le marché du travail néoclassique, le salaire réel s’ajuste pour équilibrer :",
+      "correct": "B",
+      "explanation": "Dans le marché du travail néoclassique, le salaire réel s'ajuste pour équilibrer l'offre et la demande de travail. Cela signifie que le salaire réel augmente ou diminue jusqu'à ce que les travailleurs qui veulent travailler trouvent un emploi. Les autres options sont incorrectes car l'épargne et l'investissement (option 'Épargne et investissement') concernent le marché des capitaux, l'offre et la demande de biens (option 'Offre et demande de biens') concernent le marché des biens, et la monnaie et les prix (option 'Monnaie et prix') sont liés à la politique monétaire.",
+      "options": [
+        "Épargne et investissement",
+        "Offre et demande de travail",
+        "Offre et demande de biens",
+        "Monnaie et prix"
+      ]
+    },
+    {
+      "id": "E83",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La productivité apparente du travail est le rapport :",
+      "correct": "C",
+      "explanation": "La productivité apparente du travail est le rapport entre le PIB et le nombre d'heures travaillées (ou effectifs). Cela signifie que la productivité apparente du travail mesure la quantité de biens et services produits par heure de travail (ou par actif). Les autres options sont incorrectes car le rapport Capital / travail mesure l'intensité capitalistique, le rapport PIB / nombre d'actifs mesure la productivité par actif, et le rapport Profit / travail mesure la rentabilité du travail.",
+      "options": [
+        "Capital / travail",
+        "PIB / nombre d’actifs",
+        "PIB / nombre d’heures travaillées (ou effectifs)",
+        "Profit / travail"
+      ]
+    },
+    {
+      "id": "E84",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’élasticité-revenu de la demande est :",
+      "correct": "D",
+      "explanation": "L'élasticité-revenu de la demande est mesurée par le rapport (ΔQ/Q) / (ΔR/R), qui représente la variation en pourcentage de la quantité demandée en fonction de la variation en pourcentage du revenu. Les autres options sont incorrectes car l'élasticité-prix de la demande (ΔQ/ΔP et (ΔQ/Q) / (ΔP/P)) mesure la variation en pourcentage de la quantité demandée en fonction de la variation en pourcentage du prix, et la recette marginale (ΔR/ΔQ) est une mesure de la variation de la recette totale en fonction de la variation de la quantité vendue.",
+      "options": [
+        "ΔQ/ΔP",
+        "ΔR/ΔQ",
+        "(ΔQ/Q) / (ΔP/P)",
+        "(ΔQ/Q) / (ΔR/R)"
+      ]
+    },
+    {
+      "id": "E85",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un bien de luxe a une élasticité-revenu :",
+      "correct": "B",
+      "explanation": "Un bien de luxe a une élasticité-revenu supérieure à 1, ce qui signifie que la quantité demandée augmente plus rapidement que le revenu. Les autres options sont incorrectes car une élasticité-revenu nulle signifie que la quantité demandée est insensible au revenu, une élasticité-revenu comprise entre 0 et 1 signifie que la quantité demandée augmente moins rapidement que le revenu, et une élasticité-revenu négative signifie que la quantité demandée diminue lorsque le revenu augmente.",
+      "options": [
+        "Nulle",
+        "Supérieure à 1",
+        "Négative",
+        "Comprise entre 0 et 1"
+      ]
+    },
+    {
+      "id": "E86",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La loi de Say (les offres créent leurs propres demandes) est associée à :",
+      "correct": "A",
+      "explanation": "La loi de Say, qui stipule que les offres créent leurs propres demandes, est associée aux classiques. En effet, les classiques considèrent que l'économie est en équilibre lorsque l'offre et la demande sont égales, et que les agents économiques ajustent leurs comportements en fonction des prix. Les autres options sont incorrectes car Marx critique la loi de Say en arguant que les capitalistes peuvent accumuler des richesses sans que les travailleurs ne puissent les acheter, Keynes critique la loi de Say en arguant que la demande effective est la cause de l'équilibre économique, et les mercantilistes considèrent que la richesse est créée par l'accumulation de métaux précieux.",
+      "options": [
+        "Les classiques",
+        "Marx",
+        "Keynes",
+        "Les mercantilistes"
+      ]
+    },
+    {
+      "id": "E87",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La trappe à liquidité est une situation où :",
+      "correct": "D",
+      "explanation": "La trappe à liquidité est une situation où les taux d'intérêt sont nuls et la politique monétaire devient inefficace. En effet, lorsque les taux d'intérêt sont très bas, les agents économiques préfèrent détenir de la monnaie plutôt que de l'investir, ce qui rend la politique monétaire inefficace. Les autres options sont incorrectes car la perte de valeur de la monnaie est une conséquence de l'inflation, l'inflation galopante est une situation de forte inflation, et les banques qui ne prêtent plus est une situation de crise financière.",
+      "options": [
+        "La monnaie perd sa valeur",
+        "L’inflation est galopante",
+        "Les banques ne prêtent plus",
+        "Les taux d’intérêt sont nuls et la politique monétaire devient inefficace"
+      ]
+    },
+    {
+      "id": "E88",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’effet d’éviction (crowding out) se produit quand :",
+      "correct": "B",
+      "explanation": "L'effet d'éviction (crowding out) se produit lorsque les dépenses publiques augmentent les taux d'intérêt et réduisent l'investissement privé. En effet, lorsque les dépenses publiques augmentent, les taux d'intérêt peuvent augmenter pour financer ces dépenses, ce qui réduit l'investissement privé. Les autres options sont incorrectes car la baisse des impôts peut augmenter l'investissement privé, l'augmentation de la masse monétaire peut réduire les taux d'intérêt, et l'augmentation des exportations peut augmenter la demande globale.",
+      "options": [
+        "Les impôts baissent",
+        "Les dépenses publiques augmentent les taux d’intérêt et réduisent l’investissement privé",
+        "La masse monétaire augmente",
+        "Les exportations augmentent"
+      ]
+    },
+    {
+      "id": "E89",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le multiplicateur budgétaire est d’autant plus grand que :",
+      "correct": "C",
+      "explanation": "Le multiplicateur budgétaire est un concept économique qui décrit l'impact d'une variation des dépenses publiques ou de la fiscalité sur l'activité économique. Il est d'autant plus grand que la propension marginale à consommer (PmC) est élevée, car cela signifie que les ménages vont consommer une grande partie de l'augmentation de leur revenu, ce qui va stimuler l'activité économique. Les options 'La PmC est faible' et 'Les impôts sont élevés' sont incorrectes car une PmC faible ou des impôts élevés réduiraient le multiplicateur budgétaire. L'option 'Le taux d'intérêt est élevé' est également incorrecte car un taux d'intérêt élevé pourrait réduire l'efficacité du multiplicateur budgétaire en augmentant le coût du crédit.",
+      "options": [
+        "La PmC est faible",
+        "Le taux d’intérêt est élevé",
+        "La PmC est élevée",
+        "Les impôts sont élevés"
+      ]
+    },
+    {
+      "id": "E90",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La monnaie dans l’économie remplit trois fonctions :",
+      "correct": "C",
+      "explanation": "La monnaie dans l'économie remplit trois fonctions essentielles : unité de compte, moyen d'échange et réserve de valeur. L'unité de compte permet de mesurer la valeur des biens et des services, le moyen d'échange facilite les transactions commerciales, et la réserve de valeur permet aux agents économiques de conserver leur pouvoir d'achat dans le temps. Les options 'Instrument de crédit, de spéculation, de thésaurisation' et 'Unité de compte, réserve de change, valeur légale' sont incorrectes car elles ne décrivent pas accurately les trois fonctions de la monnaie. L'option 'Moyen d'échange, valeur fiduciaire, cours forcé' est également incorrecte car la valeur fiduciaire et le cours forcé sont des caractéristiques de la monnaie, mais pas des fonctions.",
+      "options": [
+        "Moyen d’échange, valeur fiduciaire, cours forcé",
+        "Instrument de crédit, de spéculation, de thésaurisation",
+        "Unité de compte, moyen d’échange, réserve de valeur",
+        "Unité de compte, réserve de change, valeur légale"
+      ]
+    },
+    {
+      "id": "E91",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La masse monétaire M1 comprend :",
+      "correct": "C",
+      "explanation": "La masse monétaire M1 est un agrégat monétaire qui comprend la monnaie fiduciaire (billets et pièces) et les dépôts à vue, qui sont des comptes bancaires qui peuvent être retirés à tout moment. L'option 'Tous les dépôts + monnaie fiduciaire' est incorrecte car elle décrit un agrégat monétaire plus large, comme M2 ou M3. L'option 'Seulement les billets' est incorrecte car elle ne prend pas en compte les dépôts à vue. L'option 'Billets, pièces + dépôts à terme' est incorrecte car les dépôts à terme sont des comptes bancaires qui ne peuvent pas être retirés à tout moment.",
+      "options": [
+        "Tous les dépôts + monnaie fiduciaire",
+        "Seulement les billets",
+        "Billets, pièces + dépôts à vue",
+        "Billets, pièces + dépôts à terme"
+      ]
+    },
+    {
+      "id": "E92",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La création monétaire par les banques est limitée par :",
+      "correct": "D",
+      "explanation": "La création monétaire par les banques est limitée par les besoins de monnaie centrale, qui sont les réserves obligatoires que les banques doivent détenir auprès de la banque centrale. Ces réserves obligatoires limitent la capacité des banques à créer de la monnaie. Les options 'Le cours de la bourse', 'Le bon vouloir des clients' et 'Les taux d'intérêt' sont incorrectes car elles ne décrivent pas accurately les limites de la création monétaire par les banques.",
+      "options": [
+        "Le cours de la bourse",
+        "Le bon vouloir des clients",
+        "Les taux d’intérêt",
+        "Les besoins de monnaie centrale (réserves obligatoires)"
+      ]
+    },
+    {
+      "id": "E93",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’open market (opérations d’achat/vente de titres) est utilisé par la Banque centrale pour :",
+      "correct": "A",
+      "explanation": "L'open market est un instrument de politique monétaire utilisé par la banque centrale pour influencer la masse monétaire et les taux d'intérêt. En achetant ou en vendant des titres, la banque centrale peut augmenter ou diminuer la quantité de monnaie en circulation et modifier les taux d'intérêt. Les options 'Financer le déficit public', 'Réguler les changes' et 'Contrôler les banques' sont incorrectes car elles ne décrivent pas accurately les objectifs de l'open market.",
+      "options": [
+        "Influencer la masse monétaire et les taux d’intérêt",
+        "Financer le déficit public",
+        "Réguler les changes",
+        "Contrôler les banques"
+      ]
+    },
+    {
+      "id": "E94",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une hausse du taux directeur de la Banque centrale entraîne :",
+      "correct": "D",
+      "explanation": "Une hausse du taux directeur de la banque centrale entraîne une hausse des taux d'intérêt bancaires et une baisse de la masse monétaire. En effet, un taux directeur élevé augmente le coût du crédit pour les banques, qui vont alors augmenter leurs taux d'intérêt pour les emprunteurs, et réduit l'incitation à créer de la monnaie. Les options 'Une baisse des taux d'intérêt', 'Une baisse du chômage' et 'Une hausse de l'investissement' sont incorrectes car elles décrivent des effets d'une baisse du taux directeur.",
+      "options": [
+        "Une baisse des taux d’intérêt",
+        "Une baisse du chômage",
+        "Une hausse de l’investissement",
+        "Une hausse des taux d’intérêt bancaires et une baisse de la masse monétaire"
+      ]
+    },
+    {
+      "id": "E95",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’effet de richesse (Pigou) désigne :",
+      "correct": "B",
+      "explanation": "L'effet de richesse, également appelé effet Pigou, désigne l'augmentation de la consommation due à la hausse de la valeur réelle des actifs. Lorsque la valeur des actifs augmente, les ménages se sentent plus riches et sont donc plus enclins à consommer. Les options 'La baisse de l'épargne', 'L'augmentation de la consommation due à la hausse des prix' et 'La hausse de l'investissement' sont incorrectes car elles ne décrivent pas accurately l'effet de richesse.",
+      "options": [
+        "La baisse de l’épargne",
+        "L’augmentation de la consommation due à la hausse de la valeur réelle des actifs (monnaie, obligations)",
+        "L’augmentation de la consommation due à la hausse des prix",
+        "La hausse de l’investissement"
+      ]
+    },
+    {
+      "id": "E96",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le modèle IS-LM a été développé par :",
+      "correct": "A",
+      "explanation": "Le modèle IS-LM a été développé par John Hicks et Alvin Hansen. Ce modèle est un outil de représentation des interactions entre le marché des biens et le marché de la monnaie. L'option 'Keynes' est incorrecte car Keynes a développé la théorie générale, mais pas le modèle IS-LM. Les options 'Samuelson' et 'Friedman' sont également incorrectes car ils sont des économistes qui ont contribué à d'autres théories économiques.",
+      "options": [
+        "Hicks et Hansen",
+        "Keynes",
+        "Samuelson",
+        "Friedman"
+      ]
+    },
+    {
+      "id": "E97",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La courbe IS représente les combinaisons (r, Y) où :",
+      "correct": "B",
+      "explanation": "La courbe IS représente les combinaisons de taux d'intérêt (r) et de revenu national (Y) où l'investissement est égal à l'épargne. C'est une relation fondamentale en macroéconomie, car elle reflète l'équilibre sur le marché des biens et services. Lorsque l'investissement est égal à l'épargne, cela signifie que les dépenses d'investissement des entreprises sont financées par l'épargne des ménages. Les autres options sont incorrectes car la courbe IS ne représente pas directement l'égalité entre l'offre globale et la demande globale (c'est plutôt la condition d'équilibre sur le marché des biens), ni l'égalité entre les exportations et les importations (qui concerne la balance commerciale), ni l'égalité entre la demande de monnaie et l'offre de monnaie (qui concerne le marché monétaire et la courbe LM).",
+      "options": [
+        "Offre globale = Demande globale",
+        "Investissement = Épargne",
+        "Exportations = Importations",
+        "Demande de monnaie = Offre de monnaie"
+      ]
+    },
+    {
+      "id": "E98",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une politique budgétaire expansionniste déplace la courbe IS :",
+      "correct": "C",
+      "explanation": "Une politique budgétaire expansionniste, qui consiste à augmenter les dépenses publiques ou à réduire les impôts, a pour effet de stimuler l'activité économique. Cela se traduit par une augmentation du revenu national et une hausse de la demande de biens et services. La courbe IS, qui représente les combinaisons de taux d'intérêt et de revenu national où l'investissement est égal à l'épargne, se déplace donc vers la droite. Cela signifie que, pour un même taux d'intérêt, le revenu national est plus élevé qu'auparavant. Les autres options sont incorrectes car une politique budgétaire restrictive déplace la courbe IS vers la gauche, et une politique monétaire expansionniste déplace la courbe LM.",
+      "options": [
+        "Vers le bas",
+        "Vers la gauche",
+        "Vers la droite",
+        "Vers le haut"
+      ]
+    },
+    {
+      "id": "E99",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une politique monétaire expansionniste déplace la courbe LM :",
+      "correct": "A",
+      "explanation": "Une politique monétaire expansionniste, qui consiste à augmenter la masse monétaire en circulation, a pour effet de réduire les taux d'intérêt et de stimuler l'activité économique. Cela se traduit par une augmentation de la demande de biens et services et une hausse du revenu national. La courbe LM, qui représente les combinaisons de taux d'intérêt et de revenu national où la demande de monnaie est égale à l'offre de monnaie, se déplace donc vers la droite (ou vers le bas). Cela signifie que, pour un même revenu national, le taux d'intérêt est plus bas qu'auparavant. Les autres options sont incorrectes car une politique monétaire restrictive déplace la courbe LM vers la gauche (ou vers le haut).",
+      "options": [
+        "Vers la droite (bas)",
+        "Vers la gauche (haut)",
+        "Horizontale",
+        "Verticalement"
+      ]
+    },
+    {
+      "id": "E100",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans la zone euro, la politique monétaire est conduite par :",
+      "correct": "D",
+      "explanation": "Dans la zone euro, la politique monétaire est conduite par la Banque centrale européenne (BCE). La BCE est chargée de définir la politique monétaire pour les pays membres de la zone euro, ce qui signifie qu'elle fixe les taux d'intérêt et régule la masse monétaire en circulation. Les autres options sont incorrectes car les banques centrales nationales ne sont pas responsables de la politique monétaire pour l'ensemble de la zone euro, le FMI est une institution internationale qui fournit des financements et des conseils aux pays en difficulté, et la Commission européenne est l'organe exécutif de l'Union européenne mais n'est pas responsable de la politique monétaire.",
+      "options": [
+        "Les banques centrales nationales",
+        "Le FMI",
+        "La Commission européenne",
+        "La BCE (Banque centrale européenne)"
+      ]
+    },
+    {
+      "id": "E101",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le taux de change fixe implique que la Banque centrale :",
+      "correct": "C",
+      "explanation": "Un taux de change fixe implique que la Banque centrale intervient sur le marché des changes pour maintenir la valeur de la monnaie nationale à un niveau fixe par rapport à une autre monnaie. Cela signifie que la Banque centrale achète ou vend de la monnaie nationale pour maintenir la parité. Les autres options sont incorrectes car, dans un système de taux de change flottant, la Banque centrale n'intervient pas pour maintenir la valeur de la monnaie, et fixer un taux d'intérêt n'a pas de rapport direct avec le taux de change.",
+      "options": [
+        "N’intervient jamais",
+        "Laisse flotter la monnaie",
+        "Intervient pour maintenir la parité",
+        "Fixe un taux d’intérêt"
+      ]
+    },
+    {
+      "id": "E102",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une dévaluation consiste à :",
+      "correct": "D",
+      "explanation": "Une dévaluation consiste à diminuer officiellement la valeur de la monnaie nationale par rapport à d'autres monnaies. Cela signifie que la Banque centrale fixe un nouveau taux de change qui est moins favorable à la monnaie nationale. Les autres options sont incorrectes car laisser flotter la monnaie signifie abandonner le contrôle du taux de change, augmenter la valeur de la monnaie nationale est une réévaluation, et créer de la monnaie est une politique monétaire expansionniste.",
+      "options": [
+        "Laisser flotter la monnaie",
+        "Augmenter la valeur de la monnaie nationale",
+        "Créer de la monnaie",
+        "Diminuer officiellement la valeur de la monnaie nationale"
+      ]
+    },
+    {
+      "id": "E103",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La loi de Gresham (la mauvaise monnaie chasse la bonne) s’applique en cas de :",
+      "correct": "D",
+      "explanation": "La loi de Gresham stipule que la mauvaise monnaie chasse la bonne monnaie. Cela signifie que, lorsque deux monnaies coexistent et ont des valeurs légales différentes, les agents économiques tendent à utiliser la monnaie la moins valorisée (la 'mauvaise' monnaie) pour les transactions courantes et à thésauriser la monnaie la plus valorisée (la 'bonne' monnaie). Cette loi s'applique notamment en cas de bimétallisme ou de monnaies ayant des valeurs légales différentes. Les autres options sont incorrectes car la déflation, l'inflation et le taux de change flottant n'ont pas de rapport direct avec la loi de Gresham.",
+      "options": [
+        "Déflation",
+        "Inflation",
+        "Taux de change flottant",
+        "Bimétallisme ou monnaies ayant des valeurs légales différentes"
+      ]
+    },
+    {
+      "id": "E104",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La courbe de Kuznets montre une relation :",
+      "correct": "D",
+      "explanation": "La courbe de Kuznets montre une relation en forme de U inversé entre la croissance économique et les inégalités de revenu. Selon cette théorie, les inégalités de revenu augmentent au début de la croissance économique, puis diminuent à mesure que la croissance se poursuit et que les revenus augmentent. Les autres options sont incorrectes car la courbe de Phillips montre une relation négative entre le chômage et l'inflation, et les autres options ne décrivent pas correctement la relation décrite par la courbe de Kuznets.",
+      "options": [
+        "Négative entre chômage et inflation",
+        "Constante",
+        "Positive entre inflation et chômage",
+        "Positive entre croissance et inégalités puis inversement (forme de U inversé)"
+      ]
+    },
+    {
+      "id": "E105",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La théorie de la dépendance (école de la dépendance) explique le sous-développement par :",
+      "correct": "D",
+      "explanation": "La théorie de la dépendance, également connue sous le nom d'école de la dépendance, explique le sous-développement en termes de relations économiques inégales entre les pays riches et les pays pauvres. Selon cette théorie, les pays pauvres sont exploités par les pays riches à travers des échanges commerciaux et financiers injustes, ce qui les empêche de se développer de manière autonome. C'est pourquoi l'option 'L'exploitation des pays pauvres par les riches (relations centre-périphérie)' est la bonne réponse. Les autres options, telles que 'Le faible capital humain', 'Le manque de ressources naturelles' et 'Les guerres civiles', sont des facteurs qui peuvent contribuer au sous-développement, mais ils ne reflètent pas la thèse centrale de la théorie de la dépendance.",
+      "options": [
+        "Le faible capital humain",
+        "Le manque de ressources naturelles",
+        "Les guerres civiles",
+        "L’exploitation des pays pauvres par les riches (relations centre-périphérie)"
+      ]
+    },
+    {
+      "id": "E106",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La microfinance vise à :",
+      "correct": "A",
+      "explanation": "La microfinance est un secteur financier qui vise à fournir des services financiers, tels que des crédits et des comptes d'épargne, aux personnes à faibles revenus qui sont souvent exclues du système bancaire classique. L'objectif principal de la microfinance est de promouvoir l'inclusion financière et de soutenir l'entrepreneuriat dans les communautés pauvres. Par conséquent, l'option 'Offrir des services financiers (crédit, épargne) aux personnes à faibles revenus exclues du système bancaire classique' est la bonne réponse. Les autres options, telles que 'Assurer le développement industriel', 'Financer les grandes entreprises' et 'Gérer la politique monétaire', ne correspondent pas aux objectifs de la microfinance.",
+      "options": [
+        "Offrir des services financiers (crédit, épargne) aux personnes à faibles revenus exclues du système bancaire classique",
+        "Assurer le développement industriel",
+        "Financer les grandes entreprises",
+        "Gérer la politique monétaire"
+      ]
+    },
+    {
+      "id": "E107",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le taux d’intérêt pratiqué par les institutions de microfinance en Haïti est souvent :",
+      "correct": "B",
+      "explanation": "Les institutions de microfinance en Haïti pratiquent souvent des taux d'intérêt élevés, qui peuvent varier entre 20% et 35% par an. Cela s'explique par les coûts élevés liés à l'octroi de crédits à des emprunteurs qui ne disposent pas de garanties traditionnelles. Par conséquent, l'option 'Élevé (autour de 20-35%)' est la bonne réponse. Les autres options, telles que 'Très bas', 'Négatif' et 'Nul', ne reflètent pas les réalités du marché de la microfinance en Haïti.",
+      "options": [
+        "Très bas",
+        "Élevé (autour de 20-35%)",
+        "Négatif",
+        "Nul"
+      ]
+    },
+    {
+      "id": "E108",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’économie haïtienne dépend fortement des envois de fonds de la diaspora. Ceux-ci représentent environ :",
+      "correct": "A",
+      "explanation": "Les envois de fonds de la diaspora haïtienne jouent un rôle crucial dans l'économie du pays, représentant une part significative du PIB. Selon certaines estimations, ces envois de fonds peuvent représenter entre 5% et 10% du PIB haïtien. Par conséquent, l'option '5% du PIB (voire plus)' est la bonne réponse. Les autres options, telles que '50% du PIB', '20% du PIB' et '1% du PIB', ne correspondent pas aux données économiques réelles.",
+      "options": [
+        "5% du PIB (voire plus)",
+        "50% du PIB",
+        "20% du PIB",
+        "1% du PIB"
+      ]
+    },
+    {
+      "id": "E109",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’investissement en capital fixe brut (FBCF) désigne :",
+      "correct": "A",
+      "explanation": "L'investissement en capital fixe brut (FBCF) désigne les dépenses consacrées à l'acquisition de biens de production durables, tels que des machines et des bâtiments. Ces investissements sont essentiels pour le développement économique à long terme, car ils permettent d'accroître la capacité productive d'une économie. Par conséquent, l'option 'Les achats de biens de production durables (machines, bâtiments)' est la bonne réponse. Les autres options, telles que 'Les achats de matières premières', 'Les dépenses de recherche' et 'Les variations de stocks', ne correspondent pas à la définition de la FBCF.",
+      "options": [
+        "Les achats de biens de production durables (machines, bâtiments)",
+        "Les achats de matières premières",
+        "Les dépenses de recherche",
+        "Les variations de stocks"
+      ]
+    },
+    {
+      "id": "E110",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le taux d’épargne est le rapport entre :",
+      "correct": "B",
+      "explanation": "Le taux d'épargne est un indicateur économique qui mesure la proportion de revenu disponible qui est épargnée par les ménages ou les agents économiques. Il est calculé comme le rapport entre l'épargne et le revenu disponible. Par conséquent, l'option 'Épargne et revenu disponible' est la bonne réponse. Les autres options, telles que 'Épargne et consommation', 'Investissement et épargne' et 'Revenu et population', ne reflètent pas la définition correcte du taux d'épargne.",
+      "options": [
+        "Épargne et consommation",
+        "Épargne et revenu disponible",
+        "Investissement et épargne",
+        "Revenu et population"
+      ]
+    },
+    {
+      "id": "E111",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le paradoxe de l’épargne (Keynes) dit qu’une hausse de la propension à épargner peut :",
+      "correct": "D",
+      "explanation": "Le paradoxe de l'épargne, formulé par Keynes, suggère qu'une hausse de la propension à épargner peut avoir des effets négatifs sur l'économie, notamment en réduisant le revenu d'équilibre. Cela peut se produire si l'augmentation de l'épargne se traduit par une baisse de la demande globale, ce qui peut entraîner une réduction de la production et de l'emploi. Par conséquent, l'option 'Réduire le revenu d'équilibre (et donc l'épargne effective)' est la bonne réponse. Les autres options, telles que 'Augmenter l'investissement', 'Augmenter la consommation' et 'N'avoir aucun effet', ne reflètent pas la thèse keynésienne.",
+      "options": [
+        "Augmenter l’investissement",
+        "Augmenter la consommation",
+        "N’avoir aucun effet",
+        "Réduire le revenu d’équilibre (et donc l’épargne effective)"
+      ]
+    },
+    {
+      "id": "E112",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’équilibre sur le marché des biens et services en économie fermée est donné par :",
+      "correct": "B",
+      "explanation": "L'équilibre sur le marché des biens et services en économie fermée est donné par l'équation Y = C + I + G, où Y représente le revenu national, C la consommation, I l'investissement et G les dépenses publiques. Cette équation reflète la demande globale de biens et services dans une économie fermée, où les échanges avec l'extérieur sont nuls. Par conséquent, l'option 'Y = C + I + G' est la bonne réponse. Les autres options, telles que 'Y = C + I + G + X – M', 'Y = C' et 'Y = C + I', ne correspondent pas à la définition de l'équilibre en économie fermée.",
+      "options": [
+        "Y = C + I + G + X – M",
+        "Y = C + I + G",
+        "Y = C",
+        "Y = C + I"
+      ]
+    },
+    {
+      "id": "E113",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La fonction d’épargne keynésienne s’écrit :",
+      "correct": "A",
+      "explanation": "La fonction d'épargne keynésienne représente la relation entre l'épargne (S) et le revenu national (Y). Elle s'écrit S = -a + (1 - b)Y, où 'a' est la consommation autonome et 'b' est la propension marginale à consommer. Cette équation est juste car elle reflète le fait que l'épargne augmente lorsque le revenu augmente, mais à un rythme moindre en raison de la propension à consommer. Les autres options, S = a + (1 - b)Y, S = a + bY et S = -a - bY, sont incorrectes car elles ne reflètent pas correctement la relation entre l'épargne et le revenu.",
+      "options": [
+        "S = – a + (1 – b)Y",
+        "S = a + (1 – b)Y",
+        "S = a + bY",
+        "S = – a – bY"
+      ]
+    },
+    {
+      "id": "E114",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans le modèle keynésien simple, si l’investissement augmente de ΔI, le revenu augmente de :",
+      "correct": "D",
+      "explanation": "Dans le modèle keynésien simple, l'augmentation de l'investissement de ΔI entraîne une augmentation du revenu de ΔI / (1 - b), où 'b' est la propension marginale à consommer. L'option ΔI est incorrecte car elle ne tient pas compte du multiplicateur keynésien. L'option ΔI * (1 - b) est incorrecte car elle sous-estime l'effet multiplicateur. L'option ΔI * b est incorrecte car elle représente une relation incorrecte entre l'investissement et le revenu.",
+      "options": [
+        "ΔI * (1 – b)",
+        "ΔI * b",
+        "ΔI / (1 – b)",
+        "ΔI"
+      ]
+    },
+    {
+      "id": "E115",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le PIB potentiel est :",
+      "correct": "C",
+      "explanation": "Le PIB potentiel est le niveau de production maximal qu'une économie peut atteindre sans engendrer des tensions inflationnistes, correspondant ainsi au plein emploi des facteurs de production. C'est une notion cruciale pour évaluer la performance économique d'un pays. L'option qui décrit le PIB potentiel comme 'le niveau de production maximal sans tensions inflationnistes (plein emploi)' est donc correcte. Les autres options sont incorrectes car le PIB en parité de pouvoir d'achat est une mesure du PIB ajustée pour comparer le pouvoir d'achat entre pays, le PIB observé est le PIB réel mesuré, et le PIB nominal est le PIB mesuré aux prix courants.",
+      "options": [
+        "Le PIB en parité de pouvoir d’achat",
+        "Le PIB observé",
+        "Le niveau de production maximal sans tensions inflationnistes (plein emploi)",
+        "Le PIB nominal"
+      ]
+    },
+    {
+      "id": "E116",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’écart de production (output gap) est positif lorsque :",
+      "correct": "B",
+      "explanation": "L'écart de production, ou output gap, est la différence entre le PIB réel et le PIB potentiel. Il est positif lorsque le PIB réel est supérieur au PIB potentiel, indiquant une économie en surchauffe avec des risques inflationnistes. L'option 'PIB réel > PIB potentiel' décrit donc correctement quand l'écart de production est positif. Les autres options sont incorrectes car un écart nul signifie que le PIB réel est égal au PIB potentiel, un écart négatif signifie que le PIB réel est inférieur au PIB potentiel, et le chômage élevé est souvent associé à un écart de production négatif.",
+      "options": [
+        "PIB réel = PIB potentiel",
+        "PIB réel > PIB potentiel",
+        "PIB réel < PIB potentiel",
+        "Le chômage est élevé"
+      ]
+    },
+    {
+      "id": "E117",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La règle de Taylor propose une relation entre le taux d’intérêt directeur, l’inflation et :",
+      "correct": "D",
+      "explanation": "La règle de Taylor est une directive de politique monétaire qui suggère comment les banques centrales devraient ajuster les taux d'intérêt en réponse aux changements dans l'inflation et l'écart de production. Elle propose une relation entre le taux d'intérêt directeur, l'inflation, et l'écart de production. L'option 'L'écart de production' est donc correcte. Les autres options sont incorrectes car la masse monétaire, le taux de change, et le chômage sont des indicateurs économiques importants, mais ils ne sont pas directement intégrés dans la règle de Taylor.",
+      "options": [
+        "La masse monétaire",
+        "Le taux de change",
+        "Le chômage",
+        "L’écart de production"
+      ]
+    },
+    {
+      "id": "E118",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’indice des prix à la consommation (IPC) est calculé à partir :",
+      "correct": "C",
+      "explanation": "L'indice des prix à la consommation (IPC) est une mesure statistique qui suit les changements dans les prix d'un panier de biens et services représentatif de la consommation des ménages. Il est calculé à partir de ce panier pour refléter l'évolution des coûts de vie. L'option 'D'un panier de biens et services représentatif de la consommation des ménages' est donc correcte. Les autres options sont incorrectes car les prix de gros, les prix des matières premières, et les prix à la production sont des indicateurs de prix à différents niveaux de l'économie, mais ils ne reflètent pas directement la consommation des ménages.",
+      "options": [
+        "Des prix de gros",
+        "Des prix des matières premières",
+        "D’un panier de biens et services représentatif de la consommation des ménages",
+        "Des prix à la production"
+      ]
+    },
+    {
+      "id": "E119",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’inflation sous-jacente (core inflation) exclut :",
+      "correct": "C",
+      "explanation": "L'inflation sous-jacente, ou core inflation, est une mesure de l'inflation qui exclut les prix volatils des produits alimentaires et de l'énergie pour donner une image plus stable de l'inflation de base. L'option 'Les produits alimentaires et l'énergie (prix volatils)' est donc correcte. Les autres options sont incorrectes car les biens durables, les loyers, et les services sont souvent inclus dans les mesures d'inflation sous-jacente ou sont considérés comme des composantes importantes de l'inflation globale.",
+      "options": [
+        "Les biens durables",
+        "Les loyers",
+        "Les produits alimentaires et l’énergie (prix volatils)",
+        "Les services"
+      ]
+    },
+    {
+      "id": "E120",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La stagflation est une combinaison de :",
+      "correct": "A",
+      "explanation": "La stagflation est un phénomène économique caractérisé par une combinaison de stagnation économique (ou faible croissance) et d'inflation. L'option 'Stagnation économique et inflation' décrit donc correctement la stagflation. Les autres options sont incorrectes car la croissance et la déflation caractérisent une situation économique opposée, la déflation et le chômage sont des problèmes économiques différents, et la croissance forte avec inflation faible est une situation économique favorable.",
+      "options": [
+        "Stagnation économique et inflation",
+        "Croissance et déflation",
+        "Déflation et chômage",
+        "Croissance forte et inflation faible"
+      ]
+    },
+    {
+      "id": "E121",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les chocs pétroliers des années 1970 ont provoqué :",
+      "correct": "A",
+      "explanation": "Les chocs pétroliers des années 1970 ont provoqué une stagflation, c'est-à-dire une combinaison de stagnation économique et d'inflation élevée. Cela s'est produit parce que les chocs pétroliers ont entraîné une augmentation soudaine des coûts de production, ce qui a réduit l'offre de biens et services et augmenté les prix. Les autres options sont incorrectes car une baisse de l'inflation n'a pas été observée, une hausse de l'emploi n'a pas été une conséquence directe des chocs pétroliers, et une croissance forte n'a pas été caractéristique de cette période.",
+      "options": [
+        "Une stagflation",
+        "Une baisse de l’inflation",
+        "Une hausse de l’emploi",
+        "Une croissance forte"
+      ]
+    },
+    {
+      "id": "E122",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le concept de « main invisible » est dû à :",
+      "correct": "D",
+      "explanation": "Le concept de 'main invisible' est dû à Adam Smith, qui l'a utilisé pour décrire la manière dont les individus agissant dans leur propre intérêt peuvent créer des résultats bénéfiques pour la société dans son ensemble. Cela se produit parce que les marchés peuvent autoréguler, les individus cherchant à maximiser leur profit créent des biens et services qui répondent aux besoins de la société. Les autres options sont incorrectes car Keynes est connu pour sa théorie de l'intervention gouvernementale, Hayek a contribué à la théorie de l'ordre spontané mais n'est pas directement associé à la 'main invisible', et Marx est connu pour sa critique du capitalisme.",
+      "options": [
+        "Keynes",
+        "Hayek",
+        "Marx",
+        "Adam Smith"
+      ]
+    },
+    {
+      "id": "E123",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le laissez-faire est une doctrine qui prône :",
+      "correct": "D",
+      "explanation": "Le laissez-faire est une doctrine qui prône la liberté économique sans intervention de l'État. Cela signifie que les marchés sont autorisés à fonctionner librement, sans réglementation ou intervention gouvernementale, de manière à maximiser l'efficacité économique. Les autres options sont incorrectes car le protectionnisme implique des restrictions sur le commerce extérieur, la planification centrale implique une intervention significative de l'État dans l'économie, et l'intervention massive de l'État est à l'opposé du laissez-faire.",
+      "options": [
+        "Le protectionnisme",
+        "La planification centrale",
+        "L’intervention massive de l’État",
+        "La liberté économique sans intervention de l’État"
+      ]
+    },
+    {
+      "id": "E124",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le capitalisme se caractérise par :",
+      "correct": "D",
+      "explanation": "Le capitalisme se caractérise par la propriété privée des moyens de production et la recherche du profit. Cela signifie que les entreprises et les individus possèdent les ressources et les utilisent pour produire des biens et services dans le but de réaliser des profits. Les autres options sont incorrectes car la planification centralisée est caractéristique du socialisme ou du communisme, l'absence de marché n'est pas caractéristique du capitalisme, et la propriété collective est également caractéristique du socialisme.",
+      "options": [
+        "La planification centralisée",
+        "L’absence de marché",
+        "La propriété collective",
+        "La propriété privée des moyens de production et la recherche du profit"
+      ]
+    },
+    {
+      "id": "E125",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le socialisme vise généralement :",
+      "correct": "B",
+      "explanation": "Le socialisme vise généralement la propriété collective ou étatique des moyens de production et l'égalité. Cela signifie que les ressources sont possédées et contrôlées par la communauté ou l'État, et que l'objectif est de réduire les inégalités économiques et sociales. Les autres options sont incorrectes car 'La libre concurrence' est caractéristique du capitalisme, 'La maximisation du profit' est également un objectif du capitalisme, et 'Le laissez-faire' est une doctrine qui prône la non-intervention de l'État.",
+      "options": [
+        "La libre concurrence",
+        "La propriété collective ou étatique des moyens de production et l’égalité",
+        "La maximisation du profit",
+        "Le laissez-faire"
+      ]
+    },
+    {
+      "id": "E126",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La privatisation consiste à :",
+      "correct": "B",
+      "explanation": "La privatisation consiste à transférer une entreprise publique au secteur privé. Cela signifie que la propriété et le contrôle de l'entreprise sont transférés d'une entité publique à une entité privée. Les autres options sont incorrectes car 'Créer une entreprise publique' est l'opposé de la privatisation, 'Nationaliser une entreprise' signifie transférer une entreprise privée au secteur public, et 'Réguler une entreprise privée' ne change pas la propriété de l'entreprise.",
+      "options": [
+        "Créer une entreprise publique",
+        "Transférer une entreprise publique au secteur privé",
+        "Nationaliser une entreprise",
+        "Réguler une entreprise privée"
+      ]
+    },
+    {
+      "id": "E127",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La nationalisation est le transfert d’une entreprise privée :",
+      "correct": "D",
+      "explanation": "La nationalisation est le transfert d'une entreprise privée vers l'État. Cela signifie que la propriété et le contrôle de l'entreprise sont transférés d'une entité privée à une entité publique. Les autres options sont incorrectes car transférer une entreprise 'Vers des actionnaires' ne change pas la nature publique ou privée de l'entreprise, 'Vers l'étranger' implique un transfert international, et 'Vers des coopératives' implique un transfert à une forme de propriété collective, mais pas nécessairement à l'État.",
+      "options": [
+        "Vers des actionnaires",
+        "Vers l’étranger",
+        "Vers des coopératives",
+        "Vers l’État"
+      ]
+    },
+    {
+      "id": "E128",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Fonds monétaire international (FMI) a pour mission principale :",
+      "correct": "B",
+      "explanation": "Le Fonds monétaire international (FMI) a pour mission principale d'assurer la stabilité du système monétaire international et de fournir des prêts aux pays en difficulté de balance des paiements. Cela signifie que le FMI cherche à promouvoir la stabilité financière internationale et à aider les pays à faire face à des problèmes temporaires de balance des paiements. Les autres options sont incorrectes car 'Promouvoir le libre-échange' est l'objectif de l'Organisation mondiale du commerce (OMC), 'Accorder des prêts à long terme' n'est pas l'objectif principal du FMI, et 'Financer les projets de développement' est l'objectif de la Banque mondiale.",
+      "options": [
+        "Promouvoir le libre-échange",
+        "Assurer la stabilité du système monétaire international et fournir des prêts aux pays en difficulté de balance des paiements",
+        "Accorder des prêts à long terme",
+        "Financer les projets de développement"
+      ]
+    },
+    {
+      "id": "E129",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Banque mondiale finance surtout :",
+      "correct": "B",
+      "explanation": "La Banque mondiale finance surtout des projets de développement, tels que des infrastructures et des programmes éducatifs, afin de promouvoir la croissance économique et de réduire la pauvreté dans les pays en développement. Les opérations de change sont généralement gérées par les banques centrales ou les institutions financières spécialisées, comme le Fonds monétaire international (FMI). Les programmes d'ajustement structurel sont également une spécialité du FMI, tandis que les prêts à court terme sont souvent fournis par les banques commerciales.",
+      "options": [
+        "Des opérations de change",
+        "Des projets de développement (infrastructures, éducation)",
+        "Des programmes d’ajustement structurel (FMI)",
+        "Des prêts à court terme"
+      ]
+    },
+    {
+      "id": "E130",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’Organisation mondiale du commerce (OMC) s’occupe de :",
+      "correct": "B",
+      "explanation": "L'Organisation mondiale du commerce (OMC) s'occupe principalement de la régulation du commerce international, en établissant des règles et des normes pour les échanges commerciaux entre les pays membres. Les droits de l'homme sont traités par des organisations spécialisées comme les Nations Unies. La stabilité monétaire est généralement assurée par les institutions financières internationales, comme le FMI et la Banque mondiale. Le financement du développement est également une mission de la Banque mondiale et d'autres institutions de développement.",
+      "options": [
+        "Les droits de l’homme",
+        "La régulation du commerce international",
+        "La stabilité monétaire",
+        "Le financement du développement"
+      ]
+    },
+    {
+      "id": "E131",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le cycle économique comprend les phases :",
+      "correct": "B",
+      "explanation": "Le cycle économique comprend les phases d'expansion, de pic, de récession et de creux. L'option 'Croissance, inflation, déflation' ne décrit pas les phases du cycle économique de manière précise. L'option 'Investissement, consommation, épargne' décrit plutôt les composantes de la demande globale. L'option 'Production, distribution, consommation' décrit les étapes du processus économique de production et de consommation.",
+      "options": [
+        "Croissance, inflation, déflation",
+        "Expansion, pic, récession, creux",
+        "Investissement, consommation, épargne",
+        "Production, distribution, consommation"
+      ]
+    },
+    {
+      "id": "E132",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La récession est définie comme :",
+      "correct": "C",
+      "explanation": "La récession est définie comme une baisse du PIB pendant deux trimestres consécutifs. L'option 'Une baisse des prix' décrit la déflation. L'option 'Une hausse du chômage' est une conséquence possible de la récession, mais pas une définition. L'option 'Une stagnation' décrit une situation où la croissance économique est nulle ou très faible, mais ne correspond pas à la définition technique de la récession.",
+      "options": [
+        "Une baisse des prix",
+        "Une hausse du chômage",
+        "Une baisse du PIB pendant deux trimestres consécutifs",
+        "Une stagnation"
+      ]
+    },
+    {
+      "id": "E133",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La dépression est une récession :",
+      "correct": "D",
+      "explanation": "La dépression est une récession grave et prolongée, caractérisée par une forte baisse du PIB et une hausse significative du chômage. L'option 'Normale' ne décrit pas la dépression. L'option 'Brève et légère' décrit plutôt une récession modérée. L'option 'Inflationniste' ne correspond pas à la définition de la dépression, qui est souvent associée à une baisse des prix (déflation).",
+      "options": [
+        "Normale",
+        "Inflationniste",
+        "Brève et légère",
+        "Grave et prolongée"
+      ]
+    },
+    {
+      "id": "E134",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La grande dépression de 1929 a conduit à :",
+      "correct": "C",
+      "explanation": "La grande dépression de 1929 a conduit à la montée du keynésianisme, une école de pensée économique qui met l'accent sur l'intervention gouvernementale pour stabiliser l'économie. L'option 'Le triomphe du libéralisme' est incorrecte car la grande dépression a plutôt remis en question les principes du libéralisme économique. L'option 'La fin du chômage' est incorrecte car le chômage a augmenté considérablement pendant la grande dépression. L'option 'La création de l'euro' est incorrecte car l'euro a été créé beaucoup plus tard.",
+      "options": [
+        "Le triomphe du libéralisme",
+        "La fin du chômage",
+        "La montée du keynésianisme",
+        "La création de l’euro"
+      ]
+    },
+    {
+      "id": "E135",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le New Deal de Roosevelt était une politique :",
+      "correct": "A",
+      "explanation": "Le New Deal de Roosevelt était une politique de relance par les dépenses publiques, qui a anticipé les idées keynésiennes. L'option 'De laissez-faire' est incorrecte car le New Deal a impliqué une intervention significative de l'État dans l'économie. L'option 'De rigueur budgétaire' est incorrecte car le New Deal a impliqué des dépenses publiques accrues. L'option 'De déflation' est incorrecte car le New Deal visait à stimuler l'économie, et non à réduire les prix.",
+      "options": [
+        "De relance par les dépenses publiques (keynésienne avant Keynes)",
+        "De laissez-faire",
+        "De rigueur budgétaire",
+        "De déflation"
+      ]
+    },
+    {
+      "id": "E136",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La crise des subprimes (2007-2008) a débuté par :",
+      "correct": "C",
+      "explanation": "La crise des subprimes (2007-2008) a débuté par des problèmes sur le marché immobilier américain, qui ont conduit à la faillite de Lehman Brothers en septembre 2008. L'option 'La guerre commerciale' est incorrecte car la crise des subprimes n'a pas été causée par une guerre commerciale. L'option 'La hausse des prix du pétrole' est incorrecte car la hausse des prix du pétrole a pu contribuer à la crise, mais n'en était pas la cause principale. L'option 'La dette grecque' est incorrecte car la crise de la dette grecque est survenue plus tard.",
+      "options": [
+        "La guerre commerciale",
+        "La hausse des prix du pétrole",
+        "La faillite de Lehman Brothers (sept. 2008) mais les racines sont dans l’immobilier américain",
+        "La dette grecque"
+      ]
+    },
+    {
+      "id": "E137",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La BCE (Banque centrale européenne) a son siège à :",
+      "correct": "A",
+      "explanation": "La Banque centrale européenne (BCE) a son siège à Francfort, en Allemagne. Cela est dû au fait que la BCE est l'institution monétaire suprême de la zone euro, et Francfort est considérée comme une place financière importante en Europe. Les autres options, Londres, Bruxelles et Paris, sont des villes importantes dans l'Union européenne, mais elles ne sont pas le siège de la BCE. Londres est une place financière majeure, mais elle est la capitale du Royaume-Uni, qui n'a pas adopté l'euro. Bruxelles est la capitale de l'Union européenne, mais elle abrite les institutions de l'UE, pas la BCE. Paris est la capitale de la France, un pays fondateur de l'UE, mais le siège de la BCE y est pas situé.",
+      "options": [
+        "Francfort",
+        "Londres",
+        "Bruxelles",
+        "Paris"
+      ]
+    },
+    {
+      "id": "E138",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La zone euro regroupe les pays ayant adopté :",
+      "correct": "C",
+      "explanation": "La zone euro regroupe les pays ayant adopté l'euro comme monnaie unique. Cela signifie que ces pays ont abandonné leur monnaie nationale et utilisent l'euro pour leurs transactions économiques. Les autres options sont incorrectes car le franc est une ancienne monnaie française, le dollar est la monnaie des États-Unis et la livre sterling est la monnaie du Royaume-Uni. Ces monnaies ne sont pas utilisées dans la zone euro.",
+      "options": [
+        "Le franc",
+        "Le dollar",
+        "L’euro comme monnaie unique",
+        "La livre sterling"
+      ]
+    },
+    {
+      "id": "E139",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le traité de Maastricht (1992) a posé les critères de convergence pour :",
+      "correct": "B",
+      "explanation": "Le traité de Maastricht, signé en 1992, a posé les critères de convergence pour l'union économique et monétaire européenne. Cela signifie que les pays qui souhaitent rejoindre la zone euro doivent remplir certains critères économiques, tels qu'un taux d'inflation bas, un déficit public faible et une dette publique soutenable. Les autres options sont incorrectes car la politique agricole commune est une politique de l'Union européenne visant à soutenir les agriculteurs, la création de l'OMC (Organisation mondiale du commerce) est une institution internationale qui vise à libéraliser le commerce mondial, et la libéralisation du commerce est un processus visant à réduire les barrières commerciales entre les pays.",
+      "options": [
+        "La politique agricole commune",
+        "L’union économique et monétaire européenne",
+        "La création de l’OMC",
+        "La libéralisation du commerce"
+      ]
+    },
+    {
+      "id": "E140",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le critère de déficit public de Maastricht est :",
+      "correct": "B",
+      "explanation": "Le critère de déficit public de Maastricht est de 3% du PIB (Produit intérieur brut). Cela signifie que les pays de la zone euro ne doivent pas avoir un déficit public supérieur à 3% de leur PIB. Les autres options sont incorrectes car un déficit public de 1% du PIB est trop faible, 5% du PIB est trop élevé et 0% du PIB signifie que le pays a un budget équilibré ou en excédent.",
+      "options": [
+        "1% du PIB",
+        "3% du PIB",
+        "5% du PIB",
+        "0%"
+      ]
+    },
+    {
+      "id": "E141",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le critère de dette publique de Maastricht est :",
+      "correct": "A",
+      "explanation": "Le critère de dette publique de Maastricht est de 60% du PIB. Cela signifie que les pays de la zone euro ne doivent pas avoir une dette publique supérieure à 60% de leur PIB. Les autres options sont incorrectes car une dette publique de 100% du PIB est trop élevée, 30% du PIB est trop faible et 120% du PIB est beaucoup trop élevée.",
+      "options": [
+        "60% du PIB",
+        "100%",
+        "30%",
+        "120%"
+      ]
+    },
+    {
+      "id": "E142",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La règle d’or budgétaire interdit de financer les dépenses courantes par :",
+      "correct": "A",
+      "explanation": "La règle d'or budgétaire interdit de financer les dépenses courantes par l'emprunt, seul l'investissement peut être financé par l'emprunt. Cela signifie que les gouvernements ne doivent pas utiliser l'emprunt pour financer leurs dépenses courantes, mais qu'ils peuvent utiliser l'emprunt pour financer des investissements à long terme. Les autres options sont incorrectes car les impôts sont une source de revenus pour les gouvernements, la création monétaire est une politique monétaire qui peut être utilisée par les banques centrales et les privatisations sont une source de revenus pour les gouvernements.",
+      "options": [
+        "L’emprunt (seul l’investissement peut être financé par l’emprunt)",
+        "Les impôts",
+        "La création monétaire",
+        "Les privatisations"
+      ]
+    },
+    {
+      "id": "E143",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La TVA (taxe sur la valeur ajoutée) est un impôt :",
+      "correct": "D",
+      "explanation": "La TVA (taxe sur la valeur ajoutée) est un impôt indirect sur la consommation. Cela signifie que la TVA est un impôt qui est payé par les consommateurs lorsqu'ils achètent des biens et des services. Les autres options sont incorrectes car un impôt sur le capital est un impôt qui est payé sur les biens de capital, un impôt direct sur le revenu est un impôt qui est payé sur le revenu des personnes physiques ou des sociétés et un impôt sur les sociétés est un impôt qui est payé par les sociétés sur leurs bénéfices.",
+      "options": [
+        "Sur le capital",
+        "Direct sur le revenu",
+        "Sur les sociétés",
+        "Indirect sur la consommation"
+      ]
+    },
+    {
+      "id": "E144",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’impôt sur le revenu des personnes physiques (IRPP) est un impôt :",
+      "correct": "A",
+      "explanation": "L'impôt sur le revenu des personnes physiques (IRPP) est un impôt direct et progressif. Cela signifie que l'IRPP est un impôt qui est payé directement par les personnes physiques sur leur revenu et que le taux d'imposition augmente à mesure que le revenu augmente. Les autres options sont incorrectes car un impôt indirect est un impôt qui est payé sur la consommation, un impôt proportionnel est un impôt qui est payé à un taux constant quel que soit le revenu et un impôt indirect et progressif n'existe pas.",
+      "options": [
+        "Direct et progressif",
+        "Indirect et proportionnel",
+        "Indirect et progressif",
+        "Direct et proportionnel"
+      ]
+    },
+    {
+      "id": "E145",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La courbe de Laffer montre qu’au-delà d’un certain taux d’imposition :",
+      "correct": "D",
+      "explanation": "La courbe de Laffer montre qu'au-delà d'un certain taux d'imposition, les recettes fiscales diminuent. Cela s'explique par le fait que lorsque les taux d'imposition sont trop élevés, les contribuables peuvent choisir de travailler moins ou de cacher leurs revenus pour éviter de payer des impôts élevés, ce qui réduit les recettes fiscales. Les options 'Les recettes augmentent indéfiniment', 'L'évasion fiscale baisse' et 'La croissance s'accélère' sont incorrectes car elles ne reflètent pas fidèlement la relation entre les taux d'imposition et les recettes fiscales selon la courbe de Laffer.",
+      "options": [
+        "L’évasion fiscale baisse",
+        "Les recettes augmentent indéfiniment",
+        "La croissance s’accélère",
+        "Les recettes fiscales diminuent"
+      ]
+    },
+    {
+      "id": "E146",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’économie souterraine (informelle) échappe :",
+      "correct": "B",
+      "explanation": "L'économie souterraine, également appelée économie informelle, échappe aux réglementations et aux impôts. Cela signifie que les activités économiques qui se déroulent dans ce secteur ne sont pas déclarées aux autorités et ne paient pas d'impôts. Les options 'À la monnaie', 'À la création d'emplois' et 'À la production de biens' sont incorrectes car l'économie souterraine utilise souvent de la monnaie, crée des emplois et produit des biens, mais de manière non déclarée.",
+      "options": [
+        "À la monnaie",
+        "Aux réglementations et aux impôts",
+        "À la création d’emplois",
+        "À la production de biens"
+      ]
+    },
+    {
+      "id": "E147",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le travail au noir est une forme de :",
+      "correct": "D",
+      "explanation": "Le travail au noir est une forme d'économie informelle non déclarée. Cela signifie que les personnes qui travaillent au noir ne déclarent pas leurs activités économiques aux autorités et ne paient pas d'impôts. Les options 'Économie collaborative', 'Économie sociale' et 'Économie formelle' sont incorrectes car le travail au noir n'est pas une forme d'économie collaborative, sociale ou formelle, mais plutôt une activité économique non déclarée.",
+      "options": [
+        "Économie collaborative",
+        "Économie sociale",
+        "Économie formelle",
+        "Économie informelle non déclarée"
+      ]
+    },
+    {
+      "id": "E148",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le salaire minimum (SMIC en France, SMH en Haïti) est un exemple de :",
+      "correct": "A",
+      "explanation": "Le salaire minimum est un exemple de prix plancher. Un prix plancher est un prix minimum en dessous duquel un bien ou un service ne peut être vendu. Dans le cas du salaire minimum, il s'agit d'un prix plancher pour le travail, qui garantit que les travailleurs gagnent un salaire minimum pour leur travail. Les options 'Prix d'équilibre', 'Prix administré' et 'Prix plafond' sont incorrectes car le salaire minimum n'est pas un prix qui équilibre l'offre et la demande, mais plutôt un prix minimum imposé par les autorités, et il ne s'agit pas d'un prix plafond, qui serait un prix maximum.",
+      "options": [
+        "Prix plancher",
+        "Prix d’équilibre",
+        "Prix administré",
+        "Prix plafond"
+      ]
+    },
+    {
+      "id": "E149",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un prix plafond (exemple : contrôle des loyers) peut entraîner :",
+      "correct": "D",
+      "explanation": "Un prix plafond, tel que le contrôle des loyers, peut entraîner une pénurie. Lorsque le prix est fixé en dessous du prix d'équilibre, la quantité demandée est supérieure à la quantité offerte, ce qui entraîne une pénurie. Les options 'Une baisse de la demande', 'Une hausse de la qualité' et 'Un excédent' sont incorrectes car un prix plafond ne réduit pas la demande, n'améliore pas nécessairement la qualité et ne crée pas un excédent, mais plutôt une pénurie.",
+      "options": [
+        "Une baisse de la demande",
+        "Une hausse de la qualité",
+        "Un excédent",
+        "Une pénurie"
+      ]
+    },
+    {
+      "id": "E150",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le coût d’opportunité est :",
+      "correct": "C",
+      "explanation": "Le coût d'opportunité est la valeur de la meilleure alternative sacrifiée. Cela signifie que lorsque nous prenons une décision, nous devons considérer ce que nous abandonnons en choisissant une option plutôt qu'une autre. Les options 'La perte nette', 'Le coût de production' et 'Le prix de vente' sont incorrectes car le coût d'opportunité n'est pas une perte nette, mais plutôt la valeur de ce que nous abandonnons, et il ne s'agit pas du coût de production ou du prix de vente.",
+      "options": [
+        "La perte nette",
+        "Le coût de production",
+        "La valeur de la meilleure alternative sacrifiée",
+        "Le prix de vente"
+      ]
+    },
+    {
+      "id": "E151",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le raisonnement à la marge consiste à :",
+      "correct": "C",
+      "explanation": "Le raisonnement à la marge consiste à prendre des décisions en comparant les bénéfices et coûts marginaux. Cela signifie que nous devons considérer les avantages et les inconvénients supplémentaires d'une action, plutôt que de considérer uniquement les coûts et les bénéfices totaux. Les options 'Analyser le passé', 'Ignorer les coûts' et 'Calculer les moyennes' sont incorrectes car le raisonnement à la marge consiste à prendre des décisions en considérant les coûts et les bénéfices supplémentaires, et non à analyser le passé, ignorer les coûts ou calculer des moyennes.",
+      "options": [
+        "Analyser le passé",
+        "Ignorer les coûts",
+        "Prendre des décisions en comparant les bénéfices et coûts marginaux",
+        "Calculer les moyennes"
+      ]
+    },
+    {
+      "id": "E152",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le biais de statu quo est un biais cognitif qui :",
+      "correct": "A",
+      "explanation": "Le biais de statu quo est un biais cognitif qui favorise la situation actuelle, souvent pour éviter les pertes. Cela signifie que les gens ont tendance à préférer maintenir le statu quo plutôt que de changer, car ils craignent de perdre ce qu'ils ont. Les options 'Ignore les risques', 'Favorise le changement' et 'Surestime les bénéfices' sont incorrectes car le biais de statu quo ne consiste pas à ignorer les risques, mais plutôt à préférer le statu quo pour éviter les pertes, et il ne favorise pas le changement ni ne surestime les bénéfices.",
+      "options": [
+        "Favorise la situation actuelle (éviter les pertes)",
+        "Ignore les risques",
+        "Favorise le changement",
+        "Surestime les bénéfices"
+      ]
+    },
+    {
+      "id": "E153",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’économie comportementale s’intéresse aux :",
+      "correct": "B",
+      "explanation": "L'économie comportementale s'intéresse aux biais psychologiques et irrationalités des agents. En effet, cette branche de l'économie cherche à comprendre comment les gens prennent des décisions qui ne sont pas toujours rationnelles, en étudiant les facteurs psychologiques qui influencent leurs choix. Les autres options, qui évoquent des comportements parfaitement rationnels, des marchés efficients et des modèles mathématiques purs, relèvent de l'économie standard et non de l'économie comportementale.",
+      "options": [
+        "Comportements parfaitement rationnels",
+        "Biais psychologiques et irrationalités des agents",
+        "Marchés efficients",
+        "Modèles mathématiques purs"
+      ]
+    },
+    {
+      "id": "E154",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’aversion aux pertes (loss aversion) signifie que :",
+      "correct": "B",
+      "explanation": "L'aversion aux pertes, ou 'loss aversion', signifie que la douleur de perdre est plus intense que le plaisir de gagner. Cela implique que les individus ont tendance à préférer éviter les pertes plutôt que d'acquérir des gains. Les autres options sont incorrectes car les gains ne sont pas nécessairement surestimés, les gens ne sont pas nécessairement amateurs de risques, et les pertes ne sont pas ignorées.",
+      "options": [
+        "Les gains sont surestimés",
+        "La douleur de perdre est plus intense que le plaisir de gagner",
+        "Les gens aiment prendre des risques",
+        "Les pertes sont ignorées"
+      ]
+    },
+    {
+      "id": "E155",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’effet de dotation (endowment effect) se manifeste quand :",
+      "correct": "C",
+      "explanation": "L'effet de dotation, ou 'endowment effect', se manifeste quand on valorise plus un bien qu'on possède que le même bien qu'on ne possède pas. Cela signifie que les individus ont tendance à surestimer la valeur des biens qu'ils possèdent déjà. Les autres options sont incorrectes car on ne préfère pas nécessairement le troc, on ne donne pas facilement ses biens, et on ne sous-évalue pas nécessairement ses biens.",
+      "options": [
+        "On préfère le troc",
+        "On donne facilement ses biens",
+        "On valorise plus un bien qu’on possède que le même bien qu’on ne possède pas",
+        "On sous-évalue ses biens"
+      ]
+    },
+    {
+      "id": "E156",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le paradoxe de la valeur (eau-diamant) a été résolu par :",
+      "correct": "C",
+      "explanation": "Le paradoxe de la valeur, qui oppose la valeur de l'eau (vitale mais peu valorisée économiquement) à celle des diamants (rare mais peu utile), a été résolu par l'utilité marginale. En effet, l'eau est abondante et son utilité marginale est faible, tandis que les diamants sont rares et leur utilité marginale est élevée. Les autres options sont incorrectes car la rareté ne suffit pas à expliquer ce paradoxe, la loi de l'offre et de la demande est un principe plus large, et la théorie de la valeur-travail est une approche différente.",
+      "options": [
+        "La rareté",
+        "La loi de l’offre et de la demande",
+        "L’utilité marginale (l’eau abondante a une faible utilité marginale)",
+        "La théorie de la valeur-travail"
+      ]
+    },
+    {
+      "id": "E157",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’utilité marginale décroissante signifie que :",
+      "correct": "D",
+      "explanation": "L'utilité marginale décroissante signifie que la satisfaction totale augmente de moins en moins avec chaque unité supplémentaire. Cela implique que les individus tirent une satisfaction décroissante de la consommation de biens ou services supplémentaires. Les autres options sont incorrectes car la satisfaction marginale n'est pas nécessairement croissante, la satisfaction totale n'est pas constante, et elle n'augmente pas nécessairement de plus en plus.",
+      "options": [
+        "La satisfaction marginale est croissante",
+        "La satisfaction totale est constante",
+        "La satisfaction totale augmente de plus en plus",
+        "La satisfaction totale augmente de moins en moins avec chaque unité supplémentaire"
+      ]
+    },
+    {
+      "id": "E158",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La courbe d’indifférence représente :",
+      "correct": "A",
+      "explanation": "La courbe d'indifférence représente les combinaisons de biens donnant la même satisfaction. En effet, les individus sont indifférents entre ces combinaisons, car elles leur procurent le même niveau de satisfaction. Les autres options sont incorrectes car les combinaisons optimales sont déterminées par la contrainte budgétaire, les combinaisons de biens donnant la même dépense relèvent de la droite de budget, et les contraintes budgétaires sont représentées par la droite de budget.",
+      "options": [
+        "Les combinaisons de biens donnant la même satisfaction",
+        "Les combinaisons optimales",
+        "Les combinaisons de biens donnant la même dépense",
+        "Les contraintes budgétaires"
+      ]
+    },
+    {
+      "id": "E159",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le taux marginal de substitution (TMS) est la pente de :",
+      "correct": "C",
+      "explanation": "Le taux marginal de substitution (TMS) est la pente de la courbe d'indifférence. En effet, il représente la proportion à laquelle un individu est prêt à échanger un bien contre un autre pour maintenir le même niveau de satisfaction. Les autres options sont incorrectes car la fonction de production concerne la production de biens, la courbe de demande concerne la demande de biens, et la droite de budget concerne les contraintes budgétaires.",
+      "options": [
+        "La fonction de production",
+        "La courbe de demande",
+        "La courbe d’indifférence",
+        "La droite de budget"
+      ]
+    },
+    {
+      "id": "E160",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’équilibre du consommateur est atteint lorsque :",
+      "correct": "D",
+      "explanation": "L'équilibre du consommateur est atteint lorsque le taux marginal de substitution (TMS) est égal au rapport des prix (Px/Py). En effet, cela signifie que l'individu a optimisé son choix de consommation en fonction de ses préférences et de la contrainte budgétaire. Les autres options sont incorrectes car le prix minimum, l'utilité totale maximale et le revenu maximum ne sont pas des conditions d'équilibre.",
+      "options": [
+        "Prix minimum",
+        "Utilité totale maximale",
+        "Revenu maximum",
+        "TMS = Px/Py"
+      ]
+    },
+    {
+      "id": "E161",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’effet de substitution d’une hausse de prix d’un bien :",
+      "correct": "B",
+      "explanation": "L'effet de substitution d'une hausse de prix d'un bien le rend plus cher relativement, donc on le remplace par un autre. L'option 'Le rend moins cher relativement' est incorrecte car une hausse de prix rend le bien plus cher. L'option 'Augmente le pouvoir d'achat' est incorrecte car une hausse de prix réduit le pouvoir d'achat. L'option 'N'a aucun effet' est incorrecte car l'effet de substitution a un impact sur la demande.",
+      "options": [
+        "Le rend moins cher relativement",
+        "Le rend plus cher relativement, donc on le remplace par un autre",
+        "Augmente le pouvoir d’achat",
+        "N’a aucun effet"
+      ]
+    },
+    {
+      "id": "E162",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’effet de revenu d’une hausse de prix :",
+      "correct": "B",
+      "explanation": "L'effet de revenu d'une hausse de prix réduit le pouvoir d'achat, donc réduit la demande si le bien est normal. L'option 'Augmente le pouvoir d'achat' est incorrecte car une hausse de prix réduit le pouvoir d'achat. L'option 'N'affecte pas le pouvoir d'achat' est incorrecte car une hausse de prix a un impact sur le pouvoir d'achat. L'option 'Augmente la demande' est incorrecte car une hausse de prix réduit généralement la demande pour un bien normal.",
+      "options": [
+        "Augmente le pouvoir d’achat",
+        "Réduit le pouvoir d’achat, donc réduit la demande si le bien est normal",
+        "N’affecte pas le pouvoir d’achat",
+        "Augmente la demande"
+      ]
+    },
+    {
+      "id": "E163",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un bien Giffen est un bien :",
+      "correct": "C",
+      "explanation": "Un bien Giffen est un bien inférieur dont la demande augmente quand son prix augmente, ce qui constitue une violation de la loi de la demande. Les biens de luxe, indépendants et normaux ne correspondent pas à cette définition. Par conséquent, les options 'De luxe', 'Indépendant' et 'Normal' sont incorrectes.",
+      "options": [
+        "De luxe",
+        "Indépendant",
+        "Inférieur dont la demande augmente quand son prix augmente (violation de la loi de la demande)",
+        "Normal"
+      ]
+    },
+    {
+      "id": "E164",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La discrimination par les prix permet au monopoleur de :",
+      "correct": "B",
+      "explanation": "La discrimination par les prix permet au monopoleur d'augmenter son profit en vendant à des prix différents selon les clients. Cela lui permet de maximiser ses gains en fonction de la demande et de l'élasticité-prix de chaque segment de clientèle. Les options 'Vendre à tous le même prix', 'Réduire sa production' et 'Baisser ses coûts' ne décrivent pas correctement l'objectif de la discrimination par les prix.",
+      "options": [
+        "Vendre à tous le même prix",
+        "Augmenter son profit en vendant à des prix différents selon les clients",
+        "Réduire sa production",
+        "Baisser ses coûts"
+      ]
+    },
+    {
+      "id": "E165",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le cartel est une entente entre entreprises pour :",
+      "correct": "C",
+      "explanation": "Le cartel est une entente entre entreprises pour fixer les prix ou les quantités et réduire la concurrence. Cela leur permet de bénéficier d'un pouvoir de marché accru et d'augmenter leurs profits. Les options 'Partager les bénéfices', 'Fusionner' et 'Augmenter la concurrence' ne correspondent pas à l'objectif principal d'un cartel.",
+      "options": [
+        "Partager les bénéfices",
+        "Fusionner",
+        "Fixer les prix ou les quantités, réduire la concurrence",
+        "Augmenter la concurrence"
+      ]
+    },
+    {
+      "id": "E166",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’OPEP (Organisation des pays exportateurs de pétrole) est un exemple de :",
+      "correct": "A",
+      "explanation": "L'OPEP est un exemple de cartel, car il s'agit d'une organisation de pays producteurs de pétrole qui cherchent à coordonner leurs politiques de production et de prix pour maximiser leurs revenus. Les options 'Marché concurrentiel', 'Monopsone' et 'Oligopsone' ne décrivent pas correctement la nature de l'OPEP.",
+      "options": [
+        "Cartel",
+        "Marché concurrentiel",
+        "Monopsone",
+        "Oligopsone"
+      ]
+    },
+    {
+      "id": "E167",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le dumping social consiste à :",
+      "correct": "B",
+      "explanation": "Le dumping social consiste à exporter des biens à bas prix grâce à des bas salaires et des mauvaises conditions de travail. Cela peut être considéré comme une pratique déloyale qui perturbe les marchés et nuit aux travailleurs. Les options 'Fixer des prix planchers', 'Subventionner les exportations' et 'Importer des travailleurs' ne correspondent pas à la définition du dumping social.",
+      "options": [
+        "Fixer des prix planchers",
+        "Exporter des biens à bas prix grâce à des bas salaires et des mauvaises conditions de travail",
+        "Subventionner les exportations",
+        "Importer des travailleurs"
+      ]
+    },
+    {
+      "id": "E168",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le protectionnisme éducatif (List) défend l’idée de :",
+      "correct": "A",
+      "explanation": "Le protectionnisme éducatif défend l'idée de protéger les industries naissantes pour leur permettre de se développer et de devenir compétitives. Cela leur donne le temps nécessaire pour acquérir de l'expérience et des compétences avant d'être exposées à la concurrence internationale. Les options 'Ouvrir les frontières immédiatement', 'Exporter uniquement des matières premières' et 'Laisser faire le marché' ne reflètent pas les principes du protectionnisme éducatif.",
+      "options": [
+        "Protéger les industries naissantes",
+        "Ouvrir les frontières immédiatement",
+        "Exporter uniquement des matières premières",
+        "Laisser faire le marché"
+      ]
+    },
+    {
+      "id": "E169",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La zone de libre-échange supprime :",
+      "correct": "C",
+      "explanation": "La zone de libre-échange est un accord commercial entre plusieurs pays qui consiste à supprimer les droits de douane et les obstacles tarifaires entre les membres, mais chaque pays membre conserve sa propre politique commerciale. C'est pourquoi l'option 'Les droits de douane entre les membres mais chacun garde sa politique commerciale propre' est la bonne réponse. Les autres options sont incorrectes car la zone de libre-échange ne supprime pas nécessairement les barrières non tarifaires, n'harmonise pas la politique commerciale, et ne concerne pas la libre circulation des personnes.",
+      "options": [
+        "Les droits de douane et harmonise la politique commerciale",
+        "Les barrières non tarifaires uniquement",
+        "Les droits de douane entre les membres mais chacun garde sa politique commerciale propre",
+        "La libre circulation des personnes"
+      ]
+    },
+    {
+      "id": "E170",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’union douanière ajoute à la zone de libre-échange :",
+      "correct": "A",
+      "explanation": "L'union douanière est une étape supplémentaire dans l'intégration économique, qui ajoute à la zone de libre-échange un tarif extérieur commun. Cela signifie que les pays membres de l'union douanière appliquent un tarif unique aux importations en provenance de pays non membres. C'est pourquoi l'option 'Un tarif extérieur commun' est la bonne réponse. Les autres options sont incorrectes car l'union douanière ne prévoit pas nécessairement une politique étrangère commune, une monnaie unique ou une harmonisation fiscale.",
+      "options": [
+        "Un tarif extérieur commun",
+        "Une politique étrangère commune",
+        "Une monnaie unique",
+        "Une harmonisation fiscale"
+      ]
+    },
+    {
+      "id": "E171",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le marché commun (ex: CEE) permet la libre circulation :",
+      "correct": "C",
+      "explanation": "Le marché commun permet la libre circulation des biens, des services, des capitaux et des personnes entre les pays membres. C'est pourquoi l'option 'Des biens, services, capitaux et personnes' est la bonne réponse. Les autres options sont incorrectes car le marché commun ne se limite pas à la libre circulation des personnes uniquement, des biens et services ou seulement des biens.",
+      "options": [
+        "Des personnes uniquement",
+        "Des biens et services",
+        "Des biens, services, capitaux et personnes",
+        "Seulement des biens"
+      ]
+    },
+    {
+      "id": "E172",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’euro est la monnaie unique de :",
+      "correct": "D",
+      "explanation": "L'euro est la monnaie unique de 20 pays de l'Union européenne, en 2024. C'est pourquoi l'option '20 pays de l'UE (en 2024)' est la bonne réponse. Les autres options sont incorrectes car l'euro n'est pas utilisé par tous les pays de l'UE, ne concerne pas la zone sterling et n'est pas limité à la France et l'Allemagne.",
+      "options": [
+        "Seulement la France et l’Allemagne",
+        "Tous les pays de l’UE",
+        "La zone sterling",
+        "20 pays de l’UE (en 2024)"
+      ]
+    },
+    {
+      "id": "E173",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Banque des règlements internationaux (BRI) est souvent appelée :",
+      "correct": "C",
+      "explanation": "La Banque des règlements internationaux (BRI) est souvent appelée la banque des banques centrales car elle est une institution financière internationale qui fournit des services de banque centrale aux banques centrales. C'est pourquoi l'option 'La banque des banques centrales' est la bonne réponse. Les autres options sont incorrectes car la BRI n'est pas la Banque mondiale, n'est pas le FMI et n'est pas la banque des banques commerciales.",
+      "options": [
+        "La banque des banques commerciales",
+        "La Banque mondiale",
+        "La banque des banques centrales",
+        "Le FMI"
+      ]
+    },
+    {
+      "id": "E174",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le ratio de liquidité (LCR) mesure la capacité d’une banque à faire face à :",
+      "correct": "D",
+      "explanation": "Le ratio de liquidité (LCR) mesure la capacité d'une banque à faire face à ses sorties de trésorerie sur 30 jours en période de stress. C'est pourquoi l'option 'Ses sorties de trésorerie sur 30 jours en période de stress' est la bonne réponse. Les autres options sont incorrectes car le LCR ne concerne pas les investissements, le capital propre ou les pertes sur prêts.",
+      "options": [
+        "Ses investissements",
+        "Son capital propre",
+        "Ses pertes sur prêts",
+        "Ses sorties de trésorerie sur 30 jours en période de stress"
+      ]
+    },
+    {
+      "id": "E175",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les accords de Bâle (Bâle III) visent à :",
+      "correct": "C",
+      "explanation": "Les accords de Bâle, notamment Bâle III, visent à renforcer la résilience du système bancaire en augmentant les exigences en matière de fonds propres et de liquidité. C'est pourquoi l'option 'Renforcer la résilience du système bancaire (fonds propres, liquidité)' est la bonne réponse. Les autres options sont incorrectes car les accords de Bâle ne visent pas à libéraliser les marchés financiers, fixer les taux d'intérêt ou éliminer les banques.",
+      "options": [
+        "Libéraliser les marchés financiers",
+        "Fixer les taux d’intérêt",
+        "Renforcer la résilience du système bancaire (fonds propres, liquidité)",
+        "Éliminer les banques"
+      ]
+    },
+    {
+      "id": "E176",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La titrisation consiste à :",
+      "correct": "C",
+      "explanation": "La titrisation consiste à transformer des créances, telles que des prêts immobiliers, en titres financiers négociables. C'est pourquoi l'option 'Transformer des créances (ex: prêts immobiliers) en titres financiers négociables' est la bonne réponse. Les autres options sont incorrectes car la titrisation ne consiste pas à augmenter les réserves obligatoires, baisser les taux d'intérêt ou nationaliser les banques.",
+      "options": [
+        "Augmenter les réserves obligatoires",
+        "Baisser les taux d’intérêt",
+        "Transformer des créances (ex: prêts immobiliers) en titres financiers négociables",
+        "Nationaliser les banques"
+      ]
+    },
+    {
+      "id": "E177",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le shadow banking (finance de l’ombre) désigne :",
+      "correct": "D",
+      "explanation": "Le shadow banking, ou finance de l'ombre, désigne les activités de crédit qui se déroulent en dehors du système bancaire régulé. Cela signifie que ces activités ne sont pas soumises aux mêmes règles et contrôles que les banques traditionnelles, ce qui peut présenter des risques pour la stabilité financière. Les autres options, telles que la finance islamique, les banques publiques et les caisses d'épargne, ne correspondent pas à la définition du shadow banking.",
+      "options": [
+        "La finance islamique",
+        "Les banques publiques",
+        "Les caisses d’épargne",
+        "Les activités de crédit hors du système bancaire régulé"
+      ]
+    },
+    {
+      "id": "E178",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La cryptomonnaie (Bitcoin) est :",
+      "correct": "C",
+      "explanation": "La cryptomonnaie, comme le Bitcoin, est une monnaie virtuelle décentralisée qui utilise la technologie de la blockchain pour effectuer des transactions. Elle n'est pas émise par une banque centrale et n'a pas le statut de monnaie fiduciaire. Les options qui la qualifient de monnaie émise par une banque centrale ou de monnaie fiduciaire sont incorrectes. De même, son statut de moyen de paiement légal en Europe n'est pas universellement reconnu.",
+      "options": [
+        "Un moyen de paiement légal en Europe",
+        "Une monnaie émise par une banque centrale",
+        "Une monnaie virtuelle décentralisée utilisant la blockchain",
+        "Une monnaie fiduciaire"
+      ]
+    },
+    {
+      "id": "E179",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La blockchain est une technologie de :",
+      "correct": "C",
+      "explanation": "La blockchain est une technologie de registre distribué et sécurisé, souvent appelée chaîne de blocs, qui permet d'enregistrer des transactions de manière transparente et sécurisée. Elle ne consiste pas en une base de données centralisée, ni en un système de paiement instantané, ni en un méthode de cryptage symétrique. La blockchain est au cœur des cryptomonnaies comme le Bitcoin.",
+      "options": [
+        "Base de données centralisée",
+        "Paiement instantané",
+        "Registre distribué et sécurisé (chaîne de blocs)",
+        "Cryptage symétrique"
+      ]
+    },
+    {
+      "id": "E180",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le minage de Bitcoin consomme beaucoup d’énergie car il repose sur :",
+      "correct": "A",
+      "explanation": "Le minage de Bitcoin repose sur la preuve de travail, ou proof of work, qui nécessite une grande quantité d'énergie pour résoudre des problèmes mathématiques complexes. Cette méthode est énergivore. Les autres options, comme des serveurs centralisés, un algorithme simple ou la preuve d'enjeu, ne décrivent pas avec précision le processus de minage de Bitcoin.",
+      "options": [
+        "La preuve de travail (proof of work)",
+        "Des serveurs centralisés",
+        "Un algorithme simple",
+        "La preuve d’enjeu (proof of stake)"
+      ]
+    },
+    {
+      "id": "E181",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La finance verte finance des projets :",
+      "correct": "D",
+      "explanation": "La finance verte se concentre sur le financement de projets respectueux de l'environnement. Elle ne finance pas des projets militaires, non rentables ou fossiles. L'objectif de la finance verte est de promouvoir des pratiques durables et de réduire l'impact environnemental des activités économiques.",
+      "options": [
+        "Militaires",
+        "Non rentables",
+        "Fossiles",
+        "Respectueux de l’environnement"
+      ]
+    },
+    {
+      "id": "E182",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les obligations vertes (green bonds) sont des titres de dette dont le produit sert à :",
+      "correct": "A",
+      "explanation": "Les obligations vertes, ou green bonds, sont des titres de dette émis pour financer des projets écologiques, tels que des projets d'énergie renouvelable ou d'efficacité énergétique. L'argent levé grâce à ces obligations est spécifiquement utilisé pour des initiatives environnementales. Les autres options, comme payer des dividendes, financer des centrales à charbon ou racheter des actions, ne sont pas dans l'esprit des obligations vertes.",
+      "options": [
+        "Financer des projets écologiques",
+        "Payer des dividendes",
+        "Financer des centrales à charbon",
+        "Racheter des actions"
+      ]
+    },
+    {
+      "id": "E183",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’empreinte carbone mesure :",
+      "correct": "D",
+      "explanation": "L'empreinte carbone est une mesure des émissions de gaz à effet de serre d'une activité ou d'un produit. Elle permet d'évaluer l'impact environnemental des différentes activités et de prendre des mesures pour réduire les émissions. Les autres options, comme la déforestation, la consommation d'eau ou la pollution atmosphérique locale, sont des indicateurs environnementaux importants mais distincts de l'empreinte carbone.",
+      "options": [
+        "La déforestation",
+        "La consommation d’eau",
+        "La pollution atmosphérique locale",
+        "Les émissions de gaz à effet de serre d’une activité ou d’un produit"
+      ]
+    },
+    {
+      "id": "E184",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La taxe carbone est un instrument économique pour :",
+      "correct": "D",
+      "explanation": "La taxe carbone est un instrument économique conçu pour réduire les émissions de CO₂ en faisant payer le carbone. Elle incite les entreprises et les particuliers à réduire leurs émissions en leur imposant une taxe sur les activités qui génèrent des émissions de gaz à effet de serre. Les autres options, comme financer les routes, augmenter les impôts sur le revenu ou subventionner les énergies fossiles, ne correspondent pas à l'objectif principal de la taxe carbone.",
+      "options": [
+        "Financer les routes",
+        "Augmenter les impôts sur le revenu",
+        "Subventionner les énergies fossiles",
+        "Réduire les émissions de CO₂ en faisant payer le carbone"
+      ]
+    },
+    {
+      "id": "E185",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le marché des quotas d’émission (EU ETS) fonctionne sur le principe :",
+      "correct": "A",
+      "explanation": "Le marché des quotas d'émission, également connu sous le nom d'EU ETS (European Union Emissions Trading System), fonctionne sur le principe du 'cap and trade' ou plafonnement et échange. Cela signifie que l'Union européenne fixe une limite (ou plafond) aux émissions de gaz à effet de serre pour certaines industries et secteurs, puis distribue des quotas d'émission qui peuvent être échangés entre les entreprises. Les autres options, comme la taxe uniforme, la réglementation contraignante et la subvention directe, sont des mécanismes différents utilisés pour réguler les émissions ou encourager les comportements environnementaux, mais ils ne décrivent pas le fonctionnement de l'EU ETS.",
+      "options": [
+        "Cap and trade (plafonnement et échange)",
+        "Taxe uniforme",
+        "Réglementation contraignante",
+        "Subvention directe"
+      ]
+    },
+    {
+      "id": "E186",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’économie circulaire vise à :",
+      "correct": "B",
+      "explanation": "L'économie circulaire est un concept qui vise à réduire les déchets et la consommation de ressources en promouvant la réutilisation et le recyclage des produits. L'objectif principal est de fermer le cycle de production et de consommation en minimisant les déchets et en maximisant l'utilisation des ressources. Les options telles que maximiser l'extraction de ressources, externaliser les déchets et produire en masse sont en réalité des caractéristiques de l'économie linéaire, qui est un modèle économique traditionnel basé sur la production, la consommation et la dissipation des ressources.",
+      "options": [
+        "Maximiser l’extraction de ressources",
+        "Réduire, réutiliser, recycler (fermer le cycle)",
+        "Externaliser les déchets",
+        "Produire en masse"
+      ]
+    },
+    {
+      "id": "E187",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’obsolescence programmée est :",
+      "correct": "B",
+      "explanation": "L'obsolescence programmée fait référence à la stratégie de conception de produits de manière à ce qu'ils deviennent obsolètes ou cessent de fonctionner après une période déterminée, ce qui incite les consommateurs à acheter de nouveaux produits. Cette pratique augmente la consommation et les déchets. Les autres options, comme le recyclage, la durée de vie naturelle et la garantie prolongée, ne sont pas liées à cette pratique. Le recyclage, par exemple, est une stratégie pour réduire les déchets, tandis que la durée de vie naturelle d'un produit est sa durée de vie réelle sans intervention de l'entreprise.",
+      "options": [
+        "Le recyclage",
+        "La conception d’un produit pour qu’il devienne obsolète rapidement (augmente la consommation)",
+        "La durée de vie naturelle",
+        "La garantie prolongée"
+      ]
+    },
+    {
+      "id": "E188",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le droit de réparation (right to repair) vise à :",
+      "correct": "A",
+      "explanation": "Le droit de réparation est une initiative qui vise à permettre aux consommateurs de réparer eux-mêmes leurs appareils ou de faire réparer ces appareils par des tiers, plutôt que d'avoir à les remplacer. Cela vise à lutter contre l'obsolescence programmée et à réduire les déchets. Les autres options, comme augmenter les garanties, forcer à acheter du neuf et interdire les réparations, sont à l'opposé de l'objectif du droit de réparation.",
+      "options": [
+        "Permettre aux consommateurs de réparer eux-mêmes leurs appareils (lutter contre l’obsolescence)",
+        "Augmenter les garanties",
+        "Forcer à acheter du neuf",
+        "Interdire les réparations"
+      ]
+    },
+    {
+      "id": "E189",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La décroissance est un courant qui prône :",
+      "correct": "A",
+      "explanation": "La décroissance est un courant de pensée économique et politique qui prône la réduction volontaire de la production et de la consommation pour préserver l'environnement et améliorer la qualité de vie. Cela implique souvent une remise en question de la croissance économique comme objectif principal de la société. Les autres options, comme le productivisme, la croissance infinie et l'augmentation du PIB, sont des concepts associés à la croissance économique traditionnelle et ne reflètent pas les principes de la décroissance.",
+      "options": [
+        "La réduction volontaire de la production et de la consommation pour préserver l’environnement",
+        "Le productivisme",
+        "La croissance infinie",
+        "L’augmentation du PIB"
+      ]
+    },
+    {
+      "id": "E190",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le revenu universel (ou allocation universelle) est :",
+      "correct": "B",
+      "explanation": "Le revenu universel, ou allocation universelle, est un concept dans lequel chaque citoyen reçoit un versement périodique inconditionnel de l'État. Cela signifie que le revenu est garanti sans conditions, comme la nécessité de travailler ou d'être dans une situation de pauvreté. Les autres options, comme un crédit d'impôt, une subvention aux entreprises et une aide conditionnée au travail, sont des formes d'aide financière qui comportent des conditions ou sont ciblées vers des groupes spécifiques.",
+      "options": [
+        "Un crédit d’impôt",
+        "Un versement périodique inconditionnel à tous les citoyens",
+        "Une subvention aux entreprises",
+        "Une aide conditionnée au travail"
+      ]
+    },
+    {
+      "id": "E191",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le quotient familial (en France) est un dispositif de :",
+      "correct": "B",
+      "explanation": "Le quotient familial, en France, est un dispositif fiscal qui prend en compte les charges de famille pour réduire l'impôt sur le revenu. Cela signifie que les contribuables ayant des enfants ou d'autres charges familiales peuvent bénéficier d'une réduction d'impôt. Les autres options, comme la prime à l'emploi, l'imposition forfaitaire et l'aide au logement, sont des dispositifs différents visant à soutenir les revenus ou à aider les ménages de manière spécifique.",
+      "options": [
+        "Prime à l’emploi",
+        "Réduction d’impôt tenant compte des charges de famille",
+        "Imposition forfaitaire",
+        "Aide au logement"
+      ]
+    },
+    {
+      "id": "E192",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La CSG (Contribution sociale généralisée) en France est un impôt :",
+      "correct": "C",
+      "explanation": "La CSG (Contribution sociale généralisée) en France est un impôt direct prélevé sur les revenus d'activité et de remplacement. Cela signifie qu'elle est payée par les individus sur leurs revenus, qu'il s'agisse de salaires, de pensions ou d'autres formes de revenus. Les autres options, comme l'impôt sur les sociétés, l'impôt sur le patrimoine et l'impôt indirect sur la consommation, sont des formes d'imposition différentes qui s'appliquent à des bases ou à des objectifs différents.",
+      "options": [
+        "Sur les sociétés",
+        "Sur le patrimoine",
+        "Direct prélevé sur les revenus d’activité et de remplacement",
+        "Indirect sur la consommation"
+      ]
+    },
+    {
+      "id": "E193",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La flat tax est un impôt à taux :",
+      "correct": "B",
+      "explanation": "La flat tax est un impôt à taux proportionnel unique, car elle s'applique à tous les contribuables à un taux fixe, quelle que soit leur revenu. Cela signifie que chaque personne paie le même pourcentage de son revenu en impôt, sans que le taux d'imposition ne varie en fonction du niveau de revenu. Les autres options sont incorrectes : un impôt régressif pénalise les personnes à faible revenu en leur appliquant un taux d'imposition plus élevé, un impôt nul signifie qu'il n'y a pas d'impôt du tout, et un impôt progressif voit son taux d'imposition augmenter à mesure que le revenu augmente.",
+      "options": [
+        "Régressif",
+        "Proportionnel unique",
+        "Nul",
+        "Progressif"
+      ]
+    },
+    {
+      "id": "E194",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’évasion fiscale est illégale, alors que l’optimisation fiscale est :",
+      "correct": "B",
+      "explanation": "L'évasion fiscale est illégale, mais l'optimisation fiscale, lorsqu'elle se fait dans les limites de la loi, est une stratégie légale pour minimiser les impôts. L'optimisation fiscale est considérée comme légale car elle utilise les règles fiscales existantes pour réduire les impôts, contrairement à l'évasion fiscale qui implique des activités illégales. Les autres options sont incorrectes : l'optimisation fiscale n'est pas illégale, elle n'est pas toujours immorale, et elle existe bel et bien.",
+      "options": [
+        "Illégale aussi",
+        "Légale (dans les limites de la loi)",
+        "Toujours immorale",
+        "Inexistante"
+      ]
+    },
+    {
+      "id": "E195",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les paradis fiscaux sont des territoires offrant :",
+      "correct": "A",
+      "explanation": "Les paradis fiscaux sont des territoires qui offrent une fiscalité très faible ou nulle et un secret bancaire, ce qui les rend attractifs pour les personnes et les entreprises cherchant à minimiser leurs impôts. Les autres options sont incorrectes : une fiscalité élevée n'est pas caractéristique des paradis fiscaux, la transparence totale est souvent le contraire de ce qu'offrent ces territoires, et des impôts progressifs ne sont pas leur spécialité.",
+      "options": [
+        "Une fiscalité très faible ou nulle et un secret bancaire",
+        "Une fiscalité élevée",
+        "Une transparence totale",
+        "Des impôts progressifs"
+      ]
+    },
+    {
+      "id": "E196",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le BEPS (Base Erosion and Profit Shifting) est un projet de l’OCDE pour lutter contre :",
+      "correct": "A",
+      "explanation": "Le BEPS (Base Erosion and Profit Shifting) est un projet de l'OCDE pour lutter contre l'optimisation fiscale agressive des multinationales, qui cherchent à éroder les bases fiscales des pays où elles opèrent. Les autres options sont incorrectes : l'inflation, la pauvreté et le chômage sont des problèmes économiques importants, mais ils ne sont pas directement liés au projet BEPS.",
+      "options": [
+        "L’optimisation fiscale agressive des multinationales",
+        "L’inflation",
+        "La pauvreté",
+        "Le chômage"
+      ]
+    },
+    {
+      "id": "E197",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’impôt minimum mondial (15%) a été négocié dans le cadre :",
+      "correct": "C",
+      "explanation": "L'impôt minimum mondial (15%) a été négocié dans le cadre de l'OCDE / G20 pour éviter la concurrence fiscale, afin d'empêcher les pays de se livrer à une course aux taux d'imposition faibles pour attirer les entreprises. Les autres options sont incorrectes : le FMI se concentre sur la stabilité financière internationale, l'OMC s'occupe du commerce international, et l'ONU a des objectifs plus larges de développement et de paix.",
+      "options": [
+        "Du FMI",
+        "De l’OMC",
+        "De l’OCDE / G20 pour éviter la concurrence fiscale",
+        "De l’ONU"
+      ]
+    },
+    {
+      "id": "E198",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Cour des comptes contrôle :",
+      "correct": "A",
+      "explanation": "La Cour des comptes contrôle les finances publiques (État, collectivités, organismes sociaux), vérifiant que l'argent public est utilisé de manière efficace et transparente. Les autres options sont incorrectes : la politique monétaire est du ressort des banques centrales, les comptes des entreprises privées sont audités par des commissaires aux comptes, et les banques sont surveillées par des autorités de régulation spécifiques.",
+      "options": [
+        "Les finances publiques (État, collectivités, organismes sociaux)",
+        "La politique monétaire",
+        "Les comptes des entreprises privées",
+        "Les banques"
+      ]
+    },
+    {
+      "id": "E199",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le déficit public excessif (au-delà de 3% du PIB) peut entraîner :",
+      "correct": "B",
+      "explanation": "Un déficit public excessif (au-delà de 3% du PIB) peut entraîner des sanctions financières de l'UE (procédure pour déficit excessif), car l'Union européenne cherche à maintenir la stabilité financière de ses États membres. Les autres options sont incorrectes : il y a des conséquences à un tel déficit, une prime de l'UE n'est pas une conséquence probable, et une hausse des subventions n'est pas directement liée aux sanctions pour déficit excessif.",
+      "options": [
+        "Aucune conséquence",
+        "Des sanctions financières de l’UE (procédure pour déficit excessif)",
+        "Une prime de l’UE",
+        "Une hausse des subventions"
+      ]
+    },
+    {
+      "id": "E200",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La règle d’équilibre budgétaire en France (loi de 2012) impose :",
+      "correct": "B",
+      "explanation": "La règle d'équilibre budgétaire en France (loi de 2012) impose un déficit structurel nul à moyen terme, ce qui signifie que les pouvoirs publics doivent tendre vers une situation où leurs dépenses et leurs recettes sont équilibrées, hors conjoncture. Les autres options sont incorrectes : il existe bien une règle, un excédent permanent n'est pas exigé, et un déficit maximum de 5% n'est pas la règle spécifique établie par cette loi.",
+      "options": [
+        "Pas de règle",
+        "Un déficit structurel nul à moyen terme",
+        "Un excédent permanent",
+        "Un déficit maximum de 5%"
+      ]
+    }
+  ]
+}

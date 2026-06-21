@@ -1,0 +1,985 @@
+[
+  {
+    "source": "exam_svt_bio-geo_2016_homozygote.pdf",
+    "theme": "Phénotypes identiques – dominance chez l’hibiscus",
+    "enonce": "Des hibiscus rouges de lignée pure (R) sont croisés avec des blancs purs (b). Lorsque la dominance existe, il peut être important de distinguer un individu pur (homozygote) d’un hybride hétérozygote ayant le même phénotype.",
+    "questions": [
+      "Déterminer le génotype des parents et effectuer le croisement.",
+      "Faire le croisement de la F2. Interpréter les résultats. Quel est le phénotype en majorité à la F2 ?",
+      "Comment mettre en évidence la pureté ?",
+      "Nommer le test qui permet de les différencier.",
+      "Justifier votre réponse par des croisements."
+    ],
+    "reponses": [
+      "Parents : rouge (RR) × blanc (bb). Tous les descendants F1 sont R b (hétérozygotes, phénotype rouge).",
+      "Croisement F1 × F1 (Rb × Rb) : échiquier de Punnett donne 1 RR (rouge) : 2 Rb (rouge) : 1 bb (blanc). Phénotype majoritaire en F2 : rouge (75 %).",
+      "On réalise un test-cross : croiser l’individu à tester (phénotype rouge) avec un individu homozygote récessif (blanc, bb). Si le testé est homozygote RR, tous les descendants sont rouges. S’il est hétérozygote Rb, moitié rouges, moitié blancs.",
+      "Ce test s’appelle le test-cross (ou croisement test).",
+      "Croisement d’un rouge homozygote (RR) avec blanc (bb) → 100% rouges (Rb). Croisement d’un rouge hétérozygote (Rb) avec blanc (bb) → 50% rouges (Rb), 50% blancs (bb)."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_homozygote.pdf",
+    "theme": "Mutation génique ponctuelle – Drépanocytose",
+    "enonce": "Après avoir cité les bases azotées de l’ADN, expliquer la notion de mutation génique ponctuelle dans le cas de la drépanocytose.",
+    "questions": [
+      "Citer les bases azotées de l’ADN.",
+      "Expliquer la notion de mutation génique ponctuelle dans le cas de la drépanocytose."
+    ],
+    "reponses": [
+      "Les bases azotées de l’ADN sont l’adénine (A), la thymine (T), la guanine (G) et la cytosine (C).",
+      "La drépanocytose est due à une mutation ponctuelle (substitution d’une seule paire de bases) dans le gène de la β-globine. Le codon GAG (acide glutamique) devient GTG (valine) en position 6 de la chaîne β. Cette substitution modifie l’hémoglobine (HbS), qui polymérise en conditions de faible oxygénation, déformant les globules rouges en faucille."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polymerase.pdf",
+    "theme": "Phénotypes identiques – hibiscus (identique au précédent)",
+    "enonce": "Des hibiscus rouges de lignée pure (R) croisés avec des blancs purs (b). Besoin de distinguer homozygote et hétérozygote de même phénotype.",
+    "questions": [
+      "Déterminer le génotype des parents et effectuer le croisement.",
+      "Faire le croisement de la F2. Interpréter les résultats. Quel est le phénotype en majorité à la F2 ?",
+      "Comment mettre en évidence la pureté de l’hétérozygote ?",
+      "Nommer le test qui permet de les différencier.",
+      "Justifier votre réponse par des croisements."
+    ],
+    "reponses": [
+      "Parents : RR (rouge) × bb (blanc). F1 : tous Rb (rouge).",
+      "F1 × F1 → F2 : 1 RR (rouge), 2 Rb (rouge), 1 bb (blanc). Majorité : rouge (75 %).",
+      "On croise l’individu à tester avec un homozygote récessif (blanc). Si tous les descendants sont rouges, il est homozygote ; si moitié rouges moitié blancs, il est hétérozygote.",
+      "Test-cross (croisement test).",
+      "RR × bb → 100% Rb (rouges). Rb × bb → 50% Rb (rouges), 50% bb (blancs)."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polymerase.pdf",
+    "theme": "Caryotype et anomalies chromosomiques",
+    "enonce": "Grâce au caryotype, on peut déceler des anomalies chromosomiques. Questions sur les hétérochromosomes, la caryogamie, et une anomalie observée sur une image (non fournie).",
+    "questions": [
+      "Quels sont les hétérochromosomes du caryotype humain ?",
+      "Que rétablit la caryogamie ?",
+      "Quelle anomalie du caryotype peut-on observer sur l’image ?",
+      "Indiquer deux caractéristiques d’une personne qui en souffre."
+    ],
+    "reponses": [
+      "Les hétérochromosomes (ou gonosomes) sont les chromosomes sexuels : X et Y.",
+      "La caryogamie rétablit la diploïdie (2n) lors de la fécondation, en fusionnant les noyaux des gamètes haploïdes (n + n).",
+      "Sur l’image non fournie, une anomalie fréquente est la trisomie 21 (syndrome de Down) : présence d’un chromosome 21 supplémentaire. Autre possible : monosomie X (syndrome de Turner) ou XXY (Klinefelter).",
+      "Exemples pour trisomie 21 : visage rond, yeux bridés, hypotonie musculaire, retard intellectuel, pli palmaire transverse unique."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polymerase.pdf",
+    "theme": "Génétique – syndrome de Klinefelter",
+    "enonce": "Questions sur le syndrome de Klinefelter.",
+    "questions": [
+      "Quel est le génotype d’un individu atteint du syndrome de Klinefelter ?"
+    ],
+    "reponses": [
+      "Le syndrome de Klinefelter correspond au caryotype 47,XXY (individu de sexe masculin avec un chromosome X supplémentaire)."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polynevrite.pdf",
+    "theme": "Hérédité liée au sexe – Myopathie de Duchenne",
+    "enonce": "Chez l’humain, l’hérédité liée au sexe concerne des caractères portés par le chromosome X. Application à la myopathie de Duchenne.",
+    "questions": [
+      "Distinguer allosome d’autosome.",
+      "Dans la myopathie de Duchenne, quel hétérochromosome est impliqué ?",
+      "Pourquoi en général les filles sont-elles vectrices ?",
+      "Quand seraient-elles malades ? Écrire le caryotype d’une femme myopathe.",
+      "Effectuer le croisement entre un homme sain et une femme vectrice pour la myopathie de Duchenne. Interpréter les résultats (utiliser l’échiquier de Punnett)."
+    ],
+    "reponses": [
+      "Allosome = chromosome sexuel (X ou Y). Autosome = chromosome non sexuel (paires 1 à 22).",
+      "Le gène de la myopathie de Duchenne est situé sur le chromosome X.",
+      "Les filles ont deux chromosomes X : si un seul X porte l’allèle muté, l’autre X sain compense (inactivation du X muté chez certaines cellules). Elles sont donc conductrices asymptomatiques (vectrices).",
+      "Une fille serait myopathe si elle hérite de deux X mutés (homozygote récessive) : caryotype 46,XX avec deux allèles mutés. Cela reste très rare car le père devrait être myopathe et la mère conductrice ou myopathe.",
+      "Homme sain : X⁺Y (X⁺ = allèle normal). Femme vectrice : X⁺Xᵈ (Xᵈ = allèle muté). Échiquier : gamètes mâles X⁺, Y ; gamètes femelles X⁺, Xᵈ. Descendance : X⁺X⁺ (fille saine), X⁺Xᵈ (fille vectrice), X⁺Y (garçon sain), XᵈY (garçon myopathe). Résultat : 1/2 garçons sains, 1/2 garçons myopathes ; filles toutes saines (dont 1/2 vectrices)."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polynevrite.pdf",
+    "theme": "Transgénèse et code génétique universel",
+    "enonce": "L’ADN, support de l’information génétique. Un organisme à qui on a transféré un gène étranger produit la protéine correspondante.",
+    "questions": [
+      "Pourquoi dit-on que le code génétique est universel ?",
+      "Expliquer le principe de la fabrication de l’insuline humaine par transgénèse.",
+      "Quelle correspondance existe-t-il entre un gène et un acide aminé ?",
+      "En dehors de l’insuline, existe-t-il des organismes et des substances transgéniques utilisées par l’homme ? En citer deux et mettre en relief le but de cette utilisation."
+    ],
+    "reponses": [
+      "Le code génétique est universel car, chez tous les êtres vivants (bactéries, plantes, animaux), le même triplet de nucléotides (codon) code pour le même acide aminé (à quelques exceptions près).",
+      "Le gène humain de l’insuline est inséré dans le génome d’une bactérie (E. coli) ou d’une levure. La bactérie modifiée produit alors de l’insuline humaine, qui est purifiée et utilisée comme médicament pour les diabétiques.",
+      "Un gène est une séquence d’ADN qui détermine la séquence d’acides aminés d’une protéine. La correspondance se fait par le code génétique : chaque triplet (codon) d’ADN est transcrit en codon d’ARNm, puis traduit en un acide aminé spécifique.",
+      "Exemples : 1) Le maïs Bt transgénique contient un gène de Bacillus thuringiensis produisant une toxine insecticide, réduisant l’usage de pesticides. 2) La bactérie E. coli modifiée pour produire de l’hormone de croissance humaine (somatotrophine) pour traiter le nanisme."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polype.pdf",
+    "theme": "Mutations géniques – Drépanocytose",
+    "enonce": "La drépanocytose est la plus fréquente des maladies de l’hémoglobine. Elle est due à une mutation génique.",
+    "questions": [
+      "Quel nom est donné à l’apparition brutale d’un nouveau caractère qui devient héréditaire ?",
+      "Distinguer mutation génique de mutation somatique.",
+      "Expliquer pourquoi la drépanocytose est causée par une mutation génique ponctuelle.",
+      "Cette mutation est-elle une délétion ? Justifier votre réponse.",
+      "Différencier transcription de traduction."
+    ],
+    "reponses": [
+      "On parle de mutation (ou de variation héréditaire).",
+      "Mutation génique : altération d’un gène, transmissible à la descendance si elle survient dans les cellules germinales. Mutation somatique : survient dans une cellule non germinale, non héréditaire, mais peut provoquer un cancer.",
+      "La drépanocytose résulte du remplacement d’une seule paire de bases (GAG → GTG) dans le gène de la β-globine, entraînant un seul acide aminé changé (acide glutamique → valine). C’est donc une mutation ponctuelle (substitution).",
+      "Non, ce n’est pas une délétion, c’est une substitution (un nucléotide est remplacé par un autre, sans perte ni ajout de bases).",
+      "Transcription : synthèse d’un ARN messager à partir d’un brin d’ADN dans le noyau. Traduction : synthèse d’une protéine à partir de l’ARNm sur les ribosomes dans le cytoplasme."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polype.pdf",
+    "theme": "Croisement monohybridisme – haricots jaunes/verts",
+    "enonce": "Un cultivateur croise des graines de haricots jaunes et des graines de haricots verts. Toutes les graines de la F1 sont jaunes.",
+    "questions": [
+      "Faire le croisement et interpréter les résultats de la 1ère génération F1 si toutes les graines sont jaunes.",
+      "Faire le croisement de la F2, puis interpréter les résultats.",
+      "Quels résultats obtiendrait-il en croisant les graines à phénotype dominant avec les graines à caractère récessif ? Effectuer les croisements et interpréter.",
+      "Quel nom donne-t-on à ce test de vérification ? Quelle est son importance ?"
+    ],
+    "reponses": [
+      "Parents : jaune (JJ) × vert (jj). F1 : tous Jj (jaunes). Le jaune est dominant sur le vert.",
+      "F1 × F1 (Jj × Jj) → F2 : 1 JJ (jaune), 2 Jj (jaune), 1 jj (vert). Soit 75% jaunes, 25% verts.",
+      "Croiser un individu jaune (J? ) avec un vert (jj) : si le jaune est JJ → 100% Jj (jaunes). S’il est Jj → 50% Jj (jaunes), 50% jj (verts).",
+      "Ce test est le test-cross (ou backcross). Il permet de déterminer si un individu de phénotype dominant est homozygote ou hétérozygote."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_polype.pdf",
+    "theme": "Syndromes chromosomiques et transgénèse",
+    "enonce": "Questions sur la transgénèse, les organismes génétiquement modifiés, les caryotypes anormaux.",
+    "questions": [
+      "En quoi consiste la transgénèse ?",
+      "Comment appelle-t-on les organismes qui en résultent ? En donner deux exemples.",
+      "Écrire le caryotype d’un individu atteint : a) du syndrome de Down, b) du syndrome de Klinefelter.",
+      "Combien de chromosomes possèdent ces individus ? Préciser le type de chromosome affecté dans chacun de ces syndromes."
+    ],
+    "reponses": [
+      "La transgénèse consiste à introduire un ou plusieurs gènes étrangers (transgènes) dans le génome d’un organisme receveur, afin de lui conférer une nouvelle propriété.",
+      "On les appelle organismes génétiquement modifiés (OGM). Exemples : souris transgénique (modèle de maladie), maïs Bt (résistant à la pyrale).",
+      "a) Syndrome de Down : 47,XX,+21 (fille) ou 47,XY,+21 (garçon). b) Syndrome de Klinefelter : 47,XXY.",
+      "Syndrome de Down : 47 chromosomes, trisomie du chromosome 21. Syndrome de Klinefelter : 47 chromosomes, présence d’un chromosome X supplémentaire chez un individu de sexe masculin."
+    ]
+  },
+  {
+    "source": "exam_svt_bio-geo_2016_protomere.pdf",
+    "theme": "Mutations – Anémie falciforme",
+    "enonce": "Un caractère nouveau peut apparaître chez un enfant alors qu’il est inexistant chez ses parents. Questions sur les mutations.",
+    "questions": [
+      "Différencier mutation somatique de mutation germinale.",
+      "La mutation somatique peut-elle être transmise par voie sexuée ? Justifier.",
+      "Dans quel cas peut-on dire qu’une mutation est chromosomique ? En donner un exemple, puis préciser le phénotype de l’individu qui en est porteur.",
+      "Pourquoi dit-on que l’anémie falciforme est une mutation génique ponctuelle ? Sur quelle chaîne de l’hémoglobine se situe cette mutation ?"
+    ],
+    "reponses": [
+      "Mutation somatique : touche une cellule non reproductrice, non transmissible à la descendance. Mutation germinale : touche les cellules reproductrices (gamètes), transmissible.",
+      "Non, une mutation somatique n’est pas transmise par voie sexuée car elle n’affecte pas les gamètes.",
+      "Une mutation est chromosomique lorsqu’elle modifie la structure ou le nombre des chromosomes. Exemple : trisomie 21 (chromosome 21 en triple). Phénotype : retard mental, visage rond, hypotonie, etc.",
+      "Anémie falciforme (drépanocytose) due à la substitution d’un seul nucléotide dans le gène de la β-globine (position 6). C’est une mutation ponctuelle. Mutation sur la chaîne β de l’hémoglobine."
+    ]
+  },
+  {
+    "source": "exam_svt_biogeo-2014-bac-permanent.pdf",
+    "theme": "Notions générales de génétique",
+    "enonce": "Questions de base sur la génétique.",
+    "questions": [
+      "Qu’appelle-t-on allèles ?",
+      "Quelles sont les hétérochromosomes du caryotype humain ?",
+      "En quoi consiste le crossing over ?"
+    ],
+    "reponses": [
+      "Les allèles sont les différentes versions d’un même gène, situées au même locus sur les chromosomes homologues.",
+      "Les hétérochromosomes sont les chromosomes sexuels X et Y.",
+      "Le crossing over est l’échange réciproque de segments entre deux chromosomes homologues lors de la prophase I de méiose, augmentant la diversité génétique."
+    ]
+  },
+  {
+    "source": "exam_svt_biogeo-2014-bac-permanent.pdf",
+    "theme": "Avitaminose",
+    "enonce": "Les vitamines sont essentielles, des carences causent des syndromes graves.",
+    "questions": [
+      "Différencier les deux grands types de vitamines.",
+      "Donner trois exemples pour chaque type.",
+      "Quelle avitaminose peut résulter d’une alimentation exclusive en riz poli ?",
+      "Quelle vitamine est incorporée aux pigments visuels ? Donner deux sources alimentaires. Où et par quoi est-elle synthétisée chez l’humain ?",
+      "Quelle avitaminose cause la tendance aux ecchymoses et aux hémorragies internes ?"
+    ],
+    "reponses": [
+      "Vitamines liposolubles (A, D, E, K) – solubles dans les lipides. Vitamines hydrosolubles (B, C) – solubles dans l’eau.",
+      "Liposolubles : A (rétinol), D (calciférol), E (tocophérol). Hydrosolubles : B1 (thiamine), B3 (niacine), C (acide ascorbique).",
+      "Le riz poli (dépourvu de son) provoque une carence en vitamine B1, responsable du béribéri.",
+      "La vitamine A (rétinal) entre dans la composition des pigments visuels (rhodopsine). Sources : foie de poisson, carottes. Chez l’humain, elle est synthétisée à partir du β-carotène (provitamine A) dans l’intestin.",
+      "La carence en vitamine C (acide ascorbique) provoque le scorbut, caractérisé par des ecchymoses et hémorragies internes."
+    ]
+  },
+  {
+    "source": "exam_svt_svt-modele-smp-ses-lla.pdf",
+    "theme": "Drépanocytose – mutation ponctuelle",
+    "enonce": "La drépanocytose est fréquente en Amérique latine et Afrique. Les individus souffrent d’anémie, douleurs, os fragiles.",
+    "questions": [
+      "Noter le chromosome concerné.",
+      "Présenter le triplet normal et le triplet muté.",
+      "Pourquoi dit-on que c’est une substitution ? Nommer l’acide aminé traduit par l’ARNm du gène muté."
+    ],
+    "reponses": [
+      "Le gène de la β-globine (HBB) est situé sur le chromosome 11.",
+      "Triplet normal : GAG (code pour l’acide glutamique). Triplet muté : GTG (code pour la valine) sur l’ADN ; sur l’ARNm : GAG → GUG.",
+      "C’est une substitution car un seul nucléotide est remplacé (A → T). L’acide aminé traduit par l’ARNm muté est la valine (Val) au lieu de l’acide glutamique (Glu)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt-modele-smp-ses-lla.pdf",
+    "theme": "Groupes sanguins – transmission héréditaire",
+    "enonce": "Evens, fils de Gregory, est de groupe sanguin A. Sa mère Nicolle est de groupe sanguin B. Quels pourraient être les génotypes possibles de Gregory ?",
+    "questions": [
+      "Quels pourraient être les génotypes possibles de Gregory ?"
+    ],
+    "reponses": [
+      "Si Nicolle (mère) est de groupe B, son génotype est soit BB soit BO. Evens (fils) est de groupe A (génotype AA ou AO). Gregory (père) doit fournir un allèle A. Donc le père Gregory peut être AA, AO, ou AB (car AB donne A ou B). Génotypes possibles de Gregory : AA, AO, AB."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2002_svt_histologie.pdf",
+    "theme": "Myopathie – hérédité récessive",
+    "enonce": "Un jeune homme a une dégénérescence progressive des muscles. Des tests ont prouvé qu’il est atteint de myopathie.",
+    "questions": [
+      "Écrire son génotype.",
+      "Comment se transmet cette maladie ?",
+      "Nommer deux autres pathologies qui se transmettent de la même manière et présenter leur phénotype.",
+      "Une femme peut-elle être myopathe ? Justifier par un croisement.",
+      "Différencier les autosomes des hétérochromosomes. Nommer deux pathologies concernant les autosomes."
+    ],
+    "reponses": [
+      "Si la myopathie est autosomique récessive, son génotype est aa (a = allèle muté).",
+      "Transmission autosomique récessive : deux allèles mutés (un de chaque parent) sont nécessaires. Les parents sont hétérozygotes sains (Aa).",
+      "Exemples : drépanocytose (anémie, douleurs, globules rouges en faucille), mucoviscidose (encombrement bronchique, insuffisance pancréatique).",
+      "Oui, une femme peut être myopathe si elle hérite de deux allèles mutés (aa). Croisement : deux parents hétérozygotes (Aa × Aa) → 25% aa (malades, garçons ou filles).",
+      "Autosomes : chromosomes non sexuels (paires 1-22). Hétérochromosomes : chromosomes sexuels (X, Y). Pathologies autosomiques : trisomie 21 (Down), achondroplasie (nanisme)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2002_svt_histologie.pdf",
+    "theme": "Génétique générale – homozygote, OGM, bases ADN, caractère récessif",
+    "enonce": "Questions de généralités.",
+    "questions": [
+      "Quand un individu est-il homozygote ?",
+      "Définir OGM. Comment l’obtient-on ?",
+      "Citer les bases appariées de l’ADN.",
+      "Quand est-ce qu’un caractère est dit récessif ?"
+    ],
+    "reponses": [
+      "Un individu est homozygote pour un gène quand il possède deux allèles identiques (AA ou aa).",
+      "OGM = Organisme Génétiquement Modifié. On l’obtient par transgénèse : insertion d’un gène étranger dans son génome.",
+      "Les bases appariées de l’ADN sont : A-T (adénine-thymine) et G-C (guanine-cytosine).",
+      "Un caractère est récessif quand il ne s’exprime que chez les individus homozygotes pour l’allèle correspondant (aa)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2018_svt_genetique.pdf",
+    "theme": "Daltonisme – hérédité liée au sexe",
+    "enonce": "Transmission du daltonisme, maladie héréditaire liée au sexe, étudiée à partir d’un lignage (arbres non fourni).",
+    "questions": [
+      "Quel ascendant porte le gène responsable de cette pathologie ? Écrire son génotype.",
+      "Pourquoi n’est-il pas atteint ?",
+      "Pourquoi le garçon numéro (4) est-il daltonien ?",
+      "Une fille numéro (8) est daltonienne. Écrire le génotype de ses parents. Pourquoi est-elle malade ?",
+      "Nommer deux autres pathologies héréditaires liées aux hétérochromosomes."
+    ],
+    "reponses": [
+      "L’ascendant porteur est probablement la mère (ou grand-mère) avec le génotype X⁺Xᵈ (conductrice saine).",
+      "Il n’est pas atteint car il est hétérozygote (femme) ou parce que l’allèle muté est récessif et situé sur l’X (l’homme n’a qu’un X).",
+      "Le garçon (4) a hérité de sa mère le chromosome X portant l’allèle muté (Xᵈ) et de son père le Y ; il est donc XᵈY, daltonien.",
+      "Parents : père daltonien (XᵈY) et mère conductrice (X⁺Xᵈ) ou mère daltonienne (XᵈXᵈ). La fille (8) est XᵈXᵈ : elle a reçu un Xᵈ de chaque parent, donc malade.",
+      "Hémophilie A et B, myopathie de Duchenne, syndrome de l’X fragile (tous liés à l’X)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2018_svt_genetique.pdf",
+    "theme": "Drépanocytose – mutation",
+    "enonce": "Question sur la drépanocytose dans la partie généralités.",
+    "questions": [
+      "Dans la drépanocytose, où se situe la mutation ? S’agit-il d’une délétion ? Justifier votre réponse."
+    ],
+    "reponses": [
+      "La mutation se situe sur le gène de la β-globine (chromosome 11), à la position 6 du codon (GAG → GTG). Ce n’est pas une délétion mais une substitution (un nucléotide est remplacé par un autre)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2019_ses-smp_cytoplasme.pdf",
+    "theme": "Syndrome de Klinefelter",
+    "enonce": "Questions de généralités.",
+    "questions": [
+      "Quel syndrome est causé par la présence d’un gonosome surnuméraire chez un homme ?",
+      "Quand un individu est-il homozygote pour un caractère ?"
+    ],
+    "reponses": [
+      "Le syndrome de Klinefelter (caryotype 47,XXY).",
+      "Un individu est homozygote pour un caractère lorsqu’il possède deux allèles identiques pour le gène correspondant (AA ou aa)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2019_svt_pancreas.pdf",
+    "theme": "Dominance complète – croisement chez la souris",
+    "enonce": "Lucien Cuénot croise une souris grise et une souris albinos (blanche) de lignée pure. À la F1 toutes les souris sont grises.",
+    "questions": [
+      "À quoi est due la disparition du phénotype blanc à la première génération ?",
+      "Écrire les génotypes des parents. Faire le croisement puis interpréter. Quelle loi de Mendel peut être retenue ? L’énoncer.",
+      "Quels seront les résultats de la F2 ? Faire le croisement, puis interpréter.",
+      "a) Comment différencier les souris présentant le même phénotype ? b) Effectuer les croisements puis interpréter."
+    ],
+    "reponses": [
+      "Le blanc est récessif ; le gris est dominant. Les parents sont homozygotes : gris (GG) × blanc (gg). F1 : tous Gg (gris).",
+      "Parents : GG (gris) et gg (blanc). Croisement F1 : Gg × Gg. Loi de la ségrégation (première loi de Mendel) : les allèles d’un gène se séparent lors de la formation des gamètes.",
+      "F2 : 1 GG (gris) : 2 Gg (gris) : 1 gg (blanc). Soit 75% gris, 25% blanc.",
+      "a) On réalise un test-cross : croiser chaque souris grise avec une souris blanche (gg). b) Si la souris grise est GG → tous les descendants sont gris. Si elle est Gg → moitié gris, moitié blanc."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2019_svt_pancreas.pdf",
+    "theme": "Génétique – gène létal, transgénèse, groupes sanguins",
+    "enonce": "Questions de généralités.",
+    "questions": [
+      "Qu’est-ce qu’un gène létal ?",
+      "En quoi consiste la transgénèse ?",
+      "Un individu de groupe sanguin A+ peut-il recevoir du sang d’un individu du groupe B+ ?"
+    ],
+    "reponses": [
+      "Un gène létal est un allèle qui, lorsqu’il est présent en homozygote (ou parfois en hétérozygote), entraîne la mort de l’individu avant ou après la naissance.",
+      "La transgénèse est l’insertion d’un gène étranger dans le génome d’un organisme receveur.",
+      "Non, un individu A+ ne peut pas recevoir du sang B+ car ses anticorps anti-B agglutineraient les globules rouges B."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_ses-smp_claudiquer-1.pdf",
+    "theme": "Hémophilie – maladie héréditaire liée au sexe",
+    "enonce": "Dans certaines maladies héréditaires, seule la 23e paire de chromosomes mérite d’être examinée (maladie liée au sexe).",
+    "questions": [
+      "Nommer la maladie héréditaire qui provoque une incapacité du sang à coaguler.",
+      "Sur quel chromosome retrouve-t-on le gène incriminé ?",
+      "Définir : locus – crossing over.",
+      "Nommer deux autres pathologies liées aux hétérochromosomes."
+    ],
+    "reponses": [
+      "L’hémophilie (type A ou B).",
+      "Sur le chromosome X (hémophilie récessive liée à l’X).",
+      "Locus : position spécifique d’un gène sur un chromosome. Crossing over : échange de segments entre chromosomes homologues lors de la méiose.",
+      "Daltonisme, myopathie de Duchenne, syndrome de l’X fragile."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_ses-smp_claudiquer-1.pdf",
+    "theme": "Génétique – délétion/substitution",
+    "enonce": "Généralités.",
+    "questions": [
+      "Différencier délétion de substitution."
+    ],
+    "reponses": [
+      "Délétion : perte d’un ou plusieurs nucléotides dans la séquence d’ADN. Substitution : remplacement d’un nucléotide par un autre."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_ses-smp_gamete-2.pdf",
+    "theme": "Mutation – pathologies, délétion/inversion",
+    "enonce": "Thomas Morgan a étudié les mutations sur la drosophile. Des mutations existent chez l’humain.",
+    "questions": [
+      "Différencier mutation somatique de mutation germinale.",
+      "Nommer une pathologie courante en Amérique et Afrique due à une mutation. Indiquer son effet sur : a) la protéine concernée, b) la forme des cellules qui en dérivent.",
+      "Distinguer délétion d’inversion."
+    ],
+    "reponses": [
+      "Mutation somatique : dans une cellule non reproductrice, non héréditaire. Mutation germinale : dans les gamètes, transmissible à la descendance.",
+      "Drépanocytose. a) Mutation sur la β-globine : acide glutamique → valine. b) Les globules rouges deviennent falciformes (en faucille) en hypoxie.",
+      "Délétion : perte d’un segment d’ADN. Inversion : retournement d’un segment d’ADN dans le sens opposé."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_ses-smp_gamete-2.pdf",
+    "theme": "Gamètes, locus, crossing over",
+    "enonce": "Généralités.",
+    "questions": [
+      "Différencier gamète de gonie.",
+      "Définir : locus – crossing over."
+    ],
+    "reponses": [
+      "Gamète : cellule reproductrice haploïde (n). Gonie : cellule germinale diploïde (2n) qui subit la méiose pour former des gamètes.",
+      "Locus : emplacement précis d’un gène sur un chromosome. Crossing over : échange de segments entre chromatides non sœurs de chromosomes homologues pendant la prophase I de méiose."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_svt_chnodriome-1-1.pdf",
+    "theme": "Monohybridisme – cobayes blancs et marron",
+    "enonce": "On croise des cobayes blancs et des cobayes marron, tous homozygotes. À la première génération, tous les cobayes sont blancs.",
+    "questions": [
+      "De quel type de dominance s’agit-il ?",
+      "Écrire les génotypes des ascendants. Faire le croisement de la F1 et de la F2.",
+      "Interpréter les résultats (pourcentages génotypiques et phénotypiques).",
+      "Quel résultat obtiendra-t-on si on croise le monohybride de la F1 avec un cobaye marron ?",
+      "Faire le croisement, puis interpréter (échiquier de Punnett)."
+    ],
+    "reponses": [
+      "Dominance complète du blanc sur le marron.",
+      "Parents : blanc (BB) × marron (bb). F1 : tous Bb (blancs). F2 (Bb × Bb) : 1 BB (blanc) : 2 Bb (blanc) : 1 bb (marron).",
+      "Génotypes : 25% BB, 50% Bb, 25% bb. Phénotypes : 75% blancs, 25% marrons.",
+      "Croisement F1 (Bb) × marron (bb) → 50% Bb (blancs), 50% bb (marrons).",
+      "Échiquier : gamètes du F1 : B et b ; gamètes du marron : b. Résultat : Bb (blanc) et bb (marron) en proportions égales."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_svt_chnodriome-1-1.pdf",
+    "theme": "Syndrome de Klinefelter – phénotype",
+    "enonce": "Généralités.",
+    "questions": [
+      "Décrire le phénotype d’un individu présentant le syndrome de Klinefelter.",
+      "Différencier autosomes de gonosomes."
+    ],
+    "reponses": [
+      "Phénotype : masculin, grande taille, membres longs, gynécomastie, testicules petits, infertilité, parfois retard mental léger.",
+      "Autosomes : chromosomes non sexuels (22 paires chez l’humain). Gonosomes : chromosomes sexuels (X et Y)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_svt_cintrage-2.pdf",
+    "theme": "Monohybridisme – pois jaunes/verts",
+    "enonce": "On croise des pois jaunes et des pois verts homozygotes. Tous les haricots de la F1 sont jaunes.",
+    "questions": [
+      "Faire le croisement de la F1 et de la F2.",
+      "Nommer le test qui permet de distinguer les homozygotes des hétérozygotes à phénotype dominant."
+    ],
+    "reponses": [
+      "Parents : jaune (JJ) × vert (jj) → F1 : Jj (jaunes). F2 (Jj × Jj) → 1 JJ (jaune) : 2 Jj (jaune) : 1 jj (vert).",
+      "Test-cross (croisement avec un individu homozygote récessif)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_svt_cintrage-2.pdf",
+    "theme": "Caryotypes des syndromes de Klinefelter et Turner",
+    "enonce": "Généralités.",
+    "questions": [
+      "Quel est le caryotype d’un individu atteint du syndrome de Klinefelter ?",
+      "Quel est le caryotype d’un individu atteint du syndrome de Turner ?"
+    ],
+    "reponses": [
+      "Syndrome de Klinefelter : 47,XXY.",
+      "Syndrome de Turner : 45,X (monosomie X)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_svt_claustration.pdf",
+    "theme": "Dominance totale – hibiscus rouges/blancs",
+    "enonce": "On croise des hibiscus rouges de lignée pure (R) et des hibiscus blancs purs. Tous les hibiscus de la F1 ont des fleurs rouges.",
+    "questions": [
+      "Déterminer les génotypes et phénotypes des ascendants.",
+      "Faire les croisements de la F1 et de la F2. Interpréter les résultats."
+    ],
+    "reponses": [
+      "Ascendants : rouge homozygote (RR) × blanc (rr). F1 : tous Rr (rouges).",
+      "F2 : croisement Rr × Rr → 1 RR (rouge), 2 Rr (rouge), 1 rr (blanc). 75% rouges, 25% blancs."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2021_svt_claustration.pdf",
+    "theme": "Caryotypes – homme daltonien, femme vectrice hémophilie",
+    "enonce": "Généralités.",
+    "questions": [
+      "Écrire le caryotype : a) d’un homme daltonien, b) d’une femme vectrice pour l’hémophilie."
+    ],
+    "reponses": [
+      "a) Homme daltonien : 46,XY avec l’allèle muté sur son X (XᵈY). b) Femme vectrice : 46,XX avec un X normal et un X muté (X⁺Xᵈ)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_lla-ses-smp_cytologie-2.pdf",
+    "theme": "Drépanocytose – chromosome, triplet normal/muté",
+    "enonce": "La drépanocytose est fréquente en Amérique latine et Afrique. Anémie, douleurs, os fragiles.",
+    "questions": [
+      "Noter le chromosome concerné.",
+      "Présenter le triplet normal et le triplet muté.",
+      "Pourquoi dit-on que c’est une substitution ? Nommer l’acide aminé traduit par l’ARNm du gène muté."
+    ],
+    "reponses": [
+      "Chromosome 11 (gène HBB).",
+      "Triplet normal (ADN) : GAG (acide glutamique). Triplet muté : GTG (valine). ARNm : GAG → GUG.",
+      "C’est une substitution car un nucléotide est remplacé. L’acide aminé traduit est la valine."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_lla-ses-smp_cytologie-2.pdf",
+    "theme": "Groupes sanguins – génotypes possibles",
+    "enonce": "Evens, fils de Gregory, est de groupe sanguin A. Sa mère Nicolle est de groupe B. Quels pourraient être les génotypes de Gregory ?",
+    "questions": [
+      "Quels pourraient être les génotypes possibles de Gregory ?"
+    ],
+    "reponses": [
+      "Gregory (père) doit fournir un allèle A à son fils. Donc génotypes possibles : AA, AO, AB."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_ses-smp_materiaux.pdf",
+    "theme": "Génétique – homozygote, hétérozygote (question complétée)",
+    "enonce": "Phrases à compléter (non reprises ici car sous forme de QCM).",
+    "questions": [
+      "Un individu de génotype Aa est dit __________. Si les deux allèles sont identiques (AA ou aa), il est dit __________."
+    ],
+    "reponses": [
+      "hétérozygote ; homozygote"
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_anatomie.pdf",
+    "theme": "Hérédité – croisement de souris noires/blanches",
+    "enonce": "On croise des souris noires et des souris blanches, toutes homozygotes. À la première génération toutes les souris sont grises.",
+    "questions": [
+      "Comment interpréter ce résultat ?",
+      "Écrire le génotype des parents et faire le croisement de la F1 et de la F2.",
+      "Combien de phénotypes obtient-on à la F2 ? Préciser leur pourcentage."
+    ],
+    "reponses": [
+      "Le gris est intermédiaire (dominance incomplète) ou bien il s’agit d’un cas de codominance. En réalité, si noir × blanc donne gris, c’est une dominance incomplète.",
+      "Parents : noir (NN) × blanc (BB) – allèles différents. F1 : NB (gris). F2 (NB × NB) → 1 NN (noir), 2 NB (gris), 1 BB (blanc).",
+      "3 phénotypes : noir (25%), gris (50%), blanc (25%)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_anatomie.pdf",
+    "theme": "Groupes sanguins – transmission ABO et Rhésus",
+    "enonce": "Deux parents de groupe sanguin B peuvent-ils donner naissance à un enfant de groupe O ? Justifier par un croisement. Le Rhésus de l’enfant est négatif. Que signifie cette appellation ?",
+    "questions": [
+      "Deux parents de groupe B peuvent-ils avoir un enfant de groupe O ? Justifier par un croisement.",
+      "Le Rhésus de l’enfant est négatif. Que signifie cette appellation ?"
+    ],
+    "reponses": [
+      "Oui, si les deux parents sont hétérozygotes BO. Croisement BO × BO → 25% OO (groupe O).",
+      "Rh négatif signifie que l’enfant ne possède pas l’antigène Rh (facteur Rh) à la surface de ses globules rouges. Son génotype est rr (rh-)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_cardiaque.pdf",
+    "theme": "Diversité génétique – syndrome de Down (trisomie 21)",
+    "enonce": "Dans la race humaine apparaissent des modifications du phénotype : yeux bridés, implantation basse des oreilles, altération du QI…",
+    "questions": [
+      "Quelle peut être la cause principale de ces anomalies ?",
+      "Dans un caryotype, où localiseriez-vous la paire d’autosomes concernée ?",
+      "L’âge de la mère est-il un critère important dans l’apparition de ce syndrome ? Justifier.",
+      "Donner deux autres causes qui peuvent expliquer une diversité génétique."
+    ],
+    "reponses": [
+      "Trisomie 21 (syndrome de Down).",
+      "La paire d’autosomes 21 (trois chromosomes au lieu de deux).",
+      "Oui, le risque augmente avec l’âge maternel (non-disjonction plus fréquente lors de l’ovogenèse).",
+      "Mutations ponctuelles, recombinaison génétique (crossing over), migration, sélection naturelle."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_cardiaque.pdf",
+    "theme": "Dominance complète – croisement de souris noires/blanches",
+    "enonce": "Des souris noires sont croisées avec des souris blanches de lignée pure. La première génération ne donne que des souris noires.",
+    "questions": [
+      "Écrire les génotypes des parents, faire le croisement puis interpréter.",
+      "Faire le croisement de la F2 et interpréter.",
+      "Les résultats correspondent-ils aux lois de Mendel ? Les énoncer.",
+      "Comment différencier les monohybrides de génotype différent mais de même phénotype ?"
+    ],
+    "reponses": [
+      "Parents : noir (NN) × blanc (nn) → F1 : Nn (noir).",
+      "F2 : Nn × Nn → 1 NN (noir), 2 Nn (noir), 1 nn (blanc). 75% noir, 25% blanc.",
+      "Oui. Loi de ségrégation (1re loi) : les allèles se séparent lors de la gamétogenèse. Loi de pureté des gamètes.",
+      "Par test-cross : croiser avec un homozygote récessif (blanc)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_conservation.pdf",
+    "theme": "Drépanocytose – maladie héréditaire, croisement",
+    "enonce": "Jeanne a des douleurs osseuses, teint pâle, fatigue. Sa mère présente le même tableau, son père est normal.",
+    "questions": [
+      "Pourquoi la drépanocytose est-elle considérée comme une maladie héréditaire ?",
+      "Écrire le génotype des parents, effectuer les croisements, interpréter."
+    ],
+    "reponses": [
+      "Car elle est due à une mutation génique transmissible des parents aux enfants.",
+      "Mère malade : aa ; père normal : AA (ou Aa ? si normal mais père donne un allèle sain). Si mère aa et père AA, tous les enfants sont Aa (porteurs sains). Si mère aa et père Aa, 50% Aa (sains porteurs), 50% aa (malades). Dans le cas présent, Jeanne est malade (aa) ; sa mère est aa, son père doit être Aa (porteur sain) pour transmettre un a."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_conservation.pdf",
+    "theme": "Lois de Mendel – cobayes marron/blancs",
+    "enonce": "Des cobayes marron (mm) sont croisés avec des cobayes blancs (BB), tous de lignée pure. À la F1 tous sont blancs.",
+    "questions": [
+      "Expliquer pourquoi on a obtenu ce résultat. Faire le croisement puis interpréter les résultats à la F1 et à la F2."
+    ],
+    "reponses": [
+      "Le blanc est dominant (B) sur le marron (m). Parents : BB (blanc) × mm (marron). F1 : tous Bm (blancs). F2 (Bm × Bm) : 1 BB (blanc), 2 Bm (blanc), 1 mm (marron). Soit 75% blancs, 25% marrons."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_conservation.pdf",
+    "theme": "Mutation – délétion, exemple",
+    "enonce": "Définir délétion, choisir un exemple, préciser le chromosome et le phénotype concerné.",
+    "questions": [
+      "Définir délétion. Choisir un exemple, préciser le chromosome et le phénotype d’un individu concerné."
+    ],
+    "reponses": [
+      "Délétion : perte d’un fragment de chromosome. Exemple : syndrome du cri du chat (délétion du bras court du chromosome 5). Phénotype : cri aigu, retard mental, microcéphalie."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_elevage.pdf",
+    "theme": "Maladie héréditaire – troubles de coagulation (hémophilie ?)",
+    "enonce": "Gérard saigne à la moindre blessure, a des bleus partout, troubles de coagulation.",
+    "questions": [
+      "De quelle maladie héréditaire souffre-t-il ?",
+      "Écrire le génotype de ses parents, expliquer le mode de transmission, faire le croisement et interpréter."
+    ],
+    "reponses": [
+      "Hémophilie (type A ou B), récessive liée à l’X.",
+      "Gérard est XᵈY. Sa mère doit être au moins conductrice (X⁺Xᵈ) ; son père est sain (X⁺Y). Croisement : mère X⁺Xᵈ × père X⁺Y → enfants : X⁺X⁺ (fille saine), X⁺Xᵈ (fille conductrice), X⁺Y (garçon sain), XᵈY (garçon hémophile). Gérard a hérité Xᵈ de sa mère et Y de son père."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_genetique.pdf",
+    "theme": "Groupes sanguins – croisement dominant/récessif",
+    "enonce": "Choisir deux groupes sanguins, un dominant et un récessif. Présenter leur génotype et phénotype, effectuer le croisement et interpréter.",
+    "questions": [
+      "Choisir deux groupes sanguins, un dominant et un récessif. Présenter leur génotype et phénotype. Effectuer le croisement et interpréter."
+    ],
+    "reponses": [
+      "Exemple : groupe A (dominant) et groupe O (récessif). Génotypes : A peut être AA ou AO ; O est OO. Croisement AO × OO → 50% AO (A), 50% OO (O). Si AA × OO → 100% AO (A)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_genetique.pdf",
+    "theme": "Daltonisme – transmission liée à l’X",
+    "enonce": "Alice est daltonienne. Écrire le génotype de ses parents, effectuer le croisement, interpréter. Quel pourcentage d’enfants sains peut-on espérer ?",
+    "questions": [
+      "Écrire le génotype des parents d’Alice (daltonienne). Effectuer le croisement et interpréter.",
+      "Quel pourcentage d’enfants sains peut-on espérer de leur union ?"
+    ],
+    "reponses": [
+      "Alice est XᵈXᵈ. Son père est XᵈY (daltonien), sa mère doit être au moins conductrice X⁺Xᵈ (ou daltonienne). Croisement X⁺Xᵈ × XᵈY → 50% filles (dont 50% X⁺Xᵈ conductrices, 50% XᵈXᵈ daltoniennes), 50% garçons (X⁺Y sains, XᵈY daltoniens).",
+      "Enfants sains : X⁺Y (garçons sains) et X⁺Xᵈ (filles conductrices mais phénotype sain) → 50% (garçons sains 25%, filles conductrices 25%)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_glucogene.pdf",
+    "theme": "Drépanocytose – chaîne de l’hémoglobine, génotypes",
+    "enonce": "La drépanocytose affecte l’hémoglobine. Maladie génétique très répandue.",
+    "questions": [
+      "Sur quelle chaîne de l’hémoglobine et à quelle position est localisé l’acide aminé à l’origine de cette affection ?",
+      "Pourquoi l’hémoglobine est-elle appelée pigment respiratoire ?",
+      "Écrire le génotype d’un individu malade et celui d’un individu normal. Préciser le type de mutation mise en évidence."
+    ],
+    "reponses": [
+      "Chaîne β (bêta) de l’hémoglobine, position 6 (acide glutamique → valine).",
+      "Parce qu’elle contient du fer (hème) qui donne la couleur rouge et fixe l’oxygène.",
+      "Individu malade : HbS/HbS (homozygote). Individu normal : HbA/HbA. Mutation : substitution ponctuelle (GAG → GTG)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_glucogene.pdf",
+    "theme": "Syndrome de Down – caryotype, manifestations",
+    "enonce": "Jeanne est atteinte du syndrome de Down.",
+    "questions": [
+      "Écrire son caryotype.",
+      "Présenter quatre manifestations phénotypiques de ce syndrome.",
+      "Pourquoi dit-on que cette pathologie est autosomale ?",
+      "Doit-on tenir compte de l’âge de la mère parmi les causes ? Justifier.",
+      "Nommer deux autres anomalies de nombre qui ne concernent pas un autosome."
+    ],
+    "reponses": [
+      "47,XX,+21 (fille) ou 47,XY,+21 (garçon).",
+      "Visage rond, yeux bridés, hypotonie musculaire, pli palmaire transverse unique, retard intellectuel.",
+      "Car elle est due à un chromosome non sexuel (autosome 21).",
+      "Oui, le risque de trisomie 21 augmente avec l’âge maternel en raison d’une non-disjonction plus fréquente.",
+      "Syndrome de Klinefelter (XXY) et syndrome de Turner (XO) – anomalies des chromosomes sexuels."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_glucogene.pdf",
+    "theme": "Croisement monohybride – cobayes blanc/noir",
+    "enonce": "On croise un cobaye blanc et un cobaye noir, tous homozygotes. On n’obtient que des cobayes blancs à la F1.",
+    "questions": [
+      "Faire le croisement de la F1 et de la F2, puis interpréter."
+    ],
+    "reponses": [
+      "Blanc dominant (B), noir récessif (b). Parents : BB (blanc) × bb (noir) → F1 : Bb (blanc). F2 : Bb × Bb → 1 BB (blanc), 2 Bb (blanc), 1 bb (noir). 75% blancs, 25% noirs."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_histologie.pdf",
+    "theme": "Myopathie – hérédité récessive, génotypes",
+    "enonce": "Un jeune homme présente une dégénérescence progressive des muscles (myopathie).",
+    "questions": [
+      "Écrire son génotype.",
+      "Comment se transmet cette maladie ?",
+      "Nommer deux autres pathologies qui se transmettent de la même manière, avec leur phénotype.",
+      "Une femme peut-elle être myopathe ? Justifier par un croisement.",
+      "Différencier autosomes et hétérochromosomes. Nommer deux pathologies concernant les autosomes."
+    ],
+    "reponses": [
+      "aa (si autosomique récessive).",
+      "Transmission autosomique récessive : deux allèles mutés nécessaires.",
+      "Drépanocytose (anémie, douleurs) ; mucoviscidose (encombrement bronchique, insuffisance pancréatique).",
+      "Oui, croisement Aa × Aa → 25% aa (filles ou garçons).",
+      "Autosomes : chromosomes non sexuels. Hétérochromosomes : X et Y. Pathologies autosomiques : trisomie 21, achondroplasie."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_histologie.pdf",
+    "theme": "Génétique – homozygote, OGM, bases ADN, récessif",
+    "enonce": "Généralités.",
+    "questions": [
+      "Quand un individu est-il homozygote ?",
+      "Définir OGM. Comment l’obtient-on ?",
+      "Citer les bases appariées de l’ADN.",
+      "Quand est-ce qu’un caractère est dit récessif ?"
+    ],
+    "reponses": [
+      "Lorsqu’il possède deux allèles identiques pour un gène.",
+      "OGM = Organisme Génétiquement Modifié. Obtenu par transgénèse.",
+      "A-T, G-C.",
+      "Lorsqu’il ne s’exprime que chez les homozygotes (aa)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_morphologie_b.pdf",
+    "theme": "Drépanocytose – explication cellulaire, génotypes",
+    "enonce": "La drépanocytose affecte l’hémoglobine des globules rouges. Anémie, douleurs, infections.",
+    "questions": [
+      "Expliquer en quoi consiste cette maladie du point de vue cellulaire.",
+      "Cette pathologie est-elle liée aux hétérochromosomes ? Justifier.",
+      "Quelle vitamine peut-on prendre pour stimuler l’hématopoïèse ?",
+      "Comment se manifeste cette pathologie ?",
+      "Écrire le génotype d’un individu malade et d’un individu normal. Préciser le type de mutation."
+    ],
+    "reponses": [
+      "Mutation du gène de la β-globine → hémoglobine S → globules rouges falciformes en hypoxie, se bloquent dans les vaisseaux.",
+      "Non, elle est autosomale (gène sur chromosome 11).",
+      "Vitamine B9 (acide folique) et B12.",
+      "Anémie, crises douloureuses (vaso-occlusives), ictère, infections, retard de croissance.",
+      "Malade : HbS/HbS ; normal : HbA/HbA. Mutation : substitution ponctuelle."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_morphologie_b.pdf",
+    "theme": "Croisement mendélien – haricots géants/nains",
+    "enonce": "Des haricots géants sont croisés avec des haricots nains, tous de lignée pure. La F1 ne donne que des haricots nains.",
+    "questions": [
+      "Écrire le génotype des parents.",
+      "Faire le croisement de la F1.",
+      "Quels seront les résultats à la F2 ?",
+      "Échiquier de Punnett et interprétation.",
+      "Dans quel cas peut-on avoir recours au test cross ?"
+    ],
+    "reponses": [
+      "Parents : nain (NN) × géant (nn) si nain est dominant.",
+      "F1 : Nn (nains).",
+      "F2 : 1 NN (nain), 2 Nn (nain), 1 nn (géant).",
+      "Échiquier : N/n × N/n → 75% nain, 25% géant.",
+      "Test cross pour déterminer si un individu de phénotype dominant est homozygote ou hétérozygote."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_neurocience.pdf",
+    "theme": "Albinisme – maladie récessive, croisement",
+    "enonce": "L’albinisme est une maladie récessive.",
+    "questions": [
+      "Pourquoi l’albinisme est-il considéré comme une maladie récessive ?",
+      "Écrire le génotype d’un individu homozygote récessif et d’un hétérozygote.",
+      "Faire le croisement entre eux puis interpréter les résultats."
+    ],
+    "reponses": [
+      "Car l’allèle responsable (a) ne s’exprime que chez les homozygotes aa.",
+      "Homozygote récessif : aa (albinos). Hétérozygote : Aa (porteur sain).",
+      "Croisement aa × Aa → 50% Aa (sains porteurs), 50% aa (albinos)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_neurocience.pdf",
+    "theme": "Croisement monohybride – hibiscus rouges/blanches",
+    "enonce": "Des hibiscus à fleurs rouges sont croisés avec des hibiscus à fleurs blanches. La F1 donne des fleurs rouges.",
+    "questions": [
+      "Pourquoi la couleur blanche ne paraît-elle pas à la première génération ?",
+      "Écrire le génotype des parents, faire le croisement et interpréter."
+    ],
+    "reponses": [
+      "Car le rouge est dominant sur le blanc.",
+      "Parents : rouge (RR) × blanc (rr). F1 : Rr (rouges)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_neurone.pdf",
+    "theme": "Défaut de pigmentation – albinisme",
+    "enonce": "Individus au teint très clair, yeux fermés au soleil, parents à épiderme normal.",
+    "questions": [
+      "Quel nom donner à cette pathologie ?",
+      "Est-elle dominante ? Justifier.",
+      "Est-elle liée aux gonosomes ? Justifier.",
+      "L’exposition au soleil serait-elle bénéfique pour foncer la peau ? Justifier.",
+      "Nommer la substance épidermique de protection naturelle."
+    ],
+    "reponses": [
+      "Albinisme.",
+      "Non, elle est récessive car les parents normaux peuvent avoir un enfant albinos.",
+      "Non, elle est autosomique (gène non lié au sexe).",
+      "Non, les albinos n’ont pas de mélanine ; l’exposition augmente le risque de coups de soleil et cancers.",
+      "La mélanine."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_neurone.pdf",
+    "theme": "Hérédité – croisement de haricots rouges/blancs",
+    "enonce": "Un agronome croise des haricots rouges et blancs de lignée pure. Il obtient des haricots roses à la première récolte.",
+    "questions": [
+      "Comment interpréter ce résultat ?",
+      "Écrire le génotype des pois roses obtenus. Faire le croisement des parents et interpréter.",
+      "Faire le croisement de la F2. Interpréter.",
+      "Si la couleur rouge avait été obtenue, quels auraient été les génotypes possibles des parents ? Faire les croisements F1 et F2.",
+      "S’agirait-il du même type de dominance ?",
+      "Comparer les phénotypes obtenus à la F2 dans les deux cas et préciser leur pourcentage."
+    ],
+    "reponses": [
+      "Dominance incomplète : les hétérozygotes ont un phénotype intermédiaire (rose).",
+      "Parents : rouge (RR) × blanc (BB) – allèles différents. F1 : RB (rose).",
+      "F2 (RB × RB) → 1 RR (rouge), 2 RB (rose), 1 BB (blanc). Pourcentages : 25% rouge, 50% rose, 25% blanc.",
+      "Si F1 était rouge (dominance complète) : parents RR × rr. F1 Rr (rouge). F2 75% rouge, 25% blanc.",
+      "Non, dans le premier cas dominance incomplète, dans le second dominance complète.",
+      "Premier cas : 3 phénotypes (25% rouge, 50% rose, 25% blanc). Second cas : 2 phénotypes (75% rouge, 25% blanc)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_paleontologie.pdf",
+    "theme": "Daltonisme – transmission liée à l’X",
+    "enonce": "Alice, fille de Rose, est daltonienne.",
+    "questions": [
+      "Trouver le génotype de Rose et celui de son mari.",
+      "Faire le croisement puis expliquer le mode de transmission chez Alice."
+    ],
+    "reponses": [
+      "Rose (mère) : X⁺Xᵈ (conductrice) ou XᵈXᵈ. Mari (père) : XᵈY (daltonien). Alice est XᵈXᵈ.",
+      "Croisement X⁺Xᵈ × XᵈY → 50% filles (dont 50% X⁺Xᵈ, 50% XᵈXᵈ), 50% garçons (X⁺Y sain, XᵈY daltonien). Alice a reçu Xᵈ de son père et Xᵈ de sa mère."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_paleontologie.pdf",
+    "theme": "Monohybridisme – pois lisses/ridés",
+    "enonce": "On croise des pois lisses avec des pois ridés, tous homozygotes. À la F1 on n’obtient que des pois lisses.",
+    "questions": [
+      "Faire les croisements de la F1 et de la F2, interpréter.",
+      "Les résultats correspondent-ils aux deux premières lois de Mendel ? Les énoncer."
+    ],
+    "reponses": [
+      "Lisse dominant (L), ridé récessif (r). Parents : LL × rr → F1 : Lr (lisses). F2 : Lr × Lr → 1 LL (lisse), 2 Lr (lisse), 1 rr (ridé).",
+      "Oui. Loi de ségrégation et loi de pureté des gamètes."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_physiologie.pdf",
+    "theme": "Daltonisme – mode de transmission, croisements",
+    "enonce": "Le daltonisme est une anomalie des cônes rétiniens.",
+    "questions": [
+      "Comment se caractérise cette maladie ?",
+      "Expliquer le mode de transmission.",
+      "Pourquoi un père daltonien ne transmet jamais cette tare à ses fils ?",
+      "Présenter les croisements : père daltonien × mère vectrice ; père sain × mère vectrice. Interpréter.",
+      "Quel pourrait être le génotype d’une femme dont le mari est daltonien pour que tous les enfants aient un phénotype normal ?"
+    ],
+    "reponses": [
+      "Difficulté à distinguer certaines couleurs (rouge-vert le plus souvent).",
+      "Récessif lié à l’X : les hommes (XY) sont plus souvent atteints, les femmes conductrices.",
+      "Car le fils reçoit son unique X de sa mère, et le Y du père.",
+      "Père daltonien (XᵈY) × mère vectrice (X⁺Xᵈ) → filles : 50% X⁺Xᵈ (saines conductrices), 50% XᵈXᵈ (daltoniennes) ; garçons : 50% X⁺Y (sains), 50% XᵈY (daltoniens). Père sain (X⁺Y) × mère vectrice (X⁺Xᵈ) → filles : 50% X⁺X⁺, 50% X⁺Xᵈ (saines) ; garçons : 50% X⁺Y, 50% XᵈY (daltoniens).",
+      "Femme doit être X⁺X⁺ (non porteuse). Alors tous les enfants (filles X⁺Xᵈ, garçons X⁺Y) seront normaux."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_vitamines.pdf",
+    "theme": "Daltonisme – croisement homme daltonien × femme vectrice",
+    "enonce": "Cette affection est due à une anomalie visuelle dont le gène est situé sur le chromosome X.",
+    "questions": [
+      "Présenter le croisement d’un homme daltonien et d’une femme vectrice, puis interpréter les résultats."
+    ],
+    "reponses": [
+      "Homme : XᵈY, femme : X⁺Xᵈ. Échiquier : gamètes mâles Xᵈ, Y ; femelles X⁺, Xᵈ. Descendance : X⁺Xᵈ (fille saine conductrice), XᵈXᵈ (fille daltonienne), X⁺Y (garçon sain), XᵈY (garçon daltonien). 50% des garçons daltoniens, 50% des filles daltoniennes."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_zoologie.pdf",
+    "theme": "Dihybridisme – chevaux gris baladeurs × roux trotteurs",
+    "enonce": "Des chevaux gris baladeurs (GB) sont croisés avec des chevaux roux trotteurs (rt), tous homozygotes. On obtient des chevaux gris baladeurs à la F1.",
+    "questions": [
+      "Écrire les génotypes des ascendants. Faire le croisement de la F1.",
+      "Écrire les génotypes des différents gamètes produits par les hybrides. Interpréter.",
+      "Écrire les génotypes obtenus en cas de disjonction indépendante des caractères.",
+      "Combien de phénotypes correspondent au caractère dominant ? Au caractère récessif ?"
+    ],
+    "reponses": [
+      "Ascendants : GGBB (gris baladeur) × ggrr (roux trotteur). F1 : GgBr (gris baladeur).",
+      "Gamètes de F1 : GB, Gr, gB, gr (4 types équiprobables si indépendants).",
+      "En F2 (GgBr × GgBr) : 9 G_B_ (gris baladeurs), 3 G_rr (gris trotteurs), 3 ggB_ (roux baladeurs), 1 ggrr (roux trotteur).",
+      "Caractère dominant (gris) : 12/16 (75%). Caractère récessif (roux) : 4/16 (25%)."
+    ]
+  },
+  {
+    "source": "exam_svt_svt_2022_svt_zoologie.pdf",
+    "theme": "Allèles, drépanocytose, traduction",
+    "enonce": "Généralités.",
+    "questions": [
+      "Qu’appelle-t-on allèles ?",
+      "Préciser la pathologie résultant de la déformation des globules rouges.",
+      "Nommer les acteurs de la traduction."
+    ],
+    "reponses": [
+      "Versions différentes d’un même gène.",
+      "Drépanocytose (anémie falciforme).",
+      "ARNm, ribosomes, ARNt, acides aminés, facteurs d’initiation, d’élongation et de terminaison."
+    ]
+  },
+  {
+    "source": "exam_svt_texte-modele-2024-svt-svt.pdf",
+    "theme": "Groupes sanguins et syndrome de Klinefelter",
+    "enonce": "Le groupe sanguin est héréditaire. Questions sur génotype, phénotype, donneur universel, agglutinogène.",
+    "questions": [
+      "Écrire le génotype et le phénotype du groupe sanguin A.",
+      "Tenant compte du facteur Rhésus, indiquer le groupe sanguin donneur universel.",
+      "Définir agglutinogène.",
+      "Préciser la formule chromosomique d’une personne atteinte du syndrome de Klinefelter."
+    ],
+    "reponses": [
+      "Génotype : AA ou AO. Phénotype : groupe A (antigène A à la surface des globules rouges).",
+      "Groupe O négatif (O-).",
+      "Agglutinogène = antigène présent sur les globules rouges, déterminant le groupe sanguin (A, B, ou A et B).",
+      "47,XXY."
+    ]
+  },
+  {
+    "source": "exam_svt_texte-modele-2024-svt-svt.pdf",
+    "theme": "Daltonisme – croisement homme sain × femme porteuse",
+    "enonce": "Un homme sain se marie avec une femme porteuse du gène muté du daltonisme.",
+    "questions": [
+      "Préciser leur génotype.",
+      "Faire le croisement, puis interpréter les résultats."
+    ],
+    "reponses": [
+      "Homme sain : X⁺Y ; femme porteuse : X⁺Xᵈ.",
+      "Croisement : X⁺Y × X⁺Xᵈ → filles : X⁺X⁺ (saines) et X⁺Xᵈ (saines conductrices) ; garçons : X⁺Y (sains) et XᵈY (daltoniens). 50% des garçons daltoniens, aucune fille malade."
+    ]
+  },
+  {
+    "source": "exam_svt_texte-modele-2024-svt-svt.pdf",
+    "theme": "Hérédité – haricots noirs/jaunes, dominance",
+    "enonce": "Un agriculteur croise des haricots noirs et des haricots jaunes. On n’obtient que des haricots noirs à la F1.",
+    "questions": [
+      "Faire le croisement de la F1 et de la F2, interpréter.",
+      "Préciser le test qui permet de distinguer les homozygotes des hétérozygotes à phénotype dominant de la F2, puis expliciter les résultats."
+    ],
+    "reponses": [
+      "Noir dominant (N), jaune récessif (n). Parents : NN × nn → F1 : Nn (noir). F2 : Nn × Nn → 1 NN (noir), 2 Nn (noir), 1 nn (jaune). 75% noirs, 25% jaunes.",
+      "Test-cross : croiser un individu noir de F2 avec un jaune (nn). Si noir homozygote (NN) → tous noirs. Si hétérozygote (Nn) → 50% noirs, 50% jaunes."
+    ]
+  }
+]

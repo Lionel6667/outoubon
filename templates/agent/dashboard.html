@@ -1,0 +1,552 @@
+{% extends "base.html" %}
+{% block title %}Dashboard Agent – OU TOU BON{% endblock %}
+{% block body %}
+<style>
+  
+  .agent-app { display: flex; height: 100vh; overflow: hidden; }
+  
+  .agent-sidebar {
+    width: 240px; background: var(--bg2); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto;
+  }
+  .agent-sidebar-brand { display: flex; align-items: center; gap: .75rem; padding: 1.25rem 1.25rem 1rem; }
+  .agent-brand-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: #0f172a; font-size: .95rem;
+  }
+  .agent-brand-badge {
+    display: inline-block; font-size: .65rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .06em; color: #fbbf24; background: rgba(251,191,36,.12);
+    border: 1px solid rgba(251,191,36,.3); border-radius: 20px;
+    padding: 1px 7px; margin-top: 2px;
+  }
+  .agent-sidebar-user {
+    display: flex; align-items: center; gap: .75rem;
+    padding: .75rem 1rem; margin: .5rem;
+    background: rgba(251,191,36,.07); border: 1px solid rgba(251,191,36,.2);
+    border-radius: 12px;
+  }
+  .agent-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: #0f172a; font-size: 1rem; flex-shrink: 0;
+  }
+  .agent-sidebar-code { font-size: .72rem; color: #fbbf24; font-weight: 700; font-family: monospace; }
+  .a-nav-item {
+    display: flex; align-items: center; gap: .75rem;
+    padding: .6rem 1rem; margin: .15rem .5rem; border-radius: 10px;
+    color: var(--t2); font-size: .875rem; font-weight: 500;
+    text-decoration: none; transition: all .15s; cursor: pointer;
+  }
+  .a-nav-item:hover { background: var(--card); color: var(--t1); }
+  .a-nav-item.active { background: rgba(251,191,36,.15); color: #fbbf24; }
+  .a-nav-item i { width: 18px; text-align: center; font-size: .875rem; }
+
+  
+  .agent-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .agent-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--bg2);
+  }
+  .agent-topbar-title { font-size: 1.1rem; font-weight: 700; }
+  .balance-badge {
+    display: flex; align-items: center; gap: .4rem;
+    background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.25);
+    border-radius: 20px; padding: .35rem .85rem;
+    font-size: .85rem; font-weight: 800; color: #fbbf24;
+  }
+  .view-area { flex: 1; overflow-y: auto; }
+
+  
+  .agent-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; padding: 1.5rem 1.5rem 0; }
+  .a-stat { background: var(--card); border: 1px solid var(--border2); border-radius: 16px; padding: 1.25rem; }
+  .a-stat-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: .9rem; margin-bottom: .75rem; }
+  .a-stat-val { font-size: 1.75rem; font-weight: 800; }
+  .a-stat-label { color: var(--t2); font-size: .8rem; margin-top: .2rem; }
+
+  
+  .agent-section { padding: 1.5rem; }
+  .agent-section-title { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--t2); margin-bottom: 1rem; }
+
+  
+  .ref-link-box {
+    background: var(--card); border: 1px solid var(--border2); border-radius: 14px;
+    padding: 1rem 1.25rem; display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  }
+  .ref-link-text {
+    flex: 1; font-size: .8rem; color: var(--t2); word-break: break-all;
+    font-family: monospace; min-width: 120px;
+  }
+  .copy-btn {
+    padding: .5rem 1rem; border-radius: 8px; font-size: .8rem; font-weight: 700;
+    background: rgba(251,191,36,.15); border: 1px solid rgba(251,191,36,.35);
+    color: #fbbf24; transition: background .15s; cursor: pointer;
+  }
+  .copy-btn:hover { background: rgba(251,191,36,.25); }
+  .share-row { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .75rem; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .45rem .85rem; border-radius: 8px; font-size: .75rem; font-weight: 700;
+    text-decoration: none; transition: opacity .15s;
+  }
+  .share-btn:hover { opacity: .82; }
+  .share-wa { background: #25D366; color: #fff; }
+  .share-fb { background: #1877F2; color: #fff; }
+  .share-tk { background: #000; color: #fff; }
+
+  
+  .ref-table-wrap { background: var(--card); border: 1px solid var(--border2); border-radius: 14px; overflow: hidden; }
+  .ref-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  .ref-table th { padding: .75rem 1rem; text-align: left; color: var(--t3); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--border2); }
+  .ref-table td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:hover td { background: rgba(255,255,255,.02); }
+  .ref-status-paid   { display: inline-block; padding: .2rem .6rem; border-radius: 20px; font-size: .7rem; font-weight: 700; background: rgba(16,185,129,.12); color: #10b981; }
+  .ref-status-pending { display: inline-block; padding: .2rem .6rem; border-radius: 20px; font-size: .7rem; font-weight: 700; background: rgba(234,179,8,.12); color: var(--yellow); }
+  .empty-state { padding: 2.5rem; text-align: center; color: var(--t3); }
+  .empty-state i { font-size: 2rem; margin-bottom: .75rem; display: block; }
+
+  
+  .withdraw-card {
+    background: var(--card); border: 1px solid var(--border2); border-radius: 14px; padding: 1.25rem;
+  }
+  .withdraw-coming-soon {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2rem; text-align: center; gap: .75rem;
+  }
+  .coming-badge {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .4rem .9rem; border-radius: 20px; font-size: .75rem; font-weight: 800;
+    background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.25); color: #fbbf24;
+  }
+  .w-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .w-form-group label { display: block; font-size: .75rem; font-weight: 700; color: var(--t2); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .4rem; }
+  .w-form-input {
+    width: 100%; box-sizing: border-box; background: var(--bg); border: 1px solid var(--border2);
+    border-radius: 10px; padding: .65rem .9rem; font-size: .9rem; color: var(--t1);
+    outline: none; transition: border-color .18s;
+  }
+  .w-form-input:focus { border-color: rgba(251,191,36,.5); }
+  .w-submit {
+    padding: .65rem 1.5rem; border-radius: 10px; font-size: .875rem; font-weight: 800;
+    background: linear-gradient(135deg, #f59e0b, #d97706); color: #0f172a;
+    border: none; cursor: pointer; transition: filter .15s;
+  }
+  .w-submit:hover { filter: brightness(1.07); }
+  .alert-success { background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.25); color: #6ee7b7; border-radius: 10px; padding: .65rem 1rem; margin-bottom: 1rem; font-size: .85rem; }
+  .alert-error   { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.25); color: #fca5a5; border-radius: 10px; padding: .65rem 1rem; margin-bottom: 1rem; font-size: .85rem; }
+
+  
+  .agent-tabs { display: flex; gap: .35rem; border-bottom: 1px solid var(--border); padding: 0 1.5rem; margin-bottom: 0; }
+  .agent-tab-btn {
+    padding: .65rem 1.1rem; font-size: .8rem; font-weight: 700; cursor: pointer;
+    background: none; border: none; border-bottom: 2px solid transparent;
+    color: var(--t2); transition: all .15s;
+  }
+  .agent-tab-btn.active { color: #fbbf24; border-bottom-color: #fbbf24; }
+  .agent-tab-pane { display: none; }
+  .agent-tab-pane.active { display: block; }
+
+  
+  .tips-card {
+    background: linear-gradient(135deg, rgba(251,191,36,.08), rgba(217,119,6,.05));
+    border: 1px solid rgba(251,191,36,.2); border-radius: 14px; padding: 1.25rem;
+  }
+  .tips-card h3 { font-size: 1rem; margin-bottom: .75rem; color: #fbbf24; }
+  .tip-item { display: flex; align-items: flex-start; gap: .7rem; margin-bottom: .65rem; font-size: .85rem; color: var(--t2); line-height: 1.5; }
+  .tip-item i { color: #fbbf24; margin-top: 2px; flex-shrink: 0; }
+
+  @media (max-width: 768px) {
+    .agent-sidebar { display: none; }
+    .w-form-row { grid-template-columns: 1fr; }
+    .agent-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<div class="agent-app">
+  
+  <aside class="agent-sidebar">
+    <div class="agent-sidebar-brand">
+      <div class="agent-brand-icon"><i class="fas fa-user-tie"></i></div>
+      <div>
+        <div style="font-size:1rem;font-weight:800;">OU TOU BON</div>
+        <span class="agent-brand-badge">Agent</span>
+      </div>
+    </div>
+    <div class="agent-sidebar-user">
+      <div class="agent-avatar">{{ agent.phone|slice:"4:6" }}</div>
+      <div>
+        <div style="font-size:.875rem;font-weight:600;">{{ agent.phone }}</div>
+      </div>
+    </div>
+
+    <div class="nav-section">Principal</div>
+    <a href="#" class="a-nav-item active" onclick="showTab('overview');return false;"><i class="fas fa-chart-pie"></i> Aperçu</a>
+    <a href="#" class="a-nav-item" onclick="showTab('referrals');return false;"><i class="fas fa-users"></i> Mes élèves</a>
+    <a href="#" class="a-nav-item" onclick="showTab('withdraw');return false;"><i class="fas fa-wallet"></i> Retrait MonCash</a>
+    <a href="#" class="a-nav-item" onclick="showTab('tips');return false;"><i class="fas fa-lightbulb"></i> Conseils Agent</a>
+
+    <div class="sidebar-footer" style="margin-top:auto;padding:1rem;border-top:1px solid var(--border);">
+      <a href="{% url 'landing' %}" style="display:flex;align-items:center;gap:.75rem;color:var(--t3);font-size:.875rem;padding:.5rem;border-radius:8px;text-decoration:none;">
+        <i class="fas fa-home"></i> Retour au site
+      </a>
+      <a href="{% url 'logout' %}" style="display:flex;align-items:center;gap:.75rem;color:var(--t3);font-size:.875rem;padding:.5rem;border-radius:8px;text-decoration:none;margin-top:.25rem;">
+        <i class="fas fa-sign-out-alt"></i> Déconnexion
+      </a>
+    </div>
+  </aside>
+
+  
+  <div class="agent-main">
+    <div class="agent-topbar">
+      <div class="agent-topbar-title"><i class="fas fa-user-tie" style="color:#fbbf24;margin-right:.5rem;"></i>Mon espace Agent</div>
+      <a href="{% url 'logout' %}" style="display:flex;align-items:center;gap:.4rem;color:var(--t3);font-size:.85rem;font-weight:600;text-decoration:none;padding:.45rem .85rem;border-radius:10px;border:1px solid var(--border2);transition:all .15s;" onmouseover="this.style.borderColor='#f87171';this.style.color='#f87171'" onmouseout="this.style.borderColor='';this.style.color=''"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </div>
+    <div class="view-area">
+
+      
+      <div class="agent-tabs" style="overflow-x:auto;">
+        <button class="agent-tab-btn active" onclick="showTab('overview')">Aperçu</button>
+        <button class="agent-tab-btn" onclick="showTab('referrals')">Mes élèves</button>
+        <button class="agent-tab-btn" onclick="showTab('withdraw')">Retrait</button>
+        <button class="agent-tab-btn" onclick="showTab('tips')">Conseils</button>
+      </div>
+
+      
+      <div id="tab-overview" class="agent-tab-pane active">
+        
+        <div class="agent-stats">
+          <div class="a-stat" style="border-top:3px solid #fbbf24;">
+            <div class="a-stat-icon" style="background:rgba(251,191,36,.12);color:#fbbf24;"><i class="fas fa-coins"></i></div>
+            <div class="a-stat-val">{{ agent.balance }}G</div>
+            <div class="a-stat-label">Solde disponible</div>
+          </div>
+          <div class="a-stat" style="border-top:3px solid #10b981;">
+            <div class="a-stat-icon" style="background:rgba(16,185,129,.12);color:#10b981;"><i class="fas fa-user-check"></i></div>
+            <div class="a-stat-val">{{ agent.paid_referrals }}</div>
+            <div class="a-stat-label">Élèves payés</div>
+          </div>
+          <div class="a-stat" style="border-top:3px solid var(--blue2);">
+            <div class="a-stat-icon" style="background:rgba(59,130,246,.12);color:var(--blue2);"><i class="fas fa-users"></i></div>
+            <div class="a-stat-val">{{ agent.total_referrals }}</div>
+            <div class="a-stat-label">Total invités</div>
+          </div>
+          <div class="a-stat" style="border-top:3px solid var(--purple);">
+            <div class="a-stat-icon" style="background:rgba(139,92,246,.12);color:var(--purple);"><i class="fas fa-trophy"></i></div>
+            <div class="a-stat-val">{{ agent.total_earned }}G</div>
+            <div class="a-stat-label">Total gagné</div>
+          </div>
+        </div>
+
+        
+        <div class="agent-section">
+          <div class="agent-section-title"><i class="fas fa-link" style="margin-right:.4rem;"></i>Ton lien d'affiliation</div>
+          <div class="ref-link-box">
+            <span class="ref-link-text" id="refLinkText">{{ referral_link }}</span>
+            <button class="copy-btn" onclick="copyLink()"><i class="fas fa-copy"></i> Copier</button>
+          </div>
+          <div class="share-row">
+            <a class="share-btn share-wa"
+               href="https://wa.me/?text=Inscris-toi%20sur%20OU%20TOU%20BON%20pour%20pr%C3%A9parer%20ton%20BAC%20avec%20l%27IA%20%3A%20{{ referral_link|urlencode }}"
+               target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a class="share-btn share-fb"
+               href="https://www.facebook.com/sharer/sharer.php?u={{ referral_link|urlencode }}"
+               target="_blank" rel="noopener">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a class="share-btn share-tk"
+               href="https://www.tiktok.com"
+               target="_blank" rel="noopener">
+              <i class="fab fa-tiktok"></i> TikTok
+            </a>
+          </div>
+        </div>
+
+        
+        {% if qr_data_uri %}
+        <div class="agent-section" style="padding-top:0;">
+          <div class="agent-section-title"><i class="fas fa-qrcode" style="margin-right:.4rem;"></i>Ton QR Code d'affiliation</div>
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;">
+            <div style="background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:1.25rem;display:inline-flex;flex-direction:column;align-items:center;gap:.75rem;">
+              <img src="{{ qr_data_uri }}" alt="QR Code" style="width:160px;height:160px;border-radius:10px;">
+              <span style="font-size:.75rem;color:var(--t3);">Scanne pour s'inscrire via ton lien</span>
+              <button onclick="downloadQR()" style="padding:.4rem .85rem;border-radius:8px;font-size:.75rem;font-weight:700;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.35);color:#fbbf24;cursor:pointer;">
+                <i class="fas fa-download"></i> Télécharger le QR
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        
+        <div class="agent-section" style="padding-top:0;">
+          <div class="tips-card">
+            <h3><i class="fas fa-chart-line" style="margin-right:.5rem;"></i>Ce que tu peux gagner</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.75rem;margin-top:.5rem;">
+              <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
+                <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">750G</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">5 élèves abonnés</div>
+              </div>
+              <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
+                <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">1 500G</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">10 élèves abonnés</div>
+              </div>
+              <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
+                <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">3 000G</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">20 élèves abonnés</div>
+              </div>
+              <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
+                <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">7 500G</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">50 élèves abonnés</div>
+              </div>
+            </div>
+            <p style="font-size:.8rem;color:var(--t3);margin-top:.85rem;">Commission de 150G par élève payé · illimité · pas de plafond</p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="tab-referrals" class="agent-tab-pane">
+        <div class="agent-section">
+          <div class="agent-section-title"><i class="fas fa-users" style="margin-right:.4rem;"></i>Élèves invités via ton lien</div>
+          <div class="ref-table-wrap">
+            {% if referrals %}
+            <table class="ref-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Numéro / Contact</th>
+                  <th>Commission</th>
+                  <th>Statut</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for r in referrals %}
+                <tr>
+                  <td style="color:var(--t3);">{{ forloop.counter }}</td>
+                  <td>{{ r.phone_hint|default:r.referred_user.username|default:"—" }}</td>
+                  <td style="font-weight:700;color:#fbbf24;">{{ r.amount }}G</td>
+                  <td>
+                    {% if r.paid %}
+                      <span class="ref-status-paid"><i class="fas fa-check-circle"></i> Payé</span>
+                    {% else %}
+                      <span class="ref-status-pending"><i class="fas fa-clock"></i> En attente</span>
+                    {% endif %}
+                  </td>
+                  <td style="color:var(--t3);font-size:.78rem;">{{ r.created_at|date:"d/m/Y" }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+            <div class="empty-state">
+              <i class="fas fa-user-plus" style="color:var(--t3);"></i>
+              <p style="font-weight:600;color:var(--t2);">Aucun élève invité pour l'instant</p>
+              <p style="font-size:.82rem;">Partage ton lien d'affiliation pour commencer à inviter des élèves</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="tab-withdraw" class="agent-tab-pane">
+        <div class="agent-section">
+          <div class="agent-section-title"><i class="fas fa-wallet" style="margin-right:.4rem;"></i>Retrait MonCash</div>
+
+          {% if withdrawal_success %}
+          <div class="alert-success"><i class="fas fa-check-circle"></i> {{ withdrawal_success }}</div>
+          {% endif %}
+          {% if withdrawal_error %}
+          <div class="alert-error"><i class="fas fa-exclamation-circle"></i> {{ withdrawal_error }}</div>
+          {% endif %}
+
+          <div class="withdraw-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
+              <div>
+                <div style="font-size:.75rem;color:var(--t2);font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Solde disponible</div>
+                <div style="font-size:2rem;font-weight:900;color:#fbbf24;">{{ agent.balance }}<span style="font-size:1rem;"> G</span></div>
+              </div>
+              <div style="font-size:.78rem;color:var(--t3);text-align:right;">Min. retrait : 150G<br>Paiement par MonCash</div>
+            </div>
+
+            {% if agent.balance >= 150 %}
+            <form method="post" id="withdrawForm" onsubmit="return handleWithdraw(event)">
+              {% csrf_token %}
+              <input type="hidden" name="action" value="withdraw">
+              <div class="w-form-row">
+                <div class="w-form-group">
+                  <label>Montant à retirer (G)</label>
+                  <input class="w-form-input" type="number" name="amount" min="150" max="{{ agent.balance }}" placeholder="ex: 300" required>
+                </div>
+                <div class="w-form-group">
+                  <label>Numéro MonCash</label>
+                  <input class="w-form-input" type="tel" name="moncash" placeholder="ex: +509 3X XX XX XX" required>
+                </div>
+              </div>
+              <button type="submit" class="w-submit" id="withdrawBtn"><i class="fas fa-paper-plane"></i> Demander le retrait</button>
+              <p style="font-size:.75rem;color:var(--t3);margin-top:.75rem;">Les retraits sont traités sous 5 à 10 minutes. Le statut se met à jour automatiquement.</p>
+            </form>
+
+            
+            <div id="withdrawProcessing" style="display:none;text-align:center;padding:1.5rem 0;">
+              <div class="astra-loader" style="margin-bottom:1rem;">
+                <div class="astra-row">
+                  <div class="astra-dot generating" style="background:#fbbf24;"></div>
+                  <div class="astra-dot generating" style="background:#f59e0b;"></div>
+                  <div class="astra-dot generating" style="background:#d97706;"></div>
+                  <div class="astra-dot generating" style="background:#f59e0b;"></div>
+                  <div class="astra-dot generating" style="background:#fbbf24;"></div>
+                </div>
+              </div>
+              <div style="font-weight:700;color:#fbbf24;font-size:.9rem;">Traitement en cours…</div>
+              <div style="font-size:.78rem;color:var(--t3);margin-top:.3rem;">Confirmation MonCash sous 5–10 minutes</div>
+            </div>
+            {% else %}
+            <div class="withdraw-coming-soon">
+              <div class="coming-badge"><i class="fas fa-lock"></i> Solde insuffisant</div>
+              <p style="color:var(--t2);font-size:.875rem;">Il te faut au moins <strong style="color:#fbbf24;">150G</strong> pour faire un retrait.<br>Invite un élève pour atteindre ce seuil !</p>
+            </div>
+            {% endif %}
+
+            
+            {% if withdrawals %}
+            <div style="margin-top:1.5rem;">
+              <div class="agent-section-title" style="padding:0;margin-bottom:.75rem;">Historique des retraits</div>
+              <div class="ref-table-wrap">
+                <table class="ref-table">
+                  <thead><tr><th>Montant</th><th>MonCash</th><th>Statut</th><th>Date</th></tr></thead>
+                  <tbody>
+                    {% for w in withdrawals %}
+                    <tr>
+                      <td style="font-weight:700;color:#fbbf24;">{{ w.amount }}G</td>
+                      <td>{{ w.moncash }}</td>
+                      <td>
+                        {% if w.status == 'approved' %}<span class="ref-status-paid">Approuvé</span>
+                        {% elif w.status == 'rejected' %}<span style="display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.7rem;font-weight:700;background:rgba(239,68,68,.12);color:#f87171;">Refusé</span>
+                        {% else %}<span class="ref-status-pending">En attente</span>{% endif %}
+                      </td>
+                      <td style="color:var(--t3);font-size:.78rem;">{{ w.created_at|date:"d/m/Y" }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="tab-tips" class="agent-tab-pane">
+        <div class="agent-section">
+          <div class="agent-section-title"><i class="fas fa-lightbulb" style="margin-right:.4rem;"></i>Conseils pour maximiser tes revenus</div>
+          <div class="tips-card" style="margin-bottom:1.25rem;">
+            <h3>🏫 Va dans les écoles</h3>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Présente OU TOU BON directement dans les établissements. Les élèves de Terminale cherchent activement des outils pour préparer le BAC.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Demande à parler pendant une pause ou une récréation — 5 minutes peuvent te donner 10 inscriptions.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Montre une démonstration rapide de l'IA sur ton téléphone. L'effet "wow" suffit.</div>
+          </div>
+          <div class="tips-card" style="margin-bottom:1.25rem;">
+            <h3>📱 Utilise les réseaux sociaux</h3>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Crée un groupe WhatsApp "Prépare ton BAC" et partage ton lien régulièrement.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Poste des témoignages et des captures de résultats sur TikTok et Facebook — les vidéos courtes convertissent bien.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Ajoute ton lien d'affiliation dans chaque caption et story pour maximiser les inscriptions.</div>
+          </div>
+          <div class="tips-card">
+            <h3>💡 Stratégie de croissance</h3>
+            <div class="tip-item"><i class="fas fa-check-circle"></i><strong style="color:#fbbf24;">10 élèves = 1 500G.</strong> C'est ton objectif de la première semaine.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Chaque élève que tu invites peut à son tour parler de la plateforme — crée un effet de réseau.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Il n'y a pas de limite. Certains agents peuvent facilement atteindre 50–100 filleuls en visitant plusieurs écoles.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Le système de paiement automatique est en cours d'intégration — tes statistiques et ton solde sont déjà enregistrés.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(tab) {
+  document.querySelectorAll('.agent-tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.agent-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.a-nav-item').forEach(a => a.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.querySelectorAll('.agent-tab-btn').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + tab + "'")) b.classList.add('active');
+  });
+  document.querySelectorAll('.a-nav-item').forEach(a => {
+    if (a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + tab + "'")) a.classList.add('active');
+  });
+}
+
+function copyLink() {
+  const link = document.getElementById('refLinkText').textContent.trim();
+  navigator.clipboard.writeText(link).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copié !';
+    btn.style.background = 'rgba(16,185,129,.2)';
+    btn.style.borderColor = 'rgba(16,185,129,.4)';
+    btn.style.color = '#10b981';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-copy"></i> Copier';
+      btn.style.background = '';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }, 2000);
+  });
+}
+
+function downloadQR() {
+  const img = document.querySelector('img[alt="QR Code"]');
+  if (!img) return;
+  const a = document.createElement('a');
+  a.href = img.src;
+  a.download = 'OU_TOU_BON_QR_{{ agent.referral_code }}.png';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function handleWithdraw(e) {
+  const btn = document.getElementById('withdrawBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi…';
+  return true;
+}
+
+(function(){
+  const hasPending = document.querySelector('.ref-status-pending');
+  if (!hasPending) return;
+  let pollCount = 0;
+  const maxPolls = 30;
+  const pollInterval = setInterval(async () => {
+    pollCount++;
+    if (pollCount > maxPolls) { clearInterval(pollInterval); return; }
+    try {
+      const res = await fetch('/agent/api/withdrawal-status/');
+      const d = await res.json();
+      if (!d.ok) return;
+      let changed = false;
+      for (const w of d.withdrawals) {
+        if (w.status !== 'pending') {
+          changed = true;
+        }
+      }
+      if (changed) {
+        clearInterval(pollInterval);
+        location.reload();
+      }
+    } catch(e) {}
+  }, 10000);
+})();
+</script>
+{% endblock %}

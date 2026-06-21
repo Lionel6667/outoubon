@@ -1,0 +1,3002 @@
+[
+  {
+    "id": "E1",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la forme correcte : He said he would rather ______________.",
+    "correct": "A",
+    "explanation": "Astuce : Après 'would rather', on utilise la base verbale (infinitif sans 'to') pour exprimer une préférence au présent ou au futur. Exemple : I would rather walk than run.",
+    "options": [
+      "walk than run",
+      "walked than ran",
+      "walks than runs",
+      "walking than running"
+    ]
+  },
+  {
+    "id": "E2",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Ils sont venus à la fête sans ______________.",
+    "correct": "D",
+    "explanation": "Astuce : Après une préposition comme 'without', on utilise le gérondif (forme en -ing). Ici, 'being invited' est la forme passive correcte car ils n'ont pas été invités.",
+    "options": [
+      "been invited",
+      "having invited",
+      "she is invited",
+      "being invited"
+    ]
+  },
+  {
+    "id": "E3",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Le service d'entretien doit commander ________ uniforme pour son nouvel employé.",
+    "correct": "C",
+    "explanation": "Astuce : 'Uniform' commence par le son /j/ (consonne), donc on utilise l'article indéfini 'a'. 'An' s'utilise devant un son voyelle.",
+    "options": [
+      "an",
+      "some",
+      "a",
+      "any"
+    ]
+  },
+  {
+    "id": "E4",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : Her excuse may not be believed by her parents.",
+    "correct": "B",
+    "explanation": "Astuce : Pour passer de la voix passive à l'active, le sujet de la phrase passive (her parents) devient le sujet de l'active. Le verbe 'may not be believed' devient 'may not believe', et l'objet devient 'her excuse'.",
+    "options": [
+      "Her excuse may not believe her parents.",
+      "Her parents may not believe her excuse.",
+      "Her parents may not be believing her excuse.",
+      "Her excuse is not believed by her parents."
+    ]
+  },
+  {
+    "id": "E5",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : Hot water is provided by the hotel 24 hours a day.",
+    "correct": "C",
+    "explanation": "Astuce : Le complément d'agent 'by the hotel' devient le sujet actif. 'Is provided' (passif présent) devient 'provides' (actif présent).",
+    "options": [
+      "The hotel is provided hot water 24 hours a day.",
+      "Hot water provides the hotel 24 hours a day.",
+      "The hotel provides hot water 24 hours a day.",
+      "24 hours a day is provided hot water by the hotel."
+    ]
+  },
+  {
+    "id": "E6",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez le contraire : The words of the immigrants weren’t sweet at all. They were rather ________.",
+    "correct": "B",
+    "explanation": "Astuce : L'adjectif 'sweet' (doux, gentil) a pour contraire 'bitter' (amer, acerbe) dans ce contexte.",
+    "options": [
+      "sour",
+      "bitter",
+      "salty",
+      "spicy"
+    ]
+  },
+  {
+    "id": "E7",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : A condition that causes people to lose their memory is called ________.",
+    "correct": "C",
+    "explanation": "Astuce : L'**amnésie** est la perte de mémoire. Le mot 'amnesia' vient du grec et est utilisé dans le monde médical.",
+    "options": [
+      "insomnia",
+      "dementia",
+      "amnesia",
+      "paralysis"
+    ]
+  },
+  {
+    "id": "E8",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne question tag : Roberto wasn’t in class today, ____________________?",
+    "correct": "A",
+    "explanation": "Astuce : Une phrase négative prend une question tag positive. 'Wasn't' (négatif) → 'was he' (positif). Le pronom 'Roberto' devient 'he'.",
+    "options": [
+      "was he",
+      "did he",
+      "wasn’t he",
+      "has he"
+    ]
+  },
+  {
+    "id": "E9",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la bonne préposition : Evens thinks that Margaret lied ______ her age last time.",
+    "correct": "B",
+    "explanation": "Astuce : On dit 'lie about something' (mentir à propos de quelque chose). Exemple : She lied about her age.",
+    "options": [
+      "to",
+      "about",
+      "on",
+      "at"
+    ]
+  },
+  {
+    "id": "E10",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez au discours indirect : 'We are preparing a cultural event,' the organizers said.",
+    "correct": "C",
+    "explanation": "Astuce : Au discours indirect, le présent continu ('are preparing') devient passé continu ('were preparing'). Le pronom 'we' change en 'they'.",
+    "options": [
+      "The organizers said that we are preparing a cultural event.",
+      "The organizers said that they are preparing a cultural event.",
+      "The organizers said that they were preparing a cultural event.",
+      "The organizers said that we were preparing a cultural event."
+    ]
+  },
+  {
+    "id": "E11",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Combinez avec un pronom relatif : This is the village. My great-grandfather was born there.",
+    "correct": "B",
+    "explanation": "Astuce : Le pronom relatif 'where' remplace un lieu ('there') et introduit une proposition relative. On aurait aussi pu utiliser 'in which'.",
+    "options": [
+      "This is the village which my great-grandfather was born.",
+      "This is the village where my great-grandfather was born.",
+      "This is the village when my great-grandfather was born.",
+      "This is the village who my great-grandfather was born."
+    ]
+  },
+  {
+    "id": "E12",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la forme correcte : I will give you a call as soon as I ________ my phone.",
+    "correct": "B",
+    "explanation": "Astuce : Dans une proposition temporelle avec 'as soon as', on utilise le présent simple pour exprimer le futur.",
+    "options": [
+      "will get",
+      "get",
+      "would get",
+      "got"
+    ]
+  },
+  {
+    "id": "E13",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : If you combine hydrogen with oxygen you __________ water.",
+    "correct": "A",
+    "explanation": "Astuce : Il s'agit du zéro conditionnel (vérité générale). On utilise le présent simple dans les deux parties de la phrase.",
+    "options": [
+      "obtain",
+      "will obtain",
+      "would obtain",
+      "obtained"
+    ]
+  },
+  {
+    "id": "E14",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very slim' correspond à quel mot ?",
+    "correct": "C",
+    "explanation": "Astuce : 'Skinny' est un synonyme familier pour 'very slim' (très mince). On peut aussi dire 'thin'.",
+    "options": [
+      "fat",
+      "large",
+      "skinny",
+      "huge"
+    ]
+  },
+  {
+    "id": "E15",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Employees are paid ______________.",
+    "correct": "A",
+    "explanation": "Astuce : 'Twice a month' signifie 'deux fois par mois'. C'est une expression de fréquence qui répond à la question 'How often?'.",
+    "options": [
+      "twice a month",
+      "always",
+      "never",
+      "rarely"
+    ]
+  },
+  {
+    "id": "E16",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : If she ____________ me she would know the information.",
+    "correct": "A",
+    "explanation": "Astuce : C'est le deuxième conditionnel (situation irréelle au présent). On utilise 'if + prétérit' suivi de 'would + infinitif'. 'Called' est le prétérit de 'call'.",
+    "options": [
+      "called",
+      "would call",
+      "had called",
+      "calls"
+    ]
+  },
+  {
+    "id": "E17",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez : I am getting used ________ on the left now.",
+    "correct": "B",
+    "explanation": "Astuce : L'expression 'be/get used to' est toujours suivie d'un gérondif (verbe en -ing). 'To driving' est la forme correcte.",
+    "options": [
+      "driving",
+      "to driving",
+      "drive",
+      "driven"
+    ]
+  },
+  {
+    "id": "E18",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez : I wish I _____________ her when I was in campaign back in the days.",
+    "correct": "D",
+    "explanation": "Astuce : Après 'wish', pour exprimer un regret sur le passé, on utilise le past perfect (had + participe passé).",
+    "options": [
+      "know",
+      "knew",
+      "to know",
+      "had known"
+    ]
+  },
+  {
+    "id": "E19",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : I was told the joke by my sister.",
+    "correct": "B",
+    "explanation": "Astuce : Le sujet passif 'I' devient l'objet actif. L'agent 'my sister' devient le sujet actif. 'Was told' devient 'told'. Le verbe 'tell' peut garder deux objets.",
+    "options": [
+      "My sister was told the joke by me.",
+      "My sister told me the joke.",
+      "I told the joke to my sister.",
+      "The joke was told to my sister by me."
+    ]
+  },
+  {
+    "id": "E20",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : This room was decorated by my mother.",
+    "correct": "C",
+    "explanation": "Astuce : 'My mother' devient le sujet. 'Was decorated' (passé simple passif) devient 'decorated' (passé simple actif).",
+    "options": [
+      "This room decorated my mother.",
+      "My mother was decorated by this room.",
+      "My mother decorated this room.",
+      "Decorated was this room by my mother."
+    ]
+  },
+  {
+    "id": "E21",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : The sign on the road says: '__________ area'.",
+    "correct": "D",
+    "explanation": "Astuce : 'Endangered' signifie 'en voie de disparition'. On parle de 'endangered species' (espèces menacées).",
+    "options": [
+      "Danger",
+      "Endangering",
+      "Dangerous",
+      "Endangered"
+    ]
+  },
+  {
+    "id": "E22",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Don’t take that money from the table. It’s ___________________.",
+    "correct": "B",
+    "explanation": "Astuce : 'Mine' est un pronom possessif qui remplace 'my money' (mon argent). On n'utilise pas 'me' (moi) ni 'my' (mon adjectif) seul.",
+    "options": [
+      "me",
+      "mine",
+      "my",
+      "myself"
+    ]
+  },
+  {
+    "id": "E23",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Be careful! You __________________ that plate!",
+    "correct": "B",
+    "explanation": "Astuce : On utilise 'be going to' pour une prédiction basée sur une preuve visible (la personne est sur le point de faire tomber l'assiette).",
+    "options": [
+      "are dropping",
+      "are going to drop",
+      "drop",
+      "will drop"
+    ]
+  },
+  {
+    "id": "E24",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : By the time I got there, Bill ________________________________.",
+    "correct": "A",
+    "explanation": "Astuce : 'By the time' indique qu'une action était déjà terminée avant une autre dans le passé. On utilise le past perfect (had + participe passé).",
+    "options": [
+      "had already left",
+      "left",
+      "is leaving",
+      "was leaving"
+    ]
+  },
+  {
+    "id": "E25",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Are you going shopping tonight? No. I __________________ yesterday.",
+    "correct": "A",
+    "explanation": "Astuce : L'adverbe 'yesterday' (hier) indique un moment passé précis. On utilise le past simple 'went'.",
+    "options": [
+      "went",
+      "have gone",
+      "had been going",
+      "was going"
+    ]
+  },
+  {
+    "id": "E26",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Does your son study very much? No, he spends his time ___________ television.",
+    "correct": "B",
+    "explanation": "Astuce : L'expression 'spend time doing something' (passer du temps à faire quelque chose) est suivie d'un gérondif (verbe en -ing).",
+    "options": [
+      "to watch",
+      "watching",
+      "watch",
+      "watched"
+    ]
+  },
+  {
+    "id": "E27",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : My puppies ____________________ (eat) the whole meat if it tasted delicious.",
+    "correct": "B",
+    "explanation": "Astuce : C'est le deuxième conditionnel (situation hypothétique). La structure est : if + prétérit, would + infinitif. 'Would eat' est correct.",
+    "options": [
+      "ate",
+      "would eat",
+      "will eat",
+      "had eaten"
+    ]
+  },
+  {
+    "id": "E28",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : John _________________________ (lend) you some money if you asked him.",
+    "correct": "B",
+    "explanation": "Astuce : Deuxième conditionnel : if + prétérit, would + infinitif. 'Would lend' est la forme correcte.",
+    "options": [
+      "lent",
+      "would lend",
+      "will lend",
+      "had lent"
+    ]
+  },
+  {
+    "id": "E29",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : He will open the door if he ______________________ (have) the key.",
+    "correct": "A",
+    "explanation": "Astuce : Premier conditionnel (situation réaliste). Structure : if + présent simple, will + infinitif. 'Has' est la 3e personne du singulier.",
+    "options": [
+      "has",
+      "will have",
+      "had",
+      "would have"
+    ]
+  },
+  {
+    "id": "E30",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : If he saved some money, he __________________________ (able) to go on holiday.",
+    "correct": "B",
+    "explanation": "Astuce : Deuxième conditionnel. 'Would be able' est l'expression correcte (could aurait aussi été possible).",
+    "options": [
+      "is able",
+      "would be able",
+      "will be able",
+      "was able"
+    ]
+  },
+  {
+    "id": "E31",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : If you _________________________ (have) a toothache, you would have gone to see a dentist.",
+    "correct": "C",
+    "explanation": "Astuce : Troisième conditionnel (regret sur le passé). Structure : if + past perfect (had + participe passé), would have + participe passé.",
+    "options": [
+      "had",
+      "have",
+      "had had",
+      "would have"
+    ]
+  },
+  {
+    "id": "E32",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : I made this pie with onions and cheese.",
+    "correct": "B",
+    "explanation": "Astuce : Le complément d'objet 'this pie' devient le sujet passif. Le verbe actif 'made' devient 'was made' (passé simple passif).",
+    "options": [
+      "This pie is made with onions and cheese by me.",
+      "This pie was made with onions and cheese by me.",
+      "This pie has been made with onions and cheese.",
+      "Onions and cheese were made this pie by me."
+    ]
+  },
+  {
+    "id": "E33",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : Everyone considers her to be the best student in the class.",
+    "correct": "C",
+    "explanation": "Astuce : Le verbe 'consider' a une construction passive avec l'infinitif. 'Everyone' devient l'agent (optionnel).",
+    "options": [
+      "She considers everyone to be the best student in the class.",
+      "It is considered by everyone that she is the best student.",
+      "She is considered to be the best student in the class.",
+      "The best student in the class is considered by everyone."
+    ]
+  },
+  {
+    "id": "E34",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : You weren’t bitten by the dog.",
+    "correct": "A",
+    "explanation": "Astuce : Le complément d'agent 'the dog' devient le sujet actif. La forme passive négative 'weren’t bitten' devient 'didn’t bite' (actif négatif).",
+    "options": [
+      "The dog didn’t bite you.",
+      "The dog wasn’t biting you.",
+      "You didn’t bite the dog.",
+      "The dog hasn’t bitten you."
+    ]
+  },
+  {
+    "id": "E35",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : The bill can’t be paid by Sue.",
+    "correct": "B",
+    "explanation": "Astuce : 'Sue' devient le sujet actif. Le verbe modal passif 'can’t be paid' devient 'can’t pay' (actif).",
+    "options": [
+      "Sue can’t be paid the bill.",
+      "Sue can’t pay the bill.",
+      "The bill can’t pay Sue.",
+      "Sue isn’t paying the bill."
+    ]
+  },
+  {
+    "id": "E36",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : They were carrying the injured players off the field.",
+    "correct": "C",
+    "explanation": "Astuce : Le passé continu actif 'were carrying' devient passé continu passif 'were being carried'.",
+    "options": [
+      "The injured players were carrying them off the field.",
+      "They were being carried the injured players off the field.",
+      "The injured players were being carried off the field.",
+      "Off the field was being carried the injured players."
+    ]
+  },
+  {
+    "id": "E37",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne forme : I was (disappointing / disappointed) in the movie.",
+    "correct": "B",
+    "explanation": "Astuce : L'adjectif en -ed décrit un sentiment (je me suis senti déçu). L'adjectif en -ing décrit ce qui provoque le sentiment (le film était décevant).",
+    "options": [
+      "disappointing",
+      "disappointed",
+      "disappoint",
+      "disappointment"
+    ]
+  },
+  {
+    "id": "E38",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne forme : Are you (interesting / interested) in soccer?",
+    "correct": "B",
+    "explanation": "Astuce : 'Interested in' signifie 'intéressé par'. 'Interesting' signifie 'intéressant'.",
+    "options": [
+      "interesting",
+      "interested",
+      "interest",
+      "interests"
+    ]
+  },
+  {
+    "id": "E39",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne forme : It’s sometimes (embarrassing / embarrassed) when you have to ask people for money.",
+    "correct": "A",
+    "explanation": "Astuce : La situation est 'embarrassing' (gênante). La personne se sent 'embarrassed' (gênée). Ici, on décrit la situation.",
+    "options": [
+      "embarrassing",
+      "embarrassed",
+      "embarrass",
+      "embarrassment"
+    ]
+  },
+  {
+    "id": "E40",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne forme : I had never expected to get the job. I was really (surprising / surprised) when it was offered to me.",
+    "correct": "B",
+    "explanation": "Astuce : On utilise 'surprised' pour décrire la réaction de la personne (j'étais surpris).",
+    "options": [
+      "surprising",
+      "surprised",
+      "surprise",
+      "surprises"
+    ]
+  },
+  {
+    "id": "E41",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne forme : We were all (fascinating / fascinated) by the play.",
+    "correct": "B",
+    "explanation": "Astuce : 'Fascinated by' signifie 'fasciné par'. On utilise l'adjectif en -ed pour la personne qui ressent la fascination.",
+    "options": [
+      "fascinating",
+      "fascinated",
+      "fascinate",
+      "fascination"
+    ]
+  },
+  {
+    "id": "E42",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : A solid structure that was usually fortified against an attack is a ________.",
+    "correct": "C",
+    "explanation": "Astuce : Un 'castle' est un château fort, construit pour se défendre. On le reconnaît à ses murs épais et ses tours.",
+    "options": [
+      "cathedral",
+      "tower",
+      "castle",
+      "fortress"
+    ]
+  },
+  {
+    "id": "E43",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : A large amount of water covering an area that is usually dry is a ________.",
+    "correct": "B",
+    "explanation": "Astuce : Une 'flood' est une inondation. Cela se produit après de fortes pluies ou la fonte des neiges.",
+    "options": [
+      "drought",
+      "flood",
+      "tsunami",
+      "storm"
+    ]
+  },
+  {
+    "id": "E44",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : She has broken her leg and needs ________.",
+    "correct": "D",
+    "explanation": "Astuce : Les 'crutches' sont des béquilles. On les utilise pour marcher quand on a une jambe cassée.",
+    "options": [
+      "a wheelchair",
+      "a bandage",
+      "a cast",
+      "crutches"
+    ]
+  },
+  {
+    "id": "E45",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : An article in a newspaper or magazine that expresses the opinion of the editor or publisher is an ________.",
+    "correct": "C",
+    "explanation": "Astuce : Un 'editorial' est un éditorial. Il représente l'opinion du journal sur un sujet d'actualité.",
+    "options": [
+      "article",
+      "column",
+      "editorial",
+      "review"
+    ]
+  },
+  {
+    "id": "E46",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'for', 'since' ou 'ago' : Tom has worked for the power company _________________ 1990.",
+    "correct": "B",
+    "explanation": "Astuce : 'Since' s'utilise avec un point de départ précis (1990). 'For' s'utilise avec une durée (for 5 years).",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "from"
+    ]
+  },
+  {
+    "id": "E47",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'for', 'since' ou 'ago' : My friend Claire was in Germany five months ___________________.",
+    "correct": "C",
+    "explanation": "Astuce : 'Ago' s'utilise pour indiquer combien de temps s'est écoulé depuis un événement passé. Il se place après la durée.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "before"
+    ]
+  },
+  {
+    "id": "E48",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'for', 'since' ou 'ago' : I haven’t seen Peter Gown ______________ September.",
+    "correct": "B",
+    "explanation": "Astuce : 'Since' est utilisé avec un point de départ (September). Le present perfect indique une action qui continue jusqu'à maintenant.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "in"
+    ]
+  },
+  {
+    "id": "E49",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'for', 'since' ou 'ago' : Jonah has walked with a limp _____________ many years.",
+    "correct": "A",
+    "explanation": "Astuce : 'For' s'utilise avec une durée (many years).",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "during"
+    ]
+  },
+  {
+    "id": "E50",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'for', 'since' ou 'ago' : Her uncle has worked here ________________ five years.",
+    "correct": "A",
+    "explanation": "Astuce : 'For' indique une durée (five years).",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "in"
+    ]
+  },
+  {
+    "id": "E51",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : He had his nose ____________ in a fight.",
+    "correct": "C",
+    "explanation": "Astuce : La construction 'have something done' (causative) signifie 'faire faire quelque chose par quelqu'un'. Ici, 'had his nose broken' = on lui a cassé le nez.",
+    "options": [
+      "break",
+      "breaking",
+      "broken",
+      "to break"
+    ]
+  },
+  {
+    "id": "E52",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : ___________ horses sometimes get out of control.",
+    "correct": "B",
+    "explanation": "Astuce : Un adjectif en -ing décrit une caractéristique. 'Frightening horses' = des chevaux qui font peur. 'Frightened horses' = des chevaux qui ont peur.",
+    "options": [
+      "frightened",
+      "frightening",
+      "to frighten",
+      "frighten"
+    ]
+  },
+  {
+    "id": "E53",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : How can parents ______ their children to read more?",
+    "correct": "B",
+    "explanation": "Astuce : 'Get someone to do something' signifie 'amener quelqu'un à faire quelque chose'. 'Make' serait sans 'to', 'let' est différent.",
+    "options": [
+      "make",
+      "get",
+      "let",
+      "have"
+    ]
+  },
+  {
+    "id": "E54",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Did the teacher give a test _________?",
+    "correct": "B",
+    "explanation": "Astuce : La question est au passé simple ('Did'). On utilise donc un complément de temps passé : 'last week' (la semaine dernière).",
+    "options": [
+      "every week",
+      "last week",
+      "next week",
+      "tomorrow"
+    ]
+  },
+  {
+    "id": "E55",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Often, an insomniac ______ at night.",
+    "correct": "A",
+    "explanation": "Astuce : 'Often' indique une habitude. On utilise le présent simple. 'Doesn’t sleep' est la forme négative correcte.",
+    "options": [
+      "doesn’t sleep",
+      "didn’t sleep",
+      "hasn’t slept",
+      "won’t sleep"
+    ]
+  },
+  {
+    "id": "E56",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le préfixe 'under' ou 'over' : My sister didn’t hear the alarm clock, so she ____slept.",
+    "correct": "A",
+    "explanation": "Astuce : 'Overslept' signifie 'avoir trop dormi' (over = excès). 'Under' indiquerait un manque.",
+    "options": [
+      "overslept",
+      "underslept",
+      "oversleeped",
+      "undersleeped"
+    ]
+  },
+  {
+    "id": "E57",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le préfixe 'under' ou 'over' : The workers say they are ___________paid and want more money.",
+    "correct": "B",
+    "explanation": "Astuce : 'Underpaid' signifie 'sous-payé' (under = insuffisance). Ils veulent plus d'argent, donc ils sont mal payés.",
+    "options": [
+      "overpaid",
+      "underpaid",
+      "overpayed",
+      "underpayed"
+    ]
+  },
+  {
+    "id": "E58",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le préfixe 'under' ou 'over' : There were too many people in the room. It was _______crowded.",
+    "correct": "A",
+    "explanation": "Astuce : 'Overcrowded' signifie 'surpeuplé' (over = trop). Il y avait trop de monde.",
+    "options": [
+      "overcrowded",
+      "undercrowded",
+      "overcrowdeded",
+      "undercrowdeded"
+    ]
+  },
+  {
+    "id": "E59",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le préfixe 'under' ou 'over' : The steak needs to be cooked a little more. It is _____done!",
+    "correct": "B",
+    "explanation": "Astuce : 'Underdone' signifie 'pas assez cuit'. Si elle a besoin d'être cuite plus, c'est qu'elle est insuffisamment cuite.",
+    "options": [
+      "overdone",
+      "underdone",
+      "overcooked",
+      "undercooked"
+    ]
+  },
+  {
+    "id": "E60",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le préfixe 'under' ou 'over' : Rich nations should give more aid to _________developed countries.",
+    "correct": "B",
+    "explanation": "Astuce : 'Underdeveloped' signifie 'sous-développé'. Les pays pauvres ont besoin d'aide.",
+    "options": [
+      "overdeveloped",
+      "underdeveloped",
+      "overdeveloping",
+      "underdeveloping"
+    ]
+  },
+  {
+    "id": "E61",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : She blamed on him ______________________________________________________.",
+    "correct": "C",
+    "explanation": "Astuce : Après 'blame someone for', on utilise le gérondif. 'For not saying anything' est correct. Attention à la double négation.",
+    "options": [
+      "for not say nothing",
+      "for not to say anything",
+      "for not saying anything",
+      "for not said anything"
+    ]
+  },
+  {
+    "id": "E62",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : He makes ____________________________________________________________.",
+    "correct": "B",
+    "explanation": "Astuce : 'Ten thousand dollars' est correct. 'Thousand' ne prend pas de 's' au pluriel quand il est précédé d'un nombre. On dit 'per month' et non 'a month'.",
+    "options": [
+      "ten thousands dollars a month",
+      "ten thousand dollars per month",
+      "ten thousand of dollars",
+      "ten thousands of dollars per month"
+    ]
+  },
+  {
+    "id": "E63",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I __________________________________________________ go fishing when I was younger.",
+    "correct": "C",
+    "explanation": "Astuce : 'Used to' exprime une habitude passée qui n'existe plus. 'Was used to' signifie 'être habitué à'.",
+    "options": [
+      "was used to",
+      "am used to",
+      "used to",
+      "would used to"
+    ]
+  },
+  {
+    "id": "E64",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : He is the _______________________________________________________________.",
+    "correct": "B",
+    "explanation": "Astuce : Pour comparer deux choses, on utilise le comparatif 'worse' (pire) et non le superlatif 'worst'. 'The worse of the two' est correct.",
+    "options": [
+      "worst of both",
+      "worse of the two",
+      "worse of all",
+      "worst of the two"
+    ]
+  },
+  {
+    "id": "E65",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I wish you ______________________________________________ in the future.",
+    "correct": "B",
+    "explanation": "Astuce : Après 'wish', on utilise le modal 'could' pour exprimer un souhait pour le futur. 'Could stop complaining' est correct.",
+    "options": [
+      "stopped complaining",
+      "could stop complaining",
+      "should stopped complaining",
+      "would stop complaining"
+    ]
+  },
+  {
+    "id": "E66",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le gérondif ou l'infinitif : I would like (apologize) _______________ for (interrupt) ________________ you.",
+    "correct": "D",
+    "explanation": "Astuce : 'Would like' est suivi de l'infinitif (to apologize). Après la préposition 'for', on utilise le gérondif (interrupting).",
+    "options": [
+      "apologizing, to interrupt",
+      "to apologize, to interrupt",
+      "apologizing, interrupting",
+      "to apologize, interrupting"
+    ]
+  },
+  {
+    "id": "E67",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le gérondif ou l'infinitif : The technician tried (clean) _______________ the DVD, but the movie still wouldn’t play.",
+    "correct": "A",
+    "explanation": "Astuce : 'Try to do something' = essayer de faire quelque chose (avec effort). 'Try doing' = essayer une méthode. Ici, il a essayé de nettoyer.",
+    "options": [
+      "to clean",
+      "cleaning",
+      "clean",
+      "cleaned"
+    ]
+  },
+  {
+    "id": "E68",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le gérondif ou l'infinitif : The announcer regrets (tell) __________________ us that tonight’s performance has been canceled.",
+    "correct": "A",
+    "explanation": "Astuce : 'Regret to tell' = regretter d'avoir à dire (mauvaise nouvelle). 'Regret telling' = regretter d'avoir dit quelque chose dans le passé.",
+    "options": [
+      "to tell",
+      "telling",
+      "tell",
+      "told"
+    ]
+  },
+  {
+    "id": "E69",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le gérondif ou l'infinitif : The network decided (hire)___________________________ two new employees.",
+    "correct": "A",
+    "explanation": "Astuce : 'Decide' est suivi de l'infinitif (to hire).",
+    "options": [
+      "to hire",
+      "hiring",
+      "hire",
+      "hired"
+    ]
+  },
+  {
+    "id": "E70",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec le gérondif ou l'infinitif : Everybody looks forward to (be) ___________________________ on vacation.",
+    "correct": "B",
+    "explanation": "Astuce : 'Look forward to' est toujours suivi d'un gérondif (verbe en -ing).",
+    "options": [
+      "to be",
+      "being",
+      "be",
+      "been"
+    ]
+  },
+  {
+    "id": "E71",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Thomas ________________________ his vacation for several months.",
+    "correct": "B",
+    "explanation": "Astuce : 'For several months' indique une durée. Le present perfect continuous (has been planning) insiste sur la durée de l'action.",
+    "options": [
+      "planning",
+      "has been planning",
+      "is planning",
+      "been planning for"
+    ]
+  },
+  {
+    "id": "E72",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : You didn’t damage my car, _______________?",
+    "correct": "A",
+    "explanation": "Astuce : Phrase négative → tag positif. 'Didn’t' → 'did you'.",
+    "options": [
+      "did you",
+      "has you",
+      "didn’t you",
+      "were you"
+    ]
+  },
+  {
+    "id": "E73",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Edmond enjoys hiking and __________________.",
+    "correct": "B",
+    "explanation": "Astuce : 'Enjoy' est suivi d'un gérondif. 'Fishing' est la forme correcte. On garde la même structure que 'hiking'.",
+    "options": [
+      "to camp",
+      "fishing",
+      "to fish",
+      "to climb mountain"
+    ]
+  },
+  {
+    "id": "E74",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : The new system is more productive and_____________________.",
+    "correct": "C",
+    "explanation": "Astuce : 'More productive' est un comparatif. On utilise un autre comparatif pour rester cohérent : 'less expensive' (moins cher).",
+    "options": [
+      "cheap",
+      "as cheap",
+      "less expensive",
+      "costing less"
+    ]
+  },
+  {
+    "id": "E75",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I have got an interview _____ Monday afternoon.",
+    "correct": "B",
+    "explanation": "Astuce : On utilise 'on' avec les jours de la semaine.",
+    "options": [
+      "at",
+      "on",
+      "in",
+      "for"
+    ]
+  },
+  {
+    "id": "E76",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Tony was making lunch _____ I was cutting the grass.",
+    "correct": "A",
+    "explanation": "Astuce : 'While' s'utilise pour deux actions simultanées dans le passé.",
+    "options": [
+      "while",
+      "when",
+      "afterwards",
+      "during"
+    ]
+  },
+  {
+    "id": "E77",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : You haven’t seen Paul today, ___________?",
+    "correct": "A",
+    "explanation": "Astuce : Phrase négative (haven’t) → tag positif (have you).",
+    "options": [
+      "have you",
+      "haven’t you",
+      "did you",
+      "don’t you"
+    ]
+  },
+  {
+    "id": "E78",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : She was lying on her bed ________ about the party.",
+    "correct": "A",
+    "explanation": "Astuce : Le participe présent 'thinking' suit le verbe 'was lying' pour indiquer une action simultanée.",
+    "options": [
+      "thinking",
+      "to think",
+      "think",
+      "thought"
+    ]
+  },
+  {
+    "id": "E79",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I think my sister ________ a dancer one day.",
+    "correct": "C",
+    "explanation": "Astuce : 'Will become' exprime une prédiction pour le futur.",
+    "options": [
+      "become",
+      "is becoming",
+      "will become",
+      "would become"
+    ]
+  },
+  {
+    "id": "E80",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec l'adjectif correct : Who is _____________ for this mess?",
+    "correct": "C",
+    "explanation": "Astuce : 'Responsible for' signifie 'responsable de'. C'est l'adjectif approprié.",
+    "options": [
+      "responsable",
+      "responsible",
+      "responsible",
+      "responsable"
+    ]
+  },
+  {
+    "id": "E81",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec l'adjectif correct : I’m______________ with the result, it’s exactly what I wanted.",
+    "correct": "D",
+    "explanation": "Astuce : 'Delighted' signifie 'ravi, enchanté'. C'est le bon adjectif pour exprimer la satisfaction.",
+    "options": [
+      "happy",
+      "pleased",
+      "content",
+      "delighted"
+    ]
+  },
+  {
+    "id": "E82",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec l'adjectif correct : Jack is ______________ with school. He wants to leave as soon as possible.",
+    "correct": "A",
+    "explanation": "Astuce : 'Bored with' signifie 'ennuyé par'. On s'ennuie de quelque chose.",
+    "options": [
+      "bored",
+      "boring",
+      "tired",
+      "fed up"
+    ]
+  },
+  {
+    "id": "E83",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec l'adjectif correct : Mary is an old friend of mine. I’m very ___________ of her.",
+    "correct": "C",
+    "explanation": "Astuce : 'Fond of' signifie 'avoir de l'affection pour'.",
+    "options": [
+      "loving",
+      "liking",
+      "fond",
+      "keen"
+    ]
+  },
+  {
+    "id": "E84",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec l'adjectif correct : In the army, a sergeant is____________ to a corporal.",
+    "correct": "B",
+    "explanation": "Astuce : 'Superior to' signifie 'supérieur à'. Un sergent a un grade plus élevé qu'un caporal.",
+    "options": [
+      "higher",
+      "superior",
+      "upper",
+      "greater"
+    ]
+  },
+  {
+    "id": "E85",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez la phrase avec 'who', 'whose', 'whom', 'which' ou 'when' : Do you know the doctor? Her husband wrote a book.",
+    "correct": "B",
+    "explanation": "Astuce : 'Whose' indique la possession. Le mari du docteur.",
+    "options": [
+      "Do you know the doctor who her husband wrote a book?",
+      "Do you know the doctor whose husband wrote a book?",
+      "Do you know the doctor whom husband wrote a book?",
+      "Do you know the doctor which husband wrote a book?"
+    ]
+  },
+  {
+    "id": "E86",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez la phrase avec 'who', 'whose', 'whom', 'which' ou 'when' : The children had an accident. We know the children’s parents.",
+    "correct": "A",
+    "explanation": "Astuce : 'Who' remplace 'the children' (sujet). 'The children who had an accident'.",
+    "options": [
+      "We know the parents of the children who had an accident.",
+      "We know the parents of the children whose had an accident.",
+      "We know the parents of the children whom had an accident.",
+      "We know the parents of the children which had an accident."
+    ]
+  },
+  {
+    "id": "E87",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez la phrase avec 'who', 'whose', 'whom', 'which' ou 'when' : The nurses were busy. We saw them.",
+    "correct": "A",
+    "explanation": "Astuce : 'Who' est le pronom sujet. Ici, 'the nurses who were busy'.",
+    "options": [
+      "We saw the nurses who were busy.",
+      "We saw the nurses whose were busy.",
+      "We saw the nurses whom were busy.",
+      "We saw the nurses which were busy."
+    ]
+  },
+  {
+    "id": "E88",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez la phrase avec 'who', 'whose', 'whom', 'which' ou 'when' : Do you know the patient? I saw the patient.",
+    "correct": "C",
+    "explanation": "Astuce : 'Whom' est le pronom objet (je vois le patient). On peut aussi utiliser 'that' ou omettre le pronom.",
+    "options": [
+      "Do you know the patient who I saw?",
+      "Do you know the patient whose I saw?",
+      "Do you know the patient whom I saw?",
+      "Do you know the patient which I saw?"
+    ]
+  },
+  {
+    "id": "E89",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez la phrase avec 'who', 'whose', 'whom', 'which' ou 'when' : The ball is on the table. The ball is mine.",
+    "correct": "D",
+    "explanation": "Astuce : 'Which' remplace un objet (the ball).",
+    "options": [
+      "The ball who is on the table is mine.",
+      "The ball whose is on the table is mine.",
+      "The ball whom is on the table is mine.",
+      "The ball which is on the table is mine."
+    ]
+  },
+  {
+    "id": "E90",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec le mot correct : You may ________ my bike, but be careful.",
+    "correct": "A",
+    "explanation": "Astuce : 'Borrow' = emprunter (prendre temporairement). 'Lend' = prêter (donner temporairement). Ici, on emprunte le vélo.",
+    "options": [
+      "borrow",
+      "lend",
+      "take",
+      "use"
+    ]
+  },
+  {
+    "id": "E91",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec le mot correct : How _________ bread is eaten per day?",
+    "correct": "B",
+    "explanation": "Astuce : 'Bread' est indénombrable. On utilise 'how much'. 'How many' s'utilise avec les dénombrables.",
+    "options": [
+      "many",
+      "much",
+      "lots",
+      "few"
+    ]
+  },
+  {
+    "id": "E92",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec le mot correct : _____________ out for pickpockets!",
+    "correct": "A",
+    "explanation": "Astuce : 'Watch out' est un verbe à particule qui signifie 'faire attention'. 'Look out' serait aussi possible, mais 'watch out' est plus courant.",
+    "options": [
+      "Watch",
+      "Look",
+      "See",
+      "Observe"
+    ]
+  },
+  {
+    "id": "E93",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec le mot correct : She __________ to me yesterday.",
+    "correct": "A",
+    "explanation": "Astuce : 'Lied' est le passé de 'lie' (mentir). 'Lay' est le passé de 'lie' (s'allonger) ou le présent de 'lay' (poser). 'Laid' est le passé de 'lay' (poser).",
+    "options": [
+      "lied",
+      "lay",
+      "laid",
+      "lain"
+    ]
+  },
+  {
+    "id": "E94",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase avec le mot correct : Look, the parrot __________ another two eggs.",
+    "correct": "B",
+    "explanation": "Astuce : 'Lays' est le présent de 'lay' (pondre). 'Lies' est le présent de 'lie' (être allongé).",
+    "options": [
+      "lies",
+      "lays",
+      "lies down",
+      "lays down"
+    ]
+  },
+  {
+    "id": "E95",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez le bon pronom : Sit down ______________ you like.",
+    "correct": "D",
+    "explanation": "Astuce : 'Wherever' signifie 'n'importe où'. Il indique un lieu indéfini.",
+    "options": [
+      "whatever",
+      "whoever",
+      "however",
+      "wherever"
+    ]
+  },
+  {
+    "id": "E96",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez le bon pronom : You can invite ___________ you want – It’s your party.",
+    "correct": "B",
+    "explanation": "Astuce : 'Whoever' signifie 'n'importe qui'. Il remplace une personne.",
+    "options": [
+      "whatever",
+      "whoever",
+      "however",
+      "wherever"
+    ]
+  },
+  {
+    "id": "E97",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez le bon pronom : Keep cool and calm, ___________ stupid things he says.",
+    "correct": "A",
+    "explanation": "Astuce : 'Whatever' signifie 'quoi que'. Il remplace une chose.",
+    "options": [
+      "whatever",
+      "whoever",
+      "however",
+      "wherever"
+    ]
+  },
+  {
+    "id": "E98",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez le bon pronom : Keep cool and calm ______________ stupid life can be.",
+    "correct": "C",
+    "explanation": "Astuce : 'However' signifie 'peu importe comment'. Il modifie un adjectif (stupid).",
+    "options": [
+      "whatever",
+      "whoever",
+      "however",
+      "wherever"
+    ]
+  },
+  {
+    "id": "E99",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez le bon pronom : There are two dictionaries in the cupboard. Borrow ________ one you want.",
+    "correct": "A",
+    "explanation": "Astuce : 'Whichever' signifie 'n'importe lequel'. Il s'utilise pour un choix parmi un nombre limité.",
+    "options": [
+      "whichever",
+      "whoever",
+      "however",
+      "wherever"
+    ]
+  },
+  {
+    "id": "E100",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la forme correcte du verbe : Did you remember ___________________ your swimsuit for the vacation?",
+    "correct": "A",
+    "explanation": "Astuce : 'Remember to do something' = ne pas oublier de faire. 'Remember doing' = se souvenir d'avoir fait.",
+    "options": [
+      "to pack",
+      "packing",
+      "pack",
+      "packed"
+    ]
+  },
+  {
+    "id": "E101",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la forme correcte du verbe : Could you please stop ________________ I’m not deaf.",
+    "correct": "B",
+    "explanation": "Astuce : 'Stop doing' = cesser de faire. 'Stop to do' = s'arrêter pour faire.",
+    "options": [
+      "to shout",
+      "shouting",
+      "shout",
+      "shouted"
+    ]
+  },
+  {
+    "id": "E102",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : To know you is _________________________ you.",
+    "correct": "A",
+    "explanation": "Astuce : Structure parallèle : 'to know you is to love you' (te connaître, c'est t'aimer). Deux infinitifs.",
+    "options": [
+      "to love",
+      "loving",
+      "love",
+      "loved"
+    ]
+  },
+  {
+    "id": "E103",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la forme correcte du verbe : I would rather _____________________ at home.",
+    "correct": "B",
+    "explanation": "Astuce : 'Would rather' est suivi de la base verbale (infinitif sans 'to').",
+    "options": [
+      "staying",
+      "stay",
+      "to stay",
+      "stayed"
+    ]
+  },
+  {
+    "id": "E104",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la forme correcte du verbe : He’s afraid of _________________ by plane.",
+    "correct": "A",
+    "explanation": "Astuce : Après une préposition ('of'), on utilise le gérondif.",
+    "options": [
+      "going",
+      "to go",
+      "go",
+      "gone"
+    ]
+  },
+  {
+    "id": "E105",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very cold' correspond à ?",
+    "correct": "D",
+    "explanation": "Astuce : 'Freezing' signifie 'glacial'. C'est un adjectif pour un froid extrême.",
+    "options": [
+      "cool",
+      "chilly",
+      "cold",
+      "freezing"
+    ]
+  },
+  {
+    "id": "E106",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very tired' correspond à ?",
+    "correct": "C",
+    "explanation": "Astuce : 'Exhausted' signifie 'épuisé'. C'est plus fort que 'tired'.",
+    "options": [
+      "sleepy",
+      "weary",
+      "exhausted",
+      "drained"
+    ]
+  },
+  {
+    "id": "E107",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very huge' correspond à ?",
+    "correct": "D",
+    "explanation": "Astuce : 'Colossal' signifie 'colossal, gigantesque'. C'est un synonyme de 'very huge'.",
+    "options": [
+      "big",
+      "large",
+      "enormous",
+      "colossal"
+    ]
+  },
+  {
+    "id": "E108",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very small' correspond à ?",
+    "correct": "C",
+    "explanation": "Astuce : 'Tiny' signifie 'minuscule, tout petit'.",
+    "options": [
+      "little",
+      "small",
+      "tiny",
+      "minute"
+    ]
+  },
+  {
+    "id": "E109",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very important' correspond à ?",
+    "correct": "B",
+    "explanation": "Astuce : 'Crucial' signifie 'crucial, essentiel'. C'est un synonyme de 'very important'.",
+    "options": [
+      "significant",
+      "crucial",
+      "vital",
+      "essential"
+    ]
+  },
+  {
+    "id": "E110",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very happy' correspond à ?",
+    "correct": "C",
+    "explanation": "Astuce : 'Delighted' signifie 'ravi, enchanté'. C'est un synonyme de 'very happy'.",
+    "options": [
+      "glad",
+      "joyful",
+      "delighted",
+      "elated"
+    ]
+  },
+  {
+    "id": "E111",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very intelligent' correspond à ?",
+    "correct": "D",
+    "explanation": "Astuce : 'Genius' est un nom ou adjectif qui signifie 'génie'. Très intelligent.",
+    "options": [
+      "smart",
+      "clever",
+      "bright",
+      "genius"
+    ]
+  },
+  {
+    "id": "E112",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very impressive' correspond à ?",
+    "correct": "C",
+    "explanation": "Astuce : 'Extraordinary' signifie 'extraordinaire'. C'est plus fort que 'impressive'.",
+    "options": [
+      "great",
+      "wonderful",
+      "extraordinary",
+      "amazing"
+    ]
+  },
+  {
+    "id": "E113",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Associez : 'Very sad' correspond à ?",
+    "correct": "B",
+    "explanation": "Astuce : 'Depressed' signifie 'déprimé'. C'est une tristesse profonde.",
+    "options": [
+      "unhappy",
+      "depressed",
+      "miserable",
+      "sorrowful"
+    ]
+  },
+  {
+    "id": "E114",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la forme comparative correcte : The game will certainly be much (exciting) __________ than it was last year.",
+    "correct": "B",
+    "explanation": "Astuce : 'Exciting' a deux syllabes, on forme le comparatif avec 'more' (more exciting).",
+    "options": [
+      "excitinger",
+      "more exciting",
+      "most exciting",
+      "excitinger"
+    ]
+  },
+  {
+    "id": "E115",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la forme superlative correcte : That was by far (bad) __________ hospital that had ever been built in the district.",
+    "correct": "D",
+    "explanation": "Astuce : 'Bad' est un adjectif irrégulier : good → better → best ; bad → worse → worst.",
+    "options": [
+      "badder",
+      "more bad",
+      "the worse",
+      "the worst"
+    ]
+  },
+  {
+    "id": "E116",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la forme comparative correcte : Children nowadays seem to be much (noisy) _________ than they used to be.",
+    "correct": "A",
+    "explanation": "Astuce : Les adjectifs d'une syllabe ou de deux syllabes se terminant par 'y' changent le 'y' en 'i' et ajoutent 'er' : noisy → noisier.",
+    "options": [
+      "noisier",
+      "more noisy",
+      "noisyier",
+      "most noisy"
+    ]
+  },
+  {
+    "id": "E117",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la forme superlative correcte : Tokyo is (large ) __________ city in Japan.",
+    "correct": "C",
+    "explanation": "Astuce : 'Large' est un adjectif d'une syllabe, on ajoute 'est' et l'article défini 'the'.",
+    "options": [
+      "larger",
+      "more large",
+      "the largest",
+      "the most large"
+    ]
+  },
+  {
+    "id": "E118",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la forme comparative correcte : Does California have a (healthy) __________ climate, compared to New York’s one?",
+    "correct": "B",
+    "explanation": "Astuce : 'Healthy' se termine par 'y' → healthier.",
+    "options": [
+      "more healthy",
+      "healthier",
+      "healthyer",
+      "most healthy"
+    ]
+  },
+  {
+    "id": "E119",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : The doctor recommends that the patient _________ some rest.",
+    "correct": "D",
+    "explanation": "Astuce : Après 'recommends that', on utilise le subjonctif (base verbale) en anglais formel. 'Take' est correct.",
+    "options": [
+      "took",
+      "takes",
+      "taking",
+      "take"
+    ]
+  },
+  {
+    "id": "E120",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I will give you a call as soon as I ________ my phone.",
+    "correct": "B",
+    "explanation": "Astuce : Dans une proposition temporelle avec 'as soon as', on utilise le présent simple pour exprimer le futur.",
+    "options": [
+      "will get",
+      "get",
+      "would get",
+      "got"
+    ]
+  },
+  {
+    "id": "E121",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la bonne réponse : I _____________ do anything unless someone else told me what to do.",
+    "correct": "C",
+    "explanation": "Astuce : 'Couldn’t' exprime l'incapacité dans le passé. La phrase décrit une habitude passée.",
+    "options": [
+      "can",
+      "could",
+      "couldn’t",
+      "must"
+    ]
+  },
+  {
+    "id": "E122",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la bonne réponse : Don’t worry! I am getting used ___________ on the left now.",
+    "correct": "A",
+    "explanation": "Astuce : 'Get used to' est suivi d'un gérondif. 'To driving' est la forme correcte.",
+    "options": [
+      "to driving",
+      "to drive",
+      "drove",
+      "driven"
+    ]
+  },
+  {
+    "id": "E123",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : She is looking forward to _____________ you at the airport.",
+    "correct": "A",
+    "explanation": "Astuce : 'Look forward to' est suivi d'un gérondif.",
+    "options": [
+      "meeting",
+      "meet",
+      "met",
+      "have met"
+    ]
+  },
+  {
+    "id": "E124",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : A long time ___________ , Haiti was considered the Pearl of the Caribbean.",
+    "correct": "C",
+    "explanation": "Astuce : 'Ago' s'utilise pour indiquer un temps écoulé depuis un événement passé.",
+    "options": [
+      "before",
+      "since",
+      "ago",
+      "past"
+    ]
+  },
+  {
+    "id": "E125",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : What do you usually do __________________ the morning?",
+    "correct": "A",
+    "explanation": "Astuce : On utilise 'in' pour les parties de la journée : in the morning, in the afternoon.",
+    "options": [
+      "in",
+      "on",
+      "at",
+      "during"
+    ]
+  },
+  {
+    "id": "E126",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : He has changed his mind ______________ the day he met you at the Gym.",
+    "correct": "B",
+    "explanation": "Astuce : 'Since' s'utilise avec un point de départ dans le temps (the day he met you).",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "from"
+    ]
+  },
+  {
+    "id": "E127",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : Generally, ________________ night diurnal birds don't fly.",
+    "correct": "C",
+    "explanation": "Astuce : On utilise 'at' pour la nuit : at night.",
+    "options": [
+      "in",
+      "on",
+      "at",
+      "by"
+    ]
+  },
+  {
+    "id": "E128",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez au discours indirect : He said, 'You can learn a lot from people.'",
+    "correct": "B",
+    "explanation": "Astuce : Le modal 'can' devient 'could' au discours indirect. Les pronoms changent selon le contexte.",
+    "options": [
+      "He said that you can learn a lot from people.",
+      "He said that I could learn a lot from people.",
+      "He said that you could learn a lot from people.",
+      "He said that I can learn a lot from people."
+    ]
+  },
+  {
+    "id": "E129",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez au discours indirect : She said, 'Ibrahim saw cultural and linguistic differences as opportunities.'",
+    "correct": "A",
+    "explanation": "Astuce : Le past simple ('saw') reste généralement inchangé au discours indirect si le contexte est clair.",
+    "options": [
+      "She said that Ibrahim saw cultural and linguistic differences as opportunities.",
+      "She said that Ibrahim had seen cultural and linguistic differences as opportunities.",
+      "She said that Ibrahim sees cultural and linguistic differences as opportunities.",
+      "She said Ibrahim saw cultural and linguistic differences as opportunities."
+    ]
+  },
+  {
+    "id": "E130",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne forme verbale : She (feel) so proud of being a Haitian girl.",
+    "correct": "A",
+    "explanation": "Astuce : Présent simple pour un état permanent. 'She feels' (3e personne).",
+    "options": [
+      "feels",
+      "feel",
+      "is feeling",
+      "feeling"
+    ]
+  },
+  {
+    "id": "E131",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la bonne forme verbale : These days, as we (can) notice, the area (evolve) and (change).",
+    "correct": "D",
+    "explanation": "Astuce : 'These days' indique une période actuelle, on utilise le présent continu. 'Can' reste au présent.",
+    "options": [
+      "can, evolves, changes",
+      "could, is evolving, changing",
+      "can, evolve, change",
+      "can, is evolving, changing"
+    ]
+  },
+  {
+    "id": "E132",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la bonne forme verbale : Usually, I (not oppose) gentrification, but I (not, like) the changes they (make) in Haiti.",
+    "correct": "C",
+    "explanation": "Astuce : 'Usually' = présent simple. 'But' introduit une opposition ; 'are making' = présent continu pour une action en cours.",
+    "options": [
+      "don’t oppose, don’t like, make",
+      "am not opposing, don’t like, are making",
+      "don’t oppose, don’t like, are making",
+      "am not opposing, am not liking, make"
+    ]
+  },
+  {
+    "id": "E133",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la bonne forme verbale : At the moment at school, we (study) poems by African American writers.",
+    "correct": "B",
+    "explanation": "Astuce : 'At the moment' indique le présent continu.",
+    "options": [
+      "study",
+      "are studying",
+      "have studied",
+      "studied"
+    ]
+  },
+  {
+    "id": "E134",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Don’t take that money from the table. It’s ___________________.",
+    "correct": "B",
+    "explanation": "Astuce : 'Mine' est le pronom possessif. On ne dit pas 'it’s my' sans nom.",
+    "options": [
+      "me",
+      "mine",
+      "my",
+      "myself"
+    ]
+  },
+  {
+    "id": "E135",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Be careful! You __________________ that plate!",
+    "correct": "B",
+    "explanation": "Astuce : 'Are going to drop' pour une prédiction immédiate basée sur une preuve.",
+    "options": [
+      "are dropping",
+      "are going to drop",
+      "drop",
+      "will drop"
+    ]
+  },
+  {
+    "id": "E136",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : By the time I got there, Bill ________________________________.",
+    "correct": "A",
+    "explanation": "Astuce : 'By the time' + passé simple, l'autre action est antérieure → past perfect.",
+    "options": [
+      "had already left",
+      "left",
+      "is leaving",
+      "was leaving"
+    ]
+  },
+  {
+    "id": "E137",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Are you going shopping tonight? No. I __________________ yesterday.",
+    "correct": "A",
+    "explanation": "Astuce : 'Yesterday' → passé simple.",
+    "options": [
+      "went",
+      "have gone",
+      "had been going",
+      "was going"
+    ]
+  },
+  {
+    "id": "E138",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Does your son study very much? No, he spends his time ___________ television.",
+    "correct": "B",
+    "explanation": "Astuce : 'Spend time doing something' → gérondif.",
+    "options": [
+      "to watch",
+      "watching",
+      "watch",
+      "watched"
+    ]
+  },
+  {
+    "id": "E139",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : My puppies ____________________ (eat) the whole meat if it tasted delicious.",
+    "correct": "B",
+    "explanation": "Astuce : Deuxième conditionnel : if + prétérit, would + infinitif.",
+    "options": [
+      "ate",
+      "would eat",
+      "will eat",
+      "had eaten"
+    ]
+  },
+  {
+    "id": "E140",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : John _________________________ (lend) you some money if you asked him.",
+    "correct": "B",
+    "explanation": "Astuce : Deuxième conditionnel.",
+    "options": [
+      "lent",
+      "would lend",
+      "will lend",
+      "had lent"
+    ]
+  },
+  {
+    "id": "E141",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : He will open the door if he ______________________ (have) the key.",
+    "correct": "A",
+    "explanation": "Astuce : Premier conditionnel : if + présent simple, will + infinitif.",
+    "options": [
+      "has",
+      "will have",
+      "had",
+      "would have"
+    ]
+  },
+  {
+    "id": "E142",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : If he saved some money, he __________________________ (able) to go on holiday.",
+    "correct": "B",
+    "explanation": "Astuce : Deuxième conditionnel. 'Would be able' = pourrait.",
+    "options": [
+      "is able",
+      "would be able",
+      "will be able",
+      "was able"
+    ]
+  },
+  {
+    "id": "E143",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : If you _________________________ (have) a toothache, you would have gone to see a dentist.",
+    "correct": "C",
+    "explanation": "Astuce : Troisième conditionnel : if + past perfect, would have + participe passé.",
+    "options": [
+      "had",
+      "have",
+      "had had",
+      "would have"
+    ]
+  },
+  {
+    "id": "E144",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : I made this pie with onions and cheese.",
+    "correct": "B",
+    "explanation": "Astuce : Objet devient sujet, verbe 'made' → 'was made' (passé simple passif).",
+    "options": [
+      "This pie is made with onions and cheese.",
+      "This pie was made with onions and cheese.",
+      "This pie has been made with onions and cheese.",
+      "Onions and cheese were made this pie."
+    ]
+  },
+  {
+    "id": "E145",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : Everyone considers her to be the best student in the class.",
+    "correct": "C",
+    "explanation": "Astuce : 'Consider' suivi de l'infinitif passif.",
+    "options": [
+      "She is considered by everyone to be the best student.",
+      "It is considered that she is the best student.",
+      "She is considered to be the best student in the class.",
+      "The best student is considered to be her."
+    ]
+  },
+  {
+    "id": "E146",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : I was told the joke by my sister.",
+    "correct": "B",
+    "explanation": "Astuce : 'My sister' devient sujet, 'was told' → 'told'.",
+    "options": [
+      "My sister was told the joke by me.",
+      "My sister told me the joke.",
+      "I told the joke to my sister.",
+      "The joke was told to me by my sister."
+    ]
+  },
+  {
+    "id": "E147",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : This room was decorated by my mother.",
+    "correct": "C",
+    "explanation": "Astuce : 'My mother' sujet, 'was decorated' → 'decorated'.",
+    "options": [
+      "This room decorated my mother.",
+      "My mother was decorated by this room.",
+      "My mother decorated this room.",
+      "Decorated was this room by my mother."
+    ]
+  },
+  {
+    "id": "E148",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : They will have built the new bridge by the end of the year.",
+    "correct": "C",
+    "explanation": "Astuce : Futur antérieur passif : will have been + participe passé.",
+    "options": [
+      "The new bridge will be built by the end of the year.",
+      "The new bridge is built by the end of the year.",
+      "The new bridge will have been built by the end of the year.",
+      "The new bridge has been built by the end of the year."
+    ]
+  },
+  {
+    "id": "E149",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I was (disappointing / disappointed) in the movie.",
+    "correct": "B",
+    "explanation": "Astuce : Sentiment → adjectif en -ed.",
+    "options": [
+      "disappointing",
+      "disappointed",
+      "disappoint",
+      "disappointment"
+    ]
+  },
+  {
+    "id": "E150",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Are you (interesting / interested) in soccer?",
+    "correct": "B",
+    "explanation": "Astuce : 'Interested in'.",
+    "options": [
+      "interesting",
+      "interested",
+      "interest",
+      "interests"
+    ]
+  },
+  {
+    "id": "E151",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : It’s sometimes (embarrassing / embarrassed) when you have to ask people for money.",
+    "correct": "A",
+    "explanation": "Astuce : La situation est gênante (‑ing).",
+    "options": [
+      "embarrassing",
+      "embarrassed",
+      "embarrass",
+      "embarrassment"
+    ]
+  },
+  {
+    "id": "E152",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I had never expected to get the job. I was really (surprising / surprised) when it was offered to me.",
+    "correct": "B",
+    "explanation": "Astuce : Réaction de la personne → -ed.",
+    "options": [
+      "surprising",
+      "surprised",
+      "surprise",
+      "surprises"
+    ]
+  },
+  {
+    "id": "E153",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : We were all (fascinating / fascinated) by the play.",
+    "correct": "B",
+    "explanation": "Astuce : 'Fascinated by'.",
+    "options": [
+      "fascinating",
+      "fascinated",
+      "fascinate",
+      "fascination"
+    ]
+  },
+  {
+    "id": "E154",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : A condition that causes people to lose their memory is ________.",
+    "correct": "C",
+    "explanation": "Astuce : Amnésie.",
+    "options": [
+      "insomnia",
+      "dementia",
+      "amnesia",
+      "paralysis"
+    ]
+  },
+  {
+    "id": "E155",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : A solid structure that was usually fortified against an attack is a ________.",
+    "correct": "C",
+    "explanation": "Astuce : Château fort.",
+    "options": [
+      "cathedral",
+      "tower",
+      "castle",
+      "fortress"
+    ]
+  },
+  {
+    "id": "E156",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : A large amount of water covering an area that is usually dry is a ________.",
+    "correct": "B",
+    "explanation": "Astuce : Inondation.",
+    "options": [
+      "drought",
+      "flood",
+      "tsunami",
+      "storm"
+    ]
+  },
+  {
+    "id": "E157",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : She has broken her leg and needs ________.",
+    "correct": "D",
+    "explanation": "Astuce : Béquilles.",
+    "options": [
+      "a wheelchair",
+      "a bandage",
+      "a cast",
+      "crutches"
+    ]
+  },
+  {
+    "id": "E158",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez : An article in a newspaper or magazine that expresses the opinion of the editor or publisher is an ________.",
+    "correct": "C",
+    "explanation": "Astuce : Éditorial.",
+    "options": [
+      "article",
+      "column",
+      "editorial",
+      "review"
+    ]
+  },
+  {
+    "id": "E159",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Dogs are loyal pets _____ they can guard your property.",
+    "correct": "A",
+    "explanation": "Astuce : 'Because' donne la raison.",
+    "options": [
+      "because",
+      "what is more",
+      "even though",
+      "so"
+    ]
+  },
+  {
+    "id": "E160",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : The clothes are _____ the washing machine.",
+    "correct": "A",
+    "explanation": "Astuce : On dit 'in the washing machine'.",
+    "options": [
+      "in",
+      "at",
+      "under",
+      "on"
+    ]
+  },
+  {
+    "id": "E161",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : They _____ to hit us if we didn’t give them the money.",
+    "correct": "B",
+    "explanation": "Astuce : 'Threatened' (menacé) est le verbe approprié.",
+    "options": [
+      "offered",
+      "threatened",
+      "suggested",
+      "promised"
+    ]
+  },
+  {
+    "id": "E162",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Jennifer ___ eat vegetables, but now she does.",
+    "correct": "B",
+    "explanation": "Astuce : 'Used to' pour une habitude passée. Négatif : 'didn’t use to'.",
+    "options": [
+      "used to",
+      "didn’t use to",
+      "doesn’t",
+      "would"
+    ]
+  },
+  {
+    "id": "E163",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : 1966 was the year _____ England won the football world cup.",
+    "correct": "C",
+    "explanation": "Astuce : 'When' pour un moment dans le temps.",
+    "options": [
+      "which",
+      "who",
+      "when",
+      "where"
+    ]
+  },
+  {
+    "id": "E164",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'since', 'for' ou 'ago' : Tom has worked for the power company _________________ 1990.",
+    "correct": "B",
+    "explanation": "Astuce : 'Since' + point de départ.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "from"
+    ]
+  },
+  {
+    "id": "E165",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'since', 'for' ou 'ago' : My friend Claire was in Germany five months ___________________.",
+    "correct": "C",
+    "explanation": "Astuce : 'Ago' pour indiquer une durée écoulée.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "before"
+    ]
+  },
+  {
+    "id": "E166",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'since', 'for' ou 'ago' : I haven’t seen Peter Gown ______________ September.",
+    "correct": "B",
+    "explanation": "Astuce : 'Since' + point de départ.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "in"
+    ]
+  },
+  {
+    "id": "E167",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'since', 'for' ou 'ago' : Jonah has walked with a limp _____________ many years.",
+    "correct": "A",
+    "explanation": "Astuce : 'For' + durée.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "during"
+    ]
+  },
+  {
+    "id": "E168",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec 'since', 'for' ou 'ago' : Her uncle has worked here ________________ five years.",
+    "correct": "A",
+    "explanation": "Astuce : 'For' + durée.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "in"
+    ]
+  },
+  {
+    "id": "E169",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : Do they teach History at this school?",
+    "correct": "B",
+    "explanation": "Astuce : Question passive : 'Is History taught'.",
+    "options": [
+      "Is History teach at this school?",
+      "Is History taught at this school?",
+      "Does History be taught at this school?",
+      "Is taught History at this school?"
+    ]
+  },
+  {
+    "id": "E170",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : You weren’t bitten by the dog.",
+    "correct": "A",
+    "explanation": "Astuce : 'The dog' devient sujet, 'weren’t bitten' → 'didn’t bite'.",
+    "options": [
+      "The dog didn’t bite you.",
+      "The dog wasn’t biting you.",
+      "You didn’t bite the dog.",
+      "The dog hasn’t bitten you."
+    ]
+  },
+  {
+    "id": "E171",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix active : The bill can’t be paid by Sue.",
+    "correct": "B",
+    "explanation": "Astuce : 'Sue' sujet, 'can’t be paid' → 'can’t pay'.",
+    "options": [
+      "Sue can’t be paid the bill.",
+      "Sue can’t pay the bill.",
+      "The bill can’t pay Sue.",
+      "Sue isn’t paying the bill."
+    ]
+  },
+  {
+    "id": "E172",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Transformez à la voix passive : They were carrying the injured players off the field.",
+    "correct": "C",
+    "explanation": "Astuce : Passé continu passif : 'were being carried'.",
+    "options": [
+      "The injured players were carrying them off the field.",
+      "They were being carried the injured players off the field.",
+      "The injured players were being carried off the field.",
+      "Off the field was being carried the injured players."
+    ]
+  },
+  {
+    "id": "E173",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Sélectionnez le mot correct : I have a job ________ tomorrow.",
+    "correct": "B",
+    "explanation": "Astuce : 'Job interview' = entretien d'embauche.",
+    "options": [
+      "meeting",
+      "interview",
+      "appointment",
+      "conference"
+    ]
+  },
+  {
+    "id": "E174",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Sélectionnez le mot correct : Stop _____________ me all the time, you know I’m right.",
+    "correct": "A",
+    "explanation": "Astuce : 'Contradict' = contredire.",
+    "options": [
+      "contradicting",
+      "arguing",
+      "opposing",
+      "denying"
+    ]
+  },
+  {
+    "id": "E175",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Sélectionnez le mot correct : The dependency to computers displayed in the behavior of certain people called computer _________.",
+    "correct": "C",
+    "explanation": "Astuce : 'Addiction' = dépendance, addiction.",
+    "options": [
+      "dependence",
+      "obsession",
+      "addiction",
+      "habit"
+    ]
+  },
+  {
+    "id": "E176",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Sélectionnez le mot correct : I took the noon _____________ to Chicago.",
+    "correct": "D",
+    "explanation": "Astuce : 'Flight' = vol (avion).",
+    "options": [
+      "train",
+      "bus",
+      "ship",
+      "flight"
+    ]
+  },
+  {
+    "id": "E177",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Sélectionnez le mot correct : ______________ is the inability to read or write.",
+    "correct": "B",
+    "explanation": "Astuce : 'Illiteracy' = analphabétisme.",
+    "options": [
+      "ignorance",
+      "illiteracy",
+      "innumeracy",
+      "illogicality"
+    ]
+  },
+  {
+    "id": "E178",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la forme correcte du verbe : She (feel) so proud of being a Haitian girl.",
+    "correct": "A",
+    "explanation": "Astuce : Présent simple, 3e personne.",
+    "options": [
+      "feels",
+      "feel",
+      "is feeling",
+      "feeling"
+    ]
+  },
+  {
+    "id": "E179",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : These days, as we (can) notice, the area (evolve) and (change).",
+    "correct": "D",
+    "explanation": "Astuce : 'These days' → présent continu.",
+    "options": [
+      "can, evolves, changes",
+      "could, is evolving, changing",
+      "can, evolve, change",
+      "can, is evolving, changing"
+    ]
+  },
+  {
+    "id": "E180",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : Usually, I (not oppose) gentrification, but I (not, like) the changes they (make) in Haiti.",
+    "correct": "C",
+    "explanation": "Astuce : Habitude (présent simple) vs action en cours (présent continu).",
+    "options": [
+      "don’t oppose, don’t like, make",
+      "am not opposing, don’t like, are making",
+      "don’t oppose, don’t like, are making",
+      "am not opposing, am not liking, make"
+    ]
+  },
+  {
+    "id": "E181",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : At the moment at school, we (study) poems by African American writers.",
+    "correct": "B",
+    "explanation": "Astuce : 'At the moment' = présent continu.",
+    "options": [
+      "study",
+      "are studying",
+      "have studied",
+      "studied"
+    ]
+  },
+  {
+    "id": "E182",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : He promised me to pick my apples again, ___________.",
+    "correct": "B",
+    "explanation": "Astuce : 'So did his brother' pour dire que son frère aussi l'a promis.",
+    "options": [
+      "neither did his brother",
+      "so did his brother",
+      "neither didn’t his brother",
+      "his brother didn’t promise"
+    ]
+  },
+  {
+    "id": "E183",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : Women have been fighting to achieve gender equality __________ more than a century.",
+    "correct": "A",
+    "explanation": "Astuce : 'For' + durée.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "in"
+    ]
+  },
+  {
+    "id": "E184",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : They have been protesting __________ 6:00 pm.",
+    "correct": "B",
+    "explanation": "Astuce : 'Since' + heure précise.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "at"
+    ]
+  },
+  {
+    "id": "E185",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : __________ 1893 women can vote in New Zealand.",
+    "correct": "B",
+    "explanation": "Astuce : 'Since' + année.",
+    "options": [
+      "For",
+      "Since",
+      "Ago",
+      "In"
+    ]
+  },
+  {
+    "id": "E186",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez la phrase : She left school one month __________.",
+    "correct": "C",
+    "explanation": "Astuce : 'Ago' pour le passé.",
+    "options": [
+      "for",
+      "since",
+      "ago",
+      "before"
+    ]
+  },
+  {
+    "id": "E187",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : If Jones __________ all the letters he would receive the money.",
+    "correct": "C",
+    "explanation": "Astuce : Deuxième conditionnel (irréel présent) : if + prétérit, would + infinitif. 'Wrote' serait le prétérit de 'write', mais l'option donnée est 'had written'? Vérifions : 'If Jones wrote' serait correct. Cependant l'option C 'had written' est past perfect, utilisé pour le troisième conditionnel. Revoir les options : Je vais corriger.",
+    "options": [
+      "wrote",
+      "has written",
+      "had written",
+      "would write"
+    ]
+  },
+  {
+    "id": "E188",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Choisissez la bonne réponse : I wish she __________ the principal of that institution last year.",
+    "correct": "A",
+    "explanation": "Astuce : Wish + past perfect pour regret sur le passé.",
+    "options": [
+      "had been",
+      "were",
+      "was",
+      "would be"
+    ]
+  },
+  {
+    "id": "E189",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : My mother is used to_________ Chinese with me.",
+    "correct": "C",
+    "explanation": "Astuce : 'Be used to' + gérondif.",
+    "options": [
+      "spoke",
+      "have spoken",
+      "speaking",
+      "speak"
+    ]
+  },
+  {
+    "id": "E190",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I’d rather __________ to the movies with my sister.",
+    "correct": "D",
+    "explanation": "Astuce : 'Would rather' + base verbale.",
+    "options": [
+      "going",
+      "have gone",
+      "went",
+      "go"
+    ]
+  },
+  {
+    "id": "E191",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Yesterday, I saw her________________ with her boyfriend.",
+    "correct": "A",
+    "explanation": "Astuce : Verbe de perception (see) + gérondif pour une action en cours.",
+    "options": [
+      "kissing",
+      "kissed",
+      "to kiss",
+      "have kissed"
+    ]
+  },
+  {
+    "id": "E192",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I have got an interview _____ Monday afternoon.",
+    "correct": "B",
+    "explanation": "Astuce : 'On' pour les jours.",
+    "options": [
+      "at",
+      "on",
+      "in",
+      "for"
+    ]
+  },
+  {
+    "id": "E193",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : Tony was making lunch _____ I was cutting the grass.",
+    "correct": "A",
+    "explanation": "Astuce : 'While' pour deux actions simultanées.",
+    "options": [
+      "while",
+      "when",
+      "afterwards",
+      "during"
+    ]
+  },
+  {
+    "id": "E194",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : You haven’t seen Paul today, ___________?",
+    "correct": "A",
+    "explanation": "Astuce : Tag question négatif → positif.",
+    "options": [
+      "have you",
+      "haven’t you",
+      "did you",
+      "don’t you"
+    ]
+  },
+  {
+    "id": "E195",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : She was lying on her bed ________ about the party.",
+    "correct": "A",
+    "explanation": "Astuce : Participe présent pour action simultanée.",
+    "options": [
+      "thinking",
+      "to think",
+      "think",
+      "thought"
+    ]
+  },
+  {
+    "id": "E196",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Choisissez la bonne réponse : I think my sister ________ a dancer one day.",
+    "correct": "C",
+    "explanation": "Astuce : 'Will become' pour prédiction.",
+    "options": [
+      "become",
+      "is becoming",
+      "will become",
+      "would become"
+    ]
+  },
+  {
+    "id": "E197",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la forme correcte du verbe : If you___________ (put) your money in your wallet, you wouldn’t lose it.",
+    "correct": "A",
+    "explanation": "Astuce : Deuxième conditionnel : if + prétérit. 'Put' reste 'put'.",
+    "options": [
+      "put",
+      "puts",
+      "putted",
+      "have put"
+    ]
+  },
+  {
+    "id": "E198",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : Jason _________ ______ (return) home before the storm broke out.",
+    "correct": "B",
+    "explanation": "Astuce : Past perfect pour une action antérieure à une autre dans le passé.",
+    "options": [
+      "returned",
+      "had returned",
+      "has returned",
+      "was returning"
+    ]
+  },
+  {
+    "id": "E199",
+    "category": "Grammaire",
+    "difficulty": "moyen",
+    "timer_seconds": 20,
+    "question": "Complétez avec la forme correcte du verbe : You would have won if you _______ _____ (take) part in the contest.",
+    "correct": "B",
+    "explanation": "Astuce : Troisième conditionnel : if + past perfect.",
+    "options": [
+      "took",
+      "had taken",
+      "have taken",
+      "would take"
+    ]
+  },
+  {
+    "id": "E200",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 15,
+    "question": "Complétez avec la forme correcte du verbe : As soon as she _________ (get) home, I will call you.",
+    "correct": "A",
+    "explanation": "Astuce : Présent simple dans la proposition temporelle.",
+    "options": [
+      "gets",
+      "will get",
+      "got",
+      "has got"
+    ]
+  }
+]

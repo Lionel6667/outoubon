@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../Bac"
+		},
+		{
+			"path": "../../../../../../xampp/htdocs/dashboard/phpscript"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "Bac",
+		"powershell.cwd": "BacIA_Django"
+	}
+}

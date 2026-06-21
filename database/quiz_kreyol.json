@@ -1,0 +1,3007 @@
+{
+  "matiere": "Kreyòl Ayisyen",
+  "total": 200,
+  "description": "200 quiz pou egzamen Bakaloreya - ordonnen depi ki jan literè ki pi souvan poze chak ane jiska ki mwens frekant.",
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Predika",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon predika vèbal?",
+      "options": [
+        "Predika ki fòme ak yon non kòm pilye",
+        "Predika ki fòme ak yon adjektif kòm pilye",
+        "Predika ki fòme ak yon advèb kòm pilye",
+        "Predika ki fòme ak yon vèb kòm pilye"
+      ],
+      "correct": "D",
+      "explanation": "Predika vèbal la se lè pilye fraz la se yon vèb. Egz: 'Manman m achte mango yo' — 'achte mango yo' se predika vèbal. Predika nominal li menm itilize yon non kòm pilye, adjektival itilize adjektif, advèbyal itilize advèb. Se poutèt sa, 'Predika ki fòme ak yon vèb kòm pilye' se definisyon kòrèk la. Lòt opsyon yo pa kòrèk paske predika nominal itilize yon non kòm pilye, predika adjektival itilize adjektif, e predika advèbyal itilize advèb."
+    },
+    {
+      "id": 2,
+      "category": "Predika",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Nan fraz 'Jak doktè depi 3 lane', ki tip predika ki genyen?",
+      "options": [
+        "Predika adjektival",
+        "Predika nominal",
+        "Predika advèbyal",
+        "Predika vèbal"
+      ],
+      "correct": "B",
+      "explanation": "Doktè depi 3 lane se predika nominal paske pilye a se non 'doktè'. Nan predika nominal, sijè a dekri pa yon non oubyen gwoup nominal, pa yon vèb. Li tou diferan ak predika adjektival kote adjektif la se pilye. Se poutèt sa, 'Predika nominal' se tip predika ki genyen. Opsyon 'Predika adjektival' pa kòrèk paske pilye a se yon non, pa yon adjektif. Opsyon 'Predika advèbyal' ak 'Predika vèbal' yo pa kòrèk nonplis."
+    },
+    {
+      "id": 3,
+      "category": "Predika",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki fraz ki montre yon predika adjektival?",
+      "options": [
+        "Jak doktè",
+        "Manje a sou tab la",
+        "Elèv la etidye",
+        "Tifi a bèl anpil"
+      ],
+      "correct": "D",
+      "explanation": "Repons kòrèk la se \"Tifi a bèl anpil\" paske fraz sa a gen yon predika adjektival \"bèl anpil\" ki dekri sijè a \"tifi a\". \nFraz \"Jak doktè\" pa montre yon predika adjektival men se yon apozisyon. \n\"Manje a sou tab la\" montre yon predika prepozisyonèl e non adjektival, e \"Elèv la etidye\" montre yon vèb aksyon an kòm predika."
+    },
+    {
+      "id": 4,
+      "category": "Predika",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Nan fraz 'Manje a sou tab la', ki tip predika ki genyen?",
+      "options": [
+        "Predika nominal",
+        "Predika prepozisyonèl",
+        "Predika vèbal",
+        "Predika adjektival"
+      ],
+      "correct": "B",
+      "explanation": "'Sou tab la' se yon gwoup prepozisyonèl — pilye a se prepozisyon 'sou'. Se sa ki rele predika prepozisyonèl. Li pa vèbal paske 'sou' pa yon vèb men yon prepozisyon."
+    },
+    {
+      "id": 5,
+      "category": "Predika",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Nan fraz 'Kafe a anpil', ki tip predika ki genyen?",
+      "options": [
+        "Predika vèbal",
+        "Predika nominal",
+        "Predika adjektival",
+        "Predika advèbyal"
+      ],
+      "correct": "D",
+      "explanation": "'Anpil' se yon advèb — donk predika a se yon predika advèbyal. Yon advèb ka sèvi kòm pilye nan kreyòl ayisyen. Pa konfonn li ak predika adjektival kote adjektif la sèvi kòm pilye."
+    },
+    {
+      "id": 6,
+      "category": "Predika",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki afòmasyon ki kòrèk sou predika nan kreyòl ayisyen?",
+      "options": [
+        "Predika a se menm bagay ak sijè a",
+        "Predika a se toujou yon non",
+        "Predika a se sa yo di sou sijè a epi li pa toujou yon vèb",
+        "Predika a toujou yon vèb"
+      ],
+      "correct": "C",
+      "explanation": "Predika a se enfòmasyon yo bay sou sijè a. Li pa toujou yon vèb — li ka yon non (nominal), adjektif (adjektival), advèb (advèbyal), prepozisyon (prepozisyonèl) oswa vèb (vèbal). Se poutèt sa, 'Predika a se sa yo di sou sijè a epi li pa toujou yon vèb' se afòmasyon kòrèk la. Lòt opsyon yo pa kòrèk paske predika a pa toujou menm bagay ak sijè a, li pa toujou yon non, e li pa toujou yon vèb."
+    },
+    {
+      "id": 7,
+      "category": "Predika",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki pi bon deskripsyon pou fraz 'Twa elèv la nan klas la'?",
+      "options": [
+        "Predika nominal — non 'klas' kòm pilye",
+        "Predika adjektival — adjektif 'twa' kòm pilye",
+        "Predika prepozisyonèl — prepozisyon 'nan' kòm pilye",
+        "Predika vèbal — vèb 'la' kòm pilye"
+      ],
+      "correct": "C",
+      "explanation": "Nan fraz 'Twa elèv la nan klas la', 'nan klas la' se yon gwoup prepozisyonèl kote prepozisyon 'nan' kòmanse gwoup la. Se predika prepozisyonèl. Mo 'la' se yon detèminan, pa yon vèb nan ka sa a. Se poutèt sa, 'Predika prepozisyonèl — prepozisyon nan kòm pilye' se deskripsyon kòrèk la. Lòt opsyon yo pa kòrèk paske 'klas' se konpleman, 'twa' se adjektif, e 'la' se detèminan."
+    },
+    {
+      "id": 8,
+      "category": "Predika",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Nan fraz 'Elèv la fè devwa li', ki pati se predika a?",
+      "options": [
+        "Li",
+        "Fè devwa li",
+        "Elèv la",
+        "Devwa"
+      ],
+      "correct": "B",
+      "explanation": "Elèv la se sijè a. Fè devwa li se predika a — li konpoze de pilye (vèb fè) ak konpleman objè (gwoup nominal devwa li). Predika a se tout sa yo di sou sijè a, pa sèlman vèb la. Se poutèt sa, 'Fè devwa li' se predika a. Lòt opsyon yo pa kòrèk paske 'li' se objè, 'elèv la' se sijè a, e 'devwa' se konpleman objè."
+    },
+    {
+      "id": 9,
+      "category": "Aspè tan",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki aspè akonpli?",
+      "options": [
+        "Lè aksyon an tèmine / fini",
+        "Lè aksyon an yon abitid",
+        "Lè aksyon an kontinye toujou",
+        "Lè aksyon an fenk kòmanse"
+      ],
+      "correct": "A",
+      "explanation": "Aspè akonpli endike aksyon an fini. Egz: 'Mwen tap manje lè loraj te gwonde' — manje a te fini anvan loraj la. Pa konfonn li ak aspè inakonpli (aksyon poko fini) oswa enkoratif (aksyon fenk kòmanse)."
+    },
+    {
+      "id": 10,
+      "category": "Aspè tan",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki fraz ki montre aspè inakonpli?",
+      "options": [
+        "Elèv yo ap etidye leson yo",
+        "Li te travay yè",
+        "Lapli a kòmanse tonbe",
+        "Elèv yo toujou fè devwa yo"
+      ],
+      "correct": "A",
+      "explanation": "'Elèv yo ap etidye' montre aspè inakonpli — aksyon an ap kontinye, li poko fini. Mo 'ap' se makè aspè inakonpli. A montre aspè enkoratif (kòmanse), C montre akonpli (te), D montre aspè iteratif (toujou)."
+    },
+    {
+      "id": 11,
+      "category": "Aspè tan",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki fraz ki montre aspè enkoratif (enkaratif)?",
+      "options": [
+        "Yo te fini travay la",
+        "Melisa tanmen lave rad yo",
+        "Li toujou al legliz",
+        "Nou ap travay"
+      ],
+      "correct": "B",
+      "explanation": "Aspè enkoratif se lè aksyon an fenk kòmanse. Mo tankou 'kòmanse', 'tanmen', 'antre nan' endike aspè enkoratif. Nan 'Melisa tanmen lave rad yo', aksyon an fenk ap kòmanse. 'Toujou' = iteratif; 'te fini' = akonpli; 'ap' = inakonpli."
+    },
+    {
+      "id": 12,
+      "category": "Aspè tan",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki mo yo asosye plis ak aspè iteratif?",
+      "options": [
+        "te, fini",
+        "souvan, toujou",
+        "ap, nan",
+        "kòmanse, tanmen"
+      ],
+      "correct": "B",
+      "explanation": "Aspè iteratif endike yon abitid oswa yon aksyon ki repete. Mo kle: 'souvan', 'toujou', 'chak jou'. Egz: 'Elèv yo toujou fè devwa yo.' 'Ap' = inakonpli; 'te/fini' = akonpli; 'kòmanse/tanmen' = enkoratif."
+    },
+    {
+      "id": 13,
+      "category": "Aspè tan",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki aspè ki nan fraz 'Klerimon fenk sot travay'?",
+      "options": [
+        "Aspè inakonpli",
+        "Aspè iteratif",
+        "Aspè enkoratif",
+        "Aspè akonpli"
+      ],
+      "correct": "D",
+      "explanation": "'Fenk sot travay' endike aksyon an tèmine — se aspè akonpli. Mo 'fenk' + 'sot' + vèb = eksplwasyon aksyon ki fini fèk. Pa konfonn ak enkoratif (kòmanse) oswa inakonpli (ap)."
+    },
+    {
+      "id": 14,
+      "category": "Aspè tan",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki aspè ki nan fraz 'Dènye jou kanaval la, jeneral la antre ta'?",
+      "options": [
+        "Aspè ponktyèl",
+        "Aspè inakonpli",
+        "Aspè diratif",
+        "Aspè iteratif"
+      ],
+      "correct": "A",
+      "explanation": "Aspè ponktyèl endike yon evènman espesifik ki pase yon segonn. 'Jeneral la antre ta' — antre a se yon zak imedyat, pa yon abitid ni aksyon ki pran tan. Aspè diratif li menm se lè aksyon an pran tan pou l fini."
+    },
+    {
+      "id": 15,
+      "category": "Aspè tan",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki aspè ki nan fraz 'Chak jou li leve al nan jaden'?",
+      "options": [
+        "Aspè iteratif",
+        "Aspè ponktyèl",
+        "Aspè enkoratif",
+        "Aspè akonpli"
+      ],
+      "correct": "A",
+      "explanation": "'Chak jou' se mo kle pou aspè iteratif — li endike yon abitid oswa yon aksyon ki repete regilyèman. 'Chak jou', 'souvan', 'toujou' se makè aspè iteratif."
+    },
+    {
+      "id": 16,
+      "category": "Aspè tan",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Nan fraz 'Mwen pral pote manje pou malad la', ki aspè ki genyen?",
+      "options": [
+        "Aspè inakonpli",
+        "Aspè enkoratif",
+        "Aspè iteratif",
+        "Aspè akonpli"
+      ],
+      "correct": "A",
+      "explanation": "'Pral' se makè aspè inakonpli (fiti). Aksyon an poko fèt epi li ap kontinye nan lavni. Li diferan ak 'ap' (pwogrès prezan) men tou de ka konsidere inakonpli. 'Pral' + vèb = inakonpli lavni."
+    },
+    {
+      "id": 17,
+      "category": "Aspè tan",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki aspè ki nan fraz 'Lapli a kòmanse tonbe'?",
+      "options": [
+        "Aspè akonpli",
+        "Aspè ponktyèl",
+        "Aspè enkoratif",
+        "Aspè iteratif"
+      ],
+      "correct": "C",
+      "explanation": "'Kòmanse tonbe' endike aspè enkoratif — aksyon an fenk ap kòmanse. Mo kle pou aspè enkoratif: 'kòmanse', 'tanmen', 'pran'. Lapli a pa t ap tonbe anvan, li fenk kòmanse."
+    },
+    {
+      "id": 18,
+      "category": "Aspè tan",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki diferans ant aspè akonpli ak aspè ponktyèl?",
+      "options": [
+        "Pa gen diferans ant yo de",
+        "Akonpli = aksyon fini; Ponktyèl = aksyon pran tan pou l fini",
+        "Akonpli = aksyon fini; Ponktyèl = yon evènman rapid/imedyat",
+        "Akonpli = aksyon kòmanse; Ponktyèl = aksyon fini"
+      ],
+      "correct": "C",
+      "explanation": "Aspè akonpli = aksyon ki tèmine nèt. Aspè ponktyèl = yon evènman ki pase yon moman rapid, san dire. Egz: 'Li tonbe' (ponktyèl — imedyat). 'Li te manje' (akonpli — fini). Aspè diratif li menm se aksyon ki pran tan."
+    },
+    {
+      "id": 19,
+      "category": "Aspè tan",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa aspè diratif endike?",
+      "options": [
+        "Aksyon ki fini net",
+        "Aksyon pran tan pou l fini",
+        "Aksyon fenk kòmanse",
+        "Aksyon ki repete"
+      ],
+      "correct": "B",
+      "explanation": "Aspè diratif = aksyon ki pran tan, ki dire yon bon moman anvan li fini. Pa konfonn li ak inakonpli (aksyon ap kontinye) oswa akonpli (aksyon fini). Diratif mete anfaz sou dire a, pa fen an."
+    },
+    {
+      "id": 20,
+      "category": "Aspè tan",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Nan fraz 'Li te tris nan fèt la', ki aspè predika a?",
+      "options": [
+        "Aspè iteratif ak tan pase",
+        "Aspè enkoratif ak tan prezan",
+        "Aspè akonpli ak tan pase",
+        "Aspè inakonpli ak tan pase"
+      ],
+      "correct": "C",
+      "explanation": "'Te tris' = aspè akonpli (situasyon ki te fini) nan tan pase. Mo 'te' = makè tan pase nan kreyòl. Sitiyasyon 'tris' la te fèt epi li fini. Se akonpli paske sitiyasyon an fini."
+    },
+    {
+      "id": 21,
+      "category": "Figi estil",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon metafò?",
+      "options": [
+        "Yon resanblans direk ant de bagay san itilize mo konparezon",
+        "Yon repetisyon de menm mo yo plizyè fwa",
+        "Yon konparezon ki itilize 'tankou' oswa 'sanble'",
+        "Yon egzajerasyon ekzajere sou yon bagay"
+      ],
+      "correct": "A",
+      "explanation": "Metafò se konparezon direk san mo tankou 'tankou', 'sanble'. Egz: 'Lanmou se levye' — li konpare lanmou ak levye DIRÈKTEMAN. Si ou di 'lanmou tankou levye', se yon konparezon (sanble). Diferans kle = prezans ou absans 'tankou'."
+    },
+    {
+      "id": 22,
+      "category": "Figi estil",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki figi estil ki genyen nan fraz 'Li frèt tankou glas'?",
+      "options": [
+        "Metafò",
+        "Konparezon (sanble)",
+        "Ipèbòl",
+        "Pèsonifikasyon"
+      ],
+      "correct": "B",
+      "explanation": "'Tankou glas' itilize mo konparezon 'tankou' pou konpare frèt la ak glas. Sa se konparezon (sanble). Si yo te di 'Li se glas' — sa ta metafò. 'Tankou', 'sanble', 'menm jan ak' = mo kle pou konparezon."
+    },
+    {
+      "id": 23,
+      "category": "Figi estil",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki figi estil ki genyen nan fraz 'Machin nan te plenyen'?",
+      "options": [
+        "Anafò",
+        "Ipèbòl",
+        "Pèsonifikasyon",
+        "Ironi"
+      ],
+      "correct": "C",
+      "explanation": "Pèsonifikasyon se lè nou bay yon bagay ki pa vivan (machin) karaktè yon moun (plenyen). Machin pa ka plenyen vre, men otè a ba li kapasite yon èt vivan. Lòt egzanp: 'Alam la rèl', 'Van an dou'."
+    },
+    {
+      "id": 24,
+      "category": "Figi estil",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon ipèbòl?",
+      "options": [
+        "Konparezon de bagay ki sanble",
+        "Repetisyon menm mo yo pou plis anfaz",
+        "Egzajerasyon oswa diminisyon ekzajere yon bagay",
+        "Bay yon bagay karaktè yon moun"
+      ],
+      "correct": "C",
+      "explanation": "Ipèbòl = egzajerasyon. Egz: 'Mwen te mande ou padon mil fwa' — pa gen mil fwa vre, se egzajerasyon pou montre regret fò. 'Jiska infinitif la ak pi lwen pase' — lòt ipèbòl. Ipèbòl pa di laverite literalman."
+    },
+    {
+      "id": 25,
+      "category": "Figi estil",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki figi estil ki nan fraz 'Site lendepandans lan leve cho maten an'?",
+      "options": [
+        "Metafò",
+        "Ipèbòl",
+        "Anafò",
+        "Pèsonifikasyon"
+      ],
+      "correct": "D",
+      "explanation": "'Site lendepandans lan leve' — site (yon bagay) ba li kapasite 'leve' tankou yon moun. Se pèsonifikasyon — yon bagay inanimé (sit) fè aksyon yon moun. Leve cho ka tou montre tan prezan an chode."
+    },
+    {
+      "id": 26,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki figi estil ki nan fraz 'Ti gason tant Èlsi a se yon sèvo'?",
+      "options": [
+        "Pèsonifikasyon",
+        "Metafò",
+        "Ironi",
+        "Konparezon"
+      ],
+      "correct": "B",
+      "explanation": "'Se yon sèvo' se metafò — ti gason an konpare DIRÈKTEMAN ak yon sèvo (entèlijans) san mo 'tankou'. Si yo te di 'tankou yon sèvo', sa ta konparezon. Metafò = konparezon direk san mo konparezon."
+    },
+    {
+      "id": 27,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki figi estil ki charakterize anafò?",
+      "options": [
+        "Repetisyon mo(s) oubyen gwoup mo nan kòmansman fraz oswa vè yo",
+        "Konparezon de bagay ak 'tankou'",
+        "Egzajerasyon yon aksyon oswa sitiyasyon",
+        "Bay yon bagay inanimé karaktè yon moun"
+      ],
+      "correct": "A",
+      "explanation": "Anafò = repetisyon mo(s) oubyen gwoup mo nan kòmansman fraz/vè konsekitif. Egz: 'Li konnen tout bagay. Li fè tout bagay bien. Li, toujou l'. Mo 'Li' repete nan kòmansman chak fraz = anafò. Sa kreye anfaz ak ritm."
+    },
+    {
+      "id": 28,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki ironi?",
+      "options": [
+        "Lè ou bay yon bagay karaktè moun",
+        "Lè ou di yon bagay men ou vle di kontrè a",
+        "Lè ou konpare de bagay",
+        "Lè ou egzajere yon bagay"
+      ],
+      "correct": "B",
+      "explanation": "Ironi = di yon bagay pou vle di kontrè a, souvan pou kritike san enstilte dirèkteman. Egz: 'Mwen te jwi apremidi a pandan ke mwen te tann pou ou rele m' — moun nan pa t jwi, men li te fache. Ironi kache veritab siyifikasyon an."
+    },
+    {
+      "id": 29,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Nan fraz 'Kò li frèt pase nen chen nan seren', ki figi estil ki genyen?",
+      "options": [
+        "Pèsonifikasyon",
+        "Metafò",
+        "Konparezon",
+        "Ipèbòl"
+      ],
+      "correct": "C",
+      "explanation": "Frèt pase nen chen = konparezon — fraz la konpare frèt kò a ak nen chen nan seren. Li pa itilize tankou men itilize pase ki gen menm wòl konparezon. Se konparezon ki montre gwo frèt kò a. Se poutèt sa, 'Konparezon' se figi estil ki genyen. Lòt opsyon yo pa kòrèk paske pèsonifikasyon ba objè karakteristik imen, metafò se konparezon san itilize 'pase', e ipèbòl se egzajerasyon."
+    },
+    {
+      "id": 30,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki figi estil ki gen nan fraz 'Depi m wè l kè m pran danse'?",
+      "options": [
+        "Pèsonifikasyon",
+        "Ipèbòl",
+        "Anafò",
+        "Ironi"
+      ],
+      "correct": "A",
+      "explanation": "'Kè m pran danse' = pèsonifikasyon — kè a (yon ògàn) ba li kapasite danse tankou yon moun. Se yon imaj powetik kote yon pati kò fè aksyon yon moun konplè. Sa montre emosyon fò."
+    },
+    {
+      "id": 31,
+      "category": "Figi estil",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki mo kle ki endike yon konparezon (sanble)?",
+      "options": [
+        "Kòmanse, tanmen",
+        "Tankou, sanble, menm jan ak",
+        "Toujou, souvan",
+        "Se, li menm"
+      ],
+      "correct": "B",
+      "explanation": "Mo konparezon: 'tankou', 'sanble', 'menm jan ak', 'pase' (nan konparezon). Egz: 'Li tonbe sou li tankou yon malfini sou bèt li yo'. Sa se diferans kle ant metafò (pa gen mo konparezon) ak sanble (gen mo konparezon)."
+    },
+    {
+      "id": 32,
+      "category": "Figi estil",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki diferans fondamantal ant metafò ak konparezon (sanble)?",
+      "options": [
+        "Metafò itilize mo 'tankou', konparezon pa itilize li",
+        "Se menm bagay yo, pa gen diferans",
+        "Metafò sèlman nan pwezi, konparezon sèlman nan pwoz",
+        "Konparezon itilize mo konparezon tankou 'tankou', metafò pa itilize yo"
+      ],
+      "correct": "D",
+      "explanation": "Diferans fondamantal: Konparezon (sanble) = mo konparezon prezan (tankou, sanble). Egz: 'Je l yo nwa tankou nwit'. Metafò = konparezon DIREK san mo konparezon. Egz: 'Je l yo se nwit' oswa 'Je l yo nwa'. Tou de konpare, men fason yo diferan."
+    },
+    {
+      "id": 33,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki figi estil ki nan fraz 'Lanmou se levye'?",
+      "options": [
+        "Ipèbòl",
+        "Ironi",
+        "Metafò",
+        "Konparezon"
+      ],
+      "correct": "C",
+      "explanation": "'Lanmou se levye' = metafò — konparezon direk. Lanmou konpare a levye dirèkteman (SE). Pa gen 'tankou'. Si te di 'lanmou tankou levye', sa ta konparezon. 'Se' = idantifikasyon direk = metafò."
+    },
+    {
+      "id": 34,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Nan fraz 'Mwen nèk wèl, mwen fè oak pa dèyè', ki figi estil ki genyen?",
+      "options": [
+        "Metafò",
+        "Ipèbòl",
+        "Vèb seryèl ki kreye imaj dinamik",
+        "Pèsonifikasyon"
+      ],
+      "correct": "C",
+      "explanation": "'Wèl... fè oak pa dèyè' montre yon seri aksyon rapid (vèb seryèl). Sa kreye imaj dinamik rapid — vit li wè l, vit li kouri. Se yon egzanp kote vèb seryèl yo kreye yon efè litèrè espesyal. Nan kontèks egzamen, yo ka mande 'vèb seryèl' oswa 'imaj dinamik'."
+    },
+    {
+      "id": 35,
+      "category": "Tip fraz",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Ki sa ki karakteris yon fraz deklaratif?",
+      "options": [
+        "Li eksprime yon emosyon fò ak siy eksklamasyon (!)",
+        "Li bay enfòmasyon oswa dekri yon sitiyasyon, fini ak yon pwen (.)",
+        "Li fini ak siy entèwogasyon (?)",
+        "Li bay yon lòd oswa yon konsèy"
+      ],
+      "correct": "B",
+      "explanation": "Fraz deklaratif se yon fraz ki bay enfòmasyon oswa dekri yon sitiyasyon, epi li fini ak yon pwen (.). Karakteristik li se kalm, san kesyon ni eksklamasyon. Pa egzanp, 'Mwen renmen li.' ak 'Nou prale demen.' Se poutèt sa, opsyon 'Li bay enfòmasyon oswa dekri yon sitiyasyon, fini ak yon pwen (.)' se kòrèk. Opsyon 'Li eksprime yon emosyon fò ak siy eksklamasyon (!)' se yon fraz eksklamatif, 'Li fini ak siy entèwogasyon (?)' se yon fraz entèrogatif, epi 'Li bay yon lòd oswa yon konsèy' se yon fraz enperatif, ki diferan de fraz deklaratif."
+    },
+    {
+      "id": 36,
+      "category": "Tip fraz",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Ki fraz ki se yon fraz entèrogatif?",
+      "options": [
+        "Kote w prale konsa?",
+        "Ala bèl ou bèl jodi a!",
+        "Mwen renmen Ayiti.",
+        "Chita!"
+      ],
+      "correct": "A",
+      "explanation": "Repons kòrèk la se 'Kote w prale konsa?' paske se yon fraz ki poze kesyon, ki gen yon ton entèrogatif. Fraz sa a mande enfòmasyon, se poutèt sa li se yon egzanp de fraz entèrogatif. Opsyon 'Ala bèl ou bèl jodi a!' se yon fraz eksklamatif ki eksprime admirasyon, 'Mwen renmen Ayiti.' se yon fraz deklaratif ki afiche yon reyalite, epi 'Chita!' se yon fraz enperatif ki bay lòd, ki diferan de fraz entèrogatif."
+    },
+    {
+      "id": 37,
+      "category": "Tip fraz",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Ki fraz ki montre yon fraz enperatif?",
+      "options": [
+        "Ou ap vini demen.",
+        "Ala tris!",
+        "Eske ou grangou?",
+        "Tanpri, ede m ak devwa a."
+      ],
+      "correct": "D",
+      "explanation": "Repons kòrèk la se 'Tanpri, ede m ak devwa a.' paske fraz sa a montre yon lòd oswa yon demand, sa ki karakteristik yon fraz enperatif. Fraz sa a mande èd, se poutèt sa li se yon egzanp de fraz enperatif. Opsyon 'Ou ap vini demen.' se yon deklarasyon ki afiche yon reyalite, 'Ala tris!' se yon eksklamasyon ki eksprime tristès, epi 'Eske ou grangou?' se yon kesyon ki mande enfòmasyon, ki diferan de fraz enperatif."
+    },
+    {
+      "id": 38,
+      "category": "Tip fraz",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Ki fraz ki montre yon fraz eksklamatif?",
+      "options": [
+        "Vini la a vit!",
+        "Ala bèl ou bèl jodi a!",
+        "Mari achte yon nouvo rad.",
+        "Ki jan ou santi w?"
+      ],
+      "correct": "B",
+      "explanation": "Repons kòrèk la se \"Ala bèl ou bèl jodi a!\" paske fraz sa a montre yon ton eksklamatif ak yon emosyon fò, ki karakterize fraz eksklamatif yo. Fraz \"Vini la a vit!\" se yon lòd, pa yon eksklamasyon; \"Mari achte yon nouvo rad\" se yon deklarasyon senp; epi \"Ki jan ou santi w?\" se yon kesyon."
+    },
+    {
+      "id": 39,
+      "category": "Tip fraz",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Konbyen tip fraz prensipal ki genyen nan lang kreyòl la selon gramè a?",
+      "options": [
+        "2 (deklaratif ak entèrogatif)",
+        "3 (deklaratif, entèrogatif, enperatif)",
+        "4 (deklaratif, entèrogatif, enperatif, eksklamatif)",
+        "6 (tou sa yo plis konjonktif ak pwopozisyonèl)"
+      ],
+      "correct": "C",
+      "explanation": "4 tip fraz prensipal: Deklaratif (bay enfòmasyon), Entèrogatif (poze kesyon), Enperatif (bay lòd/demann), Eksklamatif (eksprime emosyon). Kèk gramè mansyone plis tip (konjonktif, pwopozisyonèl), men 4 sa yo se baz la."
+    },
+    {
+      "id": 40,
+      "category": "Tip fraz",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Ki tip fraz 'Poukisa ou pa reponn'?",
+      "options": [
+        "Entèrogatif",
+        "Deklaratif",
+        "Enperatif",
+        "Eksklamatif"
+      ],
+      "correct": "A",
+      "explanation": "'Poukisa' se mo entèrogatif — fraz la poze yon kesyon. Mo entèrogatif pou sonje: ki, kilè, kiyès, kisa, poukisa, konbyen, kote, ki jan, eske. Fraz entèrogatif vle jwenn enfòmasyon oswa verifye yon bagay."
+    },
+    {
+      "id": 41,
+      "category": "Tip fraz",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Ki tip fraz 'Pa pale fò!'?",
+      "options": [
+        "Eksklamatif",
+        "Enperatif",
+        "Deklaratif",
+        "Entèrogatif"
+      ],
+      "correct": "B",
+      "explanation": "'Pa pale fò!' = fraz enperatif negatif — entèdi yon aksyon. Fraz enperatif ka pozitif ('Pale!') ou negatif ('Pa pale!'). Sijè a souvan kache. Li diferan ak eksklamatif ki eksprime emosyon, menm si tou de ka fini ak (!)."
+    },
+    {
+      "id": 42,
+      "category": "Tip fraz",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Ki tip fraz 'Men sa vrèman tris!'?",
+      "options": [
+        "Eksklamatif",
+        "Enperatif",
+        "Deklaratif",
+        "Entèrogatif"
+      ],
+      "correct": "A",
+      "explanation": "'Men sa vrèman tris!' = eksklamatif — mo 'men' + emosyon fò (tris) + (!). Mo kle eksklamatif: 'ala', 'men', 'gade', 'o wi'. Eksklamatif eksprime sipriz, kòlè, lajwa, tristès ak entonasyon fò."
+    },
+    {
+      "id": 43,
+      "category": "Tip fraz",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Kisa ki karakteris yon fraz enperatif pandan sijè a kache?",
+      "options": [
+        "Pa gen sijè kache nan enperatif",
+        "Sijè 'ou' (dezyèm pèsonn sengilie) souvan kache",
+        "Sijè 'yo' toujou kache",
+        "Sijè 'mwen' toujou kache"
+      ],
+      "correct": "B",
+      "explanation": "Nan fraz enperatif, sijè 'ou' souvan kache men li konprann. 'Chita!' = ou chita (ou se sijè kache). 'Vini!' = ou vini. 'Pa pale!' = ou pa pale. Sa pa vle di pa gen sijè — sijè a la, men li kache paske fraz la adrèse yon moun dirèkteman."
+    },
+    {
+      "id": 44,
+      "category": "Vèb",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon vèb modal?",
+      "options": [
+        "Vèb ki egzije de konpleman",
+        "Vèb ki toujou akonpanye yon lòt vèb; eksprime pèmisyon, obligasyon, posibilite, volonte",
+        "Vèb ki pa bezwen konpleman",
+        "Vèb ki ka ekziste poukont li nan yon fraz"
+      ],
+      "correct": "B",
+      "explanation": "Vèb modal se yon vèb ki toujou akonpanye yon lòt vèb epi ki eksprime pèmisyon, obligasyon, posibilite, oswa volonte. Pa egzanp, 'Ou mèt vini' (pèmisyon), 'Ou dwe ale' (obligasyon), 'Mwen vle manje' (volonte). Se poutèt sa, opsyon 'Vèb ki toujou akonpanye yon lòt vèb; eksprime pèmisyon, obligasyon, posibilite, volonte' se kòrèk. Opsyon 'Vèb ki egzije de konpleman', 'Vèb ki pa bezwen konpleman', ak 'Vèb ki ka ekziste poukont li nan yon fraz' dekri lòt karakteristik vèb yo, pa vèb modal yo."
+    },
+    {
+      "id": 45,
+      "category": "Vèb",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki vèb modal ki eksprime obligasyon?",
+      "options": [
+        "Mèt",
+        "Dwe",
+        "Vle",
+        "Ka"
+      ],
+      "correct": "B",
+      "explanation": "'Dwe' = obligasyon. Egz: 'Ou dwe fè devwa a kounya.' Lòt vèb modal: 'mèt' = pèmisyon, 'vle' = volonte, 'ka/kapab' = posibilite oswa kapasite. Chak vèb modal gen fonksyon espesifik li."
+    },
+    {
+      "id": 46,
+      "category": "Vèb",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon vèb seryèl?",
+      "options": [
+        "Vèb ki toujou akonpanye yon lòt vèb",
+        "Vèb ki pa bezwen konpleman",
+        "Vèb ki bezwen de konpleman",
+        "Plizyè vèb an seri nan menm pwoposisyon an san konjugsyon ki relye yo"
+      ],
+      "correct": "D",
+      "explanation": "Vèb seryèl = plizyè vèb plase an seri san mo sibòdonan oswa kowòdonan ant yo. Yo gen yon sèl sijè. Egz: 'Manman kouri ale chèche doktè' — kouri + ale + chèche = vèb seryèl. Yo fòme yon sèl aksyon konpoze."
+    },
+    {
+      "id": 47,
+      "category": "Vèb",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon vèb ditranzitif?",
+      "options": [
+        "Vèb ki toujou akonpanye yon adjektif",
+        "Vèb ki ka ekziste poukont li",
+        "Vèb ki egzije de konpleman objè anmenm tan",
+        "Vèb ki pa bezwen konpleman"
+      ],
+      "correct": "C",
+      "explanation": "Vèb ditranzitif = egzije DE konpleman objè anmenm tan. 1ye konpleman = direk ou endirèk; 2yèm = konpleman objè segon (KOS). Egz: 'Manman m bay Jaklin kòd yon bèf' — bay + Jaklin (KOI) + kòd yon bèf (KOS)."
+    },
+    {
+      "id": 48,
+      "category": "Vèb",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki fraz ki montre yon vèb entranzitif?",
+      "options": [
+        "Ou dwe fè devwa a",
+        "Manman m bay Jaklin kòb la",
+        "Manman kouri ale chèche doktè",
+        "Timoun yo ap danse"
+      ],
+      "correct": "D",
+      "explanation": "Repons kòrèk la se \"Timoun yo ap danse\" paske vèb \"danse\" la pa bezwen yon objè dirèk pou li konplete sans li. \nVèb yo nan fraz \"Ou dwe fè devwa a\", \"Manman m bay Jaklin kòb la\", \"Manman kouri ale chèche doktè\" yo bezwen yon objè pou konplete sans yo. \nSe poutèt sa, yo rele vèb \"danse\" yon vèb entranzitif, kontrèman ak lòt vèb yo."
+    },
+    {
+      "id": 49,
+      "category": "Vèb",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki vèb modal ki eksprime pèmisyon?",
+      "options": [
+        "Mèt",
+        "Vle",
+        "Bezwen",
+        "Dwe"
+      ],
+      "correct": "A",
+      "explanation": "'Mèt' = pèmisyon. Egz: 'Ou mèt vini demen a 4rè' = ou gen pèmisyon pou vini. 'Ou ka rantre kounya' = tou pèmisyon. Dwe = obligasyon; Vle = volonte; Bezwen = nesesite (pa vre modal klasik)."
+    },
+    {
+      "id": 50,
+      "category": "Vèb",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki vèb ki eksprime volonte nan kreyòl?",
+      "options": [
+        "Vle",
+        "Mèt",
+        "Kapab",
+        "Dwe"
+      ],
+      "correct": "A",
+      "explanation": "'Vle' = volonte. Egz: 'M vle reyalise pwojè a nan mwa sa.' Rezime vèb modal: dwe = obligasyon; mèt/ka = pèmisyon; vle = volonte; ka/kapab = posibilite oswa kapasite."
+    },
+    {
+      "id": 51,
+      "category": "Vèb",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Nan fraz 'Li ka vini demen maten', ki sa vèb modal 'ka' eksprime?",
+      "options": [
+        "Pèmisyon",
+        "Obligasyon",
+        "Volonte",
+        "Posibilite"
+      ],
+      "correct": "D",
+      "explanation": "'Li ka vini demen maten' = posibilite — li posib pou l vini, men pa garanti. 'Ka' ka eksprime tou: pèmisyon ('Ou ka rantre') oswa kapasite ('Li ka fè l poukont li'). Kontèks la detèmine sans la."
+    },
+    {
+      "id": 52,
+      "category": "Vèb",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki fraz ki gen yon vèb seryèl?",
+      "options": [
+        "Tifi a sou tab la",
+        "Elèv yo dwe fè devwa yo",
+        "Li bèl anpil",
+        "Manman kouri ale chèche yon doktè pou malad la"
+      ],
+      "correct": "D",
+      "explanation": "Manman kouri ale chèche yon doktè pou malad la se repons kòrèk la paske tèks la montre yon aksyon ki fèt ak yon sans de presipitasyon, \"kouri ale\", ki endike yon vèb seryèl. \nTifi a sou tab la pa montre okenn aksyon seryèl, se yon deklarasyon senp. \nElèv yo dwe fè devwa yo se yon enjonksyon, pa gen vèb seryèl. \nLi bèl anpil se yon deklarasyon ki montre yon karakteristik, san okenn aksyon seryèl."
+    },
+    {
+      "id": 53,
+      "category": "Jan literè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon woman (roman)?",
+      "options": [
+        "Yon narasyon long ki rakonte yon istwa fiktiv ak karaktè konplèks",
+        "Yon istwa kout ki pi kout pase woman",
+        "Yon tèks analitik ki eksprime opinyon otè a",
+        "Yon tèks ekri pou pèfòmans sou sèn ak dyalòg"
+      ],
+      "correct": "A",
+      "explanation": "Woman (roman) = narasyon long, istwa fiktiv, karaktè konplèks, chapit, naratè. Egz: Dezafi (Frankétienne), Gouverneurs de la Rosée (Jacques Roumain). Esè = analiz opinyon; Teyat = pèfòmans; Nouvèl = kout."
+    },
+    {
+      "id": 54,
+      "category": "Jan literè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki karakteristik pwezi?",
+      "options": [
+        "Akt, sèn, didaskalij pou aktè yo",
+        "Vèsè, rim, ritm, imaj, metafò, eksprime emosyon",
+        "Tèks analitik, agiman lojik",
+        "Chapit, narasyon long, pèsonaj konplèks"
+      ],
+      "correct": "B",
+      "explanation": "Pwezi = langaj imajine, ritm, son, vèsè. Karakteristik: rim, mèt, sèm, metafò, imaj. Tèm: lanmou, lanmò, nati, sosyete. Ekriven ayisyen: Georges Castera, Davertige, Frankétienne, Émile Roumer."
+    },
+    {
+      "id": 55,
+      "category": "Jan literè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki diferans prensipal ant yon woman ak yon nouvèl?",
+      "options": [
+        "Woman pi long ak konplèks; nouvèl pi kout ak yon konfli senp",
+        "Woman pou sèn, nouvèl pou lekti",
+        "Pa gen diferans, se menm bagay yo",
+        "Woman se pwezi, nouvèl se pwoz"
+      ],
+      "correct": "A",
+      "explanation": "Woman = narasyon long, pèsonaj konplèks, konfli multiple. Nouvèl = kout, yon moman kle, pèsonaj limite, souvan klimaks nan fen. Tou de pwoz, tou de narasyon, men longè ak konplèksite yo diferan."
+    },
+    {
+      "id": 56,
+      "category": "Jan literè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki karakteris teyat kòm jan literè?",
+      "options": [
+        "Tèks long, chapit, naratè",
+        "Agiman, tèm filozofik",
+        "Akt ak sèn, didaskalij, dyalòg dirèk pou pèfòmans sou sèn",
+        "Vèsè, rim, ritm"
+      ],
+      "correct": "C",
+      "explanation": "Teyat = tèks ekri pou pèfòmans. Karakteristik: akt, sèn, didaskalij (enstriksyon pou aktè), dyalòg. Tèm: trajedi, komedi. Egz ayisyen: Pèlen Tèt (Frankétienne/Syto Cavé), Chaloska (Frankétienne), Antigòn (tradiksyon Morisseau-Leroy)."
+    },
+    {
+      "id": 57,
+      "category": "Jan literè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon esè (essai)?",
+      "options": [
+        "Istwa kout ki pi kout pase woman",
+        "Resi lavi yon moun",
+        "Tradisyon istwa oral",
+        "Tèks analitik ki eksprime opinyon otè a sou yon sijè, agiman klè ak lojik"
+      ],
+      "correct": "D",
+      "explanation": "Esè = tèks analitik, opinyon otè, agiman lojik, tèm filozofik/politik/sosyal. Egz: 'Discours sur le colonialisme' (Aimé Césaire). Diferan ak woman (narativ), nouvèl (kout), biyografi (resi lavi)."
+    },
+    {
+      "id": 58,
+      "category": "Jan literè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki jan literè 'Dezafi' Frankétienne ye?",
+      "options": [
+        "Pwezi",
+        "Woman (roman)",
+        "Esè",
+        "Nouvèl"
+      ],
+      "correct": "B",
+      "explanation": "'Dezafi' (1975) Frankétienne se premye woman kreyòl ayisyen. Li pale sou lesklavaj modèn ak esperyans pèp ayisyen. Frankétienne ekri tou pyès teyat tankou 'Chaloska'. Li se youn nan pi gwo ekriven ayisyen yo."
+    },
+    {
+      "id": 59,
+      "category": "Jan literè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki jan literè 'Pèlen Tèt' ye?",
+      "options": [
+        "Pyès teyat",
+        "Esè",
+        "Woman",
+        "Pwezi"
+      ],
+      "correct": "A",
+      "explanation": "'Pèlen Tèt' = pyès teyat ki denonse enjistis sosyal ak ipokrizi sosyete ayisyen. Otè a = Syto Cavé (oswa atribiye tou a Frankétienne selon sous). Li se yon pyès ki montre abi pouvwa ak lavi moun pòv."
+    },
+    {
+      "id": 60,
+      "category": "Jan literè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'oraliture' oswa literati oral?",
+      "options": [
+        "Tradisyon istwa, lejand, chante ki transmèt oralman",
+        "Literati ki defann yon kòz politik",
+        "Literati ki ekri pou piblikasyon",
+        "Resi lavi yon moun ekri pa yon lòt"
+      ],
+      "correct": "A",
+      "explanation": "Oraliture = tradisyon oral: istwa bèt (kont), chante tradisyonèl (wozo, rara), pwovèb, ekspresyon kiltirèl. Egz: Kont Bouki ak Malis, Kont Ibo Lele. Transmèt de bouche a zòrèy, pa nan ekri."
+    },
+    {
+      "id": 61,
+      "category": "Jan literè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon 'fab' (fable)?",
+      "options": [
+        "Yon pwezi long",
+        "Yon pyès teyat kout",
+        "Yon esè filozofik",
+        "Yon ti resi (souvan ak bèt) ki gen yon leson moral"
+      ],
+      "correct": "D",
+      "explanation": "Fab = istwa kout (souvan bèt tankou pèsonaj) ki gen yon leson moral nan fen. Egz: 'Konpè Kaw ak Konpè Rena' — adaptasyon Mèt Lafontèn nan kreyòl. Fab = apolog = ti resi ak leson. Mo 'moral' = leson."
+    },
+    {
+      "id": 62,
+      "category": "Otè ak zèv",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki otè ki ekri woman kreyòl 'Dezafi'?",
+      "options": [
+        "Jacques Roumain",
+        "Frankétienne",
+        "Maurice Sixto",
+        "Gary Victor"
+      ],
+      "correct": "B",
+      "explanation": "Frankétienne (Frankétyen) ekri 'Dezafi' (1975) — premye woman kreyòl ayisyen. Li ekri tou 'Chaloska' (pyès teyat). Gary Victor ekri 'Kase m fè twou'. Maurice Sixto = 'Tonton Liben'. Jacques Roumain = 'Gouverneurs de la Rosée'."
+    },
+    {
+      "id": 63,
+      "category": "Otè ak zèv",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki otè ki ekri zèv 'Gouverneurs de la Rosée'?",
+      "options": [
+        "Georges Castera",
+        "Gary Victor",
+        "Frankétienne",
+        "Jacques Roumain"
+      ],
+      "correct": "D",
+      "explanation": "'Gouverneurs de la Rosée' = Jacques Roumain — yon woman klèsik sou peyizan ayisyen, solidarite, lanmou. Frankétienne = Dezafi; Gary Victor = Kase m fè twou; Georges Castera = Pawòl naje (pwezi)."
+    },
+    {
+      "id": 64,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki ekri 'Boukman Reken' epi ki jan literè li ye?",
+      "options": [
+        "Frankétienne — woman",
+        "Rodney Saint-Éloi — pwezi",
+        "Georges Castera — esè",
+        "Maurice Sixto — kont"
+      ],
+      "correct": "B",
+      "explanation": "'Boukman Reken' = Rodney Saint-Éloi — liv pwezi ki rann omaj a revolisyon ayisyen ak espri libète. Pa konfonn li ak Frankétienne (woman/teyat) oswa Castera (pwezi 'Pawòl naje')."
+    },
+    {
+      "id": 65,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki jan literè 'Tonton Liben' Maurice Sixto ye?",
+      "options": [
+        "Istwa kont oral sou lavi moun Ayiti",
+        "Pwezi",
+        "Woman",
+        "Pyès teyat"
+      ],
+      "correct": "A",
+      "explanation": "'Tonton Liben' = Maurice Sixto — seri istwa oral kout (oraliture) sou lavi moun Ayiti, espesyalman restavèk yo. Sixto te yon mèt kont ak dyalòg oral. Li ka klase tou kòm nouvèl oswa kont oral."
+    },
+    {
+      "id": 66,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki ekri 'Pawòl naje' epi ki jan literè li?",
+      "options": [
+        "Émile Roumer — pwezi",
+        "Frankétienne — woman",
+        "Jean-Claude Fignolé — literati angajman",
+        "Georges Castera — pwezi"
+      ],
+      "correct": "D",
+      "explanation": "'Pawòl naje' = Georges Castera — pwezi sou lit pèp ayisyen ak bèlte lang kreyòl. Émile Roumer = 'Souf Douvanjou'. Jean-Claude Fignolé = 'Les Arbres Musiciens' (literati angajman). Frankétienne = Dezafi (woman)."
+    },
+    {
+      "id": 67,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki tradui 'Antigòn' an kreyòl ayisyen?",
+      "options": [
+        "Félix Morisseau-Leroy",
+        "Syto Cavé",
+        "Gary Victor",
+        "Frankétienne"
+      ],
+      "correct": "A",
+      "explanation": "Félix Morisseau-Leroy tradui 'Antigòn' (Anouilh) an kreyòl ayisyen — yon wòl enpòtan pou valorize lang kreyòl. Li ekri tou 'Djakout' ak 'Dyakout' (pwezi). Pa konfonn li ak Frankétienne ki ekri 'Chaloska'."
+    },
+    {
+      "id": 68,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki jan literè 'Bouki ak Malis' ye?",
+      "options": [
+        "Esè",
+        "Kont popilè (tradisyon oral)",
+        "Woman",
+        "Pwezi"
+      ],
+      "correct": "B",
+      "explanation": "'Bouki ak Malis' = koleksyon kont popilè ayisyen (tradisyon oral/oraliture) ki montre entèlijans ak malis pèp la. Bouki = moun ki sotèz; Malis = moun entèlijan ki toujou pran avantaj. Se patrimonn kiltirèl Ayiti."
+    },
+    {
+      "id": 69,
+      "category": "Otè ak zèv",
+      "difficulty": "difficile",
+      "timer_seconds": 35,
+      "question": "Ki otè ki ekri woman 'Sezon sechrès Ayiti'?",
+      "options": [
+        "Gary Victor",
+        "Manno Ejèn",
+        "Frankétienne",
+        "Emmanuel W. Védrine"
+      ],
+      "correct": "B",
+      "explanation": "'Sezon sechrès Ayiti' = Manno Ejèn — woman ki montre lavi peyizan pandan kriz sosyal ak ekonomik. Emmanuel W. Védrine ekri 'Egoyis: yon viris k ap detwi kominote ayisyen an' ak 'Sezon sechrès' tou — asire w verifye kontèks la."
+    },
+    {
+      "id": 70,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki ekri 'Kase m fè twou'?",
+      "options": [
+        "Pierre Michel Chéry",
+        "Gary Victor",
+        "Frankétienne",
+        "Manno Ejèn"
+      ],
+      "correct": "B",
+      "explanation": "'Kase m fè twou' = Gary Victor — woman ki melanje mistè, politik, kritik sosyal sou Ayiti. Gary Victor se youn nan pi aktif ekriven ayisyen modèn yo. Pierre Michel Chéry ekri 'Bèbè Gòlgota'."
+    },
+    {
+      "id": 71,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki ekri 'Choukoun'?",
+      "options": [
+        "Frankétienne",
+        "Oswald Durand",
+        "Rodney Saint-Éloi",
+        "Georges Castera"
+      ],
+      "correct": "B",
+      "explanation": "'Choukoun' = Oswald Durand — yon pwezi (chante) ayisyen trè konn. Se youn nan premye pwezi an kreyòl ki fè konnen. Li pale sou yon fanm bèl ki kite yon Ayisyen pou ale ak yon blan."
+    },
+    {
+      "id": 72,
+      "category": "Otè ak zèv",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki zèv ki asosye ak otè Georges Sylvain?",
+      "options": [
+        "Dezafi",
+        "Pawòl naje",
+        "Cric-Crac",
+        "Antigòn"
+      ],
+      "correct": "C",
+      "explanation": "'Cric-Crac' (1901) = Georges Sylvain — koleksyon kont ak powèm ki adapte fab Lafontèn an kreyòl. Se youn nan premye zèv literè kreyòl enprime. 'Tèta ki kwè li kapab gwo kon bèf' soti nan Cric-Crac."
+    },
+    {
+      "id": 73,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon pwopozisyon sibòdone relativ?",
+      "options": [
+        "Pwopozisyon ki eksprime yon kondisyon",
+        "Pwopozisyon ki eksprime yon kòz",
+        "Pwopozisyon ki bay yon enfòmasyon sou tan",
+        "Pwopozisyon ki prezise oswa kalifye yon non nan fraz prensipal la"
+      ],
+      "correct": "D",
+      "explanation": "Sibòdone relativ = kalifye yon non. Li vin apre non li kalifye, souvan kòmanse ak 'ki', 'kote', 'ke'. Egz: 'Mwen wè elèv ki pa jwenn pwoteksyon' — 'ki pa jwenn pwoteksyon' = sibòdone relativ ki kalifye 'elèv'."
+    },
+    {
+      "id": 74,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon sibòdone sikonstansyèl kòz?",
+      "options": [
+        "Pwopozisyon ki eksprime konsekans",
+        "Pwopozisyon ki eksprime rezon oswa kòz yon aksyon",
+        "Pwopozisyon ki eksprime tan yon aksyon",
+        "Pwopozisyon ki kalifye yon non"
+      ],
+      "correct": "B",
+      "explanation": "Sibòdone sikonstansyèl kòz = bay rezon/kòz. Konektè: 'paske', 'kòm', 'akòz'. Egz: 'Timoun vin pa ka al lekòl paske gen moun ki vize lekòl yo pou yo fè move zak.' 'Paske' = konektè kòz."
+    },
+    {
+      "id": 75,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki konektè lojik ki endike yon opozisyon?",
+      "options": [
+        "Paske, akòz",
+        "Donk, alòske",
+        "Epi, tou",
+        "Men, sepandan, alòske"
+      ],
+      "correct": "D",
+      "explanation": "Konektè opozisyon: 'men', 'sepandan', 'alòske', 'tandiske', 'kwak', 'malgre'. Egz: 'Mwen vle ale men mwen pa kapab.' 'Paske/akòz' = kòz; 'Donk' = konsekans; 'Epi/tou' = adisyon."
+    },
+    {
+      "id": 76,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki diferans ant yon fraz senp ak yon fraz konplèks?",
+      "options": [
+        "Fraz senp tou kout; fraz konplèks tou long",
+        "Fraz senp se pwezi; fraz konplèks se pwoz",
+        "Fraz senp gen yon sèl pwopozisyon; fraz konplèks gen pwopozisyon prensipal + sibòdone",
+        "Fraz senp gen plizyè sibòdone, fraz konplèks gen yon sèl"
+      ],
+      "correct": "C",
+      "explanation": "Fraz senp = yon sèl pwopozisyon. Fraz konplèks = yon pwopozisyon prensipal + youn oswa plizyè sibòdone ki depann de li. Egz fraz konplèks: 'Mwen espere w ap retounen demen' — prensipal + sibòdone konjonktiv."
+    },
+    {
+      "id": 77,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon fraz kowòdone?",
+      "options": [
+        "Fraz ki gen yon sibòdone",
+        "Fraz ki gen sèlman yon pwopozisyon",
+        "Fraz ki eksprime yon emosyon",
+        "Fraz ki gen de pwopozisyon endepandan ki konekte ak konjonksyon kowòdinasyon"
+      ],
+      "correct": "D",
+      "explanation": "Fraz kowòdone = de pwopozisyon endepandan konekte ak konjugsyon kowòdinasyon: 'epi', 'men', 'oswa', 'ni', 'donk', 'paske' (nan kèk kontèks). Chak pati ka kanpe poukont li. Diferan ak fraz konplèks kote sibòdone depann de prensipal."
+    },
+    {
+      "id": 78,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon endis pèsòn nan yon tèks?",
+      "options": [
+        "Mo ki endike ki moun ki pale oswa ki pale de yo (pwonon, non moun)",
+        "Mo ki endike tan aksyon an",
+        "Mo ki endike kòman aksyon an fèt",
+        "Mo ki endike kote aksyon an fèt"
+      ],
+      "correct": "A",
+      "explanation": "Endis pèsòn = mo ki endike moun: pwonon pèsonèl (mwen, ou, li, nou, yo), non moun, relasyon (manman, frè). Nan egzamen, yo mande: 'endike endis pèsòn' = jwenn pwonon ak non moun nan tèks la."
+    },
+    {
+      "id": 79,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon endis tan nan yon tèks?",
+      "options": [
+        "Mo oswa ekspresyon ki endike lè aksyon an fèt (yè, demen, lontan, kounye a)",
+        "Adjektif ki kalifye yon non",
+        "Pwonon ki refere a moun",
+        "Mo ki endike kote aksyon an fèt"
+      ],
+      "correct": "A",
+      "explanation": "Endis tan = mo ki endike tan: 'yè', 'demen', 'lontan', 'kounye a', 'talè konsa', 'depi', 'jouk'. Nan egzamen yo mande: 'endike endis tan, pèsòn, lye' = jwenn mo ki endike tan, moun, kote nan tèks la."
+    },
+    {
+      "id": 80,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon diskou dirèk?",
+      "options": [
+        "Lè otè a rezime sa pèsonaj la di san site l",
+        "Lè pèsonaj la pa pale",
+        "Lè otè a ekri yon lèt",
+        "Lè otè a rapòte pawòl yon pèsonaj san chanjman, souvan ak giyomèt"
+      ],
+      "correct": "D",
+      "explanation": "Diskou dirèk = rapòte pawòl egzak yon moun, souvan ak giyomèt («») oswa tiré (—). Egz: Li di: «Mwen prale demen.» Diskou endirèk li menm = rapòte sans pawòl la san giyomèt, ak chanjman pwonon/tan. Egz: Li di l t ap ale demen."
+    },
+    {
+      "id": 81,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki 2 karakteristik diskou dirèk?",
+      "options": [
+        "Pas de giyomèt; chanjman pwonon",
+        "Giyomèt oswa tiré; pawòl egzak pèsonaj la",
+        "Rezime; pas de siy ponktyasyon espesyal",
+        "Chanjman tan; pa gen mo entwodiksyon"
+      ],
+      "correct": "B",
+      "explanation": "Diskou dirèk: (1) giyomèt («») oswa tiré (—) = siy diferansyasyon; (2) pawòl egzak pèsonaj la san chanjman. Souvan yon vèb entwodiksyon prezan: 'li di', 'li mande', 'li reponn'. Diskou endirèk pa gen giyomèt."
+    },
+    {
+      "id": 82,
+      "category": "Gramè avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki chanjman ki fèt lè ou mete diskou dirèk an diskou endirèk?",
+      "options": [
+        "Pa gen chanjman, se menm bagay",
+        "Giyomèt retire, pwonon chanje (mwen→li, ou→li), vèb intwodiksyon ajoute, tan chanje souvan",
+        "Mo 'ke/ki' ajoute sèlman",
+        "Sèlman giyomèt retire, pa gen lòt chanjman"
+      ],
+      "correct": "B",
+      "explanation": "Diskou dirèk → endirèk: Retire giyomèt; chanje pwonon (mwen→li, ou→li, nou→yo); ajoute sibòdone ('ke', 'ki', 'si'); chanje tan lè nesesè. Egz DD: Li di: 'M ap vini.' DE: Li di l t ap vini. Chanjman multiple!"
+    },
+    {
+      "id": 83,
+      "category": "Vokabilè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki sinonim?",
+      "options": [
+        "Mo ki gen plizyè sans diferan",
+        "Mo ki gen menm lèt men son diferan",
+        "Mo ki gen kontrè sans",
+        "Mo ki gen menm sans oswa prèske menm sans"
+      ],
+      "correct": "D",
+      "explanation": "Sinonim = mo ki gen menm (oswa prèske menm) sans. Egz: fatra, salte, dechè = tout vle di 'tèbè'. Antonim = kontrè. Polisemi = plizyè sans. Omofòn = menm son, diferan lèt/sans."
+    },
+    {
+      "id": 84,
+      "category": "Vokabilè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki antonim?",
+      "options": [
+        "Mo ki gen menm sans",
+        "Mo ki soti nan menm rasin",
+        "Mo ki gen plizyè sans",
+        "Mo ki gen sans kontrè"
+      ],
+      "correct": "D",
+      "explanation": "Antonim se mo ki gen sans kontrè. Pa egzanp, 'limyè' ak 'fènwa' se antonim paske yo gen sans opoze. Se poutèt sa, opsyon 'Mo ki gen sans kontrè' se kòrèk. Opsyon 'Mo ki gen menm sans' dekri sinonim, 'Mo ki soti nan menm rasin' dekri mo ki gen yon orijin komen, epi 'Mo ki gen plizyè sans' dekri polisemi, ki diferan de antonim."
+    },
+    {
+      "id": 85,
+      "category": "Vokabilè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki polisemi?",
+      "options": [
+        "Lè yon mo gen plizyè sans diferan",
+        "Lè de mo gen menm sans",
+        "Lè yon mo gen sèlman yon sans",
+        "Lè de mo gen son ki sanble"
+      ],
+      "correct": "A",
+      "explanation": "Polisemi = yon mo gen plizyè sans diferan. Egz: 'mache' = (1) fè pa; (2) mache (mèt ko mache). 'Bannann' = (1) manje; (2) sitiyasyon difisil. Kontèks la detèmine ki sans ki itilize."
+    },
+    {
+      "id": 86,
+      "category": "Vokabilè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki anagram?",
+      "options": [
+        "Mo ki gen plizyè sans",
+        "Yon mo ki gen kontrè sans",
+        "Mo ki soti nan menm rasin",
+        "Lè yo chanje lèt nan yon mo pou li bay yon lòt mo"
+      ],
+      "correct": "D",
+      "explanation": "Anagram = chanje lèt nan yon mo pou bay yon lòt mo. Egz: mès → sèm; sèk → kès; cham → mach; chanm → manch. Se yon jwèt mo kote ou reorganize menm lèt yo pou bay yon lòt mo."
+    },
+    {
+      "id": 87,
+      "category": "Vokabilè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki antonim 'limyè'?",
+      "options": [
+        "Dous",
+        "Fènwa",
+        "Gri",
+        "Cho"
+      ],
+      "correct": "B",
+      "explanation": "'Fènwa' se antonim 'limyè' — kontrè. Antre → soti; bèl → lèd; grandi → rapetise. Pa konfonn: sinonim = menm sans (klète, briyan ≈ limyè); antonim = kontrè (fènwa ↔ limyè)."
+    },
+    {
+      "id": 88,
+      "category": "Vokabilè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon prefiks?",
+      "options": [
+        "Mo ki retire nan yon mo",
+        "Mo ki ajoute nan finisman yon mo pou fè yon lòt",
+        "Chanjman son nan yon mo",
+        "Mo ki ajoute nan kòmansman yon rasin pou fòme yon mo nouvo"
+      ],
+      "correct": "D",
+      "explanation": "Prefiks = mòfèm ki ajoute DEVAN rasin yon mo. Egz: tounen → RE-tounen (retounen), DE-tounen (detounen). Sifiks li menm = ajoute DÈYÈ rasin. Egz: plant → plant-E (plante), rasin → rasin-EN (rasinen)."
+    },
+    {
+      "id": 89,
+      "category": "Vokabilè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki diferans ant prefiks ak sifiks?",
+      "options": [
+        "Yo menm bagay yo",
+        "Prefiks ajoute DEVAN rasin; sifiks ajoute DÈYÈ rasin",
+        "Prefiks pou vèb; sifiks pou non",
+        "Prefiks chanje sans konplètman; sifiks pa chanje anyen"
+      ],
+      "correct": "B",
+      "explanation": "Prefiks = devan (re-, de-, in-, an-). Egz: retounen, detounen. Sifiks = dèyè (finisman). Egz: plante, rasinen, ploge. Parantèz = prefiks + rasin + sifiks. Egz: de-plim-en = deplimen."
+    },
+    {
+      "id": 90,
+      "category": "Vokabilè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'chan leksikal' (champ lexical)?",
+      "options": [
+        "Mo ki soti nan menm rasin",
+        "Mo ki gen son ki sanble",
+        "Ansanm mo ki gen rapò ak menm tèm oswa sijè",
+        "Yon seri mo ki gen menm sans egzak"
+      ],
+      "correct": "C",
+      "explanation": "Chan leksikal se ansanm mo ki gen rapò ak menm tèm oswa sijè. Pa egzanp, mo 'doulè', 'lafyèv', 'doktè', 'lopital', ak 'tretman' tout gen rapò ak domèn 'maladi', se poutèt sa yo fòme yon chan leksikal. Se poutèt sa, opsyon 'Ansanm mo ki gen rapò ak menm tèm oswa sijè' se kòrèk. Opsyon 'Mo ki soti nan menm rasin' dekri mo ki gen yon orijin komen, 'Mo ki gen son ki sanble' dekri onomatopé ou allitération, epi 'Yon seri mo ki gen menm sans egzak' dekri sinonim, ki diferan de chan leksikal."
+    },
+    {
+      "id": 91,
+      "category": "Vokabilè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki egzanp ki montre yon rezo leksikal 'timoun'?",
+      "options": [
+        "Machin, wout, chofè, garaj",
+        "Manman, papa, pitit, vant, pran swen",
+        "Liv, klas, lekòl, pwofesè",
+        "Lapli, solèy, van, neige"
+      ],
+      "correct": "B",
+      "explanation": "Rezo leksikal 'timoun' = mo ki genyen rapò ak timoun: manman, papa, pitit, lèt, vant, pran swen, grandi, pwoteje. D (lekòl) ka pati nan rezo timoun tou, men A montre relasyon fanmi/pitit plis dirèkteman."
+    },
+    {
+      "id": 92,
+      "category": "Vokabilè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki omofòn?",
+      "options": [
+        "Mo ki gen menm sans",
+        "Mo ki gen menm son men lèt diferan epi sens diferan",
+        "Mo ki gen sans kontrè",
+        "Mo ki soti nan menm rasin"
+      ],
+      "correct": "B",
+      "explanation": "Omofòn = menm son (prononsyasyon), men lèt diferan epi sans diferan. Egz: 'te' (te bwè) vs 'te' (makè tan pase); 'vè' (koulè) vs 'vè' (vès). Kontèks la esansyèl pou konprann ki 'te' oswa ki 'vè' yo vle di."
+    },
+    {
+      "id": 93,
+      "category": "Vokabilè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki vokabilè 'melyoratif'?",
+      "options": [
+        "Mo netral ki pa gen neyans",
+        "Mo ki eksprime yon neyans pozitif, valorizan",
+        "Mo ki egzajere yon bagay",
+        "Mo ki eksprime yon neyans negatif"
+      ],
+      "correct": "B",
+      "explanation": "Vokabilè melyoratif = mo ki bay yon imaj pozitif, bèl, valorize sijè. Egz: 'Yo leve minis la byen wo' = melyoratif. Vokabilè pejoratif = negatif, devaloze. Egz: 'Souflantchou p ap kite defo' = pejoratif."
+    },
+    {
+      "id": 94,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki tip tèks ki bay enfòmasyon fètik, objektif sou yon sijè?",
+      "options": [
+        "Tèks enfòmatif/eksplikatif",
+        "Tèks pwezi",
+        "Tèks naratif",
+        "Tèks agimantatif"
+      ],
+      "correct": "A",
+      "explanation": "Tèks enfòmatif/eksplikatif = bay enfòmasyon, eksplike fèt, objektif. Egz: tèks sou malarya, byodivèsite. Tèks agimantatif = defann yon pozisyon. Tèks naratif = rakonte yon istwa. Pwezi = langaj imajine, ritm."
+    },
+    {
+      "id": 95,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki karakteristik yon tèks agimantatif?",
+      "options": [
+        "Defann yon tèz ak agiman, prèv, epi pafwa konklizyon",
+        "Dekri yon pèsonaj oswa yon kote",
+        "Rakonte yon istwa ak pèsonaj",
+        "Bay enfòmasyon objektif sou yon sijè"
+      ],
+      "correct": "A",
+      "explanation": "Tèks agimantatif = defann yon tèz (pozisyon) ak agiman solide, prèv, egzanp. Strikti: tèz → agiman → prèv/egzanp → konklizyon. Egz: 'Montre enpòtans konbit pou devlopman.' Li diferan ak naratif (rakonte) ak deskriptif (dekri)."
+    },
+    {
+      "id": 96,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki tip tèks ki rakonte yon istwa ak yon sekans evènman?",
+      "options": [
+        "Tèks deskriptif",
+        "Tèks agimantatif",
+        "Tèks enfòmatif",
+        "Tèks naratif"
+      ],
+      "correct": "D",
+      "explanation": "Tèks naratif = rakonte yon istwa, evènman ak yon lòd kronolojik, pèsonaj, konfli, rezolisyon. Karakteristik: naratè, moman (anvan/pandan/apre), pèsonaj. Egz: 'Nofraj', 'Jedeyon mouri', 'Blakawout'."
+    },
+    {
+      "id": 97,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon tèks deskriptif?",
+      "options": [
+        "Tèks ki bay enfòmasyon siyantifik",
+        "Tèks ki rakonte yon istwa",
+        "Tèks ki defann yon tèz",
+        "Tèks ki pèmèt viziyalize yon pèsonaj, yon lye, oswa yon sitiyasyon"
+      ],
+      "correct": "D",
+      "explanation": "Tèks deskriptif = pèmèt viziyalize — dekri aparans, karaktèristik moun, kote, bagay. Itilize adjektif anpil, ekspresyon espas. Souvan nan tèks naratif (sekans deskriptif). Egz: 'Limena Bout ke' = deskriptif + naratif."
+    },
+    {
+      "id": 98,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon tèz nan yon tèks agimantatif?",
+      "options": [
+        "Rezime tèks la",
+        "Pozisyon oswa ide prensipal otè a defann",
+        "Konklizyon tèks la",
+        "Yon egzanp nan tèks la"
+      ],
+      "correct": "B",
+      "explanation": "Tèz = pozisyon fondamantal otè a defann. Se pwen santral tèks agimantatif la. Agiman yo sèvi pou prouv tèz la. Egz: Tèz = 'Konbit se yon filozofi ki ta dwe nan tout lekòl.' Agiman = prèv ki kore tèz la."
+    },
+    {
+      "id": 99,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon sekans nan yon tèks?",
+      "options": [
+        "Yon strofe nan yon pwezi",
+        "Yon chapit nan yon woman",
+        "Yon pati tèks ki gen yon fonksyon espesifik (naratif, deskriptif, agimantatif, dyalòg...)",
+        "Yon fraz senp"
+      ],
+      "correct": "C",
+      "explanation": "Sekans = pati tèks ki gen yon fonksyon dominan espesifik. Yon tèks ka gen plizyè sekans: naratif (rakonte), deskriptif (dekri), agimantatif (defann), dyalòg (konvèsasyon), eksplikatif (eksplike). Egzamen souvan mande: 'ki sekans dominan?'"
+    },
+    {
+      "id": 100,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon naratè nan yon tèks naratif?",
+      "options": [
+        "Pèsonaj prensipal la",
+        "Lektè a",
+        "Otè tèks la",
+        "Vwa ki rakonte istwa a (li ka premye oswa twazyèm moun)"
+      ],
+      "correct": "D",
+      "explanation": "Naratè = vwa ki rakonte istwa. Pa toujou menm moun ak otè. 2 tip prensipal: Premye moun = 'mwen' (nan istwa); Twazyèm moun = 'li/yo' (andeyo istwa). Nan egzamen: 'kiyès ki naratè a?' = di ki moun ki rakonte."
+    },
+    {
+      "id": 101,
+      "category": "Pwezi",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'rim' nan pwezi?",
+      "options": [
+        "Nivo emosyon nan yon pwezi",
+        "Kantite silàb nan yon vè",
+        "Nimewo vè nan yon estwòf",
+        "Similitude son nan fen vè yo"
+      ],
+      "correct": "D",
+      "explanation": "Rim = similitude son (menm finisyon vèbal) nan fen vè yo. Egz: 'Si jou a te byen pase / Si pratik yo te peye' — 'pase' ak 'peye' rim. Kalite rim: pòv, sifizant, rich. Dispozisyon: plat (AABB), kwaze (ABAB), anbrase (ABBA)."
+    },
+    {
+      "id": 102,
+      "category": "Pwezi",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon estwòf?",
+      "options": [
+        "Yon sèl liy nan yon pwezi",
+        "Gwoup liy (vè) ki fòme yon inite nan yon pwezi",
+        "Kantite karaktè nan yon pwezi",
+        "Nivo son nan yon pwezi"
+      ],
+      "correct": "B",
+      "explanation": "Estwòf = gwoup vè ki fòme yon inite. Tankou yon 'paragraf' nan pwezi. Egz: katren (4 vè), tèrsèt (3 vè), distik (2 vè). Pwezi ka gen plizyè estwòf. Egzamen mande: 'konbyen estwòf?' = konte gwoup vè yo."
+    },
+    {
+      "id": 103,
+      "category": "Pwezi",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki kalite rim ki nan fraz: 'Si jou a te byen pase / Si pratik yo te peye'?",
+      "options": [
+        "Pa gen rim",
+        "Rim plat (AABB)",
+        "Rim kwaze (ABAB)",
+        "Rim anbrase (ABBA)"
+      ],
+      "correct": "B",
+      "explanation": "Reponse kòrèk la se \"Rim plat (AABB)\" paske tèks la montre yon modèl rim kote de premye liy yo (Si jou a te byen pase / Si pratik yo te peye) fini ak menm son, se sa ki \"pase\" ak \"peye\". \nLòt opsyon an \"Pa gen rim\" pa kòrèk paske tèks la klèman montre yon repetisyon son. \nOpsyon \"Rim kwaze (ABAB)\" ak \"Rim anbrase (ABBA)\" pa kòrèk tou, paske yo mande yon lòt modèl rim kèksood pas oswa ABAB, ABBA ki pa prezan isit la."
+    },
+    {
+      "id": 104,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'gwoup nominal sijè' (GNS)?",
+      "options": [
+        "Pwonon sèlman",
+        "Vèb ak konpleman li",
+        "Ansanm mo ki sèvi kòm sijè yon fraz (detèminan + non + oswa lòt mo)",
+        "Non yon moun sèlman"
+      ],
+      "correct": "C",
+      "explanation": "GNS = gwoup nominal ki fonksyone kòm sijè. Li ka gen: detèminan (yon, la, de) + non + adjektif + pwopozisyon relativ. Egz: 'elèv la' = det+non; 'yon bèl elèv ki etidye' = GNS konplèks."
+    },
+    {
+      "id": 105,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "Ki sa ki yon anafò gramatikal?",
+      "options": [
+        "Yon pwonon oswa ekspresyon ki refere a yon non mansyone anvan",
+        "Yon figi estil pwezi",
+        "Yon konektè lojik",
+        "Repetisyon yon mo nan kòmansman fraz"
+      ],
+      "correct": "A",
+      "explanation": "Anafò gramatikal = refe a yon mo mansyone anvan (pwonon oswa ekspresyon). Egz: 'Vijini Sanpè te ekri pwezi. Premye powetès an te Marye ak Osval Diran.' 'an' (= Vijini) = anafò gramatikal. Diferan ak anafò leksikal (repetisyon menm mo)."
+    },
+    {
+      "id": 106,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'entèwogasyon retorik'?",
+      "options": [
+        "Yon kesyon ki mande yon repons",
+        "Yon kesyon nan teyat",
+        "Yon kesyon ki poze men pa atann repons — li sèvi pou reflechi oswa renfòse yon pwen",
+        "Yon kesyon pou egzamen"
+      ],
+      "correct": "C",
+      "explanation": "Entèwogasyon retorik = kesyon ki pa atann repons dirèk. Li sèvi pou: renfòse yon pwen, pouse lektè reflechi, eksprime yon emosyon. Egz: 'Eske se yon krim pou ogmante pitit yon wayòm?' = pa atann 'non' oswa 'wi' men pouse reflechi."
+    },
+    {
+      "id": 107,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'vokabilè soutni' (registre soutenu)?",
+      "options": [
+        "Lang pou zanmi, la a familye",
+        "Lang vulgè ak jiwon",
+        "Lang fòmèl, rafine, pou kontèks ofisyèl ak literè",
+        "Lang pou timon sèlman"
+      ],
+      "correct": "C",
+      "explanation": "Rejis langaj: soutni = fòmèl, literè, ofisyèl; kouran = chak jou nòmal; familye = pou zanmi enfòmèl; vulgè = grosyè. Egz egzamen: 'Di nan ki rejis fraz la ye' = di si fòmèl, enfòmèl, oswa vulgè."
+    },
+    {
+      "id": 108,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon sibòdone konjonktiv?",
+      "options": [
+        "Pwopozisyon endepandan",
+        "Pwopozisyon ki bay sikonstans (tan, kòz, kondisyon)",
+        "Pwopozisyon ki kalifye yon non",
+        "Pwopozisyon ki fonksyone kòm non/konpleman nan fraz la"
+      ],
+      "correct": "D",
+      "explanation": "Sibòdone konjonktiv = fonksyone kòm konpleman vèb la, souvan kòmanse ak 'ke', 'ki'. Egz: 'Mwen espere ke w ap retounen demen' — 'ke w ap retounen demen' = sibòdone konjonktiv, konpleman 'espere'. Relativ = kalifye non."
+    },
+    {
+      "id": 109,
+      "category": "Gramè avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon sibòdone sikonstansyèl kondisyon?",
+      "options": [
+        "Pwopozisyon ki eksprime rezon yon aksyon",
+        "Pwopozisyon ki eksprime lè aksyon fèt",
+        "Pwopozisyon ki eksprime yon kondisyon pou aksyon prensipal la reyalize",
+        "Pwopozisyon ki kalifye yon non"
+      ],
+      "correct": "C",
+      "explanation": "Sibòdone kondisyon = bay kondisyon. Konektè: 'si', 'alèki', 'nan ka kote'. Egz: 'Si ou kouri w ap tonbe' — 'si ou kouri' = kondisyon pou 'w ap tonbe' reyalize. Strukti: si + kondisyon → konsekans."
+    },
+    {
+      "id": 110,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon sibòdone sikonstansyèl konsesyon?",
+      "options": [
+        "Eksprime yon fèt ki kontrè a sa yo ta atann",
+        "Eksprime yon kondisyon",
+        "Eksprime yon rezon",
+        "Eksprime yon konsekans"
+      ],
+      "correct": "A",
+      "explanation": "Konsesyon = malgre yon sikonstans, aksyon prensipal la rive kanmenm. Konektè: 'kwak', 'malgre', 'alèkile'. Egz: 'Li te ale nan pwovens, kwak li pa t gen kawotchou derechany' — 'kwak' = konsesyon."
+    },
+    {
+      "id": 111,
+      "category": "Gramè avanse",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon varyasyon fonolojik?",
+      "options": [
+        "Yon mo ki soti nan lòt lang",
+        "Diferan fason pwononse oswa ekri menm mo a selon rejyon oswa moun",
+        "Yon mo ki gen plizyè sans",
+        "Chanjman lèt nan yon mo san chanje sans"
+      ],
+      "correct": "B",
+      "explanation": "Varyasyon fonolojik refere a diferan fason pwononse oswa ekri menm mo a selon rejyon oswa moun. Pa egzanp, 'famasi' ka pwononse kòm 'famasri' oswa 'famàsi' nan diferan rejyon. Sa a pa chanje sans mo a, men montre diferans nan pwononsyasyon oswa òtograf. Se poutèt sa, opsyon 'Diferan fason pwononse oswa ekri menm mo a selon rejyon oswa moun' se kòrèk. Opsyon 'Yon mo ki soti nan lòt lang', 'Yon mo ki gen plizyè sans', ak 'Chanjman lèt nan yon mo san chanje sans' yo pa kòrèk paske yo pa defini varyasyon fonolojik kòrèkteman."
+    },
+    {
+      "id": 112,
+      "category": "Literati",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki literati 'angajman' (littérature engagée)?",
+      "options": [
+        "Literati ki rakonte istwa damou",
+        "Literati pou timoun sèlman",
+        "Literati ki defann yon kòz sosyal oswa politik kont opresyon",
+        "Literati ki pa gen mesaj sosyal"
+      ],
+      "correct": "C",
+      "explanation": "Literati angajman = ekriven angaje l pou yon kòz sosyal/politik. Mesaj klè kont opresyon, eksplwatasyon, enjistis. Egz: 'Les Arbres Musiciens' (Jean-Claude Fignolé), 'Discours sur le colonialisme' (Aimé Césaire). Lang kòm zouti chanjman sosyal."
+    },
+    {
+      "id": 113,
+      "category": "Literati",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon otobiyografi?",
+      "options": [
+        "Yon esè filozofik",
+        "Resi lavi otè a ekri pa li menm",
+        "Resi lavi yon moun ekri pa yon lòt moun",
+        "Yon tèks sou yon pèsonaj fiktif"
+      ],
+      "correct": "B",
+      "explanation": "Otobiyografi = moun nan ekri lavi LI MENM. Biyografi = yon LÒT moun ekri lavi li. Egz: 'Mwen, Toussaint Louverture' (Pierre Pluchon) = biyografi. Tou de faktèl ak istorik."
+    },
+    {
+      "id": 114,
+      "category": "Literati",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon nouvèl fantastik?",
+      "options": [
+        "Nouvèl ki rakonte istwa syans-fiksyon",
+        "Nouvèl kout ak yon leson moral",
+        "Nouvèl kote evènman surnaturèl ak reyalite melanje, ki kreye yon dout",
+        "Nouvèl ki rakonte istwa ayisyen"
+      ],
+      "correct": "C",
+      "explanation": "Nouvèl fantastik = reyalite mele ak surnaturèl. Karaktèristik: dout ant reyèl ak fanprennan, atmosfè anbigüité, pèsonaj ki pa konprann sa k ap pase. Pa menm ak fiksyon syantifik oswa merveilleux (kote surnaturèl nòmal)."
+    },
+    {
+      "id": 115,
+      "category": "Literati",
+      "difficulty": "difficile",
+      "timer_seconds": 35,
+      "question": "Ki sa ki 'metatèks'?",
+      "options": [
+        "Tèks ki kòmante sou tèks li menm oswa sou literati an jeneral",
+        "Tèks ki rakonte lavi yon moun",
+        "Yon tèks filozofik",
+        "Tradisyon oral"
+      ],
+      "correct": "A",
+      "explanation": "Metatèks = tèks ki pale sou tèks yo, sou literati, sou kreyasyon literè. Tèks ki reflechi sou pwòp natirèl li. Entètèks li menm = relasyon ant tèks — pèsonaj oswa evènman ki refere a lòt tèks. Kwonik = resi ki swiv lòd tan."
+    },
+    {
+      "id": 116,
+      "category": "Literati",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'lodyans'?",
+      "options": [
+        "Yon esè filozofik",
+        "Yon jan literè ayisyen — resi oral kout, souvan komik",
+        "Yon pwezi long",
+        "Yon pyès teyat"
+      ],
+      "correct": "B",
+      "explanation": "Lodyans = jan literè ayisyen espesifik — resi oral kout, souvan komik oswa satirik, ki pale sou lavi chak jou. Li tou rele 'oraliture'. Mauris Siksto = mèt lodyans. Diferan ak fab (leson moral) oswa woman (long, fiktif)."
+    },
+    {
+      "id": 117,
+      "category": "Literati",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'kwonik' (chronique)?",
+      "options": [
+        "Yon pwezi",
+        "Yon resi ki swiv lòd tan kronolojik",
+        "Yon istwa fantastik",
+        "Yon esè filozofik"
+      ],
+      "correct": "B",
+      "explanation": "Kwonik = resi ki prezante evènman nan lòd kronolojik (nan lòd tan). Li ka istorik ou literè. 'Kwonik' vin soti nan mo grèk 'khronos' = tan. Diferan ak otobiyografi (sou lavi otè) oswa woman (fiktif)."
+    },
+    {
+      "id": 118,
+      "category": "Literati",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'apològ'?",
+      "options": [
+        "Yon esè kont opresyon",
+        "Yon tèks sou vodou",
+        "Yon pwezi sou nati",
+        "Yon ti resi ki rapòte yon istwa ki gen yon leson moral (= fab)"
+      ],
+      "correct": "D",
+      "explanation": "Apològ = ti resi (fab) ki genyen yon leson moral. Se menm bagay ak fab — tèm diferan. Egz: 'Konpè Kaw ak Konpè Rena' = apològ ki montre ou pa dwe koute flater. 'Moral' = leson nan fen fab/apològ la."
+    },
+    {
+      "id": 119,
+      "category": "Literati avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki figi estil ki rele 'sinekdòk'?",
+      "options": [
+        "Itilize yon pati pou reprezante tout la oswa tout la pou yon pati",
+        "Egzajerasyon yon bagay",
+        "Bay yon bagay karaktè moun",
+        "Repetisyon mo nan kòmansman"
+      ],
+      "correct": "A",
+      "explanation": "Sinekdòk = pati pou tout la oswa tout la pou pati. Egz: 'Tout bourik tounen filozofis' — 'bourik' (pati = yon tip moun) pou 'tout moun sòt'. Metonimi li menm = chanje yon mo pou yon lòt ki gen rapò (kontenenan pou kontni)."
+    },
+    {
+      "id": 120,
+      "category": "Literati avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'oksimò' (oxymore)?",
+      "options": [
+        "Rapwochman de mo kontrè ki kreye yon efè surprènan",
+        "Konparezon de bagay ki sanble",
+        "Egzajerasyon yon kalite",
+        "Repetisyon mo nan fen vè"
+      ],
+      "correct": "A",
+      "explanation": "Oksimò = 2 mo kontrè ansanm pou kreye yon efè espesyal. Egz: 'gwo mikwo', 'nwit klere', 'silans bruyant'. Sa kreye yon kontadiksyon ki rèl ki pouse reflechi. Diferan ak antitèz ki mete de ide kontrè nan fraz diferan."
+    },
+    {
+      "id": 121,
+      "category": "Literati avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'antonomaz'?",
+      "options": [
+        "Lè yo egzajere yon bagay",
+        "Lè yo repete yon mo",
+        "Lè yo itilize yon non komen kòm yon non pwòp oswa vis vèrsa",
+        "Lè yo konpare de bagay"
+      ],
+      "correct": "C",
+      "explanation": "Antonomaz = non pwòp pou non komen oswa vis vèrsa. Egz: 'Wolan se yon gwo ewo' = non komen 'ewo' pou moun enpòtan. Oswa 'yon Jida' = itilize non pwòp pou di trèt. Sa bay plis fòs ekspresif."
+    },
+    {
+      "id": 122,
+      "category": "Literati avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'antifraz'?",
+      "options": [
+        "Lè yo bay yon bagay karaktè moun",
+        "Lè yo konpare de bagay",
+        "Lè yo repete menm mo yo",
+        "Lè yo di yon bagay men yo vle di kontrè a (tankou ironi)"
+      ],
+      "correct": "D",
+      "explanation": "Antifraz refere a lè yo di yon bagay men yo vle di kontrè a, souvan lè yo itilize ironi. Pa egzanp, 'Ala ou fè tèt ou travay papa!' ka vle di ke moun nan pa t travay ditel. Se poutèt sa, opsyon 'Lè yo di yon bagay men yo vle di kontrè a (tankou ironi)' se kòrèk. Opsyon 'Lè yo bay yon bagay karaktè moun', 'Lè yo konpare de bagay', ak 'Lè yo repete menm mo yo' yo pa kòrèk paske yo pa defini antifraz kòrèkteman."
+    },
+    {
+      "id": 123,
+      "category": "Literati avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'pwozopope' (prosopopée)?",
+      "options": [
+        "Konparezon de bagay",
+        "Egzajerasyon yon bagay",
+        "Repetisyon mo nan kòmansman",
+        "Bay yon bagay abstre oswa pèsonaj mouri kapasite pale"
+      ],
+      "correct": "D",
+      "explanation": "Pwozopope = bay yon moun mouri, yon bagay abstre, oswa yon bèt kapasite pale. Tankou pèsonifikasyon men pi espesifik pou moun mouri oswa abstre. Egz: 'Lapè pale, li di...' Diferan ak pèsonifikasyon nòmal (alam la rèl)."
+    },
+    {
+      "id": 124,
+      "category": "Literati avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'akimilasyon' (accumulation)?",
+      "options": [
+        "Egzajerasyon yon kalite",
+        "Akimile (anpile) plizyè mo de menm kategori pou renfòse yon lide",
+        "Repetisyon menm mo",
+        "Konparezon ak 'tankou'"
+      ],
+      "correct": "B",
+      "explanation": "Akimilasyon refere a lè yo akimile (anpile) plizyè mo de menm kategori pou renfòse yon lide. Pa egzanp, 'Watsonn vire gade bayawonn, raje, pye bannann, nas pwason, kay pay' se yon akimilasyon non ki kreye imaj anpil bagay. Se poutèt sa, opsyon 'Akimile (anpile) plizyè mo de menm kategori pou renfòse yon lide' se kòrèk. Opsyon 'Egzajerasyon yon kalite', 'Repetisyon menm mo', ak 'Konparezon ak 'tankou'' yo pa kòrèk paske yo pa defini akimilasyon kòrèkteman."
+    },
+    {
+      "id": 125,
+      "category": "Literati avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki 'paralèlis' nan literati?",
+      "options": [
+        "Egzajerasyon yon kalite",
+        "Repetisyon menm mo",
+        "Itilize menm strikti gramatikal nan plizyè fraz/vè konsekitif",
+        "Konparezon de bagay"
+      ],
+      "correct": "C",
+      "explanation": "Paralèlis = menm strikti gramatikal repete. Egz: 'Etidyan yo mande chanjman / Travayè yo vle ankourajman' — menm strikti GNS + vèb + GN. Sa kreye ritm ak efè estètik. Diferan ak anafò (repetisyon mo devan)."
+    },
+    {
+      "id": 126,
+      "category": "Predika avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki diferans ant 'pilye' ak 'predika'?",
+      "options": [
+        "Pilye = nwayo/tèt predika; Predika = pilye + konpleman li yo (ansanm)",
+        "Pilye = sijè; Predika = vèb",
+        "Pa gen diferans, yo menm bagay",
+        "Predika = pilye; Pilye = konpleman"
+      ],
+      "correct": "A",
+      "explanation": "Pilye = tèt predika (mo santral). Predika = pilye + tout konpleman yo. Egz: 'Elèv la fè devwa li' — 'fè' = pilye; 'fè devwa li' = predika (pilye + KOD). Menm jan: Prezidan ≠ Peyi, men Prezidan ka reprezante Peyi."
+    },
+    {
+      "id": 127,
+      "category": "Gramè avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'presipoze' (présupposé)?",
+      "options": [
+        "Repons posib pou yon kesyon",
+        "Sa fraz la di dirèkteman",
+        "Sa fraz la di anplika san di li dirèkteman",
+        "Konklizyon lojik fraz la"
+      ],
+      "correct": "C",
+      "explanation": "Presipoze = enfòmasyon ki implisit nan fraz, pa di dirèkteman men presipozed. Egz: 'Figi Jasmin chanje nèt depi kèk tan' — presipoze: Jasmin te gen yon aparans anvan; kèk bagay te rive li. Infeians = konkizyon lojik."
+    },
+    {
+      "id": 128,
+      "category": "Gramè avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'varyant' nan kreyòl?",
+      "options": [
+        "Kontrè yon mo",
+        "Mo ki soti nan fransè",
+        "Mo diferan ki gen menm sans (sinonim) oswa lòt fòm menm mo a",
+        "Mo ki gen plizyè sans"
+      ],
+      "correct": "C",
+      "explanation": "Varyant = lòt fòm oswa sinonim yon mo. Egz: 'chwe' = 'chove'; 'lò' = 'lè' (nan kèk kontèks); 'oubyen' = 'oswa'. Egzamen mande: 'jwenn yon varyant pou chak mo' = jwenn lòt fason di menm bagay la."
+    },
+    {
+      "id": 129,
+      "category": "Konbit ak kilti",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki sa ki 'sistèm konbit' nan kilti ayisyen?",
+      "options": [
+        "Sistèm travay kolektif kote moun ede youn lòt altenativman",
+        "Yon travay pou lajan",
+        "Yon sistèm gouvènman",
+        "Yon sistèm edikasyon"
+      ],
+      "correct": "A",
+      "explanation": "Konbit = sistèm travay kolektif ayisyen kote gwoup moun travay ansanm pou ede youn lòt altenativman (prepare tè, plante, rekòlte, bati kay). Filozofi: 'Men anpil chay pa lou.' Pa yon travay kòmèsyal — se solidarite kominotè."
+    },
+    {
+      "id": 130,
+      "category": "Konbit ak kilti",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Ki pwovèb ayisyen ki rezime filozofi konbit la?",
+      "options": [
+        "'Depi se pou bat bouch, Paladò anvayi w'",
+        "'Men anpil chay pa lou'",
+        "'Pito ou rete pye atè'",
+        "'Si m te konnen toujou dèyè'"
+      ],
+      "correct": "B",
+      "explanation": "'Men anpil chay pa lou' = men anpil (moun ki ede) fè chay lou vin fasil. Sa rezime filozofi konbit — travay ansanm fè bagay fasil ki ta difisil pou yon moun poukont li. Pwovèb = sadrès popilè ayisyen."
+    },
+    {
+      "id": 131,
+      "category": "Vèb",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki fraz ki montre vèb 'pèdi' ak 3 sans diferan?",
+      "options": [
+        "Li pa t pèdi; Li pèdi yè; Li va pèdi",
+        "Li pèdi kòb li; Ti fi a pèdi; Li pèdi wout",
+        "Pèdi + mèt; Pèdi + vle; Pèdi + dwe",
+        "Li pèdi anpil bagay; Li pèdi souvan; Li pèdi depi talè"
+      ],
+      "correct": "B",
+      "explanation": "Vèb 'pèdi' ka gen plizyè sans diferan tankou pa jwenn yon bagay, disparèt/mouri, oswa pa konn kote w prale. Pa egzanp, 'Li pèdi kòb li' (pa jwenn lajan), 'Ti fi a pèdi' (disparèt/mouri), ak 'Li pèdi wout' (pa konn kote w prale) montre twa sans diferan. Se poutèt sa, opsyon 'Li pèdi kòb li; Ti fi a pèdi; Li pèdi wout' se kòrèk. Opsyon 'Li pa t pèdi; Li pèdi yè; Li va pèdi', 'Pèdi + mèt; Pèdi + vle; Pèdi + dwe', ak 'Li pèdi anpil bagay; Li pèdi souvan; Li pèdi depi talè' yo pa kòrèk paske yo pa montre plizyè sans diferan vèb 'pèdi' kòrèkteman."
+    },
+    {
+      "id": 132,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki kategori gramatikal 'anpil' ye nan fraz 'Bibliyotèk la vire anpil'?",
+      "options": [
+        "Vèb",
+        "Adjektif",
+        "Non",
+        "Advèb"
+      ],
+      "correct": "D",
+      "explanation": "'Anpil' = advèb lè li modifye yon vèb ('vire anpil' = vire beaucoup). Li ka tou adjektif ('gen anpil moun' = anpil kalifye non). Kategori li depann de fonksyon li: si li modifye vèb = advèb; si li kalifye non = adjektif."
+    },
+    {
+      "id": 133,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'konpleman objè direk' (KOD)?",
+      "options": [
+        "Mo ki deziye sa ki resevwa aksyon vèb la dirèkteman",
+        "Mo ki deziye a ki moun aksyon fèt",
+        "Mo ki bay karaktèristik sijè a",
+        "Mo ki bay sikonstans aksyon an"
+      ],
+      "correct": "A",
+      "explanation": "Reponse kòrèk la se \"Mo ki deziye sa ki resevwa aksyon vèb la dirèkteman\" paske konpleman objè direk se yon mo oswa yon gwoup mo ki resevwa aksyon vèb la san entèmedyè. \n Opsyon \"Mo ki deziye a ki moun aksyon fèt\" pa kòrèk paske sa a se definisyon konpleman objè endirèk la. \n Opsyon \"Mo ki bay karaktèristik sijè a\" ak \"Mo ki bay sikonstans aksyon an\" pa kòrèk tou, paske yo pa deskri konpleman objè direk la."
+    },
+    {
+      "id": 134,
+      "category": "Pwezi",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'vè lib' nan pwezi?",
+      "options": [
+        "Vè ki gen egzakteman 12 silàb",
+        "Vè ki anseye libète",
+        "Vè ki pa oblije swiv règ rim ak mèt tradisyonèl yo",
+        "Vè ki san pwonon"
+      ],
+      "correct": "C",
+      "explanation": "Vè lib = pa gen règ fiks sou silàb ak rim. Otè ka ekri lib, san kontrent tradisyonèl. Modèn, fleksib. Kontrè = vè regilye (met fiks, rim obligatwa). Anpil pwezi modèn ayisyen = vè lib."
+    },
+    {
+      "id": 135,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'makè tan' nan kreyòl?",
+      "options": [
+        "Non ki endike tan",
+        "Konjugsyon tan",
+        "Advèb tan (yè, demen)",
+        "Mo ki presize tan yon vèb (te, ap, pral, ta...)"
+      ],
+      "correct": "D",
+      "explanation": "Makè tan (aussi rele 'oksilyè' nan kèk gramè) = mo ki mete devan vèb pou endike tan: 'te' (pase), 'ap' (prezan progresif/inakonpli), 'pral' (fiti), 'ta' (kondisyonèl). Egz: 'Li TE ale' = 'te' = makè tan pase."
+    },
+    {
+      "id": 136,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'oksilyè pilye' (auxiliaire prédicat)?",
+      "options": [
+        "Yon konjugsyon",
+        "Yon non ki sèvi kòm sijè",
+        "Yon vèb ki sèvi kòm vèb prensipal",
+        "Mo ki presize obligasyon, pwobabilite, pèmisyon, posibilite devan pilye a"
+      ],
+      "correct": "D",
+      "explanation": "Oksilyè pilye refere a mo ki presize obligasyon, pwobabilite, pèmisyon, posibilite devan pilye a. Pa egzanp, 'Ou mèt manje lè w fin fè devwa a' — 'mèt' se oksilyè pilye ki eksprime pèmisyon. Se poutèt sa, opsyon 'Mo ki presize obligasyon, pwobabilite, pèmisyon, posibilite devan pilye a' se kòrèk. Opsyon 'Yon konjugsyon', 'Yon non ki sèvi kòm sijè', ak 'Yon vèb ki sèvi kòm vèb prensipal' yo pa kòrèk paske yo pa defini oksilyè pilye kòrèkteman."
+    },
+    {
+      "id": 137,
+      "category": "Gramè",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Ki sa ki yon 'detèminan' nan kreyòl?",
+      "options": [
+        "Mo ki mete devan non pou prezante l (yon, la, yo, de...)",
+        "Yon vèb ki sèvi ak non",
+        "Adjektif ki kalifye non",
+        "Pwonon ki ranplase non"
+      ],
+      "correct": "A",
+      "explanation": "Detèminan = prezante non. Nan kreyòl: 'la/nan/lan' (defini sengilie), 'yo' (defini pliriyèl), 'yon' (endefini). Egz: 'ELÈV LA' = detèminan 'la'; 'YON elèv' = detèminan 'yon'. Diferan ak adjektif ki kalifye."
+    },
+    {
+      "id": 138,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki fonksyon mo ki souliye nan 'Joslen, PREZIDAN KLAS FILO A, te fè yon bèl diskou'?",
+      "options": [
+        "Sijè",
+        "KOD",
+        "Konpleman sikonstansyèl",
+        "Apozisyon (esplikasyon sijè a)"
+      ],
+      "correct": "D",
+      "explanation": "Apozisyon refere a lè yo ajoute yon eksplikasyon oswa yon detay pou sijè a. Pa egzanp, 'Joslen, Prezidan klas filo a, te fè yon bèl diskou' — 'Prezidan klas filo a' se apozisyon ki eksplique ki moun Joslen ye. Se poutèt sa, opsyon 'Apozisyon (esplikasyon sijè a)' se kòrèk. Opsyon 'Sijè', 'KOD', ak 'Konpleman sikonstansyèl' yo pa kòrèk paske yo pa defini apozisyon kòrèkteman."
+    },
+    {
+      "id": 139,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Nan fraz 'Komin lan PA gen kouran depi 3 jou', ki fonksyon 'depi 3 jou' genyen?",
+      "options": [
+        "Sijè",
+        "Konpleman sikonstansyèl tan",
+        "Predika",
+        "KOD"
+      ],
+      "correct": "B",
+      "explanation": "'Depi 3 jou' = konpleman sikonstansyèl tan — bay enfòmasyon sou lè oswa dire aksyon an. Konpleman sikonstansyèl: tan (depi 3 jou), kote (nan klas la), manye (dousman), kòz (akòz lapli). Yo bay kontèks aksyon an."
+    },
+    {
+      "id": 140,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'mo omograf'?",
+      "options": [
+        "Mo ki gen menm son men ekri diferan",
+        "Mo ki gen sans kontrè",
+        "Mo ki gen menm sans",
+        "Mo ki ekri menm jan men gen pwononsyasyon diferan oswa sans diferan selon kontèks"
+      ],
+      "correct": "D",
+      "explanation": "Yon 'mo omograf' se yon mo ki ekri menm jan men gen pwononsyasyon diferan oswa sans diferan selon kontèks. Pa egzanp, 'Monte' ka vle di 'moute anlè' (vèb) ou byen 'bèt gason kabrit/towo'. Se poutèt sa, opsyon 'Mo ki ekri menm jan men gen pwononsyasyon diferan oswa sans diferan selon kontèks' se kòrèk. Opsyon 'Mo ki gen menm son men ekri diferan' se kontrè a omograf, 'Mo ki gen sans kontrè' pa gen rapò ak omograf, e 'Mo ki gen menm sans' pa konsidere varyasyon nan pwononsyasyon oswa kontèks."
+    },
+    {
+      "id": 141,
+      "category": "Kilti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'vèvè' nan kilti vodou ayisyen?",
+      "options": [
+        "Yon dans",
+        "Yon chante",
+        "Yon priyè",
+        "Siy sakre desene sou tè pou envoke lwa (espri)"
+      ],
+      "correct": "D",
+      "explanation": "Vèvè = siy sakre (geometrik, floral) desene sou tè ak farin, poud oswa lòt materyèl pou envoke lwa espesifik. Chak lwa gen pwòp vèvè. Sa parèt nan tèks 'Rita Kwa-Bosal' (Dezafi): Rita pa konnen li vèvè. Pati enpòtan kilti vodou."
+    },
+    {
+      "id": 142,
+      "category": "Kilti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa 'Lasirèn' reprezante nan kilti ayisyen?",
+      "options": [
+        "Yon deyès te ak jaden",
+        "Yon espri move",
+        "Yon zanj ki pwoteje kay",
+        "Lwa dlo, mètrès lanmè"
+      ],
+      "correct": "D",
+      "explanation": "Lasirèn = lwa dlo nan vodou ayisyen, mètrès lanmè ak sous. Li asosye ak bèlte, mizik, abondans. Parèt nan tèks 'Rita Kwa-Bosal' ak 'Nofraj'. Li se lwa enpòtan nan panteyòn vodou ayisyen."
+    },
+    {
+      "id": 143,
+      "category": "Pwezi",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'endike kalite ak dispozisyon rim'?",
+      "options": [
+        "Di si pwezi an pwoz oswa an vè",
+        "Idantifye kalite rim (pòv/sifizant/rich) ak dispozisyon yo (plat, kwaze, anbrase)",
+        "Di si pwezi gen plizyè estwòf",
+        "Konte silàb nan chak vè"
+      ],
+      "correct": "B",
+      "explanation": "\"Idantifye kalite rim (pòv/sifizant/rich) ak dispozisyon yo (plat, kwaze, anbrase)\" se repons kòrèk la paske tèks la mande pou 'indike kalite ak dispozisyon rim', sa vle di esplike de aspè sa yo nan pwezi. Opsyon \"Di si pwezi an pwoz oswa an vè\" pa kòrèk paske li pa gen rapò ak rim. \"Di si pwezi gen plizyè estwòf\" ak \"Konte silàb nan chak vè\" pa kòrèk tou paske yo pa abòde aspè rim."
+    },
+    {
+      "id": 144,
+      "category": "Pwezi",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki kalite rim dispozisyon ki nan: 'Pou ou, ti kay / Pou ou lakay / Vini toutout vini tanto / Vini lacaille dodo!'?",
+      "options": [
+        "Rim anbrase (ABBA)",
+        "Rim plat (AABB)",
+        "Pa gen rim",
+        "Rim kwaze (ABAB)"
+      ],
+      "correct": "B",
+      "explanation": "Reponse kòrèk la se \"Rim plat (AABB)\" paske nan tèks la, \"Pou ou, ti kay\" ak \"Pou ou lakay\" se premye ak dezyèm liy ki sanble nan fen, epi \"Vini toutout vini tanto\" ak \"Vini lacaille dodo!\" se twazyèm ak katryèm liy ki sanble nan fen. \n\"Pa gen rim\" se pa kòrèk paske tèks la montre yon modèl repetisyon nan fen liy yo. \"Rim anbrase (ABBA)\" se pa kòrèk paske premye ak katryèm liy yo pa sanble, menm jan dezyèm ak twazyèm liy yo. \"Rim kwaze (ABAB)\" se pa kòrèk paske premye ak twazyèm liy yo pa sanble."
+    },
+    {
+      "id": 145,
+      "category": "Otè ak zèv",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki otè ki ekri 'Leya Kokoye'?",
+      "options": [
+        "Raymond Caze",
+        "Frankétienne",
+        "Gary Victor",
+        "Félix Morisseau-Leroy"
+      ],
+      "correct": "D",
+      "explanation": "Félix Morisseau-Leroy ekri 'Leya Kokoye' — yon jan literè tradisyonèl. Li ekri tou 'Djakout/Dyakout' (pwezi) ak tradiksyon Antigòn an kreyòl. Li se youn nan pi gran pwotagonis literati kreyòl modèn."
+    },
+    {
+      "id": 146,
+      "category": "Otè ak zèv",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Ki jan literè 'Zabèlbòk' ye?",
+      "options": [
+        "Pwezi",
+        "Esè",
+        "Nouvèl",
+        "Woman"
+      ],
+      "correct": "D",
+      "explanation": "'Zabèlbòk' = woman kreyòl. Pa konfonn ak 'Lavi nan bouk' (pwezi) oswa 'Choukoun' (pwezi Oswald Durand). Egzamen souvan mande: 'bay jan literè zèv sa yo' = di si woman, pwezi, teyat, esè."
+    },
+    {
+      "id": 147,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki ekri woman 'Nan lonbraj inosans'?",
+      "options": [
+        "Pauris Jean-Baptiste",
+        "Gary Victor",
+        "Pierre Michel Chéry",
+        "Edgar Gousse"
+      ],
+      "correct": "A",
+      "explanation": "'Nan lonbraj inosans' (1985) = Pauris Jean-Baptiste — woman ki pale sou sipèstisyon, tripotay, kwayans popilè nan sosyete ayisyen. Pierre Michel Chéry ekri 'Bèbè Gòlgota'. Edgar Gousse ekri 'Limena Bout ke'."
+    },
+    {
+      "id": 148,
+      "category": "Otè ak zèv",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki ekri 'Dezafi', 'Djakout' ak 'Choukoun'?",
+      "options": [
+        "Frankétienne, Morisseau-Leroy, Oswald Durand",
+        "Gary Victor, Manno Ejèn, Georges Castera",
+        "Frankétienne, Frankétienne, Frankétienne",
+        "Maurice Sixto, Rodney Saint-Éloi, Émile Roumer"
+      ],
+      "correct": "A",
+      "explanation": "Dezafi = Frankétienne; Djakout/Dyakout = Félix Morisseau-Leroy; Choukoun = Oswald Durand. Sa se 3 zèv enpòtan nan literati kreyòl ayisyen. Egzamen souvan mande 'asosye zèv ak otè yo'."
+    },
+    {
+      "id": 149,
+      "category": "Pwezi",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki otè ki ekri pwezi 'Blakawout' (Siloyiz)?",
+      "options": [
+        "Frantz (Kiki) Wainright",
+        "Beethova Obas",
+        "Émile Roumer",
+        "Jean-Claude Martineau"
+      ],
+      "correct": "A",
+      "explanation": "Frantz (Kiki) Wainright ekri 'Siloyiz' (2002) kote 'Blakawout' soti. Jean-Claude Martineau = 'Koralen' (pwezi 'Vyewo'). Beethova Obas = chantè ki sèvi ak pwezi nan albuml 'Si'. Mèt chak otè ak zèv yo enpòtan nan egzamen."
+    },
+    {
+      "id": 150,
+      "category": "Gramè avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki diferans ant yon fraz 'fòm aktif' ak yon fraz 'fòm anfatik' nan kreyòl?",
+      "options": [
+        "Aktif = kout; anfatik = long",
+        "Pa gen diferans",
+        "Aktif = sijè fè aksyon; pasif = sijè resevwa aksyon",
+        "Aktif = nòmal; anfatik = mete anfaz sou yon eleman nan fraz la (souvan sijè oswa KOD) pa deplase l"
+      ],
+      "correct": "D",
+      "explanation": "Fòm aktif = fraz nòmal (sijè + vèb + konpleman). Fòm anfatik = deplase yon eleman pou mete anfaz. Egz aktif: 'Manman m achte mango yo.' Anfatik: 'Se mango yo manman m achte.' Sijè emfatik: 'Se manman m ki achte mango yo.'"
+    },
+    {
+      "id": 151,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'mo derive'?",
+      "options": [
+        "Mo ki soti nan yon lòt lang",
+        "Mo ki pa gen sinonim",
+        "Mo ki fòme soti nan yon lòt mo (rasin) pa ajoute prefiks oswa sifiks",
+        "Mo ki gen 3 silàb"
+      ],
+      "correct": "C",
+      "explanation": "Mo derive = fòme soti nan yon rasin pa derivasyon (prefiks/sifiks). Egz: direktè → direktris (sifiks -is); jij → jijman (sifiks -man); lans → lansman. Derivasyon = pwosede ki fòme nouvo mo depi rasin egzistan."
+    },
+    {
+      "id": 152,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'mo aglitiné' (mot agglutinant)?",
+      "options": [
+        "Mo ki pa gen definiswon",
+        "Mo ki fòme pa fouzyon/kole plizyè mo",
+        "Mo fransè ki vin kreyòl",
+        "Mo anglè ki vin kreyòl"
+      ],
+      "correct": "B",
+      "explanation": "Mo aglitiné/aglitinasyon = plizyè mo kole pou fòme yon sèl mo. Egz: 'bonm' (bon + m), 'devan' (de + van). Nan kreyòl anpil mo soti nan aglitinasyon fransè. Egzamen mande: 'jwenn mo fransè ki vin mo aglitiné an kreyòl'."
+    },
+    {
+      "id": 153,
+      "category": "Kilti",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Ki sa ki yon 'pwovèb'?",
+      "options": [
+        "Ekspresyon kout ki bay yon leson oswa sadrès popilè",
+        "Yon istwa long",
+        "Yon priyè",
+        "Yon chante tradisyonèl"
+      ],
+      "correct": "A",
+      "explanation": "Pwovèb = ekspresyon kout, konsiz ki genyen yon sadrès oswa verite popilè. Egz: 'Men anpil chay pa lou', 'Kabrit gade je mèt kay avan li antre', 'Si ou kouri w ap tonbe'. Pwovèb fè pati patrimwàn oral ayisyen."
+    },
+    {
+      "id": 154,
+      "category": "Kilti",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Ki sa pwovèb 'Pakèt bwa a ri dife sann' vle di?",
+      "options": [
+        "Ri toujou bon pou sante",
+        "Dife pa bon pou bwa",
+        "Bwa toujou pi fò pase dife",
+        "Sa ki sanble mèl ka tounen danje — bagay senp ka vini danjere si yo akimile"
+      ],
+      "correct": "D",
+      "explanation": "Pwovèb sa a vle di: sa ki sanble enosant ka tounen panyèl — anpil ti bagay ki sanble pa danjere, rassanble, ka kreye yon gwo pwoblèm. Tankou bwa ki ri (sanble kontan) anba dife ki ap boule l. Mete atansyon a ti bagay."
+    },
+    {
+      "id": 155,
+      "category": "Kilti",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Ki sans pwovèb 'Kabrit gade je mèt kay avan li antre'?",
+      "options": [
+        "Mèt kay toujou gen rezon",
+        "Kabrit pa dwe antre kay",
+        "Fòk ou gade si ou gen otorizasyon oswa si situasyon an favorab anvan ou aji",
+        "Kabrit se bèt entèlijan"
+      ],
+      "correct": "C",
+      "explanation": "'Kabrit gade je mèt kay anvan li antre' = fòk ou asire w ka fè yon aksyon anvan ou lanse. Gade si mèt kay la okò d = gade si kondisyon yo bon. Leson: pa aji san refleksyon, asire w anvan ou avanse."
+    },
+    {
+      "id": 156,
+      "category": "Kilti",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Ki sans pwovèb 'Ret trankil se remèd kò'?",
+      "options": [
+        "Lapè ak kalm yo bon pou lasante fizik ak mantal",
+        "Paran yo dwe ret trankil",
+        "Meditatyon kire tout maladi",
+        "Twò mache fè kò mal"
+      ],
+      "correct": "A",
+      "explanation": "'Ret trankil se remèd kò' = lapè ak kalm se yon medikaman natirèl. Evite tèt cho, diskisyon, stres — sa bon pou sante. Pwovèb sa a pouse moun jwenn lapè, pa kontrarye san rezon."
+    },
+    {
+      "id": 157,
+      "category": "Predika",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Nan fraz 'Manje a sou tab la', ki sa ki sijè a epi ki tip predika ki la?",
+      "options": [
+        "Sijè = 'Manje a'; Predika = 'sou tab la' (prepozisyonèl)",
+        "Sijè = 'sou'; Predika = 'tab la' (advèbyal)",
+        "Sijè = 'sou tab la'; Predika = 'manje a' (nominal)",
+        "Sijè = 'tab la'; Predika = 'manje a sou' (vèbal)"
+      ],
+      "correct": "A",
+      "explanation": "Nan fraz 'Manje a sou tab la', 'Manje a' se sijè a paske se li yo pale de li. 'Sou tab la' se predika prepozisyonèl paske li endike kote manje a ye, avèk 'sou' ki se prepozisyon an. Se poutèt sa, opsyon 'Sijè = 'Manje a'; Predika = 'sou tab la' (prepozisyonèl)' se kòrèk. Opsyon 'Sijè = 'sou'; Predika = 'tab la' (advèbyal)' se enkorèk paske 'sou' se prepozisyon, pa sijè. Opsyon 'Sijè = 'sou tab la'; Predika = 'manje a' (nominal)' tou se enkorèk paske 'sou tab la' se predika a, pa sijè a. Opsyon 'Sijè = 'tab la'; Predika = 'manje a sou' (vèbal)' se enkorèk paske 'tab la' pa se sijè a, e 'manje a sou' pa fòme yon predika vèbal."
+    },
+    {
+      "id": 158,
+      "category": "Predika",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Nan fraz 'Direktè a nan lise a kounye a', ki tip predika ki genyen?",
+      "options": [
+        "Predika vèbal",
+        "Predika nominal",
+        "Predika adjektival",
+        "Predika prepozisyonèl"
+      ],
+      "correct": "D",
+      "explanation": "Nan fraz 'Direktè a nan lise a kounye a', 'nan lise a kounye a' se predika prepozisyonèl paske li endike kote direktè a ye, ak 'nan' ki se prepozisyon an. Se poutèt sa, opsyon 'Predika prepozisyonèl' se kòrèk. Opsyon 'Predika vèbal' se enkorèk paske pa gen vèb sèlman nan predika a. Opsyon 'Predika nominal' se enkorèk paske 'nan lise a kounye a' pa nonme yon bagay direktè a se oswa li fè. Opsyon 'Predika adjektival' se enkorèk paske pa gen adjektif ki dekri yon non nan predika a."
+    },
+    {
+      "id": 159,
+      "category": "Predika",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki fraz ki gen yon predika vèbal PLIS predika prepozisyonèl ansanm?",
+      "options": [
+        "Jak doktè",
+        "Kafe a anpil",
+        "Mekanisyen an ranje machin nan nan garaj la",
+        "Tifi a bèl"
+      ],
+      "correct": "C",
+      "explanation": "'Ranje machin nan' = predika vèbal (pilye = vèb 'ranje'); 'nan garaj la' = konpleman sikonstansyèl kote (pa yon 2yèm predika, men konpleman). Fraz la gen yon predika vèbal + konpleman de lye. Egzamen ka mande tip predika prensipal."
+    },
+    {
+      "id": 160,
+      "category": "Aspè tan",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki diferans ant aspè 'enkoratif' ak aspè 'inakonpli' nan kreyòl?",
+      "options": [
+        "Enkoratif = aksyon kòmanse (kòmansman); Inakonpli = aksyon ap kontinye (pwogrès)",
+        "Enkoratif = abitid; Inakonpli = evènman espesyal",
+        "Yo menm bagay, pa gen diferans",
+        "Enkoratif = aksyon fini; Inakonpli = aksyon pako fini"
+      ],
+      "correct": "A",
+      "explanation": "Enkoratif/enkaratif = aksyon fenk kòmanse. Mo kle: kòmanse, tanmen, pran. Egz: 'Li kòmanse pleure'. Inakonpli = aksyon nan pwogrès, ap kontinye. Mo kle: ap, nan. Egz: 'Li ap pleure'. Diferans = kòmansman vs pwogrès."
+    },
+    {
+      "id": 161,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'gwoup vèb' nan kreyòl?",
+      "options": [
+        "Vèb (modal oswa seryèl) + tout lòt eleman ki depann de li",
+        "Plizyè fraz ak vèb yo",
+        "Sèlman yon vèb",
+        "Yon gwoup moun ki ap travay"
+      ],
+      "correct": "A",
+      "explanation": "Gwoup vèb (GV) = nwayo verbal + konpleman li. Ka gen: (1) vèb senp + KOD; (2) vèb modal + lòt vèb; (3) vèb seryèl. Egz: 'kouri ale chèche yon doktè pou malad la' = GV seryèl + KOD. Diferan ak predika ki gen plis eleman."
+    },
+    {
+      "id": 162,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'kontrandi' oswa 'kont-randi'?",
+      "options": [
+        "Yon tèks kreyatif",
+        "Rapò ekri sou yon reyinyon, konferans, oswa evènman",
+        "Yon lèt pèsonèl",
+        "Yon pwezi"
+      ],
+      "correct": "B",
+      "explanation": "Kontrandi (compte-rendu) = rapò ekri ki prezante sa ki te pase nan yon reyinyon, diskisyon, konferans. Li bay: ki moun ki prezan, sijè diskite, desizyon pran. Enpòtan nan kontèks pwofesyonèl."
+    },
+    {
+      "id": 163,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'lèt motivasyon'?",
+      "options": [
+        "Lèt pou yon travay ki prezante motivasyon ak kalifikasyon kandida a",
+        "Lèt ki rakonte yon istwa",
+        "Lèt pou mande padon",
+        "Lèt pou felisitasyon"
+      ],
+      "correct": "A",
+      "explanation": "Lèt motivasyon = prezante tèt ou pou yon pòs travay — eksplike poukisa ou vle pòs la, ki kalifikasyon ou genyen. Strikti: entèt + kò lèt (motif, kalifikasyon, esperans) + fermeture. Enpòtan nan egzamen karyè."
+    },
+    {
+      "id": 164,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'kourikouloum vite' (CV)?",
+      "options": [
+        "Yon tèks long sou lavi ou",
+        "Yon lèt pèsonèl",
+        "Dokiman ki rezime fòmasyon, eksperyans, ak konpetans yon moun",
+        "Yon deklarasyon jidisyè"
+      ],
+      "correct": "C",
+      "explanation": "CV (Curriculum Vitae / Kourikouloum Vite) = dokiman rezime: enfòmasyon pèsonèl, fòmasyon akademik, eksperyans pwofesyonèl, konpetans, referans. Li ale ak lèt motivasyon pou jwenn travay. Kout, klè, òganize."
+    },
+    {
+      "id": 165,
+      "category": "Lang kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki pozisyon lang kreyòl la nan Ayiti selon Konstitisyon 1987?",
+      "options": [
+        "Kreyòl sèlman se lang ofisyèl",
+        "Lang ofisyèl sèlman se fransè",
+        "Pa gen lang ofisyèl",
+        "Tou de kreyòl ak fransè se lang ofisyèl Ayiti"
+      ],
+      "correct": "D",
+      "explanation": "Konstitisyon 1987 Ayiti = tou de kreyòl ak fransè kòm lang ofisyèl. Kreyòl = lang tout Ayisyen pale; fransè = lang administrasyon, edikasyon tradisyonèl. Deba sou lang ansèyman an = gwo kesyon sosyal nan tèks egzamen yo."
+    },
+    {
+      "id": 166,
+      "category": "Lang kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dapre tèks egzamen 'Li mande piki, li vle lasante', ki diferans ant 'sa yo mande' ak 'sa yo vle'?",
+      "options": [
+        "Yo menm bagay",
+        "Sa yo mande = sa ki bon; Sa yo vle = sa ki mal",
+        "Sa yo mande = demand sibolik/sèvil; Sa yo vle = bezwen vèritab/fond",
+        "Pa gen diferans enpòtan"
+      ],
+      "correct": "C",
+      "explanation": "Tèks la fè diferans enpòtan: manman mande 'piki' paske yo di l se sa ki bon, men sa l REYÈLMAN VLE se lasante ak lavi pou pitit li. Sa yo mande = sèvil, syanbòl; Sa yo vle = veritab bezwen. Sosyete fè moun konfonn de bagay sa yo."
+    },
+    {
+      "id": 167,
+      "category": "Aspè tan",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki aspè predika ki nan fraz 'Moun bò lakay mwen TOUJOU PWOTEJE pitit yo'?",
+      "options": [
+        "Aspè inakonpli, tan prezan",
+        "Aspè iteratif, tan prezan",
+        "Aspè akonpli, tan pase",
+        "Aspè enkoratif, tan prezan"
+      ],
+      "correct": "B",
+      "explanation": "Nan fraz 'Moun bò lakay mwen TOUJOU PWOTEJE pitit yo', 'toujou pwoteje' montre yon aspè iteratif paske li endike yon aksyon ki repete (abitid regilye), e li fèt nan tan prezan an. Se poutèt sa, opsyon 'Aspè iteratif, tan prezan' se kòrèk. Opsyon 'Aspè inakonpli, tan prezan' se enkorèk paske inakonpli vle di aksyon ki kòmanse men pa fini. Opsyon 'Aspè akonpli, tan pase' se enkorèk paske pa gen endikasyon tan pase. Opsyon 'Aspè enkoratif, tan prezan' se enkorèk paske enkoratif vle di yon lòd oswa yon envitasyon, pa yon deklarasyon."
+    },
+    {
+      "id": 168,
+      "category": "Aspè tan",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki aspè predika ki nan fraz 'Mwen PRAL pase lakay ou demen maten'?",
+      "options": [
+        "Aspè iteratif, tan fiti",
+        "Aspè akonpli, tan pase",
+        "Aspè inakonpli, tan fiti",
+        "Aspè enkoratif, tan prezan"
+      ],
+      "correct": "C",
+      "explanation": "'Pral pase' = makè 'pral' = fiti + inakonpli (aksyon pako fèt, pral rive). Tan fiti/avni. Pa gen siy abitid (toujou/souvan) = pa iteratif. Aksyon pa kòmanse = pa enkoratif. Pa fini = pa akonpli."
+    },
+    {
+      "id": 169,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki diferans ant yon 'sibòdone relativ' ak yon 'sibòdone sikonstansyèl'?",
+      "options": [
+        "Pa gen diferans, yo menm bagay",
+        "Relativ = nan pwezi; Sikonstansyèl = nan pwoz",
+        "Relativ = kalifye yon non; Sikonstansyèl = bay enfòmasyon sou sikonstans aksyon (tan, kòz, kondisyon)",
+        "Relativ = prezan; Sikonstansyèl = pase"
+      ],
+      "correct": "C",
+      "explanation": "Sibòdone relativ = kalifye/modifye yon non. Egz: 'moun ki te la' — 'ki te la' kalifye 'moun'. Sibòdone sikonstansyèl = bay sikonstans aksyon prensipal: tan (lè), kòz (paske), kondisyon (si), konsesyon (kwak), konparezon."
+    },
+    {
+      "id": 170,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki konektè ki endike yon sibòdone sikonstansyèl tan?",
+      "options": [
+        "Si, alèki",
+        "Lè, depi, apre, anvan",
+        "Paske, akòz",
+        "Ki, ke"
+      ],
+      "correct": "B",
+      "explanation": "Konektè tan: 'lè', 'depi', 'apre', 'anvan', 'pandan', 'chak fwa'. Egz: 'Lè Anita fin pèdi fòs li, jounalis mande l dènye priyè.' 'Lè' = konektè tan. Kòz = paske; Kondisyon = si; Relativ = ki/ke."
+    },
+    {
+      "id": 171,
+      "category": "Vèb",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki 5 vèb ki nan vèb seryèl fraz 'Li leve mache pwoche kanpe bò kabann nan'?",
+      "options": [
+        "Mache, pwoche, kanpe, kabann, bò",
+        "Leve, mache, pwoche, kanpe, bò",
+        "Li, leve, mache, pwoche, kanpe",
+        "Leve, mache, pwoche, kanpe (4 vèb sèlman)"
+      ],
+      "correct": "D",
+      "explanation": "Nan fraz 'Li leve mache pwoche kanpe bò kabann nan', vèb seryèl yo se 'leve', 'mache', 'pwoche', ak 'kanpe'. Se poutèt sa, lè nou konte vèb yo, nou jwenn 4 vèb: 'leve', 'mache', 'pwoche', 'kanpe'. Opsyon 'Leve, mache, pwoche, kanpe' se kòrèk paske li idantifye vèb seryèl yo kòrèktman. Opsyon 'Mache, pwoche, kanpe, kabann, bò' se enkorèk paske li enkli mo ki pa vèb, tankou 'kabann' ak 'bò'."
+    },
+    {
+      "id": 172,
+      "category": "Lang kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki lè yo te kòmanse itilize mo 'byodivèsite' ofisyèlman nan syans?",
+      "options": [
+        "1988",
+        "1992",
+        "1986",
+        "1980"
+      ],
+      "correct": "A",
+      "explanation": "Thomas Lovejoy = premye itilize 'diversite biyolojik' (1980). Mo 'byodivèsite' premye parèt ofisyèlman = 1988, E.O. Wilson itilize l kòm tit kongrè 1986 sou divèsite biyolojik. Epi 1992 = Konvansyon Rio. Sa soti nan tèks egzamen 2019."
+    },
+    {
+      "id": 173,
+      "category": "Figi estil",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki figi estil ki nan fraz 'Chak jou pote doulè, chak jou pote lespwa'?",
+      "options": [
+        "Metafò",
+        "Anafò ak paralèlis",
+        "Konparezon",
+        "Ipèbòl"
+      ],
+      "correct": "B",
+      "explanation": "'Chak jou' repete nan kòmansman chak pati = ANAFÒ. Menm strikti 'Chak jou + vèb + non' = PARALÈLIS. Tou de figi estil prezan ansanm. Sa kreye ritm ak enfaz. Izole yo: anafò = repetisyon devan; paralèlis = menm strikti gramatikal."
+    },
+    {
+      "id": 174,
+      "category": "Figi estil",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki figi estil ki nan 'Gen anpil timoun k ap viktim vyolans, k ap viktim move tretman, k ap viktim akòz neglijans'?",
+      "options": [
+        "Pèsonifikasyon",
+        "Metafò",
+        "Anafò",
+        "Konparezon"
+      ],
+      "correct": "C",
+      "explanation": "'K ap viktim... k ap viktim... k ap viktim...' = ANAFÒ — repetisyon menm gwoup mo nan kòmansman chak pati. Sa kreye anfaz sou kantite timoun ki viktim. Tou ka konsidere AKIMILASYON (akimile sitiyasyon). Anafò pi egzak."
+    },
+    {
+      "id": 175,
+      "category": "Figi estil",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki figi estil ki nan 'Lajwa yon pèp se nan grangou li'?",
+      "options": [
+        "Pèsonifikasyon",
+        "Ipèbòl",
+        "Anafò",
+        "Ironi / antifraz"
+      ],
+      "correct": "D",
+      "explanation": "'Lajwa... se nan grangou' = ironi oswa antifraz — lajwa nòmalman pa nan grangou! Se kontrè. Otè a di kontrè pou kritike sitiyasyon — pèp la ap soufri (grangou) men yo di l kontan. Sa denonse ipokri oswa enjistis."
+    },
+    {
+      "id": 176,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki fonksyon 'Jan' genyen nan fraz 'Jan bwè de boutèy wiski nan otèl la'?",
+      "options": [
+        "Konpleman objè",
+        "Apozisyon",
+        "Konpleman sikonstansyèl",
+        "Sijè"
+      ],
+      "correct": "D",
+      "explanation": "'Jan' = sijè — se li ki fè aksyon 'bwè'. Pou detèmine sijè: poze kesyon 'ki moun ki + vèb?' = 'Ki moun ki bwè de boutèy wiski?' → Jan. Sijè = eleman ki fè oswa ki sibisit aksyon vèb prensipal la."
+    },
+    {
+      "id": 177,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'tèm jenerik'?",
+      "options": [
+        "Yon mo ki soti nan yon lòt lang",
+        "Yon mo espesifik ki deziye yon sèl bagay",
+        "Yon mo ki gen plizyè sans",
+        "Yon mo jeneral ki kouvri plizyè sou-kategori"
+      ],
+      "correct": "D",
+      "explanation": "Tèm jenerik = mo jeneral ki kouvri tout yon kategori. Egz: 'bwason' = jenerik pou kleren, wonm, diven, kola. 'lekòl' = jeneral pou klas, kafeterya, bibliotèk. Egzamen mande: 'fè yon trè anba tèm jenerik' = idantifye mo pi jeneral."
+    },
+    {
+      "id": 178,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'domestisite' nan kontèks sosyal ayisyen?",
+      "options": [
+        "Travay kay remontre",
+        "Pratik kote pitit timoun voye travay kay yon lòt moun san peye yo oswa negilije yo",
+        "Yo rele tout travay fèt lakay",
+        "Yon metye pou moun ki renmen fè manje"
+      ],
+      "correct": "B",
+      "explanation": "Domestisite = sitiyasyon timoun (souvan rele 'restavèk') k ap travay nan kay lòt moun souvan san peman, san edikasyon, nan kondisyon difisil. Se yon pwoblèm sosyal grav Ayiti. Tèks 'Rita Kwa-Bosal' ak 'Ti Sentaniz' (Sixto) pale sou sa."
+    },
+    {
+      "id": 179,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 35,
+      "question": "Ki sa ki yon 'fòm enpèsonèl' nan kreyòl?",
+      "options": [
+        "Fraz ki pa gen vèb",
+        "Fraz kote sijè a jeneral oswa enpèsonèl ('yo di', 'li di')",
+        "Fraz kote sijè a nou",
+        "Fraz san pèsonaj"
+      ],
+      "correct": "B",
+      "explanation": "Fòm enpèsonèl = fraz kote sijè a pa yon moun espesifik, li jeneral. Egz: 'Yo di lapli pral tonbe' = 'yo' enpèsonèl. 'Li di...' (li = il/on) = enpèsonèl. Diferan ak fòm aktif (sijè espesifik) oswa anfatik (mete anfaz)."
+    },
+    {
+      "id": 180,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki konparatif 'siperyorite' nan kreyòl?",
+      "options": [
+        "Lè de bagay egal",
+        "Lè de bagay diferan nèt",
+        "Lè premye bagay depase dezyèm nan yon kalite",
+        "Lè dezyèm bagay depase premye a"
+      ],
+      "correct": "C",
+      "explanation": "Konparatif 'siperyorite' vle di lè premye bagay depase dezyèm nan yon kalite. Li karakterize pa itilizasyon 'pi... pase' oswa 'plis... pase'. Egzanp, 'Komin Kwadèboukè pi gwo pase komin Kafou.' Se poutèt sa, opsyon 'Lè premye bagay depase dezyèm nan yon kalite' se kòrèk. Opsyon 'Lè de bagay egal' dekri egalite, pa siperyorite. Opsyon 'Lè de bagay diferan nèt' pa espesifik sou nati diferans lan. Opsyon 'Lè dezyèm bagay depase premye a' dekri enferyorite, kontrè a siperyorite."
+    },
+    {
+      "id": 181,
+      "category": "Pwezi",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki diferans ant yon 'katren' ak yon 'distik' nan pwezi?",
+      "options": [
+        "Katren gen 3 vè; Distik gen 4 vè",
+        "Katren = rim kwaze; Distik = rim anbrase",
+        "Yo menm bagay",
+        "Katren gen 4 vè; Distik gen 2 vè"
+      ],
+      "correct": "D",
+      "explanation": "Distik = 2 vè. Tèrsèt = 3 vè. Katren = 4 vè. Senken = 5 vè. Sizèn = 6 vè. Egzamen ka mande: 'konbyen estwòf? Ki tip?' = konte gwoup vè, di si katren (4), tèrsèt (3), etc."
+    },
+    {
+      "id": 182,
+      "category": "Literati",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki 'didaskalij' nan teyat?",
+      "options": [
+        "Rezime istwa a",
+        "Dyalòg pèsonaj yo",
+        "Tit pyès la",
+        "Enstriksyon ekri sou fon, kostim, mouvman aktè yo (notasyon sèn)"
+      ],
+      "correct": "D",
+      "explanation": "Didaskalij = enstriksyon pou aktè ak mettè-en-scène — di ki kote aksyon fèt, ki jan aktè dwe aji, ki kostim, ki objè. Yo parèt nan tèks teyat souvan nan parèntèz oswa nan italik. Otè bay yo, yo pa jwe sou sèn."
+    },
+    {
+      "id": 183,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki fonksyon 'epi' nan yon fraz?",
+      "options": [
+        "Konekte de pwopozisyon ak yon rapò adisyon oswa sekerans",
+        "Eksprime kòz",
+        "Eksprime opozisyon",
+        "Eksprime tan"
+      ],
+      "correct": "A",
+      "explanation": "'Epi' = konjonksyon kowòdinasyon ki ajoute oswa sekwans. Egz: 'Li leve epi li ale' = sekerans. 'Li achte diri epi pwa' = adisyon. 'Men' = opozisyon; 'Paske' = kòz; 'Lè' = tan. Chak konjonksyon gen wòl pwòp li."
+    },
+    {
+      "id": 184,
+      "category": "Gramè",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'enferans' nan analiz tèks?",
+      "options": [
+        "Konklizyon lojik yo tire apati de enfòmasyon nan tèks — sa ki anplika men pa di",
+        "Nati pwopozisyon yo",
+        "Rezime tèks la",
+        "Sa tèks la di dirèkteman"
+      ],
+      "correct": "A",
+      "explanation": "Enferans se sa ou dwe konklye lojikman apati de enfòmasyon disponib nan tèks la, menm si tèks la pa di l dirèkteman. Sa vle di ke ou dwe tire konklizyon ki enplike men pa eksplisit. Pa egzanp, si tèks la di 'kreyòl la se lang tout mas pèp la', yon enferans kapab 'pèp la ta dwe aprann nan lang li ye a'. Sa egzije refleksyon ak analiz de tèks la. Konklizyon sa yo pa yo di dirèkteman nan tèks la, men yo ka dedwi atravè yon refleksyon lojik."
+    },
+    {
+      "id": 185,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki diferans ant yon 'fraz konplèks pa sibòdinasyon' ak yon 'fraz konplèks pa kowòdinasyon'?",
+      "options": [
+        "Sibòdinasyon = yon pati depann de lòt (prensipal + sibòdone); Kowòdinasyon = de pati endepandan konekte",
+        "Sibòdinasyon = pou pwezi; Kowòdinasyon = pou pwoz",
+        "Pa gen diferans",
+        "Sibòdinasyon = 2 fraz; Kowòdinasyon = 1 fraz"
+      ],
+      "correct": "A",
+      "explanation": "Sibòdinasyon: 'Mwen espere ke w ap retounen' — 'ke w ap retounen' DEPANN de 'mwen espere'. Kowòdinasyon: 'Li pale epi li mache' — tou de pati ENDEPANDAN konekte ak 'epi'. Diferans kle = depandans vs endepandans."
+    },
+    {
+      "id": 186,
+      "category": "Kilti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'Rara' nan kilti ayisyen?",
+      "options": [
+        "Yon danse modèn",
+        "Yon konpetisyon espòtif",
+        "Yon zèv literè",
+        "Yon bann mizik tradisyonèl ki travèse lari pandan kanaval ak Pak"
+      ],
+      "correct": "D",
+      "explanation": "Rara = fòm mizik ak selebrasyon tradisyonèl ayisyen. Bann rara = gwoup moun ki jwe enstriman (vaksòn, klewon, tanbou), chante, dans, travèse lari, espesyalman pandan Pak. Li asosye ak tradisyon vodou ak kilti peyizan."
+    },
+    {
+      "id": 187,
+      "category": "Lang kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Dapre otè tèks 'Li mande piki, li vle lasante', poukisa anpil paran mande ansèyman an fransè pou pitit yo?",
+      "options": [
+        "Paske lekòl la oblige fè sa",
+        "Paske yo tonbe nan 'pèlen 200 ane manti' ki fè kwè fransè = avantaj/siksès",
+        "Paske fransè pi fasil aprann",
+        "Paske kreyòl pa gen règ gramè"
+      ],
+      "correct": "B",
+      "explanation": "Dapre otè tèks la (Iv Dejan), paran yo pa vre konprann — yo mande 'fransè' paske 200 ane manti kiltirèl ki di fransè = grenn sòvè. Men sa yo reyèlman vle se edikasyon, konesans, lajan. Se sistèm ki konfonn yo."
+    },
+    {
+      "id": 188,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki moun ki soti vivan nan gwo vwayaj (nofraj) nan tèks 'Nofraj'?",
+      "options": [
+        "Mira ak Lespwa",
+        "Tout moun ki nan bato a",
+        "Mira ak Anita",
+        "Anita ak Lespwa"
+      ],
+      "correct": "D",
+      "explanation": "Nan tèks 'Nofraj': 'Anita ak Lespwa, sèl moun ki soti vivan nan gwo vwayaj la, pran wout pou yon otèl nan Miami Beach.' Mira = mouri (kadav li sou sab). Lespwa se pitit Anita. Zèv 'L'enfer c'est la Mer' (1996)."
+    },
+    {
+      "id": 189,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Nan tèks 'Rita Kwa-Bosal', poukisa Rita pa ka rete lontan nan lari?",
+      "options": [
+        "Paske mache a fèmen",
+        "Paske lapli ap tonbe",
+        "Paske li renmen travay",
+        "Paske li sonje savonay Jedeyon ki pare pou li e li pa vle dèyè"
+      ],
+      "correct": "D",
+      "explanation": "Lè Rita wè timoun ap jwe, kè l kontan. Men lè li sonje savonay (travay) Jedeyon ki pare pou li, kè l sere epi vini rak, li prèt pou kriye. Se souvni travay ak obligasyon yo ki fè l pa ka rete — li oblije retounen nan kalvè li."
+    },
+    {
+      "id": 190,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki 'nati mo' nan gramè kreyòl?",
+      "options": [
+        "Koulè oswa fòm yon mo",
+        "Kategori gramatikal yon mo (non, vèb, adjektif, advèb, prepozisyon, konjugsyon, pwonon, entèjeksyon)",
+        "Long oswa kout yon mo",
+        "Rasin etimolojik yon mo"
+      ],
+      "correct": "B",
+      "explanation": "Nati mo = kategori gramatikal li: non (timoun, lavi), vèb (manje, ale), adjektif (bèl, gwo), advèb (vit, anpil), prepozisyon (nan, sou, pou), konjugsyon (epi, men, paske), pwonon (mwen, li, yo), entèjeksyon (ala!, ayibobo!). Egzamen mande souvân: 'bay nati mo ki souliye a'."
+    },
+    {
+      "id": 191,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'advèb ki fòme ak sifiks -man'?",
+      "options": [
+        "Vèb ki fini ak -man",
+        "Non ki gen -man nan fen",
+        "Adjektif ki fini ak -man",
+        "Advèb ki fòme depi yon adjektif + sifiks -man (tankou an fransè)"
+      ],
+      "correct": "D",
+      "explanation": "Yon advèb ki fòme ak sifiks -man se yon advèb ki fòme depi yon adjektif + sifiks -man. Pou egzanp, lè ou pran adjektif 'sèten', ou ajoute sifiks -man pou jwenn advèb 'sètenman'. Menm jan an tou, 'reyèl' vin 'reyèlman', 'vit' vin 'vitman', ak 'klè' vin 'klèman'. Sa a se yon fason pou modifye vèb oswa adjektif pou eksprime yon mannyè oswa yon degre."
+    },
+    {
+      "id": 192,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'fraz deklaratif negatif'?",
+      "options": [
+        "Fraz ki poze yon kesyon",
+        "Fraz deklaratif ki neye enfòmasyon an ak 'pa', 'poko', 'jan', etc.",
+        "Fraz ki di yon bagay pa vre, san mo neyasyon",
+        "Fraz eksklamatif"
+      ],
+      "correct": "B",
+      "explanation": "Yon fraz deklaratif negatif se yon fraz ki bay enfòmasyon negatif avèk èd de mo neyasyon tankou 'pa', 'poko', 'janm', 'pyès'. Pa egzanp, fraz 'Soraya toujou voye je sou paran li yo' se yon fraz deklaratif afirmatif, men lè ou ajoute 'pa' devan vèb la, ou jwenn 'Soraya pa voye je sou paran li yo', ki se yon fraz deklaratif negatif. Sa a se yon fason pou neye enfòmasyon an ak chanjman nan sans fraz la."
+    },
+    {
+      "id": 193,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'tèks ensitatif'?",
+      "options": [
+        "Tèks ki ankouraje, pouse lektè a pran yon aksyon oswa yon desizyon",
+        "Tèks ki rakonte yon istwa",
+        "Tèks ki bay enfòmasyon",
+        "Tèks ki dekri yon pèsonaj"
+      ],
+      "correct": "A",
+      "explanation": "Tèks ensitatif = motivasyon, ankourajman, pwoke yon reyaksyon. Tankou yon piblisite, yon diskisyon motivasyonèl. Egz: 'Ekri yon tèks ensitatif pou pouse moun aji pou lasante popilasyon an.' Li diferan ak informatif (enfòmasyon) ak agimantatif (defann)."
+    },
+    {
+      "id": 194,
+      "category": "Gramè",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'pledwaye' nan kontèks legal?",
+      "options": [
+        "Yon lèt pèsonèl",
+        "Yon tèks pwezi",
+        "Yon diskisyon oswa agiman pou defann pozisyon yon moun devan jij oswa lakou",
+        "Yon deklarasyon pou jwenn travay"
+      ],
+      "correct": "C",
+      "explanation": "Pledwaye = fè argument legal pou defann tèt ou oswa yon lòt moun devan lakou. Nan tèks 'Yon lwa enjis' (Polly Baker), li pledwaye devan jij yo pou defann dwa l. Sa mande agiman, egzanp, lojik."
+    },
+    {
+      "id": 195,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa 'lespri konbit' ka ede nan devlopman Ayiti dapre tèks egzamen yo?",
+      "options": [
+        "Kreye mito",
+        "Ranplase lajan",
+        "Evite travay endividyèl",
+        "Ankouraje travay ansanm, solidarite, pwogrè kolektif nan komin yo"
+      ],
+      "correct": "D",
+      "explanation": "Dapre tèks 'Egoyis' (Emmanuel W. Védrine), lespri konbit = travay kolektif, solidarite, youn ede lòt. Si plante nan lekòl dpi matènèl, li ka kore devlopman komin ak peyi. Siksè kolektif enpòtan pase reyisit grenn moun."
+    },
+    {
+      "id": 196,
+      "category": "Literati",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'narasyon fontèrière' (récit de première personne)?",
+      "options": [
+        "Naratè ki pa konn motif pèsonaj yo",
+        "Naratè ki konnen tout bagay",
+        "Naratè ki andeyò istwa",
+        "Naratè ki anndan istwa, itilize 'mwen', rakonte eksperyans pèsonèl li"
+      ],
+      "correct": "D",
+      "explanation": "Narasyon premye pèsonn = naratè itilize 'mwen', li anndan istwa, bay yon pèspektiv sibektif/pèsonèl. Egz: 'Bèbè Gòlgota' = 'mwen Levwayan' = premye pèsonn. Twazyèm pèsonn = naratè deyò ('li', 'yo'), souvan omisyan."
+    },
+    {
+      "id": 197,
+      "category": "Gramè avanse",
+      "difficulty": "difficile",
+      "timer_seconds": 40,
+      "question": "Ki sa ki yon 'représentation graphique' (pyebwa/représentation en arbre) nan gramè kreyòl?",
+      "options": [
+        "Yon tablo chif",
+        "Yon desen atis",
+        "Yon kat pou pwononse mo",
+        "Reprezantasyon vizièl strikti gramatikal yon fraz — ki montre sijè, predika, konpleman yo ak relasyon yo"
+      ],
+      "correct": "D",
+      "explanation": "Reprezantasyon grafik/pyebwa = chema ki montre dekonpozisyon gramatikal yon fraz: F → GNS + G.Pred; G.Pred → Pilye + GN; etc. Souvan mande nan egzamen: 'fè reprezantasyon grafik fraz sa a' = dekonpoze l vizièlman."
+    },
+    {
+      "id": 198,
+      "category": "Konpreyansyon tèks",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki sa ki yon 'istwa fantastik' vs yon 'istwa merveilleux'?",
+      "options": [
+        "Fantastik = dout ant reyèl ak surnaturèl; Merveilleux = surnaturèl aksepte kòm nòmal",
+        "Yo menm bagay",
+        "Fantastik = istorik; Merveilleux = syans-fiksyon",
+        "Fantastik = pou timoun; Merveilleux = pou granmoun"
+      ],
+      "correct": "A",
+      "explanation": "Fantastik = anbigüité esansyèl — pèsonaj (ak lektè) pa sèten si sa k pase reyèl oswa rèv. Dout = kle. Merveilleux (conte) = surnaturèl aksepte kòm nòmal, pa gen dout. Egz: kont fè ki gen fèe = merveilleux (pa fantastik)."
+    },
+    {
+      "id": 199,
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki figi estil ki nan 'Figi tan an mare mòksis anba yon solèy grimo'?",
+      "options": [
+        "Konparezon",
+        "Metafò",
+        "Pèsonifikasyon",
+        "Ipèbòl"
+      ],
+      "correct": "C",
+      "explanation": "'Figi tan an mare mòksis' = pèsonifikasyon — tan (bagay abstre) ba li 'figi' (yon pati kò moun) ki 'mare' (yon expresyon emosyonèl moun). Tan ba li karaktè yon moun ki fache/mare. Yon bèl egzanp pèsonifikasyon."
+    },
+    {
+      "id": 200,
+      "category": "Vèb",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Ki vèb modal ki eksprime kapasite (pouvwa fè yon bagay)?",
+      "options": [
+        "Dwe",
+        "Mèt",
+        "Kapab / ka",
+        "Vle"
+      ],
+      "correct": "C",
+      "explanation": "'Kapab/ka' = kapasite. Egz: 'Li ka fè devwa a poukont li' = li gen kapasite fè sa. Pa konfonn ak posibilite ('ka vini' = li posib pou vini) vs kapasite ('ka fè' = li genyen abilite). Kontèks la fè diferans."
+    }
+  ]
+}

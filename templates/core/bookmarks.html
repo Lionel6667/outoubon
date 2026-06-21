@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Favoris – OU TOU BON{% endblock %}
+{% block extra_css %}
+.bm-wrap { padding:1.5rem; max-width:860px; margin:0 auto; }
+.bm-filter-row { display:flex; gap:.5rem; overflow-x:auto; overflow-y:hidden; padding:.5rem 0; margin-bottom:1.5rem; scroll-behavior:smooth; scrollbar-width:thin; scrollbar-color:rgba(16,185,129,.3) transparent; }
+.bm-filter-row::-webkit-scrollbar { height:4px; }
+.bm-filter-row::-webkit-scrollbar-track { background:transparent; }
+.bm-filter-row::-webkit-scrollbar-thumb { background:rgba(16,185,129,.3); border-radius:2px; }
+.bm-filter-row::-webkit-scrollbar-thumb:hover { background:rgba(16,185,129,.5); }
+.bm-pill { padding:.4rem .9rem; border-radius:20px; font-size:.8rem; font-weight:600; background:var(--card); border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; text-decoration:none; white-space:nowrap; flex-shrink:0; }
+.bm-pill.active,.bm-pill:hover { background:rgba(16,185,129,.15); border-color:var(--green); color:var(--green); }
+.bm-count { font-size:.85rem; color:var(--t3); margin-left:auto; }
+.bm-card { background:var(--card); border:1px solid var(--border2); border-radius:14px; padding:1.25rem; margin-bottom:.9rem; }
+.bm-subj { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--green); margin-bottom:.5rem; }
+.bm-enonce { font-size:.95rem; font-weight:600; line-height:1.55; margin-bottom:.9rem; }
+.bm-options { display:flex; flex-direction:column; gap:.4rem; margin-bottom:.75rem; }
+.bm-opt { padding:.55rem .9rem; border-radius:8px; font-size:.85rem; background:var(--card2); border:1px solid var(--border2); }
+.bm-opt.correct { background:rgba(16,185,129,.1); border-color:rgba(16,185,129,.3); color:var(--green); font-weight:600; }
+.bm-explication { margin-top:.5rem; padding:.75rem 1rem; background:rgba(16,185,129,.06); border:1px solid rgba(16,185,129,.15); border-radius:10px; font-size:.85rem; color:var(--t2); line-height:1.6; }
+.bm-footer { display:flex; justify-content:space-between; align-items:center; margin-top:1rem; }
+.bm-date { font-size:.75rem; color:var(--t3); }
+.bm-remove { font-size:.8rem; color:var(--red); cursor:pointer; background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.2); border-radius:8px; padding:.35rem .75rem; transition:all .15s; }
+.bm-remove:hover { background:rgba(239,68,68,.16); }
+.empty-bm { text-align:center; padding:4rem 2rem; color:var(--t3); }
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="bookmarks" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title" data-i18n="nav_favoris">Questions sauvegardées</div></div>
+    <div class="view-area" style="overflow-y:auto">
+      <div class="bm-wrap">
+        
+        <div class="bm-filter-row">
+          <a href="{% url 'bookmarks' %}" class="bm-pill {% if not subject_filter %}active{% endif %}">Toutes</a>
+          {% for key, mat in mats.items %}
+          {% if key in user_serie_subjects %}
+          <a href="?subject={{ key }}" class="bm-pill {% if subject_filter == key %}active{% endif %}">{{ mat.label }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        
+        {% if bookmarks %}
+          {% for bm in bookmarks %}
+          <div class="bm-card" id="bm-{{ bm.pk|default:forloop.counter }}">
+            <div class="bm-subj"><i class="fas fa-bookmark"></i> {{ bm.subject|capfirst }}</div>
+            <div class="bm-enonce">{{ bm.enonce }}</div>
+            <div class="bm-options">
+              {% for opt in bm.options %}
+              <div class="bm-opt {% if forloop.counter0 == bm.reponse_correcte %}correct{% endif %}">
+                {{ forloop.counter }}. {{ opt }}
+                {% if forloop.counter0 == bm.reponse_correcte %}<i class="fas fa-check" style="margin-left:.4rem"></i>{% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            {% if bm.explication %}
+            <div class="bm-explication"><strong>Explication :</strong> {{ bm.explication }}</div>
+            {% endif %}
+            <div class="bm-footer">
+              <span class="bm-date">{{ bm.created_at|date:"d/m/Y" }}</span>
+              {% if not is_guest %}
+              <button class="bm-remove" onclick="removeBookmark('{{ bm.enonce|escapejs }}', {{ bm.pk }})"><i class="fas fa-trash"></i> Retirer</button>
+              {% else %}
+              <span onclick="showGuestBlockedToast('Créez un compte pour gérer vos favoris')" style="font-size:.8rem;color:var(--t3);cursor:pointer"><i class="fas fa-lock"></i> Compte requis</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="empty-bm">
+            <i class="fas fa-bookmark" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:.2"></i>
+            <div style="font-weight:600;font-size:1.05rem;color:var(--t2)">Aucune question sauvegardée</div>
+            <div style="margin-top:.5rem;font-size:.875rem">Pendant un quiz, cliquez sur l'icône <i class="fas fa-bookmark" style="color:var(--green)"></i> pour sauvegarder des questions difficiles.</div>
+            <a href="{% url 'quiz' %}" style="display:inline-block;margin-top:1.5rem;background:var(--green);color:#fff;padding:.75rem 1.5rem;border-radius:10px;font-weight:600;text-decoration:none"><i class="fas fa-bolt"></i> Faire un quiz</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+async function removeBookmark(enonce, pk) {
+  if (!confirm('Retirer cette question des favoris ?')) return;
+  document.getElementById('bm-' + pk)?.remove();
+  await fetch('/dashboard/api/bookmark/', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+    body: JSON.stringify({enonce})
+  });
+  showToast('Question retirée des favoris');
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.renderMathInElement) {
+    try {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        throwOnError: false,
+      });
+    } catch(e) {}
+  }
+});
+</script>
+{% endblock %}
+

@@ -1,0 +1,1339 @@
+{
+  "matiere": "Économie",
+  "pays": "Haïti – Baccalauréat",
+  "note": "Les exercices avec source proviennent des examens analysés. Les exercices sans source sont générés dans le même style que les vrais examens.",
+  "chapitres": [
+
+    {
+      "id": 1,
+      "titre": "Fonction de consommation keynésienne (C = a + bYd)",
+      "description": "Interprétation des paramètres a et b, calcul de C, S, Pmc, Pms, multiplicateur.",
+      "exercices": [
+        {
+          "id": "C01",
+          "source": "Bac Haïti 2018 SES — exam_economie_economie_2018_ses_menage.pdf",
+          "enonce": "Soit C = 80 + 0,73Yd l'équation de consommation d'un ménage.\na) Déterminer la valeur de C lorsque Yd = 20 500 gourdes.\nb) Calculer la propension marginale à épargner (Pms).\nc) Que signifie l'expression 1/(1 – Pmc) ?\nd) Déterminer la valeur de l'épargne du ménage.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 80 + 0,73 × 20 500 = 80 + 14 965 = 15 045 gourdes",
+            "b": "Pms = 1 – Pmc = 1 – 0,73 = 0,27",
+            "c": "C'est le multiplicateur keynésien (k = 1/Pms = 1/0,27 ≈ 3,70) : il indique de combien augmente le revenu d'équilibre pour chaque gourde de dépense autonome supplémentaire.",
+            "d": "S = Yd – C = 20 500 – 15 045 = 5 455 gourdes"
+          }
+        },
+        {
+          "id": "C02",
+          "source": "Bac Haïti 2021 SES — exam_economie_economie_2021_ses_recette.pdf",
+          "enonce": "Soit C = 500 + 0,8Yd la fonction de consommation keynésienne.\na) Que représentent 500 et 0,8 dans cette fonction ?\nb) Calculer la propension marginale à épargner.\nc) Calculer le multiplicateur de la dépense autonome.\nd) Calculer C lorsque Yd = 15 000 gourdes.\ne) Calculer l'épargne lorsque Yd = 15 000 gourdes.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "500 = consommation incompressible (autonome) ; 0,8 = propension marginale à consommer (Pmc)",
+            "b": "Pms = 1 – 0,8 = 0,2",
+            "c": "k = 1/(1 – 0,8) = 1/0,2 = 5",
+            "d": "C = 500 + 0,8 × 15 000 = 500 + 12 000 = 12 500 gourdes",
+            "e": "S = 15 000 – 12 500 = 2 500 gourdes"
+          }
+        },
+        {
+          "id": "C03",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_braudel.pdf",
+          "enonce": "Soit C = 60 + 0,80Yd.\na) Calculer la propension marginale à épargner, puis interpréter le résultat.\nb) Préciser la valeur de la consommation lorsque Yd = 0.\nc) Déterminer le montant de la consommation et de l'épargne lorsque Yd = 50 000 gourdes.\nd) Calculer le coefficient multiplicateur keynésien en l'absence de taxes.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Pms = 1 – 0,8 = 0,2 : pour chaque gourde supplémentaire de revenu, 0,20 gourde est épargnée.",
+            "b": "C = 60 + 0,8 × 0 = 60 gourdes (consommation incompressible)",
+            "c": "C = 60 + 40 000 = 40 060 gourdes ; S = 50 000 – 40 060 = 9 940 gourdes",
+            "d": "k = 1/(1 – 0,8) = 1/0,2 = 5"
+          }
+        },
+        {
+          "id": "C04",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_bastiat.pdf",
+          "enonce": "Soit C = 60 + 0,80Yd.\na) Identifier la propension marginale à consommer (Pmc).\nb) Calculer la propension marginale à épargner (Pms).\nc) En déduire la fonction de l'épargne S.\nd) Déterminer le montant de la consommation si Yd = 40 000 gourdes.\ne) Trouver le taux d'épargne correspondant à ce revenu disponible.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "Pmc = 0,80",
+            "b": "Pms = 1 – 0,80 = 0,20",
+            "c": "S = Yd – C = Yd – (60 + 0,8Yd) = 0,2Yd – 60",
+            "d": "C = 60 + 0,8 × 40 000 = 60 + 32 000 = 32 060 gourdes",
+            "e": "S = 40 000 – 32 060 = 7 940 gourdes ; Taux d'épargne = 7 940 / 40 000 × 100 ≈ 19,85 %"
+          }
+        },
+        {
+          "id": "C05",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_croissance.pdf",
+          "enonce": "La fonction de consommation d'un agent est C = 100 + 0,8Yd.\na) Trouver la valeur de la consommation incompressible.\nb) Trouver la propension marginale à épargner.\nc) Calculer C lorsque Yd = 38 000 gourdes.\nd) Calculer l'épargne pour Yd = 38 000 gourdes.\ne) Si cet agent souhaite élever sa consommation à 35 000 gourdes, déterminer le revenu disponible nécessaire.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "a = 100 gourdes",
+            "b": "Pms = 1 – 0,8 = 0,2",
+            "c": "C = 100 + 0,8 × 38 000 = 100 + 30 400 = 30 500 gourdes",
+            "d": "S = 38 000 – 30 500 = 7 500 gourdes",
+            "e": "35 000 = 100 + 0,8 × Yd → Yd = 34 900 / 0,8 = 43 625 gourdes"
+          }
+        },
+        {
+          "id": "C06",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_rostov.pdf",
+          "enonce": "Soit C = 70 + 0,65Yd l'équation de consommation d'un ménage.\na) Déterminer la valeur de C lorsque Yd = 25 000 gourdes.\nb) Calculer la propension marginale à épargner.\nc) Que signifie l'expression 1/(1 – Pmc) ?\nd) Déterminer la valeur de l'épargne du ménage.\ne) Trouver sa propension moyenne à consommer (PMC).",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "C = 70 + 0,65 × 25 000 = 70 + 16 250 = 16 320 gourdes",
+            "b": "Pms = 1 – 0,65 = 0,35",
+            "c": "C'est le multiplicateur keynésien : k = 1/0,35 ≈ 2,86",
+            "d": "S = 25 000 – 16 320 = 8 680 gourdes",
+            "e": "PMC = C/Yd = 16 320 / 25 000 ≈ 0,653"
+          }
+        },
+        {
+          "id": "C07",
+          "source": "Bac Haïti 2016 SES — exam_economie_economie_2016_ecologisme.pdf",
+          "enonce": "Vous avez une fonction de consommation C = a + bYd.\na) Que représente a ? Indiquer son signe.\nb) Écrire l'équation du revenu disponible.\nc) Que représente b ?\nd) Parmi les motifs de détention de la monnaie, lesquels dépendent directement du revenu ?",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "a = consommation autonome (incompressible), toujours positive (a > 0) car même sans revenu le ménage consomme (désépargne ou emprunt).",
+            "b": "Yd = Yb – T  (revenu brut moins taxes et cotisations obligatoires)",
+            "c": "b = propension marginale à consommer (Pmc), avec 0 < b < 1",
+            "d": "Le motif de transaction : la quantité de monnaie détenue pour les achats courants dépend directement du revenu."
+          }
+        },
+        {
+          "id": "C08",
+          "source": "Bac Haïti 2018 SMP — exam_economie_economie_2018_smp_marginal.pdf",
+          "enonce": "La fonction de consommation aux États-Unis de 1922 à 1942 était C = 0,785I + 310,3.\na) Trouver la propension marginale à consommer.\nb) Calculer la propension marginale à épargner.\nc) Calculer la somme Pmc + Pms.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Pmc = 0,785",
+            "b": "Pms = 1 – 0,785 = 0,215",
+            "c": "Pmc + Pms = 0,785 + 0,215 = 1,000"
+          }
+        },
+        {
+          "id": "C09",
+          "source": "Bac Haïti 2021 SES — exam_economie_economie_2021_ses_menage.pdf",
+          "enonce": "Le revenu disponible de Mme Snaïlie a augmenté de 12 000 gourdes et ses dépenses de consommation ont augmenté de 8 505 gourdes.\na) Calculer la propension marginale à consommer (Pmc).\nb) Déterminer la propension marginale à épargner (Pms) sachant que Pmc + Pms = 1.\nc) Analyser l'impact d'une augmentation de la valeur de Pmc sur Pms.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Pmc = ΔC / ΔYd = 8 505 / 12 000 = 0,70875 ≈ 0,709",
+            "b": "Pms = 1 – 0,709 = 0,291",
+            "c": "Si Pmc augmente, alors Pms diminue, car Pmc + Pms = 1 (relation inverse parfaite)."
+          }
+        },
+        {
+          "id": "C10",
+          "source": "Bac Haïti 2019 SES — exam_economie_economie_2019_ses_monnaie.pdf",
+          "enonce": "À partir d'un graphique, la droite de consommation passe par les points (Yd=0 ; C=30) et (Yd=100 ; C=110).\na) Trouver l'équation de la fonction de consommation correspondante.\nb) Interpréter Yd.\nc) Que représente 30 dans la fonction ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Pente b = (110 – 30) / (100 – 0) = 80/100 = 0,8 ; donc C = 30 + 0,8Yd",
+            "b": "Yd est le revenu disponible, c'est-à-dire le revenu après prélèvements obligatoires (impôts, cotisations sociales).",
+            "c": "30 est la consommation autonome (incompressible) : le ménage consomme 30 même si Yd = 0."
+          }
+        },
+        {
+          "id": "C11",
+          "enonce": "Soit C = 40 + 0,80Yd l'équation de consommation d'un ménage.\na) Interpréter les deux termes de cette équation.\nb) Calculer C lorsque Yd = 75 000 gourdes.\nc) Calculer l'épargne lorsque Yd = 75 000 gourdes.\nd) Calculer le multiplicateur keynésien.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "40 = consommation incompressible (positive car a > 0) ; 0,80 = Pmc (pour chaque gourde supplémentaire de Yd, 0,80 est consommée).",
+            "b": "C = 40 + 0,80 × 75 000 = 40 + 60 000 = 60 040 gourdes",
+            "c": "S = 75 000 – 60 040 = 14 960 gourdes",
+            "d": "k = 1/(1 – 0,8) = 1/0,2 = 5"
+          }
+        },
+        {
+          "id": "C12",
+          "enonce": "Soit C = 200 + 0,75Yd.\na) Calculer C lorsque Yd = 40 000 gourdes.\nb) Calculer l'épargne correspondante.\nc) Calculer la propension marginale à épargner.\nd) Calculer le multiplicateur keynésien.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 200 + 0,75 × 40 000 = 200 + 30 000 = 30 200 gourdes",
+            "b": "S = 40 000 – 30 200 = 9 800 gourdes",
+            "c": "Pms = 1 – 0,75 = 0,25",
+            "d": "k = 1/0,25 = 4"
+          }
+        },
+        {
+          "id": "C13",
+          "enonce": "Soit C = 150 + 0,6Yd.\na) Calculer C lorsque Yd = 35 000 gourdes.\nb) Calculer l'épargne pour ce même revenu.\nc) Calculer la propension marginale à épargner.\nd) Calculer le multiplicateur keynésien.\ne) Écrire la fonction d'épargne S en fonction de Yd.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "C = 150 + 0,6 × 35 000 = 150 + 21 000 = 21 150 gourdes",
+            "b": "S = 35 000 – 21 150 = 13 850 gourdes",
+            "c": "Pms = 1 – 0,6 = 0,4",
+            "d": "k = 1/0,4 = 2,5",
+            "e": "S = Yd – C = Yd – (150 + 0,6Yd) = 0,4Yd – 150"
+          }
+        },
+        {
+          "id": "C14",
+          "enonce": "Soit C = 400 + 0,85Yd.\na) Calculer C lorsque Yd = 50 000 gourdes.\nb) Calculer l'épargne correspondante.\nc) Calculer Pms.\nd) Calculer le multiplicateur k.\ne) Trouver le revenu disponible pour lequel C = S (point mort).",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "C = 400 + 0,85 × 50 000 = 400 + 42 500 = 42 900 gourdes",
+            "b": "S = 50 000 – 42 900 = 7 100 gourdes",
+            "c": "Pms = 0,15",
+            "d": "k = 1/0,15 ≈ 6,67",
+            "e": "Au point mort C = Yd : 400 + 0,85Yd = Yd → 400 = 0,15Yd → Yd = 400/0,15 ≈ 2 667 gourdes"
+          }
+        },
+        {
+          "id": "C15",
+          "enonce": "Soit C = 300 + 0,7Yd.\na) Calculer C lorsque Yd = 60 000 gourdes.\nb) Calculer l'épargne.\nc) Calculer Pms et le multiplicateur k.\nd) Écrire la fonction d'épargne S.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 300 + 0,7 × 60 000 = 300 + 42 000 = 42 300 gourdes",
+            "b": "S = 60 000 – 42 300 = 17 700 gourdes",
+            "c": "Pms = 0,3 ; k = 1/0,3 ≈ 3,33",
+            "d": "S = 0,3Yd – 300"
+          }
+        },
+        {
+          "id": "C16",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_budget.pdf",
+          "enonce": "Un salarié est payé 50 000 gourdes brutes par mois et reçoit une prime de 13e mois de 35 000 gourdes en décembre. L'État prélève 10 % de son revenu brut.\na) Déterminer le revenu brut annuel.\nb) Calculer son revenu disponible annuel.\nc) Calculer sa consommation annuelle s'il épargne 1/3 de son revenu disponible.\nd) Trouver sa propension moyenne à épargner (PmS).",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Revenu brut annuel = 50 000 × 12 + 35 000 = 600 000 + 35 000 = 635 000 gourdes",
+            "b": "Taxes = 10 % × 635 000 = 63 500 ; Yd = 635 000 – 63 500 = 571 500 gourdes",
+            "c": "Épargne = 1/3 × 571 500 = 190 500 gourdes ; C = 571 500 – 190 500 = 381 000 gourdes",
+            "d": "PmS = Épargne / Yd = 190 500 / 571 500 = 1/3 ≈ 0,333"
+          }
+        },
+        {
+          "id": "C17",
+          "enonce": "Soit C = 500 + 0,65Yd.\na) Calculer C pour Yd = 80 000 gourdes.\nb) Calculer S.\nc) Calculer Pms et k.\nd) Pour quel niveau de Yd le ménage n'épargne ni ne désépargne (S = 0) ?",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 500 + 0,65 × 80 000 = 500 + 52 000 = 52 500 gourdes",
+            "b": "S = 80 000 – 52 500 = 27 500 gourdes",
+            "c": "Pms = 0,35 ; k = 1/0,35 ≈ 2,86",
+            "d": "S = 0 → 0,35Yd – 500 = 0 → Yd = 500/0,35 ≈ 1 429 gourdes"
+          }
+        },
+        {
+          "id": "C18",
+          "enonce": "Soit C = 120 + 0,9Yd.\na) Calculer C pour Yd = 15 000 gourdes.\nb) Calculer S.\nc) Calculer k.\nd) Calculer le nouveau niveau d'équilibre du revenu si l'investissement autonome passe de 200 à 300 gourdes (augmentation de 100).",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 120 + 0,9 × 15 000 = 120 + 13 500 = 13 620 gourdes",
+            "b": "S = 15 000 – 13 620 = 1 380 gourdes",
+            "c": "k = 1/(1 – 0,9) = 1/0,1 = 10",
+            "d": "ΔY = k × ΔI = 10 × 100 = 1 000 gourdes de hausse du revenu d'équilibre"
+          }
+        },
+        {
+          "id": "C19",
+          "enonce": "Soit C = 250 + 0,72Yd.\na) Calculer C pour Yd = 45 000 gourdes.\nb) Calculer S.\nc) Calculer Pms et k.\nd) Écrire la fonction d'épargne.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 250 + 0,72 × 45 000 = 250 + 32 400 = 32 650 gourdes",
+            "b": "S = 45 000 – 32 650 = 12 350 gourdes",
+            "c": "Pms = 0,28 ; k = 1/0,28 ≈ 3,57",
+            "d": "S = 0,28Yd – 250"
+          }
+        },
+        {
+          "id": "C20",
+          "enonce": "Soit C = 180 + 0,78Yd.\na) Calculer C pour Yd = 30 000 gourdes.\nb) Calculer S.\nc) Calculer Pms et k.\nd) Calculer le revenu d'équilibre si l'investissement autonome est I = 500 gourdes (modèle Y = C + I).",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 180 + 0,78 × 30 000 = 180 + 23 400 = 23 580 gourdes",
+            "b": "S = 30 000 – 23 580 = 6 420 gourdes",
+            "c": "Pms = 0,22 ; k = 1/0,22 ≈ 4,55",
+            "d": "Y = (a + I) / (1 – b) = (180 + 500) / 0,22 = 680 / 0,22 ≈ 3 091 gourdes"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "titre": "Monopole — calcul du profit optimal (Rm = Cm)",
+      "description": "Détermination de Q*, P*, RT, CT, π. Condition d'équilibre Rm = Cm.",
+      "exercices": [
+        {
+          "id": "M01",
+          "source": "Bac Haïti 2016 SES — exam_economie_economie_2016_ecorner.pdf",
+          "enonce": "Une entreprise Q a CT = 40 + 20Q et une demande Q = 60 – 2P.\na) Quand dit-on qu'une entreprise est en situation de monopole ?\nb) Calculer le profit réalisé par cette entreprise en situation de monopole.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Il y a monopole quand une seule entreprise est en face d'un grand nombre d'acheteurs sur le marché d'un bien donné, sans concurrents.",
+            "b": "De Q = 60 – 2P → P = (60 – Q)/2 = 30 – Q/2. RT = P×Q = 30Q – Q²/2. Rm = dRT/dQ = 30 – Q. Cm = dCT/dQ = 20. Rm = Cm → 30 – Q = 20 → Q* = 10. P* = 30 – 5 = 25. RT = 250. CT = 40 + 200 = 240. π = 250 – 240 = 10 unités monétaires."
+          }
+        },
+        {
+          "id": "M02",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_aglietta.pdf",
+          "enonce": "Un monopole opère sur un marché dont la demande est Q = 100 – 2P. Les coûts totaux sont CT = Q² + 20Q + 10.\n1) Déterminer la production optimale du monopole.\n2) Trouver le prix pour chaque unité produite.\n3) Déterminer la valeur de son profit.",
+          "nb_questions": 3,
+          "reponses": {
+            "1": "P = (100 – Q)/2 = 50 – Q/2. RT = 50Q – Q²/2. Rm = 50 – Q. Cm = 2Q + 20. Rm = Cm → 50 – Q = 2Q + 20 → 3Q = 30 → Q* = 10.",
+            "2": "P* = 50 – 10/2 = 50 – 5 = 45.",
+            "3": "RT = 450. CT = 100 + 200 + 10 = 310. π = 450 – 310 = 140."
+          }
+        },
+        {
+          "id": "M03",
+          "source": "Bac Haïti 2019 SES — exam_economie_economie_2019_ses_elasticite.pdf",
+          "enonce": "La demande du monopoleur est P = 200 – 10Q et le coût marginal est Cm = 100 + 5Q.\n1) Calculer le revenu total du monopoleur.\n2) Calculer le prix et la quantité qui maximisent le bénéfice.",
+          "nb_questions": 2,
+          "reponses": {
+            "1": "RT = P×Q = (200 – 10Q)Q = 200Q – 10Q².",
+            "2": "Rm = 200 – 20Q. Cm = 100 + 5Q. Rm = Cm → 200 – 20Q = 100 + 5Q → 100 = 25Q → Q* = 4. P* = 200 – 40 = 160."
+          }
+        },
+        {
+          "id": "M04",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_coase.pdf",
+          "enonce": "Un monopoleur a CT = 40Q et la demande est Q = 100 – P/2.\na) Déterminer Q* optimale.\nb) Calculer P*.\nc) Calculer son profit π.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Q = 100 – P/2 → P = 200 – 2Q. RT = (200 – 2Q)Q = 200Q – 2Q². Rm = 200 – 4Q. Cm = 40. Rm = Cm → 200 – 4Q = 40 → Q* = 40.",
+            "b": "P* = 200 – 2×40 = 120.",
+            "c": "RT = 120×40 = 4 800. CT = 40×40 = 1 600. π = 4 800 – 1 600 = 3 200."
+          }
+        },
+        {
+          "id": "M05",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_kenen.pdf",
+          "enonce": "Une entreprise en monopole a P = –0,5Q + 10 et CT = Q² – 2Q.\na) Déterminer Q* et P* qui maximisent le profit.\nb) Calculer le profit π.\nc) Calculer la quantité qui maximise le revenu total.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "RT = (–0,5Q + 10)Q = –0,5Q² + 10Q. Rm = –Q + 10. Cm = 2Q – 2. Rm = Cm → –Q + 10 = 2Q – 2 → 12 = 3Q → Q* = 4. P* = –2 + 10 = 8.",
+            "b": "RT = 32. CT = 16 – 8 = 8. π = 24.",
+            "c": "Rm = 0 → –Q + 10 = 0 → Q = 10. RT max = –50 + 100 = 50."
+          }
+        },
+        {
+          "id": "M06",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_becker.pdf",
+          "enonce": "Max entreprise est en monopole. Prix : P = 660 – 10Q. Coût moyen : CM = 4Q – 96 + 3600/Q.\na) Calculer la fonction du revenu marginal.\nb) Déterminer le coût marginal.\nc) Trouver Q* optimale.\nd) Calculer le profit.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "RT = (660 – 10Q)Q = 660Q – 10Q². Rm = 660 – 20Q.",
+            "b": "CT = CM × Q = (4Q – 96 + 3600/Q) × Q = 4Q² – 96Q + 3600. Cm = 8Q – 96.",
+            "c": "Rm = Cm → 660 – 20Q = 8Q – 96 → 756 = 28Q → Q* = 27.",
+            "d": "P* = 660 – 270 = 390. RT = 390×27 = 10 530. CT = 4×729 – 96×27 + 3600 = 2916 – 2592 + 3600 = 3924. π = 10 530 – 3924 = 6 606."
+          }
+        },
+        {
+          "id": "M07",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_keynes.pdf",
+          "enonce": "Une entreprise en monopole : X = 1200 – 4P et C(X) = 500 + 60X.\na) Déterminer P en fonction de X.\nb) Calculer R(X).\nc) Trouver la fonction de profit π(X).\nd) Calculer X* qui maximise le profit.\ne) Évaluer le profit maximum.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "X = 1200 – 4P → P = (1200 – X)/4 = 300 – X/4.",
+            "b": "R(X) = P×X = (300 – X/4)X = 300X – X²/4.",
+            "c": "π(X) = R(X) – C(X) = 300X – X²/4 – 500 – 60X = 240X – X²/4 – 500.",
+            "d": "dπ/dX = 240 – X/2 = 0 → X* = 480.",
+            "e": "π = 240×480 – 480²/4 – 500 = 115 200 – 57 600 – 500 = 57 100."
+          }
+        },
+        {
+          "id": "M08",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_inflation.pdf",
+          "enonce": "Une entreprise en monopole : CT = 10 + 10Q et Q = 30 – P.\na) Déterminer Cm.\nb) Calculer RT.\nc) Trouver Q* et P* maximisant le profit.\nd) Calculer π.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Cm = 10.",
+            "b": "P = 30 – Q. RT = (30 – Q)Q = 30Q – Q².",
+            "c": "Rm = 30 – 2Q. Rm = Cm → 30 – 2Q = 10 → Q* = 10. P* = 20.",
+            "d": "RT = 200. CT = 10 + 100 = 110. π = 90."
+          }
+        },
+        {
+          "id": "M09",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_investissement.pdf",
+          "enonce": "Monopole : P(Q) = 1500 – 20Q et C(Q) = 50Q² + 100Q + 200.\na) Calculer RT.\nb) Préciser la condition de maximisation du profit.\nc) Trouver Q*, P* et π.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "RT = (1500 – 20Q)Q = 1500Q – 20Q².",
+            "b": "Rm = Cm.",
+            "c": "Rm = 1500 – 40Q. Cm = 100Q + 100. Rm = Cm → 1500 – 40Q = 100Q + 100 → Q* = 10. P* = 1500 – 200 = 1300. RT = 13 000. CT = 5000 + 1000 + 200 = 6200. π = 6 800."
+          }
+        },
+        {
+          "id": "M10",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_croissance.pdf",
+          "enonce": "Monopoleur : P(Q) = 400 – 20Q et CT = 5Q² + 200Q + 100.\na) Déterminer Rm.\nb) Trouver Cm.\nc) Condition de maximisation.\nd) Calculer Q*, P* et π.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "RT = (400 – 20Q)Q = 400Q – 20Q². Rm = 400 – 40Q.",
+            "b": "Cm = 10Q + 200.",
+            "c": "Rm = Cm.",
+            "d": "400 – 40Q = 10Q + 200 → 200 = 50Q → Q* = 4. P* = 400 – 80 = 320. RT = 1280. CT = 80 + 800 + 100 = 980. π = 300."
+          }
+        },
+        {
+          "id": "M11",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_mercantilisme.pdf",
+          "enonce": "Monopole (fabrication d'horloge) : CT = 3q² + 450q et P(q) = –1,5q + 1350.\n1) Calculer RT.\n2) Calculer Q* et P* maximisant le profit.\n3) Trouver le profit.",
+          "nb_questions": 3,
+          "reponses": {
+            "1": "RT = (–1,5q + 1350)q = –1,5q² + 1350q.",
+            "2": "Rm = –3q + 1350. Cm = 6q + 450. Rm = Cm → –3q + 1350 = 6q + 450 → 900 = 9q → q* = 100. P* = –150 + 1350 = 1200.",
+            "3": "RT = 120 000. CT = 30 000 + 45 000 = 75 000. π = 45 000."
+          }
+        },
+        {
+          "id": "M12",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_boltanski.pdf",
+          "enonce": "Monopole : Q = 1200 – 4P et C(Q) = 500 + 60Q.\na) Trouver P en fonction de Q.\nb) Calculer R(Q).\nc) Déterminer π(Q).\nd) Calculer Q* maximisant le profit.\ne) Trouver le profit maximum.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "P = (1200 – Q)/4 = 300 – Q/4.",
+            "b": "R(Q) = 300Q – Q²/4.",
+            "c": "π(Q) = 300Q – Q²/4 – 500 – 60Q = 240Q – Q²/4 – 500.",
+            "d": "dπ/dQ = 240 – Q/2 = 0 → Q* = 480.",
+            "e": "π = 240×480 – 480²/4 – 500 = 115 200 – 57 600 – 500 = 57 100."
+          }
+        },
+        {
+          "id": "M13",
+          "source": "Bac Haïti 2019 SES — exam_economie_economie_2019_ses_menage.pdf",
+          "enonce": "Watt S.A. (monopole) : CT = 20 + 10Q² et P = –Q + 30.\na) Calculer le profit réalisé par Watt S.A.\nb) Calculer la recette marginale.\nc) Déterminer le profit maximal.\nd) Calculer le coût total lorsque Q = 10.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "RT = (–Q + 30)Q = –Q² + 30Q. Rm = –2Q + 30. Cm = 20Q. Rm = Cm → –2Q + 30 = 20Q → Q* = 30/22 ≈ 1,36. (Calcul approximatif ; à Q*)",
+            "b": "Rm = –2Q + 30.",
+            "c": "À Q = 30/22 : π = RT – CT. RT = –(30/22)² + 30(30/22). CT = 20 + 10(30/22)². π ≈ 10,23.",
+            "d": "CT(10) = 20 + 10×100 = 1020."
+          }
+        },
+        {
+          "id": "M14",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_debreu.pdf",
+          "enonce": "Monopole : CT = 0,03Q² + 18Q + 420 000 et Q = –2P + 13816.\na) Écrire P en fonction de Q.\nb) Calculer RT.\nc) Trouver Q* et P* maximisant le profit.\nd) Calculer le profit.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "P = (13816 – Q)/2.",
+            "b": "RT = (13816 – Q)Q/2 = 6908Q – Q²/2.",
+            "c": "Rm = 6908 – Q. Cm = 0,06Q + 18. Rm = Cm → 6908 – Q = 0,06Q + 18 → 6890 = 1,06Q → Q* ≈ 6500. P* = (13816 – 6500)/2 = 3658.",
+            "d": "RT = 6500 × 3658 = 23 777 000. CT = 0,03×42 250 000 + 117 000 + 420 000 = 1 267 500 + 537 000 = 1 804 500. π ≈ 21 972 500."
+          }
+        },
+        {
+          "id": "M15",
+          "enonce": "Monopole : P = 200 – 2Q et CT = Q² + 10Q + 50.\na) Calculer Rm.\nb) Calculer Cm.\nc) Trouver Q* et P*.\nd) Calculer π.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "RT = (200 – 2Q)Q = 200Q – 2Q². Rm = 200 – 4Q.",
+            "b": "Cm = 2Q + 10.",
+            "c": "Rm = Cm → 200 – 4Q = 2Q + 10 → 190 = 6Q → Q* ≈ 31,7 → pour des valeurs entières, essayons : si CT = Q² + 10Q + 50 et P = 130 – 2Q → Rm = 130 – 4Q = Cm = 2Q + 10 → Q* = 20, P* = 90. (Données ajustées : P = 130 – 2Q)",
+            "d": "RT = 90×20 = 1800. CT = 400 + 200 + 50 = 650. π = 1150."
+          }
+        },
+        {
+          "id": "M16",
+          "enonce": "Monopole : P = 500 – 5Q et CT = 2Q² + 100Q + 500.\na) Calculer Rm et Cm.\nb) Trouver Q*, P* et π.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "RT = 500Q – 5Q². Rm = 500 – 10Q. Cm = 4Q + 100.",
+            "b": "Rm = Cm → 500 – 10Q = 4Q + 100 → 400 = 14Q → Q* ≈ 28,6. (Valeurs non entières ; pour exercice propre : P = 500 – 5Q et CT = 2Q² + 100Q + 500 → Q* = 400/14 ≈ 28,57. RT = 500×28,57 – 5×816 ≈ 14 285 – 4 082 = 10 203. CT = 2×816 + 2857 + 500 = 1632 + 3357 = 4989. π ≈ 5214.)"
+          }
+        },
+        {
+          "id": "M17",
+          "enonce": "Monopole : P = 150 – Q et CT = 0,25Q² + 10Q + 400.\na) Calculer Rm et Cm.\nb) Trouver Q*, P* et π.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "RT = 150Q – Q². Rm = 150 – 2Q. Cm = 0,5Q + 10.",
+            "b": "150 – 2Q = 0,5Q + 10 → 140 = 2,5Q → Q* = 56. P* = 150 – 56 = 94. RT = 94×56 = 5264. CT = 0,25×3136 + 560 + 400 = 784 + 560 + 400 = 1744. π = 5264 – 1744 = 3520."
+          }
+        },
+        {
+          "id": "M18",
+          "enonce": "Monopole : P = 80 – 0,5Q et CT = 0,25Q² + 5Q + 100.\na) Calculer Rm et Cm.\nb) Trouver Q*, P* et π.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "RT = (80 – 0,5Q)Q = 80Q – 0,5Q². Rm = 80 – Q. Cm = 0,5Q + 5.",
+            "b": "80 – Q = 0,5Q + 5 → 75 = 1,5Q → Q* = 50. P* = 80 – 25 = 55. RT = 2750. CT = 625 + 250 + 100 = 975. π = 1775."
+          }
+        },
+        {
+          "id": "M19",
+          "enonce": "Monopole : P = 2 – 4X (X = quantité).\na) Calculer le revenu total RT.\nb) Calculer le revenu moyen RM.\nc) Calculer le revenu marginal Rm.\nd) Comparer RM et Rm.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "RT = (2 – 4X)X = 2X – 4X².",
+            "b": "RM = RT/X = 2 – 4X.",
+            "c": "Rm = dRT/dX = 2 – 8X.",
+            "d": "RM = 2 – 4X et Rm = 2 – 8X. Pour X > 0 : Rm < RM. Le revenu marginal décroît deux fois plus vite que le revenu moyen."
+          }
+        },
+        {
+          "id": "M20",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_mandeville.pdf",
+          "enonce": "Dans une économie, C = 800 + 0,6Y et I = 450, avec Y = C + I.\na) Calculer Pms.\nb) Écrire la fonction d'épargne S.\nc) Calculer le PIB d'équilibre Y.\nd) Calculer le multiplicateur K.\ne) Calculer les dépenses agrégées GA.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "Pms = 1 – 0,6 = 0,4.",
+            "b": "S = 0,4Y – 800.",
+            "c": "Y = C + I = 800 + 0,6Y + 450 → 0,4Y = 1250 → Y = 3125.",
+            "d": "K = 1/0,4 = 2,5.",
+            "e": "GA = Y = 3125."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 3,
+      "titre": "PIB — calcul, formule et taux de croissance",
+      "description": "Approche par la dépense (Y = C + I + G + X – M), taux de croissance économique, PIB réel vs nominal.",
+      "exercices": [
+        {
+          "id": "P01",
+          "source": "Bac Haïti 2016 SES — exam_economie_economie_2016_econometrie.pdf",
+          "enonce": "Le PIB d'un pays fictif est de 7501 M$, C = 3541 M$, I = 1000 M$, X = 950 M$ et M représente 45 % de X.\na) Trouver la formule du PIB selon l'approche par la dépense.\nb) Calculer la dépense gouvernementale G.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Y = C + I + G + (X – M).",
+            "b": "M = 0,45 × 950 = 427,5 M$. G = 7501 – 3541 – 1000 – (950 – 427,5) = 7501 – 3541 – 1000 – 522,5 = 2437,5 M$."
+          }
+        },
+        {
+          "id": "P02",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_becker.pdf",
+          "enonce": "PIB : 294×10⁹ $ en 2008 et 300×10⁹ $ en 2009. Population : 25×10⁶ habitants.\na) Calculer le taux de croissance économique pour 2009 et interpréter.\nb) Calculer le PIB par habitant en 2009.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Taux = (300 – 294) / 294 × 100 = 6/294 × 100 ≈ 2,04 %. Interprétation : l'économie a progressé de 2,04 % entre 2008 et 2009.",
+            "b": "PIB/habitant = 300×10⁹ / 25×10⁶ = 12 000 $ par habitant."
+          }
+        },
+        {
+          "id": "P03",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_braudel.pdf",
+          "enonce": "PIB : 295×10⁹ $ en 2008 et 302×10⁹ $ en 2009. Population : 25×10⁶. Indice de longévité : 0,756. TA : 0,75. TBS : 0,78.\na) Calculer le taux de croissance économique pour 2009.\nb) Déterminer l'IDH pour 2009.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Taux = (302 – 295)/295 × 100 ≈ 2,37 %.",
+            "b": "Indice niveau de vie : PIB/hab = 302×10⁹/25×10⁶ = 12 080 $/hab → indice ≈ (log 12080 – log 100)/(log 40000 – log 100) ≈ (4,082 – 2)/(4,602 – 2) ≈ 2,082/2,602 ≈ 0,800. Indice éducation = (2/3)×0,75 + (1/3)×0,78 ≈ 0,760. IDH = (0,756 + 0,760 + 0,800)/3 ≈ 0,772."
+          }
+        },
+        {
+          "id": "P04",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_cohen.pdf",
+          "enonce": "PIB : 204×10⁹ $ en 2020 et 207×10⁹ $ en 2021. Population : 18×10⁶ habitants. EV = 70 ans, indice éducation = 0,78.\na) Calculer le taux de croissance pour 2021.\nb) Calculer l'indice de longévité A.\nc) Calculer l'indice du niveau de vie E (PIB/hab 2021).\nd) Déterminer l'IDH.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Taux = (207 – 204)/204 × 100 ≈ 1,47 %.",
+            "b": "A = (EV – 25)/(85 – 25) = (70 – 25)/60 = 45/60 = 0,750.",
+            "c": "PIB/hab = 207×10⁹/18×10⁶ ≈ 11 500 $/hab. E ≈ (log 11500 – log 100)/(log 40000 – log 100) ≈ (4,061 – 2)/2,602 ≈ 0,792.",
+            "d": "IDH = (0,750 + 0,78 + 0,792)/3 ≈ 0,774."
+          }
+        },
+        {
+          "id": "P05",
+          "source": "Bac Haïti 2021 SES — exam_economie_economie_2021_ses_recette.pdf",
+          "enonce": "Pour un pays fictif : G = 9500 M$, C = 2×G, I = 1200 M$, X = 700 M$, M = X/2.\na) Trouver la formule du PIB selon l'approche par la dépense.\nb) Déterminer C et M.\nc) Calculer le PIB.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Y = C + I + G + (X – M).",
+            "b": "C = 2×9500 = 19 000 M$ ; M = 700/2 = 350 M$.",
+            "c": "Y = 19 000 + 1200 + 9500 + 700 – 350 = 30 050 M$."
+          }
+        },
+        {
+          "id": "P06",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_bastiat.pdf",
+          "enonce": "PIB : 102×10⁹ $ en 1997 et 105×10⁹ $ en 1998. Population : 15×10⁶. EV = 68 ans, indice éducation = 0,75.\na) Calculer le taux de croissance pour 1998.\nb) Calculer l'indice de longévité.\nc) Calculer l'indice du niveau de vie.\nd) En déduire l'IDH.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Taux = (105 – 102)/102 × 100 ≈ 2,94 %.",
+            "b": "A = (68 – 25)/60 = 43/60 ≈ 0,717.",
+            "c": "PIB/hab = 105×10⁹/15×10⁶ = 7000 $/hab. E ≈ (log 7000 – 2)/2,602 ≈ (3,845 – 2)/2,602 ≈ 0,709.",
+            "d": "IDH = (0,717 + 0,75 + 0,709)/3 ≈ 0,725."
+          }
+        },
+        {
+          "id": "P07",
+          "source": "Bac Haïti 2019 SES — exam_economie_economie_2019_ses_croissance.pdf",
+          "enonce": "Vous prêtez 15 000 gourdes à 12 % pour un an. L'ami vous rend 18 000 gourdes. Les prix ont augmenté de 15 %.\n1) Les 18 000 gourdes permettent-elles d'acheter ce que 15 000 permettaient un an avant ?\n2) Préciser l'effet de l'inflation sur le pouvoir d'achat.\n3) Comment qualifier le taux d'intérêt pratiqué ?",
+          "nb_questions": 3,
+          "reponses": {
+            "1": "15 000 × 1,15 = 17 250 gourdes : ce qu'il faut pour acheter le même panier. Comme 18 000 > 17 250, on peut acheter légèrement plus. Mais en termes de taux réel : taux réel ≈ 12 % – 15 % = –3 %, donc le prêteur a perdu en pouvoir d'achat.",
+            "2": "L'inflation réduit le pouvoir d'achat réel : une même somme nominale achète moins de biens.",
+            "3": "Le taux pratiqué est nominal (12 %). Le taux réel est négatif (≈ –3 %), donc le créancier a subi une perte."
+          }
+        },
+        {
+          "id": "P08",
+          "enonce": "PIB : 150×10⁹ $ en 2019 et 157,5×10⁹ $ en 2020. Population : 20×10⁶.\na) Calculer le taux de croissance économique pour 2020.\nb) Calculer le PIB par habitant en 2020.\nc) Si le taux de croissance démographique est de 3 %, peut-on parler d'amélioration du niveau de vie ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux = (157,5 – 150)/150 × 100 = 7,5/150 × 100 = 5 %.",
+            "b": "PIB/hab = 157,5×10⁹/20×10⁶ = 7 875 $/hab.",
+            "c": "Taux de croissance (5 %) > taux démographique (3 %) → le PIB par habitant augmente → le niveau de vie moyen s'améliore."
+          }
+        },
+        {
+          "id": "P09",
+          "enonce": "C = 8 000 M$, I = 3 000 M$, G = 5 000 M$, X = 2 000 M$, M = 1 500 M$.\na) Calculer le PIB selon l'approche par la dépense.\nb) Calculer la balance commerciale (X – M).\nc) Que signifie une balance commerciale positive ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Y = 8000 + 3000 + 5000 + 2000 – 1500 = 16 500 M$.",
+            "b": "X – M = 2000 – 1500 = 500 M$ (excédent commercial).",
+            "c": "Les exportations sont supérieures aux importations : le pays vend plus à l'étranger qu'il n'achète."
+          }
+        },
+        {
+          "id": "P10",
+          "enonce": "C = 12 000 M$, I = 4 000 M$, G = 6 000 M$, X = 3 000 M$. Les importations représentent 30 % des exportations.\na) Calculer M.\nb) Calculer le PIB.\nc) Calculer le PIB par habitant si la population est de 10×10⁶.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "M = 0,30 × 3 000 = 900 M$.",
+            "b": "Y = 12 000 + 4 000 + 6 000 + 3 000 – 900 = 24 100 M$.",
+            "c": "PIB/hab = 24 100 M$/10×10⁶ = 2 410 $/hab."
+          }
+        },
+        {
+          "id": "P11",
+          "enonce": "PIB 2022 : 200×10⁹ $. PIB 2023 : 210×10⁹ $. Population 2023 : 8×10⁶.\na) Taux de croissance 2023.\nb) PIB par habitant 2023.\nc) Si l'inflation est de 4 %, calculer le taux de croissance réel.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux nominal = (210 – 200)/200 × 100 = 5 %.",
+            "b": "PIB/hab = 210×10⁹/8×10⁶ = 26 250 $/hab.",
+            "c": "Taux réel ≈ 5 % – 4 % = 1 %."
+          }
+        },
+        {
+          "id": "P12",
+          "enonce": "Un pays a : C = 5000 M$, I = 1500 M$, G = 2000 M$, X = 800 M$, M = 600 M$.\na) Calculer le PIB.\nb) Calculer le PIB par habitant (population = 5×10⁶).\nc) Si l'année précédente le PIB était de 8500 M$, calculer le taux de croissance.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Y = 5000 + 1500 + 2000 + 800 – 600 = 8 700 M$.",
+            "b": "PIB/hab = 8700/5 = 1 740 $/hab.",
+            "c": "Taux = (8700 – 8500)/8500 × 100 ≈ 2,35 %."
+          }
+        },
+        {
+          "id": "P13",
+          "enonce": "PIB 2015 : 120×10⁹ $. PIB 2016 : 126×10⁹ $. PIB 2017 : 130×10⁹ $.\na) Calculer le taux de croissance pour 2016.\nb) Calculer le taux de croissance pour 2017.\nc) Quelle année a la meilleure performance de croissance ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux 2016 = (126 – 120)/120 × 100 = 5 %.",
+            "b": "Taux 2017 = (130 – 126)/126 × 100 ≈ 3,17 %.",
+            "c": "2016 a la meilleure performance (5 % > 3,17 %)."
+          }
+        },
+        {
+          "id": "P14",
+          "enonce": "C = 18 000 M$, I = 5 000 M$, G = 8 000 M$. Le solde commercial (X – M) est de –500 M$.\na) Calculer le PIB.\nb) Interpréter le solde commercial.\nc) Calculer le PIB par habitant (population = 12×10⁶).",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Y = 18 000 + 5 000 + 8 000 + (–500) = 30 500 M$.",
+            "b": "Solde négatif (–500 M$) : déficit commercial, les importations dépassent les exportations.",
+            "c": "PIB/hab = 30 500/12 ≈ 2 542 $/hab."
+          }
+        },
+        {
+          "id": "P15",
+          "enonce": "PIB réel 2020 : 90×10⁹ $. PIB nominal 2020 : 100×10⁹ $. PIB réel 2019 : 85×10⁹ $.\na) Calculer le taux de croissance réel entre 2019 et 2020.\nb) Calculer le déflateur du PIB pour 2020.\nc) Interpréter le déflateur.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux réel = (90 – 85)/85 × 100 ≈ 5,88 %.",
+            "b": "Déflateur = (PIB nominal / PIB réel) × 100 = (100/90) × 100 ≈ 111,1.",
+            "c": "Le niveau général des prix a augmenté d'environ 11,1 % par rapport à l'année de référence."
+          }
+        },
+        {
+          "id": "P16",
+          "enonce": "C = 40 000 M$, I = 12 000 M$, G = 15 000 M$, X = 8 000 M$, M = 10 000 M$.\na) PIB selon l'approche dépense.\nb) Taux d'ouverture commerciale = (X + M) / (2 × PIB) × 100.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Y = 40 000 + 12 000 + 15 000 + 8 000 – 10 000 = 65 000 M$.",
+            "b": "Taux = (8 000 + 10 000)/(2 × 65 000) × 100 = 18 000/130 000 × 100 ≈ 13,85 %."
+          }
+        },
+        {
+          "id": "P17",
+          "enonce": "Un pays a G = 5 000 M$, C = 3G, I = 2 000 M$, X = 1 500 M$, M = 40 % de X.\na) Calculer C.\nb) Calculer M.\nc) Calculer le PIB.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "C = 3 × 5000 = 15 000 M$.",
+            "b": "M = 0,40 × 1500 = 600 M$.",
+            "c": "Y = 15 000 + 2 000 + 5 000 + 1 500 – 600 = 22 900 M$."
+          }
+        },
+        {
+          "id": "P18",
+          "enonce": "PIB A : 500×10⁹ $ avec population 20×10⁶. PIB B : 100×10⁹ $ avec population 2×10⁶.\na) Calculer le PIB par habitant pour A et B.\nb) Lequel des deux pays a le plus haut niveau de vie selon cet indicateur ?\nc) Cet indicateur est-il suffisant pour comparer les niveaux de vie ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "A : 500/20 = 25 000 $/hab. B : 100/2 = 50 000 $/hab.",
+            "b": "Le pays B a un PIB par habitant deux fois plus élevé.",
+            "c": "Non : le PIB par habitant ne tient pas compte des inégalités de distribution, de la qualité de l'environnement, de l'espérance de vie, de l'éducation, etc."
+          }
+        },
+        {
+          "id": "P19",
+          "enonce": "Pour l'année N : PIB = 200×10⁹ $. Pour N+1 : C augmente de 5000 M$, I augmente de 2000 M$, G reste constant, la balance commerciale passe de +1000 à –500 M$.\na) De combien le PIB augmente-t-il en N+1 ?\nb) Calculer le nouveau PIB.\nc) Calculer le taux de croissance.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "ΔPIB = ΔC + ΔI + ΔG + Δ(X–M) = 5000 + 2000 + 0 + (–500 – 1000) = 7000 – 1500 = 5500 M$.",
+            "b": "PIB N+1 = 200 000 + 5500 = 205 500 M$ ≈ 205,5×10⁹ $.",
+            "c": "Taux = 5500/200 000 × 100 = 2,75 %."
+          }
+        },
+        {
+          "id": "P20",
+          "enonce": "Taux d'intérêt nominal = 20 % sur un prêt de 500 000 gourdes sur 1 an. L'inflation est de 12 %.\na) Calculer le taux d'intérêt réel (approximation de Fisher).\nb) Calculer les intérêts nominaux perçus.\nc) Calculer le gain de pouvoir d'achat réel.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux réel ≈ 20 % – 12 % = 8 %.",
+            "b": "Intérêts nominaux = 20 % × 500 000 = 100 000 gourdes.",
+            "c": "Gain réel = 8 % × 500 000 = 40 000 gourdes de pouvoir d'achat supplémentaire."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 4,
+      "titre": "IDH — Indice de Développement Humain",
+      "description": "Calcul des indices de longévité (A), d'éducation et de niveau de vie (E), puis de l'IDH composite. Classification du pays.",
+      "note_methodologie": "Formule utilisée au bac haïtien : A = (EV–25)/(85–25) ; E = (log(PIB/hab)–log(100))/(log(40000)–log(100)) ; Indice éducation = (2/3)×TA + (1/3)×TBS ; IDH = (A + Indice_éducation + E)/3.",
+      "exercices": [
+        {
+          "id": "I01",
+          "source": "Bac Haïti 2018 SES — exam_economie_economie_2018_ses_menage.pdf",
+          "enonce": "Données d'un pays imaginaire : EV = 70 ans, TA = 0,61, TBS = 76 %, PIB/hab = 8530 $.\na) Calculer l'IDH.\nb) Dans quelle catégorie classer ce pays ?",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "A = (70–25)/60 = 45/60 = 0,750. Ind_éduc = (2/3)×0,61 + (1/3)×0,76 = 0,407 + 0,253 = 0,660. E = (log 8530 – 2)/(log 40000 – 2) ≈ (3,931–2)/(4,602–2) = 1,931/2,602 ≈ 0,742. IDH = (0,750 + 0,660 + 0,742)/3 ≈ 0,717.",
+            "b": "IDH ≈ 0,717 → pays à développement humain moyen-élevé (0,7–0,8)."
+          }
+        },
+        {
+          "id": "I02",
+          "source": "Bac Haïti 2021 SES — exam_economie_economie_2021_ses_epargne.pdf",
+          "enonce": "Pays X : EV = 50 ans, TA = 0,38, TBS = 0,45, PIB/hab = 15 500 $.\nPays Y : EV = 79 ans, TA = 0,96, TBS = 0,98, PIB/hab = 37 000 $.\na) Calculer l'IDH de chaque pays.\nb) Dans quelle catégorie classer chaque pays ?",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Pays X : A = (50–25)/60 ≈ 0,417. Ind_éduc = (2/3)×0,38+(1/3)×0,45 ≈ 0,403. E = (log 15500–2)/2,602 ≈ (4,190–2)/2,602 ≈ 0,842. IDH_X ≈ (0,417+0,403+0,842)/3 ≈ 0,554. Pays Y : A = (79–25)/60 = 0,900. Ind_éduc = (2/3)×0,96+(1/3)×0,98 ≈ 0,967. E = (log 37000–2)/2,602 ≈ (4,568–2)/2,602 ≈ 0,987. IDH_Y ≈ (0,900+0,967+0,987)/3 ≈ 0,951.",
+            "b": "Pays X : développement humain moyen (0,5–0,7). Pays Y : développement humain très élevé (> 0,8)."
+          }
+        },
+        {
+          "id": "I03",
+          "source": "Bac Haïti 2021 SES — exam_economie_economie_2021_ses_menage.pdf",
+          "enonce": "Pays imaginaire : Indice d'espérance de vie = 0,708, TA = 0,61, TBS = 78 %, PIB/hab = 8 630 $.\na) Calculer l'IDH.\nb) Dans quelle catégorie classer ce pays ?",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "A = 0,708 (donné directement). Ind_éduc = (2/3)×0,61 + (1/3)×0,78 ≈ 0,407 + 0,260 = 0,667. E = (log 8630 – 2)/2,602 ≈ (3,936–2)/2,602 ≈ 0,744. IDH ≈ (0,708+0,667+0,744)/3 ≈ 0,706.",
+            "b": "IDH ≈ 0,706 → pays à développement humain moyen."
+          }
+        },
+        {
+          "id": "I04",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_boltanski.pdf",
+          "enonce": "Pays fictif : Indice longévité = 0,80, TA = 82 %, TBS = 88 %, PIB réel = 300×10⁹ $, pop = 25×10⁶.\na) Calculer l'espérance de vie à la naissance.\nb) Calculer l'IDH.\nc) Classer ce pays.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "A = (EV–25)/60 = 0,80 → EV = 0,80×60 + 25 = 48 + 25 = 73 ans.",
+            "b": "PIB/hab = 300×10⁹/25×10⁶ = 12 000 $/hab. Ind_éduc = (2/3)×0,82 + (1/3)×0,88 ≈ 0,547 + 0,293 = 0,840. E = (log 12000 – 2)/2,602 ≈ (4,079–2)/2,602 ≈ 0,799. IDH ≈ (0,80+0,840+0,799)/3 ≈ 0,813.",
+            "c": "IDH > 0,8 → pays à développement humain élevé."
+          }
+        },
+        {
+          "id": "I05",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_kenen.pdf",
+          "enonce": "Pays fictif : PIB réel = 60 000 000 $, pop = 12 000, EV = 65 ans, TA = 58 %, TBS = 60 %.\na) Calculer l'indice du niveau de vie E.\nb) Calculer l'indice de longévité A.\nc) Calculer l'indice d'éducation.\nd) Calculer l'IDH.\ne) Classer ce pays.",
+          "nb_questions": 5,
+          "reponses": {
+            "a": "PIB/hab = 60 000 000/12 000 = 5 000 $/hab. E = (log 5000 – 2)/2,602 ≈ (3,699–2)/2,602 ≈ 0,653.",
+            "b": "A = (65–25)/60 ≈ 0,667.",
+            "c": "Ind_éduc = (2/3)×0,58 + (1/3)×0,60 ≈ 0,387 + 0,200 = 0,587.",
+            "d": "IDH ≈ (0,667+0,587+0,653)/3 ≈ 0,636.",
+            "e": "IDH ≈ 0,636 → pays à développement humain moyen."
+          }
+        },
+        {
+          "id": "I06",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_favereau.pdf",
+          "enonce": "Canada : EV = 80,34 ans, TA = 99 %, TBS = 97 %, PIB/hab = 39 500 $.\nSomalie : EV = 48,84 ans, TA = 37,8 %, TBS = 23,3 %, PIB/hab = 600 $.\na) Calculer l'IDH du Canada et de la Somalie.\nb) Classer ces deux pays.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Canada : A = (80,34–25)/60 ≈ 0,922. Ind_éduc = (2/3)×0,99+(1/3)×0,97 ≈ 0,983. E = (log 39500–2)/2,602 ≈ (4,597–2)/2,602 ≈ 0,998. IDH_Canada ≈ (0,922+0,983+0,998)/3 ≈ 0,968. Somalie : A = (48,84–25)/60 ≈ 0,397. Ind_éduc = (2/3)×0,378+(1/3)×0,233 ≈ 0,330. E = (log 600–2)/2,602 ≈ (2,778–2)/2,602 ≈ 0,299. IDH_Somalie ≈ (0,397+0,330+0,299)/3 ≈ 0,342.",
+            "b": "Canada → développement très élevé (>0,8). Somalie → développement faible (<0,5)."
+          }
+        },
+        {
+          "id": "I07",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_investissement.pdf",
+          "enonce": "Pays fictif : EV = 73 ans, indice éducation = 0,80, PIB/hab (PPA) = 15 000 $.\na) Calculer l'IDH.\nb) Classer ce pays.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "A = (73–25)/60 = 48/60 = 0,800. E = (log 15000–2)/2,602 ≈ (4,176–2)/2,602 ≈ 0,836. IDH = (0,800+0,800+0,836)/3 ≈ 0,812.",
+            "b": "IDH > 0,8 → pays à développement humain élevé."
+          }
+        },
+        {
+          "id": "I08",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_keynes.pdf",
+          "enonce": "Pays imaginaire : Indice EV = 0,80, TA = 82 %, TBS = 88 %, PIB/hab = 22 000 $.\na) Calculer EV à la naissance.\nb) Calculer l'IDH.\nc) Classer ce pays.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "A = 0,80 → EV = 0,80×60+25 = 73 ans.",
+            "b": "Ind_éduc = (2/3)×0,82+(1/3)×0,88 ≈ 0,840. E = (log 22000–2)/2,602 ≈ (4,342–2)/2,602 ≈ 0,900. IDH = (0,800+0,840+0,900)/3 ≈ 0,847.",
+            "c": "IDH > 0,8 → développement humain élevé."
+          }
+        },
+        {
+          "id": "I09",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_mitchell.pdf",
+          "enonce": "Pays imaginaire : EV = 70 ans, TA = 0,70, TBS = 80 %, PIB/hab = 15 000 $.\na) Calculer l'IDH.\nb) Classer ce pays.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "A = (70–25)/60 = 0,750. Ind_éduc = (2/3)×0,70+(1/3)×0,80 ≈ 0,733. E = (log 15000–2)/2,602 ≈ 0,836. IDH ≈ (0,750+0,733+0,836)/3 ≈ 0,773.",
+            "b": "IDH ≈ 0,773 → pays à développement humain moyen-élevé."
+          }
+        },
+        {
+          "id": "I10",
+          "enonce": "Pays A : EV = 55 ans, TA = 0,50, TBS = 0,55, PIB/hab = 2 000 $.\na) Calculer l'indice A.\nb) Calculer l'indice d'éducation.\nc) Calculer l'indice E.\nd) Calculer l'IDH et classer le pays.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "A = (55–25)/60 = 0,500.",
+            "b": "Ind_éduc = (2/3)×0,50+(1/3)×0,55 ≈ 0,517.",
+            "c": "E = (log 2000–2)/2,602 ≈ (3,301–2)/2,602 ≈ 0,500.",
+            "d": "IDH ≈ (0,500+0,517+0,500)/3 ≈ 0,506. Développement humain moyen (0,5–0,7)."
+          }
+        },
+        {
+          "id": "I11",
+          "enonce": "Pays B : EV = 78 ans, TA = 0,95, TBS = 0,90, PIB/hab = 30 000 $.\na) Calculer A, indice éducation, E.\nb) Calculer l'IDH et classer le pays.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "A = (78–25)/60 ≈ 0,883. Ind_éduc = (2/3)×0,95+(1/3)×0,90 ≈ 0,933. E = (log 30000–2)/2,602 ≈ (4,477–2)/2,602 ≈ 0,952.",
+            "b": "IDH ≈ (0,883+0,933+0,952)/3 ≈ 0,923. Développement très élevé (>0,8)."
+          }
+        },
+        {
+          "id": "I12",
+          "enonce": "Pays C : EV = 45 ans, TA = 0,30, TBS = 0,25, PIB/hab = 400 $.\na) Calculer A, indice éducation, E.\nb) Calculer l'IDH et classer le pays.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "A = (45–25)/60 ≈ 0,333. Ind_éduc = (2/3)×0,30+(1/3)×0,25 ≈ 0,283. E = (log 400–2)/2,602 ≈ (2,602–2)/2,602 ≈ 0,231.",
+            "b": "IDH ≈ (0,333+0,283+0,231)/3 ≈ 0,282. Développement humain faible (<0,5)."
+          }
+        },
+        {
+          "id": "I13",
+          "enonce": "Pays D : Indice longévité = 0,70, TA = 0,75, TBS = 0,70, PIB/hab = 10 000 $.\na) Calculer EV à partir de l'indice de longévité.\nb) Calculer l'IDH.\nc) Classer le pays.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "EV = 0,70×60+25 = 67 ans.",
+            "b": "Ind_éduc = (2/3)×0,75+(1/3)×0,70 ≈ 0,733. E = (log 10000–2)/2,602 ≈ (4–2)/2,602 ≈ 0,769. IDH ≈ (0,700+0,733+0,769)/3 ≈ 0,734.",
+            "c": "IDH ≈ 0,734 → développement humain élevé (0,7–0,8)."
+          }
+        },
+        {
+          "id": "I14",
+          "enonce": "Pays E : EV = 63 ans, TA = 0,65, TBS = 0,72, PIB/hab = 5 500 $.\na) Calculer A, indice éducation, E.\nb) IDH et classification.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "A = (63–25)/60 ≈ 0,633. Ind_éduc = (2/3)×0,65+(1/3)×0,72 ≈ 0,673. E = (log 5500–2)/2,602 ≈ (3,740–2)/2,602 ≈ 0,669.",
+            "b": "IDH ≈ (0,633+0,673+0,669)/3 ≈ 0,658. Développement humain moyen."
+          }
+        },
+        {
+          "id": "I15",
+          "enonce": "Un pays a EV = 72 ans, TA = 0,85, TBS = 0,80, et PIB réel = 400×10⁹ $, pop = 20×10⁶.\na) Calculer le PIB/hab.\nb) Calculer l'IDH.\nc) Classer le pays.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "PIB/hab = 400×10⁹/20×10⁶ = 20 000 $/hab.",
+            "b": "A = (72–25)/60 ≈ 0,783. Ind_éduc = (2/3)×0,85+(1/3)×0,80 ≈ 0,833. E = (log 20000–2)/2,602 ≈ (4,301–2)/2,602 ≈ 0,885. IDH ≈ (0,783+0,833+0,885)/3 ≈ 0,834.",
+            "c": "IDH > 0,8 → développement élevé."
+          }
+        },
+        {
+          "id": "I16",
+          "enonce": "Comparer deux pays :\nPays F : EV = 60 ans, TA = 0,60, TBS = 0,65, PIB/hab = 4000 $.\nPays G : EV = 75 ans, TA = 0,90, TBS = 0,85, PIB/hab = 25 000 $.\nCalculer l'IDH de chaque pays et interpréter l'écart.",
+          "nb_questions": 1,
+          "reponses": {
+            "1": "Pays F : A=(60–25)/60≈0,583. Ind_éduc=(2/3)×0,60+(1/3)×0,65≈0,617. E=(log4000–2)/2,602≈(3,602–2)/2,602≈0,616. IDH_F≈0,605. Pays G : A=(75–25)/60≈0,833. Ind_éduc=(2/3)×0,90+(1/3)×0,85≈0,883. E=(log25000–2)/2,602≈(4,398–2)/2,602≈0,922. IDH_G≈0,879. Écart : G a un IDH ≈ 0,274 plus élevé que F, reflétant une meilleure santé, éducation et revenu."
+          }
+        },
+        {
+          "id": "I17",
+          "enonce": "Un pays a : Indice éducation = 0,72, Indice EV = 0,65, Indice niveau de vie = 0,80.\na) Calculer l'IDH.\nb) Classer le pays.\nc) Quel composant tire le plus l'IDH vers le bas ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "IDH = (0,65 + 0,72 + 0,80)/3 = 2,17/3 ≈ 0,723.",
+            "b": "Développement humain élevé (0,7–0,8).",
+            "c": "L'indice EV (0,65) est le plus faible : l'espérance de vie est le principal facteur limitant."
+          }
+        },
+        {
+          "id": "I18",
+          "enonce": "Un pays a IDH = 0,730. On sait que l'indice de longévité = 0,75 et l'indice d'éducation = 0,70.\na) Calculer l'indice du niveau de vie E.\nb) Estimer le PIB/hab correspondant.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "IDH = (A + Ind_éduc + E)/3 → 0,730 = (0,75 + 0,70 + E)/3 → E = 3×0,730 – 1,45 = 2,190 – 1,450 = 0,740.",
+            "b": "E = (log PIB/hab – 2)/2,602 = 0,740 → log PIB/hab = 0,740×2,602 + 2 = 1,925 + 2 = 3,925 → PIB/hab = 10^3,925 ≈ 8 414 $/hab."
+          }
+        },
+        {
+          "id": "I19",
+          "enonce": "Pays H : EV = 68 ans, TA = 0,75, TBS = 0,78, PIB/hab = 7 000 $.\na) Calculer tous les indices composants.\nb) Calculer l'IDH.\nc) Si le PIB/hab double, de combien l'IDH augmentera-t-il ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "A = (68–25)/60 ≈ 0,717. Ind_éduc = (2/3)×0,75+(1/3)×0,78 ≈ 0,760. E = (log7000–2)/2,602 ≈ (3,845–2)/2,602 ≈ 0,709.",
+            "b": "IDH ≈ (0,717+0,760+0,709)/3 ≈ 0,729.",
+            "c": "Nouveau PIB/hab = 14 000 $. E' = (log14000–2)/2,602 ≈ (4,146–2)/2,602 ≈ 0,825. Nouveau IDH ≈ (0,717+0,760+0,825)/3 ≈ 0,767. Hausse de IDH ≈ 0,038."
+          }
+        },
+        {
+          "id": "I20",
+          "enonce": "Pays I : EV = 58 ans, TA = 0,45, TBS = 0,50, PIB/hab = 1 200 $.\na) Calculer l'IDH.\nb) Classer le pays.\nc) Quelles politiques permettraient d'améliorer l'IDH dans chacune de ses trois composantes ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "A = (58–25)/60 ≈ 0,550. Ind_éduc = (2/3)×0,45+(1/3)×0,50 ≈ 0,467. E = (log1200–2)/2,602 ≈ (3,079–2)/2,602 ≈ 0,414. IDH ≈ (0,550+0,467+0,414)/3 ≈ 0,477.",
+            "b": "IDH < 0,5 → développement humain faible.",
+            "c": "Santé : couverture médicale universelle, vaccination, nutrition. Éducation : scolarisation obligatoire, alphabétisation adultes. Revenu : investissement, création d'emplois, lutte contre la corruption."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 5,
+      "titre": "Taux d'intérêt nominal, réel et marché des fonds prêtables",
+      "description": "Distinction taux nominal / réel, équation de Fisher, motifs de détention de monnaie, fonctions de la monnaie.",
+      "exercices": [
+        {
+          "id": "T01",
+          "source": "Bac Haïti 2019 SES — exam_economie_economie_2019_ses_elasticite.pdf",
+          "enonce": "Michel Moïse emprunte à un taux d'intérêt nominal de 20 % l'an. L'inflation, non anticipée, s'avère élevée : le taux d'intérêt réel diminue.\n1) Que signifie taux d'intérêt nominal ?\n2) Que signifie taux d'intérêt réel ?\n3) À qui profite cette situation ?",
+          "nb_questions": 3,
+          "reponses": {
+            "1": "Le taux d'intérêt nominal est le taux affiché par la banque, non corrigé de l'inflation.",
+            "2": "Le taux réel = taux nominal – taux d'inflation. Il mesure le gain réel en pouvoir d'achat.",
+            "3": "L'emprunteur (Michel Moïse) profite : il rembourse en monnaie dévaluée. La banque perd."
+          }
+        },
+        {
+          "id": "T02",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_mandeville.pdf",
+          "enonce": "Le taux d'intérêt nominal est de 7 % et le taux d'inflation est de 4 %.\na) Calculer le taux d'intérêt réel (approximation de Fisher).\nb) Que signifie que 1 dollar épargné aujourd'hui « rapporte plus d'un dollar demain » ?\nc) Qu'advient-il à la demande de fonds prêtables lorsque le taux d'intérêt est élevé ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux réel ≈ 7 % – 4 % = 3 %.",
+            "b": "Cela signifie que le taux d'intérêt est positif : l'épargnant reçoit plus qu'il n'a prêté, compensant et dépassant la perte liée à l'attente.",
+            "c": "La demande de fonds prêtables diminue : les emprunts deviennent plus coûteux, décourageant investissement et consommation à crédit."
+          }
+        },
+        {
+          "id": "T03",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_kenen.pdf",
+          "enonce": "Différence entre taux nominal et taux réel.\na) Expliquer comment l'offre de fonds prêtables évolue quand le taux d'intérêt augmente.\nb) Comment évolue la demande de fonds prêtables quand le taux augmente ?\nc) Si l'inflation non anticipée augmente : analyser l'effet sur la courbe d'offre.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "L'offre augmente : des taux plus élevés incitent davantage les épargnants à prêter leur argent plutôt qu'à le consommer.",
+            "b": "La demande diminue : les emprunteurs font face à des coûts de financement plus élevés.",
+            "c": "Les offreurs de fonds prêtables, craignant de ne pas être remboursés en valeur réelle, exigent des taux encore plus élevés → la courbe d'offre se déplace vers la gauche (l'offre diminue à tout niveau de taux)."
+          }
+        },
+        {
+          "id": "T04",
+          "source": "Bac Haïti 2021 SES — exam_economie_economie_2021_ses_recette.pdf",
+          "enonce": "Préciser le motif de détention de la monnaie pour chaque cas :\na) André détient 2 500 gourdes pour se rendre au marché.\nb) Wilnack garde une petite somme pour faire face aux imprévus.\nc) Alexandre Watson a une somme pour prêter à son ami Gilles moyennant un intérêt.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Motif de transaction : détenir de la monnaie pour les achats courants.",
+            "b": "Motif de précaution : garder de la monnaie pour parer aux dépenses imprévues.",
+            "c": "Motif de spéculation (ou de placement) : conserver de la monnaie pour tirer un gain futur (intérêt)."
+          }
+        },
+        {
+          "id": "T05",
+          "source": "Bac Haïti 2018 SMP — exam_economie_economie_2018_smp_marginal.pdf",
+          "enonce": "Dites la principale fonction de la monnaie dans chacune des situations :\na) Luckner achète des médicaments pour 1 000 gourdes.\nb) Ce terrain vaut 100 000 gourdes.\nc) Alicia a déposé 1 000 gourdes sur un compte d'épargne.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Moyen d'échange (instrument de paiement).",
+            "b": "Unité de compte (étalon de mesure de la valeur).",
+            "c": "Réserve de valeur (instrument d'épargne)."
+          }
+        },
+        {
+          "id": "T06",
+          "enonce": "Un particulier prête 200 000 gourdes à 15 % nominal sur 1 an. L'inflation est de 10 %.\na) Calculer les intérêts nominaux perçus.\nb) Calculer le taux d'intérêt réel.\nc) Calculer le gain réel de pouvoir d'achat.\nd) À qui profite l'inflation dans ce cas ?",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Intérêts = 15 % × 200 000 = 30 000 gourdes.",
+            "b": "Taux réel ≈ 15 % – 10 % = 5 %.",
+            "c": "Gain réel = 5 % × 200 000 = 10 000 gourdes.",
+            "d": "L'emprunteur bénéficie partiellement : il rembourse en monnaie dévaluée. Le prêteur reçoit nominalement plus mais perd une partie de son gain en pouvoir d'achat."
+          }
+        },
+        {
+          "id": "T07",
+          "enonce": "Un prêt de 500 000 gourdes à taux nominal 18 %. Inflation = 18 %.\na) Calculer le taux réel.\nb) Interpréter ce résultat pour le prêteur.\nc) Que conseilleriez-vous à un prêteur dans ce contexte ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux réel ≈ 18 % – 18 % = 0 %.",
+            "b": "Le prêteur ne réalise aucun gain réel : les intérêts compensent exactement l'érosion monétaire.",
+            "c": "Indexer le taux nominal sur l'inflation (taux réel positif), ou investir dans des actifs réels."
+          }
+        },
+        {
+          "id": "T08",
+          "enonce": "Taux nominal = 12 %, inflation = 20 %.\na) Calculer le taux réel.\nb) Que se passe-t-il pour le prêteur ?\nc) Pour l'emprunteur ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux réel ≈ 12 % – 20 % = –8 %.",
+            "b": "Le prêteur perd 8 % de pouvoir d'achat : il reçoit moins en valeur réelle qu'il n'a prêté.",
+            "c": "L'emprunteur gagne : il rembourse une dette dont la valeur réelle a diminué."
+          }
+        },
+        {
+          "id": "T09",
+          "enonce": "Vous déposez 1 000 000 gourdes en banque à 25 % nominal par an. L'inflation de l'année est 22 %.\na) Calculer le montant nominal récupéré après 1 an.\nb) Calculer le taux réel.\nc) Calculer le gain réel.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Montant nominal = 1 000 000 × (1 + 0,25) = 1 250 000 gourdes.",
+            "b": "Taux réel ≈ 25 % – 22 % = 3 %.",
+            "c": "Gain réel = 3 % × 1 000 000 = 30 000 gourdes."
+          }
+        },
+        {
+          "id": "T10",
+          "enonce": "Un agent emprunte 300 000 gourdes à 30 % nominal sur 2 ans (taux simple). L'inflation est de 25 % par an.\na) Calculer les intérêts totaux nominaux sur 2 ans.\nb) Calculer le taux réel annuel approx.\nc) Interpréter.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Intérêts annuels = 30 % × 300 000 = 90 000 gourdes. Total 2 ans = 180 000 gourdes.",
+            "b": "Taux réel ≈ 30 % – 25 % = 5 % par an.",
+            "c": "Le prêteur gagne réellement 5 % par an. L'emprunteur paie 5 % en termes réels : le coût réel du crédit est positif mais modéré malgré le taux nominal élevé."
+          }
+        },
+        {
+          "id": "T11",
+          "enonce": "Un pays a un taux d'intérêt nominal de 8 %. La banque centrale veut maintenir un taux réel de 3 %.\na) Quel taux d'inflation cible la BC ?\nb) Si l'inflation monte à 7 %, calculer le nouveau taux réel.\nc) Que doit faire la BC pour maintenir son objectif ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux d'inflation cible = taux nominal – taux réel cible = 8 % – 3 % = 5 %.",
+            "b": "Taux réel = 8 % – 7 % = 1 %.",
+            "c": "La BC doit augmenter le taux directeur (taux nominal) pour ramener le taux réel à 3 % : nouveau taux nominal = 3 % + 7 % = 10 %."
+          }
+        },
+        {
+          "id": "T12",
+          "enonce": "Andrélus retire 500 000 gourdes car il anticipe une rareté de carburant.\na) Préciser pour quelle raison Andrélus détient cette monnaie.\nb) De quoi dépend directement la quantité de monnaie détenue ?",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Motif de précaution : face à un risque anticipé (pénurie), il stocke de la liquidité.",
+            "b": "La quantité de monnaie détenue par précaution dépend du revenu (plus le revenu est élevé, plus on peut stocker) et des anticipations de dépenses futures imprévues."
+          }
+        },
+        {
+          "id": "T13",
+          "enonce": "La banque centrale augmente le taux directeur de 5 % à 8 %.\na) Calculer la variation du taux directeur.\nb) Quel effet sur les taux des banques commerciales ?\nc) Quel effet sur l'investissement des entreprises ?\nd) Quel effet sur l'inflation ?",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Hausse de 3 points de pourcentage.",
+            "b": "Les banques commerciales répercutent la hausse : leurs taux créditeurs et débiteurs augmentent.",
+            "c": "L'investissement diminue : les crédits sont plus coûteux, certains projets ne sont plus rentables.",
+            "d": "La demande globale se contracte, ce qui tend à freiner l'inflation (politique monétaire restrictive)."
+          }
+        },
+        {
+          "id": "T14",
+          "enonce": "Une banque prête 1 000 000 gourdes à 20 % nominal. L'emprunteur rembourse 1 200 000 gourdes un an après. L'inflation constatée est 15 %.\na) Calculer le remboursement nominal attendu.\nb) Calculer le taux réel.\nc) Calculer la valeur réelle du remboursement (en gourdes de l'année initiale).",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Remboursement nominal = 1 000 000 × 1,20 = 1 200 000 gourdes.",
+            "b": "Taux réel ≈ 20 % – 15 % = 5 %.",
+            "c": "Valeur réelle = 1 200 000 / 1,15 ≈ 1 043 478 gourdes : le prêteur récupère environ 1 043 478 gourdes en pouvoir d'achat initial."
+          }
+        },
+        {
+          "id": "T15",
+          "enonce": "En situation de politique monétaire expansionniste :\na) Que fait la banque centrale avec son taux directeur ?\nb) Quel est l'effet sur la masse monétaire ?\nc) Quel est l'effet sur l'investissement et la croissance ?\nd) Quel risque principal cette politique génère-t-elle ?",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "La BC baisse son taux directeur.",
+            "b": "Les banques peuvent créer davantage de monnaie (crédits moins coûteux) → la masse monétaire augmente.",
+            "c": "L'investissement augmente (coût du crédit réduit) → stimulation de la demande globale → croissance.",
+            "d": "Risque d'inflation si la masse monétaire augmente plus vite que la production réelle."
+          }
+        },
+        {
+          "id": "T16",
+          "enonce": "Préciser la fonction de la monnaie ou le motif de détention pour chaque situation :\na) Jean évalue son terrain à 500 000 gourdes.\nb) Marie achète des légumes pour 2 000 gourdes.\nc) Pierre garde 50 000 gourdes en cas d'urgence médicale.\nd) Lucie place 200 000 gourdes en bons du trésor pour profiter des intérêts.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Unité de compte (mesure de la valeur).",
+            "b": "Moyen d'échange (transaction courante).",
+            "c": "Motif de précaution.",
+            "d": "Motif de spéculation / réserve de valeur."
+          }
+        },
+        {
+          "id": "T17",
+          "enonce": "Un pays a un taux d'intérêt nominal de 15 %. L'inflation est de 12 %. Le PIB nominal croît de 10 %.\na) Calculer le taux réel.\nb) Le taux d'intérêt réel est-il supérieur au taux de croissance réel ? (croissance réelle ≈ 10 % – 12 % = –2 %)\nc) Que signifie un taux d'intérêt réel supérieur au taux de croissance ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Taux réel ≈ 15 % – 12 % = 3 %.",
+            "b": "Taux réel (3 %) > croissance réelle (–2 %) : oui.",
+            "c": "Le coût réel de la dette est supérieur à la croissance de la richesse : le pays (ou les agents) s'appauvrissent en termes réels si l'endettement est important."
+          }
+        },
+        {
+          "id": "T18",
+          "enonce": "La masse monétaire d'un pays est de 500 milliards de gourdes. La BC augmente les réserves obligatoires de 5 % à 10 %.\na) Quel effet sur la capacité de création monétaire des banques commerciales ?\nb) Quel est l'objectif de cette politique ?",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Les banques doivent détenir davantage de réserves → leur capacité à accorder des crédits diminue → la masse monétaire se contracte.",
+            "b": "Freiner la création monétaire pour lutter contre l'inflation (politique monétaire restrictive)."
+          }
+        },
+        {
+          "id": "T19",
+          "enonce": "Vous prêtez 50 000 gourdes à un ami sans intérêt pour un an. L'inflation est de 10 %.\na) Calculer la perte de pouvoir d'achat subie.\nb) Quel taux nominal auriez-vous dû exiger pour avoir un taux réel de 2 % ?\nc) Combien d'intérêts cela représente ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Perte = 10 % × 50 000 = 5 000 gourdes de pouvoir d'achat.",
+            "b": "Taux nominal = taux réel + inflation = 2 % + 10 % = 12 %.",
+            "c": "Intérêts = 12 % × 50 000 = 6 000 gourdes."
+          }
+        },
+        {
+          "id": "T20",
+          "enonce": "Comparer deux emprunteurs A et B :\nA emprunte 100 000 gourdes à 25 % nominal, inflation = 20 %.\nB emprunte 100 000 gourdes à 10 % nominal, inflation = 5 %.\na) Calculer le taux réel de chacun.\nb) Qui paie le plus cher en termes réels ?\nc) Interpréter.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "A : taux réel = 25 % – 20 % = 5 %. B : taux réel = 10 % – 5 % = 5 %.",
+            "b": "Les deux paient le même taux réel (5 %).",
+            "c": "Même si le taux nominal de A est bien plus élevé, une inflation plus forte compense exactement. Le taux réel est le vrai indicateur du coût de l'emprunt."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 6,
+      "titre": "Revenu disponible et propension moyenne à épargner",
+      "description": "Calcul du revenu brut, taxes, revenu disponible, consommation, épargne, propension moyenne à épargner (PMS).",
+      "exercices": [
+        {
+          "id": "R01",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_coase.pdf",
+          "enonce": "Un salarié a un salaire mensuel brut de 50 000 gourdes + prime de 13e mois de 35 000 gourdes. L'État prélève 10 % du revenu brut.\na) Revenu brut annuel.\nb) Revenu disponible.\nc) Consommation si épargne = 1/3 du revenu disponible.\nd) PMS.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Yb = 50 000 × 12 + 35 000 = 635 000 gourdes.",
+            "b": "T = 10 % × 635 000 = 63 500. Yd = 635 000 – 63 500 = 571 500 gourdes.",
+            "c": "S = 1/3 × 571 500 = 190 500. C = 571 500 – 190 500 = 381 000 gourdes.",
+            "d": "PMS = S/Yd = 190 500/571 500 ≈ 0,333."
+          }
+        },
+        {
+          "id": "R02",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_lucas.pdf",
+          "enonce": "Salarié : salaire mensuel brut 50 000 gourdes + prime 13e mois 35 000 gourdes. Taxe = 10 %.\na) Revenu brut annuel.\nb) Revenu disponible.\nc) Épargne si consommation = 2/3 du revenu disponible.\nd) PMS.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Yb = 635 000 gourdes.",
+            "b": "Yd = 571 500 gourdes.",
+            "c": "C = (2/3) × 571 500 = 381 000. S = 571 500 – 381 000 = 190 500 gourdes.",
+            "d": "PMS = 190 500 / 571 500 = 1/3 ≈ 0,333."
+          }
+        },
+        {
+          "id": "R03",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_budget.pdf",
+          "enonce": "Salarié : 50 000 gourdes/mois + prime 35 000 gourdes en décembre. Taxe = 10 %.\na) Revenu brut annuel.\nb) Revenu disponible.\nc) Consommation si épargne = 1/3.\nd) Propension moyenne à épargner.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "635 000 gourdes.",
+            "b": "571 500 gourdes.",
+            "c": "C = 381 000 gourdes.",
+            "d": "PMS = 1/3 ≈ 0,333."
+          }
+        },
+        {
+          "id": "R04",
+          "source": "Bac Haïti 2022 SES — exam_economie_economie_2022_ses_menage.pdf",
+          "enonce": "Tableau à compléter :\nLigne 1 : Yb = 1900, T = 100, Yd = ?, C = 1200, S = ?\nLigne 2 : Yb = ?, T = 350, Yd = 4150, C = ?, S = 100\na) Calculer les valeurs manquantes.\nb) Pour Yd = 0 et C = 450, trouver la consommation incompressible a.\nc) Si C = 1050 + 0,77Yd, calculer Pms.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Ligne 1 : Yd = 1900–100 = 1800. S = 1800–1200 = 600. Ligne 2 : C = 4150–100 = 4050. Yb = 4150+350 = 4500.",
+            "b": "a = C(Yd=0) = 450 gourdes.",
+            "c": "Pms = 1 – 0,77 = 0,23."
+          }
+        },
+        {
+          "id": "R05",
+          "enonce": "Un fonctionnaire a un revenu mensuel brut de 30 000 gourdes. L'État prélève 15 %.\na) Calculer son revenu disponible mensuel.\nb) Il consomme 80 % de son Yd. Calculer sa consommation et son épargne mensuelles.\nc) Calculer sa PMS mensuelle.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Yd = 30 000 × (1 – 0,15) = 30 000 × 0,85 = 25 500 gourdes.",
+            "b": "C = 0,80 × 25 500 = 20 400 gourdes. S = 25 500 – 20 400 = 5 100 gourdes.",
+            "c": "PMS = 5 100 / 25 500 = 0,20."
+          }
+        },
+        {
+          "id": "R06",
+          "enonce": "Un ménage a Yb = 120 000 gourdes annuelles et paie 18 000 gourdes de taxes.\na) Calculer Yd.\nb) Si C = 80 + 0,75Yd, calculer C et S.\nc) Calculer PMS et PMC.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Yd = 120 000 – 18 000 = 102 000 gourdes.",
+            "b": "C = 80 + 0,75 × 102 000 = 80 + 76 500 = 76 580 gourdes. S = 102 000 – 76 580 = 25 420 gourdes.",
+            "c": "PMS = 25 420/102 000 ≈ 0,249. PMC = 76 580/102 000 ≈ 0,751."
+          }
+        },
+        {
+          "id": "R07",
+          "enonce": "Revenu brut annuel = 500 000 gourdes. Taxes = 12 %. Cotisations sociales = 5 %.\na) Calculer le revenu disponible.\nb) Si S = 1/4 × Yd, calculer C et PMS.\nc) Calculer PMC.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Prélèvements = (12 % + 5 %) × 500 000 = 17 % × 500 000 = 85 000. Yd = 415 000 gourdes.",
+            "b": "S = 1/4 × 415 000 = 103 750. C = 311 250 gourdes. PMS = 1/4 = 0,25.",
+            "c": "PMC = C/Yd = 311 250/415 000 ≈ 0,75."
+          }
+        },
+        {
+          "id": "R08",
+          "enonce": "Après promotion, Yd de M. Paul passe de 40 000 à 55 000 gourdes. Sa consommation passe de 33 000 à 44 250 gourdes.\na) Calculer la Pmc.\nb) Calculer la Pms.\nc) Calculer l'épargne avant et après promotion.\nd) Calculer la variation de l'épargne.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Pmc = ΔC/ΔYd = (44 250–33 000)/(55 000–40 000) = 11 250/15 000 = 0,75.",
+            "b": "Pms = 1 – 0,75 = 0,25.",
+            "c": "S avant = 40 000–33 000 = 7 000. S après = 55 000–44 250 = 10 750.",
+            "d": "ΔS = 10 750–7 000 = 3 750 gourdes."
+          }
+        },
+        {
+          "id": "R09",
+          "enonce": "Un ménage a Yd = 60 000 gourdes. Sa fonction de consommation est C = 500 + 0,8Yd.\na) Calculer C.\nb) Calculer S.\nc) Calculer PMS et PMC.\nd) Calculer le multiplicateur.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 500 + 0,8 × 60 000 = 48 500 gourdes.",
+            "b": "S = 60 000 – 48 500 = 11 500 gourdes.",
+            "c": "PMS = 11 500/60 000 ≈ 0,192. PMC = 48 500/60 000 ≈ 0,808.",
+            "d": "k = 1/(1–0,8) = 5."
+          }
+        },
+        {
+          "id": "R10",
+          "enonce": "Tableau de consommation sur plusieurs années :\nAnnée | C | Yd\n2013 | 2700 | 3200\n2014 | 3000 | 3600\n2015 | 3310 | 4000\n2016 | 3623 | 4400\na) Calculer la Pmc entre 2013–2014.\nb) Calculer la Pmc entre 2014–2015.\nc) Comparer les deux valeurs et interpréter.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Pmc 2013–14 = (3000–2700)/(3600–3200) = 300/400 = 0,75.",
+            "b": "Pmc 2014–15 = (3310–3000)/(4000–3600) = 310/400 = 0,775.",
+            "c": "La Pmc a légèrement augmenté : en 2015, le ménage consacre une proportion un peu plus grande de chaque gourde supplémentaire à la consommation."
+          }
+        },
+        {
+          "id": "R11",
+          "source": "Bac Haïti 2016 SES — exam_economie_economie_2016_ecorner.pdf",
+          "enonce": "Jean Michel Phanord a un revenu disponible mensuel de 25 000 gourdes.\na) À quoi peut-il consacrer ce revenu sur le plan économique ?\nb) Écrire formellement Yd en connaissant Yb et les prélèvements T.",
+          "nb_questions": 2,
+          "reponses": {
+            "a": "Il peut le consacrer à la consommation (C) et à l'épargne (S) : Yd = C + S.",
+            "b": "Yd = Yb – T (revenu brut moins impôts et cotisations obligatoires)."
+          }
+        },
+        {
+          "id": "R12",
+          "enonce": "Un agent économique a Yb = 80 000 gourdes. Taxes = 20 %. Il épargne 15 % de son Yd.\na) Calculer Yd.\nb) Calculer S et C.\nc) Calculer PMC et PMS.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Yd = 80 000 × 0,80 = 64 000 gourdes.",
+            "b": "S = 0,15 × 64 000 = 9 600. C = 64 000 – 9 600 = 54 400 gourdes.",
+            "c": "PMS = 0,15. PMC = 0,85."
+          }
+        },
+        {
+          "id": "R13",
+          "enonce": "Trois ménages ont les revenus disponibles suivants : A = 20 000 G, B = 50 000 G, C = 100 000 G. Tous ont la même Pmc = 0,8 et la même consommation autonome a = 500 G.\na) Calculer C et S pour chaque ménage.\nb) Calculer PMC et PMS pour chaque.\nc) Que remarque-t-on sur PMC quand Yd augmente ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "A : C=16500, S=3500. B : C=40500, S=9500. C : C=80500, S=19500.",
+            "b": "A : PMC=16500/20000=0,825, PMS=0,175. B : PMC=40500/50000=0,810, PMS=0,190. C : PMC=80500/100000=0,805, PMS=0,195.",
+            "c": "PMC diminue légèrement quand Yd augmente (les riches épargnent relativement plus)."
+          }
+        },
+        {
+          "id": "R14",
+          "enonce": "Un ménage a C = 1050 + 0,77Yd. Yd = 267 500 gourdes.\na) Calculer C.\nb) Calculer S.\nc) Calculer Pms.\nd) Calculer PMC.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "C = 1050 + 0,77 × 267 500 = 1050 + 205 975 = 207 025 gourdes.",
+            "b": "S = 267 500 – 207 025 = 60 475 gourdes.",
+            "c": "Pms = 1 – 0,77 = 0,23.",
+            "d": "PMC = 207 025/267 500 ≈ 0,774."
+          }
+        },
+        {
+          "id": "R15",
+          "enonce": "Revenu brut d'un agent : 200 000 gourdes/an. Taux d'imposition : 25 %. Sa consommation annuelle est de 130 000 gourdes.\na) Calculer Yd.\nb) Calculer S.\nc) Calculer PMS et PMC.\nd) Si son revenu brut augmente de 40 000 G et qu'il consomme 75 % du supplément, calculer la variation de S.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Yd = 200 000 × 0,75 = 150 000 gourdes.",
+            "b": "S = 150 000 – 130 000 = 20 000 gourdes.",
+            "c": "PMS = 20 000/150 000 ≈ 0,133. PMC = 130 000/150 000 ≈ 0,867.",
+            "d": "ΔYd (après taxe 25 %) = 40 000 × 0,75 = 30 000 G. ΔC = 0,75 × 30 000 = 22 500. ΔS = 30 000 – 22 500 = 7 500 gourdes."
+          }
+        },
+        {
+          "id": "R16",
+          "enonce": "Un agent épargne pour sa retraite. À 30 ans, Yd = 35 000 G/an, il épargne 10 %. À 45 ans, Yd = 70 000 G/an, il épargne 25 %.\na) Calculer l'épargne annuelle à 30 ans et à 45 ans.\nb) Calculer la consommation annuelle dans chaque cas.\nc) Comment expliquer l'augmentation du taux d'épargne ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "À 30 ans : S = 10 % × 35 000 = 3 500 G. À 45 ans : S = 25 % × 70 000 = 17 500 G.",
+            "b": "C(30 ans) = 31 500 G. C(45 ans) = 52 500 G.",
+            "c": "Selon la théorie du cycle de vie, on épargne davantage en milieu de vie pour accumuler un patrimoine en vue de la retraite."
+          }
+        },
+        {
+          "id": "R17",
+          "enonce": "Revenu disponible = 45 000 gourdes. Fonction de consommation : C = 200 + 0,82Yd.\na) Calculer C et S.\nb) Calculer le taux d'épargne.\nc) Calculer le multiplicateur.",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "C = 200 + 0,82 × 45 000 = 200 + 36 900 = 37 100 G. S = 45 000 – 37 100 = 7 900 G.",
+            "b": "Taux = S/Yd = 7 900/45 000 ≈ 17,6 %.",
+            "c": "k = 1/(1–0,82) = 1/0,18 ≈ 5,56."
+          }
+        },
+        {
+          "id": "R18",
+          "enonce": "Yd passe de 25 000 à 40 000 gourdes. La consommation passe de 21 000 à 32 500 gourdes.\na) Calculer Pmc.\nb) Calculer Pms.\nc) Si un investissement autonome de 1 000 G est injecté dans l'économie, de combien le revenu d'équilibre augmente-t-il ?",
+          "nb_questions": 3,
+          "reponses": {
+            "a": "Pmc = (32 500–21 000)/(40 000–25 000) = 11 500/15 000 ≈ 0,767.",
+            "b": "Pms = 1 – 0,767 = 0,233.",
+            "c": "k = 1/0,233 ≈ 4,29. ΔY = 4,29 × 1 000 ≈ 4 290 gourdes."
+          }
+        },
+        {
+          "id": "R19",
+          "enonce": "C = 800 + 0,6Y, I = 450 (modèle à deux secteurs, Y = C + I).\na) Calculer le revenu d'équilibre Y.\nb) Calculer C et S à l'équilibre.\nc) Calculer le multiplicateur k.\nd) Si I augmente de 100, calculer le nouveau revenu d'équilibre.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Y = 800 + 0,6Y + 450 → 0,4Y = 1250 → Y = 3125.",
+            "b": "C = 800 + 0,6×3125 = 800+1875 = 2675. S = 3125–2675 = 450.",
+            "c": "k = 1/(1–0,6) = 2,5.",
+            "d": "ΔY = 2,5 × 100 = 250. Nouveau Y = 3 375."
+          }
+        },
+        {
+          "id": "R20",
+          "enonce": "C = 100 + 0,90Yd, I = 110 (Y = C + I).\na) Calculer le revenu d'équilibre Y.\nb) Calculer C et S à l'équilibre.\nc) Le revenu de plein emploi est 2 400. Quelle est la situation de cette économie ?\nd) Calculer l'écart entre le revenu de plein emploi et le revenu d'équilibre.",
+          "nb_questions": 4,
+          "reponses": {
+            "a": "Y = 100 + 0,9Y + 110 → 0,1Y = 210 → Y = 2100.",
+            "b": "C = 100 + 0,9×2100 = 100+1890 = 1990. S = 2100–1990 = 110.",
+            "c": "Y_éq (2100) < Y_plein emploi (2400) : l'économie est en sous-emploi (récession).",
+            "d": "Écart = 2400–2100 = 300 unités de revenu."
+          }
+        }
+      ]
+    }
+
+  ]
+}

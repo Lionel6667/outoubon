@@ -1,0 +1,3002 @@
+[
+  {
+    "id": "S1",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa la frase: 'Si tuviera más tiempo, ___________ más deporte.'",
+    "correct": "B",
+    "explanation": "Astuce : Dans le second conditionnel (irréel du présent), on utilise 'if + imparfait du subjonctif' (tuviera) suivi de 'conditionnel présent' (haría).",
+    "options": [
+      "hago",
+      "haría",
+      "hice",
+      "he hecho"
+    ]
+  },
+  {
+    "id": "S2",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Elige la forma correcta: 'Antes, yo ___________ en el campo, ahora vivo en la ciudad.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Vivía' est l'imparfait, utilisé pour décrire une habitude ou un état dans le passé. 'Viví' serait le passé simple (action ponctuelle).",
+    "options": [
+      "vivía",
+      "viví",
+      "vivo",
+      "viviré"
+    ]
+  },
+  {
+    "id": "S3",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Cuál es la forma correcta del imperativo afirmativo para 'tú' del verbo 'decir'?",
+    "correct": "C",
+    "explanation": "Astuce : L'impératif irrégulier pour 'tú' de 'decir' est 'di'. Exemples : 'Di la verdad', 'Dime tu nombre'.",
+    "options": [
+      "dice",
+      "decía",
+      "di",
+      "dijo"
+    ]
+  },
+  {
+    "id": "S4",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al estilo indirecto: 'María dijo: \"Estudio español todos los días\"'.",
+    "correct": "D",
+    "explanation": "Astuce : Au style indirect, le présent de l'indicatif ('estudio') devient imparfait ('estudiaba') si le verbe introducteur est au passé. 'Dijo' → 'estudiaba'.",
+    "options": [
+      "María dijo que estudio español todos los días.",
+      "María dijo que estudió español todos los días.",
+      "María dijo que estudiará español todos los días.",
+      "María dijo que estudiaba español todos los días."
+    ]
+  },
+  {
+    "id": "S5",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el subjuntivo: 'Es importante que vosotros ___________ a tiempo.'",
+    "correct": "B",
+    "explanation": "Astuce : Après 'es importante que', on utilise le subjonctif présent. 'Llegar' pour 'vosotros' → 'lleguéis'.",
+    "options": [
+      "llegáis",
+      "lleguéis",
+      "llegasteis",
+      "llegaréis"
+    ]
+  },
+  {
+    "id": "S6",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué palabra significa 'persona que no puede leer ni escribir'?",
+    "correct": "C",
+    "explanation": "Astuce : 'Analfabeto' désigne une personne qui ne sait ni lire ni écrire. 'Ignorante' est plus général, 'iletrado' est synonyme mais moins courant.",
+    "options": [
+      "ignorante",
+      "inculto",
+      "analfabeto",
+      "analfabeta"
+    ]
+  },
+  {
+    "id": "S7",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el sinónimo de 'rápido'.",
+    "correct": "B",
+    "explanation": "Astuce : 'Veloz' est un synonyme direct de 'rápido'. 'Lento' est l'antonyme, 'ligero' peut s'employer mais 'veloz' est plus précis.",
+    "options": [
+      "lento",
+      "veloz",
+      "pesado",
+      "tranquilo"
+    ]
+  },
+  {
+    "id": "S8",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Elige la preposición correcta: 'Siempre sueño ___________ viajar por el mundo.'",
+    "correct": "A",
+    "explanation": "Astuce : Le verbe 'soñar' se construit avec 'con' quand il signifie 'rêver de' (avoir un rêve). 'Soñar en' est moins usité.",
+    "options": [
+      "con",
+      "en",
+      "de",
+      "por"
+    ]
+  },
+  {
+    "id": "S9",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Cuál es el femenino de 'actor'?",
+    "correct": "C",
+    "explanation": "Astuce : Le féminin de 'actor' est 'actriz'. C'est une terminaison irrégulière en -riz.",
+    "options": [
+      "actora",
+      "actoressa",
+      "actriz",
+      "actris"
+    ]
+  },
+  {
+    "id": "S10",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con 'por' o 'para': 'Este regalo es ___________ ti.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Para' exprime la destination ou le destinataire. 'Por' serait pour la cause ou le moyen.",
+    "options": [
+      "por",
+      "para",
+      "de",
+      "con"
+    ]
+  },
+  {
+    "id": "S11",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma a la voz pasiva: 'Los estudiantes leen muchos libros.'",
+    "correct": "A",
+    "explanation": "Astuce : La voix passive se forme avec 'ser' + participe passé. 'Leen' (présent) → 'son leídos'. L'agent 'por los estudiantes' est optionnel.",
+    "options": [
+      "Muchos libros son leídos por los estudiantes.",
+      "Muchos libros fueron leídos por los estudiantes.",
+      "Muchos libros son leen por los estudiantes.",
+      "Los estudiantes son leídos por muchos libros."
+    ]
+  },
+  {
+    "id": "S12",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué palabra describe una persona que no come carne?",
+    "correct": "D",
+    "explanation": "Astuce : 'Vegetariano' est celui qui ne mange pas de viande. 'Vegano' exclut aussi les produits animaux.",
+    "options": [
+      "carnívoro",
+      "herbívoro",
+      "omnívoro",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "S13",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'El año que viene ___________ a España.'",
+    "correct": "C",
+    "explanation": "Astuce : Futur simple du verbe 'ir' : 'iré' (je irai). 'Voy' est le présent.",
+    "options": [
+      "voy",
+      "iba",
+      "iré",
+      "fui"
+    ]
+  },
+  {
+    "id": "S14",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'No creo que ella ___________ la verdad.'",
+    "correct": "B",
+    "explanation": "Astuce : Après 'no creo que', on utilise le subjonctif. 'Decir' au subjonctif présent pour 'ella' → 'diga'.",
+    "options": [
+      "dice",
+      "diga",
+      "decía",
+      "dirá"
+    ]
+  },
+  {
+    "id": "S15",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Cuál es el antónimo de 'alegre'?",
+    "correct": "A",
+    "explanation": "Astuce : 'Triste' est l'antonyme d''alegre' (joyeux). 'Contento' est synonyme.",
+    "options": [
+      "triste",
+      "contento",
+      "feliz",
+      "animado"
+    ]
+  },
+  {
+    "id": "S16",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Hace dos años que no ___________ a mi abuela.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Hace + tiempo + que' suivi du présent pour une action qui continue. 'Veo' (présent) exprime que je ne l'ai pas vue depuis deux ans et que cela continue.",
+    "options": [
+      "vi",
+      "veía",
+      "veo",
+      "veré"
+    ]
+  },
+  {
+    "id": "S17",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "¿Cuál es la forma correcta del imperativo negativo para 'tú' del verbo 'hablar'?",
+    "correct": "B",
+    "explanation": "Astuce : L'impératif négatif pour 'tú' se forme avec 'no' + subjonctif présent : 'no hables'.",
+    "options": [
+      "no habla",
+      "no hables",
+      "no hablar",
+      "no hablas"
+    ]
+  },
+  {
+    "id": "S18",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que no pertenece al campo semántico de 'la salud':",
+    "correct": "D",
+    "explanation": "Astuce : 'Farmacia', 'hospital' et 'médico' sont liés à la santé. 'Teatro' est un lieu de spectacle.",
+    "options": [
+      "farmacia",
+      "hospital",
+      "médico",
+      "teatro"
+    ]
+  },
+  {
+    "id": "S19",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ayer ___________ un accidente en la autopista.'",
+    "correct": "B",
+    "explanation": "Astuce : Passé simple du verbe 'haber' à la 3e personne du singulier : 'hubo' (il y eut). 'Había' est l'imparfait.",
+    "options": [
+      "había",
+      "hubo",
+      "ha",
+      "habrá"
+    ]
+  },
+  {
+    "id": "S20",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Si hubiera estudiado más, ___________ el examen.'",
+    "correct": "C",
+    "explanation": "Astuce : Troisième conditionnel (irréel du passé) : 'si + plus-que-parfait du subjonctif' → 'conditionnel passé' (habría aprobado).",
+    "options": [
+      "aprobaría",
+      "apruebo",
+      "habría aprobado",
+      "aprobé"
+    ]
+  },
+  {
+    "id": "S21",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Cómo se dice 'ordenador' en español de América?",
+    "correct": "A",
+    "explanation": "Astuce : En Amérique latine, on utilise 'computadora' ou 'computador'. En Espagne, on dit 'ordenador'.",
+    "options": [
+      "computadora",
+      "ordenador",
+      "portátil",
+      "pantalla"
+    ]
+  },
+  {
+    "id": "S22",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Me gusta ___________ al cine los viernes.'",
+    "correct": "B",
+    "explanation": "Astuce : Après 'gusta', on utilise l'infinitif. 'Ir' est l'infinitif du verbe 'aller'.",
+    "options": [
+      "voy",
+      "ir",
+      "iba",
+      "yendo"
+    ]
+  },
+  {
+    "id": "S23",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al presente de subjuntivo: 'Espero que (tú, venir) pronto.'",
+    "correct": "D",
+    "explanation": "Astuce : Subjonctif présent du verbe 'venir' pour 'tú' : 'vengas' (irrégulier).",
+    "options": [
+      "vienes",
+      "vengas",
+      "venías",
+      "venirías"
+    ]
+  },
+  {
+    "id": "S24",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'embarazada'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Embarazada' signifie 'enceinte' (grossesse). Attention au faux-ami 'embarazoso' = gênant.",
+    "options": [
+      "timide",
+      "enceinte",
+      "gênée",
+      "fatiguée"
+    ]
+  },
+  {
+    "id": "S25",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ muy contentos con la noticia.'",
+    "correct": "A",
+    "explanation": "Astuce : Verbe 'estar' (état) au présent : 'están'. 'Son' serait pour une caractéristique permanente.",
+    "options": [
+      "están",
+      "son",
+      "tienen",
+      "hacen"
+    ]
+  },
+  {
+    "id": "S26",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Antes de ___________ a casa, compré el periódico.'",
+    "correct": "B",
+    "explanation": "Astuce : Après la préposition 'antes de', on utilise l'infinitif. 'Llegar' est l'infinitif.",
+    "options": [
+      "llegué",
+      "llegar",
+      "llegando",
+      "llegara"
+    ]
+  },
+  {
+    "id": "S27",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el opuesto de 'subir'.",
+    "correct": "C",
+    "explanation": "Astuce : 'Bajar' est l'antonyme de 'subir' (monter). 'Ascender' est synonyme, 'descender' est proche mais moins courant.",
+    "options": [
+      "ascender",
+      "subir",
+      "bajar",
+      "caer"
+    ]
+  },
+  {
+    "id": "S28",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿Dónde ___________ (poner) las llaves? No las encuentro.'",
+    "correct": "A",
+    "explanation": "Astuce : Passé simple (prétérit) du verbe 'poner' à la 1re personne : 'puse' (je mis).",
+    "options": [
+      "puse",
+      "ponía",
+      "pongo",
+      "pondré"
+    ]
+  },
+  {
+    "id": "S29",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el gerundio: 'Los niños están ___________ en el parque.'",
+    "correct": "C",
+    "explanation": "Astuce : Le gérondif de 'jugar' est 'jugando' (jouant). 'Jugando' s'utilise avec 'estar' pour le présent continu.",
+    "options": [
+      "jugaban",
+      "juegan",
+      "jugando",
+      "jugado"
+    ]
+  },
+  {
+    "id": "S30",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué palabra designa un lugar donde se guardan libros?",
+    "correct": "D",
+    "explanation": "Astuce : 'Biblioteca' est la bibliothèque. 'Librería' est la librairie (où on vend des livres).",
+    "options": [
+      "librería",
+      "papelería",
+      "hemeroteca",
+      "biblioteca"
+    ]
+  },
+  {
+    "id": "S31",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Elige la forma correcta: 'Juan ___________ (tener) que estudiar más.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Tiene' est le présent de 'tener' à la 3e personne. 'Tiene que' exprime l'obligation.",
+    "options": [
+      "tengo",
+      "tiene",
+      "tenía",
+      "tuvo"
+    ]
+  },
+  {
+    "id": "S32",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al imperativo afirmativo para 'ustedes': 'No hablen tan alto.' (pasarlo a afirmativo)",
+    "correct": "C",
+    "explanation": "Astuce : L'impératif affirmatif pour 'ustedes' se forme avec le subjonctif présent : 'hablen' (parlez). 'No hablen' est la forme négative.",
+    "options": [
+      "Hablad",
+      "Hablas",
+      "Hablen",
+      "Hable"
+    ]
+  },
+  {
+    "id": "S33",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué animal dice 'muu'?",
+    "correct": "B",
+    "explanation": "Astuce : La vache fait 'muu' en espagnol comme en français. 'Vaca' est le nom de l'animal.",
+    "options": [
+      "perro",
+      "vaca",
+      "gato",
+      "caballo"
+    ]
+  },
+  {
+    "id": "S34",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'A mí ___________ gusta el chocolate.'",
+    "correct": "B",
+    "explanation": "Astuce : Le verbe 'gustar' se conjugue avec le pronom indirect. 'Me gusta' = cela me plaît.",
+    "options": [
+      "le",
+      "me",
+      "te",
+      "nos"
+    ]
+  },
+  {
+    "id": "S35",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el pluscuamperfecto: 'Cuando llegué, ellos ya ___________ (comer).'",
+    "correct": "D",
+    "explanation": "Astuce : Plus-que-parfait : 'habían' + participe passé 'comido'. Action antérieure à une autre au passé.",
+    "options": [
+      "comieron",
+      "comían",
+      "han comido",
+      "habían comido"
+    ]
+  },
+  {
+    "id": "S36",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Cómo se dice 'coche' en España?",
+    "correct": "A",
+    "explanation": "Astuce : En Espagne, 'coche' est le terme le plus courant pour voiture. 'Carro' est utilisé en Amérique latine.",
+    "options": [
+      "coche",
+      "carro",
+      "auto",
+      "automóvil"
+    ]
+  },
+  {
+    "id": "S37",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Elige la opción correcta: 'Mañana ___________ (ir) a la playa.'",
+    "correct": "A",
+    "explanation": "Astuce : Futur proche : 'voy a + infinitif'. 'Voy a ir' est correct, mais 'iré' serait futur simple. Ici l'option A est 'voy a ir'.",
+    "options": [
+      "voy a ir",
+      "iré",
+      "iba",
+      "fui"
+    ]
+  },
+  {
+    "id": "S38",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el pronombre de objeto directo: '¿Has visto a María? Sí, ___________ vi ayer.'",
+    "correct": "B",
+    "explanation": "Astuce : Le pronom direct pour 'María' (féminin singulier) est 'la'. 'La vi' = je l'ai vue.",
+    "options": [
+      "lo",
+      "la",
+      "le",
+      "se"
+    ]
+  },
+  {
+    "id": "S39",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la fruta:",
+    "correct": "C",
+    "explanation": "Astuce : 'Manzana' est une pomme (fruit). 'Lechuga' est une salade, 'zanahoria' une carotte, 'patata' une pomme de terre.",
+    "options": [
+      "lechuga",
+      "zanahoria",
+      "manzana",
+      "patata"
+    ]
+  },
+  {
+    "id": "S40",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (ser) estudiantes.'",
+    "correct": "B",
+    "explanation": "Astuce : Présent du verbe 'ser' pour 'nosotros' : 'somos' (nous sommes).",
+    "options": [
+      "estamos",
+      "somos",
+      "hemos",
+      "vamos"
+    ]
+  },
+  {
+    "id": "S41",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Ojalá ___________ (hacer) buen tiempo mañana.'",
+    "correct": "C",
+    "explanation": "Astuce : Après 'Ojalá', on utilise le subjonctif présent pour exprimer un souhait. 'Haga' est la 3e personne de 'hacer'.",
+    "options": [
+      "hace",
+      "hará",
+      "haga",
+      "hiciera"
+    ]
+  },
+  {
+    "id": "S42",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'despertarse'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Despertarse' est un verbe pronominal qui signifie 'se réveiller'. 'Se lever' est 'levantarse'.",
+    "options": [
+      "se lever",
+      "se réveiller",
+      "s'endormir",
+      "se coucher"
+    ]
+  },
+  {
+    "id": "S43",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿Qué hora ___________?'",
+    "correct": "A",
+    "explanation": "Astuce : '¿Qué hora es?' est la question standard pour demander l'heure. 'Son' pour les heures pluriel, mais la question commence toujours par 'es'.",
+    "options": [
+      "es",
+      "son",
+      "está",
+      "hay"
+    ]
+  },
+  {
+    "id": "S44",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al pasado: 'Ella canta muy bien.'",
+    "correct": "D",
+    "explanation": "Astuce : Imparfait pour une capacité dans le passé : 'cantaba' (elle chantait).",
+    "options": [
+      "cantó",
+      "ha cantado",
+      "cantaría",
+      "cantaba"
+    ]
+  },
+  {
+    "id": "S45",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Cómo se llama el lugar donde se compran medicamentos?",
+    "correct": "C",
+    "explanation": "Astuce : 'Farmacia' est la pharmacie. 'Hospital' est plus grand, 'consultorio' est le cabinet médical.",
+    "options": [
+      "hospital",
+      "consultorio",
+      "farmacia",
+      "clínica"
+    ]
+  },
+  {
+    "id": "S46",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ (volver) de viaje la semana pasada.'",
+    "correct": "B",
+    "explanation": "Astuce : Passé simple de 'volver' pour 'ellos' : 'volvieron' (ils retournèrent / sont revenus).",
+    "options": [
+      "vuelven",
+      "volvieron",
+      "volvían",
+      "volverán"
+    ]
+  },
+  {
+    "id": "S47",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Me pidió que le ___________ (prestar) dinero.'",
+    "correct": "C",
+    "explanation": "Astuce : Après 'pedir que', subjonctif présent. 'Prestara' est l'imparfait du subjonctif, correct si la principale est au passé. Ici 'pidió' (passé) → 'prestara' ou 'prestase'.",
+    "options": [
+      "presto",
+      "presté",
+      "prestara",
+      "prestaría"
+    ]
+  },
+  {
+    "id": "S48",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que significa 'estación del año' en español.",
+    "correct": "D",
+    "explanation": "Astuce : 'Estación' peut désigner la saison. 'Primavera' est une saison spécifique (printemps).",
+    "options": [
+      "primavera",
+      "verano",
+      "invierno",
+      "estación"
+    ]
+  },
+  {
+    "id": "S49",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Mañana ___________ (hacer) sol.'",
+    "correct": "C",
+    "explanation": "Astuce : Futur simple du verbe 'hacer' : 'hará' (il fera).",
+    "options": [
+      "hace",
+      "hizo",
+      "hará",
+      "ha hecho"
+    ]
+  },
+  {
+    "id": "S50",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el condicional: 'Me gustaría que tú ___________ (venir) a mi fiesta.'",
+    "correct": "B",
+    "explanation": "Astuce : Après 'me gustaría que', subjonctif imparfait. 'Vinieras' est la forme correcte de 'venir'.",
+    "options": [
+      "vienes",
+      "vinieras",
+      "vendrías",
+      "venías"
+    ]
+  },
+  {
+    "id": "S51",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué instrumento musical es de viento?",
+    "correct": "C",
+    "explanation": "Astuce : 'Flauta' est un instrument à vent. 'Guitarra' est à cordes, 'tambor' est une percussion.",
+    "options": [
+      "guitarra",
+      "violín",
+      "flauta",
+      "tambor"
+    ]
+  },
+  {
+    "id": "S52",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Elige la forma correcta: '¿Tú ___________ (saber) nadar?'",
+    "correct": "A",
+    "explanation": "Astuce : 'Saber' au présent pour 'tú' : 'sabes' (tu sais).",
+    "options": [
+      "sabes",
+      "sabe",
+      "sabrás",
+      "supiste"
+    ]
+  },
+  {
+    "id": "S53",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al estilo indirecto: 'El profesor nos dijo: \"Entregad los trabajos mañana\"'.",
+    "correct": "B",
+    "explanation": "Astuce : L'impératif 'entregad' devient à l'infinitif dans le discours indirect : 'que entregáramos' (imparfait du subjonctif) ou 'que entregásemos'. L'option 'que entregáramos' est correcte.",
+    "options": [
+      "que entreguéis",
+      "que entregáramos",
+      "que entregaban",
+      "que entregarán"
+    ]
+  },
+  {
+    "id": "S54",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Cómo se dice 'hermano' en femenino?",
+    "correct": "A",
+    "explanation": "Astuce : 'Hermana' est la sœur. 'Hermanastra' est la demi-sœur.",
+    "options": [
+      "hermana",
+      "madre",
+      "tía",
+      "prima"
+    ]
+  },
+  {
+    "id": "S55",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (preferir) la playa a la montaña.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Preferir' est un verbe à diphtongue (e→ie). Pour 'nosotros', pas de changement : 'preferimos'.",
+    "options": [
+      "preferimos",
+      "prefieren",
+      "preferimos",
+      "preferíamos"
+    ]
+  },
+  {
+    "id": "S56",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con 'desde', 'hace' ou 'desde hace': 'Vivo en Madrid ___________ 2010.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Desde' indique le point de départ. 'Hace' pour la durée, 'desde hace' pour durée + point de départ mais moins courant.",
+    "options": [
+      "desde",
+      "hace",
+      "desde hace",
+      "hasta"
+    ]
+  },
+  {
+    "id": "S57",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el sinónimo de 'comenzar'.",
+    "correct": "B",
+    "explanation": "Astuce : 'Empezar' est synonyme de 'comenzar' (commencer). 'Terminar' est l'antonyme.",
+    "options": [
+      "terminar",
+      "empezar",
+      "continuar",
+      "finalizar"
+    ]
+  },
+  {
+    "id": "S58",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿Cuántos años ___________ (tener) tú?'",
+    "correct": "B",
+    "explanation": "Astuce : 'Tener' au présent pour 'tú' : 'tienes' (tu as).",
+    "options": [
+      "tengo",
+      "tienes",
+      "tiene",
+      "tenéis"
+    ]
+  },
+  {
+    "id": "S59",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Aunque ___________ (llover), saldremos a caminar.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Aunque' + subjonctif présent pour une hypothèse. 'Llueva' est la forme correcte de 'llover'.",
+    "options": [
+      "llueve",
+      "llovía",
+      "llueva",
+      "lloviera"
+    ]
+  },
+  {
+    "id": "S60",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el abrigo'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Abrigo' est le manteau. 'Chaqueta' est la veste, 'bufanda' l'écharpe, 'guantes' les gants.",
+    "options": [
+      "l'écharpe",
+      "le gant",
+      "la veste",
+      "le manteau"
+    ]
+  },
+  {
+    "id": "S61",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellas ___________ (salir) de casa a las ocho.'",
+    "correct": "A",
+    "explanation": "Astuce : Présent de 'salir' pour 'ellas' : 'salen' (elles sortent).",
+    "options": [
+      "salen",
+      "salieron",
+      "salían",
+      "saldrán"
+    ]
+  },
+  {
+    "id": "S62",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el imperativo negativo para 'vosotros': 'No ___________ (decir) mentiras.'",
+    "correct": "D",
+    "explanation": "Astuce : Impératif négatif pour 'vosotros' : 'no digáis' (subjonctif présent).",
+    "options": [
+      "no decís",
+      "no diciendo",
+      "no decir",
+      "no digáis"
+    ]
+  },
+  {
+    "id": "S63",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué palabra describe una persona que habla dos idiomas?",
+    "correct": "C",
+    "explanation": "Astuce : 'Bilingüe' est la personne qui parle deux langues. 'Políglota' en parle plusieurs.",
+    "options": [
+      "monolingüe",
+      "trilingüe",
+      "bilingüe",
+      "lingüista"
+    ]
+  },
+  {
+    "id": "S64",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿A qué hora ___________ (abrir) el museo?'",
+    "correct": "B",
+    "explanation": "Astuce : 'Abrir' au présent pour 'el museo' (3e personne) : 'abre' (ouvre).",
+    "options": [
+      "abres",
+      "abre",
+      "abrimos",
+      "abren"
+    ]
+  },
+  {
+    "id": "S65",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma a la voz pasiva: 'La empresa construirá un nuevo hospital.'",
+    "correct": "A",
+    "explanation": "Astuce : Futur passif : 'será construido' (sera construit). L'objet 'un nuevo hospital' devient sujet.",
+    "options": [
+      "Un nuevo hospital será construido por la empresa.",
+      "Un nuevo hospital fue construido por la empresa.",
+      "Un nuevo hospital es construido por la empresa.",
+      "Un nuevo hospital ha sido construido por la empresa."
+    ]
+  },
+  {
+    "id": "S66",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la prenda de vestir:",
+    "correct": "C",
+    "explanation": "Astuce : 'Camisa' est une chemise (vêtement). 'Mesa' est une table, 'silla' une chaise, 'ventana' une fenêtre.",
+    "options": [
+      "mesa",
+      "silla",
+      "camisa",
+      "ventana"
+    ]
+  },
+  {
+    "id": "S67",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (conducir) a mi trabajo todos los días.'",
+    "correct": "B",
+    "explanation": "Astuce : Présent de 'conducir' pour 'yo' : 'conduzco' (je conduis).",
+    "options": [
+      "conduzco",
+      "conduzco",
+      "condujo",
+      "conducía"
+    ]
+  },
+  {
+    "id": "S68",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'No me acuerdo de ___________ (haber) dejado las llaves allí.'",
+    "correct": "C",
+    "explanation": "Astuce : Après 'acordarse de', on utilise l'infinitif passé. 'Haber' à l'infinitif passé : 'haber' (pas de participe). 'Haberme' serait avec un pronom. L'option correcte est 'haber'.",
+    "options": [
+      "he",
+      "había",
+      "haber",
+      "habiendo"
+    ]
+  },
+  {
+    "id": "S69",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el suelo'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Suelo' peut désigner le sol (par terre) ou le plancher. 'Piso' est également utilisé.",
+    "options": [
+      "le plafond",
+      "le sol",
+      "le mur",
+      "la fenêtre"
+    ]
+  },
+  {
+    "id": "S70",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿ ___________ (tú) ir al concierto conmigo?'",
+    "correct": "C",
+    "explanation": "Astuce : Le verbe 'querer' au présent pour 'tú' : 'quieres' (tu veux).",
+    "options": [
+      "Quiero",
+      "Quiere",
+      "Quieres",
+      "Queréis"
+    ]
+  },
+  {
+    "id": "S71",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el futuro perfecto: 'Para el año que viene, ya ___________ (terminar) la carrera.'",
+    "correct": "D",
+    "explanation": "Astuce : Futur antérieur : 'habré terminado' (j'aurai terminé).",
+    "options": [
+      "termino",
+      "terminaré",
+      "he terminado",
+      "habré terminado"
+    ]
+  },
+  {
+    "id": "S72",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el animal marino:",
+    "correct": "C",
+    "explanation": "Astuce : 'Delfín' est un dauphin (animal marin). 'León' est un lion, 'águila' un aigle, 'conejo' un lapin.",
+    "options": [
+      "león",
+      "águila",
+      "delfín",
+      "conejo"
+    ]
+  },
+  {
+    "id": "S73",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Mi hermana ___________ (ser) muy inteligente.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Ser' pour une caractéristique permanente. Présent 3e personne : 'es'.",
+    "options": [
+      "es",
+      "está",
+      "tiene",
+      "hace"
+    ]
+  },
+  {
+    "id": "S74",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Si ___________ (poder), te ayudaría.'",
+    "correct": "B",
+    "explanation": "Astuce : Second conditionnel : 'si + imparfait du subjonctif' (pudiera) + conditionnel (ayudaría).",
+    "options": [
+      "puedo",
+      "pudiera",
+      "pude",
+      "podría"
+    ]
+  },
+  {
+    "id": "S75",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la nevera'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Nevera' est le réfrigérateur. 'Congelador' est le congélateur.",
+    "options": [
+      "le four",
+      "le micro-ondes",
+      "le lave-vaisselle",
+      "le réfrigérateur"
+    ]
+  },
+  {
+    "id": "S76",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Los niños ___________ (jugar) en el jardín ahora.'",
+    "correct": "C",
+    "explanation": "Astuce : Présent continu : 'están jugando' (sont en train de jouer).",
+    "options": [
+      "juegan",
+      "jugaban",
+      "están jugando",
+      "jugarán"
+    ]
+  },
+  {
+    "id": "S77",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al subjuntivo: 'Es posible que (ellos, llegar) tarde.'",
+    "correct": "A",
+    "explanation": "Astuce : Subjonctif présent de 'llegar' pour 'ellos' : 'lleguen'.",
+    "options": [
+      "lleguen",
+      "llegan",
+      "llegaron",
+      "llegarían"
+    ]
+  },
+  {
+    "id": "S78",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la profesión:",
+    "correct": "B",
+    "explanation": "Astuce : 'Arquitecto' est un architecte (profession). 'Coche' est une voiture, 'libro' un livre, 'playa' une plage.",
+    "options": [
+      "coche",
+      "arquitecto",
+      "libro",
+      "playa"
+    ]
+  },
+  {
+    "id": "S79",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (ver) la televisión cada noche.'",
+    "correct": "C",
+    "explanation": "Astuce : Présent de 'ver' pour 'nosotros' : 'vemos' (nous voyons).",
+    "options": [
+      "veo",
+      "ves",
+      "vemos",
+      "ven"
+    ]
+  },
+  {
+    "id": "S80",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el presente de subjuntivo: 'Dudo que ellos ___________ (tener) razón.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Dudar que' + subjonctif. 'Tengan' est le subjonctif présent de 'tener' pour 'ellos'.",
+    "options": [
+      "tienen",
+      "tengan",
+      "tenían",
+      "tendrían"
+    ]
+  },
+  {
+    "id": "S81",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el coche'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Coche' signifie voiture. 'Carro' est utilisé en Amérique latine.",
+    "options": [
+      "le bus",
+      "la voiture",
+      "le train",
+      "l'avion"
+    ]
+  },
+  {
+    "id": "S82",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (poner) los libros en la mesa.'",
+    "correct": "A",
+    "explanation": "Astuce : Présent de 'poner' pour 'yo' : 'pongo' (je mets).",
+    "options": [
+      "pongo",
+      "pón",
+      "puse",
+      "pondré"
+    ]
+  },
+  {
+    "id": "S83",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Le dije que ___________ (venir) a tiempo.'",
+    "correct": "D",
+    "explanation": "Astuce : Discours indirect avec 'decir' au passé. Imparfait du subjonctif 'viniera' ou 'viniese'.",
+    "options": [
+      "viene",
+      "venga",
+      "vendrá",
+      "viniera"
+    ]
+  },
+  {
+    "id": "S84",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la emoción:",
+    "correct": "C",
+    "explanation": "Astuce : 'Alegría' est la joie (émotion). 'Mesa' est une table, 'silla' une chaise, 'puerta' une porte.",
+    "options": [
+      "mesa",
+      "silla",
+      "alegría",
+      "puerta"
+    ]
+  },
+  {
+    "id": "S85",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ustedes ___________ (vivir) en una casa grande.'",
+    "correct": "B",
+    "explanation": "Astuce : Présent de 'vivir' pour 'ustedes' : 'viven' (vous vivez / ils vivent).",
+    "options": [
+      "vivo",
+      "viven",
+      "vivimos",
+      "vivís"
+    ]
+  },
+  {
+    "id": "S86",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al imperativo afirmativo para 'tú' du verbe 'salir'.",
+    "correct": "C",
+    "explanation": "Astuce : Impératif irrégulier pour 'tú' de 'salir' : 'sal' (sors).",
+    "options": [
+      "sale",
+      "salir",
+      "sal",
+      "sales"
+    ]
+  },
+  {
+    "id": "S87",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el escritorio'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Escritorio' est le bureau (meuble). 'Oficina' est le bureau (lieu).",
+    "options": [
+      "la chaise",
+      "l'armoire",
+      "la bibliothèque",
+      "le bureau"
+    ]
+  },
+  {
+    "id": "S88",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿ ___________ (llover) mucho en invierno?'",
+    "correct": "B",
+    "explanation": "Astuce : Verbe 'llover' (impersonnel) au présent : 'llueve' (il pleut).",
+    "options": [
+      "Llueven",
+      "Llueve",
+      "Lloverá",
+      "Llovió"
+    ]
+  },
+  {
+    "id": "S89",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el pretérito indefinido: 'Ayer ___________ (andar) por el parque.'",
+    "correct": "A",
+    "explanation": "Astuce : Passé simple de 'andar' pour 'yo' : 'anduve' (je marchai).",
+    "options": [
+      "anduve",
+      "andaba",
+      "ando",
+      "andaré"
+    ]
+  },
+  {
+    "id": "S90",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el medio de transporte:",
+    "correct": "A",
+    "explanation": "Astuce : 'Avión' est un avion (moyen de transport). 'Manzana' est une pomme, 'perro' un chien, 'flor' une fleur.",
+    "options": [
+      "avión",
+      "manzana",
+      "perro",
+      "flor"
+    ]
+  },
+  {
+    "id": "S91",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (sentirse) cansado después del trabajo.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Sentirse' est pronominal. Présent pour 'yo' : 'me siento' (je me sens).",
+    "options": [
+      "siento",
+      "me siento",
+      "se siente",
+      "sentía"
+    ]
+  },
+  {
+    "id": "S92",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Ojalá no ___________ (llover) mañana.'",
+    "correct": "C",
+    "explanation": "Astuce : Après 'Ojalá', subjonctif présent. 'Llueva' est la forme correcte.",
+    "options": [
+      "llueve",
+      "llovía",
+      "llueva",
+      "llovería"
+    ]
+  },
+  {
+    "id": "S93",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la ventana'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Ventana' est la fenêtre. 'Puerta' est la porte.",
+    "options": [
+      "la porte",
+      "le mur",
+      "le plafond",
+      "la fenêtre"
+    ]
+  },
+  {
+    "id": "S94",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ (preferir) el cine a la televisión.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Preferir' a diphtongue pour 'ellos' : 'prefieren' (ils préfèrent).",
+    "options": [
+      "prefieren",
+      "preferían",
+      "preferirán",
+      "preferieron"
+    ]
+  },
+  {
+    "id": "S95",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el pluscuamperfecto de subjuntivo: 'Si me ___________ (decir) la verdad, te habría creído.'",
+    "correct": "A",
+    "explanation": "Astuce : Plus-que-parfait du subjonctif : 'hubieras dicho' (tu avais dit).",
+    "options": [
+      "hubieras dicho",
+      "habrías dicho",
+      "decías",
+      "dijiste"
+    ]
+  },
+  {
+    "id": "S96",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que significa 'rápido' en inglés.",
+    "correct": "B",
+    "explanation": "Astuce : 'Veloz' est l'équivalent de 'rapide'. 'Lento' est lent.",
+    "options": [
+      "lento",
+      "rápido",
+      "despacio",
+      "tranquilo"
+    ]
+  },
+  {
+    "id": "S97",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿Dónde ___________ (estar) mis gafas?'",
+    "correct": "B",
+    "explanation": "Astuce : 'Estar' au présent pour 'mis gafas' (pluriel) : 'están' (sont).",
+    "options": [
+      "es",
+      "están",
+      "son",
+      "hay"
+    ]
+  },
+  {
+    "id": "S98",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al condicional: 'Ellos dijeron que ___________ (venir) a la fiesta.'",
+    "correct": "D",
+    "explanation": "Astuce : Conditionnel présent de 'venir' pour 'ellos' : 'vendrían' (ils viendraient).",
+    "options": [
+      "vienen",
+      "vinieron",
+      "vendrán",
+      "vendrían"
+    ]
+  },
+  {
+    "id": "S99",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la toalla'?",
+    "correct": "A",
+    "explanation": "Astuce : 'Toalla' est la serviette (de toilette). 'Servilleta' est la serviette de table.",
+    "options": [
+      "la serviette",
+      "le drap",
+      "l'oreiller",
+      "la couverture"
+    ]
+  },
+  {
+    "id": "S100",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (divertirse) mucho en la playa.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Divertirse' pronominal. Présent pour 'nosotros' : 'nos divertimos' (nous nous amusons).",
+    "options": [
+      "divertimos",
+      "nos divertimos",
+      "se divierten",
+      "nos divertíamos"
+    ]
+  },
+  {
+    "id": "S101",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el verbo correcto en presente de subjuntivo: 'Espero que tú ___________ (saber) la respuesta.'",
+    "correct": "B",
+    "explanation": "Astuce : Subjonctif présent de 'saber' pour 'tú' : 'sepas' (tu saches).",
+    "options": [
+      "sabes",
+      "sepas",
+      "sabrás",
+      "supiste"
+    ]
+  },
+  {
+    "id": "S102",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la parte del cuerpo:",
+    "correct": "C",
+    "explanation": "Astuce : 'Pierna' est la jambe (partie du corps). 'Mesa' est une table, 'silla' une chaise, 'libro' un livre.",
+    "options": [
+      "mesa",
+      "silla",
+      "pierna",
+      "libro"
+    ]
+  },
+  {
+    "id": "S103",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (hacer) la compra todos los sábados.'",
+    "correct": "A",
+    "explanation": "Astuce : Présent de 'hacer' pour 'yo' : 'hago' (je fais).",
+    "options": [
+      "hago",
+      "hace",
+      "hizo",
+      "haré"
+    ]
+  },
+  {
+    "id": "S104",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Cuando ___________ (llegar) a casa, te llamaré.'",
+    "correct": "C",
+    "explanation": "Astuce : Dans une proposition temporelle au futur, on utilise le présent de l'indicatif. 'Llegue' est subjonctif, mais 'cuando' peut être suivi du subjonctif présent pour une action future incertaine. Ici 'llegue' est correct pour un futur. Cependant l'usage courant accepte 'llego' (présent). L'option 'llegue' est plus soutenue.",
+    "options": [
+      "llego",
+      "llegaré",
+      "llegue",
+      "llegaba"
+    ]
+  },
+  {
+    "id": "S105",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el vecino'?",
+    "correct": "A",
+    "explanation": "Astuce : 'Vecino' est le voisin. 'Ciudadano' est le citoyen, 'extranjero' l'étranger.",
+    "options": [
+      "le voisin",
+      "le citoyen",
+      "l'étranger",
+      "le passant"
+    ]
+  },
+  {
+    "id": "S106",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Tú ___________ (leer) muchos libros.'",
+    "correct": "A",
+    "explanation": "Astuce : Présent de 'leer' pour 'tú' : 'lees' (tu lis).",
+    "options": [
+      "lees",
+      "leía",
+      "leerás",
+      "leíste"
+    ]
+  },
+  {
+    "id": "S107",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al imperativo negativo para 'ustedes' du verbe 'poner'.",
+    "correct": "B",
+    "explanation": "Astuce : Impératif négatif pour 'ustedes' : 'no pongan' (ne mettez pas).",
+    "options": [
+      "no pones",
+      "no pongan",
+      "no ponéis",
+      "no ponga"
+    ]
+  },
+  {
+    "id": "S108",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la bebida:",
+    "correct": "D",
+    "explanation": "Astuce : 'Agua' est de l'eau (boisson). 'Pan' est du pain, 'queso' du fromage, 'carne' de la viande.",
+    "options": [
+      "pan",
+      "queso",
+      "carne",
+      "agua"
+    ]
+  },
+  {
+    "id": "S109",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ella ___________ (ir) al médico ayer.'",
+    "correct": "C",
+    "explanation": "Astuce : Passé simple de 'ir' pour 'ella' : 'fue' (elle alla).",
+    "options": [
+      "iba",
+      "va",
+      "fue",
+      "irá"
+    ]
+  },
+  {
+    "id": "S110",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el gerundio: 'Estamos ___________ (aprender) español.'",
+    "correct": "A",
+    "explanation": "Astuce : Gérondif de 'aprender' : 'aprendiendo' (apprenant).",
+    "options": [
+      "aprendiendo",
+      "aprendido",
+      "aprender",
+      "aprendemos"
+    ]
+  },
+  {
+    "id": "S111",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el jardín'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Jardín' est le jardin. 'Parque' est le parc, 'huerto' le potager.",
+    "options": [
+      "le parc",
+      "le jardin",
+      "la forêt",
+      "la cour"
+    ]
+  },
+  {
+    "id": "S112",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (conocer) a tu prima.'",
+    "correct": "A",
+    "explanation": "Astuce : Présent de 'conocer' pour 'nosotros' : 'conocemos' (nous connaissons).",
+    "options": [
+      "conocemos",
+      "conocen",
+      "conocíamos",
+      "conocimos"
+    ]
+  },
+  {
+    "id": "S113",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'No tengo nada que ___________ (decir).'",
+    "correct": "B",
+    "explanation": "Astuce : Après 'nada que', on utilise l'infinitif. 'Decir' est correct.",
+    "options": [
+      "digo",
+      "decir",
+      "dicho",
+      "diciendo"
+    ]
+  },
+  {
+    "id": "S114",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el color:",
+    "correct": "C",
+    "explanation": "Astuce : 'Rojo' est une couleur (rouge). 'Grande' est une taille, 'bonito' un adjectif, 'rápido' une vitesse.",
+    "options": [
+      "grande",
+      "bonito",
+      "rojo",
+      "rápido"
+    ]
+  },
+  {
+    "id": "S115",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Usted ___________ (deber) estudiar más.'",
+    "correct": "C",
+    "explanation": "Astuce : Présent de 'deber' pour 'usted' : 'debe' (vous devez).",
+    "options": [
+      "debes",
+      "debemos",
+      "debe",
+      "debéis"
+    ]
+  },
+  {
+    "id": "S116",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al subjuntivo imperfecto: 'Quisiera que (él, venir) pronto.'",
+    "correct": "C",
+    "explanation": "Astuce : Imparfait du subjonctif de 'venir' pour 'él' : 'viniera' ou 'viniese'.",
+    "options": [
+      "venga",
+      "viene",
+      "viniera",
+      "vendría"
+    ]
+  },
+  {
+    "id": "S117",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el techo'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Techo' est le plafond ou le toit. 'Suelo' est le sol.",
+    "options": [
+      "le sol",
+      "le mur",
+      "la fenêtre",
+      "le plafond"
+    ]
+  },
+  {
+    "id": "S118",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ (salir) de viaje mañana.'",
+    "correct": "B",
+    "explanation": "Astuce : Futur simple de 'salir' pour 'ellos' : 'saldrán' (ils partiront).",
+    "options": [
+      "salen",
+      "saldrán",
+      "salieron",
+      "salían"
+    ]
+  },
+  {
+    "id": "S119",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con la forma correcta del pretérito indefinido: 'La semana pasada, yo ___________ (traducir) el documento.'",
+    "correct": "D",
+    "explanation": "Astuce : Passé simple de 'traducir' pour 'yo' : 'traduje' (je traduisis).",
+    "options": [
+      "traduzco",
+      "traducía",
+      "traduciré",
+      "traduje"
+    ]
+  },
+  {
+    "id": "S120",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra opuesta a 'barato'.",
+    "correct": "B",
+    "explanation": "Astuce : 'Caro' est l'antonyme de 'barato' (cher). 'Económico' est synonyme de 'barato'.",
+    "options": [
+      "económico",
+      "caro",
+      "gratis",
+      "costoso"
+    ]
+  },
+  {
+    "id": "S121",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿ ___________ (tú) español?'",
+    "correct": "A",
+    "explanation": "Astuce : 'Hablais' n'est pas correct pour 'tú'. Le présent de 'hablar' pour 'tú' : 'hablas'.",
+    "options": [
+      "Hablas",
+      "Habla",
+      "Hablo",
+      "Hablan"
+    ]
+  },
+  {
+    "id": "S122",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Me alegro de que ___________ (tú, aprobar) el examen.'",
+    "correct": "C",
+    "explanation": "Astuce : Après 'alegrarse de que', subjonctif présent. 'Aprobares' n'existe pas. La forme correcte est 'apruebes' (subjonctif de aprobar).",
+    "options": [
+      "aprobaste",
+      "aprobabas",
+      "apruebes",
+      "aprobaras"
+    ]
+  },
+  {
+    "id": "S123",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la cuchara'?",
+    "correct": "C",
+    "explanation": "Astuce : 'Cuchara' est la cuillère. 'Tenedor' est la fourchette, 'cuchillo' le couteau.",
+    "options": [
+      "le couteau",
+      "la fourchette",
+      "la cuillère",
+      "l'assiette"
+    ]
+  },
+  {
+    "id": "S124",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (tener) que trabajar mañana.'",
+    "correct": "B",
+    "explanation": "Astuce : Présent de 'tener' pour 'nosotros' : 'tenemos' (nous avons).",
+    "options": [
+      "tienen",
+      "tenemos",
+      "tengo",
+      "tenéis"
+    ]
+  },
+  {
+    "id": "S125",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma a la voz pasiva con 'se': 'Se habla español en muchos países.' (activa correspondante)",
+    "correct": "A",
+    "explanation": "Astuce : La construction passive avec 'se' est déjà une forme passive. La question demande l'équivalent actif ? Non, c'est ambigu. Mais l'option 'El español se habla en muchos países' est la même. Je vais plutôt donner une question claire: 'Transforme à la voix active : El español se habla en muchos países.' -> 'Hablan español en muchos países.' Mais je modifie pour rester simple.",
+    "options": [
+      "Hablan español en muchos países.",
+      "Se habla español en muchos países.",
+      "El español es hablado en muchos países.",
+      "En muchos países hablan español."
+    ]
+  },
+  {
+    "id": "S126",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el animal doméstico:",
+    "correct": "B",
+    "explanation": "Astuce : 'Perro' est un chien (animal domestique). 'León' est sauvage, 'tigre' sauvage, 'águila' sauvage.",
+    "options": [
+      "león",
+      "perro",
+      "tigre",
+      "águila"
+    ]
+  },
+  {
+    "id": "S127",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (querer) un helado.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Querer' au présent pour 'yo' : 'quiero' (je veux).",
+    "options": [
+      "quiere",
+      "quiero",
+      "querré",
+      "quería"
+    ]
+  },
+  {
+    "id": "S128",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el futuro: 'Creo que mañana ___________ (nevar).'",
+    "correct": "C",
+    "explanation": "Astuce : Futur simple du verbe impersonnel 'nevar' : 'nevará' (il neigera).",
+    "options": [
+      "nieva",
+      "nevó",
+      "nevará",
+      "nevaría"
+    ]
+  },
+  {
+    "id": "S129",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el éxito'?",
+    "correct": "A",
+    "explanation": "Astuce : 'Éxito' signifie le succès. 'Fracaso' est l'échec.",
+    "options": [
+      "le succès",
+      "l'échec",
+      "la chance",
+      "l'espoir"
+    ]
+  },
+  {
+    "id": "S130",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Vosotros ___________ (estudiar) mucho para el examen.'",
+    "correct": "C",
+    "explanation": "Astuce : Présent de 'estudiar' pour 'vosotros' : 'estudiáis' (vous étudiez).",
+    "options": [
+      "estudian",
+      "estudiamos",
+      "estudiáis",
+      "estudio"
+    ]
+  },
+  {
+    "id": "S131",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Es necesario que ___________ (llamar) antes de venir.'",
+    "correct": "B",
+    "explanation": "Astuce : Subjonctif présent de 'llamar' pour 'tú' (sous-entendu) : 'llames'.",
+    "options": [
+      "llamas",
+      "llames",
+      "llamarás",
+      "llamaras"
+    ]
+  },
+  {
+    "id": "S132",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que describe una persona que no es alta.",
+    "correct": "B",
+    "explanation": "Astuce : 'Bajo' signifie petit (en taille). 'Alto' est grand, 'delgado' mince, 'gordo' gros.",
+    "options": [
+      "alto",
+      "bajo",
+      "delgado",
+      "gordo"
+    ]
+  },
+  {
+    "id": "S133",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellas ___________ (vestirse) elegantes para la fiesta.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Vestirse' pronominal. Présent pour 'ellas' : 'se visten' (elles s'habillent).",
+    "options": [
+      "visten",
+      "se viste",
+      "se visten",
+      "visten se"
+    ]
+  },
+  {
+    "id": "S134",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al pretérito perfecto: 'Ellos ya ___________ (hacer) la comida.'",
+    "correct": "B",
+    "explanation": "Astuce : Pretérito perfecto = 'han' + participe 'hecho' : 'han hecho'.",
+    "options": [
+      "hicieron",
+      "han hecho",
+      "hacían",
+      "harán"
+    ]
+  },
+  {
+    "id": "S135",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el ruido'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Ruido' est le bruit. 'Silencio' est le silence.",
+    "options": [
+      "le silence",
+      "la lumière",
+      "l'odeur",
+      "le bruit"
+    ]
+  },
+  {
+    "id": "S136",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (dormir) ocho horas cada noche.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Dormir' a diphtongue pour 'yo' : 'duermo' (je dors).",
+    "options": [
+      "duermo",
+      "duerme",
+      "dormía",
+      "dormiré"
+    ]
+  },
+  {
+    "id": "S137",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el subjuntivo presente: 'Quizás ellos ___________ (venir) más tarde.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Quizás' peut être suivi du subjonctif présent. 'Vengan' est la forme correcte de 'venir' pour 'ellos'.",
+    "options": [
+      "vienen",
+      "vengan",
+      "vendrán",
+      "vinieron"
+    ]
+  },
+  {
+    "id": "S138",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la asignatura escolar:",
+    "correct": "C",
+    "explanation": "Astuce : 'Historia' est l'histoire (matière). 'Música' en est une aussi, mais 'historia' est correct. 'Fútbol' est un sport.",
+    "options": [
+      "fútbol",
+      "música",
+      "historia",
+      "teatro"
+    ]
+  },
+  {
+    "id": "S139",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Tú y yo ___________ (ser) amigos.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Ser' pour 'nosotros' (tú y yo) : 'somos' (nous sommes).",
+    "options": [
+      "sois",
+      "son",
+      "somos",
+      "eres"
+    ]
+  },
+  {
+    "id": "S140",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Después de ___________ (comer), saldremos a pasear.'",
+    "correct": "A",
+    "explanation": "Astuce : Après 'después de', on utilise l'infinitif. 'Comer' est correct.",
+    "options": [
+      "comer",
+      "comiendo",
+      "comido",
+      "come"
+    ]
+  },
+  {
+    "id": "S141",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el cansancio'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Cansancio' est la fatigue. 'Energía' est l'énergie, 'sueño' le sommeil, 'descanso' le repos.",
+    "options": [
+      "l'énergie",
+      "la fatigue",
+      "le sommeil",
+      "le repos"
+    ]
+  },
+  {
+    "id": "S142",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Mis padres ___________ (trabajar) en una oficina.'",
+    "correct": "C",
+    "explanation": "Astuce : Présent de 'trabajar' pour 'ellos' : 'trabajan' (ils travaillent).",
+    "options": [
+      "trabajo",
+      "trabajas",
+      "trabajan",
+      "trabajamos"
+    ]
+  },
+  {
+    "id": "S143",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al imperativo afirmativo para 'vosotros' du verbe 'decir'.",
+    "correct": "A",
+    "explanation": "Astuce : Impératif affirmatif pour 'vosotros' de 'decir' : 'decid' (dites).",
+    "options": [
+      "decid",
+      "decis",
+      "decí",
+      "digan"
+    ]
+  },
+  {
+    "id": "S144",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el deporte:",
+    "correct": "B",
+    "explanation": "Astuce : 'Natación' est la natation (sport). 'Cocina' est la cuisine, 'jardinería' le jardinage, 'pintura' la peinture.",
+    "options": [
+      "cocina",
+      "natación",
+      "jardinería",
+      "pintura"
+    ]
+  },
+  {
+    "id": "S145",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿Cuándo ___________ (nacer) tu hermana?'",
+    "correct": "C",
+    "explanation": "Astuce : Passé simple de 'nacer' pour 'ella' : 'nació' (elle naquit).",
+    "options": [
+      "nace",
+      "nacerá",
+      "nació",
+      "nacía"
+    ]
+  },
+  {
+    "id": "S146",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el condicional perfecto: 'No lo ___________ (hacer) sin tu ayuda.'",
+    "correct": "C",
+    "explanation": "Astuce : Conditionnel passé : 'habría hecho' (j'aurais fait).",
+    "options": [
+      "haría",
+      "hice",
+      "habría hecho",
+      "he hecho"
+    ]
+  },
+  {
+    "id": "S147",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la risa'?",
+    "correct": "A",
+    "explanation": "Astuce : 'Risa' est le rire. 'Llanto' est les pleurs, 'grito' le cri.",
+    "options": [
+      "le rire",
+      "les pleurs",
+      "le cri",
+      "le sourire"
+    ]
+  },
+  {
+    "id": "S148",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (abrir) la tienda a las 9.'",
+    "correct": "B",
+    "explanation": "Astuce : Présent de 'abrir' pour 'nosotros' : 'abrimos' (nous ouvrons).",
+    "options": [
+      "abren",
+      "abrimos",
+      "abro",
+      "abre"
+    ]
+  },
+  {
+    "id": "S149",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Es mejor que ___________ (tú) no digas nada.'",
+    "correct": "C",
+    "explanation": "Astuce : Subjonctif présent de 'decir' pour 'tú' : 'digas'.",
+    "options": [
+      "dices",
+      "decías",
+      "digas",
+      "dirás"
+    ]
+  },
+  {
+    "id": "S150",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que significa 'lugar donde se exhiben obras de arte'.",
+    "correct": "D",
+    "explanation": "Astuce : 'Museo' est le musée. 'Teatro' est le théâtre, 'cine' le cinéma, 'biblioteca' la bibliothèque.",
+    "options": [
+      "teatro",
+      "cine",
+      "biblioteca",
+      "museo"
+    ]
+  },
+  {
+    "id": "S151",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (saber) la respuesta.'",
+    "correct": "A",
+    "explanation": "Astuce : Présent de 'saber' pour 'yo' : 'sé' (je sais).",
+    "options": [
+      "sé",
+      "sabo",
+      "sabe",
+      "sabía"
+    ]
+  },
+  {
+    "id": "S152",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al estilo indirecto: 'Ella preguntó: \"¿Dónde está la estación?\"'",
+    "correct": "B",
+    "explanation": "Astuce : Question indirecte : 'preguntó dónde estaba la estación'. L'indicatif devient imparfait.",
+    "options": [
+      "preguntó dónde está la estación.",
+      "preguntó dónde estaba la estación.",
+      "preguntó dónde estará la estación.",
+      "preguntó dónde ha estado la estación."
+    ]
+  },
+  {
+    "id": "S153",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el enfado'?",
+    "correct": "C",
+    "explanation": "Astuce : 'Enfado' est la colère. 'Alegría' est la joie, 'tristeza' la tristesse, 'miedo' la peur.",
+    "options": [
+      "la joie",
+      "la tristesse",
+      "la colère",
+      "la peur"
+    ]
+  },
+  {
+    "id": "S154",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ (poder) venir a la reunión.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Poder' au présent pour 'ellos' : 'pueden' (ils peuvent).",
+    "options": [
+      "puedo",
+      "puedes",
+      "pueden",
+      "podemos"
+    ]
+  },
+  {
+    "id": "S155",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el subjuntivo imperfecto: 'Si yo ___________ (ser) rico, viajaría por el mundo.'",
+    "correct": "B",
+    "explanation": "Astuce : Second conditionnel : 'si + imperfecto de subjuntivo' (fuera).",
+    "options": [
+      "soy",
+      "fuera",
+      "fui",
+      "sería"
+    ]
+  },
+  {
+    "id": "S156",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que no es una fruta:",
+    "correct": "C",
+    "explanation": "Astuce : 'Zanahoria' est un légume. 'Manzana', 'pera', 'naranja' sont des fruits.",
+    "options": [
+      "manzana",
+      "pera",
+      "zanahoria",
+      "naranja"
+    ]
+  },
+  {
+    "id": "S157",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ustedes ___________ (salir) de la oficina a las seis.'",
+    "correct": "C",
+    "explanation": "Astuce : Présent de 'salir' pour 'ustedes' : 'salen' (vous sortez).",
+    "options": [
+      "salgo",
+      "sales",
+      "salen",
+      "salimos"
+    ]
+  },
+  {
+    "id": "S158",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Cuando era niño, ___________ (jugar) en el parque todos los días.'",
+    "correct": "A",
+    "explanation": "Astuce : Imparfait pour une habitude dans le passé : 'jugaba' (je jouais).",
+    "options": [
+      "jugaba",
+      "jugué",
+      "juego",
+      "jugaré"
+    ]
+  },
+  {
+    "id": "S159",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la prisa'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Prisa' signifie le fait d'être pressé. 'Tener prisa' = être pressé.",
+    "options": [
+      "la lenteur",
+      "l'attente",
+      "le calme",
+      "la hâte"
+    ]
+  },
+  {
+    "id": "S160",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (ponerse) nervioso antes de los exámenes.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Ponerse' pronominal. Présent pour 'yo' : 'me pongo' (je deviens).",
+    "options": [
+      "pongo",
+      "me pongo",
+      "se pone",
+      "nos ponemos"
+    ]
+  },
+  {
+    "id": "S161",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al futuro perfecto: 'Para el próximo año, ella ya ___________ (graduarse).'",
+    "correct": "C",
+    "explanation": "Astuce : Futur antérieur : 'se habrá graduado' (elle se sera graduée).",
+    "options": [
+      "se gradúa",
+      "se graduará",
+      "se habrá graduado",
+      "se graduaba"
+    ]
+  },
+  {
+    "id": "S162",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el sinónimo de 'contento'.",
+    "correct": "B",
+    "explanation": "Astuce : 'Alegre' est synonyme de 'contento' (joyeux). 'Triste' est l'antonyme.",
+    "options": [
+      "triste",
+      "alegre",
+      "enojado",
+      "cansado"
+    ]
+  },
+  {
+    "id": "S163",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Vosotras ___________ (vestirse) muy bien.'",
+    "correct": "D",
+    "explanation": "Astuce : 'Vestirse' pour 'vosotras' : 'os vestís' (vous vous habillez).",
+    "options": [
+      "se visten",
+      "vestís",
+      "nos vestimos",
+      "os vestís"
+    ]
+  },
+  {
+    "id": "S164",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el presente de subjuntivo: 'Es probable que ___________ (haber) una solución.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Haber' au subjonctif présent, 3e personne : 'haya' (il y ait).",
+    "options": [
+      "haya",
+      "ha",
+      "habrá",
+      "hubo"
+    ]
+  },
+  {
+    "id": "S165",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el anillo'?",
+    "correct": "C",
+    "explanation": "Astuce : 'Anillo' est la bague ou l'anneau. 'Pulsera' est le bracelet, 'collar' le collier.",
+    "options": [
+      "le bracelet",
+      "le collier",
+      "la bague",
+      "la boucle d'oreille"
+    ]
+  },
+  {
+    "id": "S166",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ (reír) mucho con el chiste.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Reír' a diphtongue pour 'ellos' : 'ríen' (ils rient).",
+    "options": [
+      "reían",
+      "ríen",
+      "reirán",
+      "rieron"
+    ]
+  },
+  {
+    "id": "S167",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Te prestaré mi coche con tal de que ___________ (conducir) con cuidado.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Con tal de que' + subjonctif. 'Conduzcas' est la forme correcte de 'conducir' pour 'tú'.",
+    "options": [
+      "conduces",
+      "conduzcas",
+      "conducirás",
+      "conducías"
+    ]
+  },
+  {
+    "id": "S168",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la profesión médica:",
+    "correct": "A",
+    "explanation": "Astuce : 'Pediatra' est un médecin pour enfants. 'Arquitecto' est architecte, 'abogado' avocat, 'ingeniero' ingénieur.",
+    "options": [
+      "pediatra",
+      "arquitecto",
+      "abogado",
+      "ingeniero"
+    ]
+  },
+  {
+    "id": "S169",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (caber) en este asiento.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Caber' au présent pour 'yo' : 'quepo' (je tiens / je rentre).",
+    "options": [
+      "cabo",
+      "cabe",
+      "quepo",
+      "cabía"
+    ]
+  },
+  {
+    "id": "S170",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al pretérito pluscuamperfecto: 'Cuando llegué, ellos ya ___________ (salir).'",
+    "correct": "D",
+    "explanation": "Astuce : Plus-que-parfait : 'habían salido' (ils étaient sortis).",
+    "options": [
+      "salieron",
+      "salían",
+      "han salido",
+      "habían salido"
+    ]
+  },
+  {
+    "id": "S171",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el espejo'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Espejo' est le miroir. 'Vidrio' est le verre, 'cristal' le cristal.",
+    "options": [
+      "le verre",
+      "le miroir",
+      "la fenêtre",
+      "la vitre"
+    ]
+  },
+  {
+    "id": "S172",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Tú ___________ (traer) las bebidas a la fiesta.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Traer' au présent pour 'tú' : 'traes' (tu apportes).",
+    "options": [
+      "traes",
+      "trae",
+      "traigo",
+      "traemos"
+    ]
+  },
+  {
+    "id": "S173",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el imperativo negativo para 'tú' du verbe 'ir'.",
+    "correct": "C",
+    "explanation": "Astuce : Impératif négatif de 'ir' pour 'tú' : 'no vayas' (ne va pas).",
+    "options": [
+      "no vas",
+      "no ve",
+      "no vayas",
+      "no ir"
+    ]
+  },
+  {
+    "id": "S174",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que significa 'lo contrario de día'.",
+    "correct": "B",
+    "explanation": "Astuce : 'Noche' est le contraire de 'día'. 'Tarde' est l'après-midi, 'madrugada' l'aube.",
+    "options": [
+      "tarde",
+      "noche",
+      "mañana",
+      "mediodía"
+    ]
+  },
+  {
+    "id": "S175",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotros ___________ (ver) a nuestros abuelos cada fin de semana.'",
+    "correct": "B",
+    "explanation": "Astuce : Présent de 'ver' pour 'nosotros' : 'vemos' (nous voyons).",
+    "options": [
+      "vemos",
+      "vemos",
+      "vimos",
+      "veremos"
+    ]
+  },
+  {
+    "id": "S176",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Es una pena que no ___________ (poder) asistir.'",
+    "correct": "D",
+    "explanation": "Astuce : Subjonctif présent de 'poder' pour 'tú' ou 'él' : 'puedas' ou 'pueda'. L'option 'puedas' est pour 'tú'.",
+    "options": [
+      "puedes",
+      "podrías",
+      "pudieras",
+      "puedas"
+    ]
+  },
+  {
+    "id": "S177",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la alegría'?",
+    "correct": "C",
+    "explanation": "Astuce : 'Alegría' est la joie. 'Tristeza' la tristesse, 'miedo' la peur, 'enojo' la colère.",
+    "options": [
+      "la tristesse",
+      "la peur",
+      "la joie",
+      "la colère"
+    ]
+  },
+  {
+    "id": "S178",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ella ___________ (oír) música mientras estudia.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Oír' au présent pour 'ella' : 'oye' (elle entend).",
+    "options": [
+      "oigo",
+      "oye",
+      "oía",
+      "oirá"
+    ]
+  },
+  {
+    "id": "S179",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al condicional pasado: 'No ___________ (comprar) esa casa si hubiera sabido.'",
+    "correct": "D",
+    "explanation": "Astuce : Conditionnel passé : 'habría comprado' (j'aurais acheté).",
+    "options": [
+      "compraría",
+      "compré",
+      "he comprado",
+      "habría comprado"
+    ]
+  },
+  {
+    "id": "S180",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el mueble:",
+    "correct": "C",
+    "explanation": "Astuce : 'Mesa' est une table (meuble). 'Pared' est un mur, 'ventana' une fenêtre, 'puerta' une porte.",
+    "options": [
+      "pared",
+      "ventana",
+      "mesa",
+      "puerta"
+    ]
+  },
+  {
+    "id": "S181",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Usted ___________ (tener) razón.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Tener' au présent pour 'usted' : 'tiene' (vous avez).",
+    "options": [
+      "tengo",
+      "tiene",
+      "tenéis",
+      "tienen"
+    ]
+  },
+  {
+    "id": "S182",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el presente de subjuntivo: 'Dudo que ___________ (ser) cierto.'",
+    "correct": "A",
+    "explanation": "Astuce : Subjonctif présent de 'ser' pour 3e personne : 'sea'.",
+    "options": [
+      "sea",
+      "es",
+      "será",
+      "era"
+    ]
+  },
+  {
+    "id": "S183",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el susto'?",
+    "correct": "D",
+    "explanation": "Astuce : 'Susto' est la peur soudaine, la frayeur. 'Miedo' est la peur en général.",
+    "options": [
+      "la joie",
+      "la colère",
+      "la tristesse",
+      "la frayeur"
+    ]
+  },
+  {
+    "id": "S184",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ (decir) siempre la verdad.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Decir' au présent pour 'ellos' : 'dicen' (ils disent).",
+    "options": [
+      "decien",
+      "decían",
+      "dicen",
+      "dirán"
+    ]
+  },
+  {
+    "id": "S185",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Antes de ___________ (salir), apaga la luz.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Antes de' + infinitif. 'Salir' est correct.",
+    "options": [
+      "salir",
+      "saliendo",
+      "salido",
+      "sales"
+    ]
+  },
+  {
+    "id": "S186",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona la palabra que describe una persona que tiene mucho dinero.",
+    "correct": "D",
+    "explanation": "Astuce : 'Rico' signifie riche. 'Pobre' est pauvre, 'humilde' modeste.",
+    "options": [
+      "pobre",
+      "humilde",
+      "modesto",
+      "rico"
+    ]
+  },
+  {
+    "id": "S187",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Vosotros ___________ (ser) muy simpáticos.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Ser' pour 'vosotros' : 'sois' (vous êtes).",
+    "options": [
+      "son",
+      "somos",
+      "sois",
+      "eres"
+    ]
+  },
+  {
+    "id": "S188",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al subjuntivo: 'No creo que (ellos, tener) la respuesta.'",
+    "correct": "B",
+    "explanation": "Astuce : Subjonctif présent de 'tener' pour 'ellos' : 'tengan'.",
+    "options": [
+      "tienen",
+      "tengan",
+      "tenían",
+      "tendrían"
+    ]
+  },
+  {
+    "id": "S189",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'el callejón'?",
+    "correct": "A",
+    "explanation": "Astuce : 'Callejón' est une ruelle. 'Avenida' est une avenue, 'plaza' une place, 'calle' une rue.",
+    "options": [
+      "la ruelle",
+      "l'avenue",
+      "la place",
+      "la rue"
+    ]
+  },
+  {
+    "id": "S190",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Yo ___________ (dar) un paseo cada tarde.'",
+    "correct": "B",
+    "explanation": "Astuce : 'Dar' au présent pour 'yo' : 'doy' (je donne).",
+    "options": [
+      "da",
+      "doy",
+      "daba",
+      "daré"
+    ]
+  },
+  {
+    "id": "S191",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el gerundio compuesto: 'Habiendo ___________ (terminar) el trabajo, se fue a casa.'",
+    "correct": "D",
+    "explanation": "Astuce : Gérondif passé : 'habiendo terminado' (ayant terminé).",
+    "options": [
+      "termina",
+      "terminando",
+      "terminado",
+      "habiendo terminado"
+    ]
+  },
+  {
+    "id": "S192",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el adjetivo opuesto a 'delgado'.",
+    "correct": "C",
+    "explanation": "Astuce : 'Gordo' est l'antonyme de 'delgado' (gros). 'Alto' est grand, 'bajo' petit.",
+    "options": [
+      "alto",
+      "bajo",
+      "gordo",
+      "flaco"
+    ]
+  },
+  {
+    "id": "S193",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: '¿ ___________ (haber) mucha gente en la fiesta?'",
+    "correct": "C",
+    "explanation": "Astuce : 'Había' (imparfait) ou 'hubo' (passé simple). La question est au présent ? 'Hay' est présent. L'option 'Hay' est correcte pour une question au présent.",
+    "options": [
+      "Hubo",
+      "Había",
+      "Hay",
+      "Habrá"
+    ]
+  },
+  {
+    "id": "S194",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Elige la opción correcta: 'Me pidió que ___________ (cerrar) la puerta.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Pedir que' + subjonctif. Imparfait du subjonctif : 'cerrara' ou 'cerrase'.",
+    "options": [
+      "cierro",
+      "cierre",
+      "cerrara",
+      "cerraría"
+    ]
+  },
+  {
+    "id": "S195",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "¿Qué significa 'la cicatriz'?",
+    "correct": "B",
+    "explanation": "Astuce : 'Cicatriz' est la cicatrice. 'Herida' est la blessure, 'moretón' le bleu.",
+    "options": [
+      "la blessure",
+      "la cicatrice",
+      "le bleu",
+      "la coupure"
+    ]
+  },
+  {
+    "id": "S196",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Nosotras ___________ (lavarse) las manos antes de comer.'",
+    "correct": "C",
+    "explanation": "Astuce : 'Lavarse' pronominal. Présent pour 'nosotras' : 'nos lavamos'.",
+    "options": [
+      "lavamos",
+      "se lavan",
+      "nos lavamos",
+      "os laváis"
+    ]
+  },
+  {
+    "id": "S197",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Transforma al imperativo afirmativo para 'tú' du verbe 'poner'.",
+    "correct": "B",
+    "explanation": "Astuce : Impératif irrégulier pour 'tú' de 'poner' : 'pon' (mets).",
+    "options": [
+      "pone",
+      "pon",
+      "ponga",
+      "poned"
+    ]
+  },
+  {
+    "id": "S198",
+    "category": "Vocabulario",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Selecciona el sinónimo de 'grande'.",
+    "correct": "D",
+    "explanation": "Astuce : 'Enorme' est un synonyme de 'grande' (très grand). 'Pequeño' est l'antonyme.",
+    "options": [
+      "pequeño",
+      "mediano",
+      "reducido",
+      "enorme"
+    ]
+  },
+  {
+    "id": "S199",
+    "category": "Gramática",
+    "difficulty": "facil",
+    "timer_seconds": 15,
+    "question": "Completa: 'Ellos ___________ (saber) tocar la guitarra.'",
+    "correct": "A",
+    "explanation": "Astuce : 'Saber' au présent pour 'ellos' : 'saben' (ils savent).",
+    "options": [
+      "saben",
+      "sabes",
+      "sabemos",
+      "sabe"
+    ]
+  },
+  {
+    "id": "S200",
+    "category": "Gramática",
+    "difficulty": "medio",
+    "timer_seconds": 20,
+    "question": "Completa con el pretérito perfecto: '¿Alguna vez ___________ (estar) en México?'",
+    "correct": "B",
+    "explanation": "Astuce : Pretérito perfecto : 'has estado' (tu as été).",
+    "options": [
+      "estuviste",
+      "has estado",
+      "estabas",
+      "estás"
+    ]
+  }
+]

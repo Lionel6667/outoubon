@@ -1,0 +1,541 @@
+```json
+{
+  "course_title": "Informatique — Baccalauréat Haïtien (SVT, SES, LLA, SMP)",
+  "chapters": [
+    {
+      "chapter_title": "Algorithmique et Programmation",
+      "chapter_introduction": "L'algorithmique est la base de l'informatique : elle consiste à écrire des suites d'instructions précises pour résoudre des problèmes. Au bac haïtien, les questions d'algorithmique sont présentes dans 100% des examens et représentent une part importante des points. Ce chapitre vous apprendra à écrire des algorithmes simples (calculs, conditions, boucles) et à manipuler des tableaux, en suivant une méthode pas à pas.",
+      "chapter_objectives": [
+        "Écrire la structure de base d'un algorithme (Variables, Début, Fin, Ecrire, Lire)",
+        "Réaliser des calculs mathématiques simples (carré, valeur absolue)",
+        "Utiliser les conditions (Si/Alors/Sinon) pour prendre des décisions",
+        "Maîtriser les boucles (Pour) pour répéter des instructions",
+        "Manipuler des tableaux (vecteurs et matrices)",
+        "Éviter les erreurs classiques (confusion multiplication/addition, oubli de FinSi, etc.)"
+      ],
+      "subchapters": [
+        {
+          "title": "Structure de base d'un algorithme",
+          "introduction": "Un algorithme est comme une recette de cuisine : une suite d'étapes ordonnées. Pour qu'un ordinateur l'exécute, on utilise un pseudo-code standardisé. Ce sous-chapitre vous apprend la structure obligatoire : déclaration des variables, début, instructions, fin.",
+          "definition": "Un algorithme est une séquence finie d'instructions claires et non ambiguës permettant de résoudre un problème.",
+          "explanation": "En pseudo-code haïtien, tout algorithme suit ce modèle :\n- Déclaration des variables avec leur type (Entier, Réel, Chaîne, Booléen)\n- Mot-clé 'Début'\n- Instructions (Ecrire pour afficher, Lire pour saisir, calculs, conditions, boucles)\n- Mot-clé 'Fin'\nLes opérateurs mathématiques sont : +, -, *, /, ← (affectation).",
+          "step_by_step": [
+            "Étape 1 : Identifiez les données d'entrée (ce que l'utilisateur doit fournir) et les résultats à afficher.",
+            "Étape 2 : Déclarez toutes les variables nécessaires avec leur type (ex: Variables : N, Carre en Entier).",
+            "Étape 3 : Écrivez 'Début'.",
+            "Étape 4 : Utilisez 'Ecrire' pour demander les données, puis 'Lire' pour les stocker.",
+            "Étape 5 : Effectuez les calculs avec l'opérateur ← (ex: Carre ← N * N).",
+            "Étape 6 : Affichez les résultats avec 'Ecrire'.",
+            "Étape 7 : Terminez par 'Fin'."
+          ],
+          "examples": [
+            "Exemple simple : Algorithme qui affiche 'Bonjour !' →\nVariables : (aucune)\nDébut\n  Ecrire \"Bonjour !\"\nFin",
+            "Exemple avec saisie : Algorithme qui lit un nom et salue →\nVariables : nom en Chaîne\nDébut\n  Ecrire \"Entrez votre nom :\"\n  Lire nom\n  Ecrire \"Bonjour \", nom\nFin"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (type bac) : Écrire un algorithme qui lit deux nombres A et B, calcule leur somme et l'affiche.\nVariables : A, B, Somme en Réel\nDébut\n  Ecrire \"Entrez A :\"\n  Lire A\n  Ecrire \"Entrez B :\"\n  Lire B\n  Somme ← A + B\n  Ecrire \"La somme de \", A, \" et \", B, \" est \", Somme\nFin\nOn déclare trois variables réelles. On lit A et B. On calcule la somme. On affiche le résultat avec un message clair."
+          ],
+          "methods": [
+            "Pour mémoriser : 'Variables' au début, puis 'Début', puis les instructions, puis 'Fin'.",
+            "Astuce : 'Ecrire' est comme parler à l'utilisateur, 'Lire' est comme écouter sa réponse.",
+            "L'opérateur d'affectation ← se lit 'prend la valeur de'. Exemple : Carre ← N*N signifie 'Carre devient N fois N'."
+          ],
+          "common_mistakes": [
+            "Oublier de déclarer une variable utilisée → l'algorithme est incorrect.",
+            "Écrire 'Finir' au lieu de 'Fin' → non standard.",
+            "Confondre Ecrire et Lire : Ecrire affiche, Lire attend une saisie.",
+            "Utiliser '=' au lieu de '←' pour l'affectation (dans certains pseudo-codes, c'est accepté mais le bac préfère ←)."
+          ],
+          "summary": "Structure obligatoire : Variables (déclarations) – Début – Instructions (Ecrire, Lire, calculs) – Fin. Toujours commencer par déclarer les variables."
+        },
+        {
+          "title": "Calculs mathématiques simples",
+          "introduction": "Les algorithmes de calcul sont les plus simples : ils lisent des nombres, effectuent des opérations arithmétiques, et affichent le résultat. Les exercices typiques du bac sont le calcul du carré d'un nombre et de la valeur absolue.",
+          "definition": "Les opérations mathématiques de base en algorithmique sont : addition (+), soustraction (-), multiplication (*), division (/), puissance (^ ou **).",
+          "explanation": "Pour calculer le carré d'un nombre N, on écrit N * N (et non N+N). Pour la valeur absolue, on teste si le nombre est négatif ; si oui, on prend son opposé (-X).",
+          "step_by_step": [
+            "Étape 1 : Lire la valeur d'entrée.",
+            "Étape 2 : Effectuer le calcul demandé.",
+            "Étape 3 : Afficher le résultat avec un message explicite.",
+            "Pour la valeur absolue : Si X < 0 alors afficher -X, sinon afficher X."
+          ],
+          "examples": [
+            "Exemple carré :\nVariables : N, Carre en Entier\nDébut\n  Ecrire \"Entrez un nombre :\"\n  Lire N\n  Carre ← N * N\n  Ecrire \"Le carré de \", N, \" est \", Carre\nFin",
+            "Exemple valeur absolue :\nVariables : X en Réel\nDébut\n  Ecrire \"Entrez un nombre X :\"\n  Lire X\n  Si X >= 0 Alors\n    Ecrire \"La valeur absolue est \", X\n  Sinon\n    Ecrire \"La valeur absolue est \", -X\n  FinSi\nFin"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2015) : Écrire un algorithme qui demande un nombre et affiche son carré. Piège : certains élèves écrivent N+N au lieu de N*N. Le carré de 7 est 49, pas 14. La correction donnée dans l'examen officiel montre qu'il faut utiliser la multiplication.",
+            "Exemple avec valeur absolue : pour X = -5, le test X >= 0 est faux, on exécute le Sinon et on affiche -(-5) = 5."
+          ],
+          "methods": [
+            "Pour calculer le carré : N * N. Ne jamais utiliser N^2 (même si certains langages l'acceptent, le bac préfère N*N).",
+            "Pour la valeur absolue : toujours une condition Si/Sinon.",
+            "Vérifiez mentalement avec un exemple (ex: N=3 → 3*3=9)."
+          ],
+          "common_mistakes": [
+            "Utiliser l'addition au lieu de la multiplication : N+N au lieu de N*N (piège classique du bac 2015).",
+            "Oublier le cas négatif pour la valeur absolue.",
+            "Ne pas afficher le résultat avec un message (afficher juste le nombre sans texte)."
+          ],
+          "summary": "Pour un calcul : Lire, calculer avec les bons opérateurs, Ecrire. Le carré = N*N. La valeur absolue = -X si X<0, sinon X."
+        },
+        {
+          "title": "Algorithmes conditionnels (Si/Alors/Sinon)",
+          "introduction": "Parfois, l'algorithme doit prendre une décision en fonction d'une condition. Par exemple, déterminer si une personne est majeure ou mineure, ou trouver le maximum de deux nombres. La structure conditionnelle 'Si ... Alors ... Sinon ... FinSi' permet cela.",
+          "definition": "La structure conditionnelle exécute un bloc d'instructions si une condition est vraie, et un autre bloc (optionnel) si elle est fausse.",
+          "explanation": "Les opérateurs de comparaison sont : = (égal), ≠ (différent), <, >, ≤, ≥. La condition doit être une expression logique (vraie ou fausse). Le 'FinSi' est obligatoire pour fermer la structure.",
+          "step_by_step": [
+            "Étape 1 : Écrire 'Si [condition] Alors'",
+            "Étape 2 : Indenter les instructions à exécuter si la condition est vraie.",
+            "Étape 3 : (Optionnel) Écrire 'Sinon' et indenter les instructions si la condition est fausse.",
+            "Étape 4 : Terminer par 'FinSi'."
+          ],
+          "examples": [
+            "Exemple majeur/mineur :\nVariables : age en Entier\nDébut\n  Ecrire \"Entrez votre âge :\"\n  Lire age\n  Si age >= 18 Alors\n    Ecrire \"Majeure\"\n  Sinon\n    Ecrire \"Mineure\"\n  FinSi\nFin",
+            "Exemple maximum de deux nombres avec échange :\nVariables : X, Y, Temp en Entier\nDébut\n  Lire X, Y\n  Si X < Y Alors\n    Temp ← X\n    X ← Y\n    Y ← Temp\n  FinSi\n  Ecrire \"Plus grand : \", X\nFin"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (équation quadratique) : Résoudre Ax² + Bx + C = 0, A≠0.\nVariables : A,B,C,Delta,X1,X2 en Réel\nDébut\n  Lire A,B,C\n  Delta ← B*B - 4*A*C\n  Si Delta < 0 Alors\n    Ecrire \"Pas de solution réelle\"\n  SinonSi Delta = 0 Alors\n    X1 ← -B/(2*A)\n    Ecrire \"Une solution : \", X1\n  Sinon\n    X1 ← (-B + Racine(Delta))/(2*A)\n    X2 ← (-B - Racine(Delta))/(2*A)\n    Ecrire \"Deux solutions : \", X1, \" et \", X2\n  FinSi\nFin\nCet algorithme est typique du bac (examen 2016).",
+            "Exemple d'échange de variables : Pour permuter X et Y, on utilise une variable temporaire Temp. Écrire Temp ← X, puis X ← Y, puis Y ← Temp."
+          ],
+          "methods": [
+            "Pour les conditions multiples, utilisez 'SinonSi' (ou 'Sinon Si' selon la syntaxe).",
+            "Toujours fermer la condition par 'FinSi', même s'il n'y a pas de Sinon.",
+            "Pour tester l'égalité, utilisez '=' (et non '←')."
+          ],
+          "common_mistakes": [
+            "Oublier 'FinSi' → l'algorithme est syntaxiquement incorrect.",
+            "Dans l'échange, écrire X ← Y puis Y ← X sans Temp → on perd la valeur originale de X.",
+            "Confondre '=' (comparaison) et '←' (affectation).",
+            "Pour l'équation, ne pas traiter les trois cas (Delta <0, =0, >0)."
+          ],
+          "summary": "Si condition Alors instructions [Sinon instructions] FinSi. Les conditions utilisent les opérateurs de comparaison. Toujours fermer par FinSi."
+        },
+        {
+          "title": "Algorithmes avec boucles (Pour)",
+          "introduction": "Quand on doit répéter une instruction plusieurs fois, on utilise une boucle. La boucle 'Pour' est parfaite quand on sait à l'avance combien de fois répéter (ex: de 1 à 10). Elle est très utilisée pour les tables de multiplication.",
+          "definition": "La boucle 'Pour' exécute un bloc d'instructions pour chaque valeur d'une variable qui parcourt un intervalle. Syntaxe : Pour variable ← début à fin ... variable suivant.",
+          "explanation": "Par exemple, 'Pour i ← 1 à 10' répète le bloc pour i=1,2,...,10. À l'intérieur, on peut utiliser la variable i. Après la dernière instruction, on écrit 'i suivant' pour passer à la valeur suivante.",
+          "step_by_step": [
+            "Étape 1 : Déterminez la variable de boucle (souvent i).",
+            "Étape 2 : Écrivez 'Pour i ← début à fin'.",
+            "Étape 3 : Indentez les instructions à répéter.",
+            "Étape 4 : Terminez par 'i suivant'."
+          ],
+          "examples": [
+            "Exemple table de multiplication (bac 2015) :\nVariables : N, i en Entier\nDébut\n  Ecrire \"Entrez N :\"\n  Lire N\n  Pour i ← 1 à 10\n    Ecrire N, \" × \", i, \" = \", N * i\n  i suivant\nFin\nCe code affiche N×1, N×2, ..., N×10."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (analyse de la réponse I et II du bac 2015) :\n- Réponse I (correcte) : boucle de 1 à 10, affiche N * i.\n- Réponse II (incorrecte) : boucle de 1 à 7, n'affiche pas le calcul, message mal formulé.\nPiège : l'examen a proposé une réponse avec 'n+i' (addition) au lieu de 'n*i'. La bonne réponse doit avoir la multiplication.",
+            "Exemple de somme des entiers de 1 à N :\nVariables : N, i, Somme en Entier\nDébut\n  Lire N\n  Somme ← 0\n  Pour i ← 1 à N\n    Somme ← Somme + i\n  i suivant\n  Ecrire \"Somme = \", Somme\nFin"
+          ],
+          "methods": [
+            "Pour une table de multiplication, la boucle va toujours de 1 à 10 (sauf indication contraire).",
+            "Initialisez toujours les accumulateurs (comme Somme) à 0 avant la boucle.",
+            "Vérifiez mentalement avec N=3 : la boucle affiche 3×1=3, 3×2=6, ..., 3×10=30."
+          ],
+          "common_mistakes": [
+            "Oublier 'i suivant' → la boucle ne se termine pas.",
+            "Mettre la borne supérieure à 9 au lieu de 10 (pour une table de 1 à 10).",
+            "Utiliser l'addition au lieu de la multiplication (N+i).",
+            "Ne pas déclarer la variable de boucle i."
+          ],
+          "summary": "Pour i ← début à fin ... i suivant répète des instructions. Idéal pour les tables de multiplication et les sommes."
+        },
+        {
+          "title": "Algorithmes sur les tableaux (vecteurs et matrices)",
+          "introduction": "Un tableau permet de stocker plusieurs valeurs du même type dans des cases numérotées. On utilise des boucles pour parcourir ces cases. Les exercices du bac incluent la déclaration de tableaux, le remplissage et l'affichage.",
+          "definition": "Un tableau est une collection ordonnée d'éléments de même type, accessibles par un indice. En pseudo-code haïtien, on déclare : Tableau Nom[taille] en Type. Les indices commencent à 0 ou 1 selon le contexte.",
+          "explanation": "Exemple : Tableau T[10] en Entier crée 10 cases (indices 0 à 9). Pour accéder à la 3e case : T[2] (si on commence à 0). Pour une matrice (2D) : Tableau X[2][3] en Entier ou Tableau X(1,2) en Entier selon la syntaxe. On utilise des boucles imbriquées pour parcourir les lignes et colonnes.",
+          "step_by_step": [
+            "Étape 1 : Déclarer le tableau avec sa taille.",
+            "Étape 2 : Pour remplir : boucle sur les indices, Lire T[i].",
+            "Étape 3 : Pour traiter : boucle, effectuer calcul.",
+            "Étape 4 : Pour afficher : boucle, Ecrire T[i].",
+            "Pour une matrice : deux boucles imbriquées (i pour les lignes, j pour les colonnes)."
+          ],
+          "examples": [
+            "Exemple déclaration correcte : Tableau T[5] en Entier (5 éléments).",
+            "Exemple de remplissage et affichage :\nVariables : i en Entier\nTableau T[5] en Entier\nDébut\n  Pour i ← 0 à 4\n    Lire T[i]\n  i suivant\n  Pour i ← 0 à 4\n    Ecrire T[i]\n  i suivant\nFin"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2016) : Soit la matrice X(1,2) (2 lignes, 3 colonnes). Remplissage ligne par ligne avec val incrémentée de 1. L'algorithme affiche ensuite colonne par colonne. Résultat : 1 4 2 5 3 6.\nOn remarque que l'ordre d'affichage dépend de l'imbrication des boucles : si on parcourt d'abord j (colonnes) puis i (lignes), on affiche colonne par colonne.",
+            "Exemple de multiplication des éléments par 2 et ajout de 10 :\nVariables : i, n en Entier\nTableau T[10] en Entier\nDébut\n  Lire n\n  Pour i ← 0 à n-1\n    Lire T[i]\n  i suivant\n  Pour i ← 0 à n-1\n    Ecrire T[i] * 2 + 10\n  i suivant\nFin"
+          ],
+          "methods": [
+            "Pour déclarer un tableau de 10 éléments : Tableau T[10] en Type. (crochets, pas accolades).",
+            "Les indices vont de 0 à taille-1.",
+            "Pour parcourir tout le tableau : Pour i ← 0 à taille-1.",
+            "Pour une matrice, l'ordre des boucles détermine l'ordre de traitement (ligne par ligne ou colonne par colonne)."
+          ],
+          "common_mistakes": [
+            "Déclarer Tableau{10} (accolades) au lieu de Tableau[10] (crochets).",
+            "Oublier que Tableau[10] crée 10 éléments, pas 9 (indices 0..9).",
+            "Confondre l'ordre des boucles dans une matrice (i pour lignes, j pour colonnes).",
+            "Ne pas initialiser les variables avant la boucle."
+          ],
+          "summary": "Tableau[taille] en Type. Accès par indice (souvent de 0 à taille-1). Boucles Pour pour parcourir. Matrices : deux boucles imbriquées."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Exercice 1 : Écrire un algorithme qui demande un nombre N et affiche son carré.",
+          "solution": "Variables : N, Carre en Entier\nDébut\n  Ecrire \"Entrez N :\"\n  Lire N\n  Carre ← N * N\n  Ecrire \"Le carré de \", N, \" est \", Carre\nFin",
+          "explanation": "Utilisation de la multiplication N*N. Ne pas utiliser N+N."
+        },
+        {
+          "question": "Exercice 2 : Écrire un algorithme qui demande l'âge et affiche 'Mineur' si âge < 18, 'Majeur' sinon.",
+          "solution": "Variables : age en Entier\nDébut\n  Ecrire \"Âge :\"\n  Lire age\n  Si age < 18 Alors\n    Ecrire \"Mineur\"\n  Sinon\n    Ecrire \"Majeur\"\n  FinSi\nFin",
+          "explanation": "Condition age < 18. On peut aussi utiliser age >= 18 en inversant les blocs."
+        },
+        {
+          "question": "Exercice 3 : Table de multiplication : demander N et afficher N×1 à N×10.",
+          "solution": "Variables : N, i en Entier\nDébut\n  Lire N\n  Pour i ← 1 à 10\n    Ecrire N, \" × \", i, \" = \", N * i\n  i suivant\nFin",
+          "explanation": "Boucle Pour de 1 à 10, affichage avec multiplication."
+        },
+        {
+          "question": "Exercice 4 : Déclarer un tableau T de 5 entiers, le remplir, puis afficher chaque élément multiplié par 2.",
+          "solution": "Variables : i en Entier\nTableau T[5] en Entier\nDébut\n  Pour i ← 0 à 4\n    Lire T[i]\n  i suivant\n  Pour i ← 0 à 4\n    Ecrire T[i] * 2\n  i suivant\nFin",
+          "explanation": "Indices de 0 à 4 pour 5 éléments. Deux boucles : remplissage puis traitement."
+        },
+        {
+          "question": "Exercice 5 (Bac 2015) : Un élève a écrit 'Ecrire N, x, i, =, n + i' dans une table de multiplication. Pourquoi est-ce faux ?",
+          "solution": "Il a utilisé l'addition (n + i) au lieu de la multiplication (n * i). Par exemple, pour N=7 et i=3, il afficherait 7+3=10 au lieu de 21.",
+          "explanation": "La table de multiplication nécessite le produit. L'addition donne un résultat complètement différent."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Réseaux et Internet",
+      "chapter_introduction": "Internet est un réseau mondial d'ordinateurs interconnectés. Au bac, les questions portent sur les types d'accès, les protocoles, la distinction entre page web et site web, et le courrier électronique. Ce chapitre vous aidera à répondre aux QCM et questions de définition.",
+      "chapter_objectives": [
+        "Identifier les différents types d'accès à Internet (modem 56K, RNIS, WiMax, modem câble)",
+        "Reconnaître les éléments qui ne sont PAS des accès Internet (DVD, Peta octet, webcam)",
+        "Comprendre le rôle du modem comme équipement indispensable",
+        "Distinguer site web (ensemble de pages) et page web (document unique)",
+        "Connaître le protocole IP (Internet Protocol)",
+        "Savoir ce qu'est un courrier électronique"
+      ],
+      "subchapters": [
+        {
+          "title": "Types d'accès à Internet",
+          "introduction": "Pour se connecter à Internet, on a besoin d'un modem et d'un support de transmission. Il existe plusieurs technologies (ligne téléphonique, câble, sans fil). Certains éléments sont souvent confondus avec des accès alors qu'ils n'en sont pas (ex: DVD).",
+          "definition": "Un accès à Internet est une technologie permettant de relier un ordinateur au réseau Internet via un fournisseur d'accès.",
+          "explanation": "Les types d'accès reconnus au bac sont : Modem 56K (ligne téléphonique analogique), RNIS (ligne numérique), WiMax (sans fil longue portée), Modem Câble (réseau câblé). En revanche, DVD (support optique), Peta octet (unité de mesure) et Webcam (caméra) ne sont pas des accès.",
+          "step_by_step": [
+            "Étape 1 : Lisez la liste proposée.",
+            "Étape 2 : Gardez les technologies de communication (modem, RNIS, WiMax, câble).",
+            "Étape 3 : Éliminez les supports de stockage (DVD, clé USB), les unités (Peta octet), les périphériques (webcam)."
+          ],
+          "examples": [
+            "Exemple : Parmi {Modem 56K, DVD, WiMax, Webcam}, les accès sont Modem 56K et WiMax.",
+            "Exemple : Le modem est indispensable pour tout accès."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2015) : Question 'Identifiez les éléments qui ne sont PAS des types d'accès à Internet' – La réponse attendue est DVD et Peta octet. Un DVD est un disque optique, pas un moyen de connexion. Un Peta octet est une unité de mesure de stockage.",
+            "Exemple : Une webcam seule ne permet pas de se connecter à Internet ; il faut un modem."
+          ],
+          "methods": [
+            "Méthode : Tout ce qui sert à stocker des données (DVD, clé USB, disque dur) ou à mesurer (octet, bit) n'est pas un accès.",
+            "Pour le bac, retenez la liste des accès : modem 56K, RNIS, WiMax, modem câble, ADSL, fibre optique."
+          ],
+          "common_mistakes": [
+            "Confondre DVD (support) avec un accès.",
+            "Croire que la webcam suffit pour se connecter.",
+            "Penser que Peta octet est un type d'accès (c'est une unité de mesure)."
+          ],
+          "summary": "Accès Internet : modem 56K, RNIS, WiMax, modem câble. Ne sont pas des accès : DVD, Peta octet, webcam. Le modem est l'équipement indispensable."
+        },
+        {
+          "title": "Site web, page web et hyperliens",
+          "introduction": "On confond souvent 'site web' et 'page web'. Un site web est un ensemble de pages reliées par des hyperliens. Une page web est un document unique. Cette distinction est fréquente au bac.",
+          "definition": "Page web : document unique accessible par un navigateur, écrit en HTML. Site web : ensemble de pages web liées entre elles par des hyperliens, formant un tout cohérent.",
+          "explanation": "Exemple : Le site du MENFP contient plusieurs pages (accueil, actualités, examens). Chaque page est une page web. Les hyperliens sont les liens cliquables qui permettent de passer d'une page à l'autre.",
+          "step_by_step": [
+            "Étape 1 : Si l'énoncé parle d'un 'ensemble de pages liées' → site web.",
+            "Étape 2 : S'il parle d'un 'document unique' → page web.",
+            "Étape 3 : Un hyperlien est le lien qui relie les pages."
+          ],
+          "examples": [
+            "Exemple : 'Ensemble de pages web liées par des hyperliens' = site web.",
+            "Exemple : 'Document écrit en HTML affiché dans un navigateur' = page web."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2016) : Question 'Un ensemble de pages liées entre elles par des liens particuliers appelés hyperliens et qui forment un tout cohérent est :' La réponse est 'Un site web'. Piège : certains répondent 'Une page web'.",
+            "Exemple : Le site 'http://menfp.gouv.ht' est un site web ; la page 'http://menfp.gouv.ht/examens.html' est une page web."
+          ],
+          "methods": [
+            "Méthode : Site web = plusieurs pages ; page web = une seule page.",
+            "Un hyperlien est un élément cliquable (texte ou image) qui change la page."
+          ],
+          "common_mistakes": [
+            "Confondre site et page.",
+            "Penser que tous les liens sont des hyperliens (en HTML, les liens sont bien des hyperliens)."
+          ],
+          "summary": "Site web = ensemble de pages web liées par hyperliens. Page web = document unique. Hyperlien = lien cliquable."
+        },
+        {
+          "title": "Protocole IP et courrier électronique",
+          "introduction": "Les protocoles sont des règles de communication. IP (Internet Protocol) est le protocole fondamental d'Internet. Le courrier électronique (e-mail) est un service qui échange des messages entre boîtes aux lettres.",
+          "definition": "IP (Internet Protocol) : protocole de communication qui définit comment les données sont découpées en paquets et acheminées sur Internet.",
+          "explanation": "IP est un protocole, pas un réseau ni une messagerie. Le courrier électronique (e-mail) est un message numérique qui circule d'une boîte aux lettres à une autre.",
+          "step_by_step": [],
+          "examples": [
+            "Exemple : 'IP est un protocole de communication' (réponse typique du bac).",
+            "Exemple : 'Un petit paquet de données qui circule sur Internet d'une boîte aux lettres électroniques à une autre' = courrier électronique."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Le protocole IP est utilisé conjointement avec TCP (Transmission Control Protocol) pour garantir la fiabilité. Au bac, on demande souvent 'IP est :' et la bonne réponse est 'un protocole de communication'."
+          ],
+          "methods": [
+            "Méthode : IP = Internet Protocol = protocole de base d'Internet.",
+            "E-mail = message électronique."
+          ],
+          "common_mistakes": [
+            "Penser qu'IP est un réseau (non, c'est un protocole).",
+            "Confondre e-mail avec site web."
+          ],
+          "summary": "IP = protocole de communication. Courrier électronique = message échangé entre boîtes aux lettres."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Parmi les éléments suivants, lesquels ne sont PAS des types d'accès à Internet ? Modem 56K, DVD, RNIS, Peta octet, WiMax, Webcam, Modem Câble.",
+          "solution": "DVD, Peta octet et Webcam ne sont pas des accès Internet.",
+          "explanation": "DVD est un support optique, Peta octet est une unité de mesure, Webcam est une caméra. Les accès sont Modem 56K, RNIS, WiMax, Modem Câble."
+        },
+        {
+          "question": "Quelle est la définition d'un site web ?",
+          "solution": "Un site web est un ensemble de pages web liées entre elles par des hyperliens, formant un tout cohérent.",
+          "explanation": "Ne pas confondre avec 'page web' qui est un document unique."
+        },
+        {
+          "question": "Que signifie IP ?",
+          "solution": "Internet Protocol, un protocole de communication.",
+          "explanation": "IP est le protocole de base d'Internet."
+        },
+        {
+          "question": "Pour se connecter à Internet, quel équipement est indispensable ?",
+          "solution": "Un modem.",
+          "explanation": "Le modem convertit les signaux. La webcam n'est pas nécessaire."
+        }
+      ]
+    },
+    {
+      "chapter_title": "HTML — Langage du Web",
+      "chapter_introduction": "HTML (HyperText Markup Language) est le langage utilisé pour créer des pages web. Les questions du bac portent essentiellement sur la syntaxe correcte des balises. Une balise HTML s'écrit avec des chevrons, et la balise fermante contient une barre oblique.",
+      "chapter_objectives": [
+        "Reconnaître une balise HTML correctement écrite",
+        "Savoir qu'une balise ouvrante est <title> et une balise fermante </title>",
+        "Comprendre que l'ordre est : ouverture, contenu, fermeture",
+        "Éviter les erreurs courantes (balise fermante sans /, ordre inversé)"
+      ],
+      "subchapters": [
+        {
+          "title": "Syntaxe des balises HTML",
+          "introduction": "Une balise HTML est un mot-clé entouré de chevrons. La plupart des balises fonctionnent par paires : une balise ouvrante et une balise fermante. La balise fermante contient une barre oblique (/) avant le nom.",
+          "definition": "Balise ouvrante : <nom>. Balise fermante : </nom>.",
+          "explanation": "Par exemple, <title> est la balise ouvrante, </title> est la balise fermante. Le contenu (le titre de la page) se place entre les deux. Les balises peuvent être en minuscules ou majuscules, mais la convention recommande les minuscules.",
+          "step_by_step": [
+            "Étape 1 : Écrire la balise ouvrante avec < et >.",
+            "Étape 2 : Écrire le contenu.",
+            "Étape 3 : Écrire la balise fermante avec </ et >."
+          ],
+          "examples": [
+            "Exemple correct : <title>Ma page</title>",
+            "Exemple correct : <h1>Titre</h1>",
+            "Exemple incorrect : <title>Ma page<title/> (fermeture mal formée)",
+            "Exemple incorrect : </title>Ma page<title> (ordre inversé)"
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2016) : On demande 'Laquelle de ces balises est correctement écrite ?' Les options :\n- </title> <title> (incorrect, ordre inversé)\n- <title> <title/> (incorrect, balise fermante mal formée)\n- <title> </title> (correct)\n- <Title> </Title> (techniquement acceptable mais le bac privilégie minuscules)."
+          ],
+          "methods": [
+            "Pour vérifier une balise : regardez si la fermante commence par </ et si l'ordre est ouverture → contenu → fermeture.",
+            "Retenez : la barre oblique est au DÉBUT de la balise fermante, pas à la fin."
+          ],
+          "common_mistakes": [
+            "Écrire <title/> au lieu de </title>.",
+            "Inverser l'ordre : </title> <title>.",
+            "Oublier le / dans la balise fermante.",
+            "Utiliser des accolades ou parenthèses à la place des chevrons."
+          ],
+          "summary": "Balise correcte : <title> contenu </title>. La fermante a un / avant le nom. Ordre : ouvrir, contenu, fermer."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Laquelle de ces balises est correctement écrite ? A) </title> <title>  B) <title> <title/>  C) <title> </title>",
+          "solution": "C) <title> </title>",
+          "explanation": "C'est la seule avec ordre correct et fermante bien formée.</title>"
+        },
+        {
+          "question": "Quelle est la balise pour définir le titre d'une page web (affiché dans l'onglet) ?",
+          "solution": "<title> ... </title>",
+          "explanation": "Le titre de la page se place dans la balise <title> à l'intérieur de <head>."
+        },
+        {
+          "question": "Donnez un exemple de balise correcte pour un paragraphe.",
+          "solution": "<p>Ceci est un paragraphe.</p>",
+          "explanation": "La balise <p> ouvre, </p> ferme."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Architecture matérielle et systèmes d'exploitation",
+      "chapter_introduction": "Un ordinateur est composé de mémoire (ROM, RAM), de processeur, et de périphériques. Le système d'exploitation (Windows, Linux, etc.) gère ces ressources. Les questions du bac portent sur la différence entre ROM et RAM, le stockage du BIOS, et la reconnaissance des systèmes d'exploitation.",
+      "chapter_objectives": [
+        "Différencier ROM (mémoire morte, non volatile) et RAM (mémoire vive, volatile)",
+        "Savoir que le BIOS est stocké en ROM",
+        "Reconnaître les systèmes d'exploitation (DOS, Windows, Linux, macOS) et les distinguer des applications (Microsoft Office)"
+      ],
+      "subchapters": [
+        {
+          "title": "ROM, RAM et BIOS",
+          "introduction": "La mémoire d'un ordinateur se divise en deux types principaux : la ROM (Read Only Memory) et la RAM (Random Access Memory). Elles ont des rôles très différents. Le BIOS (programme de démarrage) est stocké en ROM.",
+          "definition": "ROM : mémoire non volatile, lecture seule, contient le BIOS et les firmwares. RAM : mémoire volatile, lecture/écriture, contient les programmes en cours d'exécution.",
+          "explanation": "La ROM garde son contenu même quand l'ordinateur est éteint. La RAM perd tout à l'extinction. Le BIOS est le premier programme exécuté au démarrage ; il vérifie le matériel et charge le système d'exploitation.",
+          "step_by_step": [
+            "Étape 1 : Pour savoir si une mémoire est ROM ou RAM, demandez-vous : 'Son contenu survit-il à l'extinction ?' Oui → ROM, Non → RAM.",
+            "Étape 2 : Le BIOS est toujours en ROM car nécessaire au démarrage.",
+            "Étape 3 : Les programmes que vous lancez (Word, jeux) sont chargés en RAM."
+          ],
+          "examples": [
+            "Exemple : Le BIOS est stocké en ROM.",
+            "Exemple : Quand vous tapez un texte dans Word, il est en RAM ; si vous l'enregistrez, il va sur le disque dur."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2016) : Question 'Le programme BIOS est enregistré dans :' Options : Le processeur, La ROM, La RAM. Réponse : La ROM. Car le BIOS doit être disponible dès l'allumage, avant que le système d'exploitation ne soit chargé."
+          ],
+          "methods": [
+            "Méthode mnémotechnique : ROM = Read Only Memory = Mémoire Morte (permanente). RAM = Random Access Memory = Mémoire Vive (temporaire).",
+            "Le BIOS est en ROM."
+          ],
+          "common_mistakes": [
+            "Confondre ROM et RAM (inverser leurs propriétés).",
+            "Penser que le BIOS est en RAM (il serait perdu à l'extinction).",
+            "Croire que la ROM peut être modifiée facilement."
+          ],
+          "summary": "ROM : permanente, non volatile, contient le BIOS. RAM : temporaire, volatile, pour les programmes en cours."
+        },
+        {
+          "title": "Systèmes d'exploitation",
+          "introduction": "Un système d'exploitation (OS) est le logiciel de base qui gère le matériel et permet d'exécuter des applications. Des exemples classiques sont Windows, Linux, macOS, DOS. En revanche, Microsoft Office (Word, Excel) est une suite bureautique, pas un système d'exploitation.",
+          "definition": "Système d'exploitation : logiciel qui gère les ressources matérielles et fournit des services aux applications.",
+          "explanation": "Exemples de systèmes d'exploitation : Windows (Microsoft), Linux (open source), macOS (Apple), DOS (ancien), Android (mobiles). Microsoft Office est un logiciel applicatif (traitement de texte, tableur).",
+          "step_by_step": [
+            "Étape 1 : Un système d'exploitation permet à l'ordinateur de démarrer et de lancer des programmes.",
+            "Étape 2 : Les logiciels comme Word, Excel, PowerPoint sont des applications, pas des OS.",
+            "Étape 3 : Pour le bac, retenez que DOS, Windows, Linux sont des OS ; Microsoft Office ne l'est pas."
+          ],
+          "examples": [
+            "Exemple : Windows 10 est un système d'exploitation.",
+            "Exemple : Microsoft Word n'est pas un système d'exploitation.",
+            "Exemple : Linux est un système d'exploitation."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2016) : Question 'Trouver parmi les logiciels suivants celui qui n'est pas un système d'exploitation : DOS, Windows, Microsoft Office, Linux.' Réponse : Microsoft Office. DOS, Windows et Linux sont des systèmes d'exploitation."
+          ],
+          "methods": [
+            "Méthode : Si le logiciel sert à écrire des documents, faire des calculs, naviguer sur le web, c'est une application. S'il gère le démarrage, les fichiers, la mémoire, c'est un OS.",
+            "Astuce : Les noms de systèmes d'exploitation incluent souvent 'Windows', 'Linux', 'macOS', 'Android', 'iOS'."
+          ],
+          "common_mistakes": [
+            "Penser que Microsoft Office est un système d'exploitation (c'est une suite bureautique).",
+            "Confondre DOS (OS) avec un logiciel applicatif."
+          ],
+          "summary": "Systèmes d'exploitation : Windows, Linux, macOS, DOS, Android. Applications : Microsoft Office (Word, Excel, PowerPoint), navigateurs, jeux."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Le programme BIOS est enregistré dans quel type de mémoire ?",
+          "solution": "La ROM.",
+          "explanation": "Le BIOS doit être permanent, donc stocké en mémoire morte (ROM)."
+        },
+        {
+          "question": "Quelle mémoire perd son contenu à l'extinction de l'ordinateur ?",
+          "solution": "La RAM.",
+          "explanation": "La RAM est volatile, elle perd toutes les données lorsque l'alimentation est coupée."
+        },
+        {
+          "question": "Parmi ces logiciels, lequel n'est pas un système d'exploitation : DOS, Windows, Microsoft Office, Linux ?",
+          "solution": "Microsoft Office.",
+          "explanation": "Microsoft Office est une suite bureautique, pas un système d'exploitation."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Unités de mesure en informatique",
+      "chapter_introduction": "Les données informatiques se mesurent en bits, octets, et multiples (kilo, méga, giga, téra, péta). Le bac haïtien utilise la convention 1 Mégabit = 2^20 bits. Ce chapitre explique les conversions.",
+      "chapter_objectives": [
+        "Connaître la hiérarchie des unités (bit, octet, Ko, Mo, Go, To, Po)",
+        "Savoir que 1 Mégabit = 2^20 bits (selon le programme haïtien)",
+        "Effectuer des conversions simples de bits en Mégabits",
+        "Ne pas confondre Mégabit (unité de mesure) avec type d'accès Internet"
+      ],
+      "subchapters": [
+        {
+          "title": "Bits, octets et leurs multiples",
+          "introduction": "L'information numérique est mesurée en bits (0 ou 1). 8 bits forment 1 octet. Les préfixes kilo, méga, giga, téra, péta indiquent des puissances de 1024 (2^10) en informatique, mais le bac haïtien utilise parfois 2^20 pour 1 Mégabit.",
+          "definition": "1 bit = valeur binaire (0 ou 1). 1 octet = 8 bits. 1 Ko = 2^10 octets, 1 Mo = 2^20 octets, 1 Go = 2^30 octets, 1 To = 2^40 octets, 1 Po = 2^50 octets.",
+          "explanation": "Attention : Pour les débits (bits par seconde), on utilise souvent des puissances de 10, mais le bac haïtien, dans un exercice spécifique, a défini 1 Mégabit = 2^20 bits. À retenir pour les conversions.",
+          "step_by_step": [
+            "Étape 1 : Convertir les bits en Mégabits en divisant par 2^20.",
+            "Étape 2 : Utiliser les propriétés des puissances : 2^n / 2^20 = 2^(n-20).",
+            "Étape 3 : Calculer la valeur numérique."
+          ],
+          "examples": [
+            "Exemple : 2^18 bits = 2^(18-20) = 2^(-2) = 1/4 = 0,25 Mégabits.",
+            "Exemple : 1,13 × 2^15 bits = 1,13 × 2^(15-20) = 1,13 × 2^(-5) = 1,13 / 32 = 0,0353125 Mb."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé (bac 2015) : 'Un mégabit vaut 2^20 bits. Déterminer la valeur de 1,13 × 2^15 bits en mégabit.' Solution : (1,13 × 2^15) / 2^20 = 1,13 × 2^(15-20) = 1,13 × 2^(-5) = 1,13 / 32 = 0,0353125 Mb. On peut arrondir à 0,0353 Mb."
+          ],
+          "methods": [
+            "Pour convertir des bits en Mégabits : divisez par 2^20.",
+            "Pour convertir des Mégabits en bits : multipliez par 2^20.",
+            "Retenez que 1 Mb = 2^20 bits (dans le contexte du bac haïtien)."
+          ],
+          "common_mistakes": [
+            "Confondre Mégabit (Mb) et Mégaoctet (Mo) : 1 Mo = 8 Mb.",
+            "Utiliser 2^10 ou 2^30 à la place de 2^20 pour le Mégabit.",
+            "Oublier que le Péta-octet est une unité de stockage, pas un accès Internet (piège du bac 2015)."
+          ],
+          "summary": "1 Mb = 2^20 bits (selon le bac). Pour convertir bits → Mb, diviser par 2^20. Exemple : 2^18 bits = 0,25 Mb."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un Mégabit vaut 2^20 bits. Convertir 2^18 bits en Mégabits.",
+          "solution": "2^18 / 2^20 = 2^(-2) = 1/4 = 0,25 Mb.",
+          "explanation": "On soustrait les exposants : 18-20 = -2, donc 2^(-2)=1/4."
+        },
+        {
+          "question": "Convertir 2^23 bits en Mégabits.",
+          "solution": "2^23 / 2^20 = 2^3 = 8 Mb.",
+          "explanation": "23-20=3, donc 8 Mégabits."
+        },
+        {
+          "question": "Le Péta-octet est-il un type d'accès à Internet ?",
+          "solution": "Non, c'est une unité de mesure de stockage.",
+          "explanation": "Le Péta-octet (Po) mesure la capacité de stockage, pas un moyen de connexion."
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "titre": "Cours Complet d'Informatique — Baccalauréat Haïtien",
+    "version": "2.0",
+    "auteur": "Cours généré à partir des examens officiels MENFP 2015–2016",
+    "duree_examen": "1h30",
+    "coefficient": 1,
+    "series_concernees": ["SVT", "SES", "LET/LA/ARTS", "SMP"],
+    "consignes_officielles": [
+      "L'usage de la calculatrice programmable est interdit",
+      "Le téléphone est interdit dans les salles",
+      "Le silence est obligatoire"
+    ]
+  }
+}
+```

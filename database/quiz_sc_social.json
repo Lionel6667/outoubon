@@ -1,0 +1,3007 @@
+{
+  "matiere": "histoire",
+  "total": 200,
+  "description": "Quiz Sciences Sociales / Histoire — BAC Haïti",
+  "quiz": [
+    {
+      "id": "SS1",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle a été l’étincelle qui a déclenché l’invasion américaine de 1915 ?",
+      "correct": "D",
+      "explanation": "L'étincelle qui a déclenché l'invasion américaine de 1915 a été le lynchage du président Vilbrun Guillaume Sam. En effet, cet événement a créé un vide de pouvoir et une instabilité politique en Haïti, ce qui a inquiété les États-Unis qui craignaient une influence allemande dans la région. Le non-remboursement de la dette était une cause profonde de l'intervention, mais pas l'étincelle immédiate. La découverte d'une base allemande secrète n'a pas été un facteur déterminant. Une attaque contre l'ambassade américaine n'a pas eu lieu.",
+      "options": [
+        "Le non-remboursement de la dette",
+        "La découverte d’une base allemande secrète",
+        "Une attaque contre l’ambassade américaine",
+        "Le lynchage du président Vilbrun Guillaume Sam"
+      ]
+    },
+    {
+      "id": "SS2",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel mouvement intellectuel est né en réaction à l’occupation américaine, valorisant la culture et les traditions haïtiennes ?",
+      "correct": "A",
+      "explanation": "Le mouvement intellectuel né en réaction à l'occupation américaine, valorisant la culture et les traditions haïtiennes, est l'Indigénisme. Ce mouvement, lancé par Jean Price-Mars avec son ouvrage 'Ainsi parla l'oncle', visait à promouvoir l'identité haïtienne et à rejeter l'influence étrangère. Le Mouvement des Droits Civiques était un mouvement américain, le Surréalisme était un mouvement littéraire européen et le Marxisme était une idéologie politique qui n'était pas directement liée à la culture haïtienne.",
+      "options": [
+        "L’Indigénisme",
+        "Le Mouvement des Droits Civiques",
+        "Le Surréalisme",
+        "Le Marxisme"
+      ]
+    },
+    {
+      "id": "SS3",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Qui a été la première victime civile de l’occupation américaine le 28 juillet 1915 ?",
+      "correct": "C",
+      "explanation": "La première victime civile de l'occupation américaine le 28 juillet 1915 a été Pierre Sully, un ouvrier de l'arsenal abattu sur le quai. Charlemagne Péralte était un chef caco qui a été tué plus tard, Vilbrun Guillaume Sam était le président lynché, et Benoît Batraville était un autre résistant. Ces personnages ont joué des rôles importants dans la résistance haïtienne, mais Pierre Sully a été la première victime civile.",
+      "options": [
+        "Charlemagne Péralte",
+        "Vilbrun Guillaume Sam",
+        "Pierre Sully",
+        "Benoît Batraville"
+      ]
+    },
+    {
+      "id": "SS4",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel traité de 1915 a officialisé le contrôle américain sur les finances et la défense haïtiennes ?",
+      "correct": "D",
+      "explanation": "Le traité de 1915 qui a officialisé le contrôle américain sur les finances et la défense haïtiennes est le Traité haïtiano-américain. Ce traité a donné aux États-Unis le contrôle de la douane, de la défense et des finances haïtiennes. Le Traité de Versailles était un traité de paix de la Première Guerre mondiale, le Traité de Brest-Litovsk était un traité entre la Russie et l'Allemagne, et le Traité de Paris n'était pas directement lié à Haïti.",
+      "options": [
+        "Le Traité de Versailles",
+        "Le Traité de Brest-Litovsk",
+        "Le Traité de Paris",
+        "Le Traité haïtiano-américain"
+      ]
+    },
+    {
+      "id": "SS5",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était le principal objectif stratégique des USA en envahissant Haïti ?",
+      "correct": "B",
+      "explanation": "Le principal objectif stratégique des USA en envahissant Haïti était de protéger le Canal de Panama. Les États-Unis craignaient que l'instabilité en Haïti ne permette à une puissance ennemie de prendre le contrôle du canal. Aider Haïti à devenir une démocratie n'était pas l'objectif principal, voler le café haïtien n'était pas un objectif officiel et installer une base pour attaquer l'Europe n'était pas directement lié à l'invasion.",
+      "options": [
+        "Aider Haïti à devenir une démocratie",
+        "Protéger le Canal de Panama",
+        "Voler le café haïtien",
+        "Installer une base pour attaquer l’Europe"
+      ]
+    },
+    {
+      "id": "SS6",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel haut-commissaire américain a dirigé Haïti d’une main de fer dans les années 1920 ?",
+      "correct": "B",
+      "explanation": "Le haut-commissaire américain qui a dirigé Haïti d'une main de fer dans les années 1920 était John H. Russell Jr.. Il a succédé au général Butler et a poursuivi la politique d'occupation. Woodrow Wilson était le président américain, le général Butler était un général des Marines et le sergent Hanneken n'a pas joué un rôle majeur dans l'occupation.",
+      "options": [
+        "Woodrow Wilson",
+        "John H. Russell Jr.",
+        "Le général Butler",
+        "Le sergent Hanneken"
+      ]
+    },
+    {
+      "id": "SS7",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement de 1929 est considéré comme le début de la fin pour l’occupation ?",
+      "correct": "C",
+      "explanation": "L'événement de 1929 considéré comme le début de la fin pour l'occupation est la grève des étudiants de Damien. Cette grève a montré la résistance croissante des Haïtiens contre l'occupation et a conduit à des changements politiques. La mort de Charlemagne Péralte avait eu lieu en 1919, la publication du Rapport Forbes a eu lieu plus tard et l'élection de Sténio Vincent a été une conséquence de la grève.",
+      "options": [
+        "La mort de Charlemagne Péralte",
+        "La publication du Rapport Forbes",
+        "La grève des étudiants de Damien",
+        "L’élection de Sténio Vincent"
+      ]
+    },
+    {
+      "id": "SS8",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Gendarmerie d’Haïti créée par les Américains est devenue plus tard :",
+      "correct": "D",
+      "explanation": "La Gendarmerie d'Haïti créée par les Américains est devenue plus tard la Garde d'Haïti. Cette gendarmerie a été créée pour maintenir l'ordre et a évolué pour devenir la Garde d'Haïti. La Police nationale a été créée plus tard, les Tontons Macoutes ont été créés par Duvalier et l'Armée haïtienne avait une histoire plus ancienne.",
+      "options": [
+        "La Police nationale",
+        "Les Tontons Macoutes",
+        "L’Armée haïtienne",
+        "La Garde d’Haïti"
+      ]
+    },
+    {
+      "id": "SS9",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le système de la corvée imposé par les Américains consistait à :",
+      "correct": "A",
+      "explanation": "Le système de la corvée imposé par les Américains consistait à forcer les paysans à travailler gratuitement sur les routes. Cela faisait partie des mesures prises par les autorités d'occupation pour développer les infrastructures du pays, mais cela a eu des impacts négatifs sur les paysans qui ont été exploités. Les autres options sont incorrectes car collecter les ordures n'a aucun rapport avec la corvée, payer des impôts est une autre forme d'obligation fiscale, et enrôler de force les jeunes concerne la conscription militaire.",
+      "options": [
+        "Forcer les paysans à travailler gratuitement sur les routes",
+        "Collecter les ordures",
+        "Payer des impôts",
+        "Enrôler de force les jeunes"
+      ]
+    },
+    {
+      "id": "SS10",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chef caco Charlemagne Péralte a été tué en :",
+      "correct": "C",
+      "explanation": "Le chef caco Charlemagne Péralte a été tué en 1919. Il était un leader de la résistance haïtienne contre l'occupation américaine et son assassinat a été un coup dur pour le mouvement de résistance. Les autres options sont incorrectes car 1929 est trop tardif, 1934 est après la mort de Péralte, et 1915 est avant la période de résistance armée.",
+      "options": [
+        "1929",
+        "1934",
+        "1919",
+        "1915"
+      ]
+    },
+    {
+      "id": "SS11",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La politique de « Bonne Voisinage » de Franklin Roosevelt a contribué à :",
+      "correct": "A",
+      "explanation": "La politique de « Bonne Voisinage » de Franklin Roosevelt a contribué à accélérer le retrait des Marines. Cette politique visait à améliorer les relations entre les États-Unis et les pays d'Amérique latine, et dans le cas d'Haïti, elle a conduit au retrait progressif des troupes américaines. Les autres options sont incorrectes car renforcer l'occupation est le contraire de ce qui s'est passé, créer la Gendarmerie est une autre mesure prise pendant l'occupation, et annexer Haïti n'a jamais été une politique sérieuse des États-Unis.",
+      "options": [
+        "Accélérer le retrait des Marines",
+        "Renforcer l’occupation",
+        "Créer la Gendarmerie",
+        "Annexer Haïti"
+      ]
+    },
+    {
+      "id": "SS12",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le rapport Forbes (1930) a recommandé :",
+      "correct": "B",
+      "explanation": "Le rapport Forbes (1930) a recommandé un retrait progressif des Américains. Ce rapport était le résultat d'une mission d'étude envoyée en Haïti pour évaluer la situation et proposer des recommandations pour l'avenir du pays. Les autres options sont incorrectes car la création d'une monarchie n'a jamais été sérieusement envisagée, une occupation permanente est le contraire de ce que le rapport a recommandé, et l'annexion d'Haïti n'a jamais été une politique sérieuse des États-Unis.",
+      "options": [
+        "La création d’une monarchie",
+        "Un retrait progressif des Américains",
+        "Une occupation permanente",
+        "L’annexion d’Haïti"
+      ]
+    },
+    {
+      "id": "SS13",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les derniers Marines ont quitté Haïti le :",
+      "correct": "D",
+      "explanation": "Les derniers Marines ont quitté Haïti le 21 août 1934. Cette date marque la fin de l'occupation américaine de Haïti, qui avait commencé en 1915. Les autres options, telles que le 15 mai 1941, le 28 juillet 1915, et le 12 janvier 1946, sont incorrectes car elles ne correspondent pas à la fin de l'occupation.",
+      "options": [
+        "15 mai 1941",
+        "28 juillet 1915",
+        "12 janvier 1946",
+        "21 août 1934"
+      ]
+    },
+    {
+      "id": "SS14",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’indigénisme a été porté par l’écrivain :",
+      "correct": "C",
+      "explanation": "L'indigénisme a été porté par l'écrivain Jean Price-Mars. L'indigénisme était un mouvement littéraire et artistique qui visait à promouvoir la culture et l'identité haïtiennes. Les autres options, telles que Jacques Roumain, Frédéric Marcelin, et René Depestre, sont incorrectes car ils n'étaient pas les principaux promoteurs de l'indigénisme.",
+      "options": [
+        "Jacques Roumain",
+        "Frédéric Marcelin",
+        "Jean Price-Mars",
+        "René Depestre"
+      ]
+    },
+    {
+      "id": "SS15",
+      "category": "Chapitre HN-1 : L’OCCUPATION AMÉRICAINE (1915-1934)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les Cacos étaient :",
+      "correct": "B",
+      "explanation": "Les Cacos étaient des résistants paysans haïtiens. Ils ont mené une lutte armée contre l'occupation américaine de Haïti, et leur nom est devenu synonyme de résistance et de patriotisme. Les autres options, telles que des soldats américains, des commerçants syro-libanais, et des diplomates, sont incorrectes car elles ne correspondent pas à la définition des Cacos.",
+      "options": [
+        "Des soldats américains",
+        "Des résistants paysans haïtiens",
+        "Des commerçants syro-libanais",
+        "Des diplomates"
+      ]
+    },
+    {
+      "id": "SS16",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans quel contexte Sténio Vincent est-il élu président en novembre 1930 ?",
+      "correct": "D",
+      "explanation": "Sténio Vincent est élu président en novembre 1930, en pleine occupation américaine, alors que les Marines contrôlent encore le pays. Cela montre que l'occupation américaine a eu un impact significatif sur la politique haïtienne, et que les États-Unis ont exercé une influence considérable sur les affaires haïtiennes. Les autres options, telles que le départ des Américains en 1934, un coup d'État militaire, et une guerre civile, sont incorrectes car elles ne correspondent pas au contexte de son élection.",
+      "options": [
+        "Après le départ des Américains en 1934",
+        "Après un coup d’État militaire",
+        "Pendant une guerre civile",
+        "En pleine occupation américaine, alors que les Marines contrôlent encore le pays"
+      ]
+    },
+    {
+      "id": "SS17",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année les derniers Marines quittent-ils Haïti sous Vincent ?",
+      "correct": "A",
+      "explanation": "La présence des Marines américains en Haïti a été une période marquante de l'histoire du pays. Les derniers Marines quittent Haïti en 1934, sous la présidence de Sténio Vincent. Cela signifie que l'occupation américaine prend fin cette année-là. Les autres options sont incorrectes car 1932 et 1930 sont antérieures à la fin de l'occupation, et 1941 est postérieure à la fin de l'occupation.",
+      "options": [
+        "1934",
+        "1932",
+        "1930",
+        "1941"
+      ]
+    },
+    {
+      "id": "SS18",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement de 1935 a permis à Sténio Vincent de renforcer considérablement ses pouvoirs ?",
+      "correct": "A",
+      "explanation": "En 1935, Sténio Vincent a renforcé considérablement ses pouvoirs grâce à la modification de la constitution. Cette modification lui a permis d'accroître son contrôle sur le gouvernement et le pays. Les autres options sont incorrectes car la création de la Garde d'Haïti a eu lieu en 1915, le départ des Américains en 1934, et l'élection de Roosevelt n'a pas eu d'impact direct sur les pouvoirs de Vincent.",
+      "options": [
+        "La modification de la constitution",
+        "La création de la Garde d’Haïti",
+        "Le départ des Américains",
+        "L’élection de Roosevelt"
+      ]
+    },
+    {
+      "id": "SS19",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment Sténio Vincent a-t-il réagi au massacre des Haïtiens en République Dominicaine en 1937 ?",
+      "correct": "D",
+      "explanation": "En 1937, un massacre de Haïtiens a eu lieu en République Dominicaine. Sténio Vincent a choisi la voie diplomatique pour résoudre cette crise et a obtenu des indemnisations pour les familles des victimes. Les autres options sont incorrectes car il n'a pas ignoré l'événement, n'a pas lancé une invasion de la République Dominicaine, et n'a pas déclaré la guerre à Trujillo.",
+      "options": [
+        "Il a ignoré l’événement",
+        "Il a lancé une invasion de la République Dominicaine",
+        "Il a déclaré la guerre à Trujillo",
+        "Il a choisi la voie diplomatique et obtenu des indemnisations"
+      ]
+    },
+    {
+      "id": "SS20",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pourquoi Sténio Vincent quitte-t-il le pouvoir en 1941 ?",
+      "correct": "C",
+      "explanation": "Sténio Vincent a quitté le pouvoir en 1941 parce qu'il a refusé de briguer un troisième mandat et a choisi son successeur, Lescot. Les autres options sont incorrectes car il n'a pas été contraint à l'exil par une révolte populaire, n'est pas mort de maladie, et n'a pas été renversé par un coup d'État militaire.",
+      "options": [
+        "Il est contraint à l’exil par une révolte populaire",
+        "Il meurt de maladie",
+        "Il refuse de briguer un troisième mandat et choisit son successeur",
+        "Il est renversé par un coup d’État militaire"
+      ]
+    },
+    {
+      "id": "SS21",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année Sténio Vincent devient-il président d’Haïti ?",
+      "correct": "D",
+      "explanation": "Sténio Vincent est devenu président d'Haïti en 1930. Les autres options sont incorrectes car 1934 est l'année de la fin de l'occupation américaine, 1941 est l'année de la fin de son mandat, et 1915 est l'année du début de l'occupation américaine.",
+      "options": [
+        "1934",
+        "1941",
+        "1915",
+        "1930"
+      ]
+    },
+    {
+      "id": "SS22",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement majeur lié à l’occupation américaine se produit en 1934 sous Vincent ?",
+      "correct": "C",
+      "explanation": "En 1934, sous la présidence de Sténio Vincent, les derniers Marines américains ont quitté Haïti, mettant fin à l'occupation américaine. Les autres options sont incorrectes car la création de la Gendarmerie d'Haïti a eu lieu en 1915, la signature du traité haïtiano-américain n'a pas eu lieu en 1934, et le début de l'occupation a eu lieu en 1915.",
+      "options": [
+        "La création de la Gendarmerie d’Haïti",
+        "La signature du traité haïtiano-américain",
+        "Le départ des derniers Marines",
+        "Le début de l’occupation"
+      ]
+    },
+    {
+      "id": "SS23",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle modification constitutionnelle Vincent fait-il adopter en 1935 ?",
+      "correct": "A",
+      "explanation": "En 1935, Sténio Vincent a fait adopter une modification constitutionnelle qui a renforcé les pouvoirs du président et lui a permis de dissoudre le Parlement. Les autres options sont incorrectes car il n'a pas proclamé la présidence à vie, n'a pas aboli la présidence, et n'a pas instauré le suffrage universel direct.",
+      "options": [
+        "Le renforcement des pouvoirs du président et la possibilité de dissoudre le Parlement",
+        "La proclamation de la présidence à vie",
+        "L’abolition de la présidence",
+        "L’instauration du suffrage universel direct"
+      ]
+    },
+    {
+      "id": "SS24",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel parti politique Vincent dissout-il en 1936 ?",
+      "correct": "C",
+      "explanation": "En 1936, Sténio Vincent a dissous le Parti communiste haïtien. Les autres options sont incorrectes car il n'a pas dissous le Parti noiriste, le MOP, ou le Parti libéral.",
+      "options": [
+        "Le Parti noiriste",
+        "Le MOP",
+        "Le Parti communiste haïtien",
+        "Le Parti libéral"
+      ]
+    },
+    {
+      "id": "SS25",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année a eu lieu le massacre du persil ?",
+      "correct": "D",
+      "explanation": "Le massacre du persil a eu lieu en 1937. En effet, cette année-là, le dictateur dominicain Rafael Leónidas Trujillo a ordonné l'exécution de milliers de Haïtiens vivant en République dominicaine, sous prétexte qu'ils étaient des travailleurs clandestins. Les autres options sont incorrectes car 1934 et 1946 ne correspondent pas à la date de cet événement, et 1941 est une date postérieure au massacre.",
+      "options": [
+        "1934",
+        "1941",
+        "1946",
+        "1937"
+      ]
+    },
+    {
+      "id": "SS26",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel dictateur dominicain a ordonné le massacre des Haïtiens en 1937 ?",
+      "correct": "C",
+      "explanation": "Le dictateur dominicain qui a ordonné le massacre des Haïtiens en 1937 était Rafael Leónidas Trujillo. C'est lui qui a orchestré cette opération, connue sous le nom de massacre du persil. Les autres options sont incorrectes car Castro était un dirigeant cubain, Duvalier était un dictateur haïtien et Balaguer était un président dominicain qui a succédé à Trujillo, mais n'a pas ordonné le massacre.",
+      "options": [
+        "Castro",
+        "Duvalier",
+        "Trujillo",
+        "Balaguer"
+      ]
+    },
+    {
+      "id": "SS27",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment Vincent a-t-il réagi au massacre du persil ?",
+      "correct": "D",
+      "explanation": "Après le massacre du persil, le président haïtien Sténio Vincent a réagi en engageant des négociations diplomatiques et en obtenant des indemnités. Il a cherché à régler la situation de manière pacifique et à obtenir des compensations pour les victimes. Les autres options sont incorrectes car il n'a pas ignoré l'événement, n'a pas lancé de représailles et n'a pas déclaré la guerre à la République dominicaine.",
+      "options": [
+        "En ignorant l’événement",
+        "En lançant des représailles",
+        "En déclarant la guerre",
+        "En engageant des négociations diplomatiques et en obtenant des indemnités"
+      ]
+    },
+    {
+      "id": "SS28",
+      "category": "Chapitre HN-2 : STÉNIO VINCENT (1930-1941)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pourquoi Vincent quitte-t-il le pouvoir en 1941 ?",
+      "correct": "A",
+      "explanation": "Sténio Vincent a quitté le pouvoir en 1941 parce qu'il a refusé de briguer un troisième mandat et a choisi Élie Lescot comme successeur. Il a décidé de quitter le pouvoir de manière pacifique et de passer le flambeau à un autre dirigeant. Les autres options sont incorrectes car il n'a pas été contraint à l'exil, n'a pas été renversé par l'armée et n'est pas mort de maladie.",
+      "options": [
+        "Il refuse de briguer un troisième mandat et choisit Lescot comme successeur",
+        "Il est contraint à l’exil par une révolte populaire",
+        "Il est renversé par l’armée",
+        "Il meurt de maladie"
+      ]
+    },
+    {
+      "id": "SS29",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment Élie Lescot accède-t-il à la présidence en 1941 ?",
+      "correct": "C",
+      "explanation": "Élie Lescot a accédé à la présidence en 1941 par une élection de l'Assemblée nationale, avec le soutien de Sténio Vincent. Il a été élu de manière légitime et a bénéficié de l'appui de son prédécesseur. Les autres options sont incorrectes car il n'a pas été élu par le peuple, n'a pas pris le pouvoir à la suite d'une invasion américaine et n'a pas organisé un coup d'État militaire.",
+      "options": [
+        "Par une élection populaire directe",
+        "Par une invasion américaine",
+        "Par une élection de l’Assemblée nationale, avec le soutien de Vincent",
+        "Par un coup d’État militaire"
+      ]
+    },
+    {
+      "id": "SS30",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle était la particularité du gouvernement Lescot en matière de composition raciale ?",
+      "correct": "D",
+      "explanation": "Le gouvernement d'Élie Lescot était presque exclusivement composé de mulâtres, excluant les Noirs. Cette particularité a été critiquée car elle a été perçue comme une forme de discrimination raciale. Les autres options sont incorrectes car le gouvernement n'était pas équilibré entre Noirs et mulâtres, n'était pas dominé par des étrangers et ne comprenait pas uniquement des Noirs.",
+      "options": [
+        "Il était parfaitement équilibré entre Noirs et mulâtres",
+        "Il était dominé par des étrangers",
+        "Il était composé uniquement de Noirs",
+        "Il était presque exclusivement composé de mulâtres, excluant les Noirs"
+      ]
+    },
+    {
+      "id": "SS31",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel projet agricole désastreux Lescot a-t-il mis en place avec les États-Unis ?",
+      "correct": "D",
+      "explanation": "Le projet agricole désastreux mis en place par Élie Lescot avec les États-Unis était la SHADA (Société Haïtienne d'Administration de la plaine de l'Artibonite et de Développement Agricole). Ce projet a été critiqué pour ses résultats insuffisants et ses impacts négatifs sur les paysans haïtiens. Les autres options sont incorrectes car le Plan Marshall était un plan de reconstruction européen, l'ODVA n'existe pas et la Cimenterie d'Haïti était un projet industriel.",
+      "options": [
+        "Le Plan Marshall",
+        "La Cimenterie d’Haïti",
+        "L’ODVA",
+        "La SHADA"
+      ]
+    },
+    {
+      "id": "SS32",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement a déclenché la grève générale de janvier 1946 ?",
+      "correct": "C",
+      "explanation": "L'événement qui a déclenché la grève générale de janvier 1946 était la fermeture du journal « La Ruche » et l'arrestation de ses rédacteurs. Cette mesure a été perçue comme une atteinte à la liberté de presse et a suscité une forte réaction populaire. Les autres options sont incorrectes car la mort de Sténio Vincent n'a pas déclenché cette grève, la création de la SHADA n'a pas eu d'impact direct sur la population et l'ouverture du commerce aux Syro-Libanais n'a pas été un facteur de mobilisation.",
+      "options": [
+        "La mort de Sténio Vincent",
+        "La création de la SHADA",
+        "La fermeture du journal « La Ruche » et l’arrestation de ses rédacteurs",
+        "L’ouverture du commerce aux Syro-Libanais"
+      ]
+    },
+    {
+      "id": "SS33",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année Élie Lescot devient-il président d’Haïti ?",
+      "correct": "D",
+      "explanation": "Élie Lescot devient président d'Haïti en 1941, précisément le 13 avril 1941. Cette date est importante car elle marque le début de son régime qui sera caractérisé par une dictature progressive. Les autres options sont incorrectes car 1934 correspond à la fin de l'occupation américaine d'Haïti, 1950 est une date postérieure à son règne et 1946 correspond à la chute de Lescot.",
+      "options": [
+        "1934",
+        "1950",
+        "1946",
+        "1941"
+      ]
+    },
+    {
+      "id": "SS34",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "À quel camp Haïti déclare-t-elle la guerre sous Lescot en 1941 ?",
+      "correct": "A",
+      "explanation": "Sous la présidence d'Élie Lescot en 1941, Haïti déclare la guerre aux puissances de l'Axe, comprenant l'Allemagne, l'Italie et le Japon. Cette décision s'inscrit dans le contexte de la Seconde Guerre mondiale, où les nations se positionnaient aux côtés des Alliés ou de l'Axe. Les autres options sont incorrectes car Haïti ne déclare pas la guerre à l'Union soviétique, aux Alliés ou à la République dominicaine dans ce contexte.",
+      "options": [
+        "Aux puissances de l’Axe (Allemagne, Italie, Japon)",
+        "À l’Union soviétique",
+        "Aux Alliés",
+        "À la République Dominicaine"
+      ]
+    },
+    {
+      "id": "SS35",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle décision symbolise le passage à la dictature totale en janvier 1942 ?",
+      "correct": "C",
+      "explanation": "La décision qui symbolise le passage à la dictature totale en janvier 1942 sous Élie Lescot est la suspension de la constitution et le gouvernement par décrets. Cette action marque un tournant vers une gouvernance autoritaire, où les règles et lois établies sont mises de côté au profit de décisions prises par le pouvoir exécutif. Les autres options, comme la proclamation de la présidence à vie, la dissolution du Parlement ou l'arrestation de tous les opposants, bien que potentiellement antidémocratiques, ne représentent pas spécifiquement ce passage à la dictature totale.",
+      "options": [
+        "La proclamation de la présidence à vie",
+        "La dissolution du Parlement",
+        "La suspension de la constitution et le gouvernement par décrets",
+        "L’arrestation de tous les opposants"
+      ]
+    },
+    {
+      "id": "SS36",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel groupe ethnique a été favorisé par Lescot dans l’accès aux postes de pouvoir ?",
+      "correct": "B",
+      "explanation": "Élie Lescot favorise les mulâtres dans l'accès aux postes de pouvoir durant son régime. Cette préférence s'inscrit dans une dynamique socio-politique haïtienne où les mulâtres ont historiquement occupé des positions de pouvoir économique et politique. Les autres groupes ethniques, comme les Noirs, les Blancs ou les Syro-Libanais, ne bénéficient pas de cette faveur particulière pendant le régime de Lescot.",
+      "options": [
+        "Les Noirs",
+        "Les mulâtres",
+        "Les Blancs",
+        "Les Syro-Libanais"
+      ]
+    },
+    {
+      "id": "SS37",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel projet agricole a causé un désastre écologique et social sous Lescot ?",
+      "correct": "B",
+      "explanation": "Le projet agricole qui cause un désastre écologique et social sous Élie Lescot est la SHADA (Société Haïtienne d'Aménagement et de Développement Agricole). Ce projet visait à moderniser l'agriculture haïtienne mais a finalement entraîné des conséquences négatives importantes. Les autres options, comme la Cimenterie d'Haïti, l'ODVA ou le barrage de Péligre, ne correspondent pas à ce projet spécifique.",
+      "options": [
+        "La Cimenterie d’Haïti",
+        "La SHADA",
+        "L’ODVA",
+        "Le barrage de Péligre"
+      ]
+    },
+    {
+      "id": "SS38",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment s’appelait le journal étudiant dont la fermeture a déclenché la grève de janvier 1946 ?",
+      "correct": "C",
+      "explanation": "Le journal étudiant dont la fermeture a déclenché la grève de janvier 1946 est La Ruche. La fermeture de ce journal a apparemment provoqué un mécontentement significatif parmi les étudiants, menant à une mobilisation contre le régime de Lescot. Les autres journaux mentionnés, comme L'Action, Le Matin ou Le Nouvelliste, ne sont pas associés à cet événement.",
+      "options": [
+        "L’Action",
+        "Le Matin",
+        "La Ruche",
+        "Le Nouvelliste"
+      ]
+    },
+    {
+      "id": "SS39",
+      "category": "Chapitre HN-3 : ÉLIE LESCOT (1941-1946)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était le nom du comité militaire qui a remplacé Lescot après sa chute ?",
+      "correct": "D",
+      "explanation": "Le comité militaire qui a remplacé Lescot après sa chute s'appelle le Comité Exécutif Militaire. Ce comité prend le pouvoir dans un contexte de transition après la chute du régime de Lescot en 1946. Les autres options, comme la Junte de Gouvernement, le Conseil National de Gouvernement ou le Comité de Salut Public, ne désignent pas spécifiquement ce comité militaire.",
+      "options": [
+        "La Junte de Gouvernement",
+        "Le Conseil National de Gouvernement",
+        "Le Comité de Salut Public",
+        "Le Comité Exécutif Militaire"
+      ]
+    },
+    {
+      "id": "SS40",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans quel contexte Estimé est-il élu président en août 1946 ?",
+      "correct": "D",
+      "explanation": "Estimé est élu président en août 1946 après la chute de Lescot et une période de transition dirigée par une junte militaire. Ce contexte de transition politique post-Lescot offre l'opportunité à Estimé d'accéder à la présidence. Les autres options, comme un coup d'État militaire, la mort naturelle du président précédent ou une invasion américaine, ne décrivent pas précisément les circonstances de son élection.",
+      "options": [
+        "Après un coup d’État militaire",
+        "Après la mort naturelle du président précédent",
+        "Après une invasion américaine",
+        "Après la chute de Lescot et une période de transition dirigée par une junte militaire"
+      ]
+    },
+    {
+      "id": "SS41",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces réalisations n’est PAS attribuée au gouvernement de Dumarsais Estimé ?",
+      "correct": "B",
+      "explanation": "La création de la SHADA n'est pas attribuée au gouvernement de Dumarsais Estimé, car elle a été créée sous la présidence de Élie Lescot. Les réalisations du gouvernement d'Estimé comprennent l'organisation de l'Exposition internationale du Bicentenaire, la construction du barrage de Péligre et le paiement de la dette extérieure. L'Exposition internationale du Bicentenaire était un événement majeur qui visait à célébrer le bicentenaire de la naissance de Toussaint Louverture. La construction du barrage de Péligre était un projet important pour le développement hydroélectrique du pays. Le paiement de la dette extérieure était une nécessité pour la stabilité financière du pays.",
+      "options": [
+        "L’organisation de l’Exposition internationale du Bicentenaire",
+        "La création de la SHADA",
+        "La construction du barrage de Péligre",
+        "Le paiement de la dette extérieure"
+      ]
+    },
+    {
+      "id": "SS42",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle a été la cause immédiate du coup d’État qui a renversé Dumarsais Estimé en 1950 ?",
+      "correct": "B",
+      "explanation": "La cause immédiate du coup d'État qui a renversé Dumarsais Estimé en 1950 était sa tentative de modifier la constitution pour se représenter. Cette tentative a été perçue comme une menace à la démocratie et a conduit à une réaction hostile de la part de l'opposition. Les autres options, telles qu'une invasion américaine, la faillite de l'État et un scandale de corruption majeur, ne sont pas fondées sur les faits historiques.",
+      "options": [
+        "Une invasion américaine",
+        "Sa tentative de modifier la constitution pour se représenter",
+        "La faillite de l’État",
+        "Un scandale de corruption majeur"
+      ]
+    },
+    {
+      "id": "SS43",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Où est né Dumarsais Estimé ?",
+      "correct": "A",
+      "explanation": "Dumarsais Estimé est né à Verrettes, une commune située dans le département de l'Artibonite. Les autres options, Jacmel, Port-au-Prince et Cap-Haïtien, ne correspondent pas à son lieu de naissance. Il est important de noter que Verrettes est une ville située dans la région de l'Artibonite, qui a joué un rôle important dans la vie politique et économique du pays.",
+      "options": [
+        "Verrettes",
+        "Jacmel",
+        "Port-au-Prince",
+        "Cap-Haïtien"
+      ]
+    },
+    {
+      "id": "SS44",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Combien de temps Estimé a-t-il été député avant de devenir président ?",
+      "correct": "A",
+      "explanation": "Dumarsais Estimé a été député pendant 16 ans avant de devenir président. Cette longue période de service au sein du Parlement haïtien lui a permis d'acquérir une expérience politique importante et de se faire connaître sur la scène nationale. Les autres options, 12 ans, 4 ans et 8 ans, ne correspondent pas à la durée réelle de son mandat de député.",
+      "options": [
+        "16 ans",
+        "12 ans",
+        "4 ans",
+        "8 ans"
+      ]
+    },
+    {
+      "id": "SS45",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel grand événement culturel et touristique Estimé a-t-il organisé en 1949-1950 ?",
+      "correct": "D",
+      "explanation": "Le grand événement culturel et touristique organisé par Estimé en 1949-1950 était l'Exposition internationale du Bicentenaire. Cet événement visait à célébrer le bicentenaire de la naissance de Toussaint Louverture et à promouvoir la culture et l'économie haïtiennes. Les autres options, telles que les Jeux de la Caraïbe, le Festival de Jazz de Port-au-Prince et le Carnaval international, ne correspondent pas à l'événement organisé sous la présidence d'Estimé.",
+      "options": [
+        "Les Jeux de la Caraïbe",
+        "Le Festival de Jazz de Port-au-Prince",
+        "Le Carnaval international",
+        "L’Exposition internationale du Bicentenaire"
+      ]
+    },
+    {
+      "id": "SS46",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle institution a-t-il créée pour développer la vallée de l’Artibonite ?",
+      "correct": "A",
+      "explanation": "L'institution créée par Estimé pour développer la vallée de l'Artibonite était l'ODVA (Office de Développement de la Vallée de l'Artibonite). Cette institution visait à promouvoir le développement économique et social de la région de l'Artibonite. Les autres options, telles que la SHADA, le MOP et l'ONC, ne correspondent pas à l'institution créée par Estimé pour cet objectif.",
+      "options": [
+        "L’ODVA",
+        "Le MOP",
+        "L’ONC",
+        "La SHADA"
+      ]
+    },
+    {
+      "id": "SS47",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Qui a mené le coup d’État contre Estimé en 1950 ?",
+      "correct": "A",
+      "explanation": "Le coup d'État contre Estimé en 1950 a été mené par Paul Magloire et Franck Lavaud. Ces deux hommes ont joué un rôle important dans la vie politique haïtienne et ont contribué à la chute du gouvernement d'Estimé. Les autres options, telles que Daniel Fignolé, Élie Lescot et François Duvalier, ne correspondent pas aux auteurs du coup d'État.",
+      "options": [
+        "Paul Magloire et Franck Lavaud",
+        "Daniel Fignolé",
+        "Élie Lescot",
+        "François Duvalier"
+      ]
+    },
+    {
+      "id": "SS48",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces lycées n’a PAS été construit sous Estimé ?",
+      "correct": "C",
+      "explanation": "Le lycée qui n'a pas été construit sous la présidence d'Estimé est le Lycée Anténor Firmin. Les autres lycées mentionnés, tels que le Lycée Charlemagne Péralte, le Lycée Faustin Soulouque et le Lycée Toussaint Louverture, ont été construits sous son gouvernement. Il est important de noter que la construction de ces lycées visait à améliorer l'accès à l'éducation pour les jeunes Haïtiens.",
+      "options": [
+        "Lycée Charlemagne Péralte",
+        "Lycée Faustin Soulouque",
+        "Lycée Anténor Firmin",
+        "Lycée Toussaint Louverture"
+      ]
+    },
+    {
+      "id": "SS49",
+      "category": "Chapitre HN-4 : DUMARSAIS ESTIMÉ (1946-1950)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle loi majeure protégeant les travailleurs a été promulguée sous Estimé ?",
+      "correct": "C",
+      "explanation": "Le Code du Travail est la loi majeure protégeant les travailleurs promulguée sous Estimé. Cette loi visait à améliorer les conditions de travail et à protéger les droits des travailleurs haïtiens. La loi sur le salaire minimum, quant à elle, a été promulguée sous Lescot, ce qui explique pourquoi cette option est incorrecte. La loi sur les syndicats et la loi martiale ne correspondent pas non plus à la bonne réponse.",
+      "options": [
+        "La loi sur le salaire minimum (sous Lescot)",
+        "La loi sur les syndicats",
+        "Le Code du Travail",
+        "La loi martiale"
+      ]
+    },
+    {
+      "id": "SS50",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans quel contexte international Paul Magloire arrive-t-il au pouvoir en 1950 ?",
+      "correct": "D",
+      "explanation": "Paul Magloire arrive au pouvoir en 1950 au début de la Guerre froide. Ce contexte international est marqué par la tension entre les États-Unis et l'Union soviétique, et Haïti, comme beaucoup de pays, était influencé par cette situation géopolitique. Les autres options, telles que la chute du mur de Berlin, la crise de 1929 et la Première Guerre mondiale, sont des événements qui se sont produits à des périodes différentes et ne correspondent pas au contexte de 1950.",
+      "options": [
+        "Après la chute du mur de Berlin",
+        "Pendant la crise de 1929",
+        "Pendant la Première Guerre mondiale",
+        "Au début de la Guerre froide"
+      ]
+    },
+    {
+      "id": "SS51",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Laquelle de ces affirmations sur le régime de Magloire est fausse ?",
+      "correct": "C",
+      "explanation": "L'affirmation selon laquelle le régime de Magloire a accordé une totale liberté d'expression à la presse est fausse. En réalité, le régime de Magloire a été critiqué pour ses restrictions à la liberté de la presse et pour avoir réprimé les opposants politiques. Les autres options, telles que la répression des opposants politiques, l'aide financière importante des États-Unis et l'encouragement du tourisme de luxe, sont des aspects qui caractérisent effectivement son régime.",
+      "options": [
+        "Il a réprimé les opposants politiques",
+        "Il a reçu une aide financière importante des États-Unis",
+        "Il a accordé une totale liberté d’expression à la presse",
+        "Il a encouragé le tourisme de luxe en Haïti"
+      ]
+    },
+    {
+      "id": "SS52",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle a été la cause immédiate de la chute de Magloire en décembre 1956 ?",
+      "correct": "B",
+      "explanation": "La cause immédiate de la chute de Magloire en décembre 1956 a été une grève générale soutenue par l'armée. Cette grève a paralysé le pays et a montré que Magloire avait perdu le soutien populaire et celui des forces armées. Les autres options, telles qu'une défaite électorale, une invasion étrangère et un assassinat, ne correspondent pas aux circonstances de sa chute.",
+      "options": [
+        "Une défaite électorale",
+        "Une grève générale soutenue par l’armée",
+        "Une invasion étrangère",
+        "Un assassinat"
+      ]
+    },
+    {
+      "id": "SS53",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement naturel a aggravé la crise économique sous Magloire en 1954 ?",
+      "correct": "A",
+      "explanation": "L'ouragan Hazel a aggravé la crise économique sous Magloire en 1954. Cet événement naturel a eu des conséquences dévastatrices pour Haïti, déjà confronté à des difficultés économiques. Les autres options, telles qu'un tremblement de terre, une sécheresse et une inondation, bien que pouvant avoir des impacts significatifs, ne sont pas celles qui se sont produites dans ce contexte.",
+      "options": [
+        "L’ouragan Hazel",
+        "Un tremblement de terre",
+        "Une sécheresse",
+        "Une inondation"
+      ]
+    },
+    {
+      "id": "SS54",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était le surnom affectueux donné à Magloire par ses partisans ?",
+      "correct": "B",
+      "explanation": "Le surnom affectueux donné à Magloire par ses partisans était 'Kanson Fè'. Ce surnom reflète la popularité et l'estime que certains segments de la population haïtienne avaient pour lui. Les autres options, telles que 'Papa Doc', 'Le Vieux' et 'Le Grand Manitou', soit sont des surnoms associés à d'autres personnages historiques, soit ne sont pas spécifiques à Magloire.",
+      "options": [
+        "Papa Doc",
+        "Kanson Fè",
+        "Le Vieux",
+        "Le Grand Manitou"
+      ]
+    },
+    {
+      "id": "SS55",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle grande infrastructure touristique a été développée sous Magloire ?",
+      "correct": "A",
+      "explanation": "La grande infrastructure touristique développée sous Magloire a été l'aéroport international de Port-au-Prince. Cette infrastructure visait à améliorer l'accès au pays et à promouvoir le tourisme, qui était une composante importante de son projet de développement économique. Les autres options, telles que le barrage de Péligre, la cathédrale de Port-au-Prince et le palais de justice, ne correspondent pas à des infrastructures touristiques développées sous son mandat.",
+      "options": [
+        "L’aéroport international de Port-au-Prince",
+        "Le barrage de Péligre",
+        "La cathédrale de Port-au-Prince",
+        "Le palais de justice"
+      ]
+    },
+    {
+      "id": "SS56",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pourquoi Magloire a-t-il perdu le soutien des États-Unis à la fin de son mandat ?",
+      "correct": "C",
+      "explanation": "Magloire a perdu le soutien des États-Unis à la fin de son mandat parce qu'il est devenu trop impopulaire et facteur d'instabilité. Les États-Unis, qui avaient initialement soutenu son régime, ont retiré leur appui en raison de la détérioration de la situation politique et sociale en Haïti. Les autres options, telles qu'être devenu communiste, avoir soutenu Fidel Castro et avoir nationalisé des entreprises américaines, ne reflètent pas les raisons de la perte du soutien américain.",
+      "options": [
+        "Il est devenu communiste",
+        "Il a soutenu Fidel Castro",
+        "Il est devenu trop impopulaire et facteur d’instabilité",
+        "Il a nationalisé des entreprises américaines"
+      ]
+    },
+    {
+      "id": "SS57",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Qui a succédé à Magloire après sa chute ?",
+      "correct": "D",
+      "explanation": "Après la chute de Magloire en 1956, Haïti a connu une période d'instabilité politique avec plusieurs gouvernements provisoires qui se sont succédé. C'est cette instabilité qui a caractérisé la période suivant son départ, marquée par une lutte pour le pouvoir entre différents groupes et leaders politiques. L'option 'Dumarsais Estimé' est incorrecte car il avait déjà occupé le poste de président avant Magloire. L'option 'Un nouveau Comité Exécutif Militaire' n'est pas précise car, même s'il y a eu des interventions militaires, la situation n'a pas été immédiatement stabilisée par un seul comité. L'option 'François Duvalier directement' est également incorrecte car Duvalier n'a pris le pouvoir qu'en 1957, après une période de transition et de luttes politiques.",
+      "options": [
+        "Dumarsais Estimé",
+        "François Duvalier directement",
+        "Un nouveau Comité Exécutif Militaire",
+        "Une période d’instabilité avec plusieurs gouvernements provisoires"
+      ]
+    },
+    {
+      "id": "SS58",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année Magloire a-t-il été contraint à l’exil ?",
+      "correct": "C",
+      "explanation": "Magloire a été contraint à l'exil en 1956. Cette année marque la fin de son régime autoritaire et le début d'une période de transition difficile en Haïti. L'option '1954' est incorrecte car c'est une année qui se situe avant la fin du mandat de Magloire. L'option '1957' est presque correcte mais pas tout à fait, car c'est en 1957 que Duvalier a pris le pouvoir, pas que Magloire a été exilé. L'option '1950' est incorrecte car elle correspond à une période où Magloire était encore au pouvoir.",
+      "options": [
+        "1954",
+        "1957",
+        "1956",
+        "1950"
+      ]
+    },
+    {
+      "id": "SS59",
+      "category": "Chapitre HN-5 : PAUL EUGÈNE MAGLOIRE (1950-1956)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était le principal allié international de Magloire ?",
+      "correct": "D",
+      "explanation": "Le principal allié international de Magloire était les États-Unis. Durant son régime, Magloire a maintenu des relations étroites avec les États-Unis, qui ont soutenu son gouvernement. Les options 'L'Union soviétique', 'La France', et 'Cuba' sont incorrectes car, même s'il a pu avoir des relations avec ces pays, les États-Unis étaient son principal allié durant cette période.",
+      "options": [
+        "L’Union soviétique",
+        "La France",
+        "Cuba",
+        "Les États-Unis"
+      ]
+    },
+    {
+      "id": "SS60",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel leader populaire du MOP a été renversé par l’armée en juin 1957, ouvrant la voie à Duvalier ?",
+      "correct": "B",
+      "explanation": "Le leader populaire du MOP (Mouvement Ouvrier Paysan) qui a été renversé par l'armée en juin 1957 était Daniel Fignolé. Son renversement a ouvert la voie à François Duvalier pour prendre le pouvoir. Les options 'Clément Jumelle', 'Louis Déjoie', et 'Paul Magloire' sont incorrectes car elles ne correspondent pas au leader du MOP renversé en 1957.",
+      "options": [
+        "Clément Jumelle",
+        "Daniel Fignolé",
+        "Louis Déjoie",
+        "Paul Magloire"
+      ]
+    },
+    {
+      "id": "SS61",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était le nom de la milice privée créée par Duvalier pour semer la terreur ?",
+      "correct": "D",
+      "explanation": "La milice privée créée par Duvalier pour semer la terreur s'appelait les Tontons Macoutes (VSN). Cette force paramilitaire a été utilisée pour réprimer l'opposition et maintenir le contrôle de Duvalier sur la population. Les options 'La Garde d'Haïti' se réfère à l'armée régulière, 'Les Fignolistes' sont des partisans de Daniel Fignolé, et 'Les Cacos' étaient des résistants contre l'occupation américaine de 1915, donc toutes sont incorrectes.",
+      "options": [
+        "La Garde d’Haïti",
+        "Les Fignolistes",
+        "Les Cacos",
+        "Les Tontons Macoutes (VSN)"
+      ]
+    },
+    {
+      "id": "SS62",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année François Duvalier s’est-il fait proclamer « Président à Vie » ?",
+      "correct": "C",
+      "explanation": "François Duvalier s'est fait proclamer 'Président à Vie' en 1964. Cette proclamation a marqué le début d'une ère de dictature à vie sous son règne. Les options '1961' et '1971' sont incorrectes car elles correspondent à d'autres événements de son règne. L'option '1957' est également incorrecte car c'est l'année où il a pris le pouvoir, pas où il s'est proclamé Président à Vie.",
+      "options": [
+        "1961",
+        "1971",
+        "1964",
+        "1957"
+      ]
+    },
+    {
+      "id": "SS63",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Qui a succédé à François Duvalier à sa mort en 1971 ?",
+      "correct": "D",
+      "explanation": "À la mort de François Duvalier en 1971, son fils, Jean-Claude Duvalier, lui a succédé. Jean-Claude a pris le pouvoir à l'âge de 19 ans et a continué le régime autoritaire de son père. Les options 'Daniel Fignolé', 'Sa femme, Simone Duvalier', et 'Un comité militaire' sont incorrectes car elles ne correspondent pas à la réalité de la succession de François Duvalier.",
+      "options": [
+        "Daniel Fignolé",
+        "Sa femme, Simone Duvalier",
+        "Un comité militaire",
+        "Son fils, Jean-Claude Duvalier"
+      ]
+    },
+    {
+      "id": "SS64",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était le métier de François Duvalier avant de devenir président ?",
+      "correct": "D",
+      "explanation": "Avant de devenir président, François Duvalier était médecin. Il a exercé la profession de médecin avant de s'engager en politique et finalement devenir président d'Haïti. Les options 'Journaliste', 'Avocat', et 'Militaire' sont incorrectes car elles ne correspondent pas à la profession de Duvalier avant son entrée en politique.",
+      "options": [
+        "Journaliste",
+        "Militaire",
+        "Avocat",
+        "Médecin"
+      ]
+    },
+    {
+      "id": "SS65",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel courant idéologique Duvalier a-t-il utilisé pour justifier son pouvoir ?",
+      "correct": "A",
+      "explanation": "Le noirisme est un courant idéologique qui met en avant l'importance de l'identité noire et de la culture africaine. Duvalier a utilisé ce courant pour justifier son pouvoir en Haïti, en se présentant comme un défenseur de l'identité noire haïtienne. Les autres options sont incorrectes car le mulâtrisme est un courant qui privilégie les personnes d'ascendance européenne, le libéralisme est une doctrine économique et politique qui n'a pas de lien direct avec l'identité noire, et le marxisme est une théorie socio-économique qui se concentre sur la lutte des classes.",
+      "options": [
+        "Le noirisme",
+        "Le mulâtrisme",
+        "Le libéralisme",
+        "Le marxisme"
+      ]
+    },
+    {
+      "id": "SS66",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment s’appelait la milice privée créée par Duvalier ?",
+      "correct": "C",
+      "explanation": "La milice privée créée par Duvalier s'appelait les Volontaires de la Sécurité Nationale, mais elle était plus communément connue sous le nom de Tontons Macoutes. Cette milice était responsable de la répression et de la terreur en Haïti. Les autres options sont incorrectes car la Garde présidentielle est une unité de sécurité qui protège le président, les Cacos sont un groupe de rebelles qui se sont opposés à l'occupation américaine d'Haïti, et les Fignolistes sont un groupe politique qui n'a pas de lien avec Duvalier.",
+      "options": [
+        "La Garde présidentielle",
+        "Les Cacos",
+        "Les Volontaires de la Sécurité Nationale (Tontons Macoutes)",
+        "Les Fignolistes"
+      ]
+    },
+    {
+      "id": "SS67",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle était la prison la plus tristement célèbre du régime Duvalier ?",
+      "correct": "D",
+      "explanation": "La prison la plus tristement célèbre du régime Duvalier était Fort Dimanche, également connue sous le nom de Bassin-Bleu. C'était un lieu de détention et de torture où de nombreux opposants au régime ont été incarcérés et maltraités. Les autres options sont incorrectes car la Prison Civile de Port-au-Prince est une prison ordinaire, la Bastille est une prison célèbre en France et le Pénitencier National est une prison qui n'a pas de lien direct avec le régime Duvalier.",
+      "options": [
+        "La Prison Civile de Port-au-Prince",
+        "La Bastille",
+        "Le Pénitencier National",
+        "Fort Dimanche"
+      ]
+    },
+    {
+      "id": "SS68",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année Duvalier s’est-il proclamé Président à Vie ?",
+      "correct": "A",
+      "explanation": "Duvalier s'est proclamé Président à Vie en 1964, ce qui lui a permis de consolider son pouvoir et de gouverner Haïti de manière autoritaire. Les autres options sont incorrectes car 1957 est l'année où Duvalier est arrivé au pouvoir, 1971 est l'année où il a transmis le pouvoir à son fils, et 1961 est l'année où il a été élu président.",
+      "options": [
+        "1964",
+        "1971",
+        "1957",
+        "1961"
+      ]
+    },
+    {
+      "id": "SS69",
+      "category": "Chapitre HN-6 : FRANÇOIS DUVALIER (1957-1971)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement a permis à Duvalier d’accéder au pouvoir en 1957 ?",
+      "correct": "B",
+      "explanation": "Duvalier est arrivé au pouvoir en 1957 à la suite d'un coup d'État militaire suivi d'élections truquées. Cela lui a permis de prendre le contrôle du gouvernement et de mettre en place un régime autoritaire. Les autres options sont incorrectes car il n'y a pas eu d'élections libres, d'invasion étrangère ou de révolution populaire qui aient permis à Duvalier d'accéder au pouvoir.",
+      "options": [
+        "Des élections libres",
+        "Un coup d’État militaire suivi d’élections truquées",
+        "Une invasion étrangère",
+        "Une révolution populaire"
+      ]
+    },
+    {
+      "id": "SS70",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle est la cause occasionnelle de la Première Guerre mondiale ?",
+      "correct": "C",
+      "explanation": "L'assassinat de François-Ferdinand à Sarajevo en 1914 est considéré comme l'événement qui a déclenché la Première Guerre mondiale. Cet événement a provoqué une réaction en chaîne qui a conduit à la guerre entre les grandes puissances européennes. Les autres options sont incorrectes car la crise de 1929 est liée à la Grande Dépression, l'invasion de la Pologne est un événement de la Seconde Guerre mondiale, et la révolution russe est un événement qui a eu lieu en 1917.",
+      "options": [
+        "La crise de 1929",
+        "L’invasion de la Pologne",
+        "L’assassinat de François-Ferdinand à Sarajevo",
+        "La révolution russe"
+      ]
+    },
+    {
+      "id": "SS71",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quels étaient les deux camps qui s’affrontaient ?",
+      "correct": "C",
+      "explanation": "Les deux camps qui s'affrontaient pendant la Première Guerre mondiale étaient la Triple-Alliance et la Triple-Entente. La Triple-Alliance était composée de l'Allemagne, de l'Autriche-Hongrie et de l'Italie, tandis que la Triple-Entente était composée de la France, de la Russie et du Royaume-Uni. Les autres options sont incorrectes car l'OTAN et le Pacte de Varsovie sont des alliances de la Guerre froide, la SDN et l'ONU sont des organisations internationales, et l'Axe et les Alliés sont des groupes de pays qui se sont affrontés pendant la Seconde Guerre mondiale.",
+      "options": [
+        "L’OTAN et le Pacte de Varsovie",
+        "La SDN et l’ONU",
+        "La Triple-Alliance et la Triple-Entente",
+        "L’Axe et les Alliés"
+      ]
+    },
+    {
+      "id": "SS72",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Parmi ces pays, lequel faisait partie de la Triple-Entente ?",
+      "correct": "B",
+      "explanation": "La France faisait partie de la Triple-Entente, qui était un groupe de pays qui se sont opposés à la Triple-Alliance pendant la Première Guerre mondiale. Les autres options sont incorrectes car l'Allemagne faisait partie de la Triple-Alliance, l'Autriche-Hongrie faisait également partie de la Triple-Alliance, et l'Italie a changé de camp pendant la guerre.",
+      "options": [
+        "Allemagne",
+        "France",
+        "Autriche-Hongrie",
+        "Italie"
+      ]
+    },
+    {
+      "id": "SS73",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle bataille de 1916 a duré 10 mois et a fait près de 700 000 morts ?",
+      "correct": "A",
+      "explanation": "La bataille de Verdun, qui a eu lieu de février 1916 à décembre 1916, est l'une des batailles les plus longues et les plus meurtrières de la Première Guerre mondiale. Elle a duré 10 mois et a fait près de 700 000 morts. Les autres options sont incorrectes car la bataille de la Marne a eu lieu en 1914 et 1918, la bataille d'Angleterre a eu lieu en 1940 et la bataille de la Somme a eu lieu en 1916 mais avec moins de morts.",
+      "options": [
+        "La bataille de Verdun",
+        "La bataille de la Marne",
+        "La bataille d’Angleterre",
+        "La bataille de la Somme"
+      ]
+    },
+    {
+      "id": "SS74",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année les États-Unis entrent-ils en guerre ?",
+      "correct": "B",
+      "explanation": "Les États-Unis sont entrés en guerre en 1917, après avoir déclaré la guerre à l'Allemagne en avril de cette année. Les autres options sont incorrectes car les États-Unis sont restés neutres jusqu'en 1917, et les dates de 1914, 1915 et 1918 ne correspondent pas à leur entrée en guerre.",
+      "options": [
+        "1918",
+        "1917",
+        "1914",
+        "1915"
+      ]
+    },
+    {
+      "id": "SS75",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Que s’est-il passé en Russie en 1917 ?",
+      "correct": "A",
+      "explanation": "En 1917, les bolcheviks ont pris le pouvoir en Russie et ont signé la paix avec l'Allemagne, mettant fin à la participation de la Russie à la guerre. Les autres options sont incorrectes car la Russie n'a pas envahi l'Allemagne, elle n'est pas devenue une démocratie à cette époque et le tsar n'a pas gagné la guerre.",
+      "options": [
+        "Les bolcheviks ont pris le pouvoir et ont signé la paix",
+        "La Russie a envahi l’Allemagne",
+        "La Russie est devenue une démocratie",
+        "Le tsar a gagné la guerre"
+      ]
+    },
+    {
+      "id": "SS76",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel traité de paix a été signé avec l’Allemagne en 1919 ?",
+      "correct": "B",
+      "explanation": "Le traité de paix signé avec l'Allemagne en 1919 est le traité de Versailles. Les autres options sont incorrectes car le traité de Trianon a été signé avec la Hongrie, le traité de Sèvres a été signé avec l'Empire ottoman et le traité de Saint-Germain a été signé avec l'Autriche.",
+      "options": [
+        "Le traité de Trianon",
+        "Le traité de Versailles",
+        "Le traité de Sèvres",
+        "Le traité de Saint-Germain"
+      ]
+    },
+    {
+      "id": "SS77",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Combien de morts a fait la Première Guerre mondiale ?",
+      "correct": "A",
+      "explanation": "La Première Guerre mondiale a fait environ 10 millions de morts. Les autres options sont incorrectes car 1 million et 5 millions sont des chiffres trop bas, et 50 millions est un chiffre trop élevé.",
+      "options": [
+        "10 millions",
+        "1 million",
+        "50 millions",
+        "5 millions"
+      ]
+    },
+    {
+      "id": "SS78",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle organisation internationale a été créée après la Première Guerre mondiale ?",
+      "correct": "A",
+      "explanation": "L'organisation internationale créée après la Première Guerre mondiale est la Société des Nations (SDN). Les autres options sont incorrectes car l'ONU a été créée en 1945, l'OTAN a été créée en 1949 et le FMI a été créé en 1944.",
+      "options": [
+        "La SDN",
+        "L’OTAN",
+        "Le FMI",
+        "L’ONU"
+      ]
+    },
+    {
+      "id": "SS79",
+      "category": "Chapitre HU-1 : PREMIÈRE GUERRE MONDIALE",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était l’objectif principal de la SDN ?",
+      "correct": "D",
+      "explanation": "L'objectif principal de la SDN était de maintenir la paix dans le monde. Les autres options sont incorrectes car la SDN n'avait pas pour objectif de reconstruire l'Europe, de gagner la guerre ou de punir l'Allemagne.",
+      "options": [
+        "Reconstruire l’Europe",
+        "Gagner la guerre",
+        "Punir l’Allemagne",
+        "Maintenir la paix"
+      ]
+    },
+    {
+      "id": "SS80",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment s’appellent les années 1920, marquées par la joie de vivre et les nouvelles danses ?",
+      "correct": "D",
+      "explanation": "Les années 1920 sont appelées les 'années folles' en raison de la joie de vivre et des nouvelles danses qui ont caractérisé cette période. Les autres options sont incorrectes car les 'années roses', les 'années sombres' et les 'années de plomb' ne sont pas des termes couramment utilisés pour décrire les années 1920.",
+      "options": [
+        "Les années roses",
+        "Les années sombres",
+        "Les années de plomb",
+        "Les années folles"
+      ]
+    },
+    {
+      "id": "SS81",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement marque le début de la Grande Dépression en 1929 ?",
+      "correct": "C",
+      "explanation": "Le krach boursier de Wall Street, également connu sous le nom de jeudi noir, est considéré comme le début de la Grande Dépression en 1929. Cet événement a marqué un tournant dans l'histoire économique mondiale, car il a entraîné une chute vertigineuse des valeurs boursières, provoquant ainsi une crise financière majeure. L'incendie du Reichstag est un événement lié à l'histoire de l'Allemagne nazie, la faillite d'une banque est un événement courant qui ne marque pas le début de la Grande Dépression, et la guerre en Europe est un conflit qui a débuté plus tard.",
+      "options": [
+        "L’incendie du Reichstag",
+        "La faillite d’une banque",
+        "Le krach boursier de Wall Street (jeudi noir)",
+        "La guerre en Europe"
+      ]
+    },
+    {
+      "id": "SS82",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel est le nom du régime dictatorial dirigé par Hitler en Allemagne ?",
+      "correct": "B",
+      "explanation": "Le régime dictatorial dirigé par Hitler en Allemagne est appelé le nazisme. Le nazisme est une idéologie politique et sociale qui a émergé en Allemagne dans les années 1920 et 1930, caractérisée par une forte opposition à la démocratie et aux valeurs libérales. Le fascisme est un régime dictatorial qui a existé en Italie sous la direction de Mussolini, le franquisme est un régime qui a existé en Espagne sous la direction de Franco, et le stalinisme est un régime qui a existé en Union soviétique sous la direction de Staline.",
+      "options": [
+        "Le fascisme",
+        "Le nazisme",
+        "Le franquisme",
+        "Le stalinisme"
+      ]
+    },
+    {
+      "id": "SS83",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement marque le début de la Seconde Guerre mondiale en 1939 ?",
+      "correct": "D",
+      "explanation": "L'invasion de la Pologne par l'Allemagne le 1er septembre 1939 marque le début de la Seconde Guerre mondiale. Cet événement a déclenché une réaction en chaîne d'alliances et de déclarations de guerre entre les grandes puissances, entraînant ainsi un conflit mondial. L'annexion de l'Autriche a eu lieu en 1938, le pacte germano-soviétique a été signé en août 1939, et la conférence de Munich a eu lieu en septembre 1938.",
+      "options": [
+        "L’annexion de l’Autriche",
+        "Le pacte germano-soviétique",
+        "La conférence de Munich",
+        "L’invasion de la Pologne par l’Allemagne"
+      ]
+    },
+    {
+      "id": "SS84",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel pays a connu une hyperinflation terrible en 1923 ?",
+      "correct": "C",
+      "explanation": "L'Allemagne a connu une hyperinflation terrible en 1923, connue sous le nom de 'hyperinflation allemande'. Cette période a été caractérisée par une augmentation extrêmement rapide des prix, qui a entraîné une perte de valeur de la monnaie allemande, le mark. L'Angleterre, l'Italie et la France n'ont pas connu une hyperinflation de cette ampleur à cette époque.",
+      "options": [
+        "L’Angleterre",
+        "L’Italie",
+        "L’Allemagne",
+        "La France"
+      ]
+    },
+    {
+      "id": "SS85",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année a eu lieu le krach boursier de Wall Street ?",
+      "correct": "C",
+      "explanation": "Le krach boursier de Wall Street a eu lieu en 1929. Cet événement a marqué un tournant dans l'histoire économique mondiale, car il a entraîné une chute vertigineuse des valeurs boursières, provoquant ainsi une crise financière majeure. Les années 1923, 1918 et 1933 ne correspondent pas à la date du krach boursier de Wall Street.",
+      "options": [
+        "1923",
+        "1918",
+        "1929",
+        "1933"
+      ]
+    },
+    {
+      "id": "SS86",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel président américain a lancé le New Deal pour sortir de la crise ?",
+      "correct": "D",
+      "explanation": "Le président américain qui a lancé le New Deal pour sortir de la crise est Franklin D. Roosevelt. Le New Deal était un ensemble de politiques et de programmes mis en place pour aider les États-Unis à sortir de la Grande Dépression. Les autres options, telles que Woodrow Wilson, Harry Truman, et Herbert Hoover, sont incorrectes car ils n'ont pas lancé le New Deal.",
+      "options": [
+        "Woodrow Wilson",
+        "Harry Truman",
+        "Herbert Hoover",
+        "Franklin D. Roosevelt"
+      ]
+    },
+    {
+      "id": "SS87",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel dictateur a pris le pouvoir en Italie en 1922 ?",
+      "correct": "B",
+      "explanation": "Le dictateur qui a pris le pouvoir en Italie en 1922 est Benito Mussolini. Mussolini a fondé le fascisme italien et a dirigé l'Italie de 1922 à 1943. Franco a dirigé l'Espagne de 1939 à 1975, Hitler a dirigé l'Allemagne de 1933 à 1945, et Staline a dirigé l'Union soviétique de 1922 à 1953.",
+      "options": [
+        "Franco",
+        "Mussolini",
+        "Hitler",
+        "Staline"
+      ]
+    },
+    {
+      "id": "SS88",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel est le nom du livre écrit par Hitler en prison ?",
+      "correct": "B",
+      "explanation": "Le livre écrit par Hitler en prison est intitulé Mein Kampf. Mein Kampf est un ouvrage autobiographique et politique qui expose les idées et les objectifs de Hitler. La Propagande est un concept lié à la communication de masse, Le Capital est un ouvrage de Karl Marx, et Le Mythe du XXe siècle est un ouvrage de Rosenberg.",
+      "options": [
+        "La Propagande",
+        "Mein Kampf",
+        "Le Capital",
+        "Le Mythe du XXe siècle"
+      ]
+    },
+    {
+      "id": "SS89",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pourquoi la SDN a-t-elle échoué à maintenir la paix ?",
+      "correct": "A",
+      "explanation": "La SDN a échoué à maintenir la paix pour plusieurs raisons. Tout d'abord, les États-Unis, qui étaient une puissance majeure, n'en faisaient pas partie, ce qui a considérablement réduit son influence et son efficacité. Ensuite, la SDN n'avait pas d'armée propre pour mettre en œuvre ses décisions, ce qui la rendait impuissante face aux agressions. Enfin, ses décisions n'étaient pas toujours respectées par les États membres, ce qui a entériné son échec. C'est pourquoi toutes ces réponses sont correctes.",
+      "options": [
+        "Toutes ces réponses sont correctes",
+        "Parce que les États-Unis n’en faisaient pas partie",
+        "Parce qu’elle n’avait pas d’armée",
+        "Parce que ses décisions n’étaient pas respectées"
+      ]
+    },
+    {
+      "id": "SS90",
+      "category": "Chapitre HU-2 : ENTRE-DEUX-GUERRES (1919-1939)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle conférence de 1938 a symbolisé la politique d’apaisement des démocraties ?",
+      "correct": "D",
+      "explanation": "La conférence de 1938 qui a symbolisé la politique d'apaisement des démocraties est celle de Munich. La politique d'apaisement visait à céder aux exigences de l'Allemagne nazie pour éviter la guerre, mais elle a finalement encouragé l'agression allemande. La conférence de Yalta a eu lieu en 1945 et a concerné la réorganisation de l'Europe après la guerre. La conférence de Versailles a eu lieu en 1919 et a imposé des sanctions à l'Allemagne après la Première Guerre mondiale. La conférence de Potsdam a également eu lieu en 1945 et a porté sur la reconstruction de l'Allemagne.",
+      "options": [
+        "La conférence de Yalta",
+        "La conférence de Versailles",
+        "La conférence de Potsdam",
+        "La conférence de Munich"
+      ]
+    },
+    {
+      "id": "SS91",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement est considéré comme le déclencheur de la Seconde Guerre mondiale ?",
+      "correct": "D",
+      "explanation": "L'événement considéré comme le déclencheur de la Seconde Guerre mondiale est l'invasion de la Pologne par l'Allemagne. Le 1er septembre 1939, l'Allemagne a envahi la Pologne, ce qui a conduit à la déclaration de guerre de la France et du Royaume-Uni. Le pacte germano-soviétique a été signé en août 1939 et a permis à l'Allemagne et à l'URSS de se partager l'Europe de l'Est. La conférence de Munich a eu lieu en 1938 et a concerné la crise des Sudètes. L'annexion de l'Autriche a eu lieu en 1938 et a marqué le début de l'expansion allemande.",
+      "options": [
+        "Le pacte germano-soviétique",
+        "L’annexion de l’Autriche",
+        "La conférence de Munich",
+        "L’invasion de la Pologne par l’Allemagne"
+      ]
+    },
+    {
+      "id": "SS92",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quels sont les principaux pays de l’Axe ?",
+      "correct": "B",
+      "explanation": "Les principaux pays de l'Axe sont l'Allemagne, l'Italie et le Japon. Ces trois pays ont formé une alliance militaire pour combattre les Alliés pendant la Seconde Guerre mondiale. L'URSS, la Chine et la Pologne faisaient partie des Alliés. La France, l'Angleterre et les États-Unis étaient également des Alliés majeurs. Le Canada, l'Australie et l'Inde étaient des dominions britanniques qui ont soutenu les Alliés.",
+      "options": [
+        "URSS, Chine, Pologne",
+        "Allemagne, Italie, Japon",
+        "France, Angleterre, USA",
+        "Canada, Australie, Inde"
+      ]
+    },
+    {
+      "id": "SS93",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle bataille est considérée comme le tournant de la guerre sur le front Est ?",
+      "correct": "A",
+      "explanation": "La bataille considérée comme le tournant de la guerre sur le front Est est celle de Stalingrad. En février 1943, les forces soviétiques ont encerclé et vaincu la sixième armée allemande, ce qui a marqué un tournant majeur dans la guerre. La bataille de Léningrad a été un siège long et meurtrier, mais elle n'a pas constitué un tournant aussi net. Les batailles de Moscou et de Koursk ont également été importantes, mais Stalingrad reste le symbole du tournant de la guerre sur le front Est.",
+      "options": [
+        "Stalingrad",
+        "Léningrad",
+        "Moscou",
+        "Koursk"
+      ]
+    },
+    {
+      "id": "SS94",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quand l’Allemagne a-t-elle capitulé ?",
+      "correct": "B",
+      "explanation": "L'Allemagne a capitulé le 8 mai 1945. La capitulation allemande a mis fin à la guerre en Europe. Le 6 août 1945, les États-Unis ont largué une bombe atomique sur Hiroshima, et le 9 août sur Nagasaki, ce qui a conduit à la capitulation japonaise. Le 2 septembre 1945, le Japon a signé la capitulation officielle.",
+      "options": [
+        "6 août 1945",
+        "8 mai 1945",
+        "9 août 1945",
+        "2 septembre 1945"
+      ]
+    },
+    {
+      "id": "SS95",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelles villes japonaises ont été détruites par la bombe atomique ?",
+      "correct": "B",
+      "explanation": "Les villes japonaises détruites par la bombe atomique sont Hiroshima et Nagasaki. Le 6 août 1945, une bombe atomique a été larguée sur Hiroshima, et le 9 août sur Nagasaki, ce qui a causé des centaines de milliers de morts et a conduit à la capitulation japonaise. Kyoto et Osaka, Tokyo et Yokohama, Nagoya et Kobe ont été des villes importantes au Japon, mais elles n'ont pas été détruites par la bombe atomique.",
+      "options": [
+        "Kyoto et Osaka",
+        "Hiroshima et Nagasaki",
+        "Tokyo et Yokohama",
+        "Nagoya et Kobe"
+      ]
+    },
+    {
+      "id": "SS96",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Combien de Juifs environ ont été assassinés pendant la Shoah ?",
+      "correct": "D",
+      "explanation": "Environ 6 millions de Juifs ont été assassinés pendant la Shoah. La Shoah, ou Holocauste, a été un génocide systématique des Juifs d'Europe par les nazis. Les estimations font état de 6 millions de victimes juives, auxquelles s'ajoutent des millions d'autres victimes, notamment des Tsiganes, des homosexuels et des dissidents politiques.",
+      "options": [
+        "10 millions",
+        "3 millions",
+        "1 million",
+        "6 millions"
+      ]
+    },
+    {
+      "id": "SS97",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle organisation internationale a été créée en 1945 pour maintenir la paix ?",
+      "correct": "C",
+      "explanation": "L'ONU, ou Organisation des Nations Unies, est l'organisation internationale créée en 1945 pour maintenir la paix et la sécurité dans le monde. Elle a été établie à la suite de la Seconde Guerre mondiale pour promouvoir la coopération internationale et prévenir les conflits. Les autres options sont incorrectes car l'OTAN est une alliance militaire créée en 1949, le Pacte de Varsovie est une alliance militaire du bloc de l'Est créée en 1955, et la SDN, ou Société des Nations, est une organisation internationale qui a existé de 1920 à 1946.",
+      "options": [
+        "L’OTAN",
+        "Le Pacte de Varsovie",
+        "L’ONU",
+        "La SDN"
+      ]
+    },
+    {
+      "id": "SS98",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel était l’objectif principal du plan Marshall ?",
+      "correct": "C",
+      "explanation": "Le plan Marshall était un programme d'aide économique lancé par les États-Unis en 1948 pour reconstruire l'Europe de l'Ouest et endiguer la propagation du communisme. L'objectif principal du plan Marshall était de fournir une aide financière et économique pour aider les pays européens à se remettre de la guerre et à se développer. Les autres options sont incorrectes car le plan Marshall n'était pas destiné à aider le Japon, qui avait déjà reçu une aide économique, et il ne visait pas à détruire l'URSS, mais plutôt à contenir son expansion. La création d'une monnaie unique n'était pas non plus un objectif du plan Marshall.",
+      "options": [
+        "Aider le Japon",
+        "Détruire l’URSS",
+        "Reconstruire l’Europe et endiguer le communisme",
+        "Créer une monnaie unique"
+      ]
+    },
+    {
+      "id": "SS99",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le débarquement en Normandie (D-Day) a eu lieu le :",
+      "correct": "B",
+      "explanation": "Le débarquement en Normandie, également connu sous le nom de D-Day, a eu lieu le 6 juin 1944. Il s'agissait d'une opération militaire majeure menée par les Alliés pour libérer la France et l'Europe de l'Ouest de l'occupation allemande. Les autres options, telles que le 8 mai 1945, le 22 juin 1941, et le 7 décembre 1941, sont incorrectes car elles ne correspondent pas à la date du débarquement en Normandie.",
+      "options": [
+        "8 mai 1945",
+        "6 juin 1944",
+        "22 juin 1941",
+        "7 décembre 1941"
+      ]
+    },
+    {
+      "id": "SS100",
+      "category": "Chapitre HU-3 : SECONDE GUERRE MONDIALE (1939-1945)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « guerre éclair » (Blitzkrieg) est une tactique utilisée par :",
+      "correct": "D",
+      "explanation": "La 'guerre éclair' (Blitzkrieg) est une tactique militaire utilisée par l'Allemagne nazie pendant la Seconde Guerre mondiale. Elle consistait à utiliser des forces mobiles et des attaques aériennes pour rapidement pénétrer les défenses ennemies et conquérir des territoires. Les autres options sont incorrectes car les Alliés n'ont pas utilisé cette tactique, l'URSS a utilisé des tactiques de défense et de contre-attaque, et le Japon a utilisé des tactiques de guerre navale et aérienne.",
+      "options": [
+        "Les Alliés",
+        "L’URSS",
+        "Le Japon",
+        "L’Allemagne"
+      ]
+    },
+    {
+      "id": "SS101",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle doctrine américaine de 1947 vise à endiguer l’expansion du communisme ?",
+      "correct": "B",
+      "explanation": "La doctrine Truman est une doctrine américaine de 1947 qui vise à endiguer l'expansion du communisme dans le monde. Elle a été établie par le président Harry Truman pour contenir la propagation du communisme et soutenir les pays menacés par l'URSS. Les autres options sont incorrectes car la doctrine Nixon est une doctrine de politique étrangère établie par le président Richard Nixon, la doctrine Kennedy est une doctrine de politique étrangère établie par le président John F. Kennedy, et la doctrine Monroe est une doctrine de politique étrangère établie par le président James Monroe en 1823.",
+      "options": [
+        "La doctrine Nixon",
+        "La doctrine Truman",
+        "La doctrine Kennedy",
+        "La doctrine Monroe"
+      ]
+    },
+    {
+      "id": "SS102",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel plan d’aide américain a contribué à reconstruire l’Europe de l’Ouest après 1945 ?",
+      "correct": "D",
+      "explanation": "Le plan Marshall est un plan d'aide américain qui a contribué à reconstruire l'Europe de l'Ouest après 1945. Il a été lancé en 1948 et a fourni une aide financière et économique pour aider les pays européens à se remettre de la guerre et à se développer. Les autres options sont incorrectes car le plan Dawes et le plan Young sont des plans de réparations établis après la Première Guerre mondiale, et le plan Schlieffen est un plan militaire allemand établi pendant la Première Guerre mondiale.",
+      "options": [
+        "Le plan Dawes",
+        "Le plan Young",
+        "Le plan Schlieffen",
+        "Le plan Marshall"
+      ]
+    },
+    {
+      "id": "SS103",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Parmi les alliances militaires suivantes, laquelle a été construite en 1949 par le bloc de l’Ouest ?",
+      "correct": "A",
+      "explanation": "L'OTAN, ou Organisation du Traité de l'Atlantique Nord, est une alliance militaire créée en 1949 par le bloc de l'Ouest. Elle a été établie pour fournir une défense collective contre les menaces soviétiques et promouvoir la coopération militaire entre les pays membres. Les autres options sont incorrectes car le Pacte de Varsovie est une alliance militaire du bloc de l'Est créée en 1955, la Triple Alliance est une alliance militaire établie en 1882, et la Sainte Alliance est une alliance militaire établie en 1815.",
+      "options": [
+        "L’OTAN",
+        "Le Pacte de Varsovie",
+        "La Triple Alliance",
+        "La Sainte Alliance"
+      ]
+    },
+    {
+      "id": "SS104",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Parmi les alliances militaires suivantes, laquelle a été construite en 1955 par le bloc de l’Est ?",
+      "correct": "D",
+      "explanation": "Le Pacte de Varsovie est une alliance militaire créée en 1955 par le bloc de l'Est. Il a été établi pour fournir une défense collective contre les menaces de l'OTAN et promouvoir la coopération militaire entre les pays membres. Les autres options sont incorrectes car l'OTAN est une alliance militaire du bloc de l'Ouest créée en 1949, la Triple Alliance est une alliance militaire établie en 1882, et la Sainte Alliance est une alliance militaire établie en 1815.",
+      "options": [
+        "L’OTAN",
+        "La Triple Alliance",
+        "La Sainte Alliance",
+        "Le Pacte de Varsovie"
+      ]
+    },
+    {
+      "id": "SS105",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel événement de 1948-1949 a vu les Américains ravitailler Berlin-Ouest par les airs ?",
+      "correct": "B",
+      "explanation": "L'événement de 1948-1949 qui a vu les Américains ravitailler Berlin-Ouest par les airs est le blocus de Berlin. En effet, après la Seconde Guerre mondiale, les puissances alliées ont décidé de diviser l'Allemagne en zones d'occupation. La ville de Berlin, située dans la zone soviétique, a également été divisée. En juin 1948, les Soviétiques ont bloqué les routes et les voies ferrées reliant Berlin-Ouest aux zones occidentales, empêchant ainsi les Alliés d'approvisionner la ville. En réponse, les Américains et les Britanniques ont organisé un pont aérien pour ravitailler Berlin-Ouest, ce qui a permis de maintenir la présence occidentale dans la ville. Les autres options sont incorrectes car la crise de Cuba fait référence à un événement de 1962, la construction du mur de Berlin a eu lieu en 1961 et la guerre de Corée a eu lieu de 1950 à 1953.",
+      "options": [
+        "La crise de Cuba",
+        "Le blocus de Berlin",
+        "La construction du mur",
+        "La guerre de Corée"
+      ]
+    },
+    {
+      "id": "SS106",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle crise de 1962 a failli déclencher une guerre nucléaire ?",
+      "correct": "C",
+      "explanation": "La crise de 1962 qui a failli déclencher une guerre nucléaire est la crise de Cuba. En effet, en octobre 1962, les États-Unis ont découvert que l'Union soviétique avait installé des missiles nucléaires à Cuba, à proximité de leur territoire. Cette situation a créé une tension extrême entre les deux superpuissances et a failli déclencher une guerre nucléaire. Finalement, après une période de négociations, l'Union soviétique a accepté de retirer ses missiles de Cuba. Les autres options sont incorrectes car la crise de Berlin fait référence à un événement de 1948-1949, la guerre de Corée a eu lieu de 1950 à 1953 et la guerre du Vietnam a eu lieu de 1955 à 1975.",
+      "options": [
+        "La crise de Berlin",
+        "La guerre de Corée",
+        "La crise de Cuba",
+        "La guerre du Vietnam"
+      ]
+    },
+    {
+      "id": "SS107",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel mur est devenu le symbole de la division de l’Europe pendant la guerre froide ?",
+      "correct": "A",
+      "explanation": "Le mur qui est devenu le symbole de la division de l'Europe pendant la guerre froide est le mur de Berlin. En effet, après la Seconde Guerre mondiale, la ville de Berlin a été divisée en deux zones, l'une sous contrôle soviétique et l'autre sous contrôle occidental. En 1961, les Soviétiques ont construit un mur pour séparer les deux zones, ce qui a empêché les Berlinois de l'Est de fuir vers l'Ouest. Le mur de Berlin est devenu un symbole de la division de l'Europe et de la guerre froide. Les autres options sont incorrectes car le mur de l'Atlantique n'existe pas, le mur de la honte est un surnom du mur de Berlin et le rideau de fer est une expression qui fait référence à la frontière entre l'Europe de l'Est et l'Europe de l'Ouest.",
+      "options": [
+        "Le mur de Berlin",
+        "Le mur de l’Atlantique",
+        "Le mur de la honte",
+        "Le rideau de fer"
+      ]
+    },
+    {
+      "id": "SS108",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quand le mur de Berlin est-il tombé ?",
+      "correct": "A",
+      "explanation": "Le mur de Berlin est tombé le 9 novembre 1989. En effet, après des années de tensions et de manifestations, les autorités est-allemandes ont décidé d'ouvrir la frontière avec l'Ouest. Le 9 novembre 1989, les Berlinois de l'Est ont pris d'assaut les postes frontières et ont franchi la frontière pour se rendre à Berlin-Ouest. Le mur de Berlin a été détruit dans les semaines qui ont suivi, symbolisant la fin de la division de l'Europe. Les autres options sont incorrectes car le 9 novembre 1991 fait référence à la dislocation de l'URSS, le 25 décembre 1991 fait référence à la démission de Mikhaïl Gorbatchev et le 8 mai 1945 fait référence à la fin de la Seconde Guerre mondiale.",
+      "options": [
+        "9 novembre 1989",
+        "9 novembre 1991",
+        "25 décembre 1991",
+        "8 mai 1945"
+      ]
+    },
+    {
+      "id": "SS109",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel dirigeant soviétique a lancé la Perestroïka et la Glasnost ?",
+      "correct": "B",
+      "explanation": "Le dirigeant soviétique qui a lancé la Perestroïka et la Glasnost est Mikhaïl Gorbatchev. En effet, en 1985, Gorbatchev est devenu secrétaire général du Parti communiste de l'Union soviétique et a lancé deux réformes majeures : la Perestroïka, qui visait à restructurer l'économie soviétique, et la Glasnost, qui visait à accroître la transparence et la liberté d'expression. Ces réformes ont eu un impact profond sur l'URSS et ont contribué à la fin de la guerre froide. Les autres options sont incorrectes car Nikita Khrouchtchev a lancé des réformes dans les années 1950, Leonid Brejnev a été secrétaire général dans les années 1970 et Joseph Staline est mort en 1953.",
+      "options": [
+        "Khrouchtchev",
+        "Gorbatchev",
+        "Brejnev",
+        "Staline"
+      ]
+    },
+    {
+      "id": "SS110",
+      "category": "Chapitre HU-4 : GUERRE FROIDE (1947-1991)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année l’URSS s’est-elle officiellement disloquée ?",
+      "correct": "D",
+      "explanation": "L'URSS s'est officiellement disloquée en 1991. En effet, après des années de tensions et de réformes, l'URSS a été officiellement dissoute le 26 décembre 1991. Les États baltes et les autres républiques soviétiques ont déclaré leur indépendance et ont formé de nouveaux États. Les autres options sont incorrectes car 1990 fait référence à la chute du mur de Berlin, 1989 fait référence à la fin de la guerre froide et 1992 fait référence à la création de la Communauté des États indépendants.",
+      "options": [
+        "1990",
+        "1989",
+        "1992",
+        "1991"
+      ]
+    },
+    {
+      "id": "SS111",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année a eu lieu le krach boursier de Wall Street ?",
+      "correct": "C",
+      "explanation": "Le krach boursier de Wall Street a eu lieu en 1929. En effet, le 24 octobre 1929, la bourse de New York a connu une chute brutale des cours, ce qui a déclenché une crise économique mondiale. Cette crise, connue sous le nom de la Grande Dépression, a duré plusieurs années et a eu un impact profond sur l'économie mondiale. Les autres options sont incorrectes car 1933 fait référence à la mise en place du New Deal, 1918 fait référence à la fin de la Première Guerre mondiale et 1923 fait référence à l'hyperinflation en Allemagne.",
+      "options": [
+        "1933",
+        "1918",
+        "1929",
+        "1923"
+      ]
+    },
+    {
+      "id": "SS112",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel jour est considéré comme le début du krach ?",
+      "correct": "A",
+      "explanation": "Le jour considéré comme le début du krach est le jeudi noir. En effet, le 24 octobre 1929, la bourse de New York a connu une chute brutale des cours, ce qui a déclenché une crise économique mondiale. Ce jour est connu sous le nom de jeudi noir. Les autres options sont incorrectes car le lundi noir fait référence au 28 octobre 1929, le mardi noir fait référence au 29 octobre 1929 et le vendredi noir n'existe pas dans ce contexte.",
+      "options": [
+        "Le jeudi noir",
+        "Le lundi noir",
+        "Le mardi noir",
+        "Le vendredi noir"
+      ]
+    },
+    {
+      "id": "SS113",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel président américain était au pouvoir au moment du krach ?",
+      "correct": "C",
+      "explanation": "Le président américain au pouvoir au moment du krach de 1929 était Herbert Hoover. En effet, le krach boursier de 1929, également connu sous le nom de 'Jeudi noir', a eu lieu le 24 octobre 1929, pendant la présidence de Herbert Hoover. Les autres options sont incorrectes car Wilson était président avant le krach, Roosevelt a succédé à Hoover en 1932 et Truman n'est devenu président qu'en 1945.",
+      "options": [
+        "Wilson",
+        "Roosevelt",
+        "Hoover",
+        "Truman"
+      ]
+    },
+    {
+      "id": "SS114",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Parmi ces propositions, laquelle n’est PAS une cause de la crise ?",
+      "correct": "A",
+      "explanation": "La guerre en Europe n'était pas une cause directe de la crise de 1929. En effet, la Première Guerre mondiale était terminée depuis 1918 et la crise économique de 1929 a eu des causes plus complexes, telles que la surproduction, la spéculation boursière et le développement du crédit. Les autres options sont incorrectes car la surproduction, la spéculation boursière et le développement du crédit sont généralement considérés comme des facteurs ayant contribué à la crise.",
+      "options": [
+        "La guerre en Europe",
+        "La surproduction",
+        "La spéculation boursière",
+        "Le développement du crédit"
+      ]
+    },
+    {
+      "id": "SS115",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel pays a été le seul à ne pas être touché par la crise de 1929 ?",
+      "correct": "C",
+      "explanation": "L'URSS (Union des républiques socialistes soviétiques) a été le seul pays à ne pas être touché par la crise de 1929. En effet, l'économie soviétique était une économie planifiée et fermée, ce qui l'a protégée des effets de la crise mondiale. Les autres options sont incorrectes car les États-Unis ont été le berceau de la crise, l'Allemagne a été fortement touchée et la France a également subi des conséquences économiques importantes.",
+      "options": [
+        "La France",
+        "L’Allemagne",
+        "L’URSS",
+        "Les États-Unis"
+      ]
+    },
+    {
+      "id": "SS116",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment s’appelle le programme de Roosevelt pour sortir de la crise ?",
+      "correct": "B",
+      "explanation": "Le programme de Roosevelt pour sortir de la crise s'appelait le New Deal. En effet, le New Deal était un ensemble de politiques et de programmes mis en place par le président Franklin D. Roosevelt pour aider les États-Unis à sortir de la Grande Dépression. La politique d'apaisement était une politique étrangère visant à éviter la guerre, tandis que la doctrine Truman et le Plan Marshall ont été mis en place après la Seconde Guerre mondiale pour reconstruire l'Europe.",
+      "options": [
+        "La politique d’apaisement",
+        "Le New Deal",
+        "La doctrine Truman",
+        "Le Plan Marshall"
+      ]
+    },
+    {
+      "id": "SS117",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle conséquence politique majeure la crise a-t-elle eue en Allemagne ?",
+      "correct": "D",
+      "explanation": "La conséquence politique majeure de la crise en Allemagne a été l'arrivée au pouvoir d'Hitler. En effet, la crise économique a favorisé l'émergence du nazisme et l'arrivée au pouvoir d'Adolf Hitler en 1933. Les autres options sont incorrectes car la démocratie n'a pas été instaurée en Allemagne à cette période, la révolution communiste n'a pas eu lieu et la monarchie n'a pas été rétablie.",
+      "options": [
+        "L’instauration de la démocratie",
+        "La révolution communiste",
+        "Le rétablissement de la monarchie",
+        "L’arrivée au pouvoir d’Hitler"
+      ]
+    },
+    {
+      "id": "SS118",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Combien de chômeurs y avait-il en Allemagne au plus fort de la crise ?",
+      "correct": "A",
+      "explanation": "Au plus fort de la crise, il y avait environ 6 millions de chômeurs en Allemagne. En effet, la crise économique a eu des conséquences dramatiques pour l'Allemagne, avec un taux de chômage très élevé. Les autres options sont incorrectes car 1 million et 3 millions sont des chiffres trop bas, 10 millions est un chiffre trop élevé.",
+      "options": [
+        "6 millions",
+        "1 million",
+        "3 millions",
+        "10 millions"
+      ]
+    },
+    {
+      "id": "SS119",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Comment appelle-t-on les bidonvilles où vivaient les sans-abri aux États-Unis ?",
+      "correct": "B",
+      "explanation": "Les bidonvilles où vivaient les sans-abri aux États-Unis s'appelaient les Hoovervilles. En effet, ces bidonvilles ont été nommées en référence au président Herbert Hoover, qui a été critiqué pour sa gestion de la crise économique. Les autres options sont incorrectes car elles font référence à d'autres présidents ou à des noms qui n'ont pas de lien avec les bidonvilles.",
+      "options": [
+        "Les Trumansvilles",
+        "Les Hoovervilles",
+        "Les Wilsonsvilles",
+        "Les Rooseveltvilles"
+      ]
+    },
+    {
+      "id": "SS120",
+      "category": "Chapitre HU-5 : CRISE DE 1929",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel est le lien entre la crise de 1929 et la Seconde Guerre mondiale ?",
+      "correct": "B",
+      "explanation": "La crise de 1929 a eu un lien avec la Seconde Guerre mondiale car elle a affaibli les démocraties et favorisé la montée des dictatures. En effet, la crise économique a créé un terreau fertile pour l'émergence de régimes autoritaires en Europe, ce qui a contribué à la Seconde Guerre mondiale. Les autres options sont incorrectes car la crise n'a pas renforcé la SDN, n'a pas provoqué une alliance entre la France et l'Allemagne et a eu des conséquences importantes sur la politique mondiale.",
+      "options": [
+        "La crise a renforcé la SDN",
+        "La crise a affaibli les démocraties et favorisé la montée des dictatures",
+        "La crise a provoqué une alliance entre la France et l’Allemagne",
+        "Aucun lien"
+      ]
+    },
+    {
+      "id": "SS121",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "En quelle année le président Monroe a-t-il prononcé son discours ?",
+      "correct": "D",
+      "explanation": "Le président Monroe a prononcé son discours en 1823. En effet, la doctrine de Monroe est une politique étrangère des États-Unis, introduite par le président James Monroe dans son discours au Congrès le 2 décembre 1823. Cette doctrine stipule que les États-Unis ne toléreront plus de colonisation ou d'intervention européenne en Amérique. Les autres options sont incorrectes car 1776 est la date de la déclaration d'indépendance des États-Unis, 1904 est la date à laquelle le président Roosevelt a ajouté un corollaire à la doctrine, et 1812 est la date de la guerre de 1812 entre les États-Unis et la Grande-Bretagne.",
+      "options": [
+        "1776",
+        "1904",
+        "1812",
+        "1823"
+      ]
+    },
+    {
+      "id": "SS122",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel est le principe fondamental de la doctrine de Monroe ?",
+      "correct": "A",
+      "explanation": "Le principe fondamental de la doctrine de Monroe est 'L’Amérique aux Américains'. Cela signifie que les États-Unis considèrent que les Amériques doivent être libres de toute influence européenne et que les États américains doivent être indépendants. Les autres options sont incorrectes car 'Les États-Unis doivent conquérir le monde' n'est pas un principe de la doctrine de Monroe, 'La colonisation est une bonne chose' est à l'opposé de la doctrine, et 'L’Europe doit dominer l’Amérique' est ce que la doctrine cherche à prévenir.",
+      "options": [
+        "L’Amérique aux Américains",
+        "Les États-Unis doivent conquérir le monde",
+        "La colonisation est une bonne chose",
+        "L’Europe doit dominer l’Amérique"
+      ]
+    },
+    {
+      "id": "SS123",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel grand événement se déroule en Amérique latine au moment de la doctrine ?",
+      "correct": "A",
+      "explanation": "Au moment de la doctrine de Monroe, un grand événement se déroule en Amérique latine : les guerres d’indépendance contre l’Espagne. En effet, au début du XIXe siècle, de nombreux pays d'Amérique latine se sont battus pour leur indépendance vis-à-vis de l'Espagne, ce qui correspond à la période pendant laquelle la doctrine de Monroe a été formulée. Les autres options sont incorrectes car il n'y avait pas de colonisation par la France à cette époque en Amérique latine, une guerre civile n'était pas un événement dominant à l'échelle de l'Amérique latine, et il n'y avait pas d'invasion américaine.",
+      "options": [
+        "Les guerres d’indépendance contre l’Espagne",
+        "La colonisation par la France",
+        "Une guerre civile",
+        "Une invasion américaine"
+      ]
+    },
+    {
+      "id": "SS124",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel président américain a ajouté un corollaire à la doctrine en 1904 ?",
+      "correct": "A",
+      "explanation": "Le président américain qui a ajouté un corollaire à la doctrine en 1904 est Théodore Roosevelt. Le corollaire Roosevelt permettait aux États-Unis d'intervenir dans les affaires des pays latino-américains pour maintenir la stabilité financière et politique dans la région. Les autres options sont incorrectes car Abraham Lincoln a vécu au XIXe siècle et n'a pas pu ajouter un corollaire en 1904, James Monroe est celui qui a introduit la doctrine originale en 1823, et Woodrow Wilson a succédé à Roosevelt mais n'a pas ajouté le corollaire initial.",
+      "options": [
+        "Théodore Roosevelt",
+        "Abraham Lincoln",
+        "James Monroe",
+        "Woodrow Wilson"
+      ]
+    },
+    {
+      "id": "SS125",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Que permet le corollaire Roosevelt ?",
+      "correct": "A",
+      "explanation": "Le corollaire Roosevelt permet aux États-Unis d’intervenir militairement en Amérique latine. Cela a été fait pour protéger les intérêts américains et garantir la stabilité dans la région. Les autres options sont incorrectes car il n'y avait pas de retour de l'Espagne, les pays latino-américains n'ont pas cherché à faire sécession à ce moment-là de manière significative, et les Européens ne cherchaient pas à coloniser à nouveau l'Amérique.",
+      "options": [
+        "Aux États-Unis d’intervenir militairement en Amérique latine",
+        "À l’Espagne de revenir",
+        "Aux pays latino-américains de faire sécession",
+        "Aux Européens de coloniser l’Amérique"
+      ]
+    },
+    {
+      "id": "SS126",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quelle expression résume la politique étrangère de Roosevelt ?",
+      "correct": "B",
+      "explanation": "L'expression qui résume la politique étrangère de Roosevelt est 'le gros bâton' (big stick). Cette politique étrangère active et volontiers interventionniste visait à montrer la force des États-Unis sans avoir à l'utiliser. Les autres options ne reflètent pas fidèlement la politique de Roosevelt : 'la main tendue' pourrait être synonyme de diplomatie mais pas spécifiquement de la politique de Roosevelt, 'la main de fer' et 'le silence est d’or' ne sont pas des expressions associées à sa politique étrangère.",
+      "options": [
+        "La main tendue",
+        "Le gros bâton (big stick)",
+        "La main de fer",
+        "Le silence est d’or"
+      ]
+    },
+    {
+      "id": "SS127",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel pays menaçait les États-Unis par sa présence en Alaska au début du XIXe siècle ?",
+      "correct": "D",
+      "explanation": "Le pays qui menaçait les États-Unis par sa présence en Alaska au début du XIXe siècle était la Russie. La Russie avait des possessions en Amérique du Nord, notamment en Alaska, qui constituaient une menace potentielle pour l'expansion américaine. Les autres options sont incorrectes car l'Angleterre et la France avaient des colonies en Amérique du Nord mais pas en Alaska à cette époque, et l'Espagne avait perdu ses colonies en Amérique au début du XIXe siècle.",
+      "options": [
+        "L’Angleterre",
+        "La France",
+        "L’Espagne",
+        "La Russie"
+      ]
+    },
+    {
+      "id": "SS128",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel secrétaire d’État américain a joué un rôle clé dans l’élaboration de la doctrine ?",
+      "correct": "A",
+      "explanation": "Le secrétaire d’État américain qui a joué un rôle clé dans l’élaboration de la doctrine de Monroe est John Quincy Adams. Adams a soutenu l'idée que les États-Unis devaient s'opposer à de nouvelles colonies européennes en Amérique, ce qui a influencé la formulation de la doctrine de Monroe. Les autres options sont incorrectes car Alexander Hamilton est mort en 1804 et n'a pas pu jouer un rôle dans les années 1820, Thomas Jefferson a été le 3e président mais n'a pas directement contribué à la doctrine de Monroe, et Benjamin Franklin est mort en 1790.",
+      "options": [
+        "John Quincy Adams",
+        "Alexander Hamilton",
+        "Thomas Jefferson",
+        "Benjamin Franklin"
+      ]
+    },
+    {
+      "id": "SS129",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pendant quelle période la doctrine a-t-elle été réactivée pour justifier l’opposition au communisme ?",
+      "correct": "B",
+      "explanation": "La doctrine a été réactivée pour justifier l'opposition au communisme pendant la guerre froide. En effet, la guerre froide a été une période de tensions géopolitiques entre les États-Unis et l'Union soviétique, caractérisée par une opposition idéologique entre le capitalisme et le communisme. Les États-Unis ont utilisé différentes doctrines pour contenir la propagation du communisme, notamment la doctrine de Monroe, qui a été revisitée pour justifier leur interventionnisme en Amérique latine. Les guerres napoléoniennes et l'entre-deux-guerres sont des périodes antérieures à la guerre froide, et la Première Guerre mondiale n'a pas été marquée par une opposition idéologique similaire.",
+      "options": [
+        "Les guerres napoléoniennes",
+        "La guerre froide",
+        "La Première Guerre mondiale",
+        "L’entre-deux-guerres"
+      ]
+    },
+    {
+      "id": "SS130",
+      "category": "Chapitre HU-6 : DOCTRINE DE MONROE (1823)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La doctrine de Monroe est-elle toujours en vigueur officiellement ?",
+      "correct": "D",
+      "explanation": "La doctrine de Monroe n'a jamais été officiellement abrogée mais son application a évolué. En effet, cette doctrine, qui stipulait que les États-Unis ne toléreraient pas de nouvelles colonies européennes en Amérique, a été régulièrement revisitée et adaptée aux circonstances géopolitiques changeantes. Même si elle n'est plus appliquée de manière stricte, elle continue d'influencer la politique étrangère des États-Unis en Amérique latine. La doctrine Truman, qui a été introduite en 1947, concerne la politique de containment du communisme dans un contexte plus large et n'a pas remplacé la doctrine de Monroe. Il est incorrect de dire que la doctrine de Monroe a été abrogée ou qu'elle est toujours en vigueur officiellement sans évolution.",
+      "options": [
+        "Oui",
+        "Elle a été remplacée par la doctrine Truman",
+        "Non, elle a été abrogée",
+        "Elle n’a jamais été officiellement abrogée mais son application a évolué"
+      ]
+    },
+    {
+      "id": "SS131",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Qui a été le premier président haïtien élu après la fin de l’occupation américaine ?",
+      "correct": "B",
+      "explanation": "Sténio Vincent a été le premier président haïtien élu après la fin de l'occupation américaine. L'occupation américaine d'Haïti a pris fin en 1934, et Sténio Vincent a été élu président en 1934, marquant la transition vers un gouvernement haïtien autonome. Paul Magloire, Élie Lescot et Dumarsais Estimé ont tous occupé la présidence par la suite, mais Sténio Vincent a été le premier à être élu après la fin de l'occupation.",
+      "options": [
+        "Paul Magloire",
+        "Sténio Vincent",
+        "Élie Lescot",
+        "Dumarsais Estimé"
+      ]
+    },
+    {
+      "id": "SS132",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mouvement indigéniste a été initié par l’ouvrage :",
+      "correct": "C",
+      "explanation": "Le mouvement indigéniste a été initié par l'ouvrage 'Ainsi parla l'oncle' de Jacques Roumain. Le mouvement indigéniste visait à promouvoir une identité culturelle haïtienne enracinée dans les traditions et l'histoire du pays. 'Ainsi parla l'oncle' est considéré comme l'un des textes fondateurs de ce mouvement, qui cherchait à se distancer des influences culturelles extérieures et à valoriser l'héritage africain et paysan d'Haïti. Les autres ouvrages mentionnés sont des classiques de la littérature haïtienne, mais ils ne sont pas associés à l'initiation du mouvement indigéniste.",
+      "options": [
+        "« Le Cahier d’un retour au pays natal »",
+        "« Gouverneurs de la rosée »",
+        "« Ainsi parla l’oncle »",
+        "« Compère Général Soleil »"
+      ]
+    },
+    {
+      "id": "SS133",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La SHADA a été créée sous la présidence de :",
+      "correct": "B",
+      "explanation": "La SHADA a été créée sous la présidence de Élie Lescot. La SHADA, ou Société Haïtienne d'Assurance et de Développement Agricole, a été établie pour promouvoir le développement agricole et offrir des services d'assurance aux agriculteurs. Élie Lescot, qui a présidé Haïti de 1942 à 1946, est associé à la création de cette institution, qui visait à soutenir l'économie rurale haïtienne.",
+      "options": [
+        "Dumarsais Estimé",
+        "Élie Lescot",
+        "Paul Magloire",
+        "Sténio Vincent"
+      ]
+    },
+    {
+      "id": "SS134",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le barrage de Péligre a été initié par :",
+      "correct": "A",
+      "explanation": "Le barrage de Péligre a été initié par Dumarsais Estimé. Le barrage de Péligre, situé sur la rivière Artibonite, a été construit pour fournir de l'hydroélectricité et contrôler les inondations. Dumarsais Estimé, qui a présidé Haïti de 1946 à 1950, a lancé ce projet d'infrastructure majeur pour développer les capacités énergétiques du pays.",
+      "options": [
+        "Dumarsais Estimé",
+        "Paul Magloire",
+        "Élie Lescot",
+        "Sténio Vincent"
+      ]
+    },
+    {
+      "id": "SS135",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Code du Travail haïtien a été promulgué sous :",
+      "correct": "A",
+      "explanation": "Le Code du Travail haïtien a été promulgué sous Dumarsais Estimé. Le Code du Travail a été établi pour réglementer les relations de travail, protéger les droits des travailleurs et promouvoir des conditions de travail équitables. Dumarsais Estimé a pris des mesures pour moderniser le cadre législatif haïtien, notamment dans le domaine du travail.",
+      "options": [
+        "Dumarsais Estimé",
+        "Paul Magloire",
+        "Élie Lescot",
+        "Sténio Vincent"
+      ]
+    },
+    {
+      "id": "SS136",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le journal « La Ruche » était animé par des étudiants parmi lesquels :",
+      "correct": "B",
+      "explanation": "Le journal 'La Ruche' était animé par des étudiants parmi lesquels Jacques Stephen Alexis. 'La Ruche' a été un journal étudiant qui a joué un rôle important dans la vie intellectuelle et politique haïtienne. Jacques Stephen Alexis, un écrivain et homme politique haïtien, a été l'un des animateurs de ce journal, aux côtés d'autres figures comme René Depestre.",
+      "options": [
+        "Paul Magloire",
+        "Jacques Stephen Alexis",
+        "François Duvalier",
+        "Daniel Fignolé"
+      ]
+    },
+    {
+      "id": "SS137",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La première victime de l’occupation américaine le 28 juillet 1915 fut :",
+      "correct": "D",
+      "explanation": "La première victime de l'occupation américaine le 28 juillet 1915 fut Pierre Sully. En effet, lors de l'intervention militaire américaine en Haïti en 1915, les marines américains débarquèrent à Port-au-Prince et rencontrèrent une résistance farouche de la part des Haïtiens. Vilbrun Guillaume Sam, le président haïtien de l'époque, avait ordonné à ses troupes de résister aux envahisseurs. Cependant, Pierre Sully, un militaire haïtien, fut la première victime de cette occupation. Les autres options, Charlemagne Péralte, Vilbrun Guillaume Sam et Benoît Batraville, étaient également des figures importantes de la résistance haïtienne, mais ils ne furent pas la première victime.",
+      "options": [
+        "Charlemagne Péralte",
+        "Vilbrun Guillaume Sam",
+        "Benoît Batraville",
+        "Pierre Sully"
+      ]
+    },
+    {
+      "id": "SS138",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le général John H. Russell Jr. était :",
+      "correct": "A",
+      "explanation": "Le général John H. Russell Jr. était le Haut-Commissaire américain en Haïti. En effet, après l'occupation américaine de Haïti en 1915, les États-Unis mirent en place un système de gouvernance avec à la tête, un Haut-Commissaire. Le général John H. Russell Jr. occupa ce poste, exerçant ainsi une autorité considérable sur le pays. Les autres options, un chef caco, un président haïtien et un diplomate français, ne correspondent pas au rôle occupé par John H. Russell Jr.",
+      "options": [
+        "Le Haut-Commissaire américain en Haïti",
+        "Un chef caco",
+        "Un président haïtien",
+        "Un diplomate français"
+      ]
+    },
+    {
+      "id": "SS139",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Grande Dépression a commencé avec le krach de :",
+      "correct": "A",
+      "explanation": "La Grande Dépression a commencé avec le krach de 1929. En effet, la Grande Dépression, une période de crise économique mondiale, débuta avec le krach boursier du 24 octobre 1929, également connu sous le nom de 'Jeudi noir'. Cette date marque le début d'une période de récession économique qui dura plus d'une décennie. Les autres options, 1914, 1945 et 1939, correspondent à d'autres événements historiques importants, mais pas au début de la Grande Dépression.",
+      "options": [
+        "1929",
+        "1914",
+        "1945",
+        "1939"
+      ]
+    },
+    {
+      "id": "SS140",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’expression « rideau de fer » a été popularisée par :",
+      "correct": "B",
+      "explanation": "L'expression 'rideau de fer' a été popularisée par Churchill. En effet, dans son discours de Fulton en 1946, l'ancien Premier ministre britannique Winston Churchill utilisa l'expression 'rideau de fer' pour décrire la frontière qui séparait l'Europe de l'Est, dominée par l'Union soviétique, de l'Europe de l'Ouest. Cette expression devint un symbole de la Guerre froide. Les autres options, Truman, Staline et Roosevelt, étaient également des figures importantes de la période, mais ils ne popularisèrent pas cette expression.",
+      "options": [
+        "Truman",
+        "Churchill",
+        "Staline",
+        "Roosevelt"
+      ]
+    },
+    {
+      "id": "SS141",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le plan Marshall a été proposé en :",
+      "correct": "B",
+      "explanation": "Le plan Marshall a été proposé en 1947. En effet, en juin 1947, le secrétaire d'État américain George Marshall présenta un plan de reconstruction économique pour l'Europe, qui allait devenir connu sous le nom de plan Marshall. Ce plan visait à aider les pays européens à se relever de la guerre et à prévenir la propagation du communisme. Les autres options, 1945, 1951 et 1949, ne correspondent pas à la date de proposition du plan Marshall.",
+      "options": [
+        "1945",
+        "1947",
+        "1951",
+        "1949"
+      ]
+    },
+    {
+      "id": "SS142",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’OTAN a été créée en :",
+      "correct": "D",
+      "explanation": "L'OTAN a été créée en 1949. En effet, l'Organisation du Traité de l'Atlantique Nord (OTAN) fut créée le 4 avril 1949, lorsque 12 pays signèrent le traité de Washington. Cette organisation militaire visait à fournir une défense collective contre les menaces extérieures. Les autres options, 1945, 1955 et 1961, correspondent à d'autres événements historiques, mais pas à la création de l'OTAN.",
+      "options": [
+        "1945",
+        "1955",
+        "1961",
+        "1949"
+      ]
+    },
+    {
+      "id": "SS143",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Pacte de Varsovie a été créé en :",
+      "correct": "B",
+      "explanation": "Le Pacte de Varsovie a été créé en 1955. En effet, en réponse à la création de l'OTAN, l'Union soviétique et ses alliés créèrent le Pacte de Varsovie en 1955. Cette alliance militaire visait à fournir une défense collective contre les menaces occidentales. Les autres options, 1949, 1962 et 1975, ne correspondent pas à la date de création du Pacte de Varsovie.",
+      "options": [
+        "1949",
+        "1955",
+        "1962",
+        "1975"
+      ]
+    },
+    {
+      "id": "SS144",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La doctrine Truman a été énoncée en :",
+      "correct": "D",
+      "explanation": "La doctrine Truman a été énoncée en 1947. En effet, en mars 1947, le président américain Harry Truman énonça une doctrine qui allait porter son nom. Cette doctrine stipulait que les États-Unis fourniraient une aide économique et militaire aux pays menacés par le communisme. Les autres options, 1949, 1953 et 1945, ne correspondent pas à la date d'énonciation de la doctrine Truman.",
+      "options": [
+        "1949",
+        "1953",
+        "1945",
+        "1947"
+      ]
+    },
+    {
+      "id": "SS145",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « jeudi noir » est le 24 octobre :",
+      "correct": "C",
+      "explanation": "Le jeudi noir, également connu sous le nom de 'krach de 1929', est une date clé dans l'histoire économique mondiale. Il s'agit du 24 octobre 1929, jour où la bourse de New York a connu une chute vertigineuse des valeurs mobilières, marquant le début de la Grande Dépression. Les autres options sont incorrectes car 1939 correspond au début de la Seconde Guerre mondiale, 1945 à la fin de cette même guerre, et 1914 au début de la Première Guerre mondiale.",
+      "options": [
+        "1945",
+        "1939",
+        "1929",
+        "1914"
+      ]
+    },
+    {
+      "id": "SS146",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La politique du « big stick » est associée à :",
+      "correct": "C",
+      "explanation": "La politique du 'big stick' est une expression associée à la diplomatie américaine, en particulier à l'époque de Theodore Roosevelt, qui était le 26e président des États-Unis. Cette politique étrangère, qui consiste à négocier pacifiquement mais à être prêt à utiliser la force en cas d'échec, reflète l'approche de Roosevelt en matière de relations internationales. Les autres options sont incorrectes car Franklin Roosevelt, son cousin, a succédé à Herbert Hoover et a mis en place de nouvelles politiques, notamment le New Deal ; James Monroe est connu pour la doctrine Monroe, qui affirme la prééminence des États-Unis en Amérique latine ; et Woodrow Wilson est célèbre pour ses '14 points' pour mettre fin à la Première Guerre mondiale.",
+      "options": [
+        "Franklin Roosevelt",
+        "James Monroe",
+        "Theodore Roosevelt",
+        "Woodrow Wilson"
+      ]
+    },
+    {
+      "id": "SS147",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le traité de Versailles a été signé en :",
+      "correct": "A",
+      "explanation": "Le traité de Versailles a été signé en 1919, marquant officiellement la fin de la Première Guerre mondiale. Ce traité a été imposé à l'Allemagne et a établi les conditions de l'armistice, y compris des réparations importantes. Les autres options sont incorrectes car 1914 correspond au début de la guerre, 1918 à l'armistice qui a mis fin aux combats, et 1920 est une date postérieure à la signature du traité.",
+      "options": [
+        "1919",
+        "1920",
+        "1914",
+        "1918"
+      ]
+    },
+    {
+      "id": "SS148",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La bataille de Verdun a eu lieu en :",
+      "correct": "D",
+      "explanation": "La bataille de Verdun, l'une des plus longues et des plus meurtrières de la Première Guerre mondiale, a eu lieu en 1916. Elle a été un affrontement sanglant entre les forces françaises et allemandes, dans la région de Verdun, en France. Les autres options sont incorrectes car 1914 marque le début de la guerre, 1915 est une année de combats sur plusieurs fronts, et 1917 voit l'entrée en guerre des États-Unis et les débuts de la révolution russe.",
+      "options": [
+        "1915",
+        "1914",
+        "1917",
+        "1916"
+      ]
+    },
+    {
+      "id": "SS149",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’entrée en guerre des États-Unis date de :",
+      "correct": "D",
+      "explanation": "L'entrée en guerre des États-Unis date de 1917, lorsque le président Woodrow Wilson a décidé d'engager son pays dans la Première Guerre mondiale, après que l'Allemagne ait repris la guerre sous-marine et coulé plusieurs navires américains. Les autres options sont incorrectes car 1914 correspond au début de la guerre en Europe, 1915 est une année de tensions croissantes, et 1918 voit l'engagement effectif des troupes américaines sur le front.",
+      "options": [
+        "1914",
+        "1915",
+        "1918",
+        "1917"
+      ]
+    },
+    {
+      "id": "SS150",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Révolution russe d’Octobre 1917 a porté au pouvoir :",
+      "correct": "C",
+      "explanation": "La Révolution russe d'Octobre 1917 a porté au pouvoir les bolcheviks, dirigés par Vladimir Lénine. Cette révolution a renversé le gouvernement provisoire russe et a ouvert la voie à l'établissement de l'Union soviétique. Les autres options sont incorrectes car les tsaristes étaient la famille impériale russe qui a été renversée en 1917, les mencheviks étaient une faction socialiste rivale des bolcheviks, et les socialistes-révolutionnaires formaient une autre tendance politique de l'époque.",
+      "options": [
+        "Les tsaristes",
+        "Les mencheviks",
+        "Les bolcheviks (Lénine)",
+        "Les socialistes-révolutionnaires"
+      ]
+    },
+    {
+      "id": "SS151",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le traité de Brest-Litovsk (1918) a marqué :",
+      "correct": "A",
+      "explanation": "Le traité de Brest-Litovsk, signé en 1918, a marqué la sortie de la Russie de la Première Guerre mondiale. Ce traité a été conclu entre la Russie bolchevique et les puissances centrales (Allemagne, Autriche-Hongrie et Empire ottoman), permettant à Lénine de se concentrer sur la consolidation du pouvoir en Russie. Les autres options sont incorrectes car l'entrée des États-Unis dans la guerre a eu lieu en 1917, la fin de la guerre a été officialisée avec l'armistice du 11 novembre 1918 et le traité de Versailles en 1919, et l'armistice avec l'Allemagne a été signé à Compiègne le 11 novembre 1918.",
+      "options": [
+        "La sortie de la Russie de la guerre",
+        "L’entrée des USA",
+        "La fin de la guerre",
+        "L’armistice avec l’Allemagne"
+      ]
+    },
+    {
+      "id": "SS152",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Société des Nations (SDN) a été créée en :",
+      "correct": "C",
+      "explanation": "La Société des Nations (SDN) a été créée en 1919, lors de la Conférence de paix de Paris, dans le but de promouvoir la coopération internationale et de prévenir les guerres futures. Elle a officiellement commencé ses travaux en 1920. Les autres options sont incorrectes car 1919 est la date de création officielle, mais son fonctionnement effectif a débuté en 1920 ; 1921 et 1922 sont des dates postérieures à sa création.",
+      "options": [
+        "1922",
+        "1920",
+        "1919",
+        "1921"
+      ]
+    },
+    {
+      "id": "SS153",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’hyperinflation allemande de 1923 a été causée par :",
+      "correct": "D",
+      "explanation": "L'hyperinflation allemande de 1923 a été causée par l'occupation de la Ruhr par les troupes françaises et belges, qui a entraîné une crise économique majeure, ainsi que par l'impression massive de billets de banque pour tenter de financer les réparations de guerre. Cette situation a conduit à une dévaluation rapide de la monnaie allemande, le mark, et à une hausse vertigineuse des prix. La guerre et la surproduction ne sont pas directement liées à cette crise, tandis que le krach boursier de 1929 est un événement postérieur.",
+      "options": [
+        "La guerre",
+        "La surproduction",
+        "Le krach boursier",
+        "L’occupation de la Ruhr et l’impression massive de billets"
+      ]
+    },
+    {
+      "id": "SS154",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le plan Dawes (1924) visait à :",
+      "correct": "A",
+      "explanation": "Le plan Dawes, mis en place en 1924, visait à réduire les réparations allemandes et à faciliter les prêts américains pour aider l'Allemagne à se relever de la crise économique. Il s'agissait d'un plan d'aide financière qui a permis à l'Allemagne de bénéficier de capitaux étrangers et de restructurer ses dettes. Les autres options, telles que la création de la SDN, la désarmement de l'Allemagne ou l'unification de l'Europe, ne sont pas directement liées aux objectifs du plan Dawes.",
+      "options": [
+        "Réduire les réparations allemandes et faciliter les prêts américains",
+        "Créer la SDN",
+        "Désarmer l’Allemagne",
+        "Unifier l’Europe"
+      ]
+    },
+    {
+      "id": "SS155",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les accords de Locarno (1925) ont :",
+      "correct": "A",
+      "explanation": "Les accords de Locarno, signés en 1925, ont garanti les frontières occidentales de l'Allemagne, notamment avec la Belgique et la France, et ont marqué un tournant dans les relations internationales en Europe. Ces accords ont permis de stabiliser la situation en Europe occidentale et de réduire les tensions entre les pays. Les autres options, telles que la création de l'OTAN, l'établissement du plan Marshall ou la fin de la guerre, ne sont pas directement liées aux accords de Locarno.",
+      "options": [
+        "Garanti les frontières occidentales de l’Allemagne",
+        "Créé l’OTAN",
+        "Établi le plan Marshall",
+        "Fini la guerre"
+      ]
+    },
+    {
+      "id": "SS156",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le pacte Briand-Kellogg (1928) :",
+      "correct": "B",
+      "explanation": "Le pacte Briand-Kellogg, signé en 1928, mettait la guerre hors la loi en tant que moyen de résoudre les conflits internationaux. Il s'agissait d'un traité qui visait à promouvoir la paix et la sécurité internationales en condamnant le recours à la guerre. Les autres options, telles que l'établissement de réparations, la création de la SDN ou l'union de la France et de l'Allemagne, ne sont pas directement liées aux objectifs du pacte Briand-Kellogg.",
+      "options": [
+        "Établissait des réparations",
+        "Mettait la guerre hors la loi",
+        "Créait la SDN",
+        "Unissait la France et l’Allemagne"
+      ]
+    },
+    {
+      "id": "SS157",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Nuit de Cristal (Kristallnacht) a eu lieu en :",
+      "correct": "A",
+      "explanation": "La Nuit de Cristal, également connue sous le nom de 'Kristallnacht', a eu lieu en 1938 et a marqué un tournant dans la persécution des Juifs par le régime nazi en Allemagne. Il s'agissait d'une vague de violence et de dévastation qui a touché les communautés juives à travers l'Allemagne. Les autres options, telles que l'arrivée d'Hitler au pouvoir, les lois de Nuremberg ou le début de la Shoah, ne correspondent pas à la date de la Nuit de Cristal.",
+      "options": [
+        "1938",
+        "1941",
+        "1935",
+        "1933"
+      ]
+    },
+    {
+      "id": "SS158",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’Anschluss (1938) désigne :",
+      "correct": "A",
+      "explanation": "L'Anschluss, qui a eu lieu en 1938, désigne l'annexion de l'Autriche par l'Allemagne nazie. Il s'agissait d'un événement majeur qui a marqué la restructuration de la carte de l'Europe centrale et la montée en puissance de l'Allemagne nazie. Les autres options, telles que la conférence de Munich, la création du pacte germano-soviétique ou l'invasion de la Pologne, ne sont pas directement liées à l'Anschluss.",
+      "options": [
+        "L’annexion de l’Autriche par l’Allemagne",
+        "La conférence de Munich",
+        "La création du pacte germano-soviétique",
+        "L’invasion de la Pologne"
+      ]
+    },
+    {
+      "id": "SS159",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La conférence de Munich (1938) a abouti à :",
+      "correct": "C",
+      "explanation": "La conférence de Munich, qui a eu lieu en 1938, a abouti à l'annexion des Sudètes par l'Allemagne nazie. Il s'agissait d'un accord qui a permis à l'Allemagne de récupérer les territoires habités majoritairement par des Allemands en Tchécoslovaquie. Les autres options, telles que la création de l'ONU, la déclaration de guerre ou le pacte de non-agression, ne sont pas directement liées aux résultats de la conférence de Munich.",
+      "options": [
+        "La création de l’ONU",
+        "La déclaration de guerre",
+        "L’annexion des Sudètes par l’Allemagne",
+        "Le pacte de non-agression"
+      ]
+    },
+    {
+      "id": "SS160",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le pacte germano-soviétique a été signé en :",
+      "correct": "A",
+      "explanation": "Le pacte germano-soviétique a été signé en 1939 et a marqué un tournant dans les relations internationales en Europe. Il s'agissait d'un traité de non-agression qui a permis à l'Allemagne et à l'Union soviétique de se partager les sphères d'influence en Europe de l'Est. Les autres options, telles que la conférence de Munich, la déclaration de guerre ou l'invasion de la Pologne, ne correspondent pas à la date de signature du pacte germano-soviétique.",
+      "options": [
+        "1939",
+        "1941",
+        "1940",
+        "1938"
+      ]
+    },
+    {
+      "id": "SS161",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’opération Barbarossa est l’invasion de :",
+      "correct": "A",
+      "explanation": "L'opération Barbarossa est l'invasion de l'URSS par l'Allemagne, lancée en juin 1941. Cette opération est une conséquence directe de la politique expansionniste de l'Allemagne nazie sous la direction d'Adolf Hitler. L'option mentionnant l'invasion de l'Angleterre est incorrecte car il s'agit de la Bataille d'Angleterre, une campagne aérienne menée par l'Allemagne en 1940. L'invasion de la Pologne par l'URSS est également incorrecte car la Pologne a été envahie par l'Allemagne et l'URSS en 1939. Enfin, l'invasion de la France par l'Allemagne est incorrecte car elle a eu lieu en 1940.",
+      "options": [
+        "L’URSS par l’Allemagne",
+        "L’Angleterre par l’Allemagne",
+        "La Pologne par l’URSS",
+        "La France par l’Allemagne"
+      ]
+    },
+    {
+      "id": "SS162",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pearl Harbor a été attaqué le :",
+      "correct": "D",
+      "explanation": "Pearl Harbor a été attaqué le 7 décembre 1941 par le Japon, ce qui a entraîné l'entrée en guerre des États-Unis. La date du 2 septembre 1945 correspond à la capitulation du Japon, mettant fin à la Seconde Guerre mondiale dans le Pacifique. Le 6 juin 1944 est la date du débarquement allié en Normandie, tandis que le 8 mai 1945 marque la fin de la guerre en Europe. Ainsi, les autres options sont incorrectes car elles correspondent à d'autres événements importants de la Seconde Guerre mondiale.",
+      "options": [
+        "2 septembre 1945",
+        "6 juin 1944",
+        "8 mai 1945",
+        "7 décembre 1941"
+      ]
+    },
+    {
+      "id": "SS163",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La conférence de Yalta (1945) a réuni :",
+      "correct": "D",
+      "explanation": "La conférence de Yalta a réuni les dirigeants des trois principales puissances alliées : Roosevelt (États-Unis), Churchill (Royaume-Uni) et Staline (URSS) en février 1945. Cette conférence a été cruciale pour la planification de la fin de la guerre et de l'après-guerre. L'option mentionnant Wilson, Lloyd George et Clemenceau est incorrecte car ces hommes d'État ont participé à la conférence de Versailles en 1919. L'option mentionnant Hitler, Mussolini et Tojo est incorrecte car ces dirigeants faisaient partie de l'Axe et n'ont pas participé à cette conférence. Enfin, l'option mentionnant Truman, Attlee et Staline est incorrecte car Truman et Attlee ont succédé à Roosevelt et Churchill respectivement.",
+      "options": [
+        "Wilson, Lloyd George, Clemenceau",
+        "Hitler, Mussolini, Tojo",
+        "Truman, Attlee, Staline",
+        "Roosevelt, Churchill, Staline"
+      ]
+    },
+    {
+      "id": "SS164",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La conférence de Potsdam (1945) a eu lieu après :",
+      "correct": "A",
+      "explanation": "La conférence de Potsdam a eu lieu après la mort de Roosevelt, en juillet-août 1945. Roosevelt étant décédé en avril 1945, Harry S. Truman lui a succédé et a participé à cette conférence. La chute du mur de Berlin n'est pas pertinente ici car elle a eu lieu en 1989. Le bombardement d'Hiroshima a eu lieu le 6 août 1945, juste avant la conférence. La mort de Staline n'est pas pertinente ici car elle a eu lieu en 1953.",
+      "options": [
+        "La mort de Roosevelt",
+        "La chute du mur",
+        "Le bombardement d’Hiroshima",
+        "La mort de Staline"
+      ]
+    },
+    {
+      "id": "SS165",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les procès de Nuremberg ont jugé :",
+      "correct": "D",
+      "explanation": "Les procès de Nuremberg ont jugé les criminels de guerre nazis, responsables de crimes commis pendant la Seconde Guerre mondiale. Ces procès ont eu lieu de 1945 à 1946 et ont abouti à la condamnation de plusieurs hauts responsables nazis. L'option mentionnant les collaborateurs français est incorrecte car ils ont été jugés en France. L'option mentionnant les criminels japonais est incorrecte car ils ont été jugés à Tokyo. Enfin, l'option mentionnant les dirigeants soviétiques est incorrecte car ils n'ont pas été jugés à Nuremberg.",
+      "options": [
+        "Les collaborateurs français",
+        "Les criminels japonais",
+        "Les dirigeants soviétiques",
+        "Les criminels de guerre nazis"
+      ]
+    },
+    {
+      "id": "SS166",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La doctrine de Monroe a été énoncée en réaction à :",
+      "correct": "D",
+      "explanation": "La doctrine de Monroe a été énoncée en 1823 en réaction à la menace d'une reconquête espagnole en Amérique latine. Cette doctrine posait le principe que les États-Unis ne toléreraient pas de nouvelles colonies européennes en Amérique. La guerre de 1812 est antérieure à la doctrine de Monroe et n'est pas directement liée à celle-ci. La révolution française a eu lieu plus de deux décennies avant la doctrine de Monroe. La guerre de Sécession a eu lieu plus de trente ans après la doctrine de Monroe.",
+      "options": [
+        "La guerre de 1812",
+        "La révolution française",
+        "La guerre de Sécession",
+        "La menace d’une reconquête espagnole en Amérique latine"
+      ]
+    },
+    {
+      "id": "SS167",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le corollaire Roosevelt a été utilisé pour justifier l’intervention américaine à :",
+      "correct": "C",
+      "explanation": "Le corollaire Roosevelt a été utilisé pour justifier l'intervention américaine à Haïti en 1915. Ce corollaire à la doctrine de Monroe permettait aux États-Unis d'intervenir dans les affaires des pays latino-américains en cas de mauvaise gouvernance. L'option mentionnant le Mexique en 1914 est incorrecte car l'intervention américaine au Mexique a eu lieu avant le corollaire Roosevelt. L'option mentionnant Cuba en 1898 est incorrecte car la guerre hispano-américaine a eu lieu plus de quinze ans avant le corollaire Roosevelt. Enfin, l'option mentionnant Panama en 1903 est incorrecte car l'intervention américaine à Panama a eu lieu dans le cadre de la construction du canal de Panama.",
+      "options": [
+        "Mexique (1914)",
+        "Cuba (1898)",
+        "Haïti (1915)",
+        "Panama (1903)"
+      ]
+    },
+    {
+      "id": "SS168",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La politique du « big stick » a été appliquée lors de :",
+      "correct": "A",
+      "explanation": "La politique du 'big stick' a été appliquée lors de la construction du canal de Panama. Cette politique, qui consiste à utiliser la force militaire comme moyen de pression, a été utilisée par le président Theodore Roosevelt pour soutenir l'indépendance du Panama et justifier l'intervention américaine dans la région. Les autres options sont incorrectes car la crise de Cuba, la guerre de Sécession et la Première Guerre mondiale n'ont pas été directement liées à la politique du 'big stick' de Roosevelt.",
+      "options": [
+        "La construction du canal de Panama",
+        "La crise de Cuba",
+        "La guerre de Sécession",
+        "La Première Guerre mondiale"
+      ]
+    },
+    {
+      "id": "SS169",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le rideau de fer séparait :",
+      "correct": "A",
+      "explanation": "Le rideau de fer était une frontière idéologique et physique qui séparait l'Europe de l'Ouest et l'Europe de l'Est pendant la Guerre froide. Cette expression a été popularisée par Winston Churchill en 1946 pour décrire la division de l'Europe en deux blocs, l'un sous influence occidentale et l'autre sous influence soviétique. Les autres options sont incorrectes car le rideau de fer ne séparait pas le Nord et le Sud des USA, qui sont des régions géographiques et culturelles différentes, ni la France et l'Allemagne, qui sont deux pays européens distincts, ni les USA et le Canada, qui sont deux pays nord-américains distincts.",
+      "options": [
+        "L’Europe de l’Ouest et l’Europe de l’Est",
+        "Le Nord et le Sud des USA",
+        "La France et l’Allemagne",
+        "Les USA et le Canada"
+      ]
+    },
+    {
+      "id": "SS170",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La guerre de Corée (1950-1953) a opposé :",
+      "correct": "C",
+      "explanation": "La guerre de Corée, qui a eu lieu de 1950 à 1953, a opposé la Corée du Nord, soutenue par la Chine et l'URSS, à la Corée du Sud, soutenue par les Nations Unies et les États-Unis. Il s'agissait d'un conflit proxy de la Guerre froide, où les grandes puissances ne se sont pas affrontées directement. Les autres options sont incorrectes car les USA et l'URSS ne se sont pas affrontés directement, la Corée et le Japon ne sont pas les protagonistes de cette guerre, et la Chine et le Japon ne sont pas les principaux belligérants.",
+      "options": [
+        "Les USA et l’URSS directement",
+        "La Corée et le Japon",
+        "La Corée du Nord (soutenue par Chine/URSS) et la Corée du Sud (soutenue par ONU/USA)",
+        "La Chine et le Japon"
+      ]
+    },
+    {
+      "id": "SS171",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La guerre du Vietnam s’est terminée par :",
+      "correct": "A",
+      "explanation": "La guerre du Vietnam s'est terminée par la réunification du Vietnam sous régime communiste en 1975, après la chute de Saïgon, la capitale du Sud-Viêt Nam. Cette réunification a été rendue possible par la victoire du Nord-Viêt Nam, soutenu par les États communistes, sur le Sud-Viêt Nam, soutenu par les États-Unis. Les autres options sont incorrectes car la victoire américaine n'a pas eu lieu, le statu quo n'a pas été maintenu et la partition n'a pas été la conclusion de la guerre.",
+      "options": [
+        "La réunification du Vietnam sous régime communiste",
+        "La victoire américaine",
+        "Un statu quo",
+        "La partition"
+      ]
+    },
+    {
+      "id": "SS172",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Perestroïka désigne :",
+      "correct": "D",
+      "explanation": "La Perestroïka désigne la politique de restructuration économique menée en URSS à partir de 1985 par Mikhaïl Gorbatchev. Cette politique visait à réformer l'économie soviétique en introduisant des éléments de marché et en donnant plus d'autonomie aux entreprises. Les autres options sont incorrectes car la course aux armements est une caractéristique de la Guerre froide, la transparence politique est synonyme de Glasnost et la politique de terreur n'est pas associée à la Perestroïka.",
+      "options": [
+        "La course aux armements",
+        "La transparence politique",
+        "La politique de terreur",
+        "La restructuration économique en URSS"
+      ]
+    },
+    {
+      "id": "SS173",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Glasnost désigne :",
+      "correct": "A",
+      "explanation": "La Glasnost désigne la politique de transparence et de liberté d'expression mise en place en URSS à partir de 1985 par Mikhaïl Gorbatchev. Cette politique visait à rendre l'information plus accessible et à permettre une certaine liberté de parole. Les autres options sont incorrectes car la répression est à l'opposé de la Glasnost, la politique d'austérité n'est pas associée à ce concept et la restructuration économique est synonyme de Perestroïka.",
+      "options": [
+        "La transparence et la liberté d’expression en URSS",
+        "La répression",
+        "La politique d’austérité",
+        "La restructuration économique"
+      ]
+    },
+    {
+      "id": "SS174",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le premier secrétaire général de l’ONU fut :",
+      "correct": "D",
+      "explanation": "Le premier secrétaire général de l'ONU fut Trygve Lie, un diplomate norvégien qui a occupé ce poste de 1946 à 1952. Il a joué un rôle important dans la création et l'organisation des Nations Unies. Les autres options sont incorrectes car Boutros Boutros-Ghali a été secrétaire général de 1992 à 1996, Kofi Annan de 1997 à 2006 et Dag Hammarskjöld de 1953 à 1961.",
+      "options": [
+        "Boutros Boutros-Ghali",
+        "Kofi Annan",
+        "Dag Hammarskjöld",
+        "Trygve Lie"
+      ]
+    },
+    {
+      "id": "SS175",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La déclaration universelle des droits de l’homme a été adoptée en :",
+      "correct": "D",
+      "explanation": "La Déclaration universelle des droits de l'homme a été adoptée par l'Assemblée générale des Nations Unies le 10 décembre 1948. Ce texte fondateur énonce les droits fondamentaux de l'homme et est considéré comme un élément clé du droit international. Les autres options sont incorrectes car 1950 est la date de la création du Conseil de l'Europe, 1960 est la date de la Déclaration sur l'octroi de l'indépendance aux pays et aux peuples coloniaux et 1945 est la date de la création de l'ONU.",
+      "options": [
+        "1950",
+        "1960",
+        "1945",
+        "1948"
+      ]
+    },
+    {
+      "id": "SS176",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mouvement des Non-alignés a été créé en :",
+      "correct": "A",
+      "explanation": "Le mouvement des Non-alignés a été créé lors de la conférence de Bandung en 1955. Cette conférence a rassemblé des pays du tiers-monde qui souhaitaient affirmer leur indépendance et leur neutralité dans le contexte de la Guerre froide. Les autres options sont incorrectes car 1945 est la date de la création de l'ONU, 1961 est la date du premier sommet des Non-alignés à Belgrade et 1973 est la date d'un autre sommet important.",
+      "options": [
+        "1955 (conférence de Bandung)",
+        "1945",
+        "1961",
+        "1973"
+      ]
+    },
+    {
+      "id": "SS177",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La crise de Suez (1956) a opposé :",
+      "correct": "D",
+      "explanation": "La crise de Suez en 1956 a été un conflit qui a opposé l'Égypte à la France, l'Angleterre et Israël. Cela s'est produit lorsque le président égyptien Nasser a nationalisé le canal de Suez, qui était contrôlé par des compagnies françaises et anglaises. La France, l'Angleterre et Israël ont alors décidé d'intervenir militairement pour reprendre le contrôle du canal. Les États-Unis et l'Union soviétique ont exercé des pressions diplomatiques pour mettre fin à la crise. L'Inde et le Pakistan n'étaient pas directement impliqués dans cette crise, la Chine et Taïwan non plus, et les USA et l'URSS n'étaient pas en conflit direct à cette occasion.",
+      "options": [
+        "L’Inde au Pakistan",
+        "La Chine à Taïwan",
+        "Les USA à l’URSS",
+        "L’Égypte à la France, l’Angleterre et Israël"
+      ]
+    },
+    {
+      "id": "SS178",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La construction du mur de Berlin a commencé en :",
+      "correct": "C",
+      "explanation": "La construction du mur de Berlin a commencé en 1961. À cette époque, la guerre froide battait son plein et l'Allemagne de l'Est, soutenue par l'Union soviétique, a décidé de construire un mur pour empêcher ses citoyens de fuir vers l'Allemagne de l'Ouest. La crise de Cuba a eu lieu en 1962, la chute du mur de Berlin en 1989 et la création de la République fédérale d'Allemagne (RFA) et de la République démocratique allemande (RDA) date de 1949. Donc, 1961 est la bonne date.",
+      "options": [
+        "1962",
+        "1949",
+        "1961",
+        "1989"
+      ]
+    },
+    {
+      "id": "SS179",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La chute du mur de Berlin a eu lieu en :",
+      "correct": "D",
+      "explanation": "La chute du mur de Berlin a eu lieu en 1989. C'était un événement symbolique qui a marqué la fin de la division de l'Allemagne et la fin de la guerre froide. La réunification allemande a été officialisée en 1990, mais c'est la chute du mur qui a vraiment marqué le début de la fin de la division de l'Europe. Le discours de Reagan a eu lieu en 1987, la dislocation de l'URSS en 1991 et la Réunification allemande a été effective en 1990.",
+      "options": [
+        "1991",
+        "1987",
+        "1990",
+        "1989"
+      ]
+    },
+    {
+      "id": "SS180",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La réunification allemande a eu lieu le :",
+      "correct": "A",
+      "explanation": "La réunification allemande a été officiellement achevée le 3 octobre 1990. C'est à cette date que les deux Allemagne, la RFA et la RDA, ont été réunifiées pour former une seule et même Allemagne. La chute du mur de Berlin a eu lieu en 1989, mais la réunification officielle a pris quelques mois plus tard. Le 8 mai 1945, c'était la fin de la Seconde Guerre mondiale en Europe et le 31 décembre 1991, c'était la dissolution de l'Union soviétique.",
+      "options": [
+        "3 octobre 1990",
+        "8 mai 1945",
+        "31 décembre 1991",
+        "9 novembre 1989"
+      ]
+    },
+    {
+      "id": "SS181",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’invasion de la Tchécoslovaquie par le pacte de Varsovie (1968) est appelée :",
+      "correct": "B",
+      "explanation": "L'invasion de la Tchécoslovaquie par le pacte de Varsovie en 1968 est appelée le 'Printemps de Prague' n'est pas correct, c'est en fait l'événement qui a précédé l'invasion. L'invasion est appelée 'Opération Barbarossa' n'est pas correct non plus car c'est le nom de l'invasion de l'URSS par l'Allemagne nazie en 1941. La bonne réponse est qu'il n'y a pas d'autre nom spécifique pour l'invasion de 1968 mais le 'Printemps de Prague' est le nom du mouvement qui a précédé l'invasion. La crise des missiles a eu lieu en 1962.",
+      "options": [
+        "Crise des missiles",
+        "Printemps de Prague",
+        "Opération Barbarossa",
+        "Révolution de velours"
+      ]
+    },
+    {
+      "id": "SS182",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La révolution de velours en Tchécoslovaquie a eu lieu en :",
+      "correct": "D",
+      "explanation": "La révolution de velours en Tchécoslovaquie a eu lieu en 1989. C'était un mouvement pacifique qui a conduit à la fin du régime communiste en Tchécoslovaquie. L'invasion de la Tchécoslovaquie par le pacte de Varsovie a eu lieu en 1968, la chute du mur de Berlin en 1989 mais la révolution de velours a lieu la même année.",
+      "options": [
+        "1991",
+        "1968",
+        "1990",
+        "1989"
+      ]
+    },
+    {
+      "id": "SS183",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le président haïtien Sténio Vincent a négocié le départ des Marines en :",
+      "correct": "D",
+      "explanation": "Le président haïtien Sténio Vincent a négocié le départ des Marines en 1934. Les États-Unis avaient occupé Haïti de 1915 à 1934. C'est sous la présidence de Sténio Vincent que les États-Unis ont finalement accepté de retirer leurs troupes.",
+      "options": [
+        "1930",
+        "1941",
+        "1946",
+        "1934"
+      ]
+    },
+    {
+      "id": "SS184",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le massacre du persil a eu lieu sous la présidence de :",
+      "correct": "B",
+      "explanation": "Le massacre du persil a eu lieu sous la présidence de Sténio Vincent. C'était un événement tragique dans l'histoire haïtienne qui a eu lieu en 1937.",
+      "options": [
+        "Élie Lescot",
+        "Sténio Vincent",
+        "Paul Magloire",
+        "Dumarsais Estimé"
+      ]
+    },
+    {
+      "id": "SS185",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La SHADA a été un échec retentissant sous :",
+      "correct": "A",
+      "explanation": "La SHADA, ou Société Haïtienne d'Aliénation de Domaines Agricoles, a été un programme initié dans le but de redistribuer les terres agricoles en Haïti. Cependant, sous la présidence d'Élie Lescot, ce programme a connu un échec retentissant. Cela s'explique par le fait que les réformes agraires étaient souvent mal appliquées ou sabotées par les grands propriétaires terriens, qui voyaient d'un mauvais œil la perte de leurs terres. Les autres options, Sténio Vincent, Dumarsais Estimé et Paul Magloire, ne correspondent pas à la période durant laquelle la SHADA a échoué.",
+      "options": [
+        "Élie Lescot",
+        "Sténio Vincent",
+        "Dumarsais Estimé",
+        "Paul Magloire"
+      ]
+    },
+    {
+      "id": "SS186",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’Exposition internationale du Bicentenaire a été organisée par :",
+      "correct": "D",
+      "explanation": "L'Exposition internationale du Bicentenaire a été un événement majeur organisé pour célébrer le bicentenaire de la naissance de Simón Bolívar, mais aussi pour promouvoir le développement économique et culturel d'Haïti. Elle a été organisée sous la présidence de Dumarsais Estimé, qui a vu dans cet événement une opportunité pour mettre en valeur les potentialités haïtiennes. Les autres options, Sténio Vincent, Paul Magloire et Élie Lescot, ne sont pas associées à cet événement historique.",
+      "options": [
+        "Sténio Vincent",
+        "Paul Magloire",
+        "Élie Lescot",
+        "Dumarsais Estimé"
+      ]
+    },
+    {
+      "id": "SS187",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Garde d’Haïti, créée par les Américains, est devenue plus tard :",
+      "correct": "D",
+      "explanation": "La Garde d'Haïti, créée par les Américains pendant l'occupation d'Haïti (1915-1934), a été mise en place pour assurer la sécurité et le maintien de l'ordre dans le pays. Au fil du temps, cette force a évolué et est devenue l'armée haïtienne. Les autres options, la milice, la police nationale et les Tontons Macoutes, sont des forces distinctes qui ont existé à différentes périodes de l'histoire haïtienne.",
+      "options": [
+        "La milice",
+        "La police nationale",
+        "Les Tontons Macoutes",
+        "L’armée haïtienne"
+      ]
+    },
+    {
+      "id": "SS188",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le premier président noir après l’occupation américaine fut :",
+      "correct": "D",
+      "explanation": "Le premier président noir après l'occupation américaine d'Haïti fut Dumarsais Estimé. Il a pris ses fonctions en 1946, marquant une étape importante dans l'histoire haïtienne en raison de la couleur de sa peau et de sa vision pour le développement du pays. Les autres options, Sténio Vincent, François Duvalier et Paul Magloire, bien que personnages importants, ne correspondent pas à ce critère spécifique.",
+      "options": [
+        "Sténio Vincent",
+        "François Duvalier",
+        "Paul Magloire",
+        "Dumarsais Estimé"
+      ]
+    },
+    {
+      "id": "SS189",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La politique de « bonne voisinage » a été lancée par :",
+      "correct": "D",
+      "explanation": "La politique de 'bonne voisinage' a été une initiative majeure de Franklin D. Roosevelt, qui visait à améliorer les relations entre les États-Unis et les pays d'Amérique latine. Cette politique a marqué un tournant dans les relations internationales de l'hémisphère et a eu des implications significatives pour Haïti. Harry Truman a succédé à Roosevelt et a lancé la doctrine Truman, Woodrow Wilson a promu la Société des Nations, et Herbert Hoover a précédé Roosevelt à la présidence, mais aucun d'eux n'est associé à cette politique.",
+      "options": [
+        "Harry Truman",
+        "Woodrow Wilson",
+        "Herbert Hoover",
+        "Franklin D. Roosevelt"
+      ]
+    },
+    {
+      "id": "SS190",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Rapport Forbes (1930) a critiqué :",
+      "correct": "B",
+      "explanation": "Le Rapport Forbes de 1930 a été un document critique qui a évalué la situation en Haïti sous l'occupation américaine. Il a notamment critiqué la gestion américaine en Haïti, pointant du doigt les problèmes liés à l'occupation et au développement du pays. Les autres options, le gouvernement de Vincent, la politique de Lescot et le régime de Duvalier, ne sont pas directement liées aux critiques formulées par ce rapport.",
+      "options": [
+        "Le gouvernement de Vincent",
+        "La gestion américaine en Haïti",
+        "La politique de Lescot",
+        "Le régime de Duvalier"
+      ]
+    },
+    {
+      "id": "SS191",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Comité Exécutif Militaire de 1946 était composé de :",
+      "correct": "B",
+      "explanation": "Le Comité Exécutif Militaire de 1946 était composé de Franck Lavaud, Paul Magloire et Antoine Levelt. Ce comité a joué un rôle important dans la transition politique de l'époque. Les autres options, Dumarsais Estimé, Daniel Fignolé, Louis Déjoie et François Duvalier, Jean-Claude Duvalier, Sténio Vincent, Élie Lescot, ne correspondent pas à la composition de ce comité.",
+      "options": [
+        "Dumarsais Estimé, Daniel Fignolé, Louis Déjoie",
+        "Franck Lavaud, Paul Magloire, Antoine Levelt",
+        "François Duvalier, Jean-Claude Duvalier",
+        "Sténio Vincent, Élie Lescot"
+      ]
+    },
+    {
+      "id": "SS192",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’ODVA (Office de Développement de la Vallée de l’Artibonite) a été créée sous :",
+      "correct": "A",
+      "explanation": "L'ODVA, ou Office de Développement de la Vallée de l'Artibonite, a été créé sous la présidence de Dumarsais Estimé. Cette institution visait à promouvoir le développement économique et social de la vallée de l'Artibonite, l'une des régions les plus fertiles d'Haïti. Les autres options, Sténio Vincent, Paul Magloire et Élie Lescot, ne sont pas associées à la création de l'ODVA.",
+      "options": [
+        "Dumarsais Estimé",
+        "Sténio Vincent",
+        "Paul Magloire",
+        "Élie Lescot"
+      ]
+    },
+    {
+      "id": "SS193",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La première constitution haïtienne autorisant les étrangers à posséder des terres a été imposée sous :",
+      "correct": "B",
+      "explanation": "La première constitution haïtienne autorisant les étrangers à posséder des terres a été imposée sous l'occupation américaine en 1918. Cela signifie que l'occupation américaine a eu un impact significatif sur la législation haïtienne, notamment en ce qui concerne la propriété foncière. Les autres options, telles que Sténio Vincent, Élie Lescot et Dumarsais Estimé, ne sont pas correctes car elles correspondent à des périodes ou des événements différents de l'histoire haïtienne.",
+      "options": [
+        "Sténio Vincent",
+        "L’occupation américaine (1918)",
+        "Élie Lescot",
+        "Dumarsais Estimé"
+      ]
+    },
+    {
+      "id": "SS194",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mouvement des Cacos était dirigé par :",
+      "correct": "C",
+      "explanation": "Le mouvement des Cacos était un mouvement de résistance contre l'occupation américaine d'Haïti, et il a été dirigé par Charlemagne Péralte et Benoît Batraville. Ces deux personnages étaient des leaders clés de la résistance haïtienne contre l'occupation américaine. Les autres options, telles que Sténio Vincent, François Duvalier et Paul Magloire, ne sont pas correctes car ils étaient soit des personnalités politiques haïtiennes à des périodes différentes, soit des figures sans lien direct avec le mouvement des Cacos.",
+      "options": [
+        "Sténio Vincent",
+        "François Duvalier",
+        "Charlemagne Péralte et Benoît Batraville",
+        "Paul Magloire"
+      ]
+    },
+    {
+      "id": "SS195",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’indigénisme a influencé la révolution de :",
+      "correct": "B",
+      "explanation": "L'indigénisme a influencé la révolution de 1946. L'indigénisme était un mouvement littéraire et artistique qui cherchait à promouvoir la culture et l'identité haïtiennes. La révolution de 1946, qui a eu lieu en janvier de cette année, a été influencée par cet esprit indigéniste qui visait à réaffirmer les valeurs et la culture haïtiennes. Les autres options, telles que 1915, 1957 et 1950, ne correspondent pas à des événements directement liés à l'influence de l'indigénisme.",
+      "options": [
+        "1915",
+        "1946",
+        "1957",
+        "1950"
+      ]
+    },
+    {
+      "id": "SS196",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le président Élie Lescot a été renversé par :",
+      "correct": "D",
+      "explanation": "Le président Élie Lescot a été renversé par une grève générale en janvier 1946. Cette grève générale a été un événement clé dans l'histoire haïtienne, marquant un tournant dans la lutte contre le régime de Lescot. Les autres options, telles qu'une élection, une invasion étrangère et un coup d'État militaire, ne sont pas correctes car elles ne correspondent pas aux circonstances réelles de la chute de Lescot.",
+      "options": [
+        "Une élection",
+        "Une invasion étrangère",
+        "Un coup d’État militaire",
+        "Une grève générale (janvier 1946)"
+      ]
+    },
+    {
+      "id": "SS197",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dumarsais Estimé est mort en exil à :",
+      "correct": "B",
+      "explanation": "Dumarsais Estimé est mort en exil à New York. Après avoir été renversé, Estimé s'est exilé aux États-Unis, où il est décédé. Les autres options, telles que Paris, Kingston et Montréal, ne sont pas correctes car elles ne correspondent pas au lieu de décès d'Estimé.",
+      "options": [
+        "Paris",
+        "New York",
+        "Kingston",
+        "Montréal"
+      ]
+    },
+    {
+      "id": "SS198",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Paul Magloire a été renversé par :",
+      "correct": "B",
+      "explanation": "Paul Magloire a été renversé par une grève générale en 1956. Cette grève générale a marqué la fin de son régime, démontrant le mécontentement populaire envers son leadership. Les autres options, telles qu'une élection, un coup d'État militaire et une révolution populaire, ne sont pas correctes car elles ne décrivent pas avec précision les circonstances de la chute de Magloire.",
+      "options": [
+        "Une élection",
+        "Une grève générale (1956)",
+        "Un coup d’État militaire",
+        "Une révolution populaire"
+      ]
+    },
+    {
+      "id": "SS199",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "François Duvalier a utilisé le vaudou comme :",
+      "correct": "C",
+      "explanation": "François Duvalier a utilisé le vaudou comme un outil de pouvoir et de terreur. Duvalier, également connu sous le nom de 'Papa Doc', a exploité le vaudou pour renforcer son pouvoir et semer la peur parmi la population. Les autres options, telles qu'une simple croyance, un instrument de développement et une religion d'État, ne reflètent pas fidèlement la manière dont Duvalier a utilisé le vaudou.",
+      "options": [
+        "Une simple croyance",
+        "Un instrument de développement",
+        "Un outil de pouvoir et de terreur",
+        "Une religion d’État"
+      ]
+    },
+    {
+      "id": "SS200",
+      "category": "QUESTIONS SUPPLÉMENTAIRES (MÉLANGÉES)",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La première guerre mondiale a été déclenchée par l’assassinat de :",
+      "correct": "B",
+      "explanation": "La première guerre mondiale a été déclenchée par l'assassinat de François-Ferdinand le 28 juin 1914. Cet événement a été l'étincelle qui a déclenché une série d'alliances et de conflits qui ont finalement conduit à la guerre mondiale. Les autres options, telles que Nicolas II, Guillaume II et Woodrow Wilson, ne sont pas correctes car elles ne correspondent pas à la personne dont l'assassinat a déclenché la guerre.",
+      "options": [
+        "Nicolas II",
+        "François-Ferdinand (28 juin 1914)",
+        "Guillaume II",
+        "Woodrow Wilson"
+      ]
+    }
+  ]
+}

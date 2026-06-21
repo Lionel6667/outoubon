@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block title %}Demander à un proche · OU TOU BON{% endblock %}
+
+{% block body %}
+<style>
+.gift-page { padding:2rem 1.5rem; max-width:640px; margin:0 auto; }
+.gift-header { text-align:center; margin-bottom:2rem; }
+.gift-header h1 { font-size:1.6rem; font-weight:800; margin-bottom:.5rem; }
+.gift-header p { color:var(--t2); font-size:.9rem; line-height:1.5; }
+
+.gift-msg-card {
+  background:linear-gradient(145deg, #1e293b, #0f172a);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px; padding:1.5rem;
+  margin-bottom:1.5rem; position:relative;
+}
+.gift-msg-card::before {
+  content:''; position:absolute; right:-30px; top:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background:radial-gradient(circle, rgba(251,191,36,.12), transparent 70%);
+  pointer-events:none;
+}
+.gift-msg-label {
+  font-size:.75rem; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--t3); font-weight:700; margin-bottom:.75rem;
+  display:flex; align-items:center; gap:.4rem;
+}
+.gift-msg-text {
+  font-size:.88rem; line-height:1.7; color:#e2e8f0;
+  white-space:pre-wrap; word-wrap:break-word;
+}
+
+.gift-link-box {
+  background:rgba(16,185,129,.06); border:1px solid rgba(16,185,129,.2);
+  border-radius:14px; padding:1rem; margin-bottom:1.5rem;
+  display:flex; align-items:center; gap:.75rem;
+}
+.gift-link-box input {
+  flex:1; background:transparent; border:none; color:#e2e8f0;
+  font-size:.85rem; font-family:monospace; outline:none;
+}
+.gift-link-copy {
+  background:var(--green); color:#fff; border:none; border-radius:10px;
+  padding:.5rem .9rem; font-size:.78rem; font-weight:700; cursor:pointer;
+  white-space:nowrap; transition:opacity .2s;
+}
+.gift-link-copy:hover { opacity:.85; }
+
+.gift-actions { display:grid; gap:.75rem; }
+.gift-btn {
+  display:flex; align-items:center; justify-content:center; gap:.6rem;
+  padding:.9rem; border:none; border-radius:14px;
+  font-size:.92rem; font-weight:700; cursor:pointer;
+  text-decoration:none; transition:opacity .2s;
+}
+.gift-btn:hover { opacity:.88; }
+.gift-btn.wa { background:#25D366; color:#fff; }
+.gift-btn.sms { background:#3b82f6; color:#fff; }
+.gift-btn.share { background:rgba(255,255,255,.08); color:#e2e8f0; border:1px solid rgba(255,255,255,.1); }
+
+.gift-back {
+  display:block; text-align:center; margin-top:1.5rem;
+  color:var(--t3); font-size:.82rem; text-decoration:none;
+}
+.gift-back:hover { color:var(--t1); }
+
+.copied-toast {
+  position:fixed; bottom:2rem; left:50%; transform:translateX(-50%);
+  background:var(--green); color:#fff; padding:.6rem 1.2rem;
+  border-radius:10px; font-size:.85rem; font-weight:700;
+  opacity:0; transition:opacity .3s; pointer-events:none; z-index:999;
+}
+.copied-toast.show { opacity:1; }
+
+@media(max-width:600px){
+  .gift-page { padding:1rem .75rem; }
+}
+</style>
+
+<div class="app">
+  {% include "core/_sidebar.html" with active_page="pricing" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title">🎁 Demander à un proche</div></div>
+    <div class="view-area">
+      <div class="gift-page">
+
+        <div class="gift-header">
+          <h1>Envoie ce message à un proche</h1>
+          <p>
+            Copie le message ci-dessous et partage-le sur WhatsApp, SMS, ou n'importe quel réseau.
+            Quand la personne cliquera sur le lien, elle pourra te payer l'abonnement directement.
+          </p>
+        </div>
+
+        
+        <div class="gift-msg-card">
+          <div class="gift-msg-label"><i class="fas fa-envelope"></i> Message à envoyer</div>
+          <div class="gift-msg-text" id="giftMsg">{{ message }}</div>
+        </div>
+
+        
+        <div class="gift-link-box">
+          <i class="fas fa-link" style="color:var(--green);flex-shrink:0;"></i>
+          <input type="text" readonly value="{{ gift_url }}" id="giftUrl">
+          <button class="gift-link-copy" onclick="copyLink()">Copier</button>
+        </div>
+
+        
+        <div class="gift-actions">
+          <a href="{{ wa_url }}" target="_blank" rel="noopener" class="gift-btn wa">
+            <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i>
+            Envoyer sur WhatsApp
+          </a>
+          <button class="gift-btn sms" onclick="shareSMS()">
+            <i class="fas fa-sms" style="font-size:1.1rem;"></i>
+            Envoyer par SMS
+          </button>
+          <button class="gift-btn share" onclick="shareNative()">
+            <i class="fas fa-share-alt"></i>
+            Partager autrement
+          </button>
+        </div>
+
+        <a href="{% url 'pricing' %}" class="gift-back">
+          <i class="fas fa-arrow-left"></i> Retour aux plans
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copied-toast" id="toast">Copié !</div>
+
+<script>
+function showToast(text){
+  const t = document.getElementById('toast');
+  t.textContent = text || 'Copié !';
+  t.classList.add('show');
+  setTimeout(()=> t.classList.remove('show'), 2000);
+}
+
+function copyLink(){
+  const url = document.getElementById('giftUrl').value;
+  navigator.clipboard.writeText(url).then(()=> showToast('Lien copié !'));
+}
+
+function copyMsg(){
+  const msg = document.getElementById('giftMsg').textContent;
+  navigator.clipboard.writeText(msg).then(()=> showToast('Message copié !'));
+}
+
+function shareSMS(){
+  const msg = document.getElementById('giftMsg').textContent;
+  window.open('sms:?body=' + encodeURIComponent(msg));
+}
+
+function shareNative(){
+  const msg = document.getElementById('giftMsg').textContent;
+  if(navigator.share){
+    navigator.share({ title:'OU TOU BON — Aide-moi pour mes études', text:msg })
+      .catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(msg).then(()=> showToast('Message copié !'));
+  }
+}
+</script>
+{% endblock %}

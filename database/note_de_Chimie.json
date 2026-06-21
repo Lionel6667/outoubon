@@ -1,0 +1,1335 @@
+{
+  "course_title": "Chimie - Baccalauréat Haïtien (SES, SMP, SVT, LLA)",
+  "chapters": [
+    {
+      "chapter_title": "Les alcanes (hydrocarbures saturés)",
+      "chapter_introduction": "Les alcanes sont les hydrocarbures les plus simples. Ils ne contiennent que du carbone et de l'hydrogène, reliés uniquement par des liaisons simples. Comprendre les alcanes, c'est la base de la chimie organique. Ce chapitre vous apprendra leur structure, leur nomenclature, leurs réactions (combustion, substitution) et les méthodes de préparation du méthane.",
+      "chapter_objectives": [
+        "Définir un alcane et donner sa formule générale CnH(2n+2)",
+        "Connaître les préfixes des chaînes carbonées (méth-, éth-, prop-, but-, pent-, hex-, hept-, oct-)",
+        "Savoir calculer la masse molaire d'un alcane (M = 14n + 2)",
+        "Distinguer les classes d'atomes de carbone (nullaire, primaire, secondaire, tertiaire, quaternaire)",
+        "Expliquer l'isomérie des alcanes avec les exemples du pentane",
+        "Maîtriser les réactions de combustion complète, incomplète, semi-complète et la destruction par le dichlore à lumière vive",
+        "Maîtriser la substitution par les halogènes à lumière diffuse",
+        "Connaître les préparations du méthane (hydrolyse du carbure d'aluminium, décarboxylation, craquage, thermolyse)",
+        "Définir craquage et reformage et comprendre l'indice d'octane",
+        "Résoudre des exercices de stœchiométrie avec rendement et impuretés"
+      ],
+      "subchapters": [
+        {
+          "title": "Structure et formule générale",
+          "introduction": "Les alcanes sont des hydrocarbures saturés : chaque atome de carbone est lié à quatre autres atomes par des liaisons simples.",
+          "definition": "Un alcane est un hydrocarbure de formule brute CnH(2n+2). Ses liaisons sont toutes simples (liaisons σ). On dit qu'il est saturé car il ne peut plus fixer d'atomes supplémentaires.",
+          "explanation": "La formule générale CnH(2n+2) provient du fait que chaque carbone tétravalent est entouré d'hydrogènes. Pour n carbones, le nombre d'hydrogènes est 2n+2. Exemples : n=1 → CH4 (méthane) ; n=2 → C2H6 (éthane) ; n=3 → C3H8 (propane) ; n=4 → C4H10 (butane). La masse molaire se calcule par M = 12n + (2n+2) = 14n + 2.",
+          "step_by_step": [
+            "Étape 1 : Compter le nombre d'atomes de carbone n.",
+            "Étape 2 : Appliquer la formule CnH(2n+2) pour obtenir la formule brute.",
+            "Étape 3 : Pour la masse molaire, utiliser M = 14n + 2 (en g/mol).",
+            "Étape 4 : Reconnaître les préfixes : méth- (1C), éth- (2C), prop- (3C), but- (4C), pent- (5C), hex- (6C), hept- (7C), oct- (8C)."
+          ],
+          "examples": [
+            "Exemple : Le pentane a 5 carbones → C5H(2×5+2) = C5H12. M = 14×5+2 = 72 g/mol."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : L'heptane (C7H16) a pour masse molaire M = 14×7+2 = 100 g/mol. Vérification : 7×12 + 16×1 = 84+16 = 100 g/mol."
+          ],
+          "methods": [
+            "Pour mémoriser les préfixes, utiliser la phrase : 'Ma Elephante Prend Bien Peu H Hep O' (Méth, Éth, Prop, But, Pent, Hex, Hept, Oct)."
+          ],
+          "common_mistakes": [
+            "Oublier que la formule générale est CnH(2n+2) et non CnH2n (celle des alcènes).",
+            "Confondre le préfixe 'prop-' (3C) avec 'pent-' (5C)."
+          ],
+          "summary": "Alcane = hydrocarbure saturé, formule CnH(2n+2), nommé avec préfixe indiquant le nombre de C + suffixe -ane. M = 14n + 2."
+        },
+        {
+          "title": "Classes de carbone et isomérie",
+          "introduction": "Dans une chaîne carbonée, les atomes de carbone ne sont pas tous équivalents. Leur classification dépend du nombre de carbones voisins.",
+          "definition": "Carbone nullaire : lié à aucun autre carbone (ex : CH4). Primaire : lié à 1 carbone (CH3-). Secondaire : lié à 2 carbones (-CH2-). Tertiaire : lié à 3 carbones (-CH<). Quaternaire : lié à 4 carbones (>C<). L'isomérie est l'existence de plusieurs composés ayant la même formule brute mais des structures différentes.",
+          "explanation": "Pour C5H12, il existe trois isomères : le pentane (chaîne linéaire), le 2-méthylbutane (une ramification) et le 2,2-diméthylpropane (deux ramifications sur le même carbone). Les propriétés physiques (point d'ébullition, densité) diffèrent selon la ramification.",
+          "step_by_step": [
+            "Étape 1 : Dessiner la chaîne carbonée principale.",
+            "Étape 2 : Identifier chaque carbone selon ses voisins.",
+            "Étape 3 : Pour l'isomérie, essayer de déplacer les ramifications sans changer la formule brute."
+          ],
+          "examples": [
+            "Exemple : Dans le 2-méthylbutane CH3-CH(CH3)-CH2-CH3, le carbone central (portant le CH3) est tertiaire, les CH3 terminaux sont primaires, le CH2 est secondaire."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Le 2,2-diméthylpropane C(CH3)4 a un carbone quaternaire central et quatre carbones primaires. C'est l'isomère le plus ramifié du pentane."
+          ],
+          "methods": [
+            "Pour trouver le nombre d'isomères d'un alcane, on peut utiliser des formules mais au bac on demande surtout de les écrire pour C5H12 (3 isomères) et C6H14 (5 isomères)."
+          ],
+          "common_mistakes": [
+            "Confondre carbone primaire et secondaire.",
+            "Oublier que le carbone nullaire n'existe que dans le méthane."
+          ],
+          "summary": "Carbone : primaire (1 voisin C), secondaire (2), tertiaire (3), quaternaire (4). L'isomérie donne des structures différentes à formule brute identique."
+        },
+        {
+          "title": "Réactions de destruction et de substitution",
+          "introduction": "Les alcanes réagissent principalement par combustion (destruction) ou par substitution avec les halogènes. Ils ne donnent jamais d'addition car ils sont saturés.",
+          "definition": "Combustion complète : réaction avec excès de dioxygène → CO2 + H2O. Combustion incomplète (défaut de O2) → C (noir de fumée) + H2O. Combustion semi-complète → CO + H2O. Substitution : remplacement d'un hydrogène par un halogène (Cl2, Br2) à la lumière diffuse.",
+          "explanation": "Équilibrage d'une combustion : pour CnHm, le nombre de CO2 = n, le nombre de H2O = m/2, le nombre de O2 = n + m/4. Exemple : C3H8 + 5O2 → 3CO2 + 4H2O. La destruction par le dichlore à lumière vive donne C + HCl (ex : CH4 + 2Cl2 → C + 4HCl). La substitution progressive du méthane donne CH3Cl, CH2Cl2, CHCl3, CCl4.",
+          "step_by_step": [
+            "Étape 1 : Écrire les réactifs (alcane + O2 ou alcane + Cl2).",
+            "Étape 2 : Équilibrer les atomes de carbone (CO2).",
+            "Étape 3 : Équilibrer les hydrogènes (H2O ou HCl).",
+            "Étape 4 : Équilibrer les oxygènes (O2) ou les chlores."
+          ],
+          "examples": [
+            "Exemple combustion complète du méthane : CH4 + 2O2 → CO2 + 2H2O.",
+            "Exemple substitution du méthane : CH4 + Cl2 → CH3Cl + HCl (lumière diffuse)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Combustion complète du butane : C4H10 + 13/2 O2 → 4CO2 + 5H2O. On peut multiplier par 2 : 2C4H10 + 13O2 → 8CO2 + 10H2O."
+          ],
+          "methods": [
+            "Pour équilibrer rapidement, poser les coefficients de CO2 et H2O, puis compter O à droite et ajuster O2.",
+            "Moyen mnémotechnique : Lumière VIVE = destruction (C + HCl) ; Lumière DIFFUSE = substitution."
+          ],
+          "common_mistakes": [
+            "Confondre lumière vive et lumière diffuse.",
+            "Oublier que la combustion incomplète donne du carbone solide, pas du CO.",
+            "Ne pas convertir les fractions en nombres entiers (multiplier par 2 si nécessaire)."
+          ],
+          "summary": "Combustion complète (excès O2) : CO2 + H2O. Incomplète (défaut O2) : C + H2O. Semi-complète : CO + H2O. Substitution (lumière diffuse) : R-H + Cl2 → R-Cl + HCl. Destruction (lumière vive) : CH4 + 2Cl2 → C + 4HCl."
+        },
+        {
+          "title": "Préparations du méthane et opérations pétrolières",
+          "introduction": "Le méthane, premier alcane, peut être obtenu par plusieurs méthodes. Le craquage et le reformage sont des procédés industriels essentiels pour le raffinage du pétrole.",
+          "definition": "Hydrolyse du carbure d'aluminium : Al4C3 + 12H2O → 3CH4 + 4Al(OH)3. Décarboxylation de l'acétate de sodium : CH3COONa + NaOH → CH4 + Na2CO3 (chaux sodée). Craquage : transformation d'hydrocarbures lourds en légers. Reformage : transformation d'hydrocarbures linéaires en ramifiés pour améliorer l'indice d'octane.",
+          "explanation": "L'indice d'octane mesure la résistance à l'auto-allumage. Le n-heptane a un indice 0, l'isooctane (2,2,4-triméthylpentane) a 100. Les hydrocarbures ramifiés ont un meilleur indice d'octane.",
+          "step_by_step": [
+            "Étape 1 : Identifier la réaction demandée (hydrolyse, décarboxylation, craquage).",
+            "Étape 2 : Écrire l'équation équilibrée.",
+            "Étape 3 : Calculer les masses molaires nécessaires.",
+            "Étape 4 : Appliquer la stœchiométrie."
+          ],
+          "examples": [
+            "Exemple craquage : C10H22 → C5H12 + C5H10 (décane → pentane + pentène).",
+            "Exemple reformage : n-octane → 2,2,4-triméthylpentane (isooctane)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Hydrolyse de 144 g de Al4C3 pur. M(Al4C3)=144 g/mol → 1 mol donne 3 mol CH4 → V(CH4)=3×22,4=67,2 L. m(Al(OH)3)=4×78=312 g."
+          ],
+          "methods": [
+            "Pour le craquage, la somme des carbones des produits doit égaler celle du réactif."
+          ],
+          "common_mistakes": [
+            "Confondre craquage (diminution du nombre de carbones) et reformage (ramification).",
+            "Oublier le coefficient stœchiométrique de l'eau dans l'hydrolyse."
+          ],
+          "summary": "Préparation du CH4 : Al4C3 + H2O ; CH3COONa + NaOH ; CH3COOH → CH4 + CO2. Craquage : chaînes longues → courtes. Reformage : linéaire → ramifié. Indice d'octane : 0 pour heptane, 100 pour isooctane."
+        },
+        {
+          "title": "Calculs stœchiométriques (rendement, impuretés, volumes)",
+          "introduction": "Les exercices d'application exigent souvent de prendre en compte le rendement ou la pureté des réactifs. Il faut aussi savoir passer des volumes aux moles (volume molaire 22,4 L/mol à TPN).",
+          "definition": "Rendement (R) = (quantité réelle / quantité théorique) × 100. Pour un produit, m_réelle = m_théorique × R/100. Pour un réactif, m_réelle = m_théorique × 100/R. Pureté = (masse pure / masse totale) × 100. Masse pure = masse totale × pureté/100.",
+          "explanation": "Le volume d'air nécessaire pour une combustion est 5 fois le volume d'oxygène (l'air contient environ 20% de O2, soit 1/5). À température et pression normales (TPN), 1 mole de gaz occupe 22,4 L.",
+          "step_by_step": [
+            "Étape 1 : Écrire l'équation équilibrée.",
+            "Étape 2 : Calculer les quantités théoriques (moles).",
+            "Étape 3 : Appliquer le rendement si indiqué (attention au sens).",
+            "Étape 4 : Convertir les volumes en moles (n = V/22,4) ou vice-versa.",
+            "Étape 5 : Pour l'air, V(air) = 5 × V(O2)."
+          ],
+          "examples": [
+            "Exemple : Combustion de 5 L de méthane à TPN. V(O2) = 2×5 = 10 L, V(air) = 5×10 = 50 L."
+          ],
+          "detailed_examples": [
+            "Exemple avec impuretés : 250 g de carbure d'aluminium contenant 30% d'impuretés → masse pure = 250 × 70/100 = 175 g. n(Al4C3) = 175/144 = 1,215 mol → n(CH4) = 3×1,215 = 3,646 mol → V(CH4) = 3,646×22,4 = 81,7 L."
+          ],
+          "methods": [
+            "Pour les rendements, retenir : produit (après flèche) → multiplication par R/100 ; réactif (avant flèche) → division par R/100."
+          ],
+          "common_mistakes": [
+            "Oublier de convertir les volumes en litres (en dm³) avant d'utiliser 22,4 L/mol.",
+            "Inverser la formule du rendement pour les réactifs."
+          ],
+          "summary": "Rendement (produit) : m_réelle = m_théorique × R/100. Rendement (réactif) : m_réelle = m_théorique × 100/R. Pureté : masse pure = masse totale × pureté/100. V(air) = 5 × V(O2)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "On hydrolyse 144 g de carbure d'aluminium pur. a) Écrire l'équation. b) Calculer le volume de méthane à TPN. c) Calculer la masse d'hydroxyde d'aluminium formé.",
+          "solution": "a) Al4C3 + 12H2O → 3CH4 + 4Al(OH)3. b) n(Al4C3)=144/144=1 mol → n(CH4)=3 mol → V=3×22,4=67,2 L. c) n(Al(OH)3)=4 mol, M=78 g/mol → m=312 g.",
+          "explanation": "La stœchiométrie de l'équation donne les rapports. On utilise les masses molaires : Al4C3=144, CH4=16, Al(OH)3=78."
+        },
+        {
+          "question": "On brûle 5 L de méthane à TPN. a) Écrire l'équation de combustion complète. b) Volume d'air nécessaire. c) Masse de CO2 produite. d) Ce CO2 est barboté dans de l'eau de chaux. Calculer la masse du précipité.",
+          "solution": "a) CH4 + 2O2 → CO2 + 2H2O. b) V(O2)=2×5=10 L, V(air)=5×10=50 L. c) n(CH4)=5/22,4=0,2232 mol → n(CO2)=0,2232 mol → m=0,2232×44=9,82 g. d) CO2 + Ca(OH)2 → CaCO3↓ + H2O, n(CaCO3)=0,2232 mol → m=0,2232×100=22,32 g.",
+          "explanation": "À TPN, les volumes sont proportionnels aux moles. L'eau de chaux se trouble par formation de carbonate de calcium."
+        },
+        {
+          "question": "On hydrolyse 250 g de carbure d'aluminium contenant 30% d'impuretés. a) Masse de carbure pur. b) Volume de méthane à TPN. c) Volume d'air pour brûler ce méthane. d) Masse de précipité (CaCO3) obtenu.",
+          "solution": "a) masse pure = 250×0,70 = 175 g. b) n(Al4C3)=175/144=1,215 mol → n(CH4)=3,646 mol → V=3,646×22,4=81,7 L. c) n(O2)=2×3,646=7,292 mol → V(O2)=163,3 L → V(air)=5×163,3=816,5 L. d) n(CO2)=n(CH4)=3,646 mol → m(CaCO3)=3,646×100=364,6 g.",
+          "explanation": "Les impuretés ne réagissent pas, on ne tient compte que de la masse pure."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Les alcènes - Éthylène et sa famille",
+      "chapter_introduction": "Les alcènes sont des hydrocarbures insaturés contenant une double liaison C=C. Cette double liaison les rend très réactifs, notamment par addition. L'éthylène (C2H4) est le plus simple et sert de base à la fabrication du polyéthylène.",
+      "chapter_objectives": [
+        "Définir un alcène et donner sa formule générale CnH2n",
+        "Savoir que les cyclanes sont isomères de fonction des alcènes",
+        "Connaître les préparations de l'éthylène (déshydratation de l'éthanol, craquage, hydrogénation de l'acétylène)",
+        "Maîtriser les réactions d'addition sur l'éthylène : H2, H2O, Cl2, HCl, HBr, dimérisation, polymérisation",
+        "Appliquer la règle de Markovnikov pour les alcènes dissymétriques (propène)",
+        "Calculer des grandeurs stœchiométriques (combustion, addition avec rendement)",
+        "Distinguer hydrogénation (→ alcane) et hydratation (→ alcool)"
+      ],
+      "subchapters": [
+        {
+          "title": "Structure et formule générale",
+          "introduction": "Un alcène possède une double liaison carbone-carbone (C=C). Cette liaison est formée d'une liaison σ forte et d'une liaison π fragile, responsable de la réactivité.",
+          "definition": "Un alcène est un hydrocarbure de formule brute CnH2n, contenant au moins une double liaison C=C. Exemples : éthène (C2H4), propène (C3H6), but-1-ène (C4H8). Les alcènes sont insaturés (ils peuvent encore fixer des atomes).",
+          "explanation": "La géométrie autour d'une double liaison est trigonale plane (angles de 120°), hybridation sp2. L'éthylène (CH2=CH2) a une masse molaire de 28 g/mol. La formule CnH2n est aussi celle des cycloalcanes, ce qui en fait des isomères de fonction.",
+          "step_by_step": [
+            "Étape 1 : Identifier la double liaison.",
+            "Étape 2 : Compter les carbones et hydrogènes : pour n carbones, H = 2n.",
+            "Étape 3 : Vérifier l'insaturation : absence de cycle ?"
+          ],
+          "examples": [
+            "Exemple : Le propène a 3 carbones → C3H6, M = 42 g/mol. Sa formule semi-développée est CH3-CH=CH2."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : L'éthylène C2H4 a une double liaison, géométrie plane. Sa combustion complète : C2H4 + 3O2 → 2CO2 + 2H2O."
+          ],
+          "methods": [
+            "Pour distinguer un alcène d'un cyclane, on peut utiliser un test chimique (addition de brome décolorante)."
+          ],
+          "common_mistakes": [
+            "Confondre alcène (CnH2n) avec alcane (CnH2n+2).",
+            "Oublier que le cyclopropane a aussi C3H6 mais n'est pas un alcène."
+          ],
+          "summary": "Alcène : hydrocarbure avec une double liaison, formule CnH2n. Exemple : C2H4 (éthylène). Réactif grâce à la liaison π."
+        },
+        {
+          "title": "Préparations de l'éthylène",
+          "introduction": "L'éthylène se prépare principalement par déshydratation de l'éthanol, par craquage de l'éthane ou par hydrogénation partielle de l'acétylène.",
+          "definition": "Déshydratation : CH3-CH2OH → CH2=CH2 + H2O (catalyseur Al2O3 ou H2SO4, 180°C). Craquage : CH3-CH3 → C2H4 + H2. Hydrogénation partielle : C2H2 + H2 → C2H4 (catalyseur Pd/CaCO3).",
+          "explanation": "La déshydratation de l'éthanol est la méthode de laboratoire la plus courante. À 140°C, on obtient plutôt de l'éther éthylique. À 180°C, on obtient l'éthylène.",
+          "step_by_step": [
+            "Étape 1 : Identifier la méthode demandée.",
+            "Étape 2 : Écrire l'équation équilibrée.",
+            "Étape 3 : Calculer les masses ou volumes en jeu."
+          ],
+          "examples": [
+            "Exemple : Déshydratation de 46 g d'éthanol (1 mol) donne 1 mol d'éthylène (28 g)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : On prépare 35 g d'éthylène par déshydratation. Masse d'éthanol nécessaire : 35/28 × 46 = 57,5 g."
+          ],
+          "methods": [
+            "La déshydratation est l'inverse de l'hydratation des alcènes."
+          ],
+          "common_mistakes": [
+            "Confondre déshydratation (élimination d'eau) et hydratation (addition d'eau)."
+          ],
+          "summary": "Préparation de C2H4 : C2H5OH → C2H4 + H2O (Al2O3, 180°C) ; C2H2 + H2 → C2H4 (Pd/CaCO3) ; C2H6 → C2H4 + H2 (craquage)."
+        },
+        {
+          "title": "Réactions d'addition des alcènes",
+          "introduction": "Les alcènes réagissent par addition sur la double liaison. Ils peuvent additionner H2, H2O, Cl2, HCl, HBr, ou se dimériser/polymériser.",
+          "definition": "Hydrogénation : C2H4 + H2 → C2H6 (catalyseur Ni). Hydratation : C2H4 + H2O → C2H5OH (H3PO4, 250°C). Chloration : C2H4 + Cl2 → CH2Cl-CH2Cl (1,2-dichloroéthane). Addition de HCl : C2H4 + HCl → CH3-CH2Cl. Dimérisation : 2C2H4 → CH2=CH-CH2-CH3 (but-1-ène). Polymérisation : n CH2=CH2 → (-CH2-CH2-)n (polyéthylène).",
+          "explanation": "La règle de Markovnikov s'applique aux alcènes dissymétriques : l'atome d'hydrogène du réactif HX (H2O, HCl, HBr) se fixe sur le carbone de la double liaison qui possède déjà le plus d'hydrogènes. Exemple : propène + H2O → propan-2-ol (majoritaire) et propan-1-ol (minoritaire).",
+          "step_by_step": [
+            "Étape 1 : Identifier l'alcène et le réactif.",
+            "Étape 2 : Pour un alcène symétrique (éthylène), l'addition est directe.",
+            "Étape 3 : Pour un alcène dissymétrique, appliquer Markovnikov (H sur le C le plus hydrogéné).",
+            "Étape 4 : Écrire le produit majoritaire."
+          ],
+          "examples": [
+            "Exemple : Propène + H2O → CH3-CHOH-CH3 (propan-2-ol, 80%) et CH3-CH2-CH2OH (propan-1-ol, 20%)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : L'hydratation industrielle de l'éthylène donne de l'éthanol. C'est une réaction exothermique réalisée avec un catalyseur acide."
+          ],
+          "methods": [
+            "Pour Markovnikov, retenir : 'Le riche devient plus riche' (le carbone qui a déjà plus d'H reçoit l'H)."
+          ],
+          "common_mistakes": [
+            "Appliquer Markovnikov à l'éthylène (symétrique, pas d'effet).",
+            "Confondre hydrogénation (H2) et hydratation (H2O)."
+          ],
+          "summary": "Addition sur alcènes : H2 (alcane), H2O (alcool), Cl2 (dichloroalcane), HCl (chloroalcane). Polymérisation : polyéthylène. Règle de Markovnikov : H se fixe sur le C le plus hydrogéné."
+        },
+        {
+          "title": "Calculs stœchiométriques avec les alcènes",
+          "introduction": "Les mêmes principes de stœchiométrie, rendement, impuretés et volumes s'appliquent aux réactions des alcènes.",
+          "definition": "Combustion complète de l'éthylène : C2H4 + 3O2 → 2CO2 + 2H2O. Addition de HCl : C2H4 + HCl → C2H5Cl. Rendement et impuretés se traitent comme pour les alcanes.",
+          "explanation": "Les rapports volumiques à TPN sont proportionnels aux coefficients stœchiométriques. Exemple : 1 volume d'éthylène nécessite 3 volumes d'oxygène.",
+          "step_by_step": [
+            "Étape 1 : Écrire l'équation équilibrée.",
+            "Étape 2 : Calculer les moles à partir des masses ou volumes.",
+            "Étape 3 : Appliquer la stœchiométrie.",
+            "Étape 4 : Si rendement, corriger selon que le composé est réactif ou produit."
+          ],
+          "examples": [
+            "Exemple : On brûle 4 L d'éthylène à TPN. V(O2) = 3×4 = 12 L, V(air) = 5×12 = 60 L. n(CO2) = 2×4/22,4 = 0,357 mol → m(CO2)=0,357×44=15,7 g."
+          ],
+          "detailed_examples": [
+            "Exemple avec rendement : 4 L d'éthylène (0,179 mol) sont transformés en chlorure d'éthyle avec rendement 70%. n(HCl) théorique = 0,179 mol ; n(HCl) réel = 0,179 × 100/70 = 0,256 mol (car HCl est réactif, avant la flèche)."
+          ],
+          "methods": [
+            "Pour l'addition de HCl, le rapport est 1:1."
+          ],
+          "common_mistakes": [
+            "Ne pas convertir les litres en m³ (non, on utilise 22,4 L/mol directement).",
+            "Inverser le rendement pour les réactifs."
+          ],
+          "summary": "Combustion de C2H4 : C2H4 + 3O2 → 2CO2 + 2H2O. V(air)=5×V(O2). Les calculs de rendement suivent les mêmes règles."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "On brûle 4 L d'éthylène à TPN. a) Écrire l'équation. b) Volume d'air nécessaire. c) Masse de CO2. d) Masse d'eau produite.",
+          "solution": "a) C2H4 + 3O2 → 2CO2 + 2H2O. b) V(O2)=3×4=12 L, V(air)=5×12=60 L. c) n(C2H4)=4/22,4=0,179 mol → n(CO2)=0,358 mol → m=0,358×44=15,75 g. d) n(H2O)=0,358 mol → m=0,358×18=6,44 g.",
+          "explanation": "Les coefficients stœchiométriques donnent les rapports molaires. On utilise le volume molaire 22,4 L/mol."
+        },
+        {
+          "question": "On veut préparer 35 g d'éthylène par déshydratation de l'éthanol. Quelle masse d'éthanol faut-il ?",
+          "solution": "CH3CH2OH → C2H4 + H2O. M(éthanol)=46, M(éthylène)=28. m(éthanol)=35×46/28=57,5 g.",
+          "explanation": "Rapport stœchiométrique 1:1, donc proportion directe des masses."
+        },
+        {
+          "question": "On fait réagir 4 L d'éthylène (TPN) avec HCl (rendement 70%). Calculer la masse de HCl nécessaire.",
+          "solution": "C2H4 + HCl → C2H5Cl. n(C2H4)=4/22,4=0,179 mol. n(HCl) théorique = 0,179 mol. HCl est réactif, donc m(HCl) réelle = 0,179×36,5 × 100/70 = 6,53×100/70=9,33 g.",
+          "explanation": "Pour un réactif, la masse réelle est supérieure à la masse théorique car il faut compenser le rendement."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Les alcynes - Acétylène et sa famille",
+      "chapter_introduction": "Les alcynes sont des hydrocarbures insaturés possédant une triple liaison C≡C. L'acétylène (C2H2) est le plus simple et se prépare par hydrolyse du carbure de calcium. Il est très réactif et peut subir deux additions successives.",
+      "chapter_objectives": [
+        "Définir un alcyne et donner sa formule générale CnH(2n-2)",
+        "Connaître la préparation de l'acétylène (hydrolyse de CaC2)",
+        "Maîtriser les additions : hydrogénation partielle (→ éthylène) et totale (→ éthane), hydratation (→ éthanal), addition de HCl (→ chlorure de vinyle)",
+        "Savoir que l'hydratation de l'acétylène donne de l'éthanal (pas d'éthanol)",
+        "Connaître la trimérisation cyclique en benzène (3C2H2 → C6H6)",
+        "Utiliser les tests spécifiques de l'acétylène (CuCl ammoniacal → rouge brique, AgNO3 ammoniacal → jaune)",
+        "Résoudre des problèmes de stœchiométrie incluant la pureté du carbure de calcium"
+      ],
+      "subchapters": [
+        {
+          "title": "Structure et formule générale",
+          "introduction": "Les alcynes contiennent une triple liaison C≡C, composée d'une liaison σ et de deux liaisons π, très réactive.",
+          "definition": "Un alcyne est un hydrocarbure de formule brute CnH(2n-2) contenant au moins une triple liaison. L'acétylène (éthyne) C2H2 est le plus simple (M=26 g/mol).",
+          "explanation": "La triple liaison confère une géométrie linéaire (angles de 180°, hybridation sp). Les alcynes sont encore plus insaturés que les alcènes.",
+          "step_by_step": [
+            "Étape 1 : Compter les carbones n.",
+            "Étape 2 : Calculer H = 2n-2.",
+            "Étape 3 : Pour l'acétylène, n=2 → H=2, C2H2."
+          ],
+          "examples": [
+            "Exemple : Propyne C3H4 (CH3-C≡CH) est un alcyne."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : L'acétylène C2H2 a une triple liaison, il peut additionner deux molécules de H2 pour donner l'éthane."
+          ],
+          "methods": [
+            "Pour vérifier qu'un hydrocarbure est un alcyne, utiliser la formule CnH2n-2."
+          ],
+          "common_mistakes": [
+            "Confondre alcyne (CnH2n-2) avec alcène (CnH2n) ou alcane (CnH2n+2)."
+          ],
+          "summary": "Alcyne : formule CnH(2n-2), triple liaison. Acétylène : C2H2."
+        },
+        {
+          "title": "Préparations de l'acétylène",
+          "introduction": "L'acétylène se prépare principalement par hydrolyse du carbure de calcium, une réaction classique au bac.",
+          "definition": "Hydrolyse du carbure de calcium : CaC2 + 2H2O → Ca(OH)2 + C2H2. Autres méthodes : craquage du méthane à 1500°C (2CH4 → C2H2 + 3H2) ou déshydrogénation de l'éthylène (C2H4 → C2H2 + H2).",
+          "explanation": "Le carbure de calcium (CaC2, M=64 g/mol) est un solide gris. L'équation est incontournable : elle revient dans presque tous les examens.",
+          "step_by_step": [
+            "Étape 1 : Écrire CaC2 + 2H2O → Ca(OH)2 + C2H2.",
+            "Étape 2 : Calculer n(CaC2) = m/M.",
+            "Étape 3 : En déduire n(C2H2) (rapport 1:1).",
+            "Étape 4 : Convertir en volume (V = n×22,4) si nécessaire."
+          ],
+          "examples": [
+            "Exemple : 64 g de CaC2 pur donne 1 mol de C2H2, soit 22,4 L à TPN."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : 85 g de CaC2 pur donne n=85/64=1,328 mol → V(C2H2)=1,328×22,4=29,75 L. Si on obtient 20 L réel, la pureté est (20/29,75)×100=67,2%."
+          ],
+          "methods": [
+            "Pour trouver la pureté, on calcule le volume théorique, puis pureté = (V réel / V théorique)×100."
+          ],
+          "common_mistakes": [
+            "Oublier de multiplier par 22,4 pour obtenir le volume.",
+            "Confondre CaC2 avec Al4C3 (qui donne CH4)."
+          ],
+          "summary": "CaC2 + 2H2O → Ca(OH)2 + C2H2. C'est la préparation principale de l'acétylène."
+        },
+        {
+          "title": "Réactions d'addition et trimérisation",
+          "introduction": "L'acétylène peut additionner une ou deux molécules de réactif, et il peut également se trimériser en benzène.",
+          "definition": "Hydrogénation partielle : C2H2 + H2 → C2H4 (Pd/CaCO3). Hydrogénation totale : C2H2 + 2H2 → C2H6 (Ni, chaleur). Hydratation : C2H2 + H2O → CH3-CHO (éthanal) (catalyseur Hg2+/H+). Addition de HCl : C2H2 + HCl → CH2=CHCl (chlorure de vinyle). Trimérisation cyclique : 3C2H2 → C6H6 (benzène, 600°C).",
+          "explanation": "L'hydratation de l'acétylène ne donne pas d'éthanol, mais l'éthanal (aldéhyde) par réarrangement de l'alcool vinylique instable. Le chlorure de vinyle est le monomère du PVC. La trimérisation en benzène est une réaction importante pour la fabrication du benzène.",
+          "step_by_step": [
+            "Étape 1 : Identifier le type d'addition (partielle ou totale).",
+            "Étape 2 : Appliquer les coefficients stœchiométriques.",
+            "Étape 3 : Pour la trimérisation, 3 moles C2H2 → 1 mole C6H6."
+          ],
+          "examples": [
+            "Exemple : Trimérisation de 1,5 mol d'acétylène donne 0,5 mol de benzène (masse 39 g)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : L'hydratation de l'acétylène produit de l'éthanal, utilisé pour la fabrication de l'acide acétique."
+          ],
+          "methods": [
+            "Retenir que l'hydratation de l'acétylène donne un aldéhyde, pas un alcool."
+          ],
+          "common_mistakes": [
+            "Écrire C2H2 + H2O → C2H5OH (erreur classique).",
+            "Confondre dimérisation (2 molécules) et trimérisation (3 molécules)."
+          ],
+          "summary": "Additions : H2 (partiel → éthylène, total → éthane), H2O → éthanal, HCl → chlorure de vinyle. Trimérisation : 3C2H2 → C6H6."
+        },
+        {
+          "title": "Tests chimiques de l'acétylène",
+          "introduction": "L'acétylène donne des précipités caractéristiques avec les sels d'argent ou de cuivre en milieu ammoniacal.",
+          "definition": "Test au chlorure cuivreux ammoniacal : CH≡CH + 2CuCl → C2Cu2 (précipité rouge brique) + 2HCl. Test au nitrate d'argent ammoniacal : CH≡CH + 2AgNO3 → C2Ag2 (précipité jaune) + 2HNO3.",
+          "explanation": "Ces tests sont spécifiques des alcynes vrais (terminaux). Ils servent à identifier l'acétylène.",
+          "step_by_step": [
+            "Étape 1 : Préparer le réactif (CuCl ou AgNO3 dans NH3).",
+            "Étape 2 : Faire barboter le gaz ou ajouter la solution.",
+            "Étape 3 : Observer la couleur du précipité."
+          ],
+          "examples": [
+            "Exemple : L'acétylène donne un précipité rouge brique avec CuCl ammoniacal."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Le test à l'argent ammoniacal est très sensible, il donne un précipité jaune d'acétylure d'argent qui est explosif à sec."
+          ],
+          "methods": [
+            "Pour différencier acétylène et éthylène, on utilise ces tests spécifiques."
+          ],
+          "common_mistakes": [
+            "Confondre les couleurs : rouge brique pour Cu, jaune pour Ag."
+          ],
+          "summary": "Acétylène + CuCl (NH3) → précipité rouge brique. Acétylène + AgNO3 (NH3) → précipité jaune."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "On hydrolyse 85 g de carbure de calcium pur. a) Écrire l'équation. b) Volume d'acétylène à TPN. c) On obtient réellement 20 L. Calculer la pureté.",
+          "solution": "a) CaC2 + 2H2O → Ca(OH)2 + C2H2. b) n(CaC2)=85/64=1,328 mol → V théo=1,328×22,4=29,75 L. c) Pureté = (20/29,75)×100 = 67,2%.",
+          "explanation": "Le volume théorique est calculé à partir de la masse supposée pure ; la pureté est le rapport des volumes réels et théoriques."
+        },
+        {
+          "question": "À partir de 96 g de CaC2 pur, on réalise la trimérisation de l'acétylène obtenu. Calculer la masse de benzène formée.",
+          "solution": "n(CaC2)=96/64=1,5 mol → n(C2H2)=1,5 mol. 3C2H2 → C6H6, n(C6H6)=1,5/3=0,5 mol → m=0,5×78=39 g.",
+          "explanation": "La trimérisation consomme 3 moles d'acétylène pour 1 mole de benzène."
+        },
+        {
+          "question": "On détruit 0,5 mol d'acétylène dans 0,75 mol de dichlore. Équation : C2H2 + 2Cl2 → 2C + 2HCl. Identifier le réactif limitant et calculer la masse de carbone formée.",
+          "solution": "Test : pour 0,5 mol C2H2, besoin de 1,0 mol Cl2 ; on n'a que 0,75 mol Cl2 → Cl2 limitant. n(C)=2×0,75/2? D'après l'équation, 1 mol Cl2 donne 1 mol C (car 2Cl2 → 2C). Donc n(C)=0,75 mol → m=0,75×12=9 g.",
+          "explanation": "Le réactif limitant est celui qui donne le plus petit rapport n/coefficient. Ici Cl2 donne 0,75/2=0,375, C2H2 donne 0,5/1=0,5 → Cl2 limitant."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Le benzène et les arènes",
+      "chapter_introduction": "Le benzène (C6H6) est le composé aromatique de base. Il possède un cycle hexagonal avec des électrons délocalisés, ce qui lui confère une stabilité particulière. Il peut subir des additions (à lumière diffuse) ou des substitutions (en présence de catalyseur).",
+      "chapter_objectives": [
+        "Connaître la formule du benzène C6H6 et sa structure cyclique",
+        "Savoir que le benzène peut réagir par addition (lumière diffuse) ou substitution (catalyseur)",
+        "Écrire les réactions d'addition : hydrogénation (→ cyclohexane), addition de Cl2 (→ hexachlorocyclohexane)",
+        "Écrire les réactions de substitution : chloration (→ chlorobenzène), nitration (→ nitrobenzène), sulfonation",
+        "Connaître les positions ortho, méta, para",
+        "Maîtriser la combustion du benzène",
+        "Calculer des grandeurs stœchiométriques avec le benzène"
+      ],
+      "subchapters": [
+        {
+          "title": "Structure et double comportement",
+          "introduction": "Le benzène C6H6 est insaturé (6 électrons π délocalisés) mais se comporte parfois comme un composé saturé.",
+          "definition": "Le benzène est un cycle hexagonal de 6 carbones, avec des liaisons intermédiaires entre simple et double. Sa formule semi-développée s'écrit souvent C6H5-H. Il est aromatique.",
+          "explanation": "Le grand paradoxe : bien qu'insaturé, le benzène ne donne pas facilement d'addition. À la lumière diffuse, il donne une addition (C6H6 + 3Cl2 → C6H6Cl6), mais en présence d'un catalyseur (FeCl3), il donne une substitution (C6H6 + Cl2 → C6H5Cl + HCl). Ce double comportement est typique des composés aromatiques.",
+          "step_by_step": [
+            "Étape 1 : Identifier les conditions de la réaction.",
+            "Étape 2 : Si lumière diffuse → addition.",
+            "Étape 3 : Si catalyseur (FeCl3, AlCl3) → substitution.",
+            "Étape 4 : Si lumière vive → destruction (C + HCl)."
+          ],
+          "examples": [
+            "Exemple : C6H6 + 3Cl2 (lumière diffuse) → C6H6Cl6 (hexachlorocyclohexane, lindane).",
+            "Exemple : C6H6 + Cl2 (FeCl3) → C6H5Cl (chlorobenzène) + HCl."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La nitration du benzène se fait avec un mélange d'acide nitrique et d'acide sulfurique concentrés : C6H6 + HNO3 (H2SO4) → C6H5NO2 + H2O."
+          ],
+          "methods": [
+            "Moyen mnémotechnique : Lumière diffuse = addition ; catalyseur = substitution."
+          ],
+          "common_mistakes": [
+            "Confondre les conditions : l'addition a lieu à lumière diffuse (comme pour les alcanes, c'est l'inverse !)."
+          ],
+          "summary": "Benzène C6H6 : addition à lumière diffuse, substitution avec catalyseur, destruction à lumière vive."
+        },
+        {
+          "title": "Réactions d'addition et de destruction",
+          "introduction": "Le benzène peut être hydrogéné ou chloré par addition, ou brûlé.",
+          "definition": "Hydrogénation : C6H6 + 3H2 → C6H12 (cyclohexane, 200°C, Ni). Addition de dichlore (lumière diffuse) : C6H6 + 3Cl2 → C6H6Cl6. Combustion complète : 2C6H6 + 15O2 → 12CO2 + 6H2O. Destruction par Cl2 (lumière vive) : C6H6 + 3Cl2 → 6C + 6HCl.",
+          "explanation": "La combustion du benzène produit une flamme très fuligineuse à cause de la forte proportion de carbone.",
+          "step_by_step": [
+            "Étape 1 : Écrire l'équation selon le type.",
+            "Étape 2 : Équilibrer les atomes.",
+            "Étape 3 : Pour la combustion, utiliser la méthode classique."
+          ],
+          "examples": [
+            "Exemple : Combustion de 1 mol de benzène nécessite 7,5 mol O2 et produit 6 mol CO2 et 3 mol H2O."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La destruction du benzène par le dichlore à lumière vive : C6H6 + 3Cl2 → 6C + 6HCl, on obtient du noir de carbone."
+          ],
+          "methods": [
+            "Pour équilibrer la combustion du benzène, multiplier par 2 pour éviter les demis."
+          ],
+          "common_mistakes": [
+            "Oublier le coefficient 3 pour l'addition de Cl2."
+          ],
+          "summary": "Hydrogénation : C6H6 + 3H2 → C6H12. Combustion : C6H6 + 15/2 O2 → 6CO2 + 3H2O. Destruction : C6H6 + 3Cl2 → 6C + 6HCl."
+        },
+        {
+          "title": "Réactions de substitution",
+          "introduction": "En présence d'un catalyseur acide de Lewis, le benzène subit des substitutions électrophiles.",
+          "definition": "Halogénation : C6H6 + Cl2 → C6H5Cl + HCl (FeCl3). Nitration : C6H6 + HNO3 → C6H5NO2 + H2O (H2SO4 concentré). Sulfonation : C6H6 + H2SO4 → C6H5SO3H + H2O.",
+          "explanation": "Les positions ortho (1,2), méta (1,3) et para (1,4) concernent les dérivés disubstitués. Le nitrobenzène (C6H5NO2) est utilisé dans la fabrication d'aniline.",
+          "step_by_step": [
+            "Étape 1 : Ajouter le catalyseur.",
+            "Étape 2 : Écrire le produit de substitution.",
+            "Étape 3 : Équilibrer."
+          ],
+          "examples": [
+            "Exemple : C6H6 + Cl2 (FeCl3) → C6H5Cl + HCl."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La nitration du benzène donne le nitrobenzène, liquide jaune pâle utilisé comme intermédiaire."
+          ],
+          "methods": [
+            "Pour la nitration, on utilise un mélange sulfonitrique (HNO3 + H2SO4)."
+          ],
+          "common_mistakes": [
+            "Oublier le catalyseur dans l'équation (il n'apparaît pas, mais il est indispensable)."
+          ],
+          "summary": "Substitution : halogénation (Cl2/FeCl3) → chlorobenzène ; nitration (HNO3/H2SO4) → nitrobenzène ; sulfonation (H2SO4) → acide benzènesulfonique."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Écrire l'équation de la combustion complète du benzène. Calculer le volume d'air nécessaire pour brûler 50 mL de benzène liquide (densité 0,9 g/cm3).",
+          "solution": "Équation : 2C6H6 + 15O2 → 12CO2 + 6H2O. m(C6H6)=50×0,9=45 g, n=45/78=0,577 mol. n(O2)= (15/2)×0,577 = 4,33 mol. V(O2)=4,33×22,4=97 L. V(air)=5×97=485 L.",
+          "explanation": "On utilise la densité pour obtenir la masse, puis la stœchiométrie de la combustion."
+        },
+        {
+          "question": "On détruit 0,25 mol de benzène dans 0,8 mol de dichlore (lumière vive). C6H6 + 3Cl2 → 6C + 6HCl. Quel est le réactif limitant ? Calculer la masse de carbone formée.",
+          "solution": "Besoin en Cl2 pour 0,25 mol C6H6 : 0,75 mol. On a 0,8 mol > 0,75, donc C6H6 limitant. n(C)=6×0,25=1,5 mol → m=1,5×12=18 g.",
+          "explanation": "Le réactif limitant est celui qui s'épuise en premier. Ici C6H6 est limitant."
+        },
+        {
+          "question": "On prépare du benzène par trimérisation de l'acétylène obtenu à partir de 100 g de CaC2 pur. Rendement 80%. Calculer la masse de benzène obtenue.",
+          "solution": "n(CaC2)=100/64=1,5625 mol → n(C2H2)=1,5625 mol. 3C2H2 → C6H6, n(C6H6) théorique = 1,5625/3 = 0,5208 mol. m théorique = 0,5208×78=40,62 g. m réelle = 40,62×0,80=32,5 g.",
+          "explanation": "Le rendement s'applique au produit (benzène)."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Les alcools",
+      "chapter_introduction": "Les alcools sont des composés organiques possédant un groupe hydroxyle -OH lié à un carbone tétraédrique (non aromatique). Ils sont classés en primaires, secondaires et tertiaires selon le nombre de carbones liés au carbone portant le OH. Ils subissent des déshydratations, des déshydrogénations et des oxydations.",
+      "chapter_objectives": [
+        "Définir un alcool et le distinguer du phénol",
+        "Classer les alcools (primaire, secondaire, tertiaire)",
+        "Connaître la nomenclature des alcools (suffixe -ol)",
+        "Maîtriser les réactions : déshydratation (intramoléculaire → alcène, intermoléculaire → éther), déshydrogénation (→ aldéhyde ou cétone), oxydation ménagée (→ aldéhyde puis acide pour primaire, cétone pour secondaire, rien pour tertiaire)",
+        "Savoir que l'alcool tertiaire ne s'oxyde pas",
+        "Calculer des grandeurs liées au degré alcoolique des boissons"
+      ],
+      "subchapters": [
+        {
+          "title": "Classes et nomenclature",
+          "introduction": "Les alcools sont classés selon la position du groupe OH sur la chaîne carbonée.",
+          "definition": "Alcool primaire : le carbone portant le OH est lié à un seul autre carbone (R-CH2OH). Ex : éthanol CH3CH2OH. Alcool secondaire : lié à deux carbones (R1-CHOH-R2). Ex : propan-2-ol (CH3-CHOH-CH3). Alcool tertiaire : lié à trois carbones (R1-C(OH)(R2)-R3). Ex : 2-méthylpropan-2-ol.",
+          "explanation": "Nomenclature : on prend la chaîne la plus longue contenant le OH, on numérote pour donner l'indice le plus bas au OH, et on termine par -ol. Exemple : CH3-CHOH-CH3 = propan-2-ol.",
+          "step_by_step": [
+            "Étape 1 : Identifier le carbone portant le OH.",
+            "Étape 2 : Compter ses voisins carbones.",
+            "Étape 3 : Si 1 voisin → primaire ; 2 → secondaire ; 3 → tertiaire.",
+            "Étape 4 : Pour nommer, trouver la chaîne principale (contenant OH)."
+          ],
+          "examples": [
+            "Exemple : Éthanol : CH3-CH2OH, carbone du OH lié à 1 C (CH3) → primaire.",
+            "Exemple : Propan-2-ol : (CH3)2CHOH, carbone du OH lié à 2 C → secondaire."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Le 2-méthylpropan-2-ol (CH3)3C-OH est un alcool tertiaire car le carbone du OH est lié à trois carbones."
+          ],
+          "methods": [
+            "Retenir : 'Primaire → aldéhyde ; Secondaire → cétone ; Tertiaire → rien' pour la déshydrogénation."
+          ],
+          "common_mistakes": [
+            "Confondre alcool et phénol (phénol = OH sur benzène, pas un alcool)."
+          ],
+          "summary": "Alcool primaire (R-CH2OH), secondaire (R1-CHOH-R2), tertiaire (R1-C(OH)(R2)-R3). Nom : alcane correspondant + -ol."
+        },
+        {
+          "title": "Déshydratation et déshydrogénation",
+          "introduction": "Les alcools peuvent perdre une molécule d'eau (déshydratation) ou une molécule d'hydrogène (déshydrogénation).",
+          "definition": "Déshydratation intramoléculaire (180°C, H2SO4) : alcool → alcène + H2O. Ex : C2H5OH → C2H4 + H2O. Déshydratation intermoléculaire (140°C, H2SO4) : 2 alcools → éther + H2O. Ex : 2C2H5OH → C2H5-O-C2H5 + H2O. Déshydrogénation : alcool primaire → aldéhyde + H2 ; alcool secondaire → cétone + H2 ; tertiaire → pas de réaction.",
+          "explanation": "La déshydratation de l'éthanol à 180°C donne de l'éthylène ; à 140°C, on obtient de l'éther éthylique. La déshydrogénation est une oxydation sans oxygène, utilisée industriellement.",
+          "step_by_step": [
+            "Étape 1 : Choisir la température.",
+            "Étape 2 : Si 180°C → élimination d'eau (alcène).",
+            "Étape 3 : Si 140°C → éther.",
+            "Étape 4 : Pour déshydrogénation, connaître la classe de l'alcool."
+          ],
+          "examples": [
+            "Exemple : Éthanol → éthanal (aldéhyde) par déshydrogénation : CH3CH2OH → CH3CHO + H2.",
+            "Exemple : Propan-2-ol → propanone (acétone) : CH3CHOHCH3 → CH3COCH3 + H2."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La déshydratation du propan-2-ol donne le propène : CH3-CHOH-CH3 → CH3-CH=CH2 + H2O."
+          ],
+          "methods": [
+            "Pour se souvenir : 180°C = élimination d'eau (alcène), 140°C = éther."
+          ],
+          "common_mistakes": [
+            "Confondre déshydratation (élimination d'eau) et déshydrogénation (élimination de H2)."
+          ],
+          "summary": "Déshydratation : alcool → alcène (180°C) ou éther (140°C). Déshydrogénation : primaire → aldéhyde, secondaire → cétone, tertiaire sans réaction."
+        },
+        {
+          "title": "Oxydation ménagée",
+          "introduction": "L'oxydation par des agents comme KMnO4, K2Cr2O7 ou O2/Cu transforme les alcools.",
+          "definition": "Oxydation ménagée : alcool primaire → aldéhyde (puis acide carboxylique si excès d'oxydant) ; alcool secondaire → cétone ; alcool tertiaire → pas d'oxydation.",
+          "explanation": "L'éthanol s'oxyde d'abord en éthanal (CH3CHO), puis en acide acétique (CH3COOH). La fermentation acétique (CH3CH2OH + O2 → CH3COOH + H2O) est une oxydation complète.",
+          "step_by_step": [
+            "Étape 1 : Identifier la classe.",
+            "Étape 2 : Primaire : selon la quantité d'oxydant, aldéhyde ou acide.",
+            "Étape 3 : Secondaire : cétone.",
+            "Étape 4 : Tertiaire : aucune réaction."
+          ],
+          "examples": [
+            "Exemple : CH3CH2OH + 1/2 O2 → CH3CHO + H2O (aldéhyde).",
+            "Exemple : CH3CH2OH + O2 → CH3COOH + H2O (acide)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : L'oxydation du propan-2-ol par le dichromate de potassium donne la propanone (acétone) : CH3CHOHCH3 + [O] → CH3COCH3 + H2O."
+          ],
+          "methods": [
+            "Pour l'oxydation ménagée, on utilise souvent le réactif de Tollens ou de Fehling pour les aldéhydes."
+          ],
+          "common_mistakes": [
+            "Penser que l'oxydation d'un alcool primaire donne directement l'acide."
+          ],
+          "summary": "Oxydation : primaire → aldéhyde → acide ; secondaire → cétone ; tertiaire inerte."
+        },
+        {
+          "title": "Degré alcoolique des boissons",
+          "introduction": "Le degré alcoolique d'une boisson indique le volume d'éthanol pur pour 100 mL de boisson.",
+          "definition": "Degré = (V_éthanol / V_boisson) × 100. Exemple : vin à 12° contient 12 mL d'éthanol pur dans 100 mL de vin. La masse d'éthanol se calcule par m = V × ρ, avec ρ = 0,8 g/mL.",
+          "explanation": "Connaître cette relation permet de relier la quantité d'alcool dans une boisson aux calculs de fermentation.",
+          "step_by_step": [
+            "Étape 1 : V_éthanol = (degré × V_boisson) / 100.",
+            "Étape 2 : m_éthanol = V_éthanol × 0,8.",
+            "Étape 3 : n_éthanol = m_éthanol / 46."
+          ],
+          "examples": [
+            "Exemple : 1 L de vin à 12° contient 120 mL d'éthanol, soit 96 g, soit 2,087 mol."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Une bouteille de 75 cL de vin à 13° contient 0,75 × 0,13 = 0,0975 L = 97,5 mL d'éthanol pur, soit 78 g."
+          ],
+          "methods": [
+            "Toujours convertir les volumes en mL ou L cohérents."
+          ],
+          "common_mistakes": [
+            "Utiliser la masse volumique de l'eau (1 g/mL) au lieu de celle de l'éthanol (0,8 g/mL)."
+          ],
+          "summary": "Degré = (V_éthanol / V_boisson) × 100. ρ(éthanol)=0,8 g/cm³."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un vin titre 15°. a) Quel volume d'éthanol pur dans 2 L de ce vin ? b) Quelle masse d'alcool ? c) Quelle masse d'acide acétique peut-on obtenir par oxydation de tout l'éthanol ?",
+          "solution": "a) V(éthanol)= (15×2000)/100 = 300 mL. b) m=300×0,8=240 g. c) n(éthanol)=240/46=5,217 mol ; équation C2H5OH + O2 → CH3COOH + H2O → n(acide)=5,217 mol → m=5,217×60=313 g.",
+          "explanation": "L'oxydation complète donne l'acide acétique avec un rapport molaire 1:1."
+        },
+        {
+          "question": "On déshydrate 500 mL d'éthanol (ρ=0,8) avec rendement 90%. Calculer le volume d'éthylène à TPN.",
+          "solution": "m(éthanol)=500×0,8=400 g, n=400/46=8,70 mol. n(éthylène) théorique = 8,70 mol, réel = 8,70×0,90=7,83 mol, V=7,83×22,4=175 L.",
+          "explanation": "La déshydratation donne un rapport 1:1 entre alcool et alcène."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Les aldéhydes et les cétones",
+      "chapter_introduction": "Les aldéhydes et les cétones possèdent le groupe carbonyle C=O. Ils se distinguent par la position de ce groupe : en bout de chaîne pour les aldéhydes, au milieu pour les cétones. Leurs tests d'identification sont fondamentaux au bac.",
+      "chapter_objectives": [
+        "Différencier aldéhydes (R-CHO) et cétones (R-CO-R')",
+        "Connaître les tests : 2,4-DNPH (jaune pour tous les carbonylés), Fehling (rouge brique pour aldéhydes), Tollens (miroir d'argent pour aldéhydes), Schiff (rose pour aldéhydes)",
+        "Savoir que les cétones ne réagissent pas avec Fehling, Tollens, Schiff",
+        "Écrire les réactions de réduction des aldéhydes (→ alcool primaire) et des cétones (→ alcool secondaire)",
+        "Écrire l'oxydation des aldéhydes en acides carboxyliques",
+        "Connaître la dimérisation des aldéhydes (aldolisation)"
+      ],
+      "subchapters": [
+        {
+          "title": "Structure et tests d'identification",
+          "introduction": "Le groupe carbonyle C=O est commun, mais les aldéhydes ont un hydrogène sur le carbone du carbonyle, ce qui les rend réducteurs.",
+          "definition": "Aldéhyde : formule R-CHO, exemple : méthanal (formol) H-CHO, éthanal CH3-CHO. Cétone : R-CO-R', exemple : propanone (acétone) CH3-CO-CH3.",
+          "explanation": "Les tests : la 2,4-DNPH (dinitrophénylhydrazine) donne un précipité jaune avec tout composé carbonylé. La liqueur de Fehling (chauffée) donne un précipité rouge brique (Cu2O) avec les aldéhydes seulement. Le réactif de Tollens (nitrate d'argent ammoniacal) donne un miroir d'argent. Le réactif de Schiff donne une coloration rose. Les cétones sont négatives à ces trois derniers tests.",
+          "step_by_step": [
+            "Étape 1 : Appliquer le test à la 2,4-DNPH. Si précipité jaune → présence de C=O.",
+            "Étape 2 : Si positif, tester avec Fehling ou Tollens. Si positif → aldéhyde ; si négatif → cétone."
+          ],
+          "examples": [
+            "Exemple : L'éthanal donne un précipité rouge brique avec Fehling, la propanone ne donne rien."
+          ],
+          "detailed_examples": [
+            "Exemple d'identification : Trois flacons contiennent éthanal, propanone et acide acétique. Le papier pH identifie l'acide (rouge). Le 2,4-DNPH donne du jaune pour les deux autres. Fehling donne du rouge pour l'éthanal, rien pour la propanone."
+          ],
+          "methods": [
+            "Mnémotechnique : 'Fehling, Tollens, Schiff : seulement aldéhydes' ; '2,4-DNPH : tous les carbonylés'."
+          ],
+          "common_mistakes": [
+            "Penser que la 2,4-DNPH est spécifique des aldéhydes (faux, elle réagit aussi avec les cétones)."
+          ],
+          "summary": "2,4-DNPH : jaune (aldéhyde ou cétone). Fehling : rouge brique (aldéhyde). Tollens : miroir d'argent (aldéhyde). Schiff : rose (aldéhyde)."
+        },
+        {
+          "title": "Réactions de réduction et d'oxydation",
+          "introduction": "Les aldéhydes et cétones peuvent être réduits en alcools. Les aldéhydes s'oxydent facilement en acides carboxyliques.",
+          "definition": "Réduction : aldéhyde + H2 → alcool primaire ; cétone + H2 → alcool secondaire. Oxydation des aldéhydes : R-CHO + 1/2 O2 → R-COOH (acide carboxylique).",
+          "explanation": "La réduction se fait par hydrogénation catalytique (H2, Ni). L'oxydation des aldéhydes est à la base des tests de Fehling et Tollens.",
+          "step_by_step": [
+            "Étape 1 : Pour la réduction, ajouter H2.",
+            "Étape 2 : Pour l'oxydation, ajouter O2 (ou [O]).",
+            "Étape 3 : Le produit est un alcool pour la réduction, un acide pour l'oxydation."
+          ],
+          "examples": [
+            "Exemple : CH3CHO + H2 → CH3CH2OH.",
+            "Exemple : CH3CHO + 1/2 O2 → CH3COOH."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La réduction de l'acétone par H2/Ni donne le propan-2-ol : CH3COCH3 + H2 → CH3CHOHCH3."
+          ],
+          "methods": [
+            "La réduction des composés carbonylés est l'inverse de l'oxydation des alcools."
+          ],
+          "common_mistakes": [
+            "Confondre réduction (ajout de H2) et oxydation (ajout de O)."
+          ],
+          "summary": "Réduction : aldéhyde → alcool primaire ; cétone → alcool secondaire. Oxydation des aldéhydes → acide carboxylique."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "On possède trois composés : éthanal, propanone et acide acétique. Comment les identifier ?",
+          "solution": "1) Papier pH : l'acide acétique vire au rouge. 2) 2,4-DNPH sur les deux restants : les deux donnent un précipité jaune. 3) Fehling sur les deux : seul l'éthanal donne un précipité rouge brique. La propanone ne réagit pas.",
+          "explanation": "L'acide se reconnaît par son acidité. Le test de Fehling distingue aldéhyde et cétone."
+        },
+        {
+          "question": "Calculer la masse d'argent déposée par réaction de Tollens sur 4,4 g d'éthanal. (M(Ag)=108 g/mol)",
+          "solution": "CH3CHO + 2Ag+ → CH3COOH + 2Ag. n(éthanal)=4,4/44=0,1 mol. n(Ag)=0,2 mol, m=0,2×108=21,6 g.",
+          "explanation": "La stœchiométrie indique 2 moles d'argent par mole d'aldéhyde."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Les acides carboxyliques",
+      "chapter_introduction": "Les acides carboxyliques possèdent le groupe carboxyle -COOH. Ils sont acides (pH<7) et réagissent avec les bases, les métaux et les alcools (estérification). L'acide acétique (vinaigre) est le plus important.",
+      "chapter_objectives": [
+        "Reconnaître la fonction acide carboxylique -COOH",
+        "Connaître l'acide acétique (CH3COOH) et l'acide benzoïque",
+        "Maîtriser les réactions : neutralisation (avec bases), action sur les métaux (dégagement de H2), fermentation acétique (éthanol → acide acétique), décarboxylation (→ méthane), estérification (avec alcool)",
+        "Savoir calculer la concentration d'un acide par dosage acide-base",
+        "Connaître la formule de dosage NA×VA = NB×VB et l'application aux diacides et dibases"
+      ],
+      "subchapters": [
+        {
+          "title": "Propriétés et réactions",
+          "introduction": "Le groupe carboxyle -COOH confère aux acides carboxyliques leur caractère acide et leur réactivité.",
+          "definition": "Acide carboxylique : R-COOH. Exemples : acide acétique (CH3COOH), acide benzoïque (C6H5COOH). Propriétés : pH acide, réaction avec les métaux (dégagement de H2), avec les bases (formation de sels), avec les alcools (estérification).",
+          "explanation": "La fermentation acétique transforme l'éthanol en acide acétique : CH3CH2OH + O2 → CH3COOH + H2O. La décarboxylation de l'acide acétique donne du méthane : CH3COOH → CH4 + CO2 (catalyseur Ni, 200°C).",
+          "step_by_step": [
+            "Étape 1 : Pour la neutralisation, écrire acide + base → sel + eau.",
+            "Étape 2 : Pour l'action sur un métal, écrire 2RCOOH + M → (RCOO)2M + H2.",
+            "Étape 3 : Pour l'estérification, écrire RCOOH + R'OH ⇌ RCOOR' + H2O."
+          ],
+          "examples": [
+            "Exemple : CH3COOH + NaOH → CH3COONa + H2O.",
+            "Exemple : 2CH3COOH + Zn → (CH3COO)2Zn + H2."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La décarboxylation de l'acide benzoïque donne du benzène : C6H5COOH → C6H6 + CO2."
+          ],
+          "methods": [
+            "Pour l'estérification, toujours utiliser un catalyseur acide (H2SO4) et chauffer."
+          ],
+          "common_mistakes": [
+            "Confondre estérification et saponification (saponification = hydrolyse d'un ester par une base)."
+          ],
+          "summary": "Acide carboxylique : -COOH. Neutralisation, action sur métaux, estérification, décarboxylation."
+        },
+        {
+          "title": "Dosage acide-base",
+          "introduction": "Le dosage permet de déterminer la concentration d'une solution acide ou basique. La formule fondamentale est NA×VA = NB×VB.",
+          "definition": "Normalité N = nombre d'équivalents par litre. Pour un monoacide (HCl, CH3COOH), N = M (molarité). Pour un diacide (H2SO4), N = 2M. Pour une monobase (NaOH), N = M. Pour une dibase (Ca(OH)2), N = 2M. La formule de dosage : NA × VA = NB × VB, où V sont les volumes à l'équivalence.",
+          "explanation": "Exemple : 15 cm3 d'acide acétique sont neutralisés par 20 cm3 de soude 0,5 M. NB = 0,5 N, donc NA = (NB×VB)/VA = (0,5×20)/15 = 0,667 N. Comme l'acide acétique est monoacide, M = 0,667 mol/L. Concentration massique = 0,667×60 = 40 g/L.",
+          "step_by_step": [
+            "Étape 1 : Déterminer la normalité de la solution connue.",
+            "Étape 2 : Appliquer NA×VA = NB×VB.",
+            "Étape 3 : En déduire NA puis la molarité (en divisant par le nombre de H+).",
+            "Étape 4 : Calculer la concentration massique Cm = M × M_molaire."
+          ],
+          "examples": [
+            "Exemple : H2SO4 1 M a une normalité de 2 N."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Dosage de l'acide acétique dans le vinaigre : on prélève 10 mL de vinaigre, on dilue, on titre avec NaOH 0,1 M. Si VNaOH = 12,5 mL, alors NA = (0,1×12,5)/10 = 0,125 N, soit 0,125 mol/L d'acide, concentration massique = 0,125×60 = 7,5 g/L."
+          ],
+          "methods": [
+            "Pour un diacide, M = N/2. Pour une dibase, M = N/2."
+          ],
+          "common_mistakes": [
+            "Oublier de multiplier par 2 pour H2SO4 ou Ca(OH)2."
+          ],
+          "summary": "Dosage : NA×VA = NB×VB. Normalité = molarité × nombre de H+ (ou OH-)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "On neutralise 25 cm3 de soude 0,5 M par 15 cm3 d'acide acétique. Calculer la molarité de l'acide, puis sa concentration massique.",
+          "solution": "Soude monobase → NB = 0,5 N. NA×15 = 0,5×25 → NA = 12,5/15 = 0,833 N. Acide acétique monoacide → M = 0,833 mol/L. Cm = 0,833×60 = 50 g/L.",
+          "explanation": "On applique la formule de dosage, puis on convertit la normalité en molarité."
+        },
+        {
+          "question": "On neutralise 20 cm3 d'une solution d'acide sulfurique (H2SO4) par 40 cm3 de soude 0,1 M. Calculer la molarité de l'acide sulfurique.",
+          "solution": "H2SO4 diacide, NaOH monobase. NB = 0,1 N. NA×20 = 0,1×40 → NA = 4/20 = 0,2 N. M(acide) = NA/2 = 0,1 mol/L.",
+          "explanation": "Attention, pour H2SO4, la normalité est le double de la molarité."
+        }
+      ]
+    },
+    {
+      "chapter_title": "La fermentation alcoolique",
+      "chapter_introduction": "La fermentation alcoolique transforme le glucose en éthanol et dioxyde de carbone sous l'action des levures. C'est le processus de fabrication des boissons alcoolisées.",
+      "chapter_objectives": [
+        "Écrire l'équation de la fermentation alcoolique : C6H12O6 → 2C2H5OH + 2CO2",
+        "Savoir que le glucose (M=180) donne 2 éthanol (M=46) et 2 CO2 (M=44)",
+        "Relier la masse d'éthanol dans une boisson au glucose initial, en tenant compte du rendement",
+        "Connaître l'hydrolyse du saccharose et de l'amidon",
+        "Effectuer des calculs de volumes d'alcool et de CO2"
+      ],
+      "subchapters": [
+        {
+          "title": "Équation et stœchiométrie",
+          "introduction": "La fermentation est une réaction biologique catalysée par la zymase des levures.",
+          "definition": "C6H12O6 → 2C2H5OH + 2CO2. 180 g de glucose donnent 92 g d'éthanol et 88 g de CO2. Les rapports molaires sont 1:2:2.",
+          "explanation": "Le rendement n'est jamais de 100% en pratique. On peut aussi partir du saccharose (C12H22O11) qui s'hydrolyse en glucose et fructose avant fermentation.",
+          "step_by_step": [
+            "Étape 1 : Convertir la masse de glucose en moles.",
+            "Étape 2 : Utiliser les rapports stœchiométriques pour trouver les moles d'éthanol et de CO2.",
+            "Étape 3 : Appliquer le rendement si indiqué.",
+            "Étape 4 : Convertir en masse ou volume (pour l'éthanol, utiliser ρ=0,8)."
+          ],
+          "examples": [
+            "Exemple : 180 g de glucose (1 mol) donnent 2 mol d'éthanol (92 g) et 2 mol de CO2 (88 g)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : 1,8 kg de glucose (10 mol) donnent théoriquement 20 mol d'éthanol (920 g), soit 1150 mL (car 920/0,8=1150 mL). Avec un rendement de 70%, on obtiendrait 14 mol (644 g), soit 805 mL."
+          ],
+          "methods": [
+            "Pour passer de l'éthanol liquide au volume, utiliser V = m / ρ avec ρ=0,8 g/mL."
+          ],
+          "common_mistakes": [
+            "Oublier de diviser par 0,8 pour obtenir le volume d'éthanol.",
+            "Confondre la formule du glucose (C6H12O6) avec celle du saccharose (C12H22O11)."
+          ],
+          "summary": "Fermentation : C6H12O6 → 2C2H5OH + 2CO2. Rapport massique : 180 g glucose → 92 g éthanol → 115 mL (ρ=0,8)."
+        },
+        {
+          "title": "Applications : vin, vinaigre",
+          "introduction": "Le degré alcoolique du vin permet de remonter à la quantité de glucose fermenté. L'oxydation de l'éthanol donne l'acide acétique (vinaigre).",
+          "definition": "Degré du vin : pourcentage volumique d'éthanol. L'acide acétique du vinaigre provient de l'oxydation de l'éthanol.",
+          "explanation": "Exemple : 1 L de vin à 12° contient 120 mL d'éthanol, soit 96 g, soit 2,087 mol d'éthanol, donc 1,0435 mol de glucose (187,8 g). L'oxydation totale de l'éthanol donne la même quantité d'acide acétique (2,087 mol, soit 125,2 g).",
+          "step_by_step": [
+            "Étape 1 : Calculer la masse d'éthanol dans le vin.",
+            "Étape 2 : Convertir en moles.",
+            "Étape 3 : Remonter au glucose par la stœchiométrie (1 glucose → 2 éthanol).",
+            "Étape 4 : Pour l'acide acétique, 1 éthanol → 1 acide."
+          ],
+          "examples": [
+            "Exemple : 2 L de vin à 15° donnent 300 mL d'éthanol (240 g, 5,217 mol), soit 2,6085 mol de glucose (469,5 g), et 5,217 mol d'acide acétique (313 g)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Un vin à 11° contient 11% d'éthanol en volume. Dans 0,75 L, il y a 82,5 mL d'éthanol pur, soit 66 g, soit 1,435 mol. La masse de glucose correspondante est (1,435/2)×180 = 129,15 g."
+          ],
+          "methods": [
+            "Toujours vérifier l'unité : le degré est un pourcentage volumique, pas massique."
+          ],
+          "common_mistakes": [
+            "Confondre l'ordre des opérations : d'abord masse d'éthanol, puis glucose."
+          ],
+          "summary": "Le degré alcoolique permet de calculer la masse d'éthanol, puis celle de glucose initial. L'oxydation donne l'acide acétique."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un vin titre 12°. On dispose de 5 L. a) Masse d'éthanol. b) Masse de glucose ayant fermenté (rendement 70%). c) Masse d'acide acétique qu'on peut obtenir par oxydation totale de l'éthanol.",
+          "solution": "a) V(éthanol)= (12×5000)/100=600 mL, m=600×0,8=480 g. b) n(éthanol)=480/46=10,435 mol → n(glucose) théorique = 10,435/2=5,2175 mol → m théorique = 5,2175×180=939,15 g → avec rendement 70%, m(glucose) réelle = 939,15/0,70=1341,6 g. c) n(acide)= n(éthanol)=10,435 mol → m=10,435×60=626,1 g.",
+          "explanation": "Pour le glucose, rendement de fermentation, donc la masse réelle est supérieure à la masse théorique (réactif)."
+        },
+        {
+          "question": "On fermente 1,5 kg de glucose avec rendement 75%. Calculer le volume d'alcool obtenu (ρ=0,8).",
+          "solution": "n(glucose)=1500/180=8,333 mol → n(éthanol) théorique = 16,667 mol → réel = 16,667×0,75=12,5 mol. m(éthanol)=12,5×46=575 g. V=575/0,8=718,75 mL.",
+          "explanation": "Le rendement s'applique au produit (éthanol)."
+        }
+      ]
+    },
+    {
+      "chapter_title": "La polymérisation",
+      "chapter_introduction": "La polymérisation est la réaction qui assemble de nombreuses petites molécules (monomères) pour former de longues chaînes (polymères). Les polymères les plus courants sont le polyéthylène, le polypropylène et le PVC.",
+      "chapter_objectives": [
+        "Définir monomère, polymère, indice de polymérisation n",
+        "Connaître la relation M(polymère) = n × M(monomère)",
+        "Déterminer la formule brute d'un monomère à partir de la composition centésimale et de la masse molaire du polymère",
+        "Écrire les équations de polymérisation de l'éthylène (PE), du propène (PP), du chlorure de vinyle (PVC), du tétrafluoroéthylène (PTFE)",
+        "Savoir que le monomère est un alcène (ou dérivé) avec une double liaison"
+      ],
+      "subchapters": [
+        {
+          "title": "Définitions et relation fondamentale",
+          "introduction": "Un polymère est une macromolécule formée par la répétition d'un motif monomère.",
+          "definition": "Monomère : petite molécule insaturée (souvent un alcène) pouvant réagir avec elle-même. Polymère : molécule géante résultant de l'enchaînement de nombreux monomères. Indice de polymérisation n : nombre de monomères dans le polymère. Relation : M(polymère) = n × M(monomère).",
+          "explanation": "Exemple : le polyéthylène (-CH2-CH2-)n a pour monomère l'éthylène CH2=CH2 (M=28). Si n=1000, M(polymère)=28000 g/mol.",
+          "step_by_step": [
+            "Étape 1 : Calculer M(monomère) = M(polymère) / n.",
+            "Étape 2 : Si on connaît la composition centésimale, déterminer la formule brute.",
+            "Étape 3 : Le monomère étant insaturé, il contient une double liaison C=C (sauf cas particuliers).",
+            "Étape 4 : Écrire la formule semi-développée correspondante."
+          ],
+          "examples": [
+            "Exemple : M(polymère)=31250, n=500 → M(monomère)=62,5 g/mol."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Un polymère a M=93750, n=1500, composition : 38,4% C, 4,8% H, 56,8% Cl. M(monomère)=93750/1500=62,5. Calcul des atomes : C: 62,5×0,384/12=2 ; H: 62,5×0,048/1=3 ; Cl: 62,5×0,568/35,5=1. Formule brute C2H3Cl. C'est le chlorure de vinyle CH2=CHCl, monomère du PVC."
+          ],
+          "methods": [
+            "Pour trouver la formule brute, diviser la masse de chaque élément par sa masse atomique, puis ajuster aux rapports entiers."
+          ],
+          "common_mistakes": [
+            "Oublier de diviser par la masse atomique.",
+            "Confondre monomère et polymère."
+          ],
+          "summary": "M(polymère) = n × M(monomère). Le monomère est un alcène ou dérivé. Exemples : éthylène → PE, propène → PP, chlorure de vinyle → PVC."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Un polymère a M=126000, n=3000. Le monomère est un alcène contenant 85,7% C et 14,3% H. a) M(monomère). b) Formule brute. c) Nom et formule semi-développée. d) Équation de polymérisation.",
+          "solution": "a) M(monomère)=126000/3000=42 g/mol. b) C: 42×0,857/12=3 ; H: 42×0,143/1=6 → C3H6. c) Propène CH3-CH=CH2. d) n CH3-CH=CH2 → (-CH2-CH(CH3)-)n (polypropylène).",
+          "explanation": "Le propène a pour masse molaire 42, correspondant à CnH2n avec n=3."
+        },
+        {
+          "question": "Un polymère a M=93750, n=1500, composition C=38,4%, H=4,8%, Cl=56,8%. Déterminer le monomère et le polymère.",
+          "solution": "M(monomère)=93750/1500=62,5. C: 62,5×0,384/12=2 ; H: 62,5×0,048/1=3 ; Cl: 62,5×0,568/35,5=1 → C2H3Cl, chlorure de vinyle CH2=CHCl. Polymère : PVC (polychlorure de vinyle).",
+          "explanation": "Le calcul des atomes donne directement la formule brute."
+        }
+      ]
+    },
+    {
+      "chapter_title": "pH, acides, bases et dosage",
+      "chapter_introduction": "Le pH mesure l'acidité d'une solution. La relation pH = -log[H3O+] est fondamentale. Les dosages acide-base permettent de déterminer des concentrations inconnues.",
+      "chapter_objectives": [
+        "Définir pH = -log[H3O+] et [H3O+] = 10^{-pH}",
+        "Savoir que pH + pOH = 14, Ke = 10^{-14} à 25°C",
+        "Distinguer acide fort/base forte, acide faible/base faible",
+        "Utiliser la formule de dosage NA×VA = NB×VB",
+        "Calculer la normalité à partir de la molarité (pour diacides, dibases)"
+      ],
+      "subchapters": [
+        {
+          "title": "Définitions et relations",
+          "introduction": "Le pH est une grandeur logarithmique qui permet de caractériser l'acidité.",
+          "definition": "pH = -log[H3O+]. [H3O+] = 10^{-pH}. Le produit ionique de l'eau : Ke = [H3O+][OH-] = 10^{-14} à 25°C. pOH = -log[OH-], pH + pOH = 14.",
+          "explanation": "Une solution neutre a [H3O+] = [OH-] = 10^{-7} mol/L, pH = 7. Solution acide : pH < 7, basique : pH > 7.",
+          "step_by_step": [
+            "Étape 1 : Pour calculer pH à partir de [H3O+], utiliser pH = -log([H3O+]).",
+            "Étape 2 : Pour calculer [H3O+] à partir de pH, utiliser [H3O+] = 10^{-pH}.",
+            "Étape 3 : Pour calculer [OH-], utiliser [OH-] = 10^{-14} / [H3O+]."
+          ],
+          "examples": [
+            "Exemple : [H3O+] = 10^{-3} mol/L → pH = 3.",
+            "Exemple : pH = 5 → [H3O+] = 10^{-5} mol/L, [OH-] = 10^{-9} mol/L."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Calcul du pH d'une solution de HCl 0,01 M : [H3O+] = 0,01 = 10^{-2}, pH = 2. C'est un acide fort."
+          ],
+          "methods": [
+            "Utiliser la calculatrice pour les logarithmes. log(2×10^{-4}) = log2 + log10^{-4} = 0,301 - 4 = -3,699, donc pH = 3,699."
+          ],
+          "common_mistakes": [
+            "Oublier le signe négatif dans pH = -log[H3O+].",
+            "Confondre pH et pOH."
+          ],
+          "summary": "pH = -log[H3O+], [H3O+] = 10^{-pH}, Ke = 10^{-14}, pH + pOH = 14."
+        },
+        {
+          "title": "Dosage acide-base",
+          "introduction": "Le dosage permet de déterminer la concentration d'une solution inconnue par réaction avec une solution étalon.",
+          "definition": "À l'équivalence, les quantités de matière d'acide et de base sont équivalentes : CA×VA = CB×VB pour les monoacides/monobases. En normalité : NA×VA = NB×VB.",
+          "explanation": "La normalité tient compte du nombre de H+ ou OH- échangés. Exemple : H2SO4 (diacide) 0,1 M a une normalité de 0,2 N. Ca(OH)2 (dibase) 0,1 M a une normalité de 0,2 N.",
+          "step_by_step": [
+            "Étape 1 : Écrire l'équation de la réaction de neutralisation.",
+            "Étape 2 : Déterminer la normalité de la solution connue.",
+            "Étape 3 : Appliquer NA×VA = NB×VB.",
+            "Étape 4 : En déduire la molarité inconnue (N divisé par nombre de H+ ou OH-)."
+          ],
+          "examples": [
+            "Exemple : 20 mL d'acide sulfurique 0,1 M (donc NA=0,2 N) neutralisé par 40 mL de soude 0,1 M (NB=0,1 N) : vérifier (0,2×20 = 0,1×40) → 4 = 4."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : On titre 10 mL d'une solution d'acide chlorhydrique avec de la soude 0,1 M. Volume à l'équivalence = 12,5 mL. Alors NA×10 = 0,1×12,5 → NA = 0,125 N, donc M = 0,125 mol/L."
+          ],
+          "methods": [
+            "Pour un diacide, M = N/2. Pour une dibase, M = N/2."
+          ],
+          "common_mistakes": [
+            "Confondre molarité et normalité.",
+            "Oublier de multiplier par le nombre de H+ pour l'acide ou OH- pour la base."
+          ],
+          "summary": "Dosage : NA×VA = NB×VB. Normalité = molarité × nombre de H+ (acide) ou OH- (base)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Calculer le pH d'une solution dont [H3O+] = 2×10^{-4} mol/L. La solution est-elle acide ?",
+          "solution": "pH = -log(2×10^{-4}) = - (log2 + log10^{-4}) = - (0,301 - 4) = 3,699. pH < 7 → acide.",
+          "explanation": "Le calcul du logarithme se fait par décomposition."
+        },
+        {
+          "question": "On neutralise 25 cm3 d'une solution d'acide chlorhydrique par 20 cm3 de soude 0,1 M. Calculer la concentration de l'acide.",
+          "solution": "HCl monoacide, NaOH monobase. NB = 0,1 N, NA×25 = 0,1×20 → NA = 2/25 = 0,08 N. M = 0,08 mol/L.",
+          "explanation": "Le volume est en cm3, mais le rapport est indépendant des unités tant qu'on utilise les mêmes."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Oxydoréduction",
+      "chapter_introduction": "Les réactions d'oxydoréduction mettent en jeu un transfert d'électrons. L'oxydant capte des électrons, le réducteur en cède. Les piles électrochimiques et l'électrolyse sont des applications importantes.",
+      "chapter_objectives": [
+        "Définir oxydant, réducteur, oxydation, réduction",
+        "Écrire les demi-équations électroniques et les équations bilan",
+        "Utiliser la règle des potentiels standard (E°) pour prévoir le sens d'une réaction",
+        "Connaître les couples classiques (Zn2+/Zn, Cu2+/Cu, Ag+/Ag, H+/H2, Fe2+/Fe, MnO4-/Mn2+, Cr2O72-/Cr3+)",
+        "Calculer la force électromotrice d'une pile",
+        "Appliquer la loi de Faraday pour l'électrolyse"
+      ],
+      "subchapters": [
+        {
+          "title": "Définitions et demi-équations",
+          "introduction": "Une réaction redox est une réaction au cours de laquelle des électrons sont transférés.",
+          "definition": "Oxydation : perte d'électrons (le réducteur s'oxyde). Réduction : gain d'électrons (l'oxydant se réduit). Demi-équation : Red → Ox + n e- (oxydation) ou Ox + n e- → Red (réduction).",
+          "explanation": "Exemple : Zn → Zn2+ + 2e- (oxydation) ; Cu2+ + 2e- → Cu (réduction). La réaction globale est Zn + Cu2+ → Zn2+ + Cu.",
+          "step_by_step": [
+            "Étape 1 : Identifier les couples redox.",
+            "Étape 2 : Écrire la demi-équation d'oxydation du réducteur.",
+            "Étape 3 : Écrire la demi-équation de réduction de l'oxydant.",
+            "Étape 4 : Équilibrer les électrons (multiplier si nécessaire) et additionner."
+          ],
+          "examples": [
+            "Exemple : Fe + Cu2+ → Fe2+ + Cu. Demi-équations : Fe → Fe2+ + 2e- ; Cu2+ + 2e- → Cu."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : 3Fe + 2Au3+ → 3Fe2+ + 2Au. Fe → Fe2+ + 2e- (×3) ; Au3+ + 3e- → Au (×2)."
+          ],
+          "methods": [
+            "Pour équilibrer, on multiplie les demi-équations pour que le nombre d'électrons soit identique."
+          ],
+          "common_mistakes": [
+            "Confondre oxydant et réducteur.",
+            "Oublier d'équilibrer les charges et les atomes."
+          ],
+          "summary": "Oxydant capte e-, réducteur cède e-. Demi-équations : Red → Ox + n e- (oxydation) ; Ox + n e- → Red (réduction)."
+        },
+        {
+          "title": "Piles électrochimiques",
+          "introduction": "Une pile transforme l'énergie chimique d'une réaction redox spontanée en énergie électrique.",
+          "definition": "FEM (force électromotrice) = E°(cathode) - E°(anode). La cathode est le siège de la réduction, l'anode de l'oxydation. Le courant sort de la cathode (pôle +) et entre par l'anode (pôle -).",
+          "explanation": "Exemple : pile Zn-Cu. E°(Cu2+/Cu)=0,34 V, E°(Zn2+/Zn)=-0,76 V. FEM = 0,34 - (-0,76) = 1,10 V. Le zinc s'oxyde (anode, -), le cuivre se réduit (cathode, +).",
+          "step_by_step": [
+            "Étape 1 : Identifier les couples et leurs potentiels standard.",
+            "Étape 2 : Le couple avec le plus grand E° se réduit (cathode).",
+            "Étape 3 : Le couple avec le plus petit E° s'oxyde (anode).",
+            "Étape 4 : FEM = E°(cathode) - E°(anode)."
+          ],
+          "examples": [
+            "Exemple : Pile Zn-Ag : E°(Ag+/Ag)=0,80 V, E°(Zn2+/Zn)=-0,76 V, FEM = 0,80 - (-0,76) = 1,56 V."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Une pile à hydrogène : H2 (anode) et O2 (cathode) avec électrolyte acide. Réactions : H2 → 2H+ + 2e- ; O2 + 4H+ + 4e- → 2H2O. FEM standard = 1,23 V."
+          ],
+          "methods": [
+            "Pour calculer la FEM, toujours soustraire le potentiel de l'anode (oxydation) de celui de la cathode (réduction)."
+          ],
+          "common_mistakes": [
+            "Inverser l'anode et la cathode.",
+            "Calculer FEM = E°(oxydant) - E°(réducteur) mais en prenant le couple réducteur correctement."
+          ],
+          "summary": "FEM = E°(cathode) - E°(anode). La cathode est où se produit la réduction, l'anode l'oxydation."
+        },
+        {
+          "title": "Électrolyse",
+          "introduction": "L'électrolyse est une réaction redox forcée par un courant électrique. Elle se produit dans une cuve contenant un électrolyte.",
+          "definition": "À la cathode (pôle négatif) se produit la réduction ; à l'anode (pôle positif) l'oxydation. La quantité d'électricité Q = I × t, et la loi de Faraday : n(e-) = Q / F, avec F = 96500 C/mol.",
+          "explanation": "Exemple : électrolyse d'HCl : 2H+ + 2e- → H2 (cathode), 2Cl- → Cl2 + 2e- (anode). Si I=2A, t=30 min (1800 s), Q=3600 C, n(e-)=3600/96500=0,0373 mol, n(H2)=0,01865 mol, V=0,01865×22,4=0,418 L.",
+          "step_by_step": [
+            "Étape 1 : Écrire les réactions aux électrodes.",
+            "Étape 2 : Calculer Q = I × t.",
+            "Étape 3 : n(e-) = Q / F.",
+            "Étape 4 : Utiliser la stœchiométrie pour trouver la quantité de produit."
+          ],
+          "examples": [
+            "Exemple : Électrolyse d'une solution de CuSO4 avec électrodes de cuivre : anode : Cu → Cu2+ + 2e- (oxydation), cathode : Cu2+ + 2e- → Cu (réduction)."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Électrolyse de l'eau : 2H2O → 2H2 + O2. À la cathode : 2H2O + 2e- → H2 + 2OH- ; à l'anode : 2H2O → O2 + 4H+ + 4e-."
+          ],
+          "methods": [
+            "Pour l'électrolyse, le passage de 1 mole d'électrons correspond à 96500 coulombs."
+          ],
+          "common_mistakes": [
+            "Confondre les polarités : la cathode est négative, l'anode positive.",
+            "Oublier la constante de Faraday."
+          ],
+          "summary": "Électrolyse : réaction forcée. Q = I×t, n(e-) = Q/F. À la cathode : réduction ; à l'anode : oxydation."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Écrire l'équation bilan de la réaction entre le zinc et les ions cuivre (II). Calculer la FEM si E°(Cu2+/Cu)=0,34 V et E°(Zn2+/Zn)=-0,76 V.",
+          "solution": "Zn + Cu2+ → Zn2+ + Cu. FEM = 0,34 - (-0,76) = 1,10 V.",
+          "explanation": "Le zinc s'oxyde (anode), le cuivre se réduit (cathode)."
+        },
+        {
+          "question": "On fait passer un courant de 2 A pendant 30 minutes dans une cellule d'électrolyse d'HCl. Calculer le volume de H2 dégagé à TPN.",
+          "solution": "Q = 2 × (30×60) = 3600 C. n(e-) = 3600/96500 = 0,0373 mol. 2H+ + 2e- → H2, donc n(H2)=0,0373/2=0,01865 mol. V=0,01865×22,4=0,418 L.",
+          "explanation": "La stœchiométrie relie les électrons au dihydrogène."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Tableau d'avancement et réactif limitant",
+      "chapter_introduction": "Le tableau d'avancement est un outil systématique pour déterminer le réactif limitant et les quantités de produits formés.",
+      "chapter_objectives": [
+        "Savoir construire un tableau d'avancement",
+        "Déterminer le réactif limitant par le calcul du quotient n_i / coefficient",
+        "Calculer l'avancement maximal",
+        "En déduire les quantités finales de chaque espèce"
+      ],
+      "subchapters": [
+        {
+          "title": "Construction et utilisation",
+          "introduction": "Le tableau d'avancement permet de suivre l'évolution d'une réaction chimique.",
+          "definition": "On note l'état initial (quantités), la variation (-ν x pour les réactifs, +ν x pour les produits), et l'état final. L'avancement maximal x_max est déterminé par le réactif limitant.",
+          "explanation": "Pour chaque réactif, on calcule le rapport n_initial / coefficient stœchiométrique. Le plus petit rapport correspond au réactif limitant, et x_max = n_limitant / coefficient.",
+          "step_by_step": [
+            "Étape 1 : Écrire l'équation équilibrée.",
+            "Étape 2 : Remplir la ligne des quantités initiales.",
+            "Étape 3 : Pour chaque réactif, calculer n / coeff.",
+            "Étape 4 : Le plus petit nombre est le réactif limitant ; x_max = n_limitant / coeff_limitant.",
+            "Étape 5 : Compléter la ligne de variation.",
+            "Étape 6 : Calculer les quantités finales."
+          ],
+          "examples": [
+            "Exemple : C2H2 + 2Cl2 → 2C + 2HCl avec n(C2H2)=0,5 mol, n(Cl2)=0,75 mol. n(C2H2)/1=0,5 ; n(Cl2)/2=0,375 → Cl2 limitant, x_max=0,375 mol. Tableau : final C2H2=0,5-0,375=0,125 ; Cl2=0 ; C=2×0,375=0,75 ; HCl=0,75."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Soit la réaction N2 + 3H2 → 2NH3. On introduit 0,5 mol N2 et 1,5 mol H2. n(N2)/1=0,5 ; n(H2)/3=0,5 → aucun réactif limitant, x_max=0,5 mol. Final : N2=0, H2=0, NH3=1,0 mol."
+          ],
+          "methods": [
+            "Toujours vérifier que les coefficients stœchiométriques sont corrects."
+          ],
+          "common_mistakes": [
+            "Oublier de diviser par le coefficient.",
+            "Confondre réactif et produit dans la variation."
+          ],
+          "summary": "Tableau d'avancement : état initial, variation (-ν x, +ν x), état final. x_max = min(n_i / ν_i) pour les réactifs."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "On détruit 1,5 mol d'acétylène avec 2 mol de dichlore selon C2H2 + 2Cl2 → 2C + 2HCl. Déterminer le réactif limitant et calculer la masse de carbone formée.",
+          "solution": "n(C2H2)/1=1,5 ; n(Cl2)/2=1,0 → Cl2 limitant. x_max=1,0 mol. n(C)=2×1,0=2 mol → m=2×12=24 g.",
+          "explanation": "Le carbone est un produit, on le calcule à partir de x_max."
+        },
+        {
+          "question": "On mélange 0,25 mol de benzène et 0,8 mol de dichlore (destruction). Équation : C6H6 + 3Cl2 → 6C + 6HCl. Trouver le réactif limitant et la masse de carbone.",
+          "solution": "C6H6 : 0,25/1=0,25 ; Cl2 : 0,8/3=0,267 → C6H6 limitant. x_max=0,25. n(C)=6×0,25=1,5 mol → m=1,5×12=18 g.",
+          "explanation": "Le réactif limitant est celui qui a le plus petit rapport."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Estérification et hydrolyse des esters",
+      "chapter_introduction": "L'estérification est la réaction entre un acide carboxylique et un alcool pour former un ester et de l'eau. La réaction est réversible et lente. L'hydrolyse de l'ester donne l'acide et l'alcool de départ.",
+      "chapter_objectives": [
+        "Écrire l'équation générale de l'estérification : R-COOH + R'-OH ⇌ R-COO-R' + H2O",
+        "Nommer les esters (ex : éthanoate d'éthyle)",
+        "Savoir que l'estérification est catalysée par H2SO4, lente et limitée",
+        "Connaître la saponification (hydrolyse basique, totale)",
+        "Identifier l'aspirine comme acide acétylsalicylique (fonctions acide et ester)"
+      ],
+      "subchapters": [
+        {
+          "title": "Estérification et saponification",
+          "introduction": "L'estérification est la réaction de formation d'un ester à partir d'un acide et d'un alcool.",
+          "definition": "R-COOH + R'-OH ⇌ R-COO-R' + H2O. La réaction est réversible, catalysée par H2SO4, lente. La saponification est l'hydrolyse d'un ester par une base (NaOH), elle est totale et irréversible : R-COO-R' + NaOH → R-COONa + R'-OH.",
+          "explanation": "Exemple : acide acétique + éthanol ⇌ éthanoate d'éthyle + eau. L'ester a une odeur fruitée. La saponification des corps gras (esters d'acides gras) donne du savon (sel d'acide gras) et du glycérol.",
+          "step_by_step": [
+            "Étape 1 : Identifier l'acide et l'alcool.",
+            "Étape 2 : Écrire l'ester en associant le groupe R de l'acide et le groupe R' de l'alcool.",
+            "Étape 3 : Nommer l'ester : nom de l'acide en -oate + 'de' + nom de l'alcool."
+          ],
+          "examples": [
+            "Exemple : CH3-COOH + CH3-CH2OH ⇌ CH3-COO-CH2-CH3 + H2O. Ester : éthanoate d'éthyle (acétate d'éthyle)."
+          ],
+          "detailed_examples": [
+            "Exemple de calcul : 60 g d'acide acétique (1 mol) et 46 g d'éthanol (1 mol) donnent 1 mol d'ester (88 g) si rendement 100%. Avec rendement 67%, on obtient 59 g."
+          ],
+          "methods": [
+            "Pour nommer l'ester, on utilise la terminaison -oate pour l'acide, puis 'de' et le nom de l'alcool."
+          ],
+          "common_mistakes": [
+            "Confondre le nom de l'ester : éthanoate d'éthyle (acide éthanoïque + éthanol), pas éthanoate d'éthane."
+          ],
+          "summary": "Estérification : acide + alcool ⇌ ester + eau. Saponification : ester + base → sel d'acide + alcool (totale)."
+        },
+        {
+          "title": "L'aspirine",
+          "introduction": "L'aspirine (acide acétylsalicylique) est un médicament contenant à la fois un groupe acide carboxylique et un groupe ester.",
+          "definition": "Formule : C6H4(COOH)(OCOCH3). Elle possède un noyau benzénique, un groupe acide (-COOH) et un groupe ester (-COO-). Propriétés : antipyrétique (baisse la fièvre), analgésique (calme la douleur), anti-inflammatoire.",
+          "explanation": "L'aspirine est acide en solution (pH<7) à cause du groupe -COOH. Elle peut irriter l'estomac. Elle est obtenue par estérification de l'acide salicylique par l'acide acétique.",
+          "step_by_step": [
+            "Étape 1 : Reconnaître le groupe acide -COOH et le groupe ester -COO-.",
+            "Étape 2 : L'aspirine est un dérivé de l'acide benzoïque avec un groupe acétyle."
+          ],
+          "examples": [
+            "Exemple : La synthèse de l'aspirine : acide salicylique + anhydride acétique → aspirine + acide acétique."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : L'aspirine est hydrolysée en présence d'eau (réaction lente) pour donner acide salicylique et acide acétique."
+          ],
+          "methods": [
+            "Pour tester l'aspirine, on peut chauffer avec de l'eau et ajouter du chlorure ferrique (coloration violette si acide salicylique)."
+          ],
+          "common_mistakes": [
+            "Confondre aspirine et paracétamol (le paracétamol est un amide)."
+          ],
+          "summary": "Aspirine : acide acétylsalicylique, fonction acide et ester. Utilisée comme médicament."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "On mélange 60 g d'acide acétique et 46 g d'éthanol. a) Écrire l'équation. b) Masse d'ester théorique. c) Si le rendement est 67%, masse réelle.",
+          "solution": "a) CH3COOH + C2H5OH ⇌ CH3COOC2H5 + H2O. b) n(acide)=60/60=1 mol, n(alcool)=46/46=1 mol → ester 1 mol → m=1×88=88 g. c) m_réelle=88×0,67=59 g.",
+          "explanation": "L'ester est après la flèche, donc multiplication par le rendement."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Les acides aminés et les protéines",
+      "chapter_introduction": "Les acides aminés sont les briques des protéines. Ils possèdent à la fois une fonction amine (-NH2) et une fonction acide carboxylique (-COOH). Ils peuvent être chiraux (optiquement actifs).",
+      "chapter_objectives": [
+        "Reconnaître la structure générale NH2-CHR-COOH",
+        "Identifier les groupes fonctionnels dans un acide aminé",
+        "Savoir qu'un acide aminé (sauf la glycine) possède un carbone asymétrique → chiralité",
+        "Comprendre que les protéines sont des polymères d'acides aminés (liaison peptidique)",
+        "Connaître quelques exemples : alanine, sérine, thréonine"
+      ],
+      "subchapters": [
+        {
+          "title": "Structure et propriétés",
+          "introduction": "Un acide aminé est un composé amphotère, porteur d'un groupe -NH2 basique et d'un groupe -COOH acide.",
+          "definition": "Formule générale : NH2-CHR-COOH. R est une chaîne latérale variable. Exemples : alanine (R=CH3), sérine (R=CH2OH), thréonine (R=CHOH-CH3). La glycine a R=H.",
+          "explanation": "Le carbone central (celui qui porte le groupe NH2) est asymétrique sauf pour la glycine (R=H). Une molécule asymétrique est chirale : elle dévie la lumière polarisée (optiquement active). Les acides aminés s'enchaînent par liaison peptidique (-CO-NH-) pour former des protéines.",
+          "step_by_step": [
+            "Étape 1 : Localiser le carbone central (lié à NH2, COOH, H et R).",
+            "Étape 2 : Vérifier si les quatre substituants sont différents → carbone asymétrique.",
+            "Étape 3 : Si oui, la molécule est chirale."
+          ],
+          "examples": [
+            "Exemple : Alanine : CH3-CH(NH2)-COOH. Le carbone central est lié à CH3, NH2, COOH et H → tous différents → chiral."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : La sérine HOCH2-CH(NH2)-COOH a un carbone asymétrique (C*), elle est optiquement active."
+          ],
+          "methods": [
+            "Pour identifier le carbone asymétrique, chercher un carbone tétraédrique avec quatre substituants distincts."
+          ],
+          "common_mistakes": [
+            "Oublier que la glycine n'a pas de carbone asymétrique.",
+            "Confondre acide aminé et protéine."
+          ],
+          "summary": "Acide aminé : NH2-CHR-COOH. Carbone asymétrique sauf glycine. Les protéines sont des polymères d'acides aminés."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "L'alanine a pour formule CH3-CH(NH2)-COOH. a) Encadrer les groupes fonctionnels. b) L'alanine est-elle chirale ? Justifier.",
+          "solution": "a) Groupe amine -NH2 et groupe acide -COOH. b) Oui, car le carbone central est lié à quatre substituants différents : CH3, NH2, COOH, H.",
+          "explanation": "La présence de quatre substituants différents est la condition de chiralité."
+        }
+      ]
+    },
+    {
+      "chapter_title": "Chimie du pétrole",
+      "chapter_introduction": "Le pétrole est un mélange d'hydrocarbures. Son raffinage comprend des opérations de craquage et de reformage pour améliorer la qualité des carburants (indice d'octane).",
+      "chapter_objectives": [
+        "Définir le craquage : transformation d'hydrocarbures lourds en légers",
+        "Définir le reformage : transformation d'hydrocarbures linéaires en ramifiés (amélioration de l'indice d'octane)",
+        "Connaître l'indice d'octane : 0 pour l'heptane, 100 pour l'isooctane (2,2,4-triméthylpentane)",
+        "Savoir que le vapocraquage utilise la vapeur d'eau"
+      ],
+      "subchapters": [
+        {
+          "title": "Craquage et reformage",
+          "introduction": "Le raffinage du pétrole permet d'obtenir des carburants adaptés aux moteurs.",
+          "definition": "Craquage (cracking) : rupture de longues chaînes en chaînes plus courtes. Exemple : C10H22 → C5H12 + C5H10. Reformage (reforming) : transformation d'hydrocarbures linéaires en ramifiés (sans changement du nombre de carbones). Exemple : n-octane → 2,2,4-triméthylpentane (isooctane).",
+          "explanation": "L'indice d'octane mesure la résistance à l'auto-allumage (cliquetis). Plus la molécule est ramifiée, plus l'indice est élevé. L'heptane linéaire a un indice 0, l'isooctane 100. Le reformage améliore l'indice d'octane.",
+          "step_by_step": [
+            "Étape 1 : Identifier l'opération : si la chaîne raccourcit → craquage ; si elle se ramifie sans changer le nombre de C → reformage."
+          ],
+          "examples": [
+            "Exemple craquage : C6H14 → C4H10 + C2H4.",
+            "Exemple reformage : n-heptane → 2,4-diméthylpentane."
+          ],
+          "detailed_examples": [
+            "Exemple détaillé : Le vapocraquage de l'éthane donne de l'éthylène : C2H6 → C2H4 + H2 (en présence de vapeur d'eau)."
+          ],
+          "methods": [
+            "Pour reconnaître le reformage, vérifier que le nombre de carbones reste identique."
+          ],
+          "common_mistakes": [
+            "Confondre craquage et reformage."
+          ],
+          "summary": "Craquage : chaînes longues → courtes. Reformage : chaînes linéaires → ramifiées (meilleur indice d'octane)."
+        }
+      ],
+      "chapter_exercises": [
+        {
+          "question": "Quelle opération transforme l'octane en 2,2,4-triméthylpentane ? Écrire les formules semi-développées.",
+          "solution": "Reformage. Octane : CH3-(CH2)6-CH3 ; isooctane : (CH3)3C-CH2-CH(CH3)-CH3.",
+          "explanation": "Le nombre de carbones reste 8, seule la structure change."
+        }
+      ]
+    }
+  ]
+}

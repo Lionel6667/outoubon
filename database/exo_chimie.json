@@ -1,0 +1,2460 @@
+{
+  "metadata": {
+    "titre": "Banque d'exercices Chimie – Baccalauréat Haïti",
+    "source": "Analyse de 66 examens (2015–2025)",
+    "chapitres_couverts": 12,
+    "note": "Les exercices marqués 'source' viennent d'un vrai bac. Les autres sont 'genere' (style identique)."
+  },
+
+  "chapitres": [
+
+    {
+      "id": 1,
+      "titre": "Hydrocarbures : nomenclature, formules et isomères",
+      "description": "Alcanes, alcènes, alcynes, aromatiques – formules brutes, semi-développées, topologiques, isomères de chaîne/position/fonction.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2020 – LLA (exam_chimie_chimie_2020_lla_isomere.pdf)",
+          "enonce": "On considère la formule brute C₃H₆O. Écrire les formules semi-développées des deux (2) composés carbonylés correspondants, puis les nommer officiellement. Décrire un test permettant de les distinguer.",
+          "questions": [
+            "a) Écrire les formules semi-développées des deux isomères de fonction de C₃H₆O présentant un groupe carbonyle.",
+            "b) Donner leurs noms systématiques selon l'UICPA.",
+            "c) Décrire un test chimique permettant de les distinguer."
+          ],
+          "reponses": {
+            "a": "CH₃–CH₂–CHO (propanal, aldéhyde) et CH₃–CO–CH₃ (propanone, cétone).",
+            "b": "Propanal (aldéhyde) ; Propanone (cétone).",
+            "c": "Test à la liqueur de Fehling chauffée : le propanal donne un précipité rouge brique (Cu₂O), la propanone ne réagit pas. Ou test au réactif de Tollens : le propanal donne un miroir d'argent, la propanone ne réagit pas."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2018 – SES (exam_chimie_chimie_2018_ses_aldehyde.pdf)",
+          "enonce": "Soit la formule brute C₆H₁₄. Écrire les formules semi-développées de trois (3) de ses isomères de constitution et attribuer un nom officiel à chacun.",
+          "questions": [
+            "a) Écrire les formules semi-développées de trois isomères de C₆H₁₄.",
+            "b) Nommer chacun selon l'UICPA."
+          ],
+          "reponses": {
+            "a": "1) CH₃–CH₂–CH₂–CH₂–CH₂–CH₃ (hexane linéaire) ; 2) CH₃–CH(CH₃)–CH₂–CH₂–CH₃ (2-méthylpentane) ; 3) CH₃–CH₂–CH(CH₃)–CH₂–CH₃ (3-méthylpentane) ; aussi possible: 2,2-diméthylbutane, 2,3-diméthylbutane.",
+            "b": "1) hexane ; 2) 2-méthylpentane ; 3) 3-méthylpentane."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2019 – LLA (exam_chimie_chimie_2019_lla_glucose.pdf)",
+          "enonce": "Un hydrocarbure A est isomère du cyclobutane et réagit par addition avec le dibrome. Quelles sont la nature et la formule brute de A ? Écrire les formules topologiques possibles de A et identifier A sachant que la molécule est ramifiée.",
+          "questions": [
+            "a) Quelle est la nature de A (alcène ou cycloalcane) et sa formule brute ?",
+            "b) Écrire les formules semi-développées possibles de A.",
+            "c) Identifier et nommer A sachant que la molécule est ramifiée."
+          ],
+          "reponses": {
+            "a": "A est un alcène (réagit par addition avec Br₂). Isomère du cyclobutane (C₄H₈) → formule brute C₄H₈.",
+            "b": "CH₂=CH–CH₂–CH₃ (but-1-ène), CH₃–CH=CH–CH₃ (but-2-ène), CH₂=C(CH₃)–CH₃ (2-méthylpropène).",
+            "c": "La molécule ramifiée est le 2-méthylpropène : CH₂=C(CH₃)–CH₃ (aussi appelé isobutylène)."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polymorphe (exam_chimie_chimie_2016_polymorphe.pdf)",
+          "enonce": "Deux isomères de fonction notés A et B ont pour formule brute C₃H₆O. Les composés A et B donnent un précipité jaune avec la 2,4-DNPH. En présence du réactif de Tollens, A donne un dépôt métallique brillant alors que B ne donne rien. Préciser la formule chimique et le nom systématique de chacun des composés A et B.",
+          "questions": [
+            "a) Identifier A et B en indiquant leurs formules semi-développées et leurs noms.",
+            "b) Écrire l'équation de l'hydrogénation de A et de B."
+          ],
+          "reponses": {
+            "a": "A = propanal CH₃–CH₂–CHO (aldéhyde → test Tollens positif) ; B = propanone CH₃–CO–CH₃ (cétone → test Tollens négatif).",
+            "b": "CH₃–CH₂–CHO + H₂ → CH₃–CH₂–CH₂OH (propan-1-ol) ; CH₃–CO–CH₃ + H₂ → CH₃–CHOH–CH₃ (propan-2-ol)."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SVT/SMP propène (exam_chimie_chimie_2019_svt-smp_propene.pdf)",
+          "enonce": "Écrire la formule semi-développée et la formule topologique de chacun des corps suivants : 3-méthylbut-1-ène, 4-éthyl-2,2-diméthylhexane, 4-hydroxy-3-chloroheptanal, 3-méthylhex-1-yne, cyclohexane.",
+          "questions": [
+            "Écrire la formule semi-développée et topologique de chaque composé nommé."
+          ],
+          "reponses": {
+            "3-méthylbut-1-ène": "CH₂=CH–CH(CH₃)–CH₃",
+            "4-éthyl-2,2-diméthylhexane": "CH₃–C(CH₃)₂–CH₂–CH(C₂H₅)–CH₂–CH₃",
+            "cyclohexane": "cycle hexagonal saturé, formule brute C₆H₁₂"
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2018 – LLA (exam_chimie_chimie_2018_lla_organique-2.pdf)",
+          "enonce": "Soit la formule brute C₄H₁₀O. Indiquer les formules semi-développées de tous ses alcools isomères, attribuer un nom et une classe à chacun.",
+          "questions": [
+            "a) Écrire toutes les formules semi-développées des alcools isomères de C₄H₁₀O.",
+            "b) Nommer et classer chaque alcool (primaire, secondaire, tertiaire)."
+          ],
+          "reponses": {
+            "a": "1) CH₃–CH₂–CH₂–CH₂OH (butan-1-ol) ; 2) CH₃–CH₂–CHOH–CH₃ (butan-2-ol) ; 3) CH₃–CH(CH₃)–CH₂OH (2-méthylpropan-1-ol) ; 4) CH₃–C(CH₃)(OH)–CH₃ (2-méthylpropan-2-ol).",
+            "b": "1) butan-1-ol → primaire ; 2) butan-2-ol → secondaire ; 3) 2-méthylpropan-1-ol → primaire ; 4) 2-méthylpropan-2-ol → tertiaire."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SES/LLA redox (exam_chimie_chimie_2021_ses-lla_redox.pdf)",
+          "enonce": "On considère le dichlorobenzène de formule C₆H₄Cl₂. Écrire les formules semi-développées de ses trois isomères de position et attribuer un nom à chacun.",
+          "questions": [
+            "a) Écrire les trois formules correspondant aux isomères de position du dichlorobenzène.",
+            "b) Nommer chacun."
+          ],
+          "reponses": {
+            "a": "Ortho-dichlorobenzène (1,2-dichlorobenzène), méta-dichlorobenzène (1,3-dichlorobenzène), para-dichlorobenzène (1,4-dichlorobenzène).",
+            "b": "1,2-dichlorobenzène (ortho) ; 1,3-dichlorobenzène (méta) ; 1,4-dichlorobenzène (para)."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SES (exam_chimie_chimie-2023-ses.pdf)",
+          "enonce": "Pour la formule brute C₅H₁₂, indiquer les formules semi-développées de tous les isomères de constitution et mentionner leurs noms officiels.",
+          "questions": [
+            "a) Écrire les formules semi-développées de tous les isomères de C₅H₁₂.",
+            "b) Nommer chacun."
+          ],
+          "reponses": {
+            "a": "1) CH₃–CH₂–CH₂–CH₂–CH₃ ; 2) CH₃–CH(CH₃)–CH₂–CH₃ ; 3) CH₃–C(CH₃)₂–CH₃.",
+            "b": "1) pentane ; 2) 2-méthylbutane ; 3) 2,2-diméthylpropane (néopentane)."
+          }
+        },
+        {
+          "num": 9,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP bartlett (exam_chimie_chimie_2022_smp-svt_bartlett.pdf)",
+          "enonce": "Un alcyne a pour formule brute C₅H₈. Écrire les formules semi-développées des trois isomères et attribuer un nom systématique à chacun.",
+          "questions": [
+            "a) Écrire les formules semi-développées des isomères de C₅H₈ possédant une triple liaison.",
+            "b) Nommer chacun."
+          ],
+          "reponses": {
+            "a": "1) CH≡C–CH₂–CH₂–CH₃ (pent-1-yne) ; 2) CH₃–C≡C–CH₂–CH₃ (pent-2-yne) ; 3) CH₃–CH₂–C≡C–CH₃ (pent-2-yne idem par symétrie, ou considérer le 3-méthylbut-1-yne : CH≡C–CH(CH₃)–CH₃).",
+            "b": "pent-1-yne, pent-2-yne, 3-méthylbut-1-yne."
+          }
+        },
+        {
+          "num": 10,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SES alcool (exam_chimie_chimie_2019_ses_alcool.pdf)",
+          "enonce": "On considère la formule brute C₄H₈O₂. Indiquer les formules semi-développées et les noms systématiques des deux isomères de fonction.",
+          "questions": [
+            "a) Écrire deux isomères de fonction de C₄H₈O₂ en indiquant les fonctions chimiques.",
+            "b) Nommer chacun."
+          ],
+          "reponses": {
+            "a": "1) CH₃–CH₂–COOH (acide propanoïque) → non, ici C₄H₈O₂ ; isomères possibles : CH₃–CH₂–COO–CH₃ (propanoate de méthyle, ester) et HOOC–CH₂–CH₂–CH₃ (acide butanoïque) ou CH₃–CH₂–CH₂–COOH.",
+            "b": "Acide butanoïque (acide carboxylique) ; propanoate de méthyle ou méthanoate de propyle (esters)."
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "On donne les composés suivants : méthylpropane, but-2-ène, but-1-yne, cyclobutane. Indiquer pour chacun sa formule brute, sa formule semi-développée et la classe d'hydrocarbure à laquelle il appartient.",
+          "questions": [
+            "a) Compléter le tableau : formule brute, semi-développée, classe.",
+            "b) Parmi ces composés, lesquels peuvent subir des réactions d'addition ? Pourquoi ?"
+          ],
+          "reponses": {
+            "a": "Méthylpropane C₄H₁₀ : CH₃–CH(CH₃)–CH₃ ; alcane. But-2-ène C₄H₈ : CH₃–CH=CH–CH₃ ; alcène. But-1-yne C₄H₆ : CH≡C–CH₂–CH₃ ; alcyne. Cyclobutane C₄H₈ : cycle carré saturé ; cycloalcane.",
+            "b": "But-2-ène (double liaison) et but-1-yne (triple liaison) peuvent subir des additions, car ils sont insaturés."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "Nommer les composés suivants selon l'UICPA : a) CH₃–CH₂–CH(CH₃)–CH₃ ; b) CH₂=CH–CH₂–CH₃ ; c) CH₃–C≡C–CH₃ ; d) CH₃–CH₂–CH₂–OH ; e) CH₃–CO–CH₂–CH₃.",
+          "questions": [
+            "Donner le nom UICPA de chaque composé."
+          ],
+          "reponses": {
+            "a": "2-méthylbutane",
+            "b": "but-1-ène",
+            "c": "but-2-yne",
+            "d": "propan-1-ol",
+            "e": "butan-2-one (méthyléthylcétone)"
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "Parmi les formules brutes suivantes : C₃H₈, C₃H₆, C₃H₄, C₆H₆. Identifier celle qui correspond à un alcane, un alcène, un alcyne et un aromatique. Écrire la formule semi-développée de chacun.",
+          "questions": [
+            "a) Associer chaque formule à sa famille d'hydrocarbures.",
+            "b) Écrire une formule semi-développée pour chacune."
+          ],
+          "reponses": {
+            "a": "C₃H₈ → alcane (propane) ; C₃H₆ → alcène (propène) ; C₃H₄ → alcyne (propyne) ; C₆H₆ → aromatique (benzène).",
+            "b": "C₃H₈ : CH₃–CH₂–CH₃ ; C₃H₆ : CH₂=CH–CH₃ ; C₃H₄ : CH≡C–CH₃ ; C₆H₆ : cycle hexagonal aromatique."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "Écrire toutes les formules semi-développées des alcools isomères de formule brute C₃H₈O et classer chacun (primaire, secondaire, tertiaire).",
+          "questions": [
+            "a) Écrire les formules semi-développées.",
+            "b) Classer chaque alcool."
+          ],
+          "reponses": {
+            "a": "1) CH₃–CH₂–CH₂OH (propan-1-ol) ; 2) CH₃–CHOH–CH₃ (propan-2-ol).",
+            "b": "Propan-1-ol → alcool primaire ; Propan-2-ol → alcool secondaire."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "La densité de vapeur d'un alcane gazeux est 1,52. Déterminer sa masse molaire, sa formule brute, sa formule semi-développée et son nom.",
+          "questions": [
+            "a) Calculer la masse molaire de l'alcane.",
+            "b) Déterminer la formule brute.",
+            "c) Écrire une formule semi-développée et nommer le composé."
+          ],
+          "reponses": {
+            "a": "M = d × M(air) = 1,52 × 29 = 44,1 g/mol.",
+            "b": "Alcane CₙH₂ₙ₊₂ : 12n + 2n + 2 = 44 → 14n = 42 → n = 3. Formule brute : C₃H₈.",
+            "c": "CH₃–CH₂–CH₃ ; propane."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "titre": "Réactions des hydrocarbures (addition, substitution, combustion, polymérisation)",
+      "description": "Équilibrage d'équations : addition HX, Br₂, H₂O, H₂ sur alcènes/alcynes ; substitution sur alcanes/benzène ; combustion complète et incomplète ; dimérisation, trimérisation.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SVT/SMP covalente (exam_chimie_chimie-2023-smp-svt-covalente.pdf)",
+          "enonce": "Écrire et équilibrer les équations des réactions chimiques suivantes : neutralisation de l'acide acétique par la soude ; hydrolyse du carbure de calcium ; hydrogénation de la propanone ; hydratation de l'éthylène ; dimérisation de l'éthanal.",
+          "questions": [
+            "Écrire et équilibrer chaque équation."
+          ],
+          "reponses": {
+            "neutralisation": "CH₃COOH + NaOH → CH₃COONa + H₂O",
+            "hydrolyse_carbure_calcium": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂",
+            "hydrogénation_propanone": "CH₃–CO–CH₃ + H₂ → CH₃–CHOH–CH₃ (propan-2-ol)",
+            "hydratation_éthylène": "CH₂=CH₂ + H₂O → CH₃–CH₂OH (éthanol)",
+            "dimérisation_éthanal": "2 CH₃CHO → CH₃–CH(OH)–CH₂–CHO (aldol, 3-hydroxybutanal)"
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2015 (exam_chimie_chimie_2015_oxydation.pdf)",
+          "enonce": "Écrire les équations équilibrées des réactions suivantes : oxydation ménagée du propan-2-ol ; réduction de l'oxyde de fer (III) par l'aluminium ; hydratation de l'acétylène ; destruction du méthane par le dichlore ; hydrolyse du sulfure de potassium.",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "propan2ol": "CH₃–CHOH–CH₃ → CH₃–CO–CH₃ + H₂ (déshydrogénation/oxydation ménagée → propanone)",
+            "thermite": "2Al + Fe₂O₃ → Al₂O₃ + 2Fe",
+            "hydratation_acetylene": "C₂H₂ + H₂O → [CH₂=CHOH] → CH₃CHO (éthanal, par réarrangement)",
+            "destruction_methane": "CH₄ + 4Cl₂ → CCl₄ + 4HCl (destruction totale)",
+            "hydrolyse_K2S": "K₂S + 2H₂O → 2KOH + H₂S"
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyamide (exam_chimie_chimie_2016_polyamide.pdf)",
+          "enonce": "Écrire les équations équilibrées : hydrolyse du carbure de calcium ; hydrogénation du benzène ; dimérisation de la propanone ; oxydation du cuivre par l'acide nitrique dilué ; oxydation ménagée poussée de l'éthanol.",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "CaC2_eau": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂",
+            "hydrogénation_benzène": "C₆H₆ + 3H₂ → C₆H₁₂ (cyclohexane)",
+            "dimérisation_propanone": "2CH₃COCH₃ → (CH₃)₂C(OH)–CH₂–CO–CH₃ (aldol)",
+            "Cu_HNO3": "3Cu + 8HNO₃ (dilué) → 3Cu(NO₃)₂ + 2NO↑ + 4H₂O",
+            "oxydation_ethanol": "CH₃CH₂OH → [oxydation] → CH₃CHO → CH₃COOH (oxydation poussée)"
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2018 – LLA (exam_chimie_chimie_2018_lla_organique-2.pdf)",
+          "enonce": "Compléter et équilibrer : CH₂=CH₂ + H₂O → ; CH₃–CH₂OH + Na → ; CH₃–COOH + Ca(OH)₂ → ; C₆H₁₂O₆ → (zymase) → ; C₆H₆ + HNO₃ →",
+          "questions": ["Compléter et équilibrer chaque réaction."],
+          "reponses": {
+            "ethylene_eau": "CH₂=CH₂ + H₂O → CH₃CH₂OH",
+            "ethanol_Na": "2CH₃CH₂OH + 2Na → 2CH₃CH₂ONa + H₂↑",
+            "acide_acetique_Ca(OH)2": "2CH₃COOH + Ca(OH)₂ → (CH₃COO)₂Ca + 2H₂O",
+            "fermentation": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ (zymase/levure)",
+            "nitration_benzene": "C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O (en présence de H₂SO₄)"
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SVT/SMP propène (exam_chimie_chimie_2019_svt-smp_propene.pdf)",
+          "enonce": "Écrire et équilibrer : éthanoate d'éthyle + eau ; propène + gaz chlorhydrique ; benzène + éthylène ; acétone + dihydrogène ; acide acétique + hydroxyde d'aluminium.",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "hydrolyse_ester": "CH₃COOC₂H₅ + H₂O ⇌ CH₃COOH + C₂H₅OH",
+            "propene_HCl": "CH₃–CH=CH₂ + HCl → CH₃–CHCl–CH₃ (produit majoritaire, Markovnikov)",
+            "benzene_ethylene": "C₆H₆ + CH₂=CH₂ → C₆H₅–CH₂–CH₃ (éthylbenzène, alkylation de Friedel-Crafts)",
+            "acetone_H2": "CH₃–CO–CH₃ + H₂ → CH₃–CHOH–CH₃ (propan-2-ol)",
+            "AcAc_Al(OH)3": "6CH₃COOH + Al₂O₃ → 2Al(CH₃COO)₃ + 3H₂O (ou: réaction avec Al(OH)₃ → Al(CH₃COO)₃ + 3H₂O)"
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fixateur (exam_chimie_chimie_2021_svt-smp_fixateur.pdf)",
+          "enonce": "Écrire et équilibrer : combustion complète du butane ; fermentation alcoolique ; oxydation de l'aluminium par le dichlore ; hydrolyse du carbure de calcium ; dimérisation de l'éthylène.",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "combustion_butane": "2C₄H₁₀ + 13O₂ → 8CO₂ + 10H₂O",
+            "fermentation": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂",
+            "Al_Cl2": "2Al + 3Cl₂ → 2AlCl₃",
+            "CaC2_eau": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂",
+            "dimérisation_ethylene": "2CH₂=CH₂ → CH₃–CH₂–CH=CH₂ (but-1-ène, ou polyéthylène selon conditions)"
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP bain (exam_chimie_chimie_2022_smp-svt_bain.pdf)",
+          "enonce": "Écrire les équations équilibrées : hydrolyse du carbure d'aluminium ; oxydation du zinc par l'acide chlorhydrique ; destruction de l'éthylène dans le dichlore ; neutralisation de l'acide éthanoïque par la soude ; déshydratation du propan-1-ol.",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "Al4C3": "Al₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄",
+            "Zn_HCl": "Zn + 2HCl → ZnCl₂ + H₂↑",
+            "ethylene_Cl2": "CH₂=CH₂ + Cl₂ → CH₂Cl–CH₂Cl (1,2-dichloroéthane, destruction)",
+            "neutralisation": "CH₃COOH + NaOH → CH₃COONa + H₂O",
+            "deshydratation": "CH₃–CH₂–CH₂OH → CH₃–CH=CH₂ + H₂O (propène)"
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyoside (exam_chimie_chimie_2016_polyoside.pdf)",
+          "enonce": "Écrire les équations équilibrées : hydratation de l'acétylène ; oxydation du fer par l'air humide ; hydrolyse du carbure d'aluminium ; combustion incomplète du benzène ; destruction du méthane dans le dichlore.",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "hydratation_acetylene": "C₂H₂ + H₂O → CH₃CHO (éthanal, en présence de H₂SO₄/HgSO₄)",
+            "rouille": "4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ (ou 2Fe₂O₃•3H₂O)",
+            "Al4C3": "Al₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄",
+            "combustion_incomplete_benzene": "2C₆H₆ + 9O₂ → 12CO + 6H₂O (manque O₂, CO formé) ; ou : C₆H₆ → 6C + 3H₂ (destruction extrême)",
+            "methane_Cl2": "CH₄ + 4Cl₂ → CCl₄ + 4HCl"
+          }
+        },
+        {
+          "num": 9,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SES (exam_chimie_chimie-2023-ses.pdf)",
+          "enonce": "Compléter et équilibrer : CH₃–CH=CH₂ + HBr → (produit majoritaire) ; Al₂O₃ + H₂SO₄ → ; C₆H₅–OH + Zn → ; CaC₂ + H₂O → ; HCl + Al →",
+          "questions": ["Compléter et équilibrer chaque réaction."],
+          "reponses": {
+            "propene_HBr": "CH₃–CH=CH₂ + HBr → CH₃–CHBr–CH₃ (2-bromopropane, Markovnikov)",
+            "Al2O3_H2SO4": "Al₂O₃ + 3H₂SO₄ → Al₂(SO₄)₃ + 3H₂O",
+            "phenol_Zn": "C₆H₅OH + Zn → C₆H₆ + ZnO (réduction du phénol en benzène)",
+            "CaC2_eau": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂",
+            "HCl_Al": "2Al + 6HCl → 2AlCl₃ + 3H₂↑"
+          }
+        },
+        {
+          "num": 10,
+          "type": "real",
+          "source": "Bac Haïti 2022 – LLA organomecanique (exam_chimie_chimie_2022_lla_organomecanique.pdf)",
+          "enonce": "Écrire et équilibrer : CH₂=CH₂ + H₂ → ; CH₃–CH₂OH + HCl → ; CaC₂ + H₂O → ; CH₃–CHO + CH₃–CHO → ; HCl + Al →",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "ethylene_H2": "CH₂=CH₂ + H₂ → CH₃–CH₃ (éthane, hydrogénation)",
+            "ethanol_HCl": "CH₃CH₂OH + HCl → CH₃CH₂Cl + H₂O (chloroéthane)",
+            "CaC2": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂",
+            "dimérisation_éthanal": "2CH₃CHO → CH₃CH(OH)CH₂CHO (aldol)",
+            "HCl_Al": "2Al + 6HCl → 2AlCl₃ + 3H₂↑"
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "Écrire et équilibrer les équations de : a) addition de Br₂ sur le propène à la lumière diffuse ; b) combustion complète du propane ; c) monochlorination du méthane à la lumière diffuse ; d) trimérisation cyclique de l'acétylène ; e) hydrogénation du but-2-ène.",
+          "questions": ["Équilibrer chaque réaction."],
+          "reponses": {
+            "a": "CH₃–CH=CH₂ + Br₂ → CH₃–CHBr–CH₂Br (1,2-dibromopropane)",
+            "b": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
+            "c": "CH₄ + Cl₂ → CH₃Cl + HCl (lumière diffuse, substitution radicalaire)",
+            "d": "3C₂H₂ → C₆H₆ (benzène)",
+            "e": "CH₃–CH=CH–CH₃ + H₂ → CH₃–CH₂–CH₂–CH₃ (butane)"
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "On brûle complètement 5 L d'éthylène (C₂H₄) pris à T.P.N. dans un excès de dioxygène. Calculer : a) le volume d'air nécessaire (21% O₂) ; b) la masse de CO₂ produite ; c) le volume d'eau produite condensée à T.P.N.",
+          "questions": [
+            "a) Volume d'air nécessaire.",
+            "b) Masse de CO₂ produite.",
+            "c) Volume d'eau condensée."
+          ],
+          "reponses": {
+            "equation": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
+            "moles_ethylene": "n(C₂H₄) = 5/22,4 = 0,223 mol",
+            "O2_nécessaire": "n(O₂) = 3 × 0,223 = 0,669 mol → V(O₂) = 0,669 × 22,4 = 15 L ; V(air) = 15/0,21 = 71,4 L",
+            "CO2": "n(CO₂) = 2 × 0,223 = 0,446 mol ; m(CO₂) = 0,446 × 44 = 19,6 g",
+            "eau": "n(H₂O) = 2 × 0,223 = 0,446 mol ; liquide → volume = 0,446 × 18 / 1 = 8,03 mL"
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "Le benzène réagit avec le dichlore selon deux types de réactions selon les conditions. a) Écrire la réaction de substitution du benzène par Cl₂ à la lumière diffuse. b) Écrire la réaction d'addition de Cl₂ sur le benzène à la lumière vive. c) Comparer les deux types de réactions en termes de conditions et de produits.",
+          "questions": ["Voir énoncé."],
+          "reponses": {
+            "a": "C₆H₆ + Cl₂ → C₆H₅Cl + HCl (lumière diffuse, substitution, produit = chlorobenzène)",
+            "b": "C₆H₆ + 3Cl₂ → C₆H₆Cl₆ (lumière vive, addition, produit = hexachlorocyclohexane / lindane)",
+            "c": "Substitution (lumière diffuse) : le benzène garde son aromaticité, remplace un H par Cl, produit = chlorobenzène. Addition (lumière vive) : le benzène perd son aromaticité, fixe 3 Cl₂, produit = hexachlorocyclohexane."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "On réalise l'hydratation de 3 L de propène (pris à T.P.N.) en milieu acide. a) Écrire l'équation de la réaction et nommer le produit majoritaire selon la règle de Markovnikov. b) Calculer la masse du produit majoritaire obtenu. c) Que se passerait-il si le propène réagissait avec l'eau à froid en présence de H₂SO₄ concentré ?",
+          "questions": ["a) Équation + produit majoritaire.", "b) Masse du produit.", "c) Mécanisme."],
+          "reponses": {
+            "a": "CH₃–CH=CH₂ + H₂O → CH₃–CHOH–CH₃ (propan-2-ol, majoritaire par Markovnikov) ; aussi CH₃–CH₂–CH₂OH (propan-1-ol, minoritaire).",
+            "b": "n(propène) = 3/22,4 = 0,134 mol ; m(propan-2-ol) ≈ 0,134 × 60 = 8,0 g.",
+            "c": "Formation d'un ester sulfate intermédiaire CH₃–CH(OSO₃H)–CH₃, puis hydrolyse → propan-2-ol."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "On détruit 0,5 mol d'acétylène dans 0,75 mol de dichlore (gaz pris à T.P.N.). a) Écrire l'équation de la réaction. b) Dresser un tableau d'avancement. c) Indiquer le réactif limitant. d) Calculer la masse du solide formé.",
+          "questions": ["a) Équation.", "b) Tableau d'avancement.", "c) Réactif limitant.", "d) Masse du solide."],
+          "reponses": {
+            "a": "C₂H₂ + 2Cl₂ → 2C + 2HCl (destruction totale, excès Cl₂)",
+            "tableau": "Éq : C₂H₂ (−0,5) + 2Cl₂ (−1,0) → 2C (+1,0) + 2HCl (+1,0). Cl₂ disponible = 0,75 mol. C₂H₂ demanderait 1,0 mol Cl₂ → mais seulement 0,75 disponible.",
+            "c": "Cl₂ est le réactif limitant (0,75 mol < 1,0 mol nécessaire). n(C₂H₂) consommé = 0,75/2 = 0,375 mol.",
+            "d": "n(C) = 2 × 0,375 = 0,750 mol ; m(C) = 0,750 × 12 = 9,0 g."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 3,
+      "titre": "Oxydoréduction : demi-équations, piles électrochimiques",
+      "description": "Identification des couples rédox, écriture des demi-équations, équation bilan, schéma de pile, FEM, tableaux d'avancement redox.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SVT/SMP hydron (exam_chimie_chimie-2023-smp-svt-hydron.pdf)",
+          "enonce": "Une pile est réalisée à partir des couples Cu²⁺/Cu (E° = +0,34 V) et Zn²⁺/Zn (E° = −0,76 V). a) Schématiser cette pile en mentionnant sa polarité. b) Écrire les demi-équations d'oxydoréduction aux électrodes. c) Écrire l'équation de la réaction globale.",
+          "questions": ["a) Schéma et polarité.", "b) Demi-équations.", "c) Équation globale."],
+          "reponses": {
+            "a": "Anode (−) : Zn | ZnSO₄ || CuSO₄ | Cu : cathode (+). Polarité : Zn pôle négatif (oxydation), Cu pôle positif (réduction).",
+            "b": "Anode : Zn → Zn²⁺ + 2e⁻ (oxydation) ; Cathode : Cu²⁺ + 2e⁻ → Cu (réduction).",
+            "c": "Zn + Cu²⁺ → Zn²⁺ + Cu ; FEM = 0,34 − (−0,76) = 1,10 V."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SVT/SMP (exam_chimie_chimie-2023-ses.pdf)",
+          "enonce": "Parmi les équations suivantes, laquelle correspond à une réaction d'oxydoréduction ? Justifier en écrivant les demi-équations correspondantes et leur bilan. a) NH₃ + H₃O⁺ → NH₄⁺ + H₂O ; b) Fe²⁺ + Zn → Fe + Zn²⁺",
+          "questions": ["a) Identifier la réaction redox.", "b) Écrire les demi-équations.", "c) Écrire le bilan."],
+          "reponses": {
+            "a_identification": "b) est une réaction d'oxydo-réduction car il y a transfert d'électrons. a) est une réaction acido-basique (transfert de proton H⁺).",
+            "demi_equations": "Zn → Zn²⁺ + 2e⁻ (oxydation, Zn est le réducteur) ; Fe²⁺ + 2e⁻ → Fe (réduction, Fe²⁺ est l'oxydant).",
+            "bilan": "Fe²⁺ + Zn → Fe + Zn²⁺"
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyamide (exam_chimie_chimie_2016_polyamide.pdf)",
+          "enonce": "On construit une pile avec les couples Fe²⁺/Fe (E° = −0,44 V) et Pb²⁺/Pb (E° = +1,13 V non standard – il s'agit ici d'un exemple fictif). a) Faire le schéma de la pile et indiquer ses pôles. b) Écrire les équations aux électrodes. c) Quelle est la différence de potentiel aux bornes de cette pile ?",
+          "questions": ["a) Schéma et pôles.", "b) Équations aux électrodes.", "c) FEM."],
+          "reponses": {
+            "a": "Fe (anode, −) | Fe²⁺ || Pb²⁺ | Pb (cathode, +). Le réducteur le plus fort (E° le plus négatif) est à l'anode.",
+            "b": "Anode : Fe → Fe²⁺ + 2e⁻ ; Cathode : Pb²⁺ + 2e⁻ → Pb.",
+            "c": "FEM = E°(Pb²⁺/Pb) − E°(Fe²⁺/Fe) = 1,13 − (−0,44) = 1,57 V."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SVT/SMP substance (exam_chimie_chimie_2019_svt-smp_substance.pdf)",
+          "enonce": "Les ions Au³⁺ réagissent avec le zinc métallique pour donner un dépôt d'or métallique et des ions Zn²⁺. a) Relever les deux couples oxydant/réducteur intervenant. b) Écrire les demi-équations et leur bilan. c) Indiquer l'espèce oxydée et l'espèce réduite.",
+          "questions": ["a) Couples.", "b) Demi-équations et bilan.", "c) Oxydée et réduite."],
+          "reponses": {
+            "a": "Couples : Au³⁺/Au et Zn²⁺/Zn.",
+            "b": "Réduction : Au³⁺ + 3e⁻ → Au (×2) ; Oxydation : Zn → Zn²⁺ + 2e⁻ (×3). Bilan : 2Au³⁺ + 3Zn → 2Au + 3Zn²⁺.",
+            "c": "Zn est oxydé (perd des électrons, réducteur) ; Au³⁺ est réduit (gagne des électrons, oxydant)."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fixateur (exam_chimie_chimie_2021_svt-smp_fixateur.pdf)",
+          "enonce": "Les ions Ag⁺ réagissent avec le plomb métallique Pb pour donner un dépôt d'argent métallique et des ions Pb²⁺. a) Justifier qu'il s'agit d'une réaction d'oxydoréduction. b) Écrire les demi-équations électroniques et leur bilan. c) Quels sont les couples rédox mis en jeu ?",
+          "questions": ["a) Justification.", "b) Demi-équations.", "c) Couples."],
+          "reponses": {
+            "a": "Il y a transfert d'électrons : Pb perd des électrons (oxydation) et Ag⁺ en gagne (réduction) → réaction d'oxydoréduction.",
+            "b": "Oxydation : Pb → Pb²⁺ + 2e⁻ ; Réduction : 2Ag⁺ + 2e⁻ → 2Ag. Bilan : Pb + 2Ag⁺ → Pb²⁺ + 2Ag.",
+            "c": "Couples : Ag⁺/Ag et Pb²⁺/Pb."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2018 – SES (exam_chimie_chimie_2018_ses_aldehyde.pdf)",
+          "enonce": "Le propan-2-ol s'oxyde en propanone en présence d'ions permanganate MnO₄⁻ en milieu acide, les ions Mn²⁺ se forment. a) Démontrer qu'il s'agit d'une oxydoréduction en écrivant les demi-équations. b) Identifier les couples rédox.",
+          "questions": ["a) Demi-équations.", "b) Couples rédox."],
+          "reponses": {
+            "a": "Oxydation : CH₃–CHOH–CH₃ → CH₃–CO–CH₃ + 2H⁺ + 2e⁻ ; Réduction : MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O. (Multiplier et additionner pour équilibrer les électrons : ×5 et ×2.)",
+            "b": "Couples : propanone/propan-2-ol et MnO₄⁻/Mn²⁺."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP bartlett (exam_chimie_chimie_2022_smp-svt_bartlett.pdf)",
+          "enonce": "On considère la pile Zn/Zn²⁺ et Cu²⁺/Cu (E°(Cu²⁺/Cu)=+0,34V ; E°(Zn²⁺/Zn)=−0,76V). a) Donner le schéma conventionnel et la polarité. b) Écrire l'équation de la réaction d'oxydoréduction. c) Calculer la force électromotrice.",
+          "questions": ["a) Schéma et polarité.", "b) Équation.", "c) FEM."],
+          "reponses": {
+            "a": "(−) Zn | Zn²⁺(aq) || Cu²⁺(aq) | Cu (+). Pôle − : Zn (anode) ; Pôle + : Cu (cathode).",
+            "b": "Zn + Cu²⁺ → Zn²⁺ + Cu.",
+            "c": "FEM = E°(cathode) − E°(anode) = 0,34 − (−0,76) = 1,10 V."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP altman (exam_chimie_chimie_2022_smp-svt_altman.pdf)",
+          "enonce": "Une pile argent-zinc utilise les couples Ag⁺/Ag (E°=+0,80V) et Zn²⁺/Zn (E°=−0,76V). a) Faire le dessin de la pile. b) Le schéma conventionnel. c) Les réactions aux électrodes. d) La force électromotrice.",
+          "questions": ["a) Dessin.", "b) Schéma.", "c) Réactions.", "d) FEM."],
+          "reponses": {
+            "a": "Anode (−) : lame de zinc dans solution de ZnSO₄ ; pont salin ; Cathode (+) : lame d'argent dans solution de AgNO₃.",
+            "b": "(−) Zn | Zn²⁺(aq) || Ag⁺(aq) | Ag (+).",
+            "c": "Anode : Zn → Zn²⁺ + 2e⁻ ; Cathode : 2Ag⁺ + 2e⁻ → 2Ag.",
+            "d": "FEM = 0,80 − (−0,76) = 1,56 V."
+          }
+        },
+        {
+          "num": 9,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polymorphe (exam_chimie_chimie_2016_polymorphe.pdf)",
+          "enonce": "On donne les potentiels des couples Cu²⁺/Cu (E°=+0,34V) et NO₃⁻/NO (E°=+0,96V). a) Préciser, en fonction des potentiels normaux, le couple oxydant et le couple réducteur. b) Écrire les demi-équations et l'équation bilan de la réaction spontanée en milieu acide.",
+          "questions": ["a) Oxydant et réducteur.", "b) Demi-équations et bilan."],
+          "reponses": {
+            "a": "Le couple de E° le plus élevé est l'oxydant : NO₃⁻/NO (E°=+0,96V) est l'oxydant. Le couple de E° le plus bas est le réducteur : Cu²⁺/Cu mais ici Cu⁰ est le réducteur.",
+            "b": "Réduction : NO₃⁻ + 4H⁺ + 3e⁻ → NO + 2H₂O (×2) ; Oxydation : Cu → Cu²⁺ + 2e⁻ (×3). Bilan : 3Cu + 8HNO₃ (dilué) → 3Cu(NO₃)₂ + 2NO + 4H₂O."
+          }
+        },
+        {
+          "num": 10,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fondation (exam_chimie_chimie_2021_svt-smp_fondation.pdf)",
+          "enonce": "On considère la pile formée des deux couples Al³⁺/Al (E°=−2,35V) et NO₃⁻/NO (E°=+0,96V). a) Prévoir la réaction chimique naturelle. b) Démontrer qu'il s'agit d'une réaction d'oxydoréduction en milieu acide.",
+          "questions": ["a) Réaction naturelle.", "b) Démonstration."],
+          "reponses": {
+            "a": "Le couple de E° le plus négatif (Al³⁺/Al) est le réducteur (Al⁰ s'oxyde) ; le couple de E° le plus positif (NO₃⁻/NO) est l'oxydant. Réaction : Al s'oxyde et NO₃⁻ se réduit.",
+            "b": "Oxydation : Al → Al³⁺ + 3e⁻ (×8) ; Réduction : NO₃⁻ + 4H⁺ + 3e⁻ → NO + 2H₂O (×8). Bilan : 8Al + 30H⁺ + 6NO₃⁻ → 8Al³⁺ + 6NO + 15H₂O. (Il y a bien transfert d'électrons → réaction d'oxydoréduction.)"
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "On plonge une lame de fer dans une solution de sulfate de cuivre II. La lame de fer se recouvre d'un dépôt de cuivre métallique. a) Préciser les couples redox. b) Écrire les demi-équations et le bilan. c) Identifier l'espèce oxydée et réduite. d) Si on utilise 5 g de Fe, calculer la masse de Cu déposée.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "couples": "Fe²⁺/Fe et Cu²⁺/Cu.",
+            "demi_equations": "Fe → Fe²⁺ + 2e⁻ ; Cu²⁺ + 2e⁻ → Cu. Bilan : Fe + Cu²⁺ → Fe²⁺ + Cu.",
+            "identification": "Fe est oxydé (réducteur) ; Cu²⁺ est réduit (oxydant).",
+            "calcul": "n(Fe) = 5/56 = 0,0893 mol ; n(Cu) = 0,0893 mol ; m(Cu) = 0,0893 × 63,5 = 5,67 g."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "On réalise l'oxydation de l'éthanal CH₃CHO par le réactif de Tollens (Ag⁺ en milieu basique). a) Indiquer quel métal se dépose. b) Écrire les demi-équations électroniques. c) Calculer la masse d'argent déposée à partir de 4,4 g d'éthanal.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "Il se dépose de l'argent métallique Ag (miroir d'argent).",
+            "b": "Oxydation : CH₃CHO + H₂O → CH₃COOH + 2H⁺ + 2e⁻ ; Réduction : Ag⁺ + e⁻ → Ag (×2). Bilan : CH₃CHO + 2Ag⁺ → CH₃COOH + 2Ag.",
+            "c": "n(CH₃CHO) = 4,4/44 = 0,1 mol ; n(Ag) = 2 × 0,1 = 0,2 mol ; m(Ag) = 0,2 × 108 = 21,6 g."
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "On fait réagir du zinc métallique (5,0 g) avec une solution d'acide acétique en excès. a) Écrire l'équation équilibrée de la réaction (oxydoréduction). b) Montrer qu'il s'agit d'une réaction d'oxydo-réduction en identifiant les couples rédox. c) Calculer le volume de H₂ dégagé à T.P.N. d) Calculer la masse de sel formé.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "Zn + 2CH₃COOH → Zn(CH₃COO)₂ + H₂↑",
+            "b": "Couples : Zn²⁺/Zn et H⁺/H₂. Zn s'oxyde (0→+II), H⁺ se réduit (I→0).",
+            "c": "n(Zn) = 5/65,4 = 0,0765 mol ; n(H₂) = 0,0765 mol ; V(H₂) = 0,0765 × 22,4 = 1,71 L.",
+            "d": "n(acétate de Zn) = 0,0765 mol ; M(Zn(CH₃COO)₂) = 65,4 + 2×59 = 183,4 g/mol ; m = 0,0765 × 183,4 = 14,0 g."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "La liqueur de Fehling oxyde l'éthanal en acide acétique et forme un précipité de Cu₂O (rouge brique). On obtient 5 g de précipité. a) Écrire les demi-équations de la réaction. b) Calculer la masse d'éthanal ayant réagi. c) Si cette même quantité d'éthanal était hydrogénée, calculer la masse d'éthanol obtenue.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "Oxydation : CH₃CHO + H₂O → CH₃COOH + 2H⁺ + 2e⁻ ; Réduction : 2Cu²⁺ + 2e⁻ + 2OH⁻ → Cu₂O + H₂O (simplifié). Bilan : CH₃CHO + 2Cu(OH)₂ → CH₃COOH + Cu₂O + 2H₂O.",
+            "b": "n(Cu₂O) = 5/(63,5×2 + 16) = 5/143 = 0,0350 mol ; n(CH₃CHO) = 0,0350 mol ; m(CH₃CHO) = 0,0350 × 44 = 1,54 g.",
+            "c": "n(éthanol) = n(CH₃CHO) = 0,0350 mol ; m(éthanol) = 0,0350 × 46 = 1,61 g."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "On réalise l'électrolyse d'une solution d'acide chlorhydrique. Décrire ce qui se passe aux deux électrodes (anode et cathode), écrire les demi-équations correspondantes, et calculer le volume de H₂ dégagé à la cathode si on fait passer un courant de 2 A pendant 30 minutes.",
+          "questions": ["a) Réactions aux électrodes.", "b) Volume de H₂."],
+          "reponses": {
+            "a": "Cathode (−) : 2H⁺ + 2e⁻ → H₂ (réduction) ; Anode (+) : 2Cl⁻ → Cl₂ + 2e⁻ (oxydation).",
+            "b": "Q = I × t = 2 × 30 × 60 = 3600 C ; n(e⁻) = Q/F = 3600/96500 = 0,0373 mol ; n(H₂) = 0,0373/2 = 0,0186 mol ; V(H₂) = 0,0186 × 22,4 = 0,42 L."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 4,
+      "titre": "Acide-base : pH, neutralisation et autoprotolyse",
+      "description": "Théorie de Brønsted, couples acide/base, calculs de pH, neutralisation, produit ionique de l'eau, demi-équations acido-basiques.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2015 (exam_chimie_chimie_2015_oxydation.pdf)",
+          "enonce": "Le pH d'une solution aqueuse d'acide nitreux HNO₂ (C = 0,20 mol/L) est 2. Le pH d'une solution de méthanoate de sodium (C = 0,40 mol/L) est 8,7. a) Qu'appelle-t-on pH ? b) Quelle est la nature de chaque solution ? c) Calculer la concentration en H₃O⁺ pour chacune.",
+          "questions": ["a) Définition.", "b) Nature.", "c) [H₃O⁺]."],
+          "reponses": {
+            "a": "Le pH est l'opposé du logarithme décimal de la concentration en ions H₃O⁺ : pH = −log[H₃O⁺].",
+            "b": "HNO₂ pH=2 → solution acide (pH < 7) ; méthanoate de sodium pH=8,7 → solution basique (pH > 7).",
+            "c": "[H₃O⁺] = 10⁻ᵖᴴ. HNO₂ : [H₃O⁺] = 10⁻² = 0,01 mol/L. Méthanoate : [H₃O⁺] = 10⁻⁸•⁷ = 2×10⁻⁹ mol/L."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SES alcool (exam_chimie_chimie_2019_ses_alcool.pdf)",
+          "enonce": "a) Écrire l'équation de l'autoprotolyse de l'eau et donner l'expression de sa constante d'équilibre. b) Quel nom donne-t-on à cette constante et quelle est sa valeur à 25°C ? c) Quelle est la concentration molaire en ions OH⁻ d'une solution contenant 1,5×10⁻⁴ mol/L d'ions H₃O⁺ ?",
+          "questions": ["a) Équation et constante.", "b) Nom et valeur.", "c) [OH⁻]."],
+          "reponses": {
+            "a": "H₂O + H₂O ⇌ H₃O⁺ + OH⁻ ; Ke = [H₃O⁺]×[OH⁻].",
+            "b": "Ke est le produit ionique de l'eau. À 25°C, Ke = 10⁻¹⁴ mol²/L².",
+            "c": "[OH⁻] = Ke/[H₃O⁺] = 10⁻¹⁴ / (1,5×10⁻⁴) = 6,67×10⁻¹¹ mol/L."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SES (exam_chimie_chimie-2023-ses.pdf)",
+          "enonce": "Si la concentration molaire en ions H₃O⁺ d'une solution aqueuse est 10⁻² mol/L, quel est son pH ? La solution peut-elle décolorer l'hélianthine ? Justifier.",
+          "questions": ["a) pH.", "b) Action sur l'hélianthine."],
+          "reponses": {
+            "a": "pH = −log(10⁻²) = 2.",
+            "b": "pH = 2 < 4 → solution fortement acide. L'hélianthine vire au rouge en milieu acide (pH < 4), donc la solution peut décolorer/rosir l'hélianthine."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP acide (exam_chimie_chimie_2021_svt-smp_acide.pdf)",
+          "enonce": "On considère l'équation : H₂CO₃ + H₂O ⇌ H₃O⁺ + HCO₃⁻. a) S'agit-il d'une réaction d'oxydo-réduction ou acido-basique ? Justifier. b) Écrire les demi-équations associées. c) Préciser les couples mis en jeu.",
+          "questions": ["a) Type de réaction.", "b) Demi-équations.", "c) Couples."],
+          "reponses": {
+            "a": "C'est une réaction acido-basique : il y a transfert d'un proton H⁺ de H₂CO₃ vers H₂O (pas de transfert d'électrons).",
+            "b": "Acide 1 : H₂CO₃ → HCO₃⁻ + H⁺ ; Base 2 : H₂O + H⁺ → H₃O⁺.",
+            "c": "Couples : H₂CO₃/HCO₃⁻ et H₃O⁺/H₂O."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2018 – SVT/SMP (exam_chimie_chimie_2018_svt-smp_ethanol.pdf)",
+          "enonce": "On neutralise 15 cm³ d'acide acétique par 20 cm³ d'une solution d'hydroxyde de calcium 1,5 M. a) En déduire la normalité de la solution basique. b) Déterminer pour la solution acétique : la normalité, la molarité, la concentration en g/L.",
+          "questions": ["a) Normalité de Ca(OH)₂.", "b) Normalité, molarité et concentration massique de CH₃COOH."],
+          "reponses": {
+            "a": "n(OH⁻) = 2 × n(Ca(OH)₂) = 2 × 1,5 × 0,020 = 0,06 mol. À l'équivalence : n(H⁺) = n(OH⁻) = 0,06 mol. Normalité Ca(OH)₂ = 2 × 1,5 = 3 N.",
+            "b": "n(CH₃COOH) = 0,06 mol dans 15 mL. Molarité = 0,06/0,015 = 4 mol/L. Normalité = 4 N (monoacide). Concentration massique = 4 × 60 = 240 g/L."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP aston (exam_chimie_chimie_2022_smp-svt_aston.pdf)",
+          "enonce": "Pour neutraliser 20 cm³ d'une solution normale de soude on utilise 15 cm³ d'une solution d'acide acétique. a) Déterminer la normalité, la concentration molaire et la concentration massique de la solution acide. b) Quelle masse d'acétate de sodium obtiendra-t-on après évaporation ?",
+          "questions": ["a) Caractéristiques solution acide.", "b) Masse de sel."],
+          "reponses": {
+            "a": "Équivalence : N_acide × V_acide = N_base × V_base. N_acide = (1 × 20)/15 = 1,33 N = 1,33 mol/L (monoacide). Concentration massique = 1,33 × 60 = 80 g/L.",
+            "b": "n(CH₃COONa) = n(CH₃COOH) = 1,33 × 0,015 = 0,020 mol. m(CH₃COONa) = 0,020 × 82 = 1,64 g."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SVT/SMP substance (exam_chimie_chimie_2019_svt-smp_substance.pdf)",
+          "enonce": "Le pH d'une solution aqueuse est 3,5 à 25°C. a) Quelle est la nature de la solution ? b) Quelle est la concentration molaire en H₃O⁺ ? c) Quelle est la concentration en OH⁻ ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "pH = 3,5 < 7 → solution acide.",
+            "b": "[H₃O⁺] = 10⁻³•⁵ = 3,16×10⁻⁴ mol/L.",
+            "c": "[OH⁻] = 10⁻¹⁴ / (3,16×10⁻⁴) = 3,16×10⁻¹¹ mol/L."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2020 – SES carbure (exam_chimie_chimie_2020_ses_carbure.pdf)",
+          "enonce": "Parmi les deux équations suivantes, laquelle correspond à une réaction acido-basique ? Justifier en écrivant les demi-équations. a) Cl₂ + 2OH⁻ → ClO⁻ + Cl⁻ + H₂O ; b) NH₃ + H₂O → NH₄⁺ + OH⁻",
+          "questions": ["Identifier la réaction acido-basique et écrire les demi-équations."],
+          "reponses": {
+            "identification": "b) est une réaction acido-basique : transfert de proton H⁺ de H₂O vers NH₃. a) est une réaction d'oxydoréduction : Cl passe de 0 à +1 et −1.",
+            "demi_equations_b": "Acide : H₂O → OH⁻ + H⁺ ; Base : NH₃ + H⁺ → NH₄⁺. Couples : H₂O/OH⁻ et NH₄⁺/NH₃."
+          }
+        },
+        {
+          "num": 9,
+          "type": "genere",
+          "source": null,
+          "enonce": "Une solution d'acide chlorhydrique HCl a une concentration de 0,05 mol/L. a) Calculer le pH de cette solution à 25°C. b) Quel volume de solution de NaOH à 0,1 mol/L est nécessaire pour neutraliser 25 mL de cette solution ? c) Écrire l'équation de neutralisation.",
+          "questions": ["a) pH.", "b) Volume NaOH.", "c) Équation."],
+          "reponses": {
+            "a": "HCl fort → [H₃O⁺] = 0,05 mol/L. pH = −log(0,05) = 1,3.",
+            "b": "n(HCl) = 0,05 × 0,025 = 1,25×10⁻³ mol. n(NaOH) nécessaire = 1,25×10⁻³ mol. V(NaOH) = 1,25×10⁻³/0,1 = 0,0125 L = 12,5 mL.",
+            "c": "HCl + NaOH → NaCl + H₂O."
+          }
+        },
+        {
+          "num": 10,
+          "type": "genere",
+          "source": null,
+          "enonce": "On dissout 4 g de soude NaOH dans 500 mL d'eau. a) Calculer la concentration molaire. b) Calculer le pH de la solution à 25°C. c) Cette solution peut-elle décolorer la phénolphtaléine ? Justifier.",
+          "questions": ["a) Concentration.", "b) pH.", "c) Action sur phénolphtaléine."],
+          "reponses": {
+            "a": "n(NaOH) = 4/40 = 0,1 mol ; [NaOH] = 0,1/0,5 = 0,2 mol/L. [OH⁻] = 0,2 mol/L.",
+            "b": "pOH = −log(0,2) = 0,699 ; pH = 14 − 0,699 = 13,3.",
+            "c": "pH = 13,3 > 10 → solution fortement basique → la phénolphtaléine devient rose/rouge en milieu basique (pH > 8,2). Oui, elle la colore en rose."
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "On considère la réaction entre l'ammoniac NH₃ et l'acide chlorhydrique HCl. a) Écrire l'équation de la réaction (transfert de proton). b) Identifier les couples acide/base mis en jeu. c) 12 g de NH₃ réagissent avec un excès de HCl ; calculer la masse de chlorure d'ammonium NH₄Cl formé.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "NH₃ + HCl → NH₄⁺ + Cl⁻ (en solution : NH₃ + H₃O⁺ → NH₄⁺ + H₂O).",
+            "b": "Couples : NH₄⁺/NH₃ et H₃O⁺/H₂O.",
+            "c": "n(NH₃) = 12/17 = 0,706 mol ; n(NH₄Cl) = 0,706 mol ; m(NH₄Cl) = 0,706 × 53,5 = 37,8 g."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "On décompose 20 g de carbonate de calcium CaCO₃ par l'acide acétique CH₃COOH en excès. a) Écrire l'équation de la réaction. b) Calculer la masse d'acétate de calcium formée. c) Calculer le volume de CO₂ dégagé à T.P.N. d) Quelle masse d'acétone peut-on obtenir à partir de l'acétate de calcium par pyrolyse ?",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "CaCO₃ + 2CH₃COOH → (CH₃COO)₂Ca + CO₂ + H₂O.",
+            "b": "n(CaCO₃) = 20/100 = 0,2 mol ; n((CH₃COO)₂Ca) = 0,2 mol ; M = 158 g/mol ; m = 0,2 × 158 = 31,6 g.",
+            "c": "n(CO₂) = 0,2 mol ; V = 0,2 × 22,4 = 4,48 L.",
+            "d": "(CH₃COO)₂Ca → CH₃COCH₃ + CaCO₃ (pyrolyse). n(acétone) = 0,2 mol ; m = 0,2 × 58 = 11,6 g."
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "La réaction entre l'ion bicarbonate HCO₃⁻ et l'acide chlorhydrique HCl produit de l'eau, du CO₂ et du NaCl. a) Écrire l'équation de la réaction. b) S'agit-il d'une réaction acido-basique ? c) Écrire les demi-équations acido-basiques et les couples mis en jeu.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "HCO₃⁻ + HCl → H₂CO₃ + Cl⁻ → H₂O + CO₂ + Cl⁻ (globalement : HCO₃⁻ + H⁺ → H₂O + CO₂).",
+            "b": "Oui, acido-basique : transfert de proton H⁺ de HCl vers HCO₃⁻.",
+            "c": "Acide : HCl → Cl⁻ + H⁺ ; Base : HCO₃⁻ + H⁺ → H₂CO₃ (→ H₂O + CO₂). Couples : HCl/Cl⁻ et H₂CO₃/HCO₃⁻."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "L'acide acétique CH₃COOH réagit avec : a) l'aluminium ; b) la chaux éteinte Ca(OH)₂ ; c) le sulfure de sodium Na₂S. Écrire les équations et nommer les produits organiques obtenus.",
+          "questions": ["Écrire les trois équations et nommer les produits."],
+          "reponses": {
+            "aluminium": "6CH₃COOH + 2Al → 2Al(CH₃COO)₃ + 3H₂↑. Produit : acétate d'aluminium.",
+            "chaux": "2CH₃COOH + Ca(OH)₂ → (CH₃COO)₂Ca + 2H₂O. Produit : acétate de calcium.",
+            "Na2S": "2CH₃COOH + Na₂S → 2CH₃COONa + H₂S↑. Produit : acétate de sodium."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "Une solution d'acide acétique titre 6°. a) Que signifie 'titrant 6°' ? b) Calculer la masse d'acide acétique dans 1 L de cette solution (masse volumique = 1,05 g/cm³). c) Calculer la concentration molaire. d) Calculer le pH approximatif si Ka = 1,8×10⁻⁵.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "Une solution titrant 6° contient 6 mL d'acide acétique pur pour 100 mL de solution.",
+            "b": "V(acide pur) = 6 mL/100 mL. m(acide pur) = 6 × 1,05 = 6,3 g dans 100 mL → 63 g dans 1 L.",
+            "c": "[CH₃COOH] = 63/60 = 1,05 mol/L.",
+            "d": "[H⁺] = √(Ka × C) = √(1,8×10⁻⁵ × 1,05) = √(1,89×10⁻⁵) = 4,35×10⁻³ mol/L. pH = −log(4,35×10⁻³) = 2,36."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 5,
+      "titre": "Alcools : classes, oxydation ménagée, déshydratation, déshydrogénation",
+      "description": "Classes d'alcools, déshydrogénation (→ aldéhyde/cétone), oxydation ménagée et poussée, déshydratation intramoléculaire (→ alcène) et intermoléculaire (→ éther).",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP acide (exam_chimie_chimie_2021_svt-smp_acide.pdf)",
+          "enonce": "Il existe pour la formule brute C₃H₈O trois composés organiques. a) Écrire leurs formules semi-développées. b) Indiquer leurs noms systématiques.",
+          "questions": ["a) Formules.", "b) Noms."],
+          "reponses": {
+            "a": "1) CH₃–CH₂–CH₂OH (propan-1-ol) ; 2) CH₃–CHOH–CH₃ (propan-2-ol) ; 3) CH₃–O–CH₂–CH₃ (méthoxyéthane, éther).",
+            "b": "1) propan-1-ol ; 2) propan-2-ol ; 3) méthoxyéthane (éther de méthyle et d'éthyle)."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SVT/SMP hydron (exam_chimie_chimie-2023-smp-svt-hydron.pdf)",
+          "enonce": "On considère la formule C₃H₈O₂. a) Écrire les formules semi-développées des alcools isomères correspondant. b) Indiquer leurs noms officiels. c) Montrer qu'il est possible de les distinguer à partir de leur déshydrogénation. Écrire les équations correspondantes.",
+          "questions": ["a) Formules des alcools.", "b) Noms.", "c) Déshydrogénation."],
+          "reponses": {
+            "a": "1) HO–CH₂–CH₂–OH (éthane-1,2-diol) ; 2) CH₃–CH(OH)–OH instable → éthanal + H₂O. En fait les dials : propane-1,2-diol et propane-1,3-diol.",
+            "note": "Pour C₃H₈O₂ avec deux OH : propane-1,2-diol (CH₂OH–CHOH–CH₃) et propane-1,3-diol (CH₂OH–CH₂–CH₂OH).",
+            "c": "Propane-1,2-diol : oxydation du C secondaire → hydroxypropanone ; propane-1,3-diol : oxydation du C primaire → 3-hydroxypropan-1-al."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2020 – SVT/SMP propanone (exam_chimie_chmie_2020_svt-smp_propanone.pdf)",
+          "enonce": "On considère un composé de formule CH₃–CH₂–CHO. a) Quel est son nom officiel ? b) Décrire ce qui se passe si ce composé est mis en présence de 2,4-DNPH. c) Décrire ce qui se passe si ce composé est chauffé en présence de liqueur de Fehling.",
+          "questions": ["a) Nom.", "b) Réaction avec 2,4-DNPH.", "c) Réaction avec Fehling."],
+          "reponses": {
+            "a": "Propanal (aldéhyde à 3 carbones).",
+            "b": "La 2,4-DNPH réagit avec le groupement carbonyle C=O et donne un précipité jaune-orange (hydrazone). Cela prouve la présence d'un groupement carbonyle.",
+            "c": "La liqueur de Fehling chauffée est réduite par le propanal (aldéhyde) : apparition d'un précipité rouge brique de Cu₂O. Réaction : RCHO + 2Cu(OH)₂ → RCOOH + Cu₂O↓ + 2H₂O."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fondation (exam_chimie_chimie_2021_svt-smp_fondation.pdf)",
+          "enonce": "On réalise l'hydratation du propène et on obtient un mélange de deux alcools. a) Préciser ces alcools en indiquant leurs formules semi-développées, noms et classes. b) Lequel est majoritaire ?",
+          "questions": ["a) Alcools.", "b) Alcool majoritaire."],
+          "reponses": {
+            "a": "CH₃–CH=CH₂ + H₂O → 1) CH₃–CHOH–CH₃ (propan-2-ol, secondaire) — majoritaire ; 2) CH₃–CH₂–CH₂OH (propan-1-ol, primaire) — minoritaire.",
+            "b": "Le propan-2-ol est majoritaire (règle de Markovnikov : H se fixe sur le C le moins substitué, OH sur le C le plus substitué)."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyoside (exam_chimie_chimie_2016_polyoside.pdf)",
+          "enonce": "On réalise la déshydratation directe de 500 cm³ d'éthanol liquide (masse volumique 0,8 g/cm³) avec un rendement réactionnel de 90%. Calculer : 1) le volume du gaz organique produit, recueilli à T.P.N. ; 2) la masse d'eau formée ; 3) la quantité en mol d'eau correspondante.",
+          "questions": ["1) Volume de gaz.", "2) Masse d'eau.", "3) Moles d'eau."],
+          "reponses": {
+            "equation": "CH₃CH₂OH → CH₂=CH₂ + H₂O (déshydratation intramoléculaire).",
+            "1": "m(éthanol) = 500 × 0,8 = 400 g ; n(éthanol) = 400/46 = 8,70 mol ; n(éthylène) = 8,70 × 0,90 = 7,83 mol ; V = 7,83 × 22,4 = 175 L.",
+            "2": "n(H₂O) = 7,83 mol ; m(H₂O) = 7,83 × 18 = 140,9 g.",
+            "3": "n(H₂O) = 7,83 mol."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP barton (exam_chimie_chimie_2022_smp-svt_barton.pdf)",
+          "enonce": "On considère les deux composés CH₃–CH(OH)–CH₂–CH₃ et CH₃–CH₂–CH₂–CH₂OH. a) Quels sont leurs noms systématiques ? b) Montrer qu'il est possible de les distinguer à partir de leur déshydrogénation.",
+          "questions": ["a) Noms.", "b) Déshydrogénation."],
+          "reponses": {
+            "a": "CH₃–CH(OH)–CH₂–CH₃ = butan-2-ol (secondaire) ; CH₃–CH₂–CH₂–CH₂OH = butan-1-ol (primaire).",
+            "b": "Butan-2-ol (secondaire) → déshydrogénation → CH₃–CO–CH₂–CH₃ (butanone, cétone) ; Butan-1-ol (primaire) → déshydrogénation → CH₃–CH₂–CH₂–CHO (butanal, aldéhyde). La cétone ne réagit pas avec Fehling, l'aldéhyde oui → test Fehling permet de les distinguer."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SES/LLA redox (exam_chimie_chimie_2021_ses-lla_redox.pdf)",
+          "enonce": "On réalise l'hydratation du propène et on obtient un mélange de deux alcools. a) Préciser ces alcools en indiquant leurs formules semi-développées, noms et classes. b) Lequel est majoritaire ?",
+          "questions": ["a) Alcools.", "b) Majoritaire."],
+          "reponses": {
+            "a": "Propan-2-ol CH₃–CHOH–CH₃ (secondaire) et propan-1-ol CH₃–CH₂–CH₂OH (primaire).",
+            "b": "Propan-2-ol est majoritaire (Markovnikov)."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2015 (exam_chimie_chimie_2015_oxydation.pdf)",
+          "enonce": "On réalise l'hydratation du propène et on obtient un mélange de deux alcools. a) Quels sont ces alcools ? Indiquer leurs classes. b) Quel est l'alcool majoritaire issu de l'hydratation ? c) Déduire l'alcool minoritaire.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "Propan-2-ol (secondaire) et propan-1-ol (primaire).",
+            "b": "Propan-2-ol est majoritaire (règle de Markovnikov).",
+            "c": "L'alcool minoritaire est le propan-1-ol."
+          }
+        },
+        {
+          "num": 9,
+          "type": "genere",
+          "source": null,
+          "enonce": "On déshydrate 1,52 L d'éthanol (masse volumique 0,8 g/cm³) par déshydrogénation catalytique. a) Quel produit se forme ? Calculer sa masse. b) Quel volume d'air à T.P.N. est nécessaire pour brûler complètement ce produit ? c) Calculer le nombre de moles de CO₂ lors de la combustion.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "Déshydrogénation de l'éthanol → éthanal CH₃CHO + H₂. m(éthanol) = 1,52 × 1000 × 0,8 = 1216 g (si 1,52 L) → mais corrigé : 1,52 L = 1520 mL × 0,8 g/mL = 1216 g. n(éthanol) = 1216/46 = 26,4 mol. m(éthanal) = 26,4 × 44 = 1162 g.",
+            "b": "Combustion : 2CH₃CHO + 5O₂ → 4CO₂ + 4H₂O. n(O₂) = 2,5 × 26,4 = 66 mol. V(O₂) = 66 × 22,4 = 1478 L. V(air) = 1478/0,21 = 7038 L.",
+            "c": "n(CO₂) = 2 × 26,4 = 52,8 mol."
+          }
+        },
+        {
+          "num": 10,
+          "type": "genere",
+          "source": null,
+          "enonce": "L'éthanol peut être produit par deux voies : a) fermentation du glucose ; b) hydratation de l'éthylène. Écrire les équations des deux réactions. Pour chaque voie, calculer la masse d'éthanol obtenue à partir de 180 g de glucose (voie a) et à partir de 28 g d'éthylène (voie b).",
+          "questions": ["a-b) Équations et calculs."],
+          "reponses": {
+            "equation_a": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂.",
+            "equation_b": "CH₂=CH₂ + H₂O → C₂H₅OH.",
+            "calcul_a": "n(glucose) = 180/180 = 1 mol → n(éthanol) = 2 mol → m = 2 × 46 = 92 g.",
+            "calcul_b": "n(éthylène) = 28/28 = 1 mol → n(éthanol) = 1 mol → m = 1 × 46 = 46 g."
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "Le propan-2-ol s'oxyde en propanone par déshydrogénation ou par oxydation ménagée. a) Écrire l'équation de la déshydrogénation. b) Écrire l'équation de l'oxydation ménagée par les ions dichromate Cr₂O₇²⁻ en milieu acide. c) Identifier les couples rédox. d) La propanone peut-elle être oxydée davantage ? Justifier.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "CH₃–CHOH–CH₃ → CH₃–CO–CH₃ + H₂ (déshydrogénation catalytique).",
+            "b": "5 CH₃–CHOH–CH₃ + 2Cr₂O₇²⁻ + 16H⁺ → 5CH₃–CO–CH₃ + 4Cr³⁺ + 11H₂O.",
+            "c": "Couples : propanone/propan-2-ol et Cr₂O₇²⁻/Cr³⁺.",
+            "d": "Non. La propanone est une cétone (C=O entre deux carbones) → elle ne peut pas être oxydée davantage par oxydation ménagée (les cétones résistent à l'oxydation ménagée)."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "On réalise la déshydratation intermoléculaire de l'éthanol à 140°C en présence de H₂SO₄ concentré. a) Écrire l'équation de la réaction. b) Nommer le produit. c) Si on réalise la même déshydratation à 180°C, quel serait le produit ? d) Calculer la masse de diéthyléther obtenu à partir de 230 g d'éthanol (rendement 80%).",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "2CH₃CH₂OH → CH₃CH₂–O–CH₂CH₃ + H₂O.",
+            "b": "Éthoxyéthane (diéthyléther ou éther éthylique).",
+            "c": "À 180°C, déshydratation intramoléculaire → CH₂=CH₂ + H₂O.",
+            "d": "n(éthanol) = 230/46 = 5 mol. n(éther théorique) = 5/2 = 2,5 mol. n(réel) = 2,5 × 0,80 = 2,0 mol. m = 2,0 × 74 = 148 g."
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "On oxyde de manière poussée l'éthanol par un excès d'acide dichromate. a) Écrire les deux étapes de l'oxydation avec les équations. b) Quel est le produit final ? c) Si on oxyde 46 g d'éthanol, calculer la masse d'acide acétique formée.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "Étape 1 : CH₃CH₂OH → CH₃CHO + H₂ (oxydation ménagée, aldéhyde). Étape 2 : CH₃CHO → CH₃COOH (oxydation poussée, acide carboxylique).",
+            "b": "Acide acétique (acide éthanoïque) CH₃COOH.",
+            "c": "n(éthanol) = 46/46 = 1 mol. n(acide acétique) = 1 mol. m = 1 × 60 = 60 g."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "Un vin titre 15°. a) Quelle masse d'éthanol contient 2 L de ce vin (ρ(éthanol) = 0,8 g/cm³) ? b) Quelle masse d'acide acétique peut-on préparer par oxydation de cet éthanol ? c) Quel volume de vinaigre à 6° peut-on obtenir (ρ(vinaigre) = 1,05 g/cm³) ?",
+          "questions": ["a) Masse éthanol.", "b) Masse acide acétique.", "c) Volume vinaigre."],
+          "reponses": {
+            "a": "V(éthanol) = 15/100 × 2000 = 300 mL. m(éthanol) = 300 × 0,8 = 240 g.",
+            "b": "n(éthanol) = 240/46 = 5,22 mol. n(acide acétique) = 5,22 mol. m = 5,22 × 60 = 313 g.",
+            "c": "Vinaigre à 6° : 6 mL acide acétique pour 100 mL de vinaigre. ρ(acide pur) ≈ 1,05 g/mL. m(acide pur/100mL) = 6 × 1,05 = 6,3 g. V(vinaigre) = 313/6,3 × 100 = 4968 mL ≈ 4,97 L."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "La réduction du phénol C₆H₅OH par le zinc produit deux substances. a) Écrire l'équation de la réaction. b) Identifier les produits formés. c) Écrire les demi-équations d'oxydoréduction.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "C₆H₅OH + Zn → C₆H₆ + ZnO.",
+            "b": "Benzène C₆H₆ et oxyde de zinc ZnO.",
+            "c": "Réduction : C₆H₅OH + H⁺ + e⁻ → C₆H₆ + OH⁻ (×2). Oxydation : Zn → ZnO (Zn²⁺) + 2e⁻. (Simplification : le Zn est oxydé, le phénol est réduit.)"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 6,
+      "titre": "Vin titré – Calculs sur l'éthanol, l'acide acétique et le vinaigre",
+      "description": "Exercices complets sur les calculs quantitatifs liés au vin : volume/masse d'éthanol, oxydation en acide acétique, volume de vinaigre, glucose utilisé pour la fermentation.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2015 (exam_chimie_chimie_2015_oxydation.pdf)",
+          "enonce": "Un vin titre 15°. 1) Quel volume d'éthanol pur se retrouve dans 2 L de ce vin ? 2) Déduire la masse d'alcool pur correspondant. 3) Quelle masse d'acide acétique pourra-t-on préparer à partir de 1 L de ce vin ? 4) Quelle solution de vinaigre titrant 6° peut-on produire avec l'acide acétique préparé ? (ρ(éthanol) = 0,8 g/cm³ ; ρ(acide acétique) = 1,08 g/cm³)",
+          "questions": ["1-4) Voir énoncé."],
+          "reponses": {
+            "1": "V(éthanol) = 15% × 2000 mL = 300 mL.",
+            "2": "m(éthanol) = 300 × 0,8 = 240 g.",
+            "3": "Dans 1 L de vin : V(éthanol) = 150 mL ; m = 120 g ; n = 120/46 = 2,61 mol. Oxydation : CH₃CH₂OH → CH₃COOH. n(acide) = 2,61 mol ; m = 2,61 × 60 = 156,5 g.",
+            "4": "V(vinaigre à 6°) : 6 mL d'acide pur / 100 mL de vinaigre. m(acide pur/100 mL) = 6 × 1,08 = 6,48 g. V(vinaigre) = 156,5/6,48 × 100 = 2415 mL ≈ 2,4 L."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polymorphe (exam_chimie_chimie_2016_polymorphe.pdf)",
+          "enonce": "Un vin titre 12°. 1) Quel volume d'éthanol pur peut-on extraire de 5 L de ce vin ? 2) Déduire la masse d'éthanol correspondante. 3) Quelle masse de glucose peut servir à préparer 1 L de ce vin pour un rendement réactionnel de 70 % ? (ρ(éthanol) = 0,8 g/cm³)",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "V(éthanol) = 12/100 × 5000 = 600 mL.",
+            "2": "m(éthanol) = 600 × 0,8 = 480 g.",
+            "3": "Dans 1 L : V(éthanol) = 120 mL ; m = 96 g ; n = 96/46 = 2,087 mol. Fermentation : C₆H₁₂O₆ → 2C₂H₅OH. n(glucose) théorique = 2,087/2 = 1,043 mol. Avec rendement 70% : n(glucose) réel = 1,043/0,70 = 1,49 mol. m(glucose) = 1,49 × 180 = 268 g."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fondation (exam_chimie_chimie_2021_svt-smp_fondation.pdf)",
+          "enonce": "On soumet à la fermentation acétique 1 L d'un vin titrant 15°. 1) Écrire l'équation bilan de la réaction. 2) Quelle masse d'acide acétique se forme ? 3) Quel volume d'une solution de vinaigre titrant 7° pourra-t-on préparer à partir de cet acide ? (ρ(acide acétique) = 1,08 g/cm³)",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "CH₃CH₂OH + O₂ → CH₃COOH + H₂O (fermentation acétique).",
+            "2": "V(éthanol) = 150 mL ; m = 120 g ; n = 120/46 = 2,61 mol ; m(acide acétique) = 2,61 × 60 = 156,5 g.",
+            "3": "Vinaigre à 7° : 7 mL acide pur/100 mL. m(acide/100 mL) = 7 × 1,08 = 7,56 g. V(vinaigre) = 156,5/7,56 × 100 = 2070 mL ≈ 2,07 L."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP altman (exam_chimie_chimie_2022_smp-svt_altman.pdf)",
+          "enonce": "On dispose de 2 L d'un vin titrant 14°. a) Déterminer la masse d'alcool que l'on peut en extraire. b) Calculer la masse de glucose qu'on doit utiliser pour produire ces 2 L de vin si le rendement réactionnel est de 70%.",
+          "questions": ["a) Masse alcool.", "b) Masse glucose."],
+          "reponses": {
+            "a": "V(éthanol) = 14/100 × 2000 = 280 mL ; m = 280 × 0,8 = 224 g.",
+            "b": "n(éthanol) = 224/46 = 4,87 mol. n(glucose) théorique = 4,87/2 = 2,43 mol. Avec rendement 70% : n(glucose) réel = 2,43/0,70 = 3,47 mol. m(glucose) = 3,47 × 180 = 625 g."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP barton (exam_chimie_chimie_2022_smp-svt_barton.pdf)",
+          "enonce": "Un vin titre 13°. a) Quel volume d'éthanol se retrouve dans 2 L de ce vin. b) Déduire la masse d'alcool correspondante. c) Quelle masse de glucose a servi à préparer ce même volume de vin pour un rendement réactionnel de 65 %?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "V(éthanol) = 13/100 × 2000 = 260 mL.",
+            "b": "m(éthanol) = 260 × 0,8 = 208 g.",
+            "c": "n(éthanol) = 208/46 = 4,52 mol. n(glucose) théorique = 4,52/2 = 2,26 mol. Réel : 2,26/0,65 = 3,48 mol. m = 3,48 × 180 = 626 g."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP bain (exam_chimie_chimie_2022_smp-svt_bain.pdf)",
+          "enonce": "Sous l'action de mycoderma aceti, 1 L d'un vin titré 10° s'oxyde et se transforme en vinaigre. 1) Écrire l'équation de la réaction. 2) Quelle masse d'acide acétique peut-il se former ? 3) Calculer le volume d'air (C.N.T.P.) nécessaire à cette transformation.",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "CH₃CH₂OH + O₂ → CH₃COOH + H₂O.",
+            "2": "V(éthanol) = 100 mL ; m = 80 g ; n = 80/46 = 1,74 mol ; m(acide acétique) = 1,74 × 60 = 104 g.",
+            "3": "n(O₂) = n(éthanol) = 1,74 mol ; V(O₂) = 1,74 × 22,4 = 38,9 L ; V(air) = 38,9/0,21 = 185 L."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2025 (exam_chimie_chimie-2025.pdf)",
+          "enonce": "On prépare de l'acide acétique par oxydation ménagée poussée de l'alcool contenu dans 0,5 L d'un vin titrant 12°. a) Déterminer la masse d'alcool transformée (ρ(éthanol) = 0,8 g/cm³). b) Calculer la masse d'acide acétique obtenue pour un rendement réactionnel de 60%.",
+          "questions": ["a) Masse alcool.", "b) Masse acide acétique."],
+          "reponses": {
+            "a": "V(éthanol) = 12/100 × 500 = 60 mL ; m = 60 × 0,8 = 48 g.",
+            "b": "n(éthanol) = 48/46 = 1,043 mol. n(acide acétique) théorique = 1,043 mol. Réel : 1,043 × 0,60 = 0,626 mol. m = 0,626 × 60 = 37,6 g."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP atome (exam_chimie_chimie_2022_smp-svt_atome-sr.pdf)",
+          "enonce": "Un vin titre 10°. On en dispose de 2 litres. a) Déterminer : 1) le volume d'alcool éthylique ; 2) la masse d'alcool éthylique. b) Calculer la masse de glucose qui a servi à préparer ces 2 litres de vin pour un rendement réactionnel de 70%.",
+          "questions": ["a1-a2) Volumes et masse.", "b) Masse glucose."],
+          "reponses": {
+            "a1": "V(éthanol) = 10/100 × 2000 = 200 mL.",
+            "a2": "m(éthanol) = 200 × 0,8 = 160 g.",
+            "b": "n(éthanol) = 160/46 = 3,48 mol. n(glucose) théorique = 3,48/2 = 1,74 mol. Réel : 1,74/0,70 = 2,49 mol. m = 2,49 × 180 = 447 g."
+          }
+        },
+        {
+          "num": 9,
+          "type": "genere",
+          "source": null,
+          "enonce": "Une bouteille de bière Prestige (BRANA) contient 34,10 cL à 5,6°. a) Déterminer le volume d'éthanol pur contenu dans une bouteille. b) Calculer la masse d'alcool correspondante (ρ(éthanol) = 0,8 g/cm³). c) Quelle masse d'acide acétique pourra-t-on préparer à partir de cet alcool pour un rendement réactionnel de 90% ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "V(éthanol) = 5,6/100 × 341 = 19,1 mL.",
+            "b": "m(éthanol) = 19,1 × 0,8 = 15,3 g.",
+            "c": "n(éthanol) = 15,3/46 = 0,332 mol. n(acide acétique) réel = 0,332 × 0,90 = 0,299 mol. m = 0,299 × 60 = 17,9 g."
+          }
+        },
+        {
+          "num": 10,
+          "type": "genere",
+          "source": null,
+          "enonce": "On fermente 0,5 kg de glucose avec un rendement réactionnel de 70%. 1) Quelle masse d'éthanol se forme ? 2) Déduire le volume d'alcool correspondant (ρ = 0,8 g/cm³). 3) Quel volume d'une solution alcoolisée titrant 10° pourra-t-on préparer à partir de cet alcool ?",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "n(glucose) = 500/180 = 2,78 mol. n(éthanol) théorique = 2 × 2,78 = 5,56 mol. Réel : 5,56 × 0,70 = 3,89 mol. m = 3,89 × 46 = 179 g.",
+            "2": "V = 179/0,8 = 224 mL = 0,224 L.",
+            "3": "Solution à 10° : 10 mL éthanol/100 mL. V(solution) = 224/10 × 100 = 2240 mL = 2,24 L."
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "Un vin titre 18°. On traite 3 L de ce vin. a) Quelle masse d'éthanol contient-il ? b) Quelle masse d'acide acétique peut-on préparer à partir de l'alcool contenu dans 1 L de ce vin ? c) Déduire le volume d'acide acétique pur correspondant (ρ(acide acétique) = 1,08 g/cm³).",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "V(éthanol) = 18/100 × 3000 = 540 mL. m = 540 × 0,8 = 432 g.",
+            "b": "Dans 1 L : V(éthanol) = 180 mL ; m = 144 g ; n = 144/46 = 3,13 mol. m(acide acétique) = 3,13 × 60 = 187,8 g.",
+            "c": "V(acide pur) = 187,8/1,08 = 173,9 mL ≈ 0,174 L."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "Par fermentation du glucose, on a préparé 2 litres de vin titrant 12°. Sachant que le rendement de la réaction est de 60%, calculer : 1) la masse de glucose utilisée ; 2) le volume de CO₂ libéré lors de la fermentation (recueilli à 40°C sous 72 cm Hg).",
+          "questions": ["1-2) Voir énoncé."],
+          "reponses": {
+            "1": "n(éthanol) = (12/100 × 2000 × 0,8)/46 = 192/46 = 4,17 mol. n(glucose) théorique = 4,17/2 = 2,09 mol. Réel : 2,09/0,60 = 3,48 mol. m(glucose) = 3,48 × 180 = 626 g.",
+            "2": "n(CO₂) = n(éthanol) réel = 4,17 mol. T = 313 K ; P = 72 cmHg = 72/76 atm = 0,947 atm. V = nRT/P = 4,17 × 0,082 × 313 / 0,947 = 113 L."
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "On réalise la fermentation acétique de 2 L d'un vin titrant 20°. a) Écrire l'équation de la fermentation acétique. b) Calculer la masse d'acide acétique formée. c) Quel volume d'oxygène (à T.P.N.) est nécessaire pour cette transformation ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "CH₃CH₂OH + O₂ → CH₃COOH + H₂O.",
+            "b": "V(éthanol) = 20/100 × 2000 = 400 mL ; m = 400 × 0,8 = 320 g ; n = 320/46 = 6,96 mol. m(acide acétique) = 6,96 × 60 = 417 g.",
+            "c": "n(O₂) = n(éthanol) = 6,96 mol. V(O₂) = 6,96 × 22,4 = 155,9 L."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "On dispose de 0,5 L d'un vin titrant 8°. a) Quelle masse d'éthanol peut-on en extraire (ρ = 0,8 g/cm³) ? b) Si cet alcool subit une oxydation ménagée poussée, quelle masse d'acide acétique peut-on produire pour un rendement réactionnel de 90% ? c) Déduire le volume d'une solution de vinaigre titrant 6° que l'on pourra obtenir à partir de cet acide (ρ(vinaigre) = 1,05 g/cm³).",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "V(éthanol) = 8/100 × 500 = 40 mL ; m = 40 × 0,8 = 32 g.",
+            "b": "n(éthanol) = 32/46 = 0,696 mol. n(acide acétique) réel = 0,696 × 0,90 = 0,626 mol. m = 0,626 × 60 = 37,6 g.",
+            "c": "Vinaigre à 6° : 6 mL acide pur/100 mL vinaigre. m(acide/100 mL) = 6 × 1,05 = 6,3 g. V(vinaigre) = 37,6/6,3 × 100 = 597 mL ≈ 0,60 L."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "On fermente 1500 g de glucose avec un rendement de 75%. a) Quelle masse d'alcool se forme ? b) Déduire le volume de cet alcool (ρ = 0,8 g/cm³). c) Quel volume d'une solution alcoolisée titrant 15° pourra-t-on produire à partir de cet alcool ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n(glucose) = 1500/180 = 8,33 mol. n(éthanol) théorique = 2 × 8,33 = 16,67 mol. Réel : 16,67 × 0,75 = 12,5 mol. m(éthanol) = 12,5 × 46 = 575 g.",
+            "b": "V = 575/0,8 = 719 mL.",
+            "c": "Solution à 15° : 15 mL éthanol/100 mL. V(solution) = 719/15 × 100 = 4793 mL ≈ 4,79 L."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 7,
+      "titre": "Hydrolyse des carbures – CaC₂ et Al₄C₃",
+      "description": "Hydrolyse du carbure de calcium (→ acétylène + Ca(OH)₂) et du carbure d'aluminium (→ méthane + Al(OH)₃), calculs de volume de gaz, masse de précipité, degré de pureté.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SES (exam_chimie_chimie-2023-ses.pdf)",
+          "enonce": "Un polymère a une masse molaire moyenne de 31 250 g/mol pour un indice de polymérisation de 500. 1) Déterminer la masse molaire de son monomère. 2) Sachant que ce monomère est constitué de 38,4% de C, 4,8% de H et 56,8% de Cl : a) sa formule moléculaire brute ; b) sa formule semi-développée ; c) son nom. [PARALLÈLE : On hydrolyse aussi du CaC₂. Écrire cette équation.]",
+          "questions": ["1) Masse molaire monomère.", "2a-c) Formule et nom.", "Hydrolyse CaC₂."],
+          "reponses": {
+            "1": "M(monomère) = 31250/500 = 62,5 g/mol.",
+            "2a": "Dans 62,5 g : C = 62,5 × 0,384 = 24 g → n(C) = 2 ; H = 62,5 × 0,048 = 3 g → n(H) = 3 ; Cl = 62,5 × 0,568 = 35,5 g → n(Cl) = 1. Formule brute : C₂H₃Cl.",
+            "2b": "CH₂=CHCl (chlorure de vinyle, chloroéthène).",
+            "2c": "Chloroéthène (chlorure de vinyle). Polymère = PVC (polychlorure de vinyle).",
+            "CaC2": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fondation (exam_chimie_chimie_2021_svt-smp_fondation.pdf)",
+          "enonce": "On réalise l'hydrolyse de 250 g de carbure d'aluminium ayant 30% d'impuretés. 1) Quel gaz se forme ? Calculer son volume s'il est recueilli à T.P.N. 2) Quel serait le volume de ce gaz à 60°C sous pression atmosphérique normale ? 3) Quelle quantité en mol d'eau est nécessaire à la réaction ?",
+          "questions": ["1) Gaz et volume.", "2) Volume à 60°C.", "3) Moles d'eau."],
+          "reponses": {
+            "equation": "Al₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄.",
+            "1": "m(Al₄C₃) pur = 250 × 0,70 = 175 g. M(Al₄C₃) = 4×27 + 3×12 = 144 g/mol. n(Al₄C₃) = 175/144 = 1,215 mol. n(CH₄) = 3 × 1,215 = 3,64 mol. V(CH₄) à TPN = 3,64 × 22,4 = 81,6 L.",
+            "2": "V₂/V₁ = T₂/T₁ (pression constante). T₁ = 273 K, T₂ = 333 K. V₂ = 81,6 × 333/273 = 99,5 L.",
+            "3": "n(H₂O) = 12 × 1,215 = 14,6 mol."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2018 – SES (exam_chimie_chimie_2018_ses_aldehyde.pdf)",
+          "enonce": "On prépare l'acétylène par action de l'eau en excès sur du carbure de calcium. 1) Écrire l'équation-bilan. 2) Quel volume de gaz à T.P.N. pourrait-on obtenir à partir de 85 g de ce carbure ? 3) En réalité on n'a obtenu que 20 L de ce gaz. En déduire la pureté du carbure utilisé. 4) Quel volume de dioxygène serait nécessaire à la combustion complète de ce gaz ?",
+          "questions": ["1-4) Voir énoncé."],
+          "reponses": {
+            "1": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂.",
+            "2": "M(CaC₂) = 64 g/mol. n(CaC₂) = 85/64 = 1,328 mol. n(C₂H₂) = 1,328 mol. V = 1,328 × 22,4 = 29,7 L.",
+            "3": "V(réel) = 20 L. n(C₂H₂) réel = 20/22,4 = 0,893 mol. n(CaC₂) réel = 0,893 mol. m(CaC₂) réel = 0,893 × 64 = 57,1 g. Pureté = 57,1/85 × 100 = 67,2%.",
+            "4": "Combustion C₂H₂ : 2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O. n(O₂) = 5/2 × 0,893 = 2,23 mol. V(O₂) = 2,23 × 22,4 = 49,9 L."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP aston (exam_chimie_chimie_2022_smp-svt_aston.pdf)",
+          "enonce": "On prépare de l'acétylène par hydrolyse de 100 g de carbure de calcium pur. 1) Quel volume d'acétylène, mesuré à TPN, a-t-on recueilli ? 2) Tout l'acétylène est détruit dans le dichlore. Calculer a) la masse du produit solide obtenu ; b) le volume de dichlore (à TPN) nécessaire à cette destruction.",
+          "questions": ["1) Volume C₂H₂.", "2a) Masse solide.", "2b) Volume Cl₂."],
+          "reponses": {
+            "1": "n(CaC₂) = 100/64 = 1,5625 mol. n(C₂H₂) = 1,5625 mol. V = 1,5625 × 22,4 = 35,0 L.",
+            "2a": "C₂H₂ + 2Cl₂ → 2C + 2HCl (destruction). n(C) = 2 × 1,5625 = 3,125 mol. m(C) = 3,125 × 12 = 37,5 g.",
+            "2b": "n(Cl₂) = 2 × 1,5625 = 3,125 mol. V(Cl₂) = 3,125 × 22,4 = 70,0 L."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP bain (exam_chimie_chimie_2022_smp-svt_bain.pdf)",
+          "enonce": "Par hydrolyse de 80 g de carbure de calcium, on prépare de l'acétylène. 1) Quel volume d'acétylène, mesuré à TPN, a-t-on recueilli ? 2) Tout l'acétylène est détruit dans le dichlore. Calculer a) la masse du produit solide obtenu ; b) le volume de dichlore nécessaire à cette destruction.",
+          "questions": ["1) Volume.", "2a-b) Calculs."],
+          "reponses": {
+            "1": "n(CaC₂) = 80/64 = 1,25 mol. n(C₂H₂) = 1,25 mol. V = 1,25 × 22,4 = 28,0 L.",
+            "2a": "n(C) = 2 × 1,25 = 2,5 mol. m(C) = 2,5 × 12 = 30 g.",
+            "2b": "n(Cl₂) = 2 × 1,25 = 2,5 mol. V(Cl₂) = 2,5 × 22,4 = 56 L."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2025 (exam_chimie_chimie-2025.pdf)",
+          "enonce": "On hydrolyse 30 g de carbure de calcium commercial et on obtient un gaz qui, mesuré dans les CNTP, occupe un volume de 8 L. a) Écrire l'équation de la réaction. b) Déterminer le degré de pureté du carbure commercial utilisé. c) On réalise la trimérisation cyclique du gaz. On obtient un liquide de masse volumique 0,9 g/cm³. Donner son nom et son volume.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂.",
+            "b": "n(C₂H₂) = 8/22,4 = 0,357 mol. n(CaC₂) réel = 0,357 mol. m(CaC₂) réel = 0,357 × 64 = 22,9 g. Pureté = 22,9/30 × 100 = 76,3%.",
+            "c": "3C₂H₂ → C₆H₆ (benzène). n(C₆H₆) = 0,357/3 = 0,119 mol. m(C₆H₆) = 0,119 × 78 = 9,28 g. V = 9,28/0,9 = 10,3 mL."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SES/LLA geotextile (exam_chimie_chimie_2021_ses-lla_geotextile.pdf)",
+          "enonce": "1) Quel volume d'acétylène peut-on préparer par hydrolyse de 70 kg de carbure de calcium pur ? 2) Quelle masse de benzène peut-on fabriquer avec l'acétylène recueilli sachant que le rendement de cette réaction est de 60% ? 3) On sait qu'une mole de benzène par combustion complète fournit 800 kcal. Quelle quantité de chaleur peut fournir le benzène recueilli ?",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "n(CaC₂) = 70000/64 = 1093,75 mol. n(C₂H₂) = 1093,75 mol. V = 1093,75 × 22,4 = 24500 L = 24,5 m³.",
+            "2": "3C₂H₂ → C₆H₆. n(C₆H₆) théorique = 1093,75/3 = 364,6 mol. Réel : 364,6 × 0,60 = 218,7 mol. m = 218,7 × 78 = 17059 g ≈ 17,1 kg.",
+            "3": "Chaleur = 218,7 × 800 = 174960 kcal ≈ 175 000 kcal."
+          }
+        },
+        {
+          "num": 8,
+          "type": "genere",
+          "source": null,
+          "enonce": "On hydrolyse 120 g de carbure d'aluminium Al₄C₃ ayant 30% d'impuretés. a) Écrire l'équation. b) Quel gaz se forme ? Calculer son volume à T.P.N. c) Calculer la masse de précipité formé. d) Déterminer la quantité en mol d'eau utilisée.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "Al₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄.",
+            "b": "m(Al₄C₃) pur = 120 × 0,70 = 84 g. n(Al₄C₃) = 84/144 = 0,583 mol. n(CH₄) = 3 × 0,583 = 1,75 mol. V = 1,75 × 22,4 = 39,2 L.",
+            "c": "n(Al(OH)₃) = 4 × 0,583 = 2,33 mol. M(Al(OH)₃) = 78 g/mol. m = 2,33 × 78 = 181,7 g.",
+            "d": "n(H₂O) = 12 × 0,583 = 7,0 mol."
+          }
+        },
+        {
+          "num": 9,
+          "type": "genere",
+          "source": null,
+          "enonce": "On hydrolyse 300 g de carbure de calcium CaC₂ ayant 15% d'impuretés. a) Déterminer le volume du gaz produit à T.P.N. b) Calculer la masse du produit résultant de l'addition d'une molécule de chlorure d'hydrogène sur ce gaz pour un rendement réactionnel de 70%.",
+          "questions": ["a) Volume gaz.", "b) Masse produit."],
+          "reponses": {
+            "a": "m(CaC₂) pur = 300 × 0,85 = 255 g. n(CaC₂) = 255/64 = 3,984 mol. n(C₂H₂) = 3,984 mol. V = 3,984 × 22,4 = 89,2 L.",
+            "b": "C₂H₂ + HCl → CH₂=CHCl (chloroéthène). n(chloroéthène) théorique = 3,984 mol. Réel : 3,984 × 0,70 = 2,789 mol. M(CH₂=CHCl) = 62,5 g/mol. m = 2,789 × 62,5 = 174,3 g."
+          }
+        },
+        {
+          "num": 10,
+          "type": "genere",
+          "source": null,
+          "enonce": "On hydrolyse 200 g de carbure de calcium pur pour obtenir un gaz et une solution basique. a) Écrire l'équation. b) Quel est le gaz produit ? Calculer son volume à T.P.N. c) Quel est le composé constituant la solution basique ? Calculer sa masse.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂.",
+            "b": "Acétylène C₂H₂. n(CaC₂) = 200/64 = 3,125 mol. n(C₂H₂) = 3,125 mol. V = 3,125 × 22,4 = 70 L.",
+            "c": "Hydroxyde de calcium Ca(OH)₂. n = 3,125 mol. m = 3,125 × 74 = 231,25 g."
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "L'hydrolyse de 20 g d'un échantillon de carbure d'aluminium produit 8 L d'un hydrocarbure saturé. 1) Quel est le degré de pureté de l'échantillon ? 2) Donner le nom de l'hydrocarbure produit. 3) Quel précipité se forme ? Déterminer sa masse. 4) Déterminer le nombre de mol d'eau ayant participé à la réaction.",
+          "questions": ["1-4) Voir énoncé."],
+          "reponses": {
+            "1": "n(CH₄) = 8/22,4 = 0,357 mol. n(Al₄C₃) = 0,357/3 = 0,119 mol. m(Al₄C₃) réel = 0,119 × 144 = 17,1 g. Pureté = 17,1/20 × 100 = 85,7%.",
+            "2": "Méthane CH₄.",
+            "3": "Al(OH)₃ (précipité blanc). n = 4 × 0,119 = 0,476 mol. m = 0,476 × 78 = 37,1 g.",
+            "4": "n(H₂O) = 12 × 0,119 = 1,43 mol."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "On détruit 0,5 L d'acétylène dans 0,75 L de dichlore (gaz pris à T.P.N.). a) Écrire l'équation de la réaction. b) Dresser un tableau d'avancement. c) Indiquer le réactif limitant. d) Calculer la masse du solide formé.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "C₂H₂ + 2Cl₂ → 2C + 2HCl.",
+            "b": "n(C₂H₂) = 0,5/22,4 = 0,0223 mol ; n(Cl₂) = 0,75/22,4 = 0,0335 mol. Cl₂ nécessaire pour tout le C₂H₂ : 2 × 0,0223 = 0,0446 mol. Or n(Cl₂) = 0,0335 < 0,0446 → Cl₂ est limitant.",
+            "c": "Cl₂ est le réactif limitant.",
+            "d": "n(C₂H₂) consommé = 0,0335/2 = 0,01675 mol. n(C) = 2 × 0,01675 = 0,0335 mol. m(C) = 0,0335 × 12 = 0,402 g."
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "On hydrolyse 5 kg de carbure d'aluminium ayant 30% d'impuretés. a) Déterminer le volume du gaz obtenu recueilli à T.P.N. b) Calculer la masse d'hydroxyde d'aluminium formé. c) Quel volume d'air pris à T.P.N serait nécessaire pour brûler complètement le gaz formé ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "m(Al₄C₃) pur = 5000 × 0,70 = 3500 g. n(Al₄C₃) = 3500/144 = 24,3 mol. n(CH₄) = 3 × 24,3 = 72,9 mol. V(CH₄) = 72,9 × 22,4 = 1633 L.",
+            "b": "n(Al(OH)₃) = 4 × 24,3 = 97,2 mol. m = 97,2 × 78 = 7582 g ≈ 7,6 kg.",
+            "c": "Combustion CH₄ : CH₄ + 2O₂ → CO₂ + 2H₂O. n(O₂) = 2 × 72,9 = 145,8 mol. V(O₂) = 145,8 × 22,4 = 3266 L. V(air) = 3266/0,21 = 15543 L ≈ 15 550 L."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "On réalise la trimérisation cyclique de l'acétylène. a) Écrire l'équation. b) Nommer le produit. c) Calculer la masse de benzène obtenue à partir de 26 g d'acétylène. d) Calculer le volume de ce benzène (ρ = 0,9 g/cm³).",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "3C₂H₂ → C₆H₆.",
+            "b": "Benzène.",
+            "c": "n(C₂H₂) = 26/26 = 1 mol. n(C₆H₆) = 1/3 = 0,333 mol. m = 0,333 × 78 = 26 g.",
+            "d": "V = 26/0,9 = 28,9 mL."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "On détruit 1,5 L d'acétylène dans 2 L de dichlore (gaz à T.P.N.). Dresser le tableau d'avancement et calculer : a) le réactif limitant ; b) le bilan de matière à l'état final ; c) la masse de solide formé.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "equation": "C₂H₂ + 2Cl₂ → 2C + 2HCl.",
+            "a": "n(C₂H₂) = 1,5/22,4 = 0,067 mol ; n(Cl₂) = 2/22,4 = 0,089 mol. Cl₂ nécessaire pour tout le C₂H₂ = 2 × 0,067 = 0,134 mol > 0,089 mol disponible → Cl₂ est limitant.",
+            "b": "n(C₂H₂) consommé = 0,089/2 = 0,0446 mol ; n(C₂H₂) restant = 0,067 − 0,0446 = 0,022 mol. n(C) formé = 2 × 0,0446 = 0,089 mol. n(HCl) formé = 0,089 mol.",
+            "c": "m(C) = 0,089 × 12 = 1,07 g."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 8,
+      "titre": "Polymères : polymérisation, masse molaire, indice de polymérisation",
+      "description": "Calcul de l'indice de polymérisation, détermination du monomère à partir de la composition massique, écriture de l'équation de polymérisation, identification du polymère.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SES (exam_chimie_chimie-2023-ses.pdf)",
+          "enonce": "Un polymère a une masse molaire moyenne de 31 250 g/mol pour un indice de polymérisation de 500. Le monomère est constitué de 38,4% de C, 4,8% de H et 56,8% de Cl. 1) Déterminer la masse molaire de son monomère. 2) Déterminer : a) sa formule moléculaire brute ; b) sa formule semi-développée ; c) son nom.",
+          "questions": ["1) Masse molaire.", "2a-c) Formule et nom."],
+          "reponses": {
+            "1": "M(monomère) = 31250/500 = 62,5 g/mol.",
+            "2a": "C : 62,5 × 0,384 = 24 g → 2 atomes ; H : 3 g → 3 atomes ; Cl : 35,5 g → 1 atome. Formule brute : C₂H₃Cl.",
+            "2b": "CH₂=CHCl.",
+            "2c": "Chloroéthène (chlorure de vinyle). Polymère = PVC."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti modèle SES (exam_chimie_chimie-modele-ses.pdf)",
+          "enonce": "Un polymère a une masse molaire de 100 000 g/mol pour un indice de polymérisation de 1 600. Le monomère est constitué de 38,4% de C, 4,8% de H et 56,8% de Cl. a) Déterminer la masse molaire de son monomère. b) Déterminer : 1) sa formule brute ; 2) son nom ; 3) l'équation de sa polymérisation et le nom du polymère obtenu.",
+          "questions": ["a) Masse molaire.", "b1-b3) Formule, nom, polymérisation."],
+          "reponses": {
+            "a": "M(monomère) = 100000/1600 = 62,5 g/mol.",
+            "b1": "C₂H₃Cl.",
+            "b2": "Chloroéthène (chlorure de vinyle).",
+            "b3": "n CH₂=CHCl → [–CH₂–CHCl–]ₙ (PVC, polychlorure de vinyle)."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyoside (exam_chimie_chimie_2016_polyoside.pdf)",
+          "enonce": "Un polymère a une masse molaire moyenne de 42 000 g/mol pour un indice de polymérisation de 1000. 1) Déterminer la masse molaire moyenne du monomère. 2) Sachant que ce monomère acyclique comporte 85,7% de carbone et 14,29% d'hydrogène, déterminer sa formule brute puis semi-développée. 3) Écrire l'équation de sa polymérisation et nommer le produit.",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "M(monomère) = 42000/1000 = 42 g/mol.",
+            "2": "C : 42 × 0,857 = 36 g → 3 atomes ; H : 42 × 0,1429 = 6 g → 6 atomes. Formule brute C₃H₆ → propène CH₂=CH–CH₃ (alcène acyclique).",
+            "3": "n CH₂=CH–CH₃ → [–CH₂–CH(CH₃)–]ₙ (polypropylène)."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SVT/SMP substance (exam_chimie_chimie_2019_svt-smp_substance.pdf)",
+          "enonce": "Un polymère A a une masse molaire moyenne de 126 000 g/mol et un indice de polymérisation de 3000. 1) Déterminer la masse molaire et la formule brute du monomère de A. 2) Ce monomère a un pourcentage en masse de carbone égal à 85,7%, le reste étant de l'hydrogène. En déduire son nom et sa formule semi-développée.",
+          "questions": ["1) Masse molaire et formule.", "2) Nom et semi-développée."],
+          "reponses": {
+            "1": "M(monomère) = 126000/3000 = 42 g/mol. C₃H₆.",
+            "2": "C : 42 × 0,857 = 36 → 3C ; H : 6H. Formule C₃H₆ → propène CH₃–CH=CH₂. Polymère = polypropylène."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fixateur (exam_chimie_chimie_2021_svt-smp_fixateur.pdf)",
+          "enonce": "Un polymère a une masse molaire moyenne de 42 000 g pour un indice de polymérisation de 1000. 1) Déterminer la masse molaire moyenne de son monomère. 2) Sachant que ce monomère acyclique comporte 85,7% de carbone et 14,29% d'hydrogène, déterminer sa formule brute puis sa formule semi-développée. 3) Écrire l'équation de sa polymérisation.",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "M = 42000/1000 = 42 g/mol.",
+            "2": "C₃H₆ → propène CH₂=CH–CH₃.",
+            "3": "n CH₂=CH–CH₃ → [–CH₂–CH(CH₃)–]ₙ (polypropylène)."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SES inorganique (exam_chimie_chimie_2022_ses_inorganique.pdf)",
+          "enonce": "Un polymère a une masse molaire moyenne de 126 000 g/mol pour un degré de polymérisation n = 3000. a) Déterminer la masse molaire du monomère correspondant. b) Sachant que ce monomère est un alcène, déduire sa formule brute puis sa formule semi-développée. c) Écrire l'équation de la réaction de polymérisation et proposer un nom pour ce polymère.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "M = 126000/3000 = 42 g/mol.",
+            "b": "Alcène CₙH₂ₙ = 42 → 14n = 42 → n = 3. Formule brute C₃H₆ → propène CH₂=CH–CH₃.",
+            "c": "n CH₂=CH–CH₃ → [–CH₂–CH(CH₃)–]ₙ. Nom : polypropylène."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SES molaire (exam_chimie_chimie_2019_ses_molaire.pdf)",
+          "enonce": "Un polymère a une masse molaire moyenne de 42 000 g/mol. Si la masse molaire de son monomère est 42 g/mol : 1) Préciser son indice de polymérisation. 2) De plus ce monomère est un alcène. Déterminer sa formule semi-développée puis indiquer son nom. 3) Écrire l'équation de la polymérisation de ce monomère.",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "n = M(polymère)/M(monomère) = 42000/42 = 1000.",
+            "2": "C₃H₆ → propène CH₂=CH–CH₃.",
+            "3": "n CH₂=CH–CH₃ → [–CH₂–CH(CH₃)–]ₙ (polypropylène)."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP barbier (exam_chimie_chimie_2022_smp-svt_barbier.pdf)",
+          "enonce": "Un polymère a une masse molaire de 93 750 g pour un indice de polymérisation 1500. a) Déterminer la masse molaire du monomère. b) Sachant que ce monomère comporte 38,4% de C, 4,8% de H et 56,8% de Cl : sa formule brute, sa formule semi-développée, son nom officiel.",
+          "questions": ["a) Masse molaire.", "b) Formules et nom."],
+          "reponses": {
+            "a": "M = 93750/1500 = 62,5 g/mol.",
+            "b": "C₂H₃Cl → CH₂=CHCl (chloroéthène, chlorure de vinyle). Polymère = PVC."
+          }
+        },
+        {
+          "num": 9,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SES polypeptidiques (exam_chimie_chimie_2022_ses_polypeptidiques.pdf)",
+          "enonce": "Les masses molaires moyennes d'un polymère et de son monomère sont respectivement 39 000 g/mol et 26 g/mol. 1) Déduire l'indice de polymérisation. 2) Le monomère étant un alcyne, déterminer : a) sa formule brute ; b) sa formule semi-développée ; c) son nom systématique.",
+          "questions": ["1-2) Voir énoncé."],
+          "reponses": {
+            "1": "n = 39000/26 = 1500.",
+            "2a": "Alcyne CₙH₂ₙ₋₂ = 26 → 14n − 2 = 26 → 14n = 28 → n = 2. C₂H₂.",
+            "2b": "CH≡CH.",
+            "2c": "Éthyne (acétylène). Polymère = polyacétylène."
+          }
+        },
+        {
+          "num": 10,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SES quinine (exam_chimie_chimie_2022_ses_quinine.pdf)",
+          "enonce": "Un polymère a une masse molaire moyenne de 42 000 g/mol pour un indice de polymérisation de 1500. a) Déterminer la masse molaire de son monomère. b) Sachant que le monomère est un alcène, déterminer sa formule brute, sa formule semi-développée et son nom UICPA.",
+          "questions": ["a-b) Voir énoncé."],
+          "reponses": {
+            "a": "M = 42000/1500 = 28 g/mol.",
+            "b": "Alcène CₙH₂ₙ = 28 → 14n = 28 → n = 2. C₂H₄ → CH₂=CH₂ (éthylène/éthène). Polymère = polyéthylène."
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "Un polymère P contient uniquement du carbone et de l'hydrogène. Sa masse molaire moyenne est 51 800 g/mol et son indice de polymérisation est 1850. a) Déterminer la masse molaire du monomère. b) Sachant que ce monomère est un alcène, indiquer sa formule brute, sa formule semi-développée et son nom officiel. c) Écrire l'équation de polymérisation.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "M(monomère) = 51800/1850 = 28 g/mol.",
+            "b": "CₙH₂ₙ = 28 → n = 2. C₂H₄ → CH₂=CH₂ (éthylène). Polymère = polyéthylène.",
+            "c": "n CH₂=CH₂ → [–CH₂–CH₂–]ₙ (polyéthylène)."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "Le PVC (polychlorure de vinyle) est un polymère très utilisé dans l'industrie. Son monomère est le chlorure de vinyle CH₂=CHCl. a) Écrire l'équation de polymérisation du chlorure de vinyle. b) Si le PVC a une masse molaire de 125 000 g/mol, calculer son indice de polymérisation. c) Calculer le nombre d'atomes de Cl dans une molécule de PVC ayant n = 2000.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n CH₂=CHCl → [–CH₂–CHCl–]ₙ.",
+            "b": "M(monomère) = M(C₂H₃Cl) = 62,5 g/mol. n = 125000/62,5 = 2000.",
+            "c": "Chaque motif contient 1 Cl → n(Cl) = 2000 atomes de Cl par molécule de polymère."
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "Le polytétrafluoroéthylène (PTFE/Téflon) a pour monomère le tétrafluoroéthylène CF₂=CF₂ (M = 100 g/mol). a) Écrire l'équation de polymérisation. b) Si le PTFE a une masse molaire de 500 000 g/mol, calculer son indice de polymérisation. c) Quels éléments chimiques constituent le Téflon ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n CF₂=CF₂ → [–CF₂–CF₂–]ₙ (Téflon).",
+            "b": "n = 500000/100 = 5000.",
+            "c": "Carbone (C) et fluor (F) uniquement."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "Un monomère acyclique est constitué de 85,7% de carbone et 14,3% d'hydrogène. Sa masse molaire est 42 g/mol. a) Déterminer la formule empirique du monomère. b) Vérifier que la formule moléculaire correspond à la masse molaire. c) Écrire l'équation de polymérisation et nommer le polymère obtenu. d) Si le polymère a n = 5000, calculer sa masse molaire.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "C : 42 × 0,857 = 36 g → 3C ; H : 42 × 0,143 = 6 g → 6H. Formule C₃H₆.",
+            "b": "M(C₃H₆) = 3×12 + 6×1 = 42 g/mol ✓.",
+            "c": "CH₂=CH–CH₃ → [–CH₂–CH(CH₃)–]ₙ (polypropylène).",
+            "d": "M = 5000 × 42 = 210 000 g/mol."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "Le polyéthylène (PE) est obtenu par polymérisation de l'éthylène. Un échantillon de PE a une masse de 500 g et contient 18 000 motifs monomères. a) Calculer la masse molaire de ce polyéthylène. b) Calculer le nombre de molécules dans cet échantillon. c) Écrire l'équation de polymérisation. d) Calculer le nombre d'atomes de carbone dans une molécule de PE avec n = 18000.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "M(éthylène) = 28 g/mol. M(PE) = 18000 × 28 = 504 000 g/mol.",
+            "b": "n(molécules de PE) = 500/504000 × 6,022×10²³ = 5,97×10¹⁷ molécules.",
+            "c": "n CH₂=CH₂ → [–CH₂–CH₂–]ₙ.",
+            "d": "Chaque motif contient 2C → n(C) total = 18000 × 2 = 36 000 atomes de C par molécule."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 9,
+      "titre": "Fermentation alcoolique et calculs stœchiométriques",
+      "description": "Équation de la fermentation, calculs de masse/volume d'éthanol produit, CO₂ dégagé, rendement réactionnel.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyamide (exam_chimie_chimie_2016_polyamide.pdf)",
+          "enonce": "On fermente 1500 g de glucose. En supposant un rendement réactionnel de 70%, déterminer : 1) le volume de gaz recueilli à T.P.N. ; 2) la masse d'alcool produit ; 3) le volume d'un vin titrant 20° que l'on pourrait préparer à partir de cet alcool.",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "equation": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂.",
+            "1": "n(glucose) = 1500/180 = 8,33 mol. n(CO₂) théorique = 2 × 8,33 = 16,67 mol. Réel : 16,67 × 0,70 = 11,67 mol. V(CO₂) = 11,67 × 22,4 = 261,4 L.",
+            "2": "n(éthanol) réel = 11,67 mol. m = 11,67 × 46 = 536,8 g.",
+            "3": "V(éthanol) = 536,8/0,8 = 671 mL. Vin à 20° : 20 mL éthanol/100 mL. V(vin) = 671/20 × 100 = 3355 mL ≈ 3,36 L."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyacide (exam_chimie_chimie_2016_polyacide.pdf)",
+          "enonce": "Par fermentation du glucose, on a préparé deux litres de vin titrant 12°. Sachant que le rendement de la réaction est de 60%, calculer : 1) la masse de glucose utilisé ; 2) le volume de gaz libéré lors de la transformation.",
+          "questions": ["1-2) Voir énoncé."],
+          "reponses": {
+            "1": "n(éthanol) = (12/100 × 2000 × 0,8)/46 = 192/46 = 4,17 mol. n(glucose) théorique = 4,17/2 = 2,09 mol. Réel : 2,09/0,60 = 3,48 mol. m = 3,48 × 180 = 626 g.",
+            "2": "n(CO₂) réel = 4,17 mol. V = 4,17 × 22,4 = 93,4 L (à T.P.N.)."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SVT/SMP covalente (exam_chimie_chimie-2023-smp-svt-covalente.pdf)",
+          "enonce": "On fermente 1,5 kg de glucose. Sachant que le rendement de la réaction est de 70%. Calculer : a) le volume du gaz dégagé à T.P.N. au cours de la réaction ; b) le volume d'éthanol pur obtenu (ρ(éthanol) = 0,8 g/cm³) ; c) la masse d'acide acétique que l'on pourrait produire par oxydation ménagée de cet alcool.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n(glucose) = 1500/180 = 8,33 mol. n(CO₂) réel = 2 × 8,33 × 0,70 = 11,67 mol. V = 11,67 × 22,4 = 261 L.",
+            "b": "n(éthanol) = 11,67 mol. m = 11,67 × 46 = 537 g. V = 537/0,8 = 671 mL ≈ 0,671 L.",
+            "c": "n(acide acétique) = n(éthanol) = 11,67 mol. m = 11,67 × 60 = 700 g."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SVT/SMP tertiaire (exam_chimie_chimie_2019_ses_tertiaire.pdf)",
+          "enonce": "On fermente 0,5 kg de glucose et on admet un rendement réactionnel de 70%. 1) Quelle masse d'éthanol se forme ? 2) Déduire le volume d'alcool correspondant (ρ = 0,8 g/cm³). 3) Quel volume d'une solution alcoolisée titrant 10° pourra-t-on préparer ?",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "n(glucose) = 500/180 = 2,78 mol. n(éthanol) réel = 2 × 2,78 × 0,70 = 3,89 mol. m = 3,89 × 46 = 179 g.",
+            "2": "V = 179/0,8 = 224 mL.",
+            "3": "Solution à 10° : 10 mL éthanol/100 mL. V = 224/10 × 100 = 2240 mL = 2,24 L."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2019 – SVT/SMP substance (exam_chimie_chimie_2019_svt-smp_substance.pdf)",
+          "enonce": "On fermente 1800 g de glucose et on admet un rendement réactionnel de 70%. 1) Quelle masse d'alcool éthylique se forme ? 2) Quel est son volume (ρ = 0,8 g/cm³) ? 3) Quel volume d'une solution alcoolisée titrant 12° pourra-t-on préparer à partir du tiers (1/3) de cet alcool ?",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "n(glucose) = 1800/180 = 10 mol. n(éthanol) réel = 2 × 10 × 0,70 = 14 mol. m = 14 × 46 = 644 g.",
+            "2": "V = 644/0,8 = 805 mL.",
+            "3": "V(1/3 éthanol) = 805/3 = 268 mL. Solution à 12° : V(vin) = 268/12 × 100 = 2233 mL ≈ 2,23 L."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP balandine (exam_chimie_chimie_2022_smp-svt_balandine.pdf)",
+          "enonce": "On fermente 1200 g de glucose et on admet un rendement réactionnel de 70%. a) Écrire l'équation de la réaction. b) Déterminer le volume de gaz produit s'il est recueilli à 60°C sous une pression de 1,5 atm. c) Calculer la masse d'alcool obtenu. d) Déterminer le volume d'alcool correspondant.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂.",
+            "b": "n(glucose) = 1200/180 = 6,67 mol. n(CO₂) réel = 2 × 6,67 × 0,70 = 9,33 mol. À T.P.N. : V = 9,33 × 22,4 = 209 L. À 60°C (333 K) sous 1,5 atm : V = 9,33 × 0,082 × 333/1,5 = 170 L.",
+            "c": "n(éthanol) = 9,33 mol. m = 9,33 × 46 = 429 g.",
+            "d": "V = 429/0,8 = 536 mL."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP barton (exam_chimie_chimie_2022_smp-svt_barton.pdf)",
+          "enonce": "On fermente 2 kg de glucose et on admet un rendement réactionnel de 60%. a) Calculer la masse d'alcool produite. b) Déterminer le volume d'alcool correspondant. c) Déterminer le volume d'une solution alcoolisée titrant 15°.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n(glucose) = 2000/180 = 11,11 mol. n(éthanol) réel = 2 × 11,11 × 0,60 = 13,33 mol. m = 13,33 × 46 = 613 g.",
+            "b": "V = 613/0,8 = 767 mL.",
+            "c": "V(vin 15°) = 767/15 × 100 = 5113 mL ≈ 5,11 L."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2018 – LLA organique (exam_chimie_chimie_2018_lla_organique-2.pdf)",
+          "enonce": "Stoichiométrie de la fermentation. La réaction est C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂. a) Calculer la masse d'éthanol obtenue théoriquement à partir de 10 g de glucose. b) Déterminer le nombre de moles de CO₂ produites. c) En supposant un rendement réel de 95%, calculer la masse d'éthanol réellement obtenue.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n(glucose) = 10/180 = 0,0556 mol. n(éthanol) théorique = 2 × 0,0556 = 0,1111 mol. m = 0,1111 × 46 = 5,11 g.",
+            "b": "n(CO₂) = 0,1111 mol.",
+            "c": "m(réel) = 5,11 × 0,95 = 4,86 g."
+          }
+        },
+        {
+          "num": 9,
+          "type": "genere",
+          "source": null,
+          "enonce": "On cherche à produire 100 L d'éthanol (ρ = 0,8 g/cm³) par fermentation du glucose avec un rendement de 80%. a) Calculer la masse d'éthanol à produire. b) Calculer le nombre de moles d'éthanol. c) Calculer la masse de glucose nécessaire.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "m(éthanol) = 100 000 mL × 0,8 g/mL = 80 000 g = 80 kg.",
+            "b": "n(éthanol) réel = 80000/46 = 1739 mol.",
+            "c": "n(éthanol) théorique = 1739/0,80 = 2174 mol. n(glucose) = 2174/2 = 1087 mol. m(glucose) = 1087 × 180 = 195 660 g ≈ 196 kg."
+          }
+        },
+        {
+          "num": 10,
+          "type": "genere",
+          "source": null,
+          "enonce": "La fermentation de 900 g de glucose avec un rendement de 75% permet de préparer un vin. a) Calculer la masse d'éthanol produite. b) Quel volume de vin titrant 11° peut-on préparer ? c) Calculer le volume de CO₂ dégagé à T.P.N.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n(glucose) = 900/180 = 5 mol. n(éthanol) réel = 2 × 5 × 0,75 = 7,5 mol. m = 7,5 × 46 = 345 g.",
+            "b": "V(éthanol) = 345/0,8 = 431 mL. Vin à 11° : V(vin) = 431/11 × 100 = 3918 mL ≈ 3,92 L.",
+            "c": "n(CO₂) = 7,5 mol. V = 7,5 × 22,4 = 168 L."
+          }
+        },
+        {
+          "num": 11,
+          "type": "genere",
+          "source": null,
+          "enonce": "On fait fermenter l'amidon des céréales qui produit d'abord du glucose puis de l'éthanol. On part de 1 kg d'amidon (formule (C₆H₁₀O₅)ₙ). L'hydrolyse de l'amidon est complète. La fermentation a un rendement de 65%. a) Écrire l'équation d'hydrolyse de l'amidon (pour un motif). b) Calculer la masse de glucose produite par 1 kg d'amidon. c) Calculer la masse d'éthanol obtenue.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "(C₆H₁₀O₅)ₙ + nH₂O → nC₆H₁₂O₆.",
+            "b": "M(motif amidon) = 162 g/mol. n(motifs) = 1000/162 = 6,17 mol. n(glucose) = 6,17 mol. m(glucose) = 6,17 × 180 = 1111 g.",
+            "c": "n(éthanol) réel = 2 × 6,17 × 0,65 = 8,02 mol. m = 8,02 × 46 = 369 g."
+          }
+        },
+        {
+          "num": 12,
+          "type": "genere",
+          "source": null,
+          "enonce": "La fermentation du fructose (C₆H₁₂O₆) suit la même équation que le glucose. On dispose de 500 g de fructose et on obtient un rendement de 90%. a) Calculer le volume de CO₂ dégagé à 25°C et 1 atm. b) Calculer la masse d'éthanol produite. c) Si on prépare un vin à 10°, quel volume de vin peut-on obtenir ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "n(fructose) = 500/180 = 2,78 mol. n(CO₂) réel = 2 × 2,78 × 0,90 = 5,0 mol. À 25°C, 1 atm : V = 5,0 × 0,082 × 298 = 122 L.",
+            "b": "n(éthanol) = 5,0 mol. m = 5,0 × 46 = 230 g.",
+            "c": "V(éthanol) = 230/0,8 = 288 mL. Vin à 10° : V(vin) = 288/10 × 100 = 2880 mL ≈ 2,88 L."
+          }
+        },
+        {
+          "num": 13,
+          "type": "genere",
+          "source": null,
+          "enonce": "On soumet 1 L d'un vin à 15° à la fermentation acétique. Toute l'oxydation est complète. a) Écrire l'équation. b) Calculer la masse d'acide acétique produite. c) Si on veut obtenir du vinaigre à 5° avec cet acide (ρ(vinaigre) = 1,05 g/mL), quel volume peut-on préparer ?",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "CH₃CH₂OH + O₂ → CH₃COOH + H₂O.",
+            "b": "V(éthanol) = 150 mL ; m = 120 g ; n = 120/46 = 2,61 mol. m(acide acétique) = 2,61 × 60 = 156 g.",
+            "c": "Vinaigre à 5° : 5 mL acide pur/100 mL. m(acide pur/100 mL) = 5 × 1,05 = 5,25 g. V(vinaigre) = 156/5,25 × 100 = 2971 mL ≈ 2,97 L."
+          }
+        },
+        {
+          "num": 14,
+          "type": "genere",
+          "source": null,
+          "enonce": "Un saccharose (C₁₂H₂₂O₁₁) s'hydrolyse en un mélange équimolaire de glucose et de fructose. On fait ensuite fermenter ce mélange. a) Écrire l'équation d'hydrolyse du saccharose. b) Calculer la masse d'éthanol produite à partir de 342 g de saccharose (rendement 100%). c) Comparer avec la fermentation directe de glucose de même masse.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "C₁₂H₂₂O₁₁ + H₂O → C₆H₁₂O₆ + C₆H₁₂O₆ (glucose + fructose).",
+            "b": "n(saccharose) = 342/342 = 1 mol. n(glucose + fructose) = 2 mol. n(éthanol) = 2 × 2 = 4 mol. m = 4 × 46 = 184 g.",
+            "c": "342 g glucose direct : n = 342/180 = 1,9 mol → n(éthanol) = 3,8 mol → 175 g. Donc saccharose donne plus d'éthanol car 342 g saccharose → 2 mol hexoses vs 1,9 mol glucose seul."
+          }
+        },
+        {
+          "num": 15,
+          "type": "genere",
+          "source": null,
+          "enonce": "L'alcool commercial est un mélange de 95% d'éthanol et 5% d'eau. Son titre est 95°. On veut produire 10 L d'alcool commercial (ρ ≈ 0,8 g/mL). a) Calculer la masse d'alcool commercial à produire. b) Calculer la masse d'éthanol pur qu'il contient. c) Calculer la masse de glucose nécessaire (rendement 80%).",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "a": "m(alcool commercial) = 10 000 × 0,8 = 8000 g.",
+            "b": "m(éthanol pur) = 8000 × 0,95 = 7600 g.",
+            "c": "n(éthanol) réel = 7600/46 = 165,2 mol. Théorique : 165,2/0,80 = 206,5 mol. n(glucose) = 206,5/2 = 103,3 mol. m(glucose) = 103,3 × 180 = 18 594 g ≈ 18,6 kg."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": 10,
+      "titre": "Combustion des hydrocarbures et calculs stœchiométriques",
+      "description": "Combustion complète et incomplète d'alcanes, alcènes, alcynes, benzène, éthanol. Calcul de volumes d'air, masses de CO₂ et H₂O, tableaux d'avancement, réactif limitant.",
+      "exercices": [
+        {
+          "num": 1,
+          "type": "real",
+          "source": "Bac Haïti 2016 – polyacide (exam_chimie_chimie_2016_polyacide.pdf)",
+          "enonce": "On brûle dans un excès de dioxygène 500 cm³ d'éthylène pris à T.P.N. Calculer : 1) le volume d'air nécessaire à cette réaction ; 2) la masse de dioxyde de carbone produite ; 3) le nombre de moles d'eau formée ; 4) la masse de chlorure d'hydrogène nécessaire pour transformer les 500 cm³ d'éthylène en chlorure d'éthyle si le rendement est de 70%.",
+          "questions": ["1-4) Voir énoncé."],
+          "reponses": {
+            "equation": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O.",
+            "1": "n(C₂H₄) = 0,5/22,4 = 0,02232 mol. n(O₂) = 3 × 0,02232 = 0,06696 mol. V(O₂) = 0,06696 × 22,4 = 1,5 L. V(air) = 1,5/0,21 = 7,14 L.",
+            "2": "n(CO₂) = 2 × 0,02232 = 0,04464 mol. m(CO₂) = 0,04464 × 44 = 1,96 g.",
+            "3": "n(H₂O) = 2 × 0,02232 = 0,04464 mol.",
+            "4": "C₂H₄ + HCl → C₂H₅Cl. n(HCl) théorique = 0,02232 mol. Réel : 0,02232/0,70 = 0,0319 mol. m(HCl) = 0,0319 × 36,5 = 1,16 g."
+          }
+        },
+        {
+          "num": 2,
+          "type": "real",
+          "source": "Bac Haïti 2021 – SVT/SMP fondation (exam_chimie_chimie_2021_svt-smp_fondation.pdf)",
+          "enonce": "On réalise la combustion complète de 0,25 mol d'acétylène dans 1,75 mol de dioxygène. 1) Écrire l'équation bilan de la réaction. 2) Présenter le bilan de matière à l'état final. 3) Quelle masse de dioxyde de carbone se forme ?",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O.",
+            "2": "n(O₂) nécessaire pour 0,25 mol C₂H₂ = 5/2 × 0,25 = 0,625 mol. n(O₂) disponible = 1,75 mol (excès). C₂H₂ est limitant. n(CO₂) = 4/2 × 0,25 = 0,5 mol. n(H₂O) = 2/2 × 0,25 = 0,25 mol. n(O₂) restant = 1,75 − 0,625 = 1,125 mol.",
+            "3": "m(CO₂) = 0,5 × 44 = 22 g."
+          }
+        },
+        {
+          "num": 3,
+          "type": "real",
+          "source": "Bac Haïti 2023 – SVT/SMP covalente (exam_chimie_chimie-2023-smp-svt-covalente.pdf)",
+          "enonce": "On brûle dans un excès de dioxygène 5 L de méthane pris à T.P.N. a) Écrire l'équation de la réaction. b) Calculer le volume d'air nécessaire. c) Indiquer la masse du gaz obtenu après condensation de la vapeur d'eau. d) Déterminer la masse de précipité qui se forme lorsque le gaz précédent est barboté dans l'eau de chaux.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "CH₄ + 2O₂ → CO₂ + 2H₂O.",
+            "b": "n(CH₄) = 5/22,4 = 0,223 mol. n(O₂) = 2 × 0,223 = 0,446 mol. V(O₂) = 0,446 × 22,4 = 10 L. V(air) = 10/0,21 = 47,6 L.",
+            "c": "n(CO₂) = 0,223 mol. m(CO₂) = 0,223 × 44 = 9,81 g.",
+            "d": "CO₂ + Ca(OH)₂ → CaCO₃ + H₂O. n(CaCO₃) = n(CO₂) = 0,223 mol. m(CaCO₃) = 0,223 × 100 = 22,3 g."
+          }
+        },
+        {
+          "num": 4,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP sodium (exam_chimie_chmie_2020_svt-smp_propanone.pdf)",
+          "enonce": "On brûle dans un excès de dioxygène 150 cm³ de benzène liquide (ρ = 0,9 g/cm³). 1) Écrire l'équation de la réaction. 2) Quel gaz se forme ? Déterminer son volume recueilli à T.P.N. 3) Quelle masse de précipité se forme si ce gaz est absorbé totalement par l'eau de chaux ?",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "2C₆H₆ + 15O₂ → 12CO₂ + 6H₂O.",
+            "2": "m(C₆H₆) = 150 × 0,9 = 135 g. n(C₆H₆) = 135/78 = 1,731 mol. n(CO₂) = 6 × 1,731 = 10,38 mol. V(CO₂) = 10,38 × 22,4 = 232,5 L.",
+            "3": "n(CaCO₃) = n(CO₂) = 10,38 mol. m(CaCO₃) = 10,38 × 100 = 1038 g."
+          }
+        },
+        {
+          "num": 5,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP barbier (exam_chimie_chimie_2022_smp-svt_barbier.pdf)",
+          "enonce": "On réalise la combustion complète de 4 L d'éthylène dans 12 L de dioxygène (gaz à T.P.N.). a) Le bilan de matière à l'état final dans un tableau d'avancement. b) La masse d'eau que l'on pourra récupérer après condensation. c) Le volume de dioxyde de carbone produit dans les CNTP.",
+          "questions": ["a-c) Voir énoncé."],
+          "reponses": {
+            "equation": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O.",
+            "a": "n(C₂H₄) = 4/22,4 = 0,179 mol ; n(O₂) = 12/22,4 = 0,536 mol. O₂ nécessaire = 3 × 0,179 = 0,536 mol. C₂H₄ et O₂ sont exactement stœchiométriques. n(CO₂) = 2 × 0,179 = 0,357 mol. n(H₂O) = 2 × 0,179 = 0,357 mol.",
+            "b": "m(H₂O) = 0,357 × 18 = 6,43 g.",
+            "c": "V(CO₂) = 0,357 × 22,4 = 8,0 L."
+          }
+        },
+        {
+          "num": 6,
+          "type": "real",
+          "source": "Bac Haïti 2025 (exam_chimie_chimie-2025.pdf)",
+          "enonce": "On détruit 4 moles de méthane dans 10 L de dioxygène pris à T.P.N. Si la réaction produit du noir de fumée : a) le type de combustion ; b) l'équation de la réaction ; c) le bilan de matière à l'état final avec tableau d'avancement ; d) la masse de carbone produite.",
+          "questions": ["a-d) Voir énoncé."],
+          "reponses": {
+            "a": "Combustion incomplète (manque de dioxygène).",
+            "b": "CH₄ + O₂ → C + 2H₂O (combustion très incomplète, noir de fumée = carbone).",
+            "c": "n(O₂) = 10/22,4 = 0,446 mol. Pour 4 mol CH₄, il faudrait 4 mol O₂ (si réaction CH₄ + O₂ → C + 2H₂O). O₂ est limitant. n(CH₄) consommé = 0,446 mol. n(CH₄) restant = 4 − 0,446 = 3,554 mol. n(C) = 0,446 mol. n(H₂O) = 2 × 0,446 = 0,892 mol.",
+            "d": "m(C) = 0,446 × 12 = 5,35 g."
+          }
+        },
+        {
+          "num": 7,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP bartlett (exam_chimie_chimie_2022_smp-svt_bartlett.pdf)",
+          "enonce": "On brûle dans un excès de dioxygène 50 cm³ de benzène. 1) Écrire l'équation de la combustion. 2) Quel gaz se dégage ? Déterminer son volume à 30°C sous 740 mm de Hg. 3) Quel volume d'air (conditions normales) serait nécessaire ? 4) Quelle masse de précipité se forme si le gaz est absorbé par l'eau de chaux ?",
+          "questions": ["1-4) Voir énoncé."],
+          "reponses": {
+            "1": "2C₆H₆ + 15O₂ → 12CO₂ + 6H₂O.",
+            "2": "m(C₆H₆) = 50 × 0,9 = 45 g. n(C₆H₆) = 45/78 = 0,577 mol. n(CO₂) = 6 × 0,577 = 3,46 mol. T = 303 K, P = 740/760 atm = 0,974 atm. V(CO₂) = nRT/P = 3,46 × 0,082 × 303/0,974 = 88,2 L.",
+            "3": "n(O₂) = 7,5 × 0,577 = 4,33 mol. V(O₂) = 4,33 × 22,4 = 97,0 L. V(air) = 97,0/0,21 = 462 L.",
+            "4": "m(CaCO₃) = 3,46 × 100 = 346 g."
+          }
+        },
+        {
+          "num": 8,
+          "type": "real",
+          "source": "Bac Haïti 2015 (exam_chimie_chimie_2015_oxydation.pdf)",
+          "enonce": "On brûle dans l'air 5 L d'éthylène pris à T.P.N. Sachant qu'il se forme un gaz qui trouble l'eau de chaux : 1) De quelle réaction s'agit-il ? 2) Quel volume d'air a été utilisé ? 3) Quel volume de gaz est produit à T.P.N. ? 4) Quelle masse de précipité obtient-on par action de ce gaz sur l'eau de chaux ?",
+          "questions": ["1-4) Voir énoncé."],
+          "reponses": {
+            "1": "Combustion complète de l'éthylène (C₂H₄ + 3O₂ → 2CO₂ + 2H₂O). Le CO₂ trouble l'eau de chaux.",
+            "2": "n(C₂H₄) = 5/22,4 = 0,223 mol. n(O₂) = 3 × 0,223 = 0,670 mol. V(O₂) = 15 L. V(air) = 15/0,21 = 71,4 L.",
+            "3": "n(CO₂) = 2 × 0,223 = 0,446 mol. V(CO₂) = 0,446 × 22,4 = 10 L.",
+            "4": "m(CaCO₃) = 0,446 × 100 = 44,6 g."
+          }
+        },
+        {
+          "num": 9,
+          "type": "real",
+          "source": "Bac Haïti 2022 – SVT/SMP balandine (exam_chimie_chimie_2022_smp-svt_balandine.pdf)",
+          "enonce": "L'hydrolyse de 20 g de carbure d'aluminium permet de recueillir 8 L d'un hydrocarbure gazeux. 1) Déterminer le degré de pureté du carbure utilisé. 2) Calculer le volume d'air (conditions normales) nécessaire pour brûler complètement ce gaz. 3) Déterminer la masse de précipité qui se forme si les gaz de la combustion sont barbotés dans l'eau de chaux.",
+          "questions": ["1-3) Voir énoncé."],
+          "reponses": {
+            "1": "Gaz = CH₄. n(CH₄) = 8/22,4 = 0,357 mol. n(Al₄C₃) = 0,357/3 = 0,119 mol. m(Al₄C₃) réel = 0,119 × 144 = 17,1 g. Pureté = 17
+
+
+id :11
+titre : «  Estérification et hydrolyse des esters »
+
+### Exercice 1
+**Source** : `exam_chimie_chimie-2023-smp-svt-covalente.pdf` (Bac Haïti 2023 – SVT/SMP Covalente)  
+**Extrait** (Partie A) :  
+> • Par hydrolyse d’un ester carboxylique on obtient _________________ et _________________.
+
+**Réponses** :  
+Un acide carboxylique et un alcool.
+
+---
+
+### Exercice 2
+**Source** : `exam_chimie_chimie-2025.pdf` (Bac Haïti 2025 – SVT/SMP)  
+**Extrait** (Partie A, QCM) :  
+> 1. L'hydrolyse du propanoate de méthyle produit un alcool de formule brute:  
+> • C₃H₈O • C₃H₆O • CH₄O
+
+**Réponses** :  
+CH₄O (méthanol). L'hydrolyse du propanoate de méthyle (CH₃CH₂COOCH₃) donne l'acide propanoïque et le méthanol CH₃OH.
+
+---
+
+### Exercice 3
+**Source** : `exam_chimie_chimie-modele-ses.pdf` (Bac Haïti – modèle SES)  
+**Extrait** (Partie A) :  
+> • Le groupe fonctionnel des acides carboxyliques est _________ et celui des esters carboxyliques est _________.
+
+**Réponses** :  
+–COOH (ou carboxyle) ; –COO– (ou ester).
+
+---
+
+### Exercice 4
+**Source** : `exam_chimie_chimie_020_lla_dioxyde.pdf` (Bac Haïti 2020 – LLA)  
+**Extrait** (Partie D – Étude de texte « L’aspirine ») :  
+> Sa formule développée est la suivante :  
+> O  
+> C–OH  
+> O–C–C H₃  
+> O  
+> Questions :  
+> 1) Relever dans la formule de l’aspirine les deux (2) fonctions qu’elle présente.  
+> 2) Une solution d’aspine est-elle neutre ? Justifier.  
+> 3) Pourquoi l’ingestion répétée d’aspirine peut causer des maux d’estomac ?
+
+**Réponses** :  
+1) Fonction acide carboxylique (–COOH) et fonction ester (–COO–).  
+2) Non, une solution d’aspirine est acide car le groupe –COOH libère des ions H⁺.  
+3) L’aspirine est un acide faible ; elle irrite la muqueuse gastrique en augmentant l’acidité de l’estomac.
+
+---
+
+### Exercice 5
+**Source** : `exam_chimie_chimie_2016_polymorphe.pdf` (Bac Haïti 2016 – Polymorphe)  
+**Extrait** (Partie D – Étude de texte « Du vin au vinaigre puis à un ester ») :  
+> Parallèlement à cette réaction favorisée par des bactéries du genre « Acetobacter », une réaction lente entre l’éthanol restant et l’acide acétique formé conduit à l’acétate d’éthyle, qui donne un goût de « piqué » au vin.  
+> Questions :  
+> 4) Ecrire l’équation associée à la dernière phrase de cet extrait et préciser le nom de la réaction.
+
+**Réponses** :  
+CH₃COOH + CH₃CH₂OH ⇌ CH₃COOCH₂CH₃ + H₂O.  
+Nom de la réaction : estérification (ou estérification de Fischer).
+
+---
+
+### Exercice 6
+**Source** : `exam_chimie_chimie_2019_lla_hydrogene.pdf` (Bac Haïti 2019 – LLA)  
+**Extrait** (Partie D – Étude de texte « La fabrication du savon ») :  
+> 4) Quel est le nom de la réaction qui permet de produire du savon ?
+
+**Réponses** :  
+Saponification.
+
+---
+
+### Exercice 7
+**Source** : `exam_chimie_chimie_2019_ses_amidon.pdf` (Bac Haïti 2019 – SES)  
+**Extrait** (Partie D – Étude de texte « L’acétate d’éthyle ») :  
+> … L’éthanoate d’éthyle (ou acétate d’éthyle) est très utilisé comme solvant ; on l’emploie également dans l’industrie des arômes et des parfums.  
+> On synthétise l’acétate d’éthyle à partir de l’éthanol et de l’acide éthanoïque. La réaction est lente : pour l’accélérer, il faut chauffer le mélange et utiliser comme catalyseur l’acide sulfurique…  
+> Questions :  
+> 1) Rechercher dans le texte les réactifs permettant de produire l’acétate d’éthyle.  
+> 2) Ecrire l’équation-bilan de sa synthèse.  
+> 3) Quel est le nom de cette réaction ?  
+> 4) Relever dans le texte trois (3) applications directes de l’acétate d’éthyle.
+
+**Réponses** :  
+1) Éthanol et acide éthanoïque (acide acétique).  
+2) CH₃COOH + CH₃CH₂OH ⇌ CH₃COOCH₂CH₃ + H₂O.  
+3) Estérification (ou estérification de Fischer).  
+4) Solvant, industrie des arômes, industrie des parfums.
+
+---
+
+### Exercice 8
+**Source** : `exam_chimie_chimie_2020_ses_carbure.pdf` (Bac Haïti 2020 – SES)  
+**Extrait** (Partie D – Étude de texte « Les huiles alimentaires ») :  
+> 3) Etablir une distinction entre un ester et un acide gras au niveau de leurs groupes fonctionnels.
+
+**Réponses** :  
+Un ester possède un groupe fonctionnel –COO– (ester), alors qu’un acide gras possède un groupe –COOH (acide carboxylique). L’ester est le produit de condensation entre un acide carboxylique et un alcool, tandis que l’acide gras est un acide carboxylique à longue chaîne carbonée.
+
+---
+
+### Exercice 9
+**Source** : `exam_chimie_chimie_2020_svt-smp_sodium.pdf` (Bac Haïti 2020 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « L’aspirine ») :  
+> Sa formule développée est la suivante :  
+> O  
+> C–OH  
+> O–C–C H₃  
+> O  
+> Questions :  
+> 1) Relever dans la formule de l’aspirine les deux (2) fonctions qu’elle présente.  
+> 2) Une solution d’aspine est-elle neutre ? Justifier.  
+> 3) Pourquoi l’ingestion répétée d’aspirine peut causer des maux d’estomac ?
+
+**Réponses** :  
+(Identiques à l’exercice 4)  
+1) Acide carboxylique et ester.  
+2) Non, acide.  
+3) Irritation de la muqueuse gastrique due à l’acidité.
+
+---
+
+### Exercice 10
+**Source** : `exam_chimie_chimie_2021_ses-lla_geotextile.pdf` (Bac Haïti 2021 – SES/LLA)  
+**Extrait** (Partie D – Étude de texte « Les huiles alimentaires ») :  
+> 3) Etablir une distinction entre un ester et un acide gras au niveau de leurs groupes fonctionnels.
+
+**Réponses** :  
+(Identique à l’exercice 8)
+
+---
+
+### Exercice 11
+**Source** : `exam_chimie_chimie_2021_svt-smp_fixateur.pdf` (Bac Haïti 2021 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « L’aspirine ») :  
+> Sa formule développée est la suivante :  
+> O  
+> C–OH  
+> O–C–C H₃  
+> O  
+> Questions :  
+> 1) Relever dans la formule de l’aspirine les deux (2) fonctions qu’elle présente.  
+> 2) Une solution d’aspine est-elle neutre ? Justifier.  
+> 3) Pourquoi l’ingestion répétée d’aspirine peut causer des maux d’estomac ?
+
+**Réponses** :  
+(Identique à l’exercice 4)
+
+---
+
+### Exercice 12
+**Source** : `exam_chimie_chimie_2021_svt-smp_geoscience.pdf` (Bac Haïti 2021 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « Les huiles alimentaires ») :  
+> 3) Etablir une distinction entre un ester et un acide gras au niveau de leurs groupes fonctionnels.
+
+**Réponses** :  
+(Identique à l’exercice 8)
+
+---
+
+### Exercice 13
+**Source** : `exam_chimie_chimie_2022_ses_brome.pdf` (Bac Haïti 2022 – SES)  
+**Extrait** (Partie D – Étude de texte « L’aspirine ») :  
+> Sa formule topologique est :  
+> HO O  
+>   O  
+>   O  
+> Questions :  
+> 1) Encadrer les deux fonctions présentes dans la molécule d’aspirine.  
+> 2) La molécule d’aspirine est-elle aromatique ? Justifier.  
+> 3) Présenter deux propriétés de l’aspirine.
+
+**Réponses** :  
+1) Acide carboxylique et ester.  
+2) Oui, elle contient un noyau benzénique (aromatique).  
+3) Antalgique (contre la douleur) et antipyrétique (contre la fièvre).
+
+---
+
+### Exercice 14
+**Source** : `exam_chimie_chimie_2022_smp-svt_aston.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « De l’aspirine ») :  
+> L’aspirine ou acide acétylsalicylique est un produit bien connu comme analgésique, anti-inflammatoire et antipyrétique (fait tomber la fièvre en abaissant la température). L’aspirine est une substance légèrement soluble dans l’eau.  
+> Cependant certaines personnes ne tolèrent pas du tout l’aspirine car elle peut causer des dommages mineurs à l’estomac…  
+> Questions :  
+> 1) Qu’est-ce qu’un antipyrétique ?  
+> 2) Pourquoi certaines personnes ne tolèrent pas l’aspirine ?  
+> 3) Préciser les groupes fonctionnels présents dans la molécule d’acide acétylsalicylique.
+
+**Réponses** :  
+1) Substance qui fait baisser la fièvre.  
+2) En raison de l’irritation gastrique causée par l’acidité de l’aspirine.  
+3) Acide carboxylique et ester.
+
+---
+
+### Exercice 15
+**Source** : `exam_chimie_chimie_2022_smp-svt_bain.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « L’aspirine ») :  
+> L’aspirine ou acide acétylsalicylique est un produit bien connu comme analgésique, anti-inflammatoire et antipyrétique…  
+> Questions :  
+> 1) Qu’est-ce qu’un antipyrétique ?  
+> 2) Pourquoi certaines personnes ne tolèrent pas l’aspirine ?  
+> 3) Préciser les groupes fonctionnels présents dans la molécule d’acide acétylsalicylique.
+
+**Réponses** :  
+(Identique à l’exercice 14)
+
+---
+
+### Exercice 16
+**Source** : `exam_chimie_chimie_2022_smp-svt_liaison-sr.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « L’aspirine ») :  
+> Sa formule topologique est :  
+> HO O  
+>   O  
+>   O  
+> Questions :  
+> 1) Encadrer les deux fonctions présentes dans la molécule d’aspirine.  
+> 2) La molécule d’aspirine est-elle aromatique ? Justifier.  
+> 3) Présenter deux propriétés de l’aspirine.
+
+**Réponses** :  
+(Identique à l’exercice 13)
+
+---
+
+id :12
+ titre : « Acides aminés et protéines »
+
+### Exercice 1
+**Source** : `exam_chimie_chimie_2015_oxydation.pdf` (Bac Haïti 2015 – toutes séries)  
+**Extrait** (Partie A) :  
+> Dans l’alanine de formule topologique  
+> O  
+> NH₂ – CH – C – OH  
+> CH₃  
+> les deux groupes fonctionnels caractéristiques sont ______________ et ______________.
+
+**Réponses** :  
+Fonction amine (–NH₂) et fonction acide carboxylique (–COOH).
+
+---
+
+### Exercice 2
+**Source** : `exam_chimie_chimie_2016_polyacide.pdf` (Bac Haïti 2016 – Polyacide)  
+**Extrait** (Partie D – Étude de texte « Des acides aminés ») :  
+> … Les protéines sont des macromolécules construites à partir d’unités structurales bien agencées connues sous le nom d’acides aminés. Ces derniers sont tous constitués de deux fonctions : une fonction acide et une fonction amine. Parmi les acides aminés essentiels, on retient l’alanine de formule semi-développée :  
+> NH₂ O  
+> CH₃ – CH – C – OH  
+> Questions :  
+> 1) Pourquoi dit-on que l’alanine est un acide aminé ?  
+> 2) Qu’est ce qu’une macromolécule ? En donner un exemple.  
+> 3) L’alanine peut-elle avoir des propriétés optiques ? Expliquer.
+
+**Réponses** :  
+1) Parce qu’elle possède à la fois une fonction amine (–NH₂) et une fonction acide carboxylique (–COOH).  
+2) Une macromolécule est une très grande molécule formée par la répétition de motifs plus petits (monomères). Exemple : les protéines, l’ADN, l’amidon.  
+3) Oui, l’alanine possède un carbone asymétrique (le carbone portant le groupe –NH₂), donc elle est chirale et peut dévier la lumière polarisée.
+
+---
+
+### Exercice 3
+**Source** : `exam_chimie_chimie_2022_ses_inorganique.pdf` (Bac Haïti 2022 – SES)  
+**Extrait** (Partie D – Étude de texte « La sérine ») :  
+> Sa formule semi-développée est :  
+> O  
+> HO – CH₂ – CH – C – OH  
+>       NH₂  
+> Questions :  
+> 1) Recopier la formule semi-développée de la molécule de sérine et encadrer les groupes fonctionnels présents dans cette structure puis associer à chaque groupe fonctionnel une fonction.  
+> 2) Dessiner la formule topologique de la sérine.  
+> 3) Pourquoi dit-on que la sérine est un acide aminé non essentiel ? Quel rôle joue-t-elle dans l’organisme ?
+
+**Réponses** :  
+1) Groupes fonctionnels : –OH (alcool), –NH₂ (amine), –COOH (acide carboxylique).  
+2) La formule topologique est une chaîne carbonée avec des ramifications. (Représentation graphique non textuelle.)  
+3) Non essentiel signifie que l’organisme peut la synthétiser lui-même. Rôle : intervient dans les systèmes nerveux et immunitaire.
+
+---
+
+### Exercice 4
+**Source** : `exam_chimie_chimie_2022_ses_metabolisme.pdf` (Bac Haïti 2022 – SES)  
+**Extrait** (Partie D – Étude de texte « La thréonine ») :  
+> Sa formule semi-développée est :  
+> HN₂ – CH – C – OH  
+>     CH – OH  
+>     CH₃  
+> Questions :  
+> 1) Encadrer les groupes fonctionnels présents dans la molécule de thréonine.  
+> 2) La thréonine possède au moins un atome de carbone asymétrique.  
+>   a) Qu’est-ce qu’un atome de carbone asymétrique ?  
+>   b) Repérer dans la thréonine un atome de carbone asymétrique.  
+> 3) Dessiner la formule topologique de la thréonine.
+
+**Réponses** :  
+1) Groupes : –NH₂ (amine), –COOH (acide carboxylique), –OH (alcool).  
+2a) Un atome de carbone asymétrique est lié à quatre substituants différents.  
+2b) Le carbone central (portant le –NH₂) est asymétrique.  
+3) Représentation graphique non textuelle.
+
+---
+
+### Exercice 5
+**Source** : `exam_chimie_chimie_2022_ses_quinine.pdf` (Bac Haïti 2022 – SES)  
+**Extrait** (Partie D – Étude de texte « La sérine ») :  
+> Sa formule semi-développée est :  
+> O  
+> HO – CH₂ – CH – C – OH  
+>       NH₂  
+> Questions :  
+> 1) Recopier la formule semi-développée de la molécule de sérine et encadrer les groupes fonctionnels présents dans cette structure puis associer à chaque groupe fonctionnel une fonction.  
+> 2) Dessiner la formule topologique de la sérine.  
+> 3) Pourquoi dit-on que la sérine est un acide aminé non essentiel ? Quel rôle joue-t-elle dans l’organisme ?
+
+**Réponses** :  
+(Identique à l’exercice 3)
+
+---
+
+### Exercice 6
+**Source** : `exam_chimie_chimie_2022_smp-svt_alcool-sr.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « La thréonine ») :  
+> Sa formule semi-développée est :  
+> HN₂ – CH – C – OH  
+>     CH – OH  
+>     CH₃  
+> Questions :  
+> 1) Encadrer les groupes fonctionnels présents dans la molécule de thréonine.  
+> 2) La thréonine possède au moins un atome de carbone asymétrique.  
+>   a) Qu’est-ce qu’un atome de carbone asymétrique ?  
+>   b) Repérer dans la thréonine un atome de carbone asymétrique.  
+> 3) Dessiner la formule topologique de la thréonine.
+
+**Réponses** :  
+(Identique à l’exercice 4)
+
+---
+
+### Exercice 7
+**Source** : `exam_chimie_chimie_2022_smp-svt_atome-sr.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « La sérine ») :  
+> Sa formule semi-développée est :  
+> O  
+> HO – CH₂ – CH – C – OH  
+>       NH₂  
+> Questions :  
+> 1) Recopier la formule semi-développée de la molécule de sérine et encadrer les groupes fonctionnels présents dans cette structure puis associer à chaque groupe fonctionnel une fonction.  
+> 2) Dessiner la formule topologique de la sérine.  
+> 3) Pourquoi dit-on que la sérine est un acide aminé non essentiel ? Quel rôle joue-t-elle dans l’organisme ?
+
+**Réponses** :  
+(Identique à l’exercice 3)
+
+---
+
+### Exercice 8
+**Source** : `exam_chimie_chimie_2022_smp-svt_ion-sr.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « La thréonine ») :  
+> Sa formule semi-développée est :  
+> HN₂ – CH – C – OH  
+>     CH – OH  
+>     CH₃  
+> Questions :  
+> 1) Encadrer les groupes fonctionnels présents dans la molécule de thréonine.  
+> 2) La thréonine possède au moins un atome de carbone asymétrique.  
+>   a) Qu’est-ce qu’un atome de carbone asymétrique ?  
+>   b) Repérer dans la thréonine un atome de carbone asymétrique.  
+> 3) Dessiner la formule topologique de la thréonine.
+
+**Réponses** :  
+(Identique à l’exercice 4)
+
+---
+
+### Exercice 9
+**Source** : `exam_chimie_chimie_2022_smp-svt_macromolecule-sr.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « La thréonine ») :  
+> Sa formule semi-développée est :  
+> HN₂ – CH – C – OH  
+>     CH – OH  
+>     CH₃  
+> Questions :  
+> 1) Encadrer les groupes fonctionnels présents dans la molécule de thréonine.  
+> 2) La thréonine possède au moins un atome de carbone asymétrique.  
+>   a) Qu’est-ce qu’un atome de carbone asymétrique ?  
+>   b) Repérer dans la thréonine un atome de carbone asymétrique.  
+> 3) Dessiner la formule topologique de la thréonine.
+
+**Réponses** :  
+(Identique à l’exercice 4)
+
+---
+
+### Exercice 10
+**Source** : `exam_chimie_chimie_2022_smp-svt_molecule-sr.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « La sérine ») :  
+> Sa formule semi-développée est :  
+> O  
+> HO – CH₂ – CH – C – OH  
+>       NH₂  
+> Questions :  
+> 1) Recopier la formule semi-développée de la molécule de sérine et encadrer les groupes fonctionnels présents dans cette structure puis associer à chaque groupe fonctionnel une fonction.  
+> 2) Dessiner la formule topologique de la sérine.  
+> 3) Pourquoi dit-on que la sérine est un acide aminé non essentiel ? Quel rôle joue-t-elle dans l’organisme ?
+
+**Réponses** :  
+(Identique à l’exercice 3)
+
+---
+ id :13
+titre : « Chimie du pétrole (craquage, reformage, indice d’octane) »
+
+### Exercice 1
+**Source** : `exam_chimie_chimie_2020_lla_isomere-2.pdf` (Bac Haïti 2020 – LLA)  
+**Extrait** (Partie D – Étude de texte « Carburants performants ») :  
+> Les performances d’un moteur à essence dépendent de la qualité du carburant utilisé définie par l’indice d’octane. Il vaut 100 pour le 2, 2, 4 – triméthylpentane et 0 pour l’heptane. Plus l’indice d’octane est élevé, plus le mélange air-carburant pourra être comprimé sans s’auto‑enflammer et meilleur sera le rendement du moteur. Les carburants à fort indice d’octane sont principalement constitués d’alcanes et de cyclanes ramifiés, d’alcènes présentant généralement de 5 à 8 atomes de carbone et de dérivés du benzène.  
+> Questions :  
+> 1) Présenter les formules semi-développées de chacun des composés suivants : a) heptane b) octane c) 2, 2, 4 - triméthylpentane  
+> 2) Donner le nom et la définition de l’opération qui permet de transformer l’octane en 2, 2, 4 – triméthylpentane.  
+> 3) En quoi la présence du 2, 2, 4 – triméthylpentane dans un carburant est-elle préférée à celle de l’heptane ?
+
+**Réponses** :  
+1) Heptane : CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃ ; Octane : CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃ ; 2,2,4‑triméthylpentane : (CH₃)₃C–CH₂–CH(CH₃)₂.  
+2) Reformage (ou isomérisation). C’est une opération qui modifie la structure des alcanes linéaires en alcanes ramifiés sans changer la formule brute.  
+3) Le 2,2,4‑triméthylpentane a un indice d’octane plus élevé (100) que l’heptane (0) ; il résiste mieux à l’auto‑allumage, ce qui améliore le rendement du moteur.
+
+---
+
+### Exercice 2
+**Source** : `exam_chimie_chimie_2020_ses_hydrocarbure.pdf` (Bac Haïti 2020 – SES)  
+**Extrait** (Partie D – Étude de texte « Carburants performants ») :  
+> Même texte que l’exercice 1.  
+> Questions :  
+> 1) Présenter les formules semi-développées de chacun des composés suivants : a) heptane b) octane c) 2, 2, 4 - triméthylpentane  
+> 2) Donner le nom et la définition de l’opération qui permet de transformer l’octane en 2, 2, 4 – triméthylpentane.  
+> 3) En quoi la présence du 2, 2, 4 – triméthylpentane dans un carburant est-elle préférée à celle de l’heptane ?
+
+**Réponses** :  
+(Identique à l’exercice 1)
+
+---
+
+### Exercice 3
+**Source** : `exam_chimie_chimie_2021_svt-smp_acide.pdf` (Bac Haïti 2021 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « Carburants performants ») :  
+> Même texte que l’exercice 1.  
+> Questions :  
+> 1) Présenter les formules semi-développées de chacun des composés suivants : a) heptane b) octane c) 2, 2, 4 - triméthylpentane  
+> 2) Donner le nom et la définition de l’opération qui permet de transformer l’octane en 2, 2, 4 – triméthylpentane.  
+> 3) En quoi la présence du 2, 2, 4 – triméthylpentane dans un carburant est-elle préférée à celle de l’heptane ?
+
+**Réponses** :  
+(Identique à l’exercice 1)
+
+---
+
+### Exercice 4
+**Source** : `exam_chimie_chimie_2022_ses_hydrocarbures.pdf` (Bac Haïti 2022 – SES)  
+**Extrait** (Partie D – Étude de texte « Le pétrole ») :  
+> Le pétrole est une source d’énergie fossile dont les réserves sont limitées à l’échelle de la planète. Il est un mélange d’hydrocarbures et de molécules contenant également d’autres atomes comme le soufre, l’azote et l’oxygène. Certains hydrocarbures issus de la distillation fractionnée du pétrole sont directement utilisables. En revanche d’autres hydrocarbures doivent être adaptés en qualité et en quantité pour pouvoir être utilisés comme carburant. C’est le but du cracking et du reforming.  
+> Questions :  
+> 1) Qu’appelle-t-on hydrocarbures ?  
+> 2) Pourquoi dit-on que le pétrole est une source d’énergie ?  
+> 3) Indiquer une distinction entre le cracking et le reforming.
+
+**Réponses** :  
+1) Composés organiques constitués uniquement de carbone et d’hydrogène.  
+2) Parce que la combustion des hydrocarbures libère de la chaleur (énergie thermique).  
+3) Le cracking casse les longues chaînes en molécules plus petites (essence, gaz), tandis que le reforming transforme les molécules linéaires en molécules ramifiées ou aromatiques pour améliorer l’indice d’octane.
+
+---
+
+### Exercice 5
+**Source** : `exam_chimie_chimie_2022_ses_polypeptidiques.pdf` (Bac Haïti 2022 – SES)  
+**Extrait** (Partie D – Étude de texte « Le pétrole ») :  
+> Même texte que l’exercice 4.  
+> Questions :  
+> 1) Qu’appelle-t-on hydrocarbures ?  
+> 2) Pourquoi dit-on que le pétrole est une source d’énergie ?  
+> 3) Indiquer une distinction entre le cracking et le reforming.
+
+**Réponses** :  
+(Identique à l’exercice 4)
+
+---
+
+### Exercice 6
+**Source** : `exam_chimie_chimie_2022_smp-svt_bartlett.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « Modification de chaînes carbonées ») :  
+> La distillation du pétrole conduit à un mélange d’hydrocarbures. Certains sont directement utilisables mais la plupart doivent être modifiés chimiquement pour répondre aux besoins du marché en carburants. Le reforming et le cracking permettent de modifier la structure de ces hydrocarbures. On peut par ainsi transformer :  
+> a) L’heptane en 2, 4 – diméthylpentane.  
+> b) L’hexane en butane et en éthylène.  
+> Questions :  
+> 1) Expliquer les mots en gras de cet extrait de texte.  
+> 2) Écrire les équations des deux réactions chimiques décrites dans le texte.  
+> 3) De ces deux réactions, laquelle correspond à : a. un cracking ? b. un reforming ?
+
+**Réponses** :  
+1) Cracking : rupture de grosses molécules en plus petites. Reforming : réarrangement de la structure (isomérisation, cyclisation, aromatisation).  
+2) a) C₇H₁₆ → C₇H₁₆ (isomère) : équation non modifiable car c’est une isomérisation (même formule brute). b) C₆H₁₄ → C₄H₁₀ + C₂H₄ (craquage).  
+3) a) Reforming (isomérisation) ; b) Cracking.
+
+---
+
+### Exercice 7
+**Source** : `exam_chimie_chimie_2022_smp-svt_darcet.pdf` (Bac Haïti 2022 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « Modification de chaînes carbonées ») :  
+> Même texte que l’exercice 6.  
+> Questions :  
+> 1) Expliquer les mots en gras de cet extrait de texte.  
+> 2) Écrire les deux réactions décrites dans le texte.  
+> 3) De ces deux réactions, laquelle correspond à : a. un cracking ? b. un reforming ?
+
+**Réponses** :  
+(Identique à l’exercice 6)
+
+---
+
+### Exercice 8
+**Source** : `exam_chimie_chimie_2020_lla_isomere.pdf` (Bac Haïti 2020 – LLA)  
+**Extrait** (Partie D – Étude de texte « Carburants performants ») :  
+> Même texte que l’exercice 1.  
+> Questions :  
+> 1) Présenter les formules semi-développées de chacun des composés suivants : a) heptane b) octane c) 2, 2, 4 - triméthylpentane  
+> 2) Donner le nom et la définition de l’opération qui permet de transformer l’octane en 2, 2, 4 – triméthylpentane.  
+> 3) En quoi la présence du 2, 2, 4 – triméthylpentane dans un carburant est-elle préférée à celle de l’heptane ?
+
+**Réponses** :  
+(Identique à l’exercice 1)
+
+---
+
+### Exercice 9
+**Source** : `exam_chimie_chimie_2019_svt-smp_propene.pdf` (Bac Haïti 2019 – SVT/SMP)  
+**Extrait** (Partie D – Étude de texte « Moins de 5 % de nos combustibles fossiles servent à la préparation des produits pétrochimiques. ») :  
+> 3) Que peut-on dire de l’importance économique des combustibles fossiles ?
+
+**Réponses** :  
+Les combustibles fossiles sont essentiels pour l’énergie (transport, chauffage, électricité) mais aussi comme matière première pour la pétrochimie (plastiques, médicaments, etc.). Seule une faible part (moins de 5 %) est utilisée pour les produits pétrochimiques, mais cette part est cruciale.
+
+---
+
+### Exercice 10
+**Source** : `exam_chimie_chimie_2019_ses_monoxyde.pdf` (Bac Haïti 2019 – SES)  
+**Extrait** (Partie D – Étude de texte « Les hydrocarbures polycycliques aromatiques et le cancer ») :  
+> Certains hydrocarbures polycycliques aromatiques sont cancérigènes. Ils peuvent induire rapidement une tumeur chez la souris après l’application de traces sur sa peau. Ces hydrocarbures cancérigènes sont non seulement présents dans le goudron de houille mais aussi dans la suie, la fumée de cigarette et parfois dans la viande grillée sur le barbecue.  
+> Questions :  
+> 1) Que sont les hydrocarbures aromatiques ? En donner un exemple.  
+> 2) Dans le texte, un cobaye a servi à prouver l’effet cancérigène des hydrocarbures polycycliques aromatiques. Relever la phrase qui l’indique.  
+> 3) Indiquer une action pouvant causer le cancer des lèvres et des poumons.
+
+**Réponses** :  
+1) Hydrocarbures contenant un ou plusieurs cycles benzéniques. Exemple : benzène, naphtalène.  
+2) « Ils peuvent induire rapidement une tumeur chez la souris après l’application de traces sur sa peau. »  
+3) Fumer la cigarette (fumée contenant des HAP) ou être exposé à la suie, au goudron, aux grillades au barbecue.
+
+--
+
+

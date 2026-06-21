@@ -1,0 +1,2428 @@
+{
+  "subject": "economie",
+  "source_file": "note_economie.json",
+  "total_blocks": 171,
+  "blocks": [
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_intro",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "La fonction de consommation keynésienne",
+      "type": "chapter_summary",
+      "content": "La consommation est l'utilisation de biens et services pour satisfaire des besoins. Keynes a observé que les ménages ont un comportement régulier : plus ils gagnent, plus ils dépensent, mais jamais la totalité. Même sans revenu, ils continuent à dépenser un minimum (consommation autonome). Ce chapitre est le plus important du bac : il apparaît dans 100% des examens analysés.\n\n➤ POURQUOI CE CHAPITRE EST-IL SI IMPORTANT ?\nParce que la consommation représente environ 60 à 70% du PIB dans la plupart des pays. Comprendre comment les ménages décident de dépenser ou d'épargner permet de prévoir l'effet des politiques économiques. Le multiplicateur keynésien est l'outil qui explique pourquoi une petite injection de dépenses peut avoir un grand effet sur l'économie.\n\n➤ CE QUE VOUS DEVEZ MAÎTRISER ABSOLUMENT :\n- La fonction C = a + bYd\n- Le calcul de la Pmc et de la Pms\n- Le multiplicateur k = 1/(1-b)\n- Le revenu d'équilibre Y* = (a+I)/(1-b)\n\nObjectifs :\n- Comprendre la fonction de consommation C = a + bYd et la signification de a et b\n- Savoir calculer la propension marginale à consommer (Pmc) et à épargner (Pms)\n- Maîtriser le multiplicateur keynésien k = 1/(1-b) et son application\n- Calculer le revenu d'équilibre dans un modèle à deux secteurs\n- Distinguer propension marginale et propension moyenne\n- Résoudre des exercices avec tableaux et variations",
+      "level": 1,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_def",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "definition",
+      "content": "La fonction de consommation s'écrit C = a + b Yd, où C est la consommation totale, a la consommation autonome (indépendante du revenu), b la propension marginale à consommer (Pmc), et Yd le revenu disponible.\n\n⚠️ ATTENTION : a est toujours positif (a > 0) car même sans revenu, les gens doivent manger, se loger, etc. b est toujours compris entre 0 et 1 (0 < b < 1) car on ne consomme jamais 0% ni 100% d'une gourde supplémentaire.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_exp",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "explanation",
+      "content": "a > 0 représente la consommation incompressible (même si Yd=0). b est compris entre 0 et 1 (0<b<1) : chaque gourde supplémentaire de revenu est consommée en partie et épargnée en partie. Yd = revenu brut - impôts (formule simplifiée).\n\n📘 EXEMPLE CONCRET : C = 80 + 0,73 Yd. Cela signifie :\n- La famille dépense 80 gourdes même si son revenu disponible est nul (peut-être en puisant dans ses économies ou en empruntant).\n- Pour chaque gourde supplémentaire de revenu disponible, elle en consomme 0,73 gourde (73 centimes) et en épargne 0,27 gourde (27 centimes).\n- Si Yd = 20 500 gourdes, alors C = 80 + 0,73×20 500 = 80 + 14 965 = 15 045 gourdes.\n- L'épargne S = Yd - C = 20 500 - 15 045 = 5 455 gourdes.\n\n❓ VÉRIFICATION : Calculez vous-même S avec la formule S = -a + (1-b)Yd. Vous devez trouver -80 + 0,27×20 500 = -80 + 5 535 = 5 455. C'est cohérent.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "method",
+      "content": "Étape 1 : Identifier la consommation autonome a (valeur de C quand Yd=0). Exemple : C = 500 + 0,8Yd → a = 500.\nÉtape 2 : Identifier la Pmc b (coefficient devant Yd). Exemple : b = 0,8.\nÉtape 3 : Calculer C en remplaçant Yd par sa valeur. Exemple : Yd = 15 000 → C = 500 + 0,8×15 000 = 500 + 12 000 = 12 500.\nÉtape 4 : Calculer l'épargne S = Yd - C. Exemple : S = 15 000 - 12 500 = 2 500.\nÉtape 5 (vérification) : Calculer S avec la fonction d'épargne S = -a + (1-b)Yd. Exemple : -500 + 0,2×15 000 = -500 + 3 000 = 2 500. Correct.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_exa",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "examples",
+      "content": "Exemple simple : C = 500 + 0,8 Yd. Pour Yd = 15 000, C = 500 + 12 000 = 12 500, S = 2 500.\nExemple avec impôts : Un ménage a un revenu brut Yb = 100 000, impôts T = 20 000. Alors Yd = 80 000. Si C = 200 + 0,75 Yd, alors C = 200 + 60 000 = 60 200, S = 80 000 - 60 200 = 19 800.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_det",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé (Bac 2018) : C = 80 + 0,73 Yd, Yd = 20 500. Calcul de C : 80 + 14 965 = 15 045. Calcul de S : 20 500 - 15 045 = 5 455. Vérification avec fonction d'épargne S = -a + (1-b)Yd = -80 + 0,27×20 500 = -80 + 5 535 = 5 455.\n\n📌 À RETENIR : La fonction d'épargne dérive directement de la fonction de consommation. Si vous connaissez C, vous connaissez S.\nExemple avec revenu brut : Un salarié gagne 50 000 gourdes par mois (brut) et reçoit une prime annuelle de 35 000 gourdes. Les impôts sont de 10% du revenu brut annuel. Calculez Yd, puis C si la fonction est C = 1 200 + 0,7 Yd, et S.\n- Revenu brut annuel = 50 000×12 + 35 000 = 600 000 + 35 000 = 635 000.\n- Impôts = 0,10×635 000 = 63 500.\n- Yd = 635 000 - 63 500 = 571 500.\n- C = 1 200 + 0,7×571 500 = 1 200 + 400 050 = 401 250.\n- S = 571 500 - 401 250 = 170 250.\n- Propension moyenne à épargner (PmS) = S/Yd = 170 250/571 500 ≈ 0,298 (soit 29,8% du revenu total épargné).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "methods",
+      "content": "Pour trouver la consommation autonome a à partir d'un tableau, lire C quand Yd=0.\nPour calculer la Pmc à partir de deux points, utiliser ΔC/ΔYd. Par exemple, si Yd passe de 60 000 à 120 000 et C passe de 56 000 à 92 000, alors Pmc = (92 000-56 000)/(120 000-60 000) = 36 000/60 000 = 0,6.\nPour trouver Yd quand on donne C : C = a + bYd → Yd = (C - a)/b. Exemple : C = 40 000, a = 120, b = 0,78 → Yd = (40 000-120)/0,78 = 39 880/0,78 ≈ 51 128.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_com",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Confondre Pmc (b) avec la consommation autonome a. La Pmc est un coefficient, a est une constante.\nPiège 2 : Oublier que a est positif et que la fonction d'épargne commence par -a. Beaucoup d'élèves écrivent S = a + (1-b)Yd par erreur. C'est faux.\nPiège 3 : Utiliser Y (revenu brut) au lieu de Yd (revenu disponible). Si l'énoncé mentionne des impôts, calculez d'abord Yd = Yb - T.\nPiège 4 : Dans un tableau, prendre des points non consécutifs pour calculer Pmc. Cela fonctionne si la fonction est linéaire, mais prenez toujours des points consécutifs pour éviter les erreurs de calcul.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_comprendre_la_consommation_et_la_fonction_de_consommation_sum",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Comprendre la consommation et la fonction de consommation",
+      "type": "summary",
+      "content": "C = a + b Yd. a = consommation autonome, b = Pmc. S = Yd - C = -a + (1-b)Yd. Pmc + Pms = 1. Toujours vérifier que S = I à l'équilibre (modèle à deux secteurs).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "comprendre la consommation et la fonction de consommation"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_def",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "definition",
+      "content": "Pms = 1 - Pmc. Le multiplicateur k = 1 / (1 - Pmc) = 1 / Pms. Il indique de combien augmente le revenu national lorsqu'on injecte une gourde supplémentaire dans l'économie.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_exp",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "explanation",
+      "content": "Exemple : Si Pmc = 0,8, alors Pms = 0,2 et k = 5. Une augmentation des dépenses publiques de 500 M gourdes entraîne une hausse du PIB de 5×500 = 2 500 M gourdes. Le multiplicateur fonctionne par le circuit revenu-dépense : chaque dépense devient revenu pour quelqu'un, qui en dépense une partie, etc.\n\n📐 DÉMONSTRATION SIMPLIFIÉE :\n- Étape 1 : L'État injecte ΔG = 500 M. Ceux qui reçoivent cet argent en dépensent 80% (400 M) et épargnent 100 M.\n- Étape 2 : Les 400 M deviennent revenu pour d'autres ménages, qui en dépensent 80% (320 M), etc.\n- La somme totale des dépenses induites = ΔG + 0,8ΔG + (0,8)²ΔG + ... = ΔG × 1/(1-0,8) = 500 × 5 = 2 500 M.\n\n❓ QUESTION POUR VOUS : Si Pmc = 0,6, quel est le multiplicateur ? Réponse : k = 1/(1-0,6) = 1/0,4 = 2,5. Cela signifie que chaque gourde injectée génère 2,5 gourdes de PIB.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "method",
+      "content": "Étape 1 : Calculer Pms = 1 - Pmc. Exemple : Pmc = 0,75 → Pms = 0,25.\nÉtape 2 : Calculer k = 1 / Pms. Exemple : k = 1/0,25 = 4.\nÉtape 3 : Pour une injection ΔG (dépenses publiques) ou ΔI (investissement), ΔY = k × ΔG. Exemple : ΔG = 200 M → ΔY = 4 × 200 = 800 M.\nÉtape 4 : Le nouveau revenu d'équilibre Y' = Y* + ΔY.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_exa",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "examples",
+      "content": "Exemple : Pmc = 0,75 → Pms = 0,25 → k = 4. Si l'État investit 200 M, le PIB augmente de 800 M.\nExemple avec baisse d'impôts : Une baisse d'impôts de 100 M a un effet similaire à une hausse des dépenses, mais le multiplicateur est légèrement différent (car la baisse d'impôts augmente le revenu disponible directement). Cependant, au bac, on utilise souvent le même multiplicateur pour simplifier.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_det",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé (Bac 2022) : C = 60 + 0,80 Yd. Pms = 0,20, k = 5. Si l'État augmente ses dépenses de 500 M, ΔY = 5×500 = 2 500 M. Le revenu d'équilibre dans un modèle à deux secteurs est Y* = (a+I)/(1-b).\n\n📌 APPLICATION CONCRÈTE : En Haïti, si le gouvernement injecte 1 milliard de gourdes dans des travaux publics (construction de routes) et que la Pmc des ménages est de 0,7, alors le multiplicateur est k = 1/(1-0,7) = 3,33. L'augmentation du PIB serait de 3,33 milliards de gourdes. Cela montre pourquoi les dépenses publiques sont un outil puissant de relance économique.\nExemple avec calcul du multiplicateur à partir d'un tableau :\nYd: 0 → C: 20 000 ; Yd: 60 000 → C: 56 000 ; Yd: 120 000 → C: 92 000.\nPmc = (56 000-20 000)/(60 000-0) = 36 000/60 000 = 0,6.\nPms = 0,4, k = 1/0,4 = 2,5.\nSi l'investissement augmente de 100, le revenu augmente de 250.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "methods",
+      "content": "Pour mémoriser : k = 1 / (1 - Pmc). Plus la Pmc est grande, plus k est grand. Une Pmc proche de 1 (les gens dépensent presque tout) donne un multiplicateur très élevé.\nAstuce : Si l'exercice vous donne Pms directement, k = 1/Pms.\nPour les calculs de ΔY, toujours multiplier l'injection par k, ne pas ajouter directement.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_com",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Oublier que le multiplicateur s'applique à l'injection initiale, pas au PIB total. Par exemple, si PIB = 1 000 et on injecte 100, le nouveau PIB est 1 000 + k×100, pas k×1 000.\nPiège 2 : Confondre multiplicateur avec propension. Le multiplicateur n'est pas une propension ; c'est un facteur d'amplification.\nPiège 3 : Utiliser la Pmc au lieu de la Pms dans le dénominateur. k = 1/(1-Pmc) = 1/Pms. Ne pas écrire k = 1/(1-Pms) (cela serait faux).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_propension_marginale_à_épargner_et_multiplicateur_sum",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Propension marginale à épargner et multiplicateur",
+      "type": "summary",
+      "content": "Pms = 1 - Pmc. k = 1 / Pms = 1/(1-Pmc). ΔY = k × ΔI (ou ΔG). Le multiplicateur est d'autant plus grand que la Pmc est élevée.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "propension marginale à épargner et multiplicateur"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_def",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "definition",
+      "content": "Le revenu d'équilibre Y* est tel que Y* = C + I = a + bY* + I. En résolvant, Y* = (a + I) / (1 - b) = (a + I) × k.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_exp",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "explanation",
+      "content": "À l'équilibre, l'épargne S est égale à l'investissement I. En effet, S = Y - C = Y - (a + bY) = -a + (1-b)Y. Poser S = I donne Y* = (a+I)/(1-b).\n\n📘 EXEMPLE CHIFFRÉ :\n- a = 100, b = 0,9, I = 110.\n- Y* = (100+110)/(1-0,9) = 210/0,1 = 2 100.\n- Vérification : C = 100 + 0,9×2 100 = 100 + 1 890 = 1 990. S = 2 100 - 1 990 = 110 = I. L'équilibre est vérifié.\n\n❓ QUESTION POUR VOUS : Que se passe-t-il si l'investissement augmente à 150 ? Calculez le nouveau Y*.\nRéponse : ΔI = 40, k = 1/0,1 = 10, ΔY = 10×40 = 400, nouveau Y* = 2 100 + 400 = 2 500. Vérification : S = -100 + 0,1×2 500 = -100 + 250 = 150 = I.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "method",
+      "content": "Étape 1 : Écrire Y = a + bY + I.\nÉtape 2 : Regrouper les termes en Y : Y - bY = a + I.\nÉtape 3 : Factoriser Y(1-b) = a + I.\nÉtape 4 : Y* = (a+I)/(1-b).\nÉtape 5 (vérification) : Calculer S = -a + (1-b)Y* et vérifier S = I.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_exa",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "examples",
+      "content": "Exemple : a=100, b=0,9, I=110 → Y* = (100+110)/(1-0,9) = 210/0,1 = 2 100.\nExemple avec a=200, b=0,75, I=300 → Y* = (200+300)/(1-0,75) = 500/0,25 = 2 000. Vérification : C = 200 + 0,75×2 000 = 200 + 1 500 = 1 700, S = 2 000 - 1 700 = 300 = I.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_det",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : Dans une économie, la consommation est C = 500 + 0,8 Yd et l'investissement I = 200. Il n'y a pas d'impôts (Yd = Y).\n- Y* = (500+200)/(1-0,8) = 700/0,2 = 3 500.\n- C = 500 + 0,8×3 500 = 500 + 2 800 = 3 300.\n- S = 3 500 - 3 300 = 200 = I.\n\nSi l'investissement augmente de 50 (I = 250), alors Y* = (500+250)/0,2 = 750/0,2 = 3 750. ΔY = 250, soit 5 fois ΔI (k=5).\n\n📌 À RETENIR : La condition d'équilibre S = I est très utile pour vérifier vos calculs. Si vous trouvez un Y* tel que S ≠ I, vous avez fait une erreur.\nExemple avec impôts : Si Yd = Y - T, et T = 0,2Y (impôt proportionnel). Alors C = a + b(Y - T) = a + b(0,8Y). L'équilibre Y = a + 0,8bY + I. Alors Y* = (a+I)/(1-0,8b). C'est un cas plus avancé qui peut tomber au bac.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "methods",
+      "content": "Utiliser la formule Y* = (a+I)/(1-b) pour les exercices à deux secteurs sans impôts.\nSi les impôts sont forfaitaires (T fixe), alors Yd = Y - T, et l'équation devient Y = a + b(Y-T) + I → Y(1-b) = a - bT + I → Y* = (a - bT + I)/(1-b).\nPour les exercices avec rendement (rare en économie), appliquez la même logique que pour les produits chimiques : le rendement affecte la quantité effective d'investissement ou de consommation.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_com",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Oublier de soustraire bY de Y, ou inverser le signe. Vérifiez toujours : Y - bY = (1-b)Y.\nPiège 2 : Confondre a (consommation autonome) avec la consommation totale. a est seulement la partie indépendante du revenu.\nPiège 3 : Utiliser Y au lieu de Yd quand il y a des impôts. Lisez attentivement l'énoncé.\nPiège 4 : Oublier de vérifier S = I. C'est un test rapide pour détecter une erreur de calcul.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_revenu_déquilibre_et_modèles_sum",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Revenu d'équilibre et modèles",
+      "type": "summary",
+      "content": "Y* = (a+I)/(1-b) = (a+I) × k. À l'équilibre, S = I. En présence d'impôts forfaitaires, Y* = (a - bT + I)/(1-b).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "revenu d'équilibre et modèles"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_exercices_résolus_et_pièges_à_éviter_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercices résolus et pièges à éviter",
+      "type": "method",
+      "content": "Étape 1 : Toujours écrire l'équation de consommation.\nÉtape 2 : Vérifier si le revenu donné est brut ou disponible.\nÉtape 3 : Pour un tableau, calculer ΔC/ΔYd entre deux points consécutifs.\nÉtape 4 : Appliquer le rendement ou la pureté si indiqué (rare en économie).\nÉtape 5 : Pour les questions de multiplicateur, identifiez d'abord Pmc, puis calculez k.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercices résolus et pièges à éviter"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_exercices_résolus_et_pièges_à_éviter_exa",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercices résolus et pièges à éviter",
+      "type": "examples",
+      "content": "Exemple 1 : C = 150 + 0,6 Yd. Yd = 35 000 → C = 150 + 21 000 = 21 150, S = 13 850. Fonction d'épargne : S = -150 + 0,4 Yd. Pms = 0,4, k = 2,5. Épargne nulle quand 0,4Yd = 150 → Yd = 375.\nExemple 2 (tableau) : Yd=0→C=20 000 ; Yd=60 000→C=56 000 → Pmc = 36 000/60 000 = 0,6 ; a=20 000 ; C=20 000+0,6Yd ; Pms=0,4 ; k=2,5.\nExemple 3 : À partir d'une variation : Madame Snaïlie reçoit une augmentation de 12 000 gourdes et sa consommation augmente de 8 505 gourdes. Pmc = 8 505/12 000 = 0,70875 ≈ 0,709. Pms = 0,291. k = 1/0,291 ≈ 3,44.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercices résolus et pièges à éviter"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_exercices_résolus_et_pièges_à_éviter_det",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercices résolus et pièges à éviter",
+      "type": "detailed_examples",
+      "content": "Exemple avec revenu brut : Salarié 50 000/mois + prime 35 000, taxes 10%. Yb = 635 000, T=63 500, Yd=571 500. Si épargne = 1/3 Yd → S=190 500, C=381 000, PmS = 1/3.\n\n📌 ANALYSE : La propension moyenne à épargner (PmS) est de 33,3%, tandis que la propension marginale à épargner (Pms) serait différente si on connaissait la variation. Ne confondez pas moyenne et marginale !\nExemple avec recherche de Yd : C = 120 + 0,78 Yd. Si le ménage veut consommer 40 000 gourdes, quel Yd lui faut-il ?\n40 000 = 120 + 0,78 Yd → 39 880 = 0,78 Yd → Yd = 39 880 / 0,78 ≈ 51 128 gourdes.\n❓ Vérification : C = 120 + 0,78×51 128 = 120 + 39 880 = 40 000. Correct.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercices résolus et pièges à éviter"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_exercices_résolus_et_pièges_à_éviter_met",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercices résolus et pièges à éviter",
+      "type": "methods",
+      "content": "Pour trouver Yd quand on donne C : C = a + bYd → Yd = (C - a)/b.\nPour calculer Pmc à partir d'un tableau, utilisez deux lignes consécutives : (C2-C1)/(Yd2-Yd1).\nPour vérifier si une fonction de consommation est cohérente, calculez S pour Yd=0 : S(0) = -a. Si a=100, S(0)=-100, ce qui signifie que le ménage désépargne de 100 gourdes quand son revenu est nul.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercices résolus et pièges à éviter"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_exercices_résolus_et_pièges_à_éviter_com",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercices résolus et pièges à éviter",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Confondre Pmc et Pms. Pmc + Pms = 1 toujours. Si l'exercice donne Pmc = 0,8, alors Pms = 0,2, et non 0,8.\nPiège 2 : Confondre propension marginale et propension moyenne. La propension marginale (Pmc) mesure la variation (ΔC/ΔYd), la propension moyenne (PMC) mesure le rapport C/Yd.\nPiège 3 : Oublier que a est négatif dans la fonction d'épargne (S = -a + ...). Beaucoup écrivent S = a + (1-b)Yd, ce qui est faux.\nPiège 4 : Utiliser Y au lieu de Yd. Si l'énoncé dit 'revenu brut', calculez d'abord Yd = Yb - T.\nPiège 5 : Dans un tableau, prendre des points non consécutifs pour calculer Pmc. Si la fonction est linéaire, cela donne le même résultat, mais prenez toujours des points consécutifs pour éviter les erreurs de calcul.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercices résolus et pièges à éviter"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_exercices_résolus_et_pièges_à_éviter_sum",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercices résolus et pièges à éviter",
+      "type": "summary",
+      "content": "Retenir : C = a + bYd, S = -a + (1-b)Yd, Pmc = b, Pms = 1-b, k = 1/(1-b), Y* = (a+I)/(1-b). Toujours vérifier l'unité des grandeurs (gourdes, millions, etc.) et ne pas mélanger les revenus brut et disponible.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercices résolus et pièges à éviter"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_ex1",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Exercice 1 : Soit C = 200 + 0,75 Yd. a) Calculer C et S pour Yd = 40 000. b) Écrire la fonction d'épargne. c) Calculer Pms et k. d) Pour quel Yd l'épargne est-elle nulle ?\nSolution : a) C = 200 + 0,75×40 000 = 200 + 30 000 = 30 200 ; S = 40 000 - 30 200 = 9 800. b) S = -200 + 0,25 Yd. c) Pms = 0,25 ; k = 4. d) 0,25 Yd = 200 → Yd = 800.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_ex2",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Exercice 2 : Un ménage a un revenu brut de 80 000 gourdes, impôts 15%. Sa fonction de consommation est C = 1 200 + 0,7 Yd. a) Calculer Yd. b) Calculer C et S. c) Calculer la propension moyenne à consommer.\nSolution : a) T = 0,15×80 000 = 12 000 ; Yd = 68 000. b) C = 1 200 + 0,7×68 000 = 1 200 + 47 600 = 48 800 ; S = 68 000 - 48 800 = 19 200. c) PMC = 48 800 / 68 000 ≈ 0,7176.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_ex3",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Exercice 3 : Dans un modèle à deux secteurs, C = 300 + 0,8 Y, I = 200. a) Calculer le revenu d'équilibre. b) Si I augmente de 50, quel est le nouveau revenu ? c) De combien a augmenté le revenu ?\nSolution : a) Y = 300 + 0,8Y + 200 → 0,2Y = 500 → Y = 2 500. b) k = 1/0,2 = 5 ; ΔY = 5×50 = 250 ; nouveau Y = 2 750. c) Augmentation de 250.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_ex4",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Exercice 4 : On donne le tableau suivant :\nYd | C\n0  | 15 000\n50 000 | 45 000\n100 000 | 75 000\n150 000 | 105 000\na) Trouver la consommation autonome. b) Calculer la Pmc. c) Écrire la fonction de consommation. d) Calculer la Pms et le multiplicateur.\nSolution : a) a = C(0) = 15 000. b) Pmc = (45 000-15 000)/(50 000-0) = 30 000/50 000 = 0,6. c) C = 15 000 + 0,6 Yd. d) Pms = 0,4 ; k = 2,5.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_la_fonction_de_consommation_keynésienne_ex5",
+      "chapter": "La fonction de consommation keynésienne",
+      "subchapter": "Exercice 5",
+      "type": "exercise",
+      "content": "Question : Exercice 5 : Un pays a une Pmc de 0,75. Le gouvernement veut augmenter le PIB de 1 200 millions de gourdes. De combien doit-il augmenter ses dépenses ?\nSolution : k = 1/(1-0,75) = 1/0,25 = 4. ΔY = k × ΔG → 1 200 = 4 × ΔG → ΔG = 1 200/4 = 300 millions de gourdes.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la fonction de consommation keynésienne",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 1
+    },
+    {
+      "id": "economie_le_monopole_intro",
+      "chapter": "Le monopole",
+      "subchapter": "Le monopole",
+      "type": "chapter_summary",
+      "content": "Le monopole est une structure de marché où un seul vendeur fait face à l'ensemble des acheteurs. L'entreprise est price maker et maximise son profit en égalisant recette marginale et coût marginal. Ce chapitre est présent dans plus de 80% des examens, avec des exercices de calcul valant souvent 20 à 25 points.\n\n➤ POURQUOI LE MONOPOLE EST-IL IMPORTANT ?\nParce qu'il existe de nombreux exemples concrets : EDH pour l'électricité en Haïti, les compagnies d'eau, les brevets pharmaceutiques, etc. Comprendre le comportement d'un monopoleur permet d'analyser les politiques de régulation (antitrust, prix plafonds).\n\n➤ CE QUE VOUS DEVEZ MAÎTRISER :\n- Calcul de la recette marginale à partir de la demande inverse\n- Calcul du coût marginal à partir du coût total\n- Condition Rm = Cm\n- Calcul du profit maximal\n\nObjectifs :\n- Définir le monopole et ses types (pur, naturel, public, bilatéral)\n- Calculer la recette totale et la recette marginale à partir de la demande inverse\n- Calculer le coût marginal à partir du coût total\n- Appliquer la condition de maximisation Rm = Cm pour trouver la quantité et le prix optimaux\n- Calculer le profit maximal\n- Utiliser la méthode accélérée : si P = A - BQ, alors Rm = A - 2BQ",
+      "level": 1,
+      "tags": [
+        "economie",
+        "le monopole"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_def",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "definition",
+      "content": "Monopole : marché avec un seul vendeur. Price maker : l'entreprise influence le prix. La demande s'adresse à l'entreprise entière. La recette totale RT = P×Q. La recette marginale Rm = dRT/dQ.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_exp",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "explanation",
+      "content": "Si la demande inverse est P = A - BQ, alors RT = AQ - BQ², et Rm = A - 2BQ. La recette marginale a la même ordonnée à l'origine que P, mais une pente double.\n\n📘 EXEMPLE : Q = 60 - 2P → P = 30 - Q/2 → RT = 30Q - Q²/2 → Rm = 30 - Q. Comparez : P = 30 - 0,5Q, Rm = 30 - Q. La pente de Rm est -1, soit le double de -0,5.\n\n❓ QUESTION POUR VOUS : Si P = 100 - 4Q, quelle est l'expression de Rm ? Réponse : Rm = 100 - 8Q (pente double).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_met",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "method",
+      "content": "Étape 1 : Trouver la demande inverse P = f(Q) à partir de Q = f(P). Exemple : Q = 100 - 2P → 2P = 100 - Q → P = 50 - Q/2.\nÉtape 2 : Calculer RT = P×Q. Exemple : RT = (50 - Q/2)×Q = 50Q - Q²/2.\nÉtape 3 : Dériver pour obtenir Rm. Exemple : Rm = 50 - Q.\nÉtape 4 (méthode accélérée) : Si P = A - BQ, alors Rm = A - 2BQ. Exemple : P = 50 - 0,5Q → A=50, B=0,5 → Rm = 50 - 2×0,5Q = 50 - Q.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_exa",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "examples",
+      "content": "Exemple : Q = 60 - 2P → P = 30 - Q/2 → RT = 30Q - Q²/2 → Rm = 30 - Q.\nExemple : P = 200 - 10Q → Rm = 200 - 20Q.\nExemple : P = 80 - 0,5Q → Rm = 80 - Q.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_det",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé (Bac 2016) : CT = 40 + 20Q ; Q = 60 - 2P. P = 30 - Q/2, RT = 30Q - Q²/2, Rm = 30 - Q, Cm = 20. Rm = Cm → 30 - Q = 20 → Q=10, P=25, π = 250 - 240 = 10.\n\n📌 ANALYSE : Le profit est faible (10) car le coût marginal est constant et la demande est assez élastique. Le monopoleur n'a pas un pouvoir de marché très fort ici.\nExemple avec demande linéaire générale : Soit P = a - bQ. Alors RT = aQ - bQ², Rm = a - 2bQ. Si Cm = c (constant), alors Q* = (a-c)/(2b), P* = a - b×(a-c)/(2b) = (a+c)/2. Le prix est la moyenne entre l'ordonnée à l'origine de la demande et le coût marginal. C'est une formule utile pour les QCM.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_met",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "methods",
+      "content": "Méthode accélérée : Si P = A - BQ, alors Rm = A - 2BQ. Ne refaites pas la dérivation à chaque fois.\nPour trouver la demande inverse, isolez P. Si Q = a - bP, alors P = (a - Q)/b = a/b - (1/b)Q. Attention : A = a/b, B = 1/b.\nVérifiez toujours que Rm < P pour Q>0. C'est une propriété du monopole.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_com",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Ne pas inverser la demande avant de calculer RT. Si on utilise Q = f(P) directement, on obtient RT = P×f(P), ce qui est en fonction de P, pas de Q. Il faut exprimer RT en fonction de Q pour dériver.\nPiège 2 : Oublier de doubler la pente pour Rm. La pente de Rm est le double de celle de P. Si P = 50 - 0,5Q, Rm = 50 - Q, pas 50 - 0,5Q.\nPiège 3 : Confondre RT et profit. Le profit π = RT - CT, pas seulement RT.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_comprendre_le_monopole_et_les_recettes_sum",
+      "chapter": "Le monopole",
+      "subchapter": "Comprendre le monopole et les recettes",
+      "type": "summary",
+      "content": "Monopole : une seule entreprise. Rm = d(PQ)/dQ. Si P = A - BQ, alors Rm = A - 2BQ. Toujours exprimer RT en fonction de Q avant de dériver.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "comprendre le monopole et les recettes"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_def",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "definition",
+      "content": "Cm = dCT/dQ. Condition de maximisation : Rm = Cm. Profit π = RT - CT.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_exp",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "explanation",
+      "content": "Exemples de dérivées :\n- CT = constante (ex: 100) → Cm = 0\n- CT = aQ (ex: 20Q) → Cm = a\n- CT = aQ² + bQ + c (ex: 5Q² + 10Q + 100) → Cm = 2aQ + b\n- CT = aQ² (ex: 3Q²) → Cm = 6Q\n\n📘 EXEMPLE : CT = Q² + 20Q + 10 → Cm = 2Q + 20.\n❓ Vérifiez : La dérivée de Q² est 2Q, de 20Q est 20, de 10 est 0. Correct.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_met",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "method",
+      "content": "Étape 1 : Calculer Rm (voir sous-chapitre précédent).\nÉtape 2 : Calculer Cm en dérivant CT. Exemple : CT = 3Q² + 50Q + 200 → Cm = 6Q + 50.\nÉtape 3 : Résoudre Rm = Cm pour trouver Q*. Exemple : Rm = 100 - 2Q, Cm = 20 + 2Q → 100 - 2Q = 20 + 2Q → 80 = 4Q → Q* = 20.\nÉtape 4 : Calculer P* en remplaçant Q* dans P(Q). Exemple : P = 100 - Q → P* = 80.\nÉtape 5 : Calculer π = P*Q* - CT(Q*). Exemple : RT = 80×20 = 1 600, CT = 3×400 + 50×20 + 200 = 1 200 + 1 000 + 200 = 2 400, π = -800 (perte). Dans ce cas, le monopoleur peut préférer fermer si la perte est supérieure au coût fixe. Mais au bac, on suppose généralement que le profit est positif.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_exa",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "examples",
+      "content": "Exemple (Bac 2022) : Q = 100 - 2P, CT = Q²+20Q+10. P = 50 - Q/2, RT = 50Q - Q²/2, Rm = 50 - Q, Cm = 2Q+20. 50 - Q = 2Q+20 → 30 = 3Q → Q=10, P=45, π = 450 - (100+200+10)=140.\nExemple avec CT linéaire : CT = 40 + 20Q, Cm = 20. Si P = 30 - Q/2, Rm = 30 - Q. Alors 30 - Q = 20 → Q=10, P=25, π = 250 - (40+200)=10.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_det",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "detailed_examples",
+      "content": "Exemple avec coût moyen donné : CT = CM × Q. Pour CT = (4Q - 96 + 3600/Q)×Q = 4Q² - 96Q + 3600, Cm = 8Q - 96. Si P = 660 - 10Q, alors Rm = 660 - 20Q. Rm=Cm → 660-20Q = 8Q-96 → 756=28Q → Q=27, P=390, π = 10 530 - (4×729 - 2592 + 3600) = 10 530 - 3 924 = 6 606.\n\n📌 ANALYSE : Le coût moyen est en U (en forme de U) : il décroît puis croît. Le monopoleur choisit Q=27, ce qui est supérieur au minimum de CM (car il maximise le profit, pas le rendement).\nExemple avec fonction de coût cubique (niveau avancé) : CT = 0,1Q³ - 2Q² + 15Q + 10. Alors Cm = 0,3Q² - 4Q + 15. Si la demande est P = 100 - Q, Rm = 100 - 2Q. Résoudre 100 - 2Q = 0,3Q² - 4Q + 15 → 0 = 0,3Q² - 2Q - 85. Résolvez avec la formule quadratique. Ce genre d'exercice peut tomber au bac haïtien (calculatrice autorisée).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_met",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "methods",
+      "content": "Pour les CT polynomiaux, appliquer les règles de dérivation : dérivée de x^n = n x^(n-1).\nSi CT est donné sous forme de tableau, calculer Cm approximativement par ΔCT/ΔQ. Au bac, on donne généralement une fonction.\nPour vérifier que Q* est un maximum, on peut calculer la dérivée seconde : d²π/dQ² = dRm/dQ - dCm/dQ. Pour un maximum, cette dérivée seconde doit être négative. En monopole, c'est généralement le cas.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_com",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Ne pas dériver CT correctement. Exemple : CT = 5Q² + 100, Cm = 10Q, pas 10Q+100.\nPiège 2 : Oublier de soustraire CT pour le profit. Beaucoup calculent seulement RT et s'arrêtent là.\nPiège 3 : Arrondir trop tôt dans les calculs. Gardez les fractions exactes quand c'est possible. Par exemple, si Q* = 756/28, gardez 27, pas 27,0 arrondi.\nPiège 4 : Confondre recette marginale et recette totale. Rm est la dérivée, pas RT.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_coûts_et_maximisation_du_profit_sum",
+      "chapter": "Le monopole",
+      "subchapter": "Coûts et maximisation du profit",
+      "type": "summary",
+      "content": "Condition de maximisation : Rm = Cm. Q* solution, P* = P(Q*), π = RT - CT. Vérifiez que le profit est positif (sinon, le monopoleur peut fermer à court terme).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le monopole",
+        "coûts et maximisation du profit"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_ex1",
+      "chapter": "Le monopole",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Exercice A : Monopole : P = 200 - 10Q et Cm = 100 + 5Q. Calculer Rm, Q*, P*.\nSolution : Rm = 200 - 20Q. Rm = Cm → 200 - 20Q = 100 + 5Q → 100 = 25Q → Q=4, P=200 - 40 = 160.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le monopole",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_ex2",
+      "chapter": "Le monopole",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Exercice B : Monopole : P = 80 - 0,5Q, CT = 0,25Q² + 5Q + 100. Trouver Q*, P*, π.\nSolution : RT = 80Q - 0,5Q², Rm = 80 - Q, Cm = 0,5Q + 5. 80 - Q = 0,5Q + 5 → 75 = 1,5Q → Q=50, P=80 - 25 = 55, RT=2 750, CT=0,25×2 500 + 250 + 100 = 625+250+100=975, π=1 775.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le monopole",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_ex3",
+      "chapter": "Le monopole",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Exercice C : Un monopoleur a une demande Q = 30 - P et un coût total CT = 10 + 10Q. a) Trouver la demande inverse. b) Calculer RT et Rm. c) Calculer Q*, P* et π.\nSolution : a) Q = 30 - P → P = 30 - Q. b) RT = 30Q - Q², Rm = 30 - 2Q. c) Cm = 10. Rm = Cm → 30 - 2Q = 10 → 2Q = 20 → Q=10, P=20, RT=200, CT=10+100=110, π=90.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le monopole",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_monopole_ex4",
+      "chapter": "Le monopole",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Exercice D : Monopole : CT = 2Q² + 10Q + 50, et la demande est Q = 200 - 4P. a) Trouver P(Q). b) Calculer Rm. c) Trouver Q*, P*, π.\nSolution : a) Q = 200 - 4P → 4P = 200 - Q → P = 50 - Q/4. b) RT = 50Q - Q²/4, Rm = 50 - Q/2. c) Cm = 4Q + 10. Rm = Cm → 50 - Q/2 = 4Q + 10 → 40 = 4Q + Q/2 = (8Q+Q)/2 = 9Q/2 → 80 = 9Q → Q = 80/9 ≈ 8,89. P = 50 - (80/9)/4 = 50 - 80/36 = 50 - 20/9 = (450-20)/9 = 430/9 ≈ 47,78. π = RT - CT = (430/9)×(80/9) - [2×(80/9)² + 10×(80/9) + 50] = ... (calculs laissés, mais l'essentiel est la méthode).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le monopole",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 2
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_intro",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Le PIB et la croissance économique",
+      "type": "chapter_summary",
+      "content": "Le Produit Intérieur Brut (PIB) est l'indicateur principal de la production d'un pays. Il mesure la valeur des biens et services finaux produits sur le territoire. La croissance économique est l'augmentation du PIB réel. Ce chapitre apparaît dans 90% des examens.\n\n➤ POURQUOI LE PIB EST-IL CENTRAL ?\nParce qu'il permet de comparer la richesse des pays, de calculer les taux de croissance, et de guider les politiques économiques. Mais attention, le PIB a des limites (voir sous-chapitre 3.3).\n\n➤ CE QUE VOUS DEVEZ MAÎTRISER :\n- La formule PIB = C + I + G + (X - M)\n- Le calcul du taux de croissance\n- Le PIB par habitant\n- La distinction PIB nominal / PIB réel\n\nObjectifs :\n- Définir le PIB et connaître sa formule par les dépenses : PIB = C + I + G + (X - M)\n- Distinguer PIB et PNB (territoire vs nationalité)\n- Calculer le taux de croissance et le PIB par habitant\n- Distinguer PIB nominal et PIB réel, comprendre l'inflation et le déflateur\n- Connaître les limites du PIB",
+      "level": 1,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_def",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "definition",
+      "content": "PIB = C + I + G + (X - M), où C = consommation des ménages, I = investissement des entreprises, G = dépenses publiques, X = exportations, M = importations.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_exp",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "explanation",
+      "content": "Le PNB (Produit National Brut) inclut les revenus des résidents à l'étranger. En économie fermée, PIB = C + I + G.\n\n📘 EXEMPLE : Un pays a C = 8 000, I = 3 000, G = 5 000, X = 2 000, M = 1 500. Alors PIB = 8 000+3 000+5 000+500 = 16 500. La balance commerciale X-M = 500 (excédent).\n\n❓ QUESTION : Si les importations sont supérieures aux exportations, que se passe-t-il ? Le terme (X-M) est négatif, ce qui réduit le PIB. Un déficit commercial est une ponction sur la demande intérieure.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_met",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "method",
+      "content": "Étape 1 : Identifier les valeurs de C, I, G, X, M. Vérifier les unités (millions, milliards).\nÉtape 2 : Calculer la balance commerciale X - M.\nÉtape 3 : Additionner C + I + G + (X-M).\nÉtape 4 : Si un terme est inconnu, l'isoler de l'équation. Exemple : PIB = 7 501, C=3 541, I=1 000, X=950, M=45% de X=427,5, alors G = PIB - (C+I+X-M) = 7 501 - (3 541+1 000+522,5) = 7 501 - 5 063,5 = 2 437,5.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_exa",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "examples",
+      "content": "Exemple : C=3 541, I=1 000, G=?, X=950, M=45% de X=427,5, PIB=7 501. Alors 7 501 = 3 541+1 000+G+522,5 → G = 7 501 - 5 063,5 = 2 437,5.\nExemple : G=9 500, C=2G=19 000, I=1 200, X=700, M=350 → PIB = 19 000+1 200+9 500+350 = 30 050.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_det",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : Soit une économie avec C=10 000, I=2 500, G=3 000, X=1 200, M=900. PIB = 10 000+2 500+3 000+300 = 15 800. La balance commerciale est excédentaire de 300.\n\nSi les exportations chutent à 1 000, le PIB devient 10 000+2 500+3 000+100 = 15 600, soit une baisse de 200. Cela montre l'impact des exportations sur l'activité économique.\n\n📌 APPLICATION HAÏTI : Les exportations haïtiennes sont faibles (textiles, produits agricoles) tandis que les importations sont élevées (pétrole, riz, farine). Le déficit commercial pèse sur le PIB.\nExemple avec PNB : Un ingénieur haïtien travaille aux États-Unis et gagne 50 000 $ par an. Il envoie 40 000 $ en Haïti. Ces 40 000 $ sont inclus dans le PNB d'Haïti (revenus des résidents à l'étranger) mais pas dans le PIB haïtien (car ils ne sont pas produits sur le territoire). Le PNB = PIB + revenus nets de l'étranger. Si les envois de la diaspora sont importants, le PNB peut être supérieur au PIB.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_met",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "methods",
+      "content": "Pour trouver un terme manquant, isoler dans l'équation : G = PIB - C - I - (X-M).\nPour calculer M à partir d'un pourcentage de X, multiplier X par le pourcentage (ex: 45% → 0,45).\nToujours vérifier que la balance commerciale est correctement calculée (X-M).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_com",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Confondre PIB et PNB. Le PIB est géographique, le PNB est basé sur la nationalité.\nPiège 2 : Oublier de soustraire les importations. (X-M) est la balance commerciale, pas X seul.\nPiège 3 : Utiliser des valeurs non homogènes (mélanger millions et milliards). Convertir tout dans la même unité.\nPiège 4 : Dans la formule, G représente les dépenses publiques, pas les recettes. Ne pas confondre.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_définition_et_calcul_du_pib_sum",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Définition et calcul du PIB",
+      "type": "summary",
+      "content": "PIB = C + I + G + (X - M). PNB = PIB + revenus nets de l'étranger. Balance commerciale = X - M.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "définition et calcul du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_def",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "definition",
+      "content": "Taux de croissance = [(PIBn - PIBn-1) / PIBn-1] × 100. PIB par habitant = PIB total / population.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_exp",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "explanation",
+      "content": "Exemple : PIB 2008=295, 2009=302 → croissance = (7/295)×100 ≈ 2,37%. PIB/hab = 302×10^9 / 25×10^6 = 12 080 $.\n\n📘 EXEMPLE : Un pays a un PIB nominal de 100 milliards en 2020 et 110 milliards en 2021, mais l'inflation a été de 5%. Le PIB réel en 2021 (en prix 2020) est 110/1,05 ≈ 104,76. La croissance réelle est (104,76-100)/100 = 4,76%, alors que la croissance nominale est de 10%. La différence est due à l'inflation.\n\n❓ QUESTION POUR VOUS : Si le PIB nominal augmente de 8% et l'inflation de 3%, quelle est la croissance réelle approximative ? Réponse : 8% - 3% = 5% (approximation de Fisher).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_met",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "method",
+      "content": "Étape 1 : Calculer la différence PIBn - PIBn-1.\nÉtape 2 : Diviser par PIBn-1.\nÉtape 3 : Multiplier par 100.\nÉtape 4 : Pour le PIB par habitant, diviser le PIB total par la population.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_exa",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "examples",
+      "content": "Exemple : PIB 2015=120, 2016=126 → croissance 5% ; 2017=130 → croissance 3,17%.\nExemple : PIB 2015=120, population=10 → PIB/hab=12. PIB 2016=126, population=10,5 → PIB/hab=12. La croissance du PIB par habitant est nulle alors que le PIB total a crû de 5%, car la population a augmenté.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_det",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : PIB 2015=120, 2016=126, 2017=130. Calcul des taux : 2016 (6/120)*100=5%, 2017 (4/126)*100≈3,17%.\n\nSi la population était de 10 en 2015, 10,2 en 2016, 10,5 en 2017, alors PIB/hab 2015 = 12, 2016 = 126/10,2 ≈ 12,35 (croissance 2,9%), 2017 = 130/10,5 ≈ 12,38 (croissance 0,24%). La croissance du PIB par habitant est beaucoup plus faible que la croissance du PIB total à cause de l'augmentation de la population.\n\n📌 APPLICATION HAÏTI : La population haïtienne croît d'environ 1,2% par an. Pour que le niveau de vie moyen augmente, la croissance du PIB doit dépasser 1,2%.\nExemple avec déflateur : Soit PIB nominal 2020 = 500, PIB réel 2020 = 500 (année de base). PIB nominal 2021 = 550, déflateur = 110 (soit inflation 10%). Alors PIB réel 2021 = 550/1,10 = 500. La croissance réelle est nulle. La hausse nominale est entièrement due à l'inflation.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_met",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "methods",
+      "content": "Pour calculer le taux de croissance, toujours utiliser l'année précédente comme base.\nPour calculer le PIB réel à partir du nominal et du déflateur : PIB réel = PIB nominal / (déflateur/100).\nPour calculer l'inflation à partir du déflateur : (déflateur_n - déflateur_n-1)/déflateur_n-1 × 100.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_com",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Ne pas utiliser le bon dénominateur (l'année précédente). Exemple : pour 2017, le dénominateur est le PIB 2016, pas 2015.\nPiège 2 : Confondre croissance nominale et réelle. Si l'énoncé ne précise pas, on suppose souvent le PIB réel. Mais vérifiez.\nPiège 3 : Oublier de diviser par la population pour le PIB par habitant.\nPiège 4 : Utiliser le PIB nominal pour calculer la croissance réelle sans ajustement.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_taux_de_croissance_et_pib_par_habitant_sum",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Taux de croissance et PIB par habitant",
+      "type": "summary",
+      "content": "Taux de croissance = (ΔPIB/PIB antérieur)×100. PIB/hab = PIB/population. PIB réel = PIB nominal / déflateur (en indice).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "taux de croissance et pib par habitant"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_limites_du_pib_exp",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Limites du PIB",
+      "type": "explanation",
+      "content": "Le PIB ne tient pas compte de la répartition des revenus, des activités non marchandes (bénévolat, travail domestique), de l'économie informelle, de la dégradation de l'environnement, du bien-être subjectif. En Haïti, le secteur informel représente environ 60% de la population active, ce qui sous-estime largement le PIB.\n\n📘 EXEMPLE : Un accident de voiture augmente le PIB (réparations, soins médicaux) mais réduit le bien-être. De même, la construction d'une prison augmente le PIB mais n'améliore pas nécessairement le bonheur.\n\n❓ QUESTION : Comment pourrait-on améliorer la mesure du bien-être ? En utilisant des indicateurs comme l'IDH (chapitre suivant), le BNB (Bien-être National Brut), ou des indicateurs de développement durable.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "limites du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_limites_du_pib_exa",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Limites du PIB",
+      "type": "examples",
+      "content": "Exemple : Un accident de voiture augmente le PIB (réparations, soins) mais réduit le bien-être.\nExemple : Le bénévolat n'est pas compté dans le PIB, bien qu'il crée de la valeur pour la société.\nExemple : La déforestation pour produire du charbon de bois augmente le PIB à court terme mais détruit l'environnement.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "limites du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_limites_du_pib_det",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Limites du PIB",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : En Haïti, une grande partie de l'économie est informelle : vendeurs de rue, petits ateliers, agriculture de subsistance. Ces activités ne sont pas déclarées, donc non comptabilisées dans le PIB officiel. Pourtant, elles représentent environ 60% de l'emploi. Le PIB officiel sous-estime donc la production réelle. C'est une limite majeure pour les pays en développement.\nExemple avec la répartition : Le Qatar a un PIB par habitant très élevé (grâce au pétrole), mais les inégalités sont fortes et une grande partie de la population (travailleurs immigrés) vit dans des conditions médiocres. Le PIB ne reflète pas cette réalité.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "limites du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_limites_du_pib_met",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Limites du PIB",
+      "type": "methods",
+      "content": "Pour critiquer le PIB dans une dissertation, utilisez les 6 limites principales : inégalités, non-marchand, informel, environnement, santé, bonheur.\nPour proposer des alternatives, citez l'IDH, l'IPH (Indice de Pauvreté Humaine), ou les indicateurs de développement durable.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "limites du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_limites_du_pib_com",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Limites du PIB",
+      "type": "common_mistakes",
+      "content": "Piège : Croire que le PIB mesure le bonheur. C'est faux, le PIB mesure la production, pas le bien-être.\nPiège : Oublier que le PIB ne tient pas compte de l'économie informelle, particulièrement important en Haïti.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "limites du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_limites_du_pib_sum",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Limites du PIB",
+      "type": "summary",
+      "content": "Limites : inégalités, non-marchand, informel, environnement, bonheur. L'IDH est un complément utile.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "limites du pib"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_ex1",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Exercice : C=8 000, I=3 000, G=5 000, X=2 000, M=1 500. Calculer PIB et balance commerciale.\nSolution : PIB = 8 000+3 000+5 000+500 = 16 500. Balance = X-M = 500 (excédent).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_ex2",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Exercice : PIB 2015=120, 2016=126, 2017=130. Taux de croissance 2016 et 2017 ?\nSolution : 2016 : (6/120)×100=5% ; 2017 : (4/126)×100≈3,17%.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_ex3",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Exercice : PIB nominal 2020 = 500, déflateur 2020 = 100 (année de base). PIB nominal 2021 = 550, déflateur 2021 = 110. Calculer le PIB réel 2021 et la croissance réelle.\nSolution : PIB réel 2021 = 550 / 1,10 = 500. Croissance réelle = (500-500)/500 = 0%.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_ex4",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Exercice : Un pays a un PIB de 300 milliards et une population de 10 millions. Quel est le PIB par habitant ?\nSolution : 300×10^9 / 10×10^6 = 30 000 $/hab.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_le_pib_et_la_croissance_économique_ex5",
+      "chapter": "Le PIB et la croissance économique",
+      "subchapter": "Exercice 5",
+      "type": "exercise",
+      "content": "Question : Exercice (limites du PIB) : Citez trois limites du PIB et expliquez-les brièvement.\nSolution : 1) Le PIB ignore la répartition des revenus (un pays riche peut avoir des inégalités extrêmes). 2) Le PIB ne compte pas les activités non marchandes (bénévolat, travail domestique). 3) Le PIB ne prend pas en compte la dégradation de l'environnement (une catastrophe naturelle augmente le PIB via les dépenses de reconstruction).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "le pib et la croissance économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 3
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_intro",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "L'Indice de Développement Humain (IDH)",
+      "type": "chapter_summary",
+      "content": "L'IDH est un indicateur composite mesurant le développement humain selon trois dimensions : santé (espérance de vie), éducation (taux d'alphabétisation et scolarisation) et niveau de vie (PIB par habitant en PPA). Il apparaît dans 85% des examens avec calcul numérique.\n\n➤ POURQUOI L'IDH ?\nParce que le PIB seul ne suffit pas à évaluer le développement. L'IDH combine des aspects qualitatifs et quantitatifs.\n\n➤ CE QUE VOUS DEVEZ MAÎTRISER :\n- Calculer les trois indices (longévité, éducation, revenu)\n- Calculer l'IDH\n- Classer un pays selon son IDH\n\nObjectifs :\n- Calculer l'indice de longévité A = (EV - 25)/60\n- Calculer l'indice d'éducation Ind_éduc = (2/3)TA + (1/3)TBS\n- Calculer l'indice de niveau de vie E = [log(PIB/hab) - 2] / 2,602\n- Calculer l'IDH = (A + Ind_éduc + E)/3\n- Classer un pays selon son IDH",
+      "level": 1,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_def",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "definition",
+      "content": "Indice de longévité A = (EV - 25) / 60. Indice d'éducation Ind_éduc = (2/3)×TA + (1/3)×TBS (TA et TBS en proportions). Indice de niveau de vie E = (log(PIB/hab) - log(100)) / (log(40 000) - log(100)) = (log(PIB/hab) - 2) / 2,602.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_exp",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "explanation",
+      "content": "EV entre 25 et 85 ans ; TA et TBS entre 0 et 1 ; PIB/hab entre 100 et 40 000 $ PPA. log est le logarithme décimal.\n\n📘 EXEMPLE : EV=70, TA=0,61, TBS=76% (0,76), PIB/hab=8 530.\n- A = (70-25)/60 = 45/60 = 0,75.\n- Ind_éduc = (2/3)×0,61 + (1/3)×0,76 = 0,4067 + 0,2533 = 0,66.\n- log(8530) ≈ 3,931, E = (3,931-2)/2,602 = 1,931/2,602 ≈ 0,742.\n- IDH = (0,75+0,66+0,742)/3 = 2,152/3 ≈ 0,717.\n\n❓ QUESTION : Que signifie un IDH de 0,717 ? Selon la classification, c'est un développement humain élevé (entre 0,7 et 0,8).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_met",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "method",
+      "content": "Étape 1 : Calculer A = (EV - 25)/60. Attention : EV doit être en années.\nÉtape 2 : Calculer Ind_éduc = (2/3)×TA + (1/3)×TBS. Convertir les pourcentages en proportions (ex: 76% = 0,76).\nÉtape 3 : Calculer log(PIB/hab). Utiliser la calculatrice ou les valeurs données. Puis E = (log(PIB/hab) - 2)/2,602.\nÉtape 4 : IDH = (A + Ind_éduc + E)/3.\nÉtape 5 : Classer selon les seuils : ≥0,8 = très élevé ; 0,7-0,8 = élevé ; 0,55-0,7 = moyen ; <0,55 = faible.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_exa",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "examples",
+      "content": "Exemple : EV=70, TA=0,61, TBS=76% (0,76), PIB/hab=8 530 → A=0,75, Ind_éduc=0,66, log(8530)≈3,931, E≈0,742, IDH≈0,717 (développement élevé).\nExemple : EV=55, TA=0,50, TBS=0,55, PIB/hab=2 000 → A=0,5, Ind_éduc=0,516, log(2000)=3,301, E=0,5, IDH=0,505 (développement faible).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_det",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "detailed_examples",
+      "content": "Exemple Canada : EV=80,34, TA=0,99, TBS=0,97, PIB/hab=39 500 → A=0,922, Ind_éduc=0,983, log(39500)=4,597, E=0,998, IDH=0,968 (très élevé).\n📌 ANALYSE : Le Canada a un IDH proche de 1 grâce à une espérance de vie élevée, une éducation quasi universelle, et un PIB/hab élevé.\nExemple Somalie : EV=48,84, TA=0,378, TBS=0,233, PIB/hab=600 → A=0,397, Ind_éduc=0,330, log(600)=2,778, E=0,299, IDH=0,342 (faible).\n📌 ANALYSE : La Somalie a une faible espérance de vie, un faible taux d'alphabétisation, et un PIB/hab très bas. L'IDH reflète le sous-développement.\nExemple avec calcul inverse : Si l'indice de longévité A = 0,80, alors EV = 25 + 60×0,80 = 25+48=73 ans. On peut ainsi retrouver l'espérance de vie à partir de l'indice.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_met",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "methods",
+      "content": "Utiliser les valeurs de log données si la calculatrice n'est pas autorisée. Mémoriser log(100)=2, log(40 000)≈4,602.\nPour calculer rapidement E, on peut utiliser l'approximation : E ≈ (log(PIB/hab) - 2)/2,6 (au lieu de 2,602), cela donne une bonne approximation.\nSi le PIB/hab est donné en dollars PPA, utilisez-le directement. Sinon, convertissez d'abord.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_com",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Ne pas convertir les pourcentages en proportions. Exemple : TA = 61% → 0,61, pas 61.\nPiège 2 : Oublier de diviser par 3 à la fin. Certains calculent seulement la somme des trois indices.\nPiège 3 : Confondre TA (taux d'alphabétisation) et TBS (taux brut de scolarisation). TA a un poids de 2/3, TBS de 1/3.\nPiège 4 : Utiliser log népérien (ln) au lieu de log décimal (log10). Les formules de l'ONU utilisent log10.\nPiège 5 : Inverser les bornes : pour A, c'est (EV-25)/60, pas (85-EV)/60.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_calcul_des_trois_indices_sum",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Calcul des trois indices",
+      "type": "summary",
+      "content": "IDH = (A + Ind_éduc + E)/3. Seuil : ≥0,8 = très élevé ; 0,7-0,8 = élevé ; 0,55-0,7 = moyen ; <0,55 = faible. A = (EV-25)/60, Ind_éduc = (2/3)TA + (1/3)TBS, E = (log(PIB/hab)-2)/2,602.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "calcul des trois indices"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_ex1",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Exercice : EV=55, TA=0,50, TBS=0,55, PIB/hab=2 000. Calculer IDH.\nSolution : A=0,5 ; Ind_éduc = (2/3)×0,5 + (1/3)×0,55 = 0,333+0,183=0,516 ; log2000=3,301 ; E=(3,301-2)/2,602=1,301/2,602=0,5 ; IDH = (0,5+0,516+0,5)/3 = 1,516/3 = 0,505.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_ex2",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Exercice : EV=72, TA=0,85, TBS=0,80, PIB/hab=20 000. Calculer IDH.\nSolution : A = (72-25)/60 = 47/60 = 0,7833 ; Ind_éduc = (2/3)×0,85 + (1/3)×0,80 = 0,5667+0,2667=0,8334 ; log20000=4,301 ; E=(4,301-2)/2,602=2,301/2,602=0,884 ; IDH = (0,7833+0,8334+0,884)/3 = 2,5007/3 = 0,8336 (très élevé).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_ex3",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Exercice : Un pays a un IDH de 0,812. Dans quelle catégorie se trouve-t-il ?\nSolution : IDH ≥ 0,8 → développement humain très élevé.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_ex4",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Exercice : Si l'espérance de vie d'un pays est de 65 ans, quel est son indice de longévité ?\nSolution : A = (65-25)/60 = 40/60 = 0,6667.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_lindice_de_développement_humain_idh_ex5",
+      "chapter": "L'Indice de Développement Humain (IDH)",
+      "subchapter": "Exercice 5",
+      "type": "exercise",
+      "content": "Question : Exercice : Un pays a TA = 0,90 et TBS = 0,80. Calculer Ind_éduc.\nSolution : Ind_éduc = (2/3)×0,90 + (1/3)×0,80 = 0,60 + 0,2667 = 0,8667.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "l'indice de développement humain (idh)",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 4
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_intro",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "La monnaie et la politique monétaire",
+      "type": "chapter_summary",
+      "content": "La monnaie remplit trois fonctions : moyen d'échange, unité de compte, réserve de valeur. La Banque Centrale (BRH en Haïti) mène la politique monétaire pour stabiliser les prix. Ce chapitre apparaît dans 85% des examens.\n\n➤ POURQUOI COMPRENDRE LA MONNAIE ?\nParce que l'inflation, le crédit, les taux d'intérêt affectent votre vie quotidienne. La politique monétaire de la BRH influence le coût des emprunts, l'épargne, et la stabilité économique.\n\n➤ CE QUE VOUS DEVEZ MAÎTRISER :\n- Les trois fonctions de la monnaie\n- Les trois motifs de détention (Keynes)\n- Les instruments de la politique monétaire\n- Le calcul du taux d'intérêt réel\n\nObjectifs :\n- Identifier les trois fonctions de la monnaie à partir de situations\n- Distinguer monnaie fiduciaire, scripturale, centrale\n- Connaître les trois motifs de détention de monnaie (transaction, précaution, spéculation)\n- Comprendre le taux directeur, les réserves obligatoires et les opérations d'open market\n- Calculer le taux d'intérêt réel à partir du nominal et de l'inflation\n- Expliquer les effets d'une politique monétaire expansionniste ou restrictive",
+      "level": 1,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_def",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "definition",
+      "content": "Fonctions : moyen d'échange (achat), unité de compte (mesure de valeur), réserve de valeur (épargne). Motifs de détention (Keynes) : transaction (dépenses courantes), précaution (imprévus), spéculation (placement opportun).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_exp",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "explanation",
+      "content": "Le motif de transaction et de précaution dépend du revenu (relation positive). Le motif de spéculation dépend du taux d'intérêt (relation inverse : plus le taux est élevé, moins on garde de liquidités).\n\n📘 EXEMPLES :\n- 'Luckner achète des médicaments pour 1 000 gourdes' → moyen d'échange.\n- 'Ce terrain vaut 100 000 gourdes' → unité de compte.\n- 'Alicia a déposé 1 000 gourdes sur un compte d'épargne' → réserve de valeur.\n- 'André détient 2 500 gourdes pour se rendre au marché' → motif de transaction.\n- 'Wilnack garde une petite somme pour faire face aux imprévus' → motif de précaution.\n- 'Alexandre garde une somme pour prêter à son ami moyennant intérêt' → motif de spéculation.\n\n❓ QUESTION : Si les taux d'intérêt augmentent, que devient le motif de spéculation ? Les gens préfèrent placer leur argent plutôt que de le garder liquide, donc la demande de monnaie pour motif de spéculation diminue.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_met",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "method",
+      "content": "Étape 1 : Lire la situation.\nÉtape 2 : Identifier si c'est une fonction (moyen d'échange, unité de compte, réserve de valeur) ou un motif (transaction, précaution, spéculation).\nÉtape 3 : Justifier brièvement. Exemple : 'Il s'agit du motif de transaction car la personne a besoin de liquidités pour ses achats quotidiens.'",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_exa",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "examples",
+      "content": "Exemple : 'Luckner achète des médicaments pour 1 000 gourdes' → moyen d'échange.\nExemple : 'André détient 2 500 gourdes pour se rendre au marché' → motif de transaction.\nExemple : 'Wilnack garde une petite somme pour faire face aux imprévus' → motif de précaution.\nExemple : 'Alexandre garde une somme pour prêter à son ami moyennant intérêt' → motif de spéculation.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_det",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : 'Thébaud achète au supermarché pour 25 000 gourdes' → moyen d'échange. 'Ce bâtiment vaut 1 500 000 gourdes' → unité de compte. 'Andrélus retire 500 000 gourdes car il anticipe une rareté de carburant' → motif de précaution.\n\n📌 CAS PARTICULIER : La monnaie électronique (via mobile money) remplit les mêmes fonctions mais n'est pas de la monnaie fiduciaire. En Haïti, des services comme MonCash permettent des transactions sans billets.\nExemple avec motif de spéculation : Un investisseur garde 10 000 gourdes en liquide car il attend que le prix des actions baisse pour acheter. C'est le motif de spéculation : il espère réaliser un profit en achetant au bon moment.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_met",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "methods",
+      "content": "Pour les motifs, se rappeler : transaction = achats quotidiens ; précaution = urgences ; spéculation = profit financier.\nPour les fonctions : échange = achat/vente ; unité de compte = mesure de valeur (ex: prix) ; réserve de valeur = épargne.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_com",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Confondre fonction et motif. Les fonctions sont les rôles généraux de la monnaie ; les motifs sont les raisons pour lesquelles les gens détiennent de la monnaie.\nPiège 2 : Attribuer le motif de spéculation à toute détention d'argent. Par exemple, garder de l'argent pour les courses du lendemain est un motif de transaction, pas de spéculation.\nPiège 3 : Oublier que l'inflation affecte la fonction de réserve de valeur. En période de forte inflation, la monnaie perd sa capacité à conserver la valeur.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_fonctions_et_motifs_de_détention_de_la_monnaie_sum",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Fonctions et motifs de détention de la monnaie",
+      "type": "summary",
+      "content": "Trois fonctions : moyen d'échange, unité de compte, réserve de valeur. Trois motifs : transaction, précaution, spéculation. Le motif de spéculation est inversement lié au taux d'intérêt.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "fonctions et motifs de détention de la monnaie"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_def",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "definition",
+      "content": "Taux directeur : taux auquel la BC prête aux banques commerciales. Réserves obligatoires : pourcentage des dépôts que les banques doivent déposer à la BC. Open market : achats/ventes de titres par la BC.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_exp",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "explanation",
+      "content": "Politique expansionniste (baisse du taux directeur, baisse des réserves, achats de titres) → augmente la masse monétaire → stimule l'économie mais risque d'inflation. Politique restrictive (hausse) → réduit la masse monétaire → lutte contre l'inflation mais risque de récession.\n\n📘 EXEMPLE : En 2022, la BRH a augmenté son taux directeur pour lutter contre l'inflation élevée (plus de 20%). Les banques commerciales ont répercuté cette hausse sur les crédits, ce qui a ralenti l'économie mais aussi l'inflation.\n\n❓ QUESTION : Que se passe-t-il si la BC achète des titres sur le marché ? Elle injecte des liquidités, la masse monétaire augmente, les taux d'intérêt baissent, l'investissement augmente.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_met",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "method",
+      "content": "Étape 1 : Identifier l'objectif (lutter contre l'inflation ou stimuler la croissance).\nÉtape 2 : Choisir l'instrument approprié. Pour lutter contre l'inflation → politique restrictive (hausse du taux directeur, hausse des réserves, vente de titres).\nÉtape 3 : Décrire l'effet sur les crédits, l'investissement, la consommation, puis sur l'inflation ou la croissance.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_exa",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "examples",
+      "content": "Exemple : Hausse du taux directeur → crédits plus chers → baisse de l'investissement → ralentissement de l'économie → baisse de l'inflation.\nExemple : Baisse des réserves obligatoires → les banques peuvent prêter davantage → augmentation de la masse monétaire → baisse des taux d'intérêt → hausse de l'investissement → hausse de la croissance (mais risque d'inflation).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_det",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "detailed_examples",
+      "content": "Exemple avec calcul : Taux nominal = 20%, inflation = 15% → taux réel = 5%. L'emprunteur paie 5% en termes réels, le prêteur gagne 5%.\n\nSi l'inflation devient 25%, le taux réel devient -5% : l'emprunteur profite, le prêteur perd. C'est pourquoi les prêteurs exigent des taux nominaux élevés quand l'inflation est forte.\n\n📌 APPLICATION HAÏTI : En 2021-2022, l'inflation a dépassé 20%. Les taux nominaux des crédits bancaires étaient autour de 30-35%, ce qui donnait un taux réel positif pour les banques (environ 10%).\nExemple avec open market : La BRH vend des obligations d'État sur le marché. Les acheteurs paient avec leurs comptes bancaires, ce qui réduit les dépôts des banques et donc leur capacité à prêter. La masse monétaire diminue, les taux d'intérêt augmentent, l'inflation baisse.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_met",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "methods",
+      "content": "Formule de Fisher : taux réel ≈ taux nominal - taux d'inflation.\nPour mémoriser les effets : expansionniste = 'accommodant' (baisse des taux, relance) ; restrictive = 'orthodoxe' (hausse des taux, lutte contre l'inflation).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_com",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Confondre politique expansionniste et restrictive. Expansionniste = baisse des taux, hausse de la masse monétaire. Restrictive = hausse des taux, baisse de la masse monétaire.\nPiège 2 : Oublier que le taux directeur influence indirectement les crédits. Ce n'est pas une relation directe, mais les banques répercutent généralement la hausse.\nPiège 3 : Penser que la BC peut fixer directement tous les taux d'intérêt. Elle fixe le taux directeur, mais les taux des crédits bancaires sont déterminés par le marché sous l'influence de ce taux.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_politique_monétaire_et_taux_dintérêt_sum",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Politique monétaire et taux d'intérêt",
+      "type": "summary",
+      "content": "Politique monétaire : expansionniste (↓ taux, ↓ réserves, achats) → relance ; restrictive (↑ taux, ↑ réserves, ventes) → frein. Taux réel ≈ taux nominal - inflation.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "politique monétaire et taux d'intérêt"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_ex1",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Exercice : Taux nominal = 12%, inflation = 20%. Calculer le taux réel et dire qui profite.\nSolution : Taux réel = 12% - 20% = -8%. L'emprunteur profite (il rembourse en monnaie dévaluée), le prêteur perd.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_ex2",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Exercice : La BC augmente les réserves obligatoires de 5% à 10%. Quel est l'effet sur la création monétaire ?\nSolution : Les banques doivent garder plus de réserves, donc elles prêtent moins → diminution de la création monétaire → effet restrictif (lutte contre l'inflation).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_ex3",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Exercice : Si la BC abaisse le taux directeur, quel est l'effet sur l'investissement et la croissance ?\nSolution : Baisse du taux directeur → crédits moins chers → hausse de l'investissement → hausse de la demande agrégée → hausse de la croissance (mais risque d'inflation).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_ex4",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Exercice : Identifiez la fonction ou le motif : 'Jean garde 5 000 gourdes dans sa poche pour acheter du pain demain matin.'\nSolution : Motif de transaction (besoin de liquidités pour un achat proche).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_la_monnaie_et_la_politique_monétaire_ex5",
+      "chapter": "La monnaie et la politique monétaire",
+      "subchapter": "Exercice 5",
+      "type": "exercise",
+      "content": "Question : Exercice : Si l'inflation est de 10% et le taux nominal d'un prêt est de 8%, que se passe-t-il ?\nSolution : Taux réel = 8% - 10% = -2%. L'emprunteur gagne du pouvoir d'achat, le prêteur en perd. C'est une situation où l'inflation érode la valeur de la créance.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "la monnaie et la politique monétaire",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 5
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_intro",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance et développement économique",
+      "type": "chapter_summary",
+      "content": "La croissance est quantitative (augmentation du PIB), le développement est qualitatif (amélioration des conditions de vie). Le développement durable concilie économie, social et environnement. Ce chapitre apparaît dans 85% des examens.\n\n➤ POURQUOI DISTINGUER CROISSANCE ET DÉVELOPPEMENT ?\nParce qu'un pays peut voir son PIB augmenter (croissance) sans que la majorité de sa population en bénéficie (ex: pays pétroliers avec inégalités). Le développement vise le bien-être de tous.\n\n➤ CE QUE VOUS DEVEZ MAÎTRISER :\n- Différence croissance/développement\n- Trois piliers du développement durable\n- Facteurs de croissance (capital, travail, progrès technique, capital humain)\n- Caractéristiques du sous-développement\n\nObjectifs :\n- Distinguer croissance et développement\n- Définir le développement durable et ses trois piliers\n- Connaître les facteurs de croissance (capital, travail, progrès technique, capital humain)\n- Identifier les caractéristiques du sous-développement\n- Expliquer la théorie de la dépendance",
+      "level": 1,
+      "tags": [
+        "economie",
+        "croissance et développement économique"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_croissance_vs_développement_def",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance vs développement",
+      "type": "definition",
+      "content": "Croissance économique : augmentation soutenue du PIB réel. Développement économique : amélioration des conditions de vie (santé, éducation, réduction des inégalités).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "croissance vs développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_croissance_vs_développement_exp",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance vs développement",
+      "type": "explanation",
+      "content": "Exemple : Un pays pétrolier peut voir son PIB augmenter fortement tandis que la majorité reste pauvre → croissance sans développement. L'IDH tente de mesurer le développement.\n\n📘 EXEMPLE : La Chine a connu une croissance annuelle moyenne de 9% pendant 30 ans, mais les inégalités ont augmenté. Certaines régions se sont développées, d'autres sont restées pauvres. On parle de croissance sans développement inclusif.\n\n❓ QUESTION : Un pays peut-il avoir du développement sans croissance ? Théoriquement oui, si on améliore l'éducation et la santé sans augmenter le PIB, mais en pratique, la croissance est nécessaire pour financer ces améliorations.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "croissance vs développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_croissance_vs_développement_exa",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance vs développement",
+      "type": "examples",
+      "content": "Exemple : La Chine a connu une forte croissance mais les inégalités ont augmenté ; certains pays comme le Costa Rica ont un IDH élevé avec un PIB/hab modéré.\nExemple : Le Botswana a connu une croissance rapide grâce aux diamants, mais le développement humain (santé, éducation) a stagné pendant des décennies.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "croissance vs développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_croissance_vs_développement_det",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance vs développement",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : Haïti a connu une croissance négative ou faible depuis des décennies, mais aussi un faible développement. Cependant, même dans des périodes de légère croissance (ex: 2010-2015 après le séisme), les indicateurs sociaux (mortalité infantile, scolarisation) se sont améliorés. La croissance est nécessaire mais pas suffisante.\n\n📌 À SAVOIR : L'IDH du Brésil a augmenté régulièrement même pendant les années de faible croissance, grâce à des politiques sociales (Bolsa Família). Cela montre que le développement peut progresser même sans forte croissance, grâce à la redistribution.\nExemple de la théorie de la dépendance : Les pays d'Amérique latine exportent des matières premières (cuivre, pétrole, soja) vers les pays riches. Les prix de ces matières sont volatils et souvent bas. Les pays riches transforment ces matières en biens à haute valeur ajoutée qu'ils revendent aux pays pauvres. Cela crée une dépendance et freine le développement industriel des pays pauvres.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "croissance vs développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_croissance_vs_développement_met",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance vs développement",
+      "type": "methods",
+      "content": "Pour différencier croissance et développement dans une dissertation, utilisez des indicateurs : PIB pour la croissance, IDH pour le développement.\nCitez des exemples concrets : Chine (croissance rapide, inégalités), Costa Rica (développement élevé sans croissance exceptionnelle), Haïti (faible croissance et faible développement).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "croissance vs développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_croissance_vs_développement_com",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance vs développement",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Confondre les deux notions. La croissance est un concept quantitatif, le développement est qualitatif.\nPiège 2 : Penser que la croissance est toujours bonne. Une croissance fondée sur l'épuisement des ressources naturelles n'est pas durable.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "croissance vs développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_croissance_vs_développement_sum",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Croissance vs développement",
+      "type": "summary",
+      "content": "Croissance = quantitative (PIB). Développement = qualitatif (bien-être, santé, éducation). On peut avoir croissance sans développement (inégalités) et développement sans forte croissance (politiques sociales).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "croissance vs développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_développement_durable_def",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Développement durable",
+      "type": "definition",
+      "content": "Rapport Brundtland (1987) : développement qui répond aux besoins du présent sans compromettre la capacité des générations futures à répondre aux leurs. Trois piliers : économique, social, environnemental.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "développement durable"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_développement_durable_exp",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Développement durable",
+      "type": "explanation",
+      "content": "Date clé : Sommet de la Terre à Rio (1992). Principes : solidarité (intra et intergénérationnelle), précaution, participation.\n\n📘 EXEMPLE : Une centrale solaire est durable : elle produit de l'électricité sans épuiser les ressources et sans polluer. Une centrale à charbon ne l'est pas.\n\n❓ QUESTION : Qu'est-ce que le principe de précaution ? Face à un risque d'atteinte grave à l'environnement, même en l'absence de certitude scientifique, on doit prendre des mesures de protection. Exemple : le réchauffement climatique, même s'il y a un faible doute, on doit agir.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "développement durable"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_développement_durable_exa",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Développement durable",
+      "type": "examples",
+      "content": "Exemple : L'énergie solaire est durable ; le charbon ne l'est pas.\nExemple : La pêche durable respecte les quotas pour ne pas épuiser les stocks de poissons.\nExemple : Le commerce équitable est un exemple de pilier social (juste rémunération des producteurs).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "développement durable"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_développement_durable_det",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Développement durable",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : En Haïti, la déforestation est un problème majeur. Les arbres sont coupés pour produire du charbon de bois. À court terme, cela rapporte de l'argent (pilier économique), mais à long terme, cela cause l'érosion des sols, la perte de biodiversité, et aggrave les risques d'inondations (pilier environnemental). Les communautés locales perdent leurs moyens de subsistance (pilier social). Le développement durable consisterait à promouvoir des sources d'énergie alternatives (biodigesteurs, cuiseurs solaires) et à reboiser.\n\n📌 APPLICATION : Le microcrédit peut contribuer au développement durable en finançant des activités respectueuses de l'environnement (ex: petites exploitations agricoles durables).\nExemple du pilier social : La responsabilité sociale des entreprises (RSE) inclut le respect des droits des travailleurs, l'égalité salariale, l'interdiction du travail des enfants. C'est une application du développement durable au niveau microéconomique.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "développement durable"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_développement_durable_met",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Développement durable",
+      "type": "methods",
+      "content": "Pour répondre à une question sur le développement durable, structurez votre réponse en trois piliers : économique (croissance durable), social (équité), environnemental (préservation).\nCitez les dates clés : 1987 (Rapport Brundtland), 1992 (Sommet de Rio).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "développement durable"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_développement_durable_com",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Développement durable",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Oublier un des trois piliers. Beaucoup ne citent que l'environnement, mais le développement durable inclut aussi l'économie et le social.\nPiège 2 : Confondre développement durable et écologie seulement. L'écologie est un pilier, mais pas le seul.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "développement durable"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_développement_durable_sum",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Développement durable",
+      "type": "summary",
+      "content": "Développement durable = économique + social + environnemental. Né du Rapport Brundtland (1987) et consacré à Rio (1992). Principes : solidarité, précaution, participation.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "développement durable"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_facteurs_de_croissance_et_sous_développement_def",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Facteurs de croissance et sous-développement",
+      "type": "definition",
+      "content": "Facteurs traditionnels : capital physique, travail. Facteurs modernes : capital humain (éducation, santé), progrès technique, institutions. Croissance extensive = augmentation des quantités de facteurs ; intensive = amélioration de la productivité.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "facteurs de croissance et sous-développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_facteurs_de_croissance_et_sous_développement_exp",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Facteurs de croissance et sous-développement",
+      "type": "explanation",
+      "content": "Le sous-développement se caractérise par un faible PIB/hab, une faible espérance de vie, un analphabétisme élevé, une dépendance à l'agriculture de subsistance, un fort secteur informel. Haïti : PIB/hab très faible, chômage élevé (~70%), secteur informel ~60%.\n\n📘 EXEMPLE : Investir dans l'éducation augmente le capital humain et la productivité. Un enfant qui va à l'école sera plus productif adulte. C'est un investissement à long terme.\n\n❓ QUESTION : Qu'est-ce que la croissance intensive ? C'est la croissance qui vient de l'innovation et du progrès technique, sans augmenter les quantités de facteurs. Par exemple, une usine qui produit deux fois plus avec les mêmes machines grâce à une meilleure organisation.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "facteurs de croissance et sous-développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_facteurs_de_croissance_et_sous_développement_exa",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Facteurs de croissance et sous-développement",
+      "type": "examples",
+      "content": "Exemple : Investir dans l'éducation augmente le capital humain et la productivité.\nExemple : Construire des routes (capital physique) facilite le commerce et stimule la croissance.\nExemple : L'innovation technologique (ex: internet) permet une croissance intensive.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "facteurs de croissance et sous-développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_facteurs_de_croissance_et_sous_développement_det",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Facteurs de croissance et sous-développement",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : Haïti a un faible taux de scolarisation, une mauvaise qualité de l'éducation, et un système de santé défaillant. Cela se traduit par un faible capital humain. Les entreprises ont du mal à trouver des travailleurs qualifiés, ce qui freine l'investissement et la croissance. C'est un cercle vicieux : faible capital humain → faible productivité → faible croissance → faible investissement dans l'éducation.\n\n📌 THÉORIE DE LA DÉPENDANCE : Selon ce courant, les pays sous-développés sont maintenus dans un état de dépendance par les pays riches. Les échanges commerciaux sont inégaux : les pays pauvres exportent des matières premières à bas prix et importent des biens manufacturés chers. Leurs économies sont extraverties et vulnérables aux chocs externes.\nExemple de la Corée du Sud : En 1960, la Corée était un pays sous-développé avec un PIB/hab inférieur à Haïti aujourd'hui. Grâce à des investissements massifs dans l'éducation (capital humain), une politique industrielle volontariste, et des réformes institutionnelles, elle est devenue un pays développé en une génération. C'est un exemple de réussite de développement.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "facteurs de croissance et sous-développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_facteurs_de_croissance_et_sous_développement_met",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Facteurs de croissance et sous-développement",
+      "type": "methods",
+      "content": "Pour analyser le sous-développement, utilisez les indicateurs : PIB/hab, IDH, espérance de vie, taux d'alphabétisation, part du secteur informel.\nPour les facteurs de croissance, distinguez facteurs traditionnels (K, L) et facteurs modernes (capital humain, progrès technique, institutions).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "facteurs de croissance et sous-développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_facteurs_de_croissance_et_sous_développement_com",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Facteurs de croissance et sous-développement",
+      "type": "common_mistakes",
+      "content": "Piège : Confondre croissance extensive et intensive. Extensive = plus de facteurs (plus de travailleurs, plus de machines). Intensive = meilleure utilisation des facteurs (productivité).\nPiège : Penser que le sous-développement est uniquement dû à des causes internes (paresse, culture). Les causes externes (colonialisme, dettes, termes de l'échange) sont aussi importantes.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "facteurs de croissance et sous-développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_facteurs_de_croissance_et_sous_développement_sum",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Facteurs de croissance et sous-développement",
+      "type": "summary",
+      "content": "Croissance extensive (plus de facteurs) vs intensive (meilleure productivité). Sous-développement = faible PIB/hab, faible IDH, faible capital humain, dépendance économique. Théorie de la dépendance : les relations inégales entre centre et périphérie expliquent le sous-développement.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "facteurs de croissance et sous-développement"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_ex1",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Question : 'Peut-il y avoir croissance sans développement ? Expliquer avec un exemple.'\nSolution : Oui, si la richesse créée est captée par une minorité. Exemple : un pays qui exploite une ressource naturelle dont les profits sont accaparés par une élite, tandis que la population reste dans la pauvreté.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_ex2",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Question : 'Quels sont les trois piliers du développement durable ?'\nSolution : Pilier économique (croissance durable), pilier social (équité, réduction des inégalités), pilier environnemental (préservation des ressources).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_ex3",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Question : 'Citez deux facteurs de croissance moderne.'\nSolution : Capital humain (éducation, santé) et progrès technique (innovation).",
+      "level": 2,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_croissance_et_développement_économique_ex4",
+      "chapter": "Croissance et développement économique",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Question : 'Qu'est-ce que la théorie de la dépendance ?'\nSolution : Théorie selon laquelle le sous-développement des pays pauvres est causé par les relations économiques inégales avec les pays riches (centre-périphérie). Les pays pauvres exportent des matières premières à bas prix et importent des biens manufacturés chers, ce qui freine leur développement.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "croissance et développement économique",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 6
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_intro",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible, épargne et financement",
+      "type": "chapter_summary",
+      "content": "Le revenu disponible se répartit entre consommation et épargne. L'épargne finance l'investissement via le circuit financier. Ce chapitre apparaît dans 70% des examens.\n\n➤ POURQUOI CE CHAPITRE ?\nIl relie la macroéconomie (revenu, consommation, épargne) à la finance (crédits, investissement). Comprendre comment l'épargne des ménages finance l'investissement des entreprises est essentiel.\n\nObjectifs :\n- Calculer le revenu disponible Yd = Yb - T\n- Calculer l'épargne S = Yd - C\n- Calculer les propensions moyennes à consommer et à épargner (PMC et PmS)\n- Distinguer autofinancement et financement externe",
+      "level": 1,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_def",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "definition",
+      "content": "Yd = Yb - T. S = Yd - C. PMC = C / Yd, PmS = S / Yd, avec PMC + PmS = 1.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_exp",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "explanation",
+      "content": "Exemple : Yb=200 000, T=25% (50 000) → Yd=150 000. Si S = 1/4 Yd = 37 500, alors C = 112 500, PMC = 0,75, PmS = 0,25.\n\n📘 EXEMPLE : Un ménage a un revenu brut de 80 000 gourdes et paie 15% d'impôts. Son Yd = 80 000 - 12 000 = 68 000. S'il consomme 50 000, alors S = 18 000, PMC = 50 000/68 000 ≈ 0,735, PmS = 0,265.\n\n❓ QUESTION : Que signifie une propension moyenne à épargner de 0,265 ? Cela signifie que 26,5% du revenu disponible est épargné, et 73,5% est consommé.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_met",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "method",
+      "content": "Étape 1 : Calculer Yd à partir de Yb et T. Yd = Yb - T. Si T est donné en pourcentage, appliquer le pourcentage.\nÉtape 2 : Déterminer C ou S selon les données. Si on donne C, alors S = Yd - C. Si on donne S, alors C = Yd - S.\nÉtape 3 : Calculer PMC = C / Yd et PmS = S / Yd.\nÉtape 4 : Vérifier que PMC + PmS = 1 (toujours vrai).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_exa",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "examples",
+      "content": "Exemple (tableau) : Ligne 1 : Yb=1 900, T=100 → Yd=1 800, C=1 200 → S=600. Ligne 2 : Yb=?, T=350, Yd=4 150, S=100 → C=4 050, Yb=4 500.\nExemple : Yb=300 000, T=20% → Yd=240 000. Si C=200 000, alors S=40 000, PMC=0,8333, PmS=0,1667.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_det",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : Salarié 50 000/mois + prime 35 000, taxes 10% → Yb=635 000, T=63 500, Yd=571 500. Épargne = 1/3 Yd → S=190 500, C=381 000, PmS=1/3.\n\n📌 ANALYSE : La propension moyenne à épargner (PmS) est de 33,3%. Cela signifie que le ménage épargne un tiers de son revenu disponible. C'est une épargne élevée, peut-être pour un projet (maison, études).\nExemple avec complément de tableau :\nYb | T | Yd | C | S\n1 900 | 100 | 1 800 | 1 200 | 600\n?   | 350 | 4 150 | 4 050 | 100\nPour la deuxième ligne, Yb = Yd + T = 4 150+350 = 4 500. C = Yd - S = 4 150 - 100 = 4 050.\n❓ Vérification : La propension moyenne à consommer de la ligne 2 est 4 050/4 150 ≈ 0,976, très élevée, car l'épargne est faible (100).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_met",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "methods",
+      "content": "Pour compléter un tableau, utiliser Yd = Yb - T et S = Yd - C.\nPour calculer la propension moyenne, diviser par Yd, pas par Yb.\nAttention : La propension marginale (Pmc) est différente de la propension moyenne (PMC). Ne pas les confondre.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_com",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Oublier de soustraire les impôts. Parfois l'énoncé donne directement Yd, mais s'il donne Yb et T, calculez Yd.\nPiège 2 : Confondre PMC et Pmc (moyenne vs marginale). La moyenne est C/Yd, la marginale est ΔC/ΔYd.\nPiège 3 : Utiliser Yb au lieu de Yd pour calculer PMC. Par exemple, si Yb=100 000, T=20 000, Yd=80 000, et C=60 000, alors PMC = 60 000/80 000 = 0,75, pas 60 000/100 000 = 0,6.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_revenu_disponible_et_épargne_sum",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Revenu disponible et épargne",
+      "type": "summary",
+      "content": "Yd = Yb - T, S = Yd - C, PMC = C/Yd, PmS = S/Yd, PMC+PmS=1. La propension moyenne à épargner est la part du revenu total épargnée.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "revenu disponible et épargne"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_ex1",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Exercice : Revenu brut = 200 000, impôts 25%. Si S = 1/4 Yd, calculer C, PMC, PmS.\nSolution : Yd = 150 000, S = 37 500, C = 112 500, PMC = 0,75, PmS = 0,25.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_ex2",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Exercice : Un ménage a Yb=120 000, T=15 000. Sa consommation est de 85 000. Calculer Yd, S, PMC, PmS.\nSolution : Yd = 120 000 - 15 000 = 105 000. S = 105 000 - 85 000 = 20 000. PMC = 85 000/105 000 ≈ 0,8095. PmS = 20 000/105 000 ≈ 0,1905.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_revenu_disponible_épargne_et_financement_ex3",
+      "chapter": "Revenu disponible, épargne et financement",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Exercice : Complétez le tableau :\nYb | T | Yd | C | S\n5 000 | 500 | ? | 4 200 | ?\n?   | 800 | 7 200 | ? | 1 200\nSolution : Première ligne : Yd = 5 000-500=4 500, S=4 500-4 200=300. Deuxième ligne : Yb = Yd+T = 7 200+800=8 000, C = Yd - S = 7 200-1 200=6 000.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "revenu disponible, épargne et financement",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 7
+    },
+    {
+      "id": "economie_structures_de_marché_intro",
+      "chapter": "Structures de marché",
+      "subchapter": "Structures de marché",
+      "type": "chapter_summary",
+      "content": "La structure d'un marché dépend du nombre d'offreurs et de demandeurs. Outre le monopole, on rencontre la concurrence pure et parfaite, l'oligopole, le monopsone. Ce chapitre est surtout présent en questions de définition (50% des examens).\n\n➤ POURQUOI CONNAÎTRE LES STRUCTURES DE MARCHÉ ?\nCela permet de comprendre le comportement des entreprises, la fixation des prix, et l'intervention de l'État (régulation, antitrust).\n\nObjectifs :\n- Définir la concurrence pure et parfaite (atomicité, homogénéité, libre entrée, transparence, mobilité)\n- Définir l'oligopole et le cartel\n- Distinguer monopsone et oligopsone\n- Connaître les caractéristiques de chaque structure",
+      "level": 1,
+      "tags": [
+        "economie",
+        "structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_les_structures_de_marché_def",
+      "chapter": "Structures de marché",
+      "subchapter": "Les structures de marché",
+      "type": "definition",
+      "content": "Concurrence pure et parfaite : nombreux offreurs, produit homogène, libre entrée/sortie, transparence, mobilité. Oligopole : quelques offreurs, interdépendance stratégique, barrières à l'entrée. Cartel : entente entre oligopoleurs (ex: OPEP). Monopsone : un seul acheteur. Oligopsone : quelques acheteurs.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "les structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_les_structures_de_marché_exp",
+      "chapter": "Structures de marché",
+      "subchapter": "Les structures de marché",
+      "type": "explanation",
+      "content": "En CPP, les entreprises sont price takers. En monopole, price maker. En oligopole, les décisions sont interdépendantes.\n\n📘 EXEMPLE : L'agriculture (blé, maïs) est proche de la CPP. L'industrie automobile est un oligopole (quelques grands constructeurs). L'EDH en Haïti est un monopole. L'OPEP est un cartel (entente sur les quotas de pétrole).\n\n❓ QUESTION : Qu'est-ce qu'un cartel ? C'est une entente entre entreprises d'un même secteur pour fixer les prix, les quantités ou se répartir les marchés. C'est généralement illégal car cela nuit aux consommateurs.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "les structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_les_structures_de_marché_exa",
+      "chapter": "Structures de marché",
+      "subchapter": "Les structures de marché",
+      "type": "examples",
+      "content": "Exemple : L'agriculture est proche de la CPP ; l'industrie automobile est un oligopole ; l'EDH en Haïti est un monopole.\nExemple : L'OPEP (Organisation des pays exportateurs de pétrole) est un cartel qui fixe les quotas de production pour influencer le prix.\nExemple : Sur le marché du café en Haïti, les producteurs sont nombreux (concurrence), mais les acheteurs (exportateurs) sont peu nombreux (oligopsone).",
+      "level": 3,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "les structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_les_structures_de_marché_det",
+      "chapter": "Structures de marché",
+      "subchapter": "Les structures de marché",
+      "type": "detailed_examples",
+      "content": "Exemple détaillé : L'OPEP (Organisation des pays exportateurs de pétrole) est un cartel qui fixe les quotas de production pour influencer le prix. En 2020, l'OPEP a réduit sa production pour soutenir les prix du pétrole. Cela a eu un effet sur l'économie mondiale.\n\n📌 APPLICATION HAÏTI : Le marché de la farine importée est un oligopole (quelques grandes compagnies). Le marché de l'électricité est un monopole (EDH). Le marché du riz local est proche de la CPP (nombreux petits producteurs).\nExemple du monopsone : L'État haïtien est souvent le seul acheteur de certains services (ex: construction de routes publiques). Il est en position de monopsone, ce qui lui permet de dicter ses prix aux entreprises soumissionnaires.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "les structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_les_structures_de_marché_met",
+      "chapter": "Structures de marché",
+      "subchapter": "Les structures de marché",
+      "type": "methods",
+      "content": "Pour identifier une structure, compter le nombre d'offreurs et le degré de différenciation des produits.\nSi un seul offreur → monopole. Si quelques offreurs → oligopole. Si très nombreux → concurrence.\nPour le monopsone, regarder le côté acheteur.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "les structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_les_structures_de_marché_com",
+      "chapter": "Structures de marché",
+      "subchapter": "Les structures de marché",
+      "type": "common_mistakes",
+      "content": "Piège 1 : Confondre monopole et oligopole. Le monopole a un seul vendeur, l'oligopole en a peu.\nPiège 2 : Penser que la CPP existe réellement. C'est un modèle théorique, jamais parfaitement réalisé dans la réalité.\nPiège 3 : Confondre monopsone et monopole. Monopsone = un acheteur, monopole = un vendeur.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "les structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_les_structures_de_marché_sum",
+      "chapter": "Structures de marché",
+      "subchapter": "Les structures de marché",
+      "type": "summary",
+      "content": "CPP : price takers, atomicité, homogénéité, libre entrée, transparence, mobilité. Oligopole : quelques vendeurs, interdépendance. Cartel : entente. Monopsone : un acheteur. Oligopsone : quelques acheteurs.",
+      "level": 3,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "les structures de marché"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_ex1",
+      "chapter": "Structures de marché",
+      "subchapter": "Exercice 1",
+      "type": "exercise",
+      "content": "Question : Question : 'Quelle est la différence entre un monopole et un oligopole ?'\nSolution : Dans un monopole, un seul vendeur domine le marché. Dans un oligopole, quelques vendeurs (souvent 3 à 15) se partagent le marché et leurs décisions sont interdépendantes.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_ex2",
+      "chapter": "Structures de marché",
+      "subchapter": "Exercice 2",
+      "type": "exercise",
+      "content": "Question : Question : 'Citez les cinq conditions de la concurrence pure et parfaite.'\nSolution : Atomicité (nombreux acheteurs et vendeurs), homogénéité des produits, libre entrée et sortie, transparence de l'information, mobilité des facteurs.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_ex3",
+      "chapter": "Structures de marché",
+      "subchapter": "Exercice 3",
+      "type": "exercise",
+      "content": "Question : Question : 'Qu'est-ce qu'un cartel ? Donnez un exemple.'\nSolution : Un cartel est une entente entre entreprises d'un même secteur pour fixer les prix, les quantités ou se répartir les marchés. Exemple : l'OPEP pour le pétrole.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 8
+    },
+    {
+      "id": "economie_structures_de_marché_ex4",
+      "chapter": "Structures de marché",
+      "subchapter": "Exercice 4",
+      "type": "exercise",
+      "content": "Question : Question : 'Dans quelle structure de marché une entreprise est-elle price maker ?'\nSolution : Dans un monopole (un seul vendeur) ou dans un oligopole (pouvoir de marché partiel). En CPP, elle est price taker.",
+      "level": 2,
+      "tags": [
+        "economie",
+        "structures de marché",
+        "exercice",
+        "bac"
+      ],
+      "chapter_num": 8
+    }
+  ]
+}

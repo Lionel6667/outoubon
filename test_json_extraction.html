@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test JSON Extraction - OU TOU BON</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .error { color: red; background: #ffe6e6; padding: 10px; margin: 10px 0; }
+        .success { color: green; background: #e6ffe6; padding: 10px; margin: 10px 0; }
+        .log { background: #f0f0f0; padding: 10px; margin: 5px 0; font-family: monospace; font-size: 12px; }
+        h2 { color: #333; border-bottom: 2px solid #3b82f6; padding-bottom: 10px; }
+        .content-preview { background: #f9f9f9; padding: 15px; border-left: 4px solid #3b82f6; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>OU TOU BON - JSON Extraction Test</h1>
+    
+    <div id="test-output"></div>
+    
+    <script>
+    const testOutput = document.getElementById('test-output');
+    
+    function log(msg, type = 'info') {
+        console.log(msg);
+        const cls = type === 'error' ? 'error' : (type === 'success' ? 'success' : 'info');
+        testOutput.innerHTML += `<div class="log ${cls}">${msg}</div>`;
+    }
+    
+    // ═══════════════════════════════════════════════════════════
+    // COPY THE FUNCTIONS FROM generic_cours.html
+    // ═══════════════════════════════════════════════════════════
+    
+    function renderValue(value, depth = 0) {
+      if (value === null || value === undefined) return '';
+      
+      const indent = '  '.repeat(depth);
+      
+      // String: apply formatting
+      if (typeof value === 'string') {
+        if (value.length < 1) return '';
+        // Preserve line breaks, apply basic markdown-like formatting
+        let html = value
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/\n\n+/g, '</p><p>')
+          .replace(/\n/g, '<br/>');
+        return `<p>${html}</p>`;
+      }
+      
+      // Array
+      if (Array.isArray(value)) {
+        if (value.length === 0) return '';
+        if (value[0] && typeof value[0] === 'object' && !Array.isArray(value[0])) {
+          const firstObj = value[0];
+          if (firstObj.nom || firstObj.nom_complet || firstObj.sigle || firstObj.titre || firstObj.enonce) {
+            let html = '<div class="items-list">';
+            value.forEach(item => {
+              html += '<div class="item-card" style="margin:1rem 0; padding:1rem; border-left:3px solid #3b82f6; background:#f0f9ff;">';
+              Object.entries(item).forEach(([key, val]) => {
+                if (!val) return;
+                const keyLabel = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                if (typeof val === 'string' && val.length < 150) {
+                  html += `<div><strong>${keyLabel}:</strong> ${val}</div>`;
+                }
+              });
+              html += '</div>';
+            });
+            html += '</div>';
+            return html;
+          }
+        
+          if (firstObj.concept || firstObj.explication) {
+            let html = '<div class="concepts-list">';
+            value.forEach((item, idx) => {
+              html += `<div class="concept-card" style="margin:1.5rem 0; padding:1rem; background:#fafafa;">`;
+              if (item.concept) html += `<h4>${item.concept}</h4>`;
+              if (item.explication) html += `<div>${renderValue(item.explication, depth + 1)}</div>`;
+              html += '</div>';
+            });
+            html += '</div>';
+            return html;
+          }
+        }
+        
+        if (typeof value[0] === 'string') {
+          let html = '<ul>';
+          value.forEach(item => html += `<li>${item}</li>`);
+          html += '</ul>';
+          return html;
+        }
+        
+        return value.map(v => renderValue(v, depth + 1)).join('');
+      }
+      
+      // Object
+      if (typeof value === 'object') {
+        let html = '';
+        const levelKeys = ['niveau_debutant', 'niveau_intermediaire', 'niveau_avance'];
+        const hasLevels = levelKeys.some(k => k in value);
+        
+        if (hasLevels) {
+          html += '<div class="levels-container">';
+          levelKeys.forEach(levelKey => {
+            if (levelKey in value) {
+              const level = value[levelKey];
+              const levelLabel = levelKey.replace('niveau_', '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+              html += `<div class="level-section" style="margin:1.5rem 0; padding:1rem; background:#f3f4f6; border-left:4px solid #8b5cf6;">`;
+              html += `<h4 style="margin-top:0;">Niveau ${levelLabel}</h4>`;
+              
+              if (typeof level === 'string') {
+                html += renderValue(level, depth + 1);
+              } else if (typeof level === 'object' && !Array.isArray(level)) {
+                Object.entries(level).forEach(([k, v]) => {
+                  const subLabel = k.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                  html += `<div style="margin:1rem 0;"><h5>${subLabel}</h5>`;
+                  html += typeof v === 'string' ? renderValue(v, depth + 2) : renderValue(v, depth + 2);
+                  html += '</div>';
+                });
+              }
+              html += '</div>';
+            }
+          });
+          html += '</div>';
+          return html;
+        }
+        
+        Object.entries(value).forEach(([key, val]) => {
+          if (!val || (typeof val === 'string' && val.trim().length === 0)) return;
+          if (['id', '__typename', '_id', 'updated_at', 'created_at'].includes(key)) return;
+          const keyLabel = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          if (typeof val === 'string' && val.length < 150) {
+            html += `<div><strong>${keyLabel}:</strong> ${val}</div>`;
+          }
+        });
+        
+        return html;
+      }
+      
+      return '';
+    }
+    
+    // ═══════════════════════════════════════════════════════════
+    // TEST 1: Load and parse economie.json
+    // ═══════════════════════════════════════════════════════════
+    
+    testOutput.innerHTML = '<div class="test-section"><h2>Test 1: Load and Extract Economie JSON</h2></div>';
+    
+    fetch('database/note_economie.json')
+        .then(r => r.json())
+        .then(data => {
+            log('Successfully loaded note_economie.json', 'success');
+            log(`Found ${data.chapitres ? data.chapitres.length : 0} chapters`, 'info');
+            
+            if (data.chapitres && data.chapitres.length > 0) {
+                const ch1 = data.chapitres[0];
+                log(`Chapter 1 title: ${ch1.titre}`, 'success');
+                log(`Chapter 1 has explication_complete: ${!!ch1.explication_complete}`, 'info');
+                
+                if (ch1.explication_complete) {
+                    const levels = ['niveau_debutant', 'niveau_intermediaire', 'niveau_avance'];
+                    levels.forEach(l => {
+                        if (ch1.explication_complete[l]) {
+                            const objCount = Object.keys(ch1.explication_complete[l]).length;
+                            log(`  - ${l}: ${objCount} sub-objects`, 'success');
+                        }
+                    });
+                    
+                    // Test renderValue on explication_complete
+                    const html = renderValue(ch1.explication_complete);
+                    const charCount = html.length;
+                    log(`renderValue() generated ${charCount} chars of HTML for explication_complete`, 'success');
+                    
+                    if (charCount > 200) {
+                        testOutput.innerHTML += `<div class="test-section"><h3>Chamber 1 Explication (Preview)</h3><div class="content-preview">${html.substring(0, 500)}...</div></div>`;
+                    }
+                }
+            }
+        })
+        .catch(e => log(`Error loading economie.json: ${e.message}`, 'error'));
+    
+    </script>
+</body>
+</html>

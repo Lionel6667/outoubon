@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Erreur paiement · OU TOU BON{% endblock %}
+
+{% block body %}
+<div class="app">
+  {% include "core/_sidebar.html" with active_page="pricing" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title">💳 Paiement</div></div>
+    <div class="view-area" style="display:flex;align-items:center;justify-content:center;min-height:60vh;">
+      <div style="text-align:center;max-width:420px;padding:2rem;">
+        <div style="width:56px;height:56px;background:rgba(239,68,68,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
+          <i class="fas fa-exclamation-triangle" style="color:var(--red);font-size:1.4rem;"></i>
+        </div>
+        <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:.5rem;">Erreur de paiement</h2>
+        <p style="color:var(--t2);font-size:.9rem;line-height:1.6;">{{ error }}</p>
+        <a href="{% url 'pricing' %}" class="btn-primary" style="display:inline-block;text-decoration:none;margin-top:1.5rem;width:auto;padding:.7rem 1.5rem;border-radius:12px;">
+          <i class="fas fa-redo"></i> Réessayer
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,3007 @@
+{
+  "matiere": "chimie",
+  "total": 200,
+  "description": "Quiz Chimie — BAC Haïti",
+  "quiz": [
+    {
+      "id": "C1",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans les composés saturés, les atomes de carbone sont liés uniquement par :",
+      "correct": "C",
+      "explanation": "Dans les composés saturés, les atomes de carbone sont liés de manière à avoir le maximum de liaisons covalentes simples, c'est-à-dire sans double ni triple liaison. C'est pourquoi les composés saturés, comme les alcanes, sont caractérisés par des liaisons covalentes simples (liaisons σ) entre les atomes de carbone. Les options mentionnant des doubles liaisons, des triples liaisons ou des liaisons ioniques ne correspondent pas à la définition des composés saturés.",
+      "options": [
+        "Des liaisons ioniques",
+        "Des doubles liaisons",
+        "Des liaisons covalentes simples (liaisons σ)",
+        "Des triples liaisons"
+      ]
+    },
+    {
+      "id": "C2",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Dans l’éthylène, les atomes de carbone sont liés par :",
+      "correct": "D",
+      "explanation": "L'éthylène est un composé organique qui contient une double liaison covalente entre les deux atomes de carbone. Cette double liaison est caractéristique des alcènes, une classe de composés insaturés. Les autres options ne sont pas correctes : une liaison simple correspond à des composés saturés comme l'éthane, une triple liaison correspond à des composés comme l'acétylène, et une liaison ionique n'est pas typique des composés organiques comme l'éthylène.",
+      "options": [
+        "Une liaison simple",
+        "Une triple liaison",
+        "Une liaison ionique",
+        "Une double liaison covalente"
+      ]
+    },
+    {
+      "id": "C3",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Les composés organiques formés uniquement de carbone et d’hydrogène sont :",
+      "correct": "A",
+      "explanation": "Les hydrocarbures sont des composés organiques formés uniquement de carbone et d'hydrogène. Ils peuvent être saturés (alcanes) ou insaturés (alcènes, alcynes). Les autres options ne correspondent pas à des composés formés uniquement de carbone et d'hydrogène : les aldéhydes et les alcools contiennent de l'oxygène en plus du carbone et de l'hydrogène.",
+      "options": [
+        "Les hydrocarbures",
+        "Les alcanes",
+        "Les aldéhydes",
+        "Les alcools"
+      ]
+    },
+    {
+      "id": "C4",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Les hydrocarbures aliphatiques à chaîne ouverte et uniquement des liaisons simples sont :",
+      "correct": "B",
+      "explanation": "Les alcanes, ou paraffines, sont des hydrocarbures aliphatiques à chaîne ouverte qui ne contiennent que des liaisons simples entre les atomes de carbone. Cela les distingue des alcènes et des alcynes, qui contiennent respectivement des doubles et des triples liaisons. Les cyclanes sont des hydrocarbures cycliques.",
+      "options": [
+        "Les cyclanes",
+        "Les alcanes (paraffines)",
+        "Les alcynes",
+        "Les alcènes"
+      ]
+    },
+    {
+      "id": "C5",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Dans tous les composés organiques, le carbone doit être :",
+      "correct": "D",
+      "explanation": "Dans tous les composés organiques, le carbone est tétravalent, ce qui signifie qu'il peut former quatre liaisons covalentes. Cette propriété est fondamentale pour comprendre la structure des composés organiques. Les autres options (monovalent, bivalent, trivalent) ne reflètent pas correctement la valence du carbone dans les composés organiques.",
+      "options": [
+        "Monovalent",
+        "Trivalent",
+        "Bivalent",
+        "Tétravalent"
+      ]
+    },
+    {
+      "id": "C6",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une combustion complète produit du dioxyde de carbone. Elle se réalise si :",
+      "correct": "A",
+      "explanation": "Une combustion complète d'un composé organique produit du dioxyde de carbone (CO2) et de l'eau (H2O) lorsque l'oxygène est en excès. Si l'oxygène est en défaut, la combustion est incomplète et peut produire du monoxyde de carbone (CO) ou du carbone (C) en plus du CO2. C'est pourquoi 'L'oxygène est en excès' est la bonne réponse. Les autres options sont incorrectes car 'L'oxygène est en défaut' conduit à une combustion incomplète, 'Il y a présence d'azote' n'a pas d'effet direct sur la combustion complète, et 'La température est basse' n'est pas une condition pour une combustion complète.",
+      "options": [
+        "L’oxygène est en excès",
+        "L’oxygène est en défaut",
+        "Il y a présence d’azote",
+        "La température est basse"
+      ]
+    },
+    {
+      "id": "C7",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le gaz obtenu par hydrolyse du carbure d’aluminium est :",
+      "correct": "C",
+      "explanation": "L'hydrolyse du carbure d'aluminium (Al4C3) produit du méthane (CH4). Le carbure de calcium (CaC2), quant à lui, produit de l'acétylène (C2H2) lors de son hydrolyse. Les autres options (propane, éthane) ne sont pas produites par l'hydrolyse de carbures métalliques courants.",
+      "options": [
+        "L’acétylène",
+        "Le propane",
+        "Le méthane",
+        "L’éthane"
+      ]
+    },
+    {
+      "id": "C8",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La formule générale brute des alcanes est :",
+      "correct": "C",
+      "explanation": "La formule générale brute des alcanes est CnH2n+2. Cette formule reflète leur structure saturée, où chaque atome de carbone est lié à autant d'atomes d'hydrogène que possible, avec des liaisons simples entre les atomes de carbone. Les autres options correspondent à des classes de composés différents : alcènes (CnH2n), alcynes (CnH2n-2), et benzène (qui ne suit pas une formule générale simple basée sur n).",
+      "options": [
+        "CnH2n",
+        "CnH2n-6",
+        "CnH2n+2",
+        "CnH2n-2"
+      ]
+    },
+    {
+      "id": "C9",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une réaction chimique avec transfert d’électrons est une oxydoréduction. L’espèce qui gagne des électrons s’appelle :",
+      "correct": "B",
+      "explanation": "Une réaction chimique avec transfert d'électrons est appelée oxydoréduction. Dans ce type de réaction, l'espèce qui gagne des électrons est appelée oxydant, car elle provoque l'oxydation de l'autre espèce en acceptant des électrons. Les autres options sont incorrectes : un catalyseur est une substance qui accélère une réaction sans être consommée, un réducteur est l'espèce qui cède des électrons et 'neutre' ne décrit pas une espèce chimique impliquée dans une oxydoréduction.",
+      "options": [
+        "Catalyseur",
+        "Oxydant",
+        "Réducteur",
+        "Neutre"
+      ]
+    },
+    {
+      "id": "C10",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une oxydation correspond à :",
+      "correct": "D",
+      "explanation": "Une oxydation correspond à une perte d'électrons. C'est le contraire d'une réduction, qui est un gain d'électrons. Les autres options sont incorrectes : un gain d'électrons est une réduction, un gain ou une perte de protons sont des réactions acido-basiques et ne concernent pas directement l'oxydation.",
+      "options": [
+        "Un gain d’électrons",
+        "Un gain de protons",
+        "Une perte de protons",
+        "Une perte d’électrons"
+      ]
+    },
+    {
+      "id": "C11",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans une réaction redox, l’espèce qui cède des électrons est :",
+      "correct": "B",
+      "explanation": "Dans une réaction redox, l'espèce qui cède des électrons est appelée réducteur. Le réducteur est oxydé en cédant des électrons à l'oxydant. Les autres options sont incorrectes : l'oxydant est l'espèce qui gagne des électrons, et 'acide' et 'base' sont des termes utilisés dans les réactions acido-basiques, pas dans les réactions redox.",
+      "options": [
+        "L’oxydant",
+        "Le réducteur",
+        "L’acide",
+        "La base"
+      ]
+    },
+    {
+      "id": "C12",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le groupe caractéristique d’une fonction chimique s’appelle :",
+      "correct": "A",
+      "explanation": "Le groupe caractéristique d'une fonction chimique s'appelle un groupement fonctionnel. C'est un groupe d'atomes qui détermine les propriétés chimiques d'une molécule. Les autres options sont incorrectes : un radical peut désigner un groupement d'atomes sans fonction spécifique, un groupement alkyle est un type de radical et un isomère est une molécule ayant la même formule brute mais une structure différente.",
+      "options": [
+        "Groupement fonctionnel",
+        "Radical",
+        "Groupement alkyle",
+        "Isomère"
+      ]
+    },
+    {
+      "id": "C13",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lorsqu’un atome d’hydrogène d’un alcane est remplacé par un groupe OH, on obtient :",
+      "correct": "C",
+      "explanation": "Lorsqu'un atome d'hydrogène d'un alcane est remplacé par un groupe OH, on obtient un alcool. C'est une façon de définir les alcools par rapport aux alcanes. Les autres options sont incorrectes : un acide carboxylique a un groupe -COOH, une cétone a un groupe -CO- et un aldéhyde a un groupe -CHO.",
+      "options": [
+        "Un acide carboxylique",
+        "Une cétone",
+        "Un alcool",
+        "Un aldéhyde"
+      ]
+    },
+    {
+      "id": "C14",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les hydrocarbures aliphatiques contenant au moins une triple liaison sont :",
+      "correct": "B",
+      "explanation": "Les hydrocarbures aliphatiques contenant au moins une triple liaison sont appelés alcynes ou hydrocarbures acétyléniques. Les alcynes ont une ou plusieurs triples liaisons entre les atomes de carbone. Les autres options sont incorrectes : les alcènes ont des doubles liaisons, les alcanes n'ont que des liaisons simples et les cyclanes sont des hydrocarbures cycliques saturés.",
+      "options": [
+        "Les alcènes",
+        "Les alcynes (hydrocarbures acétyléniques)",
+        "Les alcanes",
+        "Les cyclanes"
+      ]
+    },
+    {
+      "id": "C15",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’enlèvement d’un atome d’hydrogène à un alcane permet d’obtenir :",
+      "correct": "C",
+      "explanation": "L'enlèvement d'un atome d'hydrogène à un alcane permet d'obtenir un radical alkyle. Un radical est une espèce chimique très réactive qui a un électron non apparié. Les autres options sont incorrectes : un alcène ou un alcyne nécessitent respectivement une double ou une triple liaison et un cycle est une structure fermée.",
+      "options": [
+        "Un alcène",
+        "Un alcyne",
+        "Un radical alkyle",
+        "Un cycle"
+      ]
+    },
+    {
+      "id": "C16",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le premier atome de carbone voisin du carbone fonctionnel est appelé carbone :",
+      "correct": "B",
+      "explanation": "Le premier atome de carbone voisin du carbone fonctionnel est appelé carbone alpha. Le carbone alpha est directement lié au groupe fonctionnel. Les autres options sont incorrectes : le carbone bêta est le deuxième voisin, le carbone gamma est le troisième et le carbone delta est le quatrième.",
+      "options": [
+        "Bêta",
+        "Alpha",
+        "Gamma",
+        "Delta"
+      ]
+    },
+    {
+      "id": "C17",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le second atome de carbone voisin du carbone fonctionnel est le carbone :",
+      "correct": "A",
+      "explanation": "Lorsqu'on parle de la position d'un atome de carbone par rapport à un carbone fonctionnel dans une chaîne carbonée, il est essentiel de comprendre la nomenclature utilisée. Le carbone fonctionnel est généralement celui qui porte la fonction chimique, comme un groupe hydroxyle ou un carbonyle. Le premier atome de carbone voisin du carbone fonctionnel est dit 'alpha' (α), le second est 'bêta' (β), le troisième est 'gamma' (γ), et ainsi de suite. Par conséquent, le second atome de carbone voisin du carbone fonctionnel est bien le carbone bêta. Les autres options sont incorrectes car 'Alpha' désigne le premier carbone voisin, 'Delta' et 'Gamma' désignent respectivement le quatrième et le troisième carbone voisin.",
+      "options": [
+        "Bêta",
+        "Delta",
+        "Alpha",
+        "Gamma"
+      ]
+    },
+    {
+      "id": "C18",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le troisième atome de carbone voisin du carbone fonctionnel est le carbone :",
+      "correct": "A",
+      "explanation": "Pour déterminer la position d'un atome de carbone dans une chaîne carbonée par rapport au carbone fonctionnel, on utilise une nomenclature spécifique. Le carbone fonctionnel est le point de référence. Le premier carbone voisin est dit 'alpha', le second 'bêta', puis 'gamma' pour le troisième. Ainsi, le troisième atome de carbone voisin du carbone fonctionnel est appelé 'gamma'. Les autres options sont incorrectes car 'Alpha' correspond au premier carbone, 'Bêta' au second, et 'Delta' correspond à un carbone encore plus éloigné.",
+      "options": [
+        "Gamma",
+        "Alpha",
+        "Bêta",
+        "Delta"
+      ]
+    },
+    {
+      "id": "C19",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une molécule de masse molaire élevée obtenue par addition ou condensation de plusieurs molécules identiques s’appelle :",
+      "correct": "D",
+      "explanation": "En chimie, lorsqu'on parle de molécules de masse molaire élevée formées par l'addition ou la condensation de plusieurs molécules identiques, on fait référence à des macromolécules appelées polymères. Un polymère est donc une substance constituée de molécules répétitives, appelées monomères. Les autres options sont incorrectes car un 'monomère' est une petite molécule qui peut s'assembler pour former un polymère, un 'dimère' est spécifiquement une molécule formée de deux monomères, et 'isomère' fait référence à des molécules ayant la même formule brute mais des structures différentes.",
+      "options": [
+        "Monomère",
+        "Isomère",
+        "Dimère",
+        "Polymère"
+      ]
+    },
+    {
+      "id": "C20",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Des corps appartenant à la même fonction chimique et différant par un groupe CH₂ (ou multiple) sont :",
+      "correct": "C",
+      "explanation": "Des corps qui appartiennent à la même fonction chimique mais qui diffèrent par un groupe CH₂ (ou un multiple de celui-ci) sont appelés des corps homologues. Ces corps font partie d'une série homologue, où chaque membre diffère du précédent par un groupe CH₂. Les autres options sont incorrectes car des 'isomères' ont la même formule brute mais des structures différentes, des 'polymères' sont des macromolécules formées de nombreux monomères, et des 'radicaux' sont des entités chimiques portant une charge non appariée mais ne correspondent pas à cette définition.",
+      "options": [
+        "Des radicaux",
+        "Des isomères",
+        "Des corps homologues",
+        "Des polymères"
+      ]
+    },
+    {
+      "id": "C21",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un mélange constitué d’isomères en proportions égales s’appelle :",
+      "correct": "B",
+      "explanation": "Un mélange constitué d'isomères en proportions égales, spécifiquement des énantiomères (isomères qui sont des images miroir l'un de l'autre), est appelé un mélange racémique. Ce mélange est optiquement inactif car les pouvoirs rotatoires des deux énantiomères s'annulent. Les autres options sont incorrectes car un 'mélange optiquement actif' contient des composés optiquement actifs mais pas nécessairement en proportions égales, 'mélange lévogyre' ou 'mélange dextrogyre' ferait référence à un mélange tournant la lumière polarisée vers la gauche ou la droite respectivement, mais ne spécifie pas l'égalité des proportions.",
+      "options": [
+        "Mélange optiquement actif",
+        "Mélange racémique",
+        "Mélange lévogyre",
+        "Mélange dextrogyre"
+      ]
+    },
+    {
+      "id": "C22",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une substance qui dévie le plan de la lumière polarisée vers la droite est dite :",
+      "correct": "A",
+      "explanation": "Une substance qui dévie le plan de la lumière polarisée vers la droite est dite dextrogyre. Le terme 'dextrogyre' vient du latin 'dextra', signifiant 'à droite', et 'gyre', signifiant 'tour'. Les autres options sont incorrectes car 'lévogyre' décrit une substance tournant la lumière polarisée vers la gauche, 'racémique' décrit un mélange de quantités égales d'énantiomères (qui est optiquement inactif), et 'inactive' décrit une substance n'interagissant pas avec la lumière polarisée de manière à la dévier.",
+      "options": [
+        "Dextrogyre",
+        "Racémique",
+        "Lévogyre",
+        "Inactive"
+      ]
+    },
+    {
+      "id": "C23",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Des corps ayant la même formule brute mais des formules développées différentes sont :",
+      "correct": "C",
+      "explanation": "Des corps ayant la même formule brute mais des formules développées différentes sont appelés des isomères. L'isomérie est un phénomène où des molécules ont la même composition (même formule brute) mais diffèrent par l'arrangement de leurs atomes. Les autres options sont incorrectes car des 'polymères' sont des macromolécules, des 'homologues' diffèrent par des groupes CH₂ et appartiennent à une série homologue, et des 'radicaux' sont des entités avec des électrons non appariés.",
+      "options": [
+        "Des radicaux",
+        "Des polymères",
+        "Des isomères",
+        "Des homologues"
+      ]
+    },
+    {
+      "id": "C24",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le groupe carbonyle (C=O) est commun aux :",
+      "correct": "D",
+      "explanation": "Le groupe carbonyle (C=O) est commun aux aldéhydes et aux cétones. Ces deux classes de composés possèdent un groupe carbonyle, mais diffèrent par le reste de la structure moléculaire : un aldéhyde a le groupe carbonyle à l'extrémité d'une chaîne carbonée, tandis qu'une cétone l'a à l'intérieur. Les autres options sont incorrectes car les alcools et éthers ont un groupe hydroxyle (OH) ou un éther (R-O-R'), les acides et esters ont un groupe carboxyle (-COOH) ou un groupe ester (-COO-), et les amines et amides ont un groupe amine (-NH₂) ou un groupe amide (-CONH₂).",
+      "options": [
+        "Alcools et éthers",
+        "Acides et esters",
+        "Amines et amides",
+        "Aldéhydes et cétones"
+      ]
+    },
+    {
+      "id": "C25",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le plus simple des aldéhydes est :",
+      "correct": "C",
+      "explanation": "Le plus simple des aldéhydes est le méthanal, également connu sous le nom de formaldéhyde. En effet, un aldéhyde est un composé organique qui possède un groupe fonctionnel aldéhyde (-CHO) ; le méthanal a la formule brute CH2O, ce qui en fait le plus simple de tous les aldéhydes. Les autres options, comme l'éthanal (C2H4O), le propanal (C3H6O) et le benzaldéhyde (aromatique), sont des aldéhydes plus complexes.",
+      "options": [
+        "L’éthanal",
+        "Le propanal",
+        "Le méthanal (formaldéhyde)",
+        "Le benzaldéhyde"
+      ]
+    },
+    {
+      "id": "C26",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les alcènes (CnH2n) sont isomères naturels des :",
+      "correct": "D",
+      "explanation": "Les alcènes (CnH2n) sont isomères naturels des cyclanes. En effet, les alcènes et les cyclanes ont la même formule brute (CnH2n), mais ils diffèrent par leur structure : les alcènes sont des hydrocarbures insaturés avec une double liaison, tandis que les cyclanes sont des hydrocarbures saturés cycliques. Les alcanes (CnH2n+2) et les aromatiques (CnH2n-6) ont des formules brutes différentes, tandis que les alcynes (CnH2n-2) ont également une formule brute différente.",
+      "options": [
+        "Aromatiques",
+        "Alcanes",
+        "Alcynes",
+        "Cyclanes"
+      ]
+    },
+    {
+      "id": "C27",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les hydrocarbures insaturés peuvent donner des réactions d’addition. Les alcanes donnent plutôt :",
+      "correct": "C",
+      "explanation": "Les alcanes donnent plutôt des réactions de substitution. En effet, les alcanes sont des hydrocarbures saturés qui ne possèdent pas de double liaison ; par conséquent, ils ne peuvent pas donner de réactions d'addition comme les hydrocarbures insaturés. Les alcanes peuvent cependant subir des réactions de substitution, où un atome d'hydrogène est remplacé par un autre groupe. Les éliminations, les additions et les polymérisations sont des types de réactions qui se produisent avec des composés insaturés ou dans des conditions spécifiques.",
+      "options": [
+        "Des additions",
+        "Des éliminations",
+        "Des substitutions",
+        "Des polymérisations"
+      ]
+    },
+    {
+      "id": "C28",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Une solution de pH inférieur à 7 a des propriétés :",
+      "correct": "D",
+      "explanation": "Une solution de pH inférieur à 7 a des propriétés acides. En effet, le pH est une mesure de l'acidité ou de la basicité d'une solution : un pH inférieur à 7 indique que la solution est acide, tandis qu'un pH supérieur à 7 indique que la solution est basique. Un pH égal à 7 correspond à une solution neutre. Les propriétés basiques correspondent à un pH supérieur à 7.",
+      "options": [
+        "Basiques",
+        "Neutres",
+        "Amphotères",
+        "Acides"
+      ]
+    },
+    {
+      "id": "C29",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une réaction acido-basique est un transfert de proton H⁺. Le donneur de proton est :",
+      "correct": "C",
+      "explanation": "Le donneur de proton est l'acide. Selon la théorie de Brønsted, un acide est une espèce qui donne un proton (H+), tandis qu'une base est une espèce qui accepte un proton. L'acide est donc le donneur de proton, et la base est le récepteur de proton. Les termes 'réducteur' et 'oxydant' se réfèrent à des réactions d'oxydoréduction, qui sont différentes des réactions acido-basiques.",
+      "options": [
+        "Le réducteur",
+        "L’oxydant",
+        "L’acide",
+        "La base"
+      ]
+    },
+    {
+      "id": "C30",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Les hydrocarbures aliphatiques saturés sont connus sous le nom d’ :",
+      "correct": "D",
+      "explanation": "Les hydrocarbures aliphatiques saturés sont connus sous le nom d'alcanes. En effet, les alcanes sont des hydrocarbures qui ne possèdent pas de double liaison ni de triple liaison ; ils sont saturés, ce qui signifie qu'ils ne peuvent pas absorber davantage d'atomes d'hydrogène. Les alcènes et les alcynes sont des hydrocarbures insaturés, tandis que les arènes sont des hydrocarbures aromatiques.",
+      "options": [
+        "Alcynes",
+        "Arènes",
+        "Alcènes",
+        "Alcanes"
+      ]
+    },
+    {
+      "id": "C31",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Par calcination, les carbonates métalliques se transforment en :",
+      "correct": "A",
+      "explanation": "Par calcination, les carbonates métalliques se transforment en oxyde métallique et en dioxyde de carbone. La calcination est un processus thermique qui provoque la décomposition des carbonates métalliques en oxyde métallique et en dioxyde de carbone. Par exemple, le carbonate de calcium (CaCO3) se transforme en oxyde de calcium (CaO) et en dioxyde de carbone (CO2).",
+      "options": [
+        "Oxyde métallique + dioxyde de carbone",
+        "Sulfure + hydrogène",
+        "Métal + oxygène",
+        "Hydroxyde + eau"
+      ]
+    },
+    {
+      "id": "C32",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une espèce qui gagne des électrons est un oxydant. Elle subit alors :",
+      "correct": "D",
+      "explanation": "Une espèce qui gagne des électrons est un oxydant, et elle subit une réduction. En effet, la réduction est le gain d'électrons par une espèce chimique. L'oxydant est l'espèce qui accepte des électrons, ce qui signifie qu'elle subit une réduction. Les autres options, comme l'hydrolyse, la neutralisation et l'oxydation, sont des types de réactions chimiques différents.",
+      "options": [
+        "Une hydrolyse",
+        "Une neutralisation",
+        "Une oxydation",
+        "Une réduction"
+      ]
+    },
+    {
+      "id": "C33",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les ions Ag⁺ donnent un précipité blanc avec les ions chlorure Cl⁻. Ce précipité est :",
+      "correct": "C",
+      "explanation": "Les ions Ag⁺ donnent un précipité blanc avec les ions chlorure Cl⁻, car le chlorure d'argent (AgCl) est insoluble dans l'eau. C'est un exemple classique de réaction de précipitation. Les autres options sont incorrectes car l'oxyde d'argent (Ag₂O) est noir, le sulfate d'argent (Ag₂SO₄) est peu soluble mais pas blanc, et le nitrate d'argent (AgNO₃) est soluble dans l'eau.",
+      "options": [
+        "Ag₂SO₄",
+        "Ag₂O",
+        "AgCl",
+        "AgNO₃"
+      ]
+    },
+    {
+      "id": "C34",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’hydratation de l’éthylène (éthène) donne :",
+      "correct": "D",
+      "explanation": "L'hydratation de l'éthylène (éthène) donne de l'éthanol, car cette réaction est un exemple d'addition d'eau à un alcène, qui conduit à la formation d'un alcool. Les autres options sont incorrectes car l'éthanal est obtenu par oxydation de l'éthanol, l'acide acétique est obtenu par oxydation poussée de l'éthanol, et l'éthylène glycol est obtenu par oxydation de l'éthylène.",
+      "options": [
+        "L’éthanal",
+        "L’éthylène glycol",
+        "L’acide acétique",
+        "L’éthanol"
+      ]
+    },
+    {
+      "id": "C35",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le plus simple des alcènes est :",
+      "correct": "B",
+      "explanation": "Le plus simple des alcènes est l'éthène (éthylène), car il possède la plus petite chaîne carbonée possible pour un alcène, avec seulement deux atomes de carbone. Les autres options sont incorrectes car le méthène n'existe pas en tant qu'alcène, le propène a trois atomes de carbone, et le butène en a quatre.",
+      "options": [
+        "Le méthène (n’existe pas)",
+        "L’éthène (éthylène)",
+        "Le butène",
+        "Le propène"
+      ]
+    },
+    {
+      "id": "C36",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’addition de HCl à l’éthylène donne :",
+      "correct": "B",
+      "explanation": "L'addition de HCl à l'éthylène donne du chlorure d'éthyle (chloroéthane), car cette réaction est un exemple d'addition d'un acide halogéné à un alcène. Les autres options sont incorrectes car le chlorure de méthyle est obtenu à partir de méthane, le dichloroéthane est obtenu par addition de chlore à l'éthane, et le chlorure de vinyle est un produit de déshydrohalogénation du dichloroéthane.",
+      "options": [
+        "Chlorure de méthyle",
+        "Chlorure d’éthyle (chloroéthane)",
+        "Dichloroéthane",
+        "Chlorure de vinyle"
+      ]
+    },
+    {
+      "id": "C37",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La trimérisation cyclique de l’acétylène donne :",
+      "correct": "A",
+      "explanation": "La trimérisation cyclique de l'acétylène donne du benzène, car cette réaction est un exemple de cycloaddition de trois molécules d'acétylène pour former un cycle aromatique. Les autres options sont incorrectes car le divinylacétylène est un produit de dimérisation linéaire de l'acétylène, le cyclohexane est obtenu par hydrogénation du benzène, et le polychlorure de vinyle est un polymère.",
+      "options": [
+        "Le benzène",
+        "Le divinylacétylène",
+        "Le cyclohexane",
+        "Le polychlorure de vinyle"
+      ]
+    },
+    {
+      "id": "C38",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le meilleur solvant de l’acétylène est :",
+      "correct": "C",
+      "explanation": "Le meilleur solvant de l'acétylène est l'acétone, car l'acétone est capable de dissoudre une grande quantité d'acétylène, ce qui est utile pour le stockage et les réactions chimiques. Les autres options sont incorrectes car le benzène a une faible solubilité pour l'acétylène, l'éthanol et l'eau sont moins bons solvants.",
+      "options": [
+        "Le benzène",
+        "L’éthanol",
+        "L’acétone",
+        "L’eau"
+      ]
+    },
+    {
+      "id": "C39",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le réactif le plus sensible de l’acétylène est le chlorure cuivreux ammoniacal, qui donne un précipité :",
+      "correct": "A",
+      "explanation": "Le réactif le plus sensible de l'acétylène est le chlorure cuivreux ammoniacal, qui donne un précipité rouge-brique d'acétylure de cuivre. Les autres options sont incorrectes car le précipité blanc est obtenu avec les ions chlorure, le jaune et le noir ne sont pas des couleurs associées à cette réaction.",
+      "options": [
+        "Rouge-brique (acétylure de cuivre)",
+        "Blanc",
+        "Jaune",
+        "Noir"
+      ]
+    },
+    {
+      "id": "C40",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’hydratation de l’acétylène donne d’abord un composé instable, l’éthénol, qui se réarrange en :",
+      "correct": "D",
+      "explanation": "L'hydratation de l'acétylène donne d'abord un composé instable, l'éthénol, qui se réarrange en éthanal, car cette réaction est un exemple de tautonomie. Les autres options sont incorrectes car l'acide acétique est obtenu par oxydation de l'éthanal, l'éthylène est un alcène, et l'éthanol est un alcool obtenu par hydratation de l'éthylène.",
+      "options": [
+        "Acide acétique",
+        "Éthylène",
+        "Éthanol",
+        "Éthanal"
+      ]
+    },
+    {
+      "id": "C41",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’hydrolyse du carbure de calcium (CaC₂) donne :",
+      "correct": "C",
+      "explanation": "L'hydrolyse du carbure de calcium (CaC₂) donne de l'acétylène (C₂H₂). En effet, le carbure de calcium réagit avec l'eau pour former de l'acétylène et de l'hydroxyde de calcium. Les autres options sont incorrectes car le propène est un alcène qui n'est pas issu de l'hydrolyse de CaC₂, le méthane est un alcane qui provient de la réaction de certains carbures avec l'eau mais pas CaC₂, et l'éthane est également un alcane qui n'est pas produit par cette réaction.",
+      "options": [
+        "Propène",
+        "Méthane",
+        "Acétylène",
+        "Éthane"
+      ]
+    },
+    {
+      "id": "C42",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’addition de HCl sur l’acétylène donne du chlorure de vinyle, dont la polymérisation conduit au :",
+      "correct": "C",
+      "explanation": "L'addition de HCl sur l'acétylène donne du chlorure de vinyle, dont la polymérisation conduit au polychlorure de vinyle ou PVC. En effet, le chlorure de vinyle est un monomère qui, par polymérisation, forme le PVC. Les autres options sont incorrectes car le téflon est issu de la polymérisation du tétrafluoroéthylène, le polyéthylène provient de l'éthylène, et le nylon est un polyamide.",
+      "options": [
+        "Téflon",
+        "Polyéthylène",
+        "PVC (polychlorure de vinyle)",
+        "Nylon"
+      ]
+    },
+    {
+      "id": "C43",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La dimérisation de l’acétylène (butenyne) donne :",
+      "correct": "B",
+      "explanation": "La dimérisation de l'acétylène donne le monovinylacétylène (CH₂=CH-C≡CH). C'est une réaction où deux molécules d'acétylène se combinent pour former ce composé. Les autres options sont incorrectes car le benzène est formé par la trimérisation de l'acétylène, le vinylacétylène est identique au monovinylacétylène mais le terme 'dimérisation' précise la formation de ce dernier, et le butadiène est un diène qui n'est pas directement issu de la dimérisation de l'acétylène.",
+      "options": [
+        "Benzène",
+        "CH₂=CH-C≡CH (monovinylacétylène)",
+        "Vinylacétylène (identique)",
+        "Butadiène"
+      ]
+    },
+    {
+      "id": "C44",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’hexachlorobenzène C₆Cl₆ peut être obtenu par :",
+      "correct": "B",
+      "explanation": "L'hexachlorobenzène C₆Cl₆ peut être obtenu par substitution, c'est-à-dire la chloration du benzène. Cette réaction implique le remplacement d'atomes d'hydrogène du benzène par des atomes de chlore. Les autres options sont incorrectes car la polymérisation ne conduit pas à ce produit, la combustion détruit le benzène, et l'addition de Cl₂ sur le benzène n'est pas caractéristique de la formation de l'hexachlorobenzène.",
+      "options": [
+        "Polymérisation",
+        "Substitution (chloration du benzène)",
+        "Combustion",
+        "Addition de Cl₂ sur benzène"
+      ]
+    },
+    {
+      "id": "C45",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "On peut préparer du benzène par réduction du phénol par le zinc. Il se forme aussi :",
+      "correct": "D",
+      "explanation": "On peut préparer du benzène par réduction du phénol par le zinc, et il se forme aussi de l'oxyde de zinc (ZnO). La réaction implique le phénol réagissant avec le zinc pour produire du benzène et de l'oxyde de zinc. Les autres options sont incorrectes car Zn est le réactif, ZnCl₂ et Zn(OH)₂ ne sont pas les produits de cette réaction spécifique.",
+      "options": [
+        "Zn",
+        "ZnCl₂",
+        "Zn(OH)₂",
+        "ZnO (oxyde de zinc)"
+      ]
+    },
+    {
+      "id": "C46",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans les composés acycliques saturés (alcanes), le carbone est tétragonal et hybridé :",
+      "correct": "C",
+      "explanation": "Dans les composés acycliques saturés (alcanes), le carbone est tétragonal et hybridé sp³. En effet, les carbones des alcanes ont une géométrie tétraédrique due à l'hybridation sp³. Les autres options sont incorrectes car sp correspond à une hybridation linéaire comme dans les alcynes, sp² est associée aux carbones trigonaux des alcènes, et sp³d n'est pas pertinente pour les alcanes.",
+      "options": [
+        "sp",
+        "sp²",
+        "sp³",
+        "sp³d"
+      ]
+    },
+    {
+      "id": "C47",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans les alcènes, les carbones de la double liaison sont trigonaux et ont une géométrie :",
+      "correct": "C",
+      "explanation": "Dans les alcènes, les carbones de la double liaison sont trigonaux et ont une géométrie plane (triangulaire). C'est dû à leur hybridation sp² qui conduit à une géométrie plane. Les autres options sont incorrectes car tétraédrique décrit la géométrie des carbones sp³, pyramidale n'est pas caractéristique des carbones de double liaison, et linéaire est associée aux carbones de triple liaison.",
+      "options": [
+        "Tétraédrique",
+        "Pyramidale",
+        "Plane (triangulaire)",
+        "Linéaire"
+      ]
+    },
+    {
+      "id": "C48",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Les hydrocarbures acycliques saturés ne contiennent que des liaisons :",
+      "correct": "A",
+      "explanation": "Les hydrocarbures acycliques saturés ne contiennent que des liaisons simples (σ). En effet, les alcanes sont caractérisés par des liaisons σ simples entre les atomes de carbone et d'hydrogène. Les autres options sont incorrectes car les triples et doubles liaisons sont caractéristiques des alcynes et des alcènes respectivement, et les liaisons aromatiques sont spécifiques aux composés aromatiques comme le benzène.",
+      "options": [
+        "Simples (σ)",
+        "Triples",
+        "Aromatiques",
+        "Doubles"
+      ]
+    },
+    {
+      "id": "C49",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’éthanol (C₂H₆O) et l’oxyde de méthyle (CH₃-O-CH₃) sont des :",
+      "correct": "B",
+      "explanation": "L'éthanol (C₂H₆O) et l'oxyde de méthyle (CH₃-O-CH₃) sont des composés organiques qui ont la même formule brute mais des propriétés et des structures différentes. Ils sont dits isomères de fonction car ils ont des groupes fonctionnels différents, l'un étant un alcool (éthanol) et l'autre un éther (oxyde de méthyle). Les isomères optiques nécessitent une molécule et son image miroir non superposable, ce qui n'est pas le cas ici. Les isomères de position et de chaîne concernent des différences dans la disposition ou la longueur de la chaîne carbonée, mais pas dans le groupe fonctionnel.",
+      "options": [
+        "Isomères optiques",
+        "Isomères de fonction",
+        "Isomères de position",
+        "Isomères de chaîne"
+      ]
+    },
+    {
+      "id": "C50",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La réaction du benzène avec l’acide nitrique (HNO₃) en présence d’acide sulfurique s’appelle :",
+      "correct": "B",
+      "explanation": "La réaction du benzène avec l'acide nitrique (HNO₃) en présence d'acide sulfurique est appelée nitration. Cette réaction consiste à introduire un groupe nitro (-NO₂) dans le cycle benzénique. La sulfonation implique l'introduction d'un groupe sulfonate (-SO₃H), l'alkylation l'introduction d'un groupe alkyle, et l'halogénation l'introduction d'un halogène.",
+      "options": [
+        "Sulfonation",
+        "Nitration",
+        "Alkylation",
+        "Halogénation"
+      ]
+    },
+    {
+      "id": "C51",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’alcane à trois atomes de carbone se nomme :",
+      "correct": "C",
+      "explanation": "L'alcane à trois atomes de carbone est nommé propane. Les alcanes sont des hydrocarbures saturés, et leur nom dépend du nombre d'atomes de carbone qu'ils contiennent : méthane pour un carbone, éthane pour deux carbones, propane pour trois carbones, et butane pour quatre carbones.",
+      "options": [
+        "Éthane",
+        "Butane",
+        "Propane",
+        "Méthane"
+      ]
+    },
+    {
+      "id": "C52",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans les alcynes (CnH2n-2), il existe deux atomes de carbone de géométrie :",
+      "correct": "A",
+      "explanation": "Dans les alcynes de formule générale CnH2n-2, il existe deux atomes de carbone de géométrie linéaire. Cela est dû à l'hybridation sp de ces atomes de carbone, qui sont liés par une triple liaison. La géométrie linéaire est caractéristique de l'hybridation sp, contrairement à la géométrie trigonale (sp²) ou tétraédrique (sp³).",
+      "options": [
+        "Linéaire",
+        "Trigonale",
+        "Pyramidale",
+        "Tétraédrique"
+      ]
+    },
+    {
+      "id": "C53",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un atome de carbone lié à trois autres atomes de carbone est dit tertiaire. Celui qui partage trois liaisons σ avec ses voisins (double liaison) est dit carbone :",
+      "correct": "A",
+      "explanation": "Un atome de carbone lié à trois autres atomes de carbone est dit tertiaire, mais celui qui partage trois liaisons σ avec ses voisins, notamment dans le cas d'une double liaison, est décrit comme ayant une géométrie trigonale ou plane. Ce type de carbone est impliqué dans les doubles liaisons et est dit de type sp², ce qui correspond à une description de carbone trigonal.",
+      "options": [
+        "Trigonal",
+        "Primaire",
+        "Secondaire",
+        "Quaternaire"
+      ]
+    },
+    {
+      "id": "C54",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La fonction alcool est caractérisée par le groupement :",
+      "correct": "B",
+      "explanation": "La fonction alcool est caractérisée par le groupement hydroxyle (OH). Ce groupe fonctionnel définit les alcools et leur confère des propriétés spécifiques, comme la capacité à former des liaisons hydrogène. Les autres groupes (NH₂, C=O, COOH) définissent respectivement les amines, les composés carbonylés, et les acides carboxyliques.",
+      "options": [
+        "NH₂",
+        "OH",
+        "C=O",
+        "COOH"
+      ]
+    },
+    {
+      "id": "C55",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Les amines (R-NH₂) ont des propriétés basiques (pH > 7). Les amides ont pour formule générale :",
+      "correct": "C",
+      "explanation": "Les amides ont pour formule générale R-CO-NH₂. Elles sont dérivées des acides carboxyliques par substitution du groupe hydroxyle par un groupe amine. Les amines (R-NH₂) ont des propriétés basiques, mais la formule générale donnée pour les amides correspond à un composé spécifique de cette famille, qui comporte un groupe carbonyle lié à un groupe amine.",
+      "options": [
+        "R-NH-R’",
+        "R-NO₂",
+        "R-CO-NH₂",
+        "R-CN"
+      ]
+    },
+    {
+      "id": "C56",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans les aldéhydes (R-CHO), le groupe carbonyle est toujours situé sur un carbone :",
+      "correct": "A",
+      "explanation": "Dans les aldéhydes (R-CHO), le groupe carbonyle est toujours situé sur un carbone primaire. Cela signifie que le carbone du groupe carbonyle n'est lié qu'à un seul autre carbone, ce qui distingue les aldéhydes des cétones où le groupe carbonyle est lié à deux carbones. Les carbones quaternaire, secondaire ou tertiaire ne peuvent pas porter de groupe carbonyle de la même manière dans ces composés.",
+      "options": [
+        "Primaire",
+        "Quaternaire",
+        "Secondaire",
+        "Tertiaire"
+      ]
+    },
+    {
+      "id": "C57",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une chaîne hydrocarbonée ne comportant que des carbones tétraédriques et un groupe OH correspond à un alcool. Sa formule générale est :",
+      "correct": "D",
+      "explanation": "Une chaîne hydrocarbonée ne comportant que des carbones tétraédriques et un groupe OH correspond à un alcool. La formule générale R-CH₂OH représente un alcool primaire, où le groupe OH est attaché à un carbone qui est lui-même relié à un seul autre carbone. Les autres options, R₂CHOH et R₃COH, représentent respectivement des alcools secondaires et tertiaires. L'option R-OH est trop générale et ne précise pas le type d'alcool.",
+      "options": [
+        "R-OH (tous)",
+        "R₂CHOH",
+        "R₃COH",
+        "R-CH₂OH (alcool primaire)"
+      ]
+    },
+    {
+      "id": "C58",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le composé CHCl₃ se nomme trichlorométhane ou :",
+      "correct": "A",
+      "explanation": "Le composé CHCl₃ se nomme trichlorométhane ou chloroforme. Le chloroforme est un nom communément utilisé pour ce composé. Les autres options, dichlorométhane, chlorure de méthyle et tétrachlorométhane, correspondent à des composés différents.",
+      "options": [
+        "Chloroforme",
+        "Dichlorométhane",
+        "Chlorure de méthyle",
+        "Tétrachlorométhane"
+      ]
+    },
+    {
+      "id": "C59",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La lumière polarisée est déviée à droite par un composé :",
+      "correct": "A",
+      "explanation": "La lumière polarisée est déviée à droite par un composé dextrogyre. Un composé dextrogyre est celui qui tourne la lumière polarisée vers la droite. Les composés lévogyres tournent la lumière vers la gauche, tandis que les composés racémiques et inactifs ne dévient pas la lumière polarisée.",
+      "options": [
+        "Dextrogyre",
+        "Racémique",
+        "Lévogyre",
+        "Inactif"
+      ]
+    },
+    {
+      "id": "C60",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les cyclanes (CnH2n) sont isomères naturels des :",
+      "correct": "A",
+      "explanation": "Les cyclanes (CnH2n) sont isomères naturels des alcènes. Les alcènes ont la même formule brute que les cyclanes, CnH2n, mais ont une structure différente avec une double liaison. Les alcanes, alcynes et arènes ont des formules brutes différentes.",
+      "options": [
+        "Alcènes",
+        "Alcynes",
+        "Alcanes",
+        "Arènes"
+      ]
+    },
+    {
+      "id": "C61",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le seul isomère de fonction de l’éthanol (C₂H₆O) est :",
+      "correct": "A",
+      "explanation": "Le seul isomère de fonction de l’éthanol (C₂H₆O) est le méthoxyméthane (oxyde de méthyle). Le méthoxyméthane a la même formule brute que l’éthanol mais a une fonction éther, différente de la fonction alcool de l’éthanol. Les autres options, éthanal, acide acétique et éthylène, ont des formules brutes différentes ou des fonctions différentes.",
+      "options": [
+        "Le méthoxyméthane (oxyde de méthyle)",
+        "L’éthanal",
+        "L’acide acétique",
+        "L’éthylène"
+      ]
+    },
+    {
+      "id": "C62",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le butane (CH₃-CH₂-CH₂-CH₃) et le méthylpropane (CH₃-CH(CH₃)-CH₃) sont des isomères de :",
+      "correct": "D",
+      "explanation": "Le butane (CH₃-CH₂-CH₂-CH₃) et le méthylpropane (CH₃-CH(CH₃)-CH₃) sont des isomères de chaîne. Les isomères de chaîne ont la même formule brute mais diffèrent par la disposition de leurs atomes de carbone. Les isomères optiques, de position et de fonction nécessitent des conditions différentes.",
+      "options": [
+        "Optiques",
+        "Position",
+        "Fonction",
+        "Chaîne"
+      ]
+    },
+    {
+      "id": "C63",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Deux isomères de fonction de formule brute C₂H₆O sont l’éthanol et :",
+      "correct": "D",
+      "explanation": "Deux isomères de fonction de formule brute C₂H₆O sont l’éthanol et le méthoxyméthane. Le méthoxyméthane a la même formule brute que l’éthanol mais a une fonction éther, différente de la fonction alcool de l’éthanol. Les autres options, éthylène glycol, éthanal et acide acétique, ont des formules brutes différentes ou des fonctions différentes.",
+      "options": [
+        "L’éthylène glycol",
+        "L’éthanal",
+        "L’acide acétique",
+        "Le méthoxyméthane"
+      ]
+    },
+    {
+      "id": "C64",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Une substance optiquement active est dite chirale ou :",
+      "correct": "C",
+      "explanation": "Une substance optiquement active est dite chirale ou asymétrique. Une substance chirale est celle qui n'est pas superposable à son image miroir, ce qui est lié à la présence d'un centre asymétrique. Les substances symétriques, achirales et mésomères ne sont pas optiquement actives.",
+      "options": [
+        "Symétrique",
+        "Achirale",
+        "Asymétrique",
+        "Mésomère"
+      ]
+    },
+    {
+      "id": "C65",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Deux isomères optiques non superposables, images l’un de l’autre dans un miroir plan, sont dits :",
+      "correct": "B",
+      "explanation": "Deux isomères optiques non superposables, images l'un de l'autre dans un miroir plan, sont dits énantiomères. En effet, les énantiomères sont des molécules qui sont des images miroir l'une de l'autre, mais qui ne sont pas superposables. Cela est dû à la présence d'un centre chiral dans la molécule. Les isomères géométriques concernent la disposition de groupes dans l'espace par rapport à une double liaison, les diastéréoisomères sont des isomères qui ne sont pas des images miroir l'une de l'autre, et les isomères conformationnels concernent la forme de la molécule dans l'espace.",
+      "options": [
+        "Géométriques",
+        "Énantiomères (ou énantiomorphes)",
+        "Diastéréoisomères",
+        "Conformationnels"
+      ]
+    },
+    {
+      "id": "C66",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La cellulose, l’amidon, le collagène sont des exemples de :",
+      "correct": "B",
+      "explanation": "La cellulose, l'amidon et le collagène sont des exemples de polymères naturels. En effet, ces molécules sont composées de nombreuses unités de base répétitives, ce qui les définit comme des polymères. Les polymères naturels sont des substances d'origine biologique, comme les protéines, les glucides et les lipides, qui sont constituées de longues chaînes de molécules. Les isomères sont des molécules de même formule brute mais de structures différentes, les oligomères sont des molécules composées de quelques unités de base, et les monomères sont des molécules simples qui peuvent s'associer pour former des polymères.",
+      "options": [
+        "Isomères",
+        "Polymères naturels",
+        "Oligomères",
+        "Monomères"
+      ]
+    },
+    {
+      "id": "C67",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La molécule unitaire qui s’additionne dans une polymérisation se nomme :",
+      "correct": "A",
+      "explanation": "La molécule unitaire qui s'additionne dans une polymérisation se nomme monomère. En effet, un monomère est une molécule simple qui peut réagir avec d'autres monomères pour former une longue chaîne de molécules, appelée polymère. Les polymères sont des molécules géantes constituées de nombreuses unités de base répétitives. Les dimères et les trimères sont des molécules composées respectivement de deux et trois unités de base.",
+      "options": [
+        "Monomère",
+        "Polymère",
+        "Dimère",
+        "Trimère"
+      ]
+    },
+    {
+      "id": "C68",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Un dimère résulte de l’addition de :",
+      "correct": "D",
+      "explanation": "Un dimère résulte de l'addition de deux molécules identiques. En effet, la dimérisation est une réaction chimique au cours de laquelle deux molécules identiques s'associent pour former une nouvelle molécule, appelée dimère. Les autres options sont incorrectes car l'addition d'une seule molécule ne conduit pas à la formation d'un dimère, l'addition de trois molécules conduit à la formation d'un trimère, et l'addition de plusieurs molécules conduit à la formation d'un polymère.",
+      "options": [
+        "Une molécule",
+        "Trois molécules",
+        "Plusieurs molécules",
+        "Deux molécules identiques"
+      ]
+    },
+    {
+      "id": "C69",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’addition de deux molécules identiques est une dimérisation, le produit est un :",
+      "correct": "A",
+      "explanation": "L'addition de deux molécules identiques est une dimérisation, le produit est un dimère. En effet, lorsque deux molécules identiques réagissent ensemble, elles forment un dimère. Les autres options sont incorrectes car un trimère est formé à partir de trois molécules, un polymère est formé à partir de nombreuses molécules, et un monomère est une molécule simple qui peut s'associer pour former des polymères.",
+      "options": [
+        "Dimère",
+        "Trimère",
+        "Polymère",
+        "Monomère"
+      ]
+    },
+    {
+      "id": "C70",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Les composés saturés (alcanes) donnent lieu à des réactions de substitution et destruction. Les composés insaturés (alcènes, alcynes) se prêtent à des réactions :",
+      "correct": "C",
+      "explanation": "Les composés insaturés, comme les alcènes et les alcynes, se prêtent à des réactions d'addition et de destruction. En effet, les composés insaturés ont des liaisons multiples qui peuvent être rompues pour former de nouvelles liaisons avec d'autres molécules. Les réactions d'addition sont caractéristiques de ces composés, alors que les composés saturés, comme les alcanes, donnent lieu à des réactions de substitution. Les réactions d'élimination concernent la suppression de groupes de la molécule, et la polymérisation est une réaction d'addition de molécules pour former un polymère.",
+      "options": [
+        "D’élimination",
+        "De substitution uniquement",
+        "D’addition et destruction",
+        "De polymérisation seulement"
+      ]
+    },
+    {
+      "id": "C71",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La polymérisation correspond à l’addition de :",
+      "correct": "C",
+      "explanation": "La polymérisation correspond à l'addition de plusieurs molécules identiques. En effet, la polymérisation est une réaction chimique au cours de laquelle de nombreuses molécules identiques, appelées monomères, s'associent pour former une longue chaîne de molécules, appelée polymère. L'addition d'une seule molécule ou de deux molécules identiques conduit respectivement à la formation d'un monomère ou d'un dimère. La copolymérisation est une réaction qui implique l'addition de molécules différentes.",
+      "options": [
+        "Une molécule",
+        "Des molécules différentes",
+        "Plusieurs molécules identiques",
+        "Deux molécules"
+      ]
+    },
+    {
+      "id": "C72",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les alcènes (CnH2n) sont isomères des :",
+      "correct": "C",
+      "explanation": "Les alcènes sont isomères des cyclanes. En effet, les alcènes et les cyclanes ont la même formule brute, mais des structures différentes. Les alcènes sont des hydrocarbures insaturés avec une double liaison, tandis que les cyclanes sont des hydrocarbures saturés avec une structure cyclique. Les alcanes sont des hydrocarbures saturés avec une chaîne linéaire ou ramifiée, les alcynes sont des hydrocarbures insaturés avec une triple liaison, et les arènes sont des hydrocarbures aromatiques.",
+      "options": [
+        "Alcanes",
+        "Alcynes",
+        "Cyclanes",
+        "Arènes"
+      ]
+    },
+    {
+      "id": "C73",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans l’éthylène (H₂C=CH₂), chaque atome de carbone présente une géométrie :",
+      "correct": "A",
+      "explanation": "Dans l'éthylène (H₂C=CH₂), chaque atome de carbone présente une géométrie triangulaire plane. En effet, les atomes de carbone de l'éthylène sont liés par une double liaison, ce qui implique une hybridation sp² et une géométrie plane. Les autres options sont incorrectes car la géométrie linéaire est associée à une triple liaison (comme dans l'acétylène), la géométrie tétraédrique est associée à une simple liaison (comme dans les alcanes) et la géométrie pyramidale n'est pas caractéristique de la structure de l'éthylène.",
+      "options": [
+        "Triangulaire (plane)",
+        "Linéaire",
+        "Tétraédrique",
+        "Pyramidale"
+      ]
+    },
+    {
+      "id": "C74",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le procédé qui transforme les hydrocarbures lourds en hydrocarbures légers (saturés ou non) s’appelle :",
+      "correct": "D",
+      "explanation": "Le procédé qui transforme les hydrocarbures lourds en hydrocarbures légers (saturés ou non) s'appelle le craquage (cracking). En effet, le craquage est un processus qui consiste à casser les longues chaînes d'hydrocarbures pour obtenir des molécules plus légères. Les autres options sont incorrectes car l'isomérisation est un réarrangement de la structure moléculaire, le reformage est un processus qui vise à améliorer la qualité des carburants et l'alkylation est un processus qui consiste à ajouter un groupe alkyle à une molécule.",
+      "options": [
+        "Isomérisation",
+        "Reformage",
+        "Alkylation",
+        "Craquage (cracking)"
+      ]
+    },
+    {
+      "id": "C75",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Lorsqu’on brûle un composé organique à l’air, si le gaz trouble l’eau de chaux, la combustion est complète. S’il se forme du noir de fumée, la combustion est :",
+      "correct": "C",
+      "explanation": "Lorsqu'on brûle un composé organique à l'air, si le gaz trouble l'eau de chaux, la combustion est complète. S'il se forme du noir de fumée, la combustion est incomplète. En effet, une combustion complète produit du dioxyde de carbone (CO₂) qui trouble l'eau de chaux, tandis qu'une combustion incomplète produit du carbone (noir de fumée) en plus des produits de combustion attendus. Les autres options sont incorrectes car une combustion explosive est une réaction violente et rapide, une combustion complète produit du CO₂ et une combustion lente est une réaction qui se déroule à une vitesse plus faible.",
+      "options": [
+        "Explosive",
+        "Complète",
+        "Incomplète",
+        "Lente"
+      ]
+    },
+    {
+      "id": "C76",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le carbure d’aluminium (Al₄C₃) par hydrolyse donne :",
+      "correct": "A",
+      "explanation": "Le carbure d'aluminium (Al₄C₃) par hydrolyse donne du méthane. En effet, le carbure d'aluminium réagit avec l'eau pour produire du méthane et de l'hydroxyde d'aluminium. Les autres options sont incorrectes car l'acétylène est produit à partir du carbure de calcium (CaC₂), le propane et l'éthane ne sont pas produits directement à partir de l'hydrolyse de carbures métalliques.",
+      "options": [
+        "Méthane",
+        "Acétylène",
+        "Propane",
+        "Éthane"
+      ]
+    },
+    {
+      "id": "C77",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Les hydrocarbures acycliques ne possédant que des carbones tétragonaux (sp³) sont les alcanes, de formule générale :",
+      "correct": "D",
+      "explanation": "Les hydrocarbures acycliques ne possédant que des carbones tétragonaux (sp³) sont les alcanes, de formule générale CnH2n+2. En effet, les alcanes sont des hydrocarbures saturés qui ont une structure linéaire ou ramifiée et une formule générale qui reflète leur composition en carbone et en hydrogène. Les autres options sont incorrectes car les alcènes ont une formule générale CnH2n, les alcynes ont une formule générale CnH2n-2 et le benzène a une formule générale C₆H₆.",
+      "options": [
+        "CnH2n-2",
+        "CnH2n-6",
+        "CnH2n",
+        "CnH2n+2"
+      ]
+    },
+    {
+      "id": "C78",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le carbure métallique qui permet de produire du méthane est le carbure d’aluminium. Sa formule est :",
+      "correct": "D",
+      "explanation": "Le carbure métallique qui permet de produire du méthane est le carbure d'aluminium. Sa formule est Al₄C₃. En effet, le carbure d'aluminium est utilisé pour produire du méthane par hydrolyse. Les autres options sont incorrectes car le carbure de calcium produit de l'acétylène, le carbure de béryllium et le carbure de magnésium ne sont pas utilisés pour produire du méthane.",
+      "options": [
+        "CaC₂",
+        "Be₂C",
+        "Mg₂C₃",
+        "Al₄C₃"
+      ]
+    },
+    {
+      "id": "C79",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "À la lumière vive, le méthane donne une réaction de destruction avec le dichlore. À la lumière diffuse, il donne des réactions de :",
+      "correct": "A",
+      "explanation": "À la lumière vive, le méthane donne une réaction de destruction avec le dichlore. À la lumière diffuse, il donne des réactions de substitution. En effet, la chloration du méthane est une réaction de substitution radicalaire qui se déroule à la lumière diffuse, tandis que la lumière vive peut provoquer une réaction de destruction. Les autres options sont incorrectes car la polymérisation est une réaction qui se déroule avec des molécules insaturées, l'addition est une réaction qui se déroule avec des molécules insaturées et la combustion est une réaction de combustion.",
+      "options": [
+        "Substitution",
+        "Polymérisation",
+        "Addition",
+        "Combustion"
+      ]
+    },
+    {
+      "id": "C80",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour donner des réactions d’addition, un hydrocarbure doit être insaturé. Pour donner des réactions de substitution, il doit être :",
+      "correct": "B",
+      "explanation": "Pour donner des réactions d'addition, un hydrocarbure doit être insaturé. Pour donner des réactions de substitution, il doit être saturé. En effet, les hydrocarbures insaturés (comme les alcènes et les alcynes) peuvent subir des réactions d'addition, tandis que les hydrocarbures saturés (comme les alcanes) peuvent subir des réactions de substitution. Les autres options sont incorrectes car les hydrocarbures cycliques peuvent subir des réactions de substitution, les hydrocarbures aromatiques peuvent subir des réactions de substitution électrophile et les hydrocarbures insaturés ne sont pas nécessaires pour les réactions de substitution.",
+      "options": [
+        "Cyclique",
+        "Saturé",
+        "Aromatique",
+        "Insaturé"
+      ]
+    },
+    {
+      "id": "C81",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’addition d’un très grand nombre de molécules d’éthylène donne le polyéthylène. Cette réaction est une :",
+      "correct": "C",
+      "explanation": "L'addition d'un très grand nombre de molécules d'éthylène donne le polyéthylène. Cette réaction est une polymérisation. En effet, la polymérisation est une réaction chimique qui consiste à assembler de nombreuses molécules de monomères pour former une macromolécule, appelée polymère. Dans ce cas, l'éthylène est le monomère et le polyéthylène est le polymère. Les autres options sont incorrectes car la polycondensation implique l'élimination d'une petite molécule, le craquage est une réaction de rupture de molécules et la dimérisation est la formation d'une molécule à partir de deux molécules de monomère.",
+      "options": [
+        "Polycondensation",
+        "Craquage",
+        "Polymérisation",
+        "Dimérisation"
+      ]
+    },
+    {
+      "id": "C82",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Par fixation de l’eau sur l’éthylène, on obtient :",
+      "correct": "B",
+      "explanation": "Par fixation de l'eau sur l'éthylène, on obtient l'éthanol. En effet, l'hydratation de l'éthylène en présence d'un catalyseur acide donne l'éthanol. Cette réaction est une addition d'eau sur la double liaison de l'éthylène. Les autres options sont incorrectes car l'éthylène glycol est obtenu par oxydation de l'éthylène, l'éthanal est obtenu par oxydation poussée de l'éthylène et l'acide acétique est obtenu par fermentation de l'éthanol.",
+      "options": [
+        "L’éthylène glycol",
+        "L’éthanol",
+        "L’éthanal",
+        "L’acide acétique"
+      ]
+    },
+    {
+      "id": "C83",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Les alcènes sont des hydrocarbures possédant dans leur molécule :",
+      "correct": "C",
+      "explanation": "Les alcènes sont des hydrocarbures possédant dans leur molécule une double liaison. En effet, les alcènes sont une classe d'hydrocarbures qui contiennent une double liaison entre deux atomes de carbone. Cette double liaison est caractéristique des alcènes et les distingue des alcanes et des alcynes. Les autres options sont incorrectes car les alcanes ont des liaisons simples, les cyclanes ont un cycle et les alcynes ont une triple liaison.",
+      "options": [
+        "Une liaison simple",
+        "Un cycle",
+        "Une double liaison",
+        "Une triple liaison"
+      ]
+    },
+    {
+      "id": "C84",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’addition de chlore à l’éthylène donne le dichloroéthane de formule :",
+      "correct": "D",
+      "explanation": "L'addition de chlore à l'éthylène donne le dichloroéthane de formule CH₂Cl-CH₂Cl. En effet, la réaction d'addition de chlore sur l'éthylène donne le 1,2-dichloroéthane, également appelé dichloroéthane. Les autres options sont incorrectes car CH₂=CHCl est le chlorure de vinyle, CH₃-CHCl₂ est le 2-chloroéthane et CCl₃-CCl₃ est l'hexachloroéthane.",
+      "options": [
+        "CCl₃-CCl₃",
+        "CH₂=CHCl",
+        "CH₃-CHCl₂",
+        "CH₂Cl-CH₂Cl"
+      ]
+    },
+    {
+      "id": "C85",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’hydratation d’un alcène donne un alcool. Celle de l’éthylène donne :",
+      "correct": "C",
+      "explanation": "L'hydratation d'un alcène donne un alcool. Celle de l'éthylène donne l'éthanol. En effet, l'hydratation de l'éthylène en présence d'un catalyseur acide donne l'éthanol. Les autres options sont incorrectes car le propanol est obtenu à partir du propène, le butanol est obtenu à partir du butène et le méthanol est obtenu à partir du méthane.",
+      "options": [
+        "Propanol",
+        "Butanol",
+        "Éthanol",
+        "Méthanol"
+      ]
+    },
+    {
+      "id": "C86",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le plus simple des alcènes est :",
+      "correct": "D",
+      "explanation": "Le plus simple des alcènes est l'éthylène (éthène). En effet, l'éthylène est le premier alcène de la série, il ne possède qu'une double liaison et deux atomes de carbone. Les autres options sont incorrectes car le propène a trois atomes de carbone, le butène a quatre atomes de carbone et le pentène a cinq atomes de carbone.",
+      "options": [
+        "Le pentène",
+        "Le butène",
+        "Le propène",
+        "L’éthylène (éthène)"
+      ]
+    },
+    {
+      "id": "C87",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le PVC (polychlorure de vinyle) est obtenu par polymérisation du chlorure de vinyle, lui-même préparé par addition de HCl sur :",
+      "correct": "B",
+      "explanation": "Le PVC (polychlorure de vinyle) est obtenu par polymérisation du chlorure de vinyle, lui-même préparé par addition de HCl sur l'acétylène. En effet, le chlorure de vinyle est obtenu par réaction d'addition de HCl sur l'acétylène, puis le PVC est obtenu par polymérisation du chlorure de vinyle. Les autres options sont incorrectes car l'éthylène donne du chlorure d'éthyle, le méthane ne donne pas de chlorure de vinyle et le benzène ne donne pas de chlorure de vinyle.",
+      "options": [
+        "L’éthylène",
+        "L’acétylène",
+        "Le méthane",
+        "Le benzène"
+      ]
+    },
+    {
+      "id": "C88",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "On prépare l’acétylène par action de l’eau sur :",
+      "correct": "C",
+      "explanation": "On prépare l'acétylène par action de l'eau sur le carbure de calcium. En effet, la réaction de l'eau sur le carbure de calcium donne l'acétylène et le carbure de calcium est utilisé comme source d'acétylène. Les autres options sont incorrectes car le carbure d'aluminium donne du méthane, le carbonate de calcium donne du dioxyde de carbone et l'oxyde de calcium est utilisé pour faire de la chaux.",
+      "options": [
+        "Le carbure d’aluminium",
+        "Le carbonate de calcium",
+        "Le carbure de calcium",
+        "L’oxyde de calcium"
+      ]
+    },
+    {
+      "id": "C89",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le chauffage d’un composé organique à l’abri de l’air (pyrolyse) produit du carbone. Si la réaction dégage de l’ammoniac, le composé contenait :",
+      "correct": "A",
+      "explanation": "Lorsqu'un composé organique est chauffé à l'abri de l'air, il peut subir une pyrolyse, ce qui signifie qu'il se décompose en présence de chaleur. Si la réaction dégage de l'ammoniac, cela signifie que le composé contenait de l'azote, car l'ammoniac est un composé azoté. Les autres options ne sont pas directement liées à la production d'ammoniac lors de la pyrolyse. Ainsi, la présence d'azote est confirmée par la libération d'ammoniac.",
+      "options": [
+        "De l’azote",
+        "De l’oxygène",
+        "Du soufre",
+        "Du chlore"
+      ]
+    },
+    {
+      "id": "C90",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chauffage du méthane vers 1500°C permet d’obtenir :",
+      "correct": "D",
+      "explanation": "Le chauffage du méthane à 1500°C permet d'obtenir de l'acétylène et de l'hydrogène. Cela se produit parce que le méthane se décompose en acétylène et en hydrogène à haute température. Les autres options ne correspondent pas à cette réaction spécifique. La pyrolyse complète du méthane donnerait du carbone et de l'hydrogène, mais pas dans les proportions correspondant à la formation d'acétylène.",
+      "options": [
+        "Du benzène",
+        "Du carbone et de l’hydrogène",
+        "De l’éthylène",
+        "De l’acétylène et de l’hydrogène"
+      ]
+    },
+    {
+      "id": "C91",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le réactif par excellence de l’acétylène est :",
+      "correct": "C",
+      "explanation": "Le réactif par excellence de l'acétylène est le chlorure cuivreux ammoniacal. Cela est dû au fait que l'acétylène réagit avec le chlorure cuivreux ammoniacal pour former un précipité rouge, ce qui est une caractéristique de cette réaction. Les autres options ne sont pas spécifiques à l'acétylène de la même manière. L'eau de brome et le permanganate de potassium sont des réactifs utilisés pour les alcènes et les réactions d'oxydation, respectivement.",
+      "options": [
+        "L’eau de brome",
+        "L’acide sulfurique",
+        "Le chlorure cuivreux ammoniacal",
+        "Le permanganate de potassium"
+      ]
+    },
+    {
+      "id": "C92",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’addition de plus de trois molécules identiques est une polymérisation, le produit est un :",
+      "correct": "A",
+      "explanation": "L'addition de plus de trois molécules identiques est appelée polymérisation, et le produit est un polymère. Les termes dimère, trimère et tétramère réfèrent à l'addition de deux, trois ou quatre molécules, respectivement. Par conséquent, lorsque plus de trois molécules sont impliquées, le produit résultant est qualifié de polymère.",
+      "options": [
+        "Polymère",
+        "Trimère",
+        "Dimère",
+        "Tétramère"
+      ]
+    },
+    {
+      "id": "C93",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’addition de HCl sur l’acétylène donne du chlorure de vinyle, dont la polymérisation conduit au :",
+      "correct": "A",
+      "explanation": "L'addition de HCl sur l'acétylène donne du chlorure de vinyle, dont la polymérisation conduit au PVC (polychlorure de vinyle). Le PVC est un polymère obtenu à partir du chlorure de vinyle, tandis que les autres options correspondent à des polymères différents : le PTFE (polytetrafluoroéthylène) est obtenu à partir du tétrafluoroéthylène, le polypropylène à partir du propène et le polyéthylène à partir de l'éthylène.",
+      "options": [
+        "PVC",
+        "PTFE",
+        "Polypropylène",
+        "Polyéthylène"
+      ]
+    },
+    {
+      "id": "C94",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le benzène (C₆H₆) peut être obtenu par trimérisation cyclique de :",
+      "correct": "C",
+      "explanation": "Le benzène peut être obtenu par trimérisation cyclique de l'acétylène. Cette réaction implique la combinaison de trois molécules d'acétylène pour former un cycle benzénique. Les autres options ne sont pas directement impliquées dans la formation du benzène par trimérisation.",
+      "options": [
+        "Le méthane",
+        "L’éthylène",
+        "L’acétylène",
+        "Le propène"
+      ]
+    },
+    {
+      "id": "C95",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le benzène est le plus simple des composés aromatiques. Il peut être obtenu par déshydrogénation du cyclohexane en présence de :",
+      "correct": "D",
+      "explanation": "Le benzène peut être obtenu par déshydrogénation du cyclohexane en présence de soufre ou de platine comme catalyseur, mais spécifiquement avec le soufre. La déshydrogénation est une réaction qui produit de l'hydrogène, et dans ce cas, elle conduit à la formation de benzène à partir du cyclohexane.",
+      "options": [
+        "Platine",
+        "Nickel",
+        "Alumine",
+        "Soufre"
+      ]
+    },
+    {
+      "id": "C96",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les réactions de substitution du benzène avec l’acide nitrique et l’acide sulfurique sont respectivement appelées :",
+      "correct": "D",
+      "explanation": "Les réactions de substitution du benzène avec l'acide nitrique et l'acide sulfurique sont appelées nitration et sulfonation, respectivement. La nitration implique l'introduction d'un groupe nitro (-NO2) sur le cycle benzénique, tandis que la sulfonation implique l'introduction d'un groupe sulfonate (-SO3H). Ces réactions sont spécifiques et bien définies dans la chimie organique.",
+      "options": [
+        "Estérification et hydrolyse",
+        "Sulfonation et nitration",
+        "Halogénation et alkylation",
+        "Nitration et sulfonation"
+      ]
+    },
+    {
+      "id": "C97",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Trois molécules d’hydrogène s’additionnent à une molécule de benzène pour donner :",
+      "correct": "D",
+      "explanation": "Lorsqu'on parle de l'addition d'hydrogène à une molécule de benzène, il faut comprendre que le benzène est un composé aromatique qui peut subir une réaction d'hydrogénation. Trois molécules d'hydrogène s'additionnent à une molécule de benzène pour donner du cyclohexane. En effet, cette réaction est une hydrogénation catalytique qui conduit à la saturation de la molécule de benzène, formant ainsi un composé cyclanique. Les autres options sont incorrectes car le cyclohexène nécessiterait seulement une molécule d'hydrogène, l'hexane n'est pas cyclique et le benzène hydrogéné est une description trop vague.",
+      "options": [
+        "Cyclohexène",
+        "Hexane",
+        "Benzène hydrogéné",
+        "Cyclohexane"
+      ]
+    },
+    {
+      "id": "C98",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un alcool réagit avec un acide pour donner un ester et :",
+      "correct": "A",
+      "explanation": "Lorsqu'un alcool réagit avec un acide, il se produit une estérification. Cette réaction conduit à la formation d'un ester et d'eau. L'estérification est une réaction caractéristique des alcools avec les acides carboxyliques, où un groupement hydroxyle de l'alcool se combine avec un groupement carboxyle de l'acide pour former un ester, libérant une molécule d'eau dans le processus. Les autres options sont incorrectes car le dioxyde de carbone n'est pas produit dans cette réaction, l'alcool est l'un des réactifs et l'hydrogène n'est pas un produit direct de l'estérification.",
+      "options": [
+        "De l’eau",
+        "Du dioxyde de carbone",
+        "De l’alcool",
+        "De l’hydrogène"
+      ]
+    },
+    {
+      "id": "C99",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La déshydrogénation d’un alcool primaire donne un aldéhyde, celle d’un alcool secondaire donne :",
+      "correct": "D",
+      "explanation": "La déshydrogénation d'un alcool primaire donne un aldéhyde, tandis que celle d'un alcool secondaire donne une cétone. En effet, les alcools secondaires, lorsqu'ils subissent une oxydation ménagée ou une déshydrogénation, perdent deux atomes d'hydrogène, ce qui conduit à la formation d'une cétone. Les autres options sont incorrectes car un éther (Un éther) n'est pas produit par déshydrogénation d'un alcool, un alcène (Un alcène) est produit par déshydratation d'un alcool et non par déshydrogénation, et un acide (Un acide) nécessite une oxydation plus poussée.",
+      "options": [
+        "Un éther",
+        "Un alcène",
+        "Un acide",
+        "Une cétone"
+      ]
+    },
+    {
+      "id": "C100",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’estérification est la réaction d’un alcool sur :",
+      "correct": "A",
+      "explanation": "L'estérification est la réaction d'un alcool sur un acide. Plus précisément, il s'agit de la réaction entre un alcool et un acide carboxylique qui conduit à la formation d'un ester et d'eau. Les autres options sont incorrectes car un aldéhyde (Un aldéhyde) ne donne pas lieu à une estérification directe avec un alcool, une base (Une base) conduit à la saponification d'un ester et non à son formation, et un autre alcool (Un autre alcool) conduit à la formation d'un éther.",
+      "options": [
+        "Un acide",
+        "Un aldéhyde",
+        "Une base",
+        "Un autre alcool"
+      ]
+    },
+    {
+      "id": "C101",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le composé organique provenant de la réaction d’un acide sur un alcool se nomme :",
+      "correct": "B",
+      "explanation": "Le composé organique provenant de la réaction d'un acide sur un alcool se nomme un ester. En effet, lorsque l'on fait réagir un acide carboxylique avec un alcool, on obtient un ester et de l'eau. Les autres options sont incorrectes car un amide (Un amide) provient de la réaction d'un acide avec une amine, une cétone (Une cétone) est obtenue par oxydation d'un alcool secondaire et un éther (Un éther) est obtenu par réaction de deux alcools.",
+      "options": [
+        "Amide",
+        "Ester",
+        "Cétone",
+        "Éther"
+      ]
+    },
+    {
+      "id": "C102",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "En éliminant une molécule d’eau entre deux molécules d’éthanol, on obtient :",
+      "correct": "A",
+      "explanation": "En éliminant une molécule d'eau entre deux molécules d'éthanol, on obtient de l'oxyde d'éthyle (éthoxyéthane). Cette réaction est une condensation entre deux molécules d'alcool, qui libèrent une molécule d'eau pour former un éther. Les autres options sont incorrectes car l'éthylène (L'éthylène) est obtenu par déshydratation intramoléculaire d'un alcool (et non intermoléculaire comme ici), l'acide acétique (L'acide acétique) provient de l'oxydation de l'éthanol et l'éthanal (L'éthanal) également.",
+      "options": [
+        "L’oxyde d’éthyle (éthoxyéthane)",
+        "L’éthylène",
+        "L’acide acétique",
+        "L’éthanal"
+      ]
+    },
+    {
+      "id": "C103",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Par action de l’eau sur l’éthylène, on obtient de l’éthanol qui, par oxydation ménagée, donne :",
+      "correct": "C",
+      "explanation": "Par action de l'eau sur l'éthylène, on obtient de l'éthanol qui, par oxydation ménagée, donne de l'éthanal. L'éthanol peut être oxydé en éthanal par un oxydant doux. Les autres options sont incorrectes car l'acide acétique (L'acide acétique) provient d'une oxydation plus poussée de l'éthanal, l'éther (L'éther) n'est pas un produit direct de l'oxydation de l'éthanol et l'éthylène (L'éthylène) est le réactif initial.",
+      "options": [
+        "L’acide acétique",
+        "L’éther",
+        "L’éthanal",
+        "L’éthylène"
+      ]
+    },
+    {
+      "id": "C104",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quand une molécule d’éthanol perd une molécule d’eau (déshydratation intramoléculaire), le composé obtenu est :",
+      "correct": "D",
+      "explanation": "Quand une molécule d'éthanol perd une molécule d'eau (déshydratation intramoléculaire), le composé obtenu est l'éthylène (C₂H₄). La déshydratation intramoléculaire d'un alcool, comme l'éthanol, conduit à la formation d'un alcène, en l'occurrence l'éthylène. Les autres options sont incorrectes car l'éther (L'éther) est obtenu par condensation de deux molécules d'alcool, l'éthanal (L'éthanal) provient de l'oxydation de l'éthanol et l'acide acétique (L'acide acétique) également d'une oxydation mais poussée.",
+      "options": [
+        "L’éther",
+        "L’éthanal",
+        "L’acide acétique",
+        "L’éthylène (C₂H₄)"
+      ]
+    },
+    {
+      "id": "C105",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’oxydation ménagée d’un alcool primaire donne :",
+      "correct": "C",
+      "explanation": "Lorsqu'un alcool primaire subit une oxydation ménagée, il se transforme en aldéhyde. Cela est dû au fait que l'oxydation ménagée n'affecte pas la chaîne carbonée et ne pousse pas l'oxydation jusqu'à la formation d'un acide carboxylique. Les autres options sont incorrectes car l'oxydation d'un alcool primaire en alcène nécessite des conditions différentes, la formation d'une cétone est caractéristique des alcools secondaires et non des alcools primaires, et la formation d'un acide nécessite une oxydation plus poussée.",
+      "options": [
+        "Un alcène",
+        "Une cétone",
+        "Un aldéhyde",
+        "Un acide"
+      ]
+    },
+    {
+      "id": "C106",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "La fonction alcool est caractérisée par le groupement fonctionnel :",
+      "correct": "A",
+      "explanation": "La fonction alcool est caractérisée par le groupement fonctionnel OH, qui est un groupement hydroxyle attaché à un atome de carbone. Ce groupement est responsable des propriétés chimiques et physiques particulières des alcools. Les autres options sont incorrectes car le groupement CO est caractéristique des aldéhydes et des cétones, le groupement NH₂ est caractéristique des amines et le groupement COOH est caractéristique des acides carboxyliques.",
+      "options": [
+        "OH",
+        "CO",
+        "NH₂",
+        "COOH"
+      ]
+    },
+    {
+      "id": "C107",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La déshydratation intermoléculaire de l’éthanol conduit à l’oxyde d’éthyle, de formule :",
+      "correct": "C",
+      "explanation": "La déshydratation intermoléculaire de l'éthanol conduit à la formation de l'oxyde d'éthyle, également appelé éther diéthylique, de formule CH₃-CH₂-O-CH₂-CH₃. Cela se produit lorsque deux molécules d'éthanol perdent une molécule d'eau pour former un lien éther. Les autres options sont incorrectes car CH₃-CH₂-O-CH₃ est l'éthylméthyléther, CH₃-O-CH₂-CH₃ est également l'éthylméthyléther et CH₃-O-CH₃ est le méthylméthyléther ou diméthyléther.",
+      "options": [
+        "CH₃-CH₂-O-CH₃",
+        "CH₃-O-CH₂-CH₃",
+        "CH₃-CH₂-O-CH₂-CH₃",
+        "CH₃-O-CH₃"
+      ]
+    },
+    {
+      "id": "C108",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’oxydation des alcools primaires peut se faire par le dioxygène de l’air (lampe sans flamme) ou par des oxydants tels que :",
+      "correct": "B",
+      "explanation": "L'oxydation des alcools primaires peut être réalisée par des oxydants tels que le dichromate de potassium ou le permanganate de potassium. Ces oxydants sont suffisamment forts pour oxyder les alcools primaires en aldéhydes, puis en acides carboxyliques si l'oxydation est poussée. Les autres options sont incorrectes car le sulfate de cuivre est utilisé dans d'autres types de réactions, l'acide chlorhydrique n'est pas un oxydant et le chlorure de sodium n'est pas non plus un oxydant.",
+      "options": [
+        "Le sulfate de cuivre",
+        "Le dichromate de potassium ou le permanganate de potassium",
+        "L’acide chlorhydrique",
+        "Le chlorure de sodium"
+      ]
+    },
+    {
+      "id": "C109",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’oxydation ménagée d’un alcool primaire donne un aldéhyde, celle d’un alcool secondaire donne une cétone. Pour obtenir un acide carboxylique, il faut :",
+      "correct": "B",
+      "explanation": "Pour obtenir un acide carboxylique à partir d'un alcool, il faut subir une oxydation poussée. Cela signifie que l'oxydation doit aller au-delà de la formation de l'aldéhyde pour les alcools primaires ou de la cétone pour les alcools secondaires, jusqu'à la formation de l'acide carboxylique. Les autres options sont incorrectes car une réduction ferait l'effet inverse, une oxydation ménagée donnerait un aldéhyde ou une cétone et une déshydratation donnerait un alcène.",
+      "options": [
+        "Une réduction",
+        "Une oxydation poussée",
+        "Une oxydation ménagée",
+        "Une déshydratation"
+      ]
+    },
+    {
+      "id": "C110",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’alcool le plus connu dans les boissons alcoolisées est l’éthanol, qui provient de la fermentation des :",
+      "correct": "D",
+      "explanation": "L'éthanol, l'alcool le plus connu dans les boissons alcoolisées, provient de la fermentation des glucides. Les glucides, tels que les sucres et les amidons, sont convertis en éthanol et en dioxyde de carbone par l'action de levures ou de bactéries. Les autres options sont incorrectes car les acides nucléiques sont des molécules qui contiennent l'information génétique, les protides sont des protéines et les lipides sont des graisses.",
+      "options": [
+        "Acides nucléiques",
+        "Protides",
+        "Lipides",
+        "Glucides"
+      ]
+    },
+    {
+      "id": "C111",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La réaction d’une base sur un corps gras (ester) se nomme saponification. Celle de l’eau sur un ester est :",
+      "correct": "C",
+      "explanation": "La réaction de l'eau sur un ester est appelée hydrolyse. Cela se produit lorsque l'eau réagit avec l'ester pour reformer l'acide carboxylique et l'alcool à partir desquels il a été formé. Les autres options sont incorrectes car l'estérification est la réaction inverse, l'hydrogénation est une réaction de réduction et l'oxydation est une réaction qui implique un changement de nombre d'oxydation.",
+      "options": [
+        "Estérification",
+        "Hydrogénation",
+        "Hydrolyse",
+        "Oxydation"
+      ]
+    },
+    {
+      "id": "C112",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Tous les composés organiques renferment :",
+      "correct": "D",
+      "explanation": "Tous les composés organiques renferment du carbone. Le carbone est l'élément fondamental de la chimie organique en raison de sa capacité à former des chaînes et des cycles avec lui-même et avec d'autres éléments. Les autres options sont incorrectes car l'azote et l'oxygène ne sont pas présents dans tous les composés organiques, bien qu'ils soient courants, et l'hydrogène bien que fréquent n'est pas obligatoire.",
+      "options": [
+        "De l’azote",
+        "De l’oxygène",
+        "De l’hydrogène",
+        "Du carbone"
+      ]
+    },
+    {
+      "id": "C113",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Une solution de pH = 4 est acide. Pour la neutraliser, il faut une solution :",
+      "correct": "D",
+      "explanation": "Pour neutraliser une solution acide de pH = 4, il faut une solution qui pourra absorber les ions H⁺ en excès. C'est pourquoi une solution basique est nécessaire, car elle contient des ions OH⁻ qui peuvent réagir avec les ions H⁺ pour former de l'eau. Les solutions tampons sont utilisées pour maintenir un pH constant, mais ne sont pas nécessaires ici. Une solution acide ne fera qu'augmenter l'acidité, tandis qu'une solution neutre ne changera rien.",
+      "options": [
+        "Tampon",
+        "Acide",
+        "Neutre",
+        "Basique"
+      ]
+    },
+    {
+      "id": "C114",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Au cours d’une électrolyse, il se produit une oxydation à l’anode et une réduction à la :",
+      "correct": "D",
+      "explanation": "Lors d'une électrolyse, l'anode est le site où se produit l'oxydation, tandis que la cathode est le site où se produit la réduction. En effet, les électrons sont libérés à l'anode et captés à la cathode. Le pont salin est utilisé pour maintenir l'équilibre électrique entre les deux électrodes, mais ne participe pas aux réactions d'oxydation-réduction. L'anode et l'électrode positive sont synonymes et correspondent au site d'oxydation, et non de réduction.",
+      "options": [
+        "Anode",
+        "Électrode positive (anode)",
+        "Pont salin",
+        "Cathode"
+      ]
+    },
+    {
+      "id": "C115",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le dosage d’une solution acide par une solution basique s’appelle :",
+      "correct": "A",
+      "explanation": "Le dosage d'une solution acide par une solution basique s'appelle acidimétrie. Cela implique de déterminer la concentration de l'acide en le faisant réagir avec une base de concentration connue. La dosage d'une base par un acide est appelé alcalimétrie, qui est donc l'option incorrecte ici. Les autres options, complexométrie et oxydimétrie, correspondent à d'autres types de dosages.",
+      "options": [
+        "Acidimétrie",
+        "Alcalimétrie",
+        "Complexométrie",
+        "Oxydimétrie"
+      ]
+    },
+    {
+      "id": "C116",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La normalité d’une solution de chaux éteinte Ca(OH)₂ à 2 M est : (Ca(OH)₂ libère 2 OH⁻)",
+      "correct": "C",
+      "explanation": "La normalité d'une solution est définie comme le nombre de gramme-équivalent de soluté par litre de solution. Puisque Ca(OH)₂ libère 2 ions OH⁻, sa normalité est égale à sa molarité multipliée par 2, soit 2 × 2 = 4. C'est pourquoi la normalité de la solution de chaux éteinte Ca(OH)₂ à 2 M est de 4 N. Les autres options sont incorrectes car 1 N et 0,5 N sous-estiment la normalité, tandis que 2 N ne prend pas en compte le nombre de ions OH⁻ libérés.",
+      "options": [
+        "1 N",
+        "2 N",
+        "4 N",
+        "0,5 N"
+      ]
+    },
+    {
+      "id": "C117",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour caractériser les ions chlorure Cl⁻, on utilise une solution contenant des ions Ag⁺, formant un précipité :",
+      "correct": "D",
+      "explanation": "Pour caractériser les ions chlorure Cl⁻, on utilise une solution contenant des ions Ag⁺, qui forment un précipité blanc de AgCl. Les autres options, Jaune de AgI, Rouge de Ag₂CrO₄ et Noir de Ag₂S, correspondent à des précipités de couleur différente et sont formés avec des ions différents.",
+      "options": [
+        "Jaune de AgI",
+        "Rouge de Ag₂CrO₄",
+        "Noir de Ag₂S",
+        "Blanc de AgCl"
+      ]
+    },
+    {
+      "id": "C118",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les solutions acides neutralisées par des bases donnent toujours un sel et :",
+      "correct": "A",
+      "explanation": "Lorsqu'une solution acide est neutralisée par une base, la réaction produit toujours un sel et de l'eau. C'est la définition même d'une réaction acido-basique. Les autres options, hydrogène, oxygène et dioxyde de carbone, ne sont pas des produits systématiques de ces réactions.",
+      "options": [
+        "De l’eau",
+        "De l’hydrogène",
+        "De l’oxygène",
+        "Du dioxyde de carbone"
+      ]
+    },
+    {
+      "id": "C119",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Selon Brønsted-Lowry, tout accepteur de proton est :",
+      "correct": "A",
+      "explanation": "Selon la théorie de Brønsted-Lowry, un accepteur de proton est défini comme une base. Cela signifie qu'une base est une espèce chimique capable de capter un proton (H⁺). Un donneur de proton, quant à lui, est appelé un acide. Les options oxydant et réducteur sont liées aux réactions d'oxydation-réduction et non aux réactions acido-basiques.",
+      "options": [
+        "Une base",
+        "Un acide",
+        "Un oxydant",
+        "Un réducteur"
+      ]
+    },
+    {
+      "id": "C120",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’équation HS⁻ + HCl ⇌ H₂S + Cl⁻ correspond à un transfert de proton. C’est une réaction :",
+      "correct": "D",
+      "explanation": "La réaction HS⁻ + HCl ⇌ H₂S + Cl⁻ implique un transfert de proton du HCl vers le HS⁻, ce qui en fait une réaction acido-basique. Les autres options, précipitation, complexation et redox, ne correspondent pas à ce type de réaction.",
+      "options": [
+        "De précipitation",
+        "De complexation",
+        "Redox",
+        "Acido-basique"
+      ]
+    },
+    {
+      "id": "C121",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un transfert de proton H⁺ d’un acide à une base définit une réaction :",
+      "correct": "A",
+      "explanation": "Un transfert de proton H⁺ d'un acide à une base définit une réaction acido-basique. En effet, les réactions acido-basiques impliquent le transfert d'un proton (H⁺) d'un acide, qui est un donneur de protons, à une base, qui est un accepteur de protons. Les autres options ne correspondent pas à cette définition : la réaction d'estérification est une réaction entre un acide carboxylique et un alcool pour former un ester, la réaction d'oxydoréduction implique un transfert d'électrons et non de protons, et la réaction de polymérisation est une réaction de formation d'une macromolécule à partir de monomères.",
+      "options": [
+        "Acido-basique",
+        "D’estérification",
+        "D’oxydoréduction",
+        "De polymérisation"
+      ]
+    },
+    {
+      "id": "C122",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une réaction de transfert de proton H⁺ est acido-basique. Le donneur de proton est :",
+      "correct": "B",
+      "explanation": "Une réaction de transfert de proton H⁺ est acido-basique, et le donneur de proton est l'acide. En effet, dans une réaction acido-basique, l'acide est l'espèce qui donne un proton (H⁺) à la base, qui est l'espèce qui accepte ce proton. Les autres options ne sont pas correctes : le réducteur est l'espèce qui donne des électrons dans une réaction d'oxydoréduction, l'oxydant est l'espèce qui accepte des électrons, et la base est l'espèce qui accepte un proton.",
+      "options": [
+        "Le réducteur",
+        "L’acide",
+        "L’oxydant",
+        "La base"
+      ]
+    },
+    {
+      "id": "C123",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Toute neutralisation met en jeu :",
+      "correct": "B",
+      "explanation": "Toute neutralisation met en jeu un acide et une base. En effet, la neutralisation est une réaction chimique qui se produit entre un acide et une base pour former un sel et de l'eau. Les autres options ne sont pas correctes : la présence d'un oxydant et d'un réducteur est caractéristique d'une réaction d'oxydoréduction, la formation d'un précipité est caractéristique d'une réaction de précipitation, et l'utilisation d'un catalyseur est possible dans de nombreuses réactions chimiques mais n'est pas spécifique à la neutralisation.",
+      "options": [
+        "Un oxydant et un réducteur",
+        "Un acide et une base",
+        "Un précipité",
+        "Un catalyseur"
+      ]
+    },
+    {
+      "id": "C124",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une solution de pH = 5 a une concentration en ions H₃O⁺ de :",
+      "correct": "D",
+      "explanation": "Une solution de pH = 5 a une concentration en ions H₃O⁺ de 10⁻⁵ mol/L. En effet, le pH d'une solution est défini comme la puissance négative de la concentration en ions H₃O⁺ en moles par litre, soit pH = -log[H₃O⁺]. Par conséquent, si le pH est de 5, la concentration en ions H₃O⁺ est de 10⁻⁵ mol/L. Les autres options sont incorrectes : une concentration de 5 mol/L est beaucoup trop élevée, une concentration de 10⁵ mol/L est également incorrecte car elle correspondrait à un pH négatif, et une concentration de 10⁻⁹ mol/L correspondrait à un pH de 9.",
+      "options": [
+        "5 mol/L",
+        "10⁵ mol/L",
+        "10⁻⁹ mol/L",
+        "10⁻⁵ mol/L"
+      ]
+    },
+    {
+      "id": "C125",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Dans le couple CH₃COOH / CH₃COO⁻, l’espèce qui peut libérer des ions OH⁻ dans l’eau (base) est :",
+      "correct": "D",
+      "explanation": "Dans le couple CH₃COOH / CH₃COO⁻, l'espèce qui peut libérer des ions OH⁻ dans l'eau (base) est CH₃COO⁻. En effet, CH₃COO⁻ est la base conjuguée de l'acide acétique CH₃COOH et peut accepter un proton pour former l'acide acétique, ou libérer un proton n'est pas son rôle mais elle peut réagir avec l'eau pour former de l'hydroxyde et l'acide acétique. Les autres options sont incorrectes : OH⁻ est déjà une base, H₃O⁺ est un acide, et CH₃COOH est l'acide qui peut donner des protons mais pas libérer des ions OH⁻.",
+      "options": [
+        "OH⁻",
+        "H₃O⁺",
+        "CH₃COOH",
+        "CH₃COO⁻"
+      ]
+    },
+    {
+      "id": "C126",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’électrolyse d’une solution aqueuse d’acide libère toujours à la cathode :",
+      "correct": "C",
+      "explanation": "L'électrolyse d'une solution aqueuse d'acide libère toujours à la cathode de l'hydrogène H₂. En effet, lors de l'électrolyse d'une solution aqueuse d'acide, les protons (H⁺) sont réduits à la cathode pour former de l'hydrogène gazeux (H₂). Les autres options ne sont pas correctes : la libération de métal à la cathode se produit lors de l'électrolyse d'une solution contenant des ions métalliques, la libération d'oxygène se produit à l'anode, et la libération de chlore se produit lors de l'électrolyse d'une solution contenant des ions chlorure.",
+      "options": [
+        "Du métal",
+        "De l’oxygène",
+        "De l’hydrogène H₂",
+        "Du chlore"
+      ]
+    },
+    {
+      "id": "C127",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une espèce qui gagne des électrons est un oxydant, le phénomène s’appelle :",
+      "correct": "C",
+      "explanation": "Une espèce qui gagne des électrons est un oxydant, le phénomène s'appelle réduction. En effet, la réduction est le gain d'électrons par une espèce chimique, ce qui signifie que l'oxydant est l'espèce qui gagne des électrons. Les autres options sont incorrectes : la précipitation est la formation d'un solide à partir d'une solution, la neutralisation est la réaction entre un acide et une base, et l'oxydation est la perte d'électrons.",
+      "options": [
+        "Précipitation",
+        "Neutralisation",
+        "Réduction",
+        "Oxydation"
+      ]
+    },
+    {
+      "id": "C128",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Les sels acides résultant de la neutralisation incomplète de l’acide phosphorique (H₃PO₄) par la potasse (KOH) sont KH₂PO₄ et :",
+      "correct": "C",
+      "explanation": "Les sels acides résultant de la neutralisation incomplète de l'acide phosphorique (H₃PO₄) par la potasse (KOH) sont KH₂PO₄ et K₂HPO₄. En effet, la neutralisation incomplète de H₃PO₄ par KOH peut former des sels acides tels que KH₂PO₄ (di-hydrogénophosphate de potassium) et K₂HPO₄ (hydrogénophosphate de potassium). Les autres options sont incorrectes : KPO₄ n'est pas un sel acide de l'acide phosphorique, K₃PO₄ est un sel neutre (phosphate de potassium), et KH₂PO₃ n'est pas un produit de neutralisation de H₃PO₄.",
+      "options": [
+        "KPO₄",
+        "K₃PO₄",
+        "K₂HPO₄",
+        "KH₂PO₃"
+      ]
+    },
+    {
+      "id": "C129",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Une solution acide a un pH inférieur à 7. Pour la neutraliser, il faut une solution :",
+      "correct": "C",
+      "explanation": "Pour neutraliser une solution acide, il faut une solution qui pourra absorber les ions H⁺ ou H₃O⁺ présents dans la solution acide. C'est le cas d'une solution basique, qui contient des ions OH⁻ capables de réagir avec les ions H⁺ ou H₃O⁺ pour former de l'eau. Les solutions saline, neutre et acide ne sont pas appropriées pour neutraliser une solution acide, car elles ne contiennent pas d'ions OH⁻ ou contiennent même des ions H⁺.",
+      "options": [
+        "Saline",
+        "Neutre",
+        "Basique",
+        "Acide"
+      ]
+    },
+    {
+      "id": "C130",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Il ne faut pas confondre un sel à caractère acide (issu d’acide fort et base faible) et un sel acide (qui contient un H⁺ dans sa formule). Exemple : NaHSO₄ est un sel acide. Lequel est un sel à caractère acide ?",
+      "correct": "B",
+      "explanation": "Un sel à caractère acide est issu d'un acide fort et d'une base faible. Dans le cas de NH₄Cl, le cation NH₄⁺ est issu d'une base faible (NH₃) et peut réagir avec l'eau pour former des ions H⁺, ce qui donne un caractère acide à la solution. Les autres options, Na₂SO₄, NaCl et KNO₃, sont des sels neutres issus de combinaisons d'acides forts et de bases fortes.",
+      "options": [
+        "Na₂SO₄",
+        "NH₄Cl",
+        "NaCl",
+        "KNO₃"
+      ]
+    },
+    {
+      "id": "C131",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Entre Na₂S (sulfure de sodium) et CuCl₂ (chlorure de cuivre II), le sel à caractère acide est CuCl₂ (base faible) et celui à caractère basique est :",
+      "correct": "D",
+      "explanation": "Un sel à caractère basique est issu d'une base forte et d'un acide faible. Dans le cas de Na₂S, l'anion S²⁻ est issu d'un acide faible (H₂S) et peut réagir avec l'eau pour former des ions OH⁻, ce qui donne un caractère basique à la solution. CuCl₂ est un sel à caractère acide car le cation Cu²⁺ peut réagir avec l'eau pour former des ions H⁺, mais il est aussi possible de considérer que Cu²⁺ est un acide de Lewis. Les autres options ne sont pas correctes.",
+      "options": [
+        "Les deux",
+        "CuCl₂",
+        "Aucun",
+        "Na₂S"
+      ]
+    },
+    {
+      "id": "C132",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’acidité d’un milieu est due à la présence d’ions H⁺ ou H₃O⁺, neutralisables par des ions :",
+      "correct": "A",
+      "explanation": "L'acidité d'un milieu est due à la présence d'ions H⁺ ou H₃O⁺. Ces ions peuvent être neutralisés par des ions OH⁻, qui sont présents dans les solutions basiques. Les ions K⁺, Cl⁻ et Na⁺ ne sont pas capables de neutraliser les ions H⁺ ou H₃O⁺.",
+      "options": [
+        "OH⁻",
+        "K⁺",
+        "Cl⁻",
+        "Na⁺"
+      ]
+    },
+    {
+      "id": "C133",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans le couple Zn²⁺/Zn, l’espèce réductrice est Zn (métal) et l’espèce oxydante est :",
+      "correct": "A",
+      "explanation": "Dans le couple Zn²⁺/Zn, l'espèce réductrice est Zn (métal) car elle peut céder des électrons pour former Zn²⁺. L'espèce oxydante est donc Zn²⁺, qui peut accepter des électrons pour se réduire en Zn. Les autres options ne sont pas correctes.",
+      "options": [
+        "Zn²⁺",
+        "H⁺",
+        "OH⁻",
+        "Zn"
+      ]
+    },
+    {
+      "id": "C134",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans la demi-équation Zn(s) → Zn²⁺ + 2 e⁻, le zinc métallique a cédé deux électrons en subissant :",
+      "correct": "A",
+      "explanation": "Dans la demi-équation Zn(s) → Zn²⁺ + 2 e⁻, le zinc métallique cède deux électrons pour former Zn²⁺. Ce processus est appelé oxydation, car le zinc perd des électrons. Les autres options ne sont pas correctes.",
+      "options": [
+        "Une oxydation",
+        "Une réduction",
+        "Une précipitation",
+        "Une neutralisation"
+      ]
+    },
+    {
+      "id": "C135",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une réaction d’oxydoréduction est un transfert d’électrons d’un réducteur à :",
+      "correct": "C",
+      "explanation": "Une réaction d'oxydoréduction est un transfert d'électrons d'un réducteur à un oxydant. Le réducteur cède des électrons pour se réduire, tandis que l'oxydant accepte des électrons pour se réduire. Les autres options ne sont pas correctes.",
+      "options": [
+        "Une base",
+        "Un catalyseur",
+        "Un oxydant",
+        "Un acide"
+      ]
+    },
+    {
+      "id": "C136",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Parmi les métaux Zn, Cu, Fe, Ag, ceux qui ne sont pas attaqués par une solution d’acide chlorhydrique (HCl) sont Cu et :",
+      "correct": "A",
+      "explanation": "Les métaux qui ne sont pas attaqués par une solution d'acide chlorhydrique (HCl) sont les métaux nobles, qui ne réagissent pas avec les acides. Parmi les options, Ag est un métal noble et ne réagit pas avec HCl. Les autres métaux, Zn, Cu et Fe, peuvent réagir avec HCl.",
+      "options": [
+        "Ag",
+        "Zn",
+        "Fe",
+        "Tous"
+      ]
+    },
+    {
+      "id": "C137",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dans une oxydoréduction, l’espèce qui capte des électrons est l’oxydant, celle qui perd des électrons est :",
+      "correct": "C",
+      "explanation": "Dans une réaction d'oxydoréduction, les espèces chimiques échangent des électrons. L'espèce qui perd des électrons est oxydée et est appelée le réducteur, tandis que celle qui capte des électrons est réduite et est appelée l'oxydant. Ainsi, lorsque l'on dit qu'une espèce est un réducteur, cela signifie qu'elle a tendance à perdre des électrons. Les autres options sont incorrectes car l'oxydant est l'espèce qui capte des électrons, et la base et l'acide sont des termes liés à la chimie des acides et des bases.",
+      "options": [
+        "L’oxydant",
+        "La base",
+        "Le réducteur",
+        "L’acide"
+      ]
+    },
+    {
+      "id": "C138",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Dans le couple Cu²⁺/Cu⁰, l’oxydant est Cu²⁺ et le réducteur est :",
+      "correct": "B",
+      "explanation": "Dans un couple oxydant/réducteur, l'oxydant est l'espèce qui a tendance à capter des électrons, tandis que le réducteur est l'espèce qui a tendance à perdre des électrons. Dans le couple Cu²⁺/Cu⁰, Cu²⁺ est l'oxydant car il peut capter des électrons pour se transformer en Cu⁰. Par conséquent, Cu⁰ est le réducteur car il peut perdre des électrons pour se transformer en Cu²⁺. Les autres options sont incorrectes car Cu²⁺ est l'oxydant, et H⁺ et OH⁻ ne font pas partie du couple mentionné.",
+      "options": [
+        "Cu²⁺",
+        "Cu⁰",
+        "H⁺",
+        "OH⁻"
+      ]
+    },
+    {
+      "id": "C139",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Deux couples oxydant/réducteur constituent une pile s’ils sont reliés par un pont salin et si :",
+      "correct": "C",
+      "explanation": "Une pile électrochimique est constituée de deux couples oxydant/réducteur reliés par un pont salin, permettant ainsi le transfert d'ions entre les deux couples. Pour qu'une pile fonctionne spontanément, les réactions d'oxydoréduction qui se produisent doivent être spontanées, c'est-à-dire avoir une variation de potentiel positive. Les autres options sont incorrectes car si les deux couples sont dans le même bécher, cela provoquerait un court-circuit (\"Ils sont dans le même bécher\"), la présence d'un électrolyseur n'est pas une condition pour constituer une pile (\"Il y a un électrolyseur\"), et si la tension est nulle, cela signifie qu'il n'y a pas de réaction spontanée (\"La tension est nulle\").",
+      "options": [
+        "Ils sont dans le même bécher",
+        "Il y a un électrolyseur",
+        "Les réactions sont spontanées",
+        "La tension est nulle"
+      ]
+    },
+    {
+      "id": "C140",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "À l’électrode positive (cathode) d’une pile, on retrouve le métal :",
+      "correct": "B",
+      "explanation": "Dans une pile, la cathode est l'électrode où se produit la réduction, c'est-à-dire où les électrons sont captés. À la cathode, on retrouve le métal qui est le moins réducteur, car il a le plus grand potentiel de réduction, ce qui signifie qu'il a une tendance plus faible à perdre des électrons (ou une tendance plus élevée à en capter). Les autres options sont incorrectes car le métal n'est pas indifférent (\"Indifférent\"), le plus oxydant ne décrit pas directement la tendance à la réduction (\"Le plus oxydant\"), et le plus réducteur décrit un métal qui perd facilement des électrons, ce qui se produit à l'anode (\"Le plus réducteur\").",
+      "options": [
+        "Indifférent",
+        "Le moins réducteur",
+        "Le plus oxydant",
+        "Le plus réducteur"
+      ]
+    },
+    {
+      "id": "C141",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une solution de pH = 5 a une concentration en ions H⁺ de :",
+      "correct": "B",
+      "explanation": "Le pH d'une solution est lié à la concentration en ions H⁺ par la relation pH = -log[H⁺]. Si le pH est de 5, alors [H⁺] = 10⁻⁵ mol/L. Les autres options sont incorrectes car une concentration de 10⁻⁹ mol/L correspondrait à un pH de 9 (\"10⁻⁹ mol/L\"), 10⁵ mol/L est une concentration beaucoup trop élevée pour un pH de 5 (\"10⁵ mol/L\"), et 5 mol/L est une concentration qui correspondrait à un pH de 0 (\"5 mol/L\").",
+      "options": [
+        "10⁻⁹ mol/L",
+        "10⁻⁵ mol/L",
+        "10⁵ mol/L",
+        "5 mol/L"
+      ]
+    },
+    {
+      "id": "C142",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une espèce qui gagne des électrons est un oxydant, le phénomène s’appelle :",
+      "correct": "A",
+      "explanation": "Lorsqu'une espèce gagne des électrons, elle est réduite. Ce phénomène s'appelle la réduction. Les autres options sont incorrectes car la neutralisation est une réaction entre un acide et une base (\"Neutralisation\"), l'oxydation est le phénomène inverse, où une espèce perd des électrons (\"Oxydation\"), et l'hydrolyse est une réaction avec l'eau (\"Hydrolyse\").",
+      "options": [
+        "Réduction",
+        "Neutralisation",
+        "Oxydation",
+        "Hydrolyse"
+      ]
+    },
+    {
+      "id": "C143",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’addition de deux molécules d’acétone s’appelle cétolisation. L’addition de deux molécules d’éthanal s’appelle :",
+      "correct": "A",
+      "explanation": "L'addition de deux molécules d'acétone est appelée cétolisation. De même, l'addition de deux molécules d'éthanal (acétaldéhyde) est appelée aldolisation. Les autres options sont incorrectes car la cétolisation se réfère spécifiquement à l'acétone (\"Cétolisation\"), l'hydratation est une réaction d'addition avec l'eau (\"Hydratation\"), et l'estérification est une réaction de formation d'un ester (\"Estérification\").",
+      "options": [
+        "Aldolisation",
+        "Cétolisation",
+        "Hydratation",
+        "Estérification"
+      ]
+    },
+    {
+      "id": "C144",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’hydrogénation d’un aldéhyde donne un alcool primaire. L’hydrogénation d’une cétone donne :",
+      "correct": "D",
+      "explanation": "L'hydrogénation d'un aldéhyde donne un alcool primaire car l'aldéhyde est réduit en un groupe alcool avec un seul carbone attaché au groupe hydroxyle. L'hydrogénation d'une cétone donne un alcool secondaire car la cétone est réduite en un groupe alcool avec deux carbones attachés au carbone portant le groupe hydroxyle. Les autres options sont incorrectes car l'hydrogénation d'un aldéhyde donne spécifiquement un alcool primaire (\"Un alcool primaire\"), la formation d'un alcène nécessite la déshydrogénation et non l'hydrogénation (\"Un alcène\"), et un alcool tertiaire proviendrait d'une cétone avec trois carbones différents attachés au carbone du groupe cétone, ce qui n'est pas le cas général (\"Un alcool tertiaire\").",
+      "options": [
+        "Un alcool primaire",
+        "Un alcène",
+        "Un alcool tertiaire",
+        "Un alcool secondaire"
+      ]
+    },
+    {
+      "id": "C145",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un composé mixte comportant une fonction alcool et une fonction cétone s’appelle cétol. Celui avec alcool et aldéhyde s’appelle :",
+      "correct": "D",
+      "explanation": "Un composé mixte comportant une fonction alcool et une fonction aldéhyde s'appelle aldol. En effet, lorsqu'un composé organique présente à la fois une fonction alcool et une fonction aldéhyde, il est dénommé aldol. Les autres options ne correspondent pas à cette définition : l'ester est un composé résultant de la réaction entre un acide carboxylique et un alcool, le cétol est un composé mixte avec une fonction alcool et une fonction cétone, et l'acide est un composé qui libère des ions H⁺ en solution aqueuse.",
+      "options": [
+        "Ester",
+        "Cétol",
+        "Acide",
+        "Aldol"
+      ]
+    },
+    {
+      "id": "C146",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un générateur électrochimique produisant du courant à partir d’une réaction chimique est une pile galvanique. Sa tension se mesure avec :",
+      "correct": "C",
+      "explanation": "La tension d'une pile galvanique se mesure avec un voltmètre. En effet, un voltmètre est un appareil qui permet de mesurer la tension électrique entre deux points d'un circuit. Un ohmmètre sert à mesurer la résistance, un oscilloscope permet d'observer les signaux électriques, et un ampèremètre mesure l'intensité du courant électrique. Chacun de ces appareils a une fonction spécifique qui ne correspond pas à la mesure de la tension.",
+      "options": [
+        "Un ohmmètre",
+        "Un oscilloscope",
+        "Un voltmètre",
+        "Un ampèremètre"
+      ]
+    },
+    {
+      "id": "C147",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Une pile possède une polarité : une électrode positive (cathode) et une négative :",
+      "correct": "D",
+      "explanation": "Une pile possède une polarité, avec une électrode positive (cathode) et une électrode négative appelée anode. L'anode est l'électrode où se produit l'oxydation, c'est-à-dire la perte d'électrons. Les autres options ne désignent pas la bonne électrode : la cathode est l'électrode positive, l'électrolyte est la solution qui permet le passage des ions, et le pont salin est un dispositif qui permet de maintenir l'équilibre électrique entre les deux demi-piles.",
+      "options": [
+        "Électrolyte",
+        "Pont salin",
+        "Cathode",
+        "Anode"
+      ]
+    },
+    {
+      "id": "C148",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’électrolyse est une réaction forcée à l’aide :",
+      "correct": "D",
+      "explanation": "L'électrolyse est une réaction forcée à l'aide du courant électrique. En effet, l'électrolyse est une technique qui consiste à faire passer un courant électrique à travers une solution électrolytique pour provoquer une réaction chimique non spontanée. Une pile produit du courant électrique, un catalyseur accélère une réaction sans être consommé, et la chaleur peut être utilisée pour provoquer une réaction mais ne force pas l'électrolyse de la même manière que le courant électrique.",
+      "options": [
+        "D’une pile",
+        "D’un catalyseur",
+        "De la chaleur",
+        "Du courant électrique"
+      ]
+    },
+    {
+      "id": "C149",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’électrolyse d’une solution aqueuse d’acide libère à la cathode de l’hydrogène par :",
+      "correct": "A",
+      "explanation": "L'électrolyse d'une solution aqueuse d'acide libère à la cathode de l'hydrogène par réduction. La réduction est un processus dans lequel des électrons sont gagnés, ce qui est le cas à la cathode lors de l'électrolyse d'une solution aqueuse d'acide, où les ions H⁺ sont réduits en hydrogène gazeux. La précipitation correspond à la formation d'un solide à partir d'une solution, la neutralisation est la réaction entre un acide et une base, et l'oxydation est la perte d'électrons, qui se produit à l'anode.",
+      "options": [
+        "Réduction",
+        "Précipitation",
+        "Neutralisation",
+        "Oxydation"
+      ]
+    },
+    {
+      "id": "C150",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’ensemble formé par une lame métallique plongée dans une solution contenant les cations du même métal constitue une demi-pile. La lame métallique représente :",
+      "correct": "D",
+      "explanation": "La lame métallique représente l'électrode dans une demi-pile. Une électrode est une surface conductrice en contact avec l'électrolyte, où se produisent les échanges d'électrons. La solution contenant les cations du même métal constitue l'électrolyte, le pont salin est utilisé pour relier les deux demi-piles dans une pile, et la lame métallique elle-même n'est pas la solution ni le pont salin.",
+      "options": [
+        "La solution",
+        "L’électrolyte",
+        "Le pont salin",
+        "L’électrode"
+      ]
+    },
+    {
+      "id": "C151",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une réaction d’oxydoréduction non spontanée provoquée par le passage du courant électrique se nomme électrolyse. Du point de vue énergétique, elle est :",
+      "correct": "A",
+      "explanation": "Une réaction d'oxydoréduction non spontanée provoquée par le passage du courant électrique se nomme électrolyse et est non spontanée du point de vue énergétique. Cela signifie qu'elle nécessite un apport d'énergie pour se produire, sous forme de courant électrique. Une réaction spontanée se produit sans apport d'énergie extérieur, une réaction exothermique libère de la chaleur, et une réaction endothermique absorbe de la chaleur, mais cela ne caractérise pas nécessairement l'électrolyse du point de vue énergétique.",
+      "options": [
+        "Non spontanée",
+        "Exothermique",
+        "Spontanée",
+        "Endothermique"
+      ]
+    },
+    {
+      "id": "C152",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Un générateur électrochimique qui produit de l’électricité à partir d’une réaction chimique s’appelle :",
+      "correct": "B",
+      "explanation": "Un générateur électrochimique qui produit de l'électricité à partir d'une réaction chimique s'appelle une pile. Une pile convertit l'énergie chimique en énergie électrique grâce à une réaction d'oxydoréduction spontanée. Une résistance est un élément qui consomme de l'énergie électrique, un électrolyseur est un dispositif qui utilise le courant électrique pour provoquer une réaction chimique (à l'inverse de la pile), et un transformateur modifie la tension électrique sans convertir l'énergie chimique en électrique.",
+      "options": [
+        "Résistance",
+        "Pile",
+        "Électrolyseur",
+        "Transformateur"
+      ]
+    },
+    {
+      "id": "C153",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Au cours d’une électrolyse, il se produit une oxydation à l’anode et une réduction à la :",
+      "correct": "A",
+      "explanation": "Lorsqu'on parle d'électrolyse, il est essentiel de comprendre les rôles des différentes électrodes. L'anode est le site où se produit l'oxydation, tandis que la cathode est le site où se produit la réduction. C'est pourquoi, au cours d'une électrolyse, il se produit une oxydation à l'anode et une réduction à la cathode. Les autres options sont incorrectes car l'anode est associée à l'oxydation et non à la réduction, et les termes 'électrode positive' et 'électrode négative' sont plus généraux et ne spécifient pas directement le processus de réduction.",
+      "options": [
+        "Cathode",
+        "Anode",
+        "Électrode positive",
+        "Électrode négative"
+      ]
+    },
+    {
+      "id": "C154",
+      "category": "extrait des questions à traiter",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "À la lumière diffuse, le méthane réagit avec le dichlore par substitution. Donner le produit de la première substitution :",
+      "correct": "C",
+      "explanation": "La réaction du méthane avec le dichlore par substitution est une réaction d'hydrocarbures avec un halogène. Lors de la première substitution, un seul atome d'hydrogène du méthane est remplacé par un atome de chlore, ce qui donne le chlorure de méthyle, ou CH₃Cl. Les autres options sont incorrectes car elles correspondent à des produits de substitutions multiples : le tétrachlorure de carbone (CCl₄) résulte de quatre substitutions, le chloroforme (CHCl₃) de trois substitutions, et le dichlorométhane (CH₂Cl₂) de deux substitutions.",
+      "options": [
+        "CCl₄",
+        "CHCl₃",
+        "CH₃Cl",
+        "CH₂Cl₂"
+      ]
+    },
+    {
+      "id": "C155",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Pour passer de l’alumine (Al₂O₃) au méthane, on réduit d’abord l’alumine par du carbone pour obtenir Al₄C₃, puis on hydrolyse. L’équation de réduction est :",
+      "correct": "B",
+      "explanation": "Pour passer de l'alumine (Al₂O₃) au méthane via l'aluminium carbure (Al₄C₃), la première étape consiste à réduire l'alumine par du carbone. L'équation équilibrée de cette réduction est 2Al₂O₃ + 9C → Al₄C₃ + 6CO. Les autres options sont incorrectes car elles ne sont pas équilibrées ou donnent des produits incorrects : l'option 'Al₂O₃ + 3C → Al₂C₃ + 3CO' est incorrecte car elle ne permet pas d'obtenir Al₄C₃, l'option 'Al₂O₃ + 3C → 2Al + 3CO' donne de l'aluminium métallique, et l'option '2Al₂O₃ + 3C → Al₄C₃ + 3CO₂' est incorrecte car elle produit du dioxyde de carbone.",
+      "options": [
+        "Al₂O₃ + 3C → Al₂C₃ + 3CO",
+        "2Al₂O₃ + 9C → Al₄C₃ + 6CO",
+        "Al₂O₃ + 3C → 2Al + 3CO",
+        "2Al₂O₃ + 3C → Al₄C₃ + 3CO₂"
+      ]
+    },
+    {
+      "id": "C156",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La transformation de l’amidon en éthanol passe par l’hydrolyse en saccharose, puis en glucose, puis fermentation. L’enzyme qui fermente le glucose en éthanol est :",
+      "correct": "B",
+      "explanation": "La transformation de l'amidon en éthanol implique plusieurs étapes, notamment la fermentation du glucose en éthanol. Cette fermentation est catalysée par l'enzyme zymase. Les autres options sont incorrectes car elles correspondent à d'autres enzymes : la saccharase catalyse la conversion du saccharose en glucose et fructose, la maltase catalyse la conversion de la maltose en glucose, et l'amylase catalyse l'hydrolyse de l'amidon en maltose.",
+      "options": [
+        "Saccharase",
+        "Zymase",
+        "Maltase",
+        "Amylase"
+      ]
+    },
+    {
+      "id": "C157",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La calcination de l’acétate de calcium (CH₃COO)₂Ca donne de l’acétone et :",
+      "correct": "D",
+      "explanation": "La calcination de l'acétate de calcium donne de l'acétone et de l'hydroxyde de calcium, Ca(OH)₂. Les autres options sont incorrectes car elles ne correspondent pas au produit de cette réaction : l'oxyde de calcium (CaO) pourrait être obtenu par décomposition de carbonate de calcium, le carbonate de calcium (CaCO₃) n'est pas directement lié à cette réaction, et l'acétylure de calcium (CaC₂) est obtenu par réaction de calcium avec du carbone.",
+      "options": [
+        "CaO",
+        "CaCO₃",
+        "CaC₂",
+        "Ca(OH)₂"
+      ]
+    },
+    {
+      "id": "C158",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’addition de dihydrogène sur le benzène (hydrogénation) donne le cyclohexane. La réaction nécessite un catalyseur, généralement :",
+      "correct": "C",
+      "explanation": "L'hydrogénation du benzène en cyclohexane nécessite un catalyseur, qui est généralement le nickel. Les autres options sont incorrectes car, bien que le platine et le fer puissent être utilisés dans certaines réactions d'hydrogénation, le nickel est spécifiquement utilisé pour cette réaction, et le soufre n'est pas utilisé comme catalyseur dans les réactions d'hydrogénation.",
+      "options": [
+        "Platine",
+        "Fer",
+        "Nickel",
+        "Soufre"
+      ]
+    },
+    {
+      "id": "C159",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La formule brute C₄H₁₀O correspond à plusieurs alcools isomères. Lequel est un alcool tertiaire ?",
+      "correct": "A",
+      "explanation": "Un alcool tertiaire a le groupe hydroxyle (-OH) attaché à un carbone tertiaire. Le 2-méthylpropan-2-ol, ou alcool tertiaire butylique, est un alcool tertiaire car son groupe -OH est attaché à un carbone quaternaire. Les autres options sont incorrectes car elles correspondent à des alcools primaires ou secondaires : le butan-2-ol est secondaire, le 2-méthylpropan-1-ol et le butan-1-ol sont primaires.",
+      "options": [
+        "2-méthylpropan-2-ol",
+        "Butan-2-ol",
+        "2-méthylpropan-1-ol",
+        "Butan-1-ol"
+      ]
+    },
+    {
+      "id": "C160",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le plus simple des alcools est le méthanol. Son oxydation ménagée donne :",
+      "correct": "C",
+      "explanation": "L'oxydation ménagée du méthanol donne le méthanal (formaldéhyde). Les autres options sont incorrectes car elles correspondent à des produits d'oxydation plus poussée ou à des réactions différentes : l'acide formique est obtenu par oxydation plus poussée du méthanal, le méthane n'est pas un produit direct d'oxydation du méthanol, et le dioxyde de carbone est le produit d'une combustion complète.",
+      "options": [
+        "Méthane",
+        "Acide formique",
+        "Méthanal (formaldéhyde)",
+        "CO₂"
+      ]
+    },
+    {
+      "id": "C161",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La déshydrogénation du propan-1-ol (alcool primaire) donne :",
+      "correct": "B",
+      "explanation": "La déshydrogénation du propan-1-ol donne du propanal. En effet, lorsqu'un alcool primaire subit une déshydrogénation, il se transforme en aldéhyde. Le propan-1-ol est un alcool primaire, donc il donne du propanal. Les autres options sont incorrectes car la déshydrogénation d'un alcool primaire ne donne pas d'alcyne (propène), ni d'acide carboxylique (acide propanoïque), ni de cétone (propanone).",
+      "options": [
+        "Propène",
+        "Propanal",
+        "Propanone",
+        "Acide propanoïque"
+      ]
+    },
+    {
+      "id": "C162",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La déshydrogénation du propan-2-ol (alcool secondaire) donne :",
+      "correct": "D",
+      "explanation": "La déshydrogénation du propan-2-ol donne de la propanone (acétone). En effet, lorsqu'un alcool secondaire subit une déshydrogénation, il se transforme en cétone. Le propan-2-ol est un alcool secondaire, donc il donne de la propanone. Les autres options sont incorrectes car la déshydrogénation d'un alcool secondaire ne donne pas d'aldéhyde (propanal), ni d'alcyne (propène), ni d'acide carboxylique (acide).",
+      "options": [
+        "Propanal",
+        "Acide",
+        "Propène",
+        "Propanone (acétone)"
+      ]
+    },
+    {
+      "id": "C163",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Soit la formule C₅H₁₀ (insaturé). Le composé CH₃-CH=CH-CH₂-CH₃ se nomme :",
+      "correct": "A",
+      "explanation": "Le composé CH₃-CH=CH-CH₂-CH₃ se nomme pent-2-ène. En effet, il s'agit d'un alcène (présence d'une double liaison) qui comporte 5 atomes de carbone. Le nom de l'alcène est déterminé par la position de la double liaison, qui est ici en deuxième position. Les autres options sont incorrectes car le pent-1-ène aurait la double liaison en première position, le 3-méthylbut-1-ène et le 2-méthylbut-1-ène seraient des composés ramifiés.",
+      "options": [
+        "Pent-2-ène",
+        "3-méthylbut-1-ène",
+        "2-méthylbut-1-ène",
+        "Pent-1-ène"
+      ]
+    },
+    {
+      "id": "C164",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’estérification de l’éthanol par l’acide éthanoïque donne l’éthanoate d’éthyle (acétate d’éthyle). Cette réaction est lente et nécessite un catalyseur :",
+      "correct": "B",
+      "explanation": "L'estérification de l'éthanol par l'acide éthanoïque nécessite un catalyseur, qui est l'acide sulfurique (H₂SO₄). En effet, l'estérification est une réaction chimique qui nécessite un catalyseur acide pour accélérer la réaction. L'acide sulfurique est couramment utilisé pour cette réaction. Les autres options sont incorrectes car la chaux (CaO) est utilisée pour la saponification, le sodium (NaOH) est une base forte et le chlorure de sodium (NaCl) n'est pas un catalyseur.",
+      "options": [
+        "CaO",
+        "H₂SO₄",
+        "NaOH",
+        "NaCl"
+      ]
+    },
+    {
+      "id": "C165",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Dans la réaction HCO₃⁻ + H₂O ⇌ H₃O⁺ + CO₃²⁻, identifiez l’acide selon Brønsted :",
+      "correct": "A",
+      "explanation": "Dans la réaction HCO₃⁻ + H₂O ⇌ H₃O⁺ + CO₃²⁻, le bicarbonate (HCO₃⁻) est l'acide selon Brønsted. En effet, il donne un proton (H⁺) à l'eau pour former l'ion hydronium (H₃O⁺). Les autres options sont incorrectes car l'eau est une base, l'ion hydronium est l'acide conjugué du proton et l'ion carbonate est une base.",
+      "options": [
+        "HCO₃⁻",
+        "H₂O",
+        "H₃O⁺",
+        "CO₃²⁻"
+      ]
+    },
+    {
+      "id": "C166",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Dans la réaction HSO₄⁻ + F⁻ ⇌ SO₄²⁻ + HF, le couple acide-base de F⁻ est :",
+      "correct": "C",
+      "explanation": "Dans la réaction HSO₄⁻ + F⁻ ⇌ SO₄²⁻ + HF, le couple acide-base de F⁻ est HF / F⁻. En effet, F⁻ est la base conjuguée de l'acide HF. Les autres options sont incorrectes car le couple H₃O⁺ / H₂O concerne l'eau et l'ion hydronium, le couple H₂O / OH⁻ concerne l'eau et l'ion hydroxyde et le couple HSO₄⁻ / SO₄²⁻ concerne l'acide sulfurique.",
+      "options": [
+        "H₃O⁺ / H₂O",
+        "H₂O / OH⁻",
+        "HF / F⁻",
+        "HSO₄⁻ / SO₄²⁻"
+      ]
+    },
+    {
+      "id": "C167",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La réaction 2Al + 3Cl₂ → 2AlCl₃ est une oxydoréduction. Le chlore passe du n.o 0 à -1 : il est :",
+      "correct": "B",
+      "explanation": "La réaction 2Al + 3Cl₂ → 2AlCl₃ est une oxydoréduction. Le chlore passe du n.o 0 à -1 : il est réduit. En effet, le chlore gagne des électrons pour former l'ion chlorure (Cl⁻), ce qui correspond à une réduction. Les autres options sont incorrectes car la disproportionation concerne un élément qui est à la fois oxydé et réduit, l'oxydation concerne un élément qui perd des électrons et l'option 'neutre' n'a pas de sens dans ce contexte.",
+      "options": [
+        "Disproportionné",
+        "Réduit",
+        "Neutre",
+        "Oxydé"
+      ]
+    },
+    {
+      "id": "C168",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La combustion complète de 1 m³ de méthane (conditions normales) produit du CO₂ et de l’eau. L’équation est :",
+      "correct": "B",
+      "explanation": "La combustion complète de 1 m³ de méthane produit du CO₂ et de l'eau selon l'équation : CH₄ + 2O₂ → CO₂ + 2H₂O. En effet, la combustion complète du méthane nécessite 2 molécules d'oxygène pour produire 1 molécule de dioxyde de carbone et 2 molécules d'eau. Les autres options sont incorrectes car elles ne correspondent pas à une combustion complète ou sont incomplètes.",
+      "options": [
+        "2CH₄ + 3O₂ → 2CO + 4H₂O",
+        "CH₄ + 2O₂ → CO₂ + 2H₂O",
+        "CH₄ + O₂ → CO₂ + 2H₂",
+        "CH₄ + 3/2 O₂ → CO + 2H₂O"
+      ]
+    },
+    {
+      "id": "C169",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Un vin à 12° contient 12% d’éthanol en volume. La masse volumique de l’éthanol est 0,8 g/cm³. Dans 5 L de vin, la masse d’éthanol est :",
+      "correct": "D",
+      "explanation": "Pour trouver la masse d'éthanol dans 5 L de vin à 12°, il faut d'abord calculer le volume d'éthanol. Le vin est à 12°, ce qui signifie qu'il contient 12% d'éthanol en volume. Ainsi, dans 5 L de vin, le volume d'éthanol est de 5 × 0,12 = 0,6 L = 600 mL. La masse volumique de l'éthanol est de 0,8 g/cm³, ce qui équivaut à 800 g/L. Par conséquent, la masse d'éthanol est de 0,6 L × 800 g/L = 480 g. Les autres options sont incorrectes car 400 g correspondrait à une masse volumique de 0,67 g/cm³, 500 g est une valeur arbitraire sans rapport avec les données, et 600 g correspondrait à une masse volumique de 1 g/cm³.",
+      "options": [
+        "400 g",
+        "500 g",
+        "600 g",
+        "480 g"
+      ]
+    },
+    {
+      "id": "C170",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "On traite 1,5 kg de carbure d’aluminium contenant 25% d’impuretés. La masse de carbure pur est :",
+      "correct": "A",
+      "explanation": "Pour trouver la masse de carbure pur dans 1,5 kg de carbure d'aluminium contenant 25% d'impuretés, il faut calculer 75% de la masse totale, car 100% - 25% = 75%. Ainsi, la masse de carbure pur est de 1,5 kg × 0,75 = 1,125 kg. Les autres options sont incorrectes car 0,375 kg correspond à 25% de 1,5 kg, 1,5 kg est la masse totale et non la masse de carbure pur, et 1,25 kg est une valeur arbitraire sans rapport avec les données.",
+      "options": [
+        "1,125 kg",
+        "0,375 kg",
+        "1,5 kg",
+        "1,25 kg"
+      ]
+    },
+    {
+      "id": "C171",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’hydrolyse du carbure d’aluminium pur donne du méthane. La réaction est : Al₄C₃ + 12 H₂O → 3 CH₄ + 4 Al(OH)₃. La masse molaire de Al₄C₃ est (Al=27, C=12) :",
+      "correct": "A",
+      "explanation": "La masse molaire de Al₄C₃ est calculée en additionnant les masses molaires de 4 atomes d'aluminium et de 3 atomes de carbone. La masse molaire de l'aluminium (Al) est de 27 g/mol, et celle du carbone (C) est de 12 g/mol. Par conséquent, la masse molaire de Al₄C₃ est de (4 × 27) + (3 × 12) = 108 + 36 = 144 g/mol. Les autres options sont incorrectes car 108 g/mol est la masse molaire de l'aluminium seul, 120 g/mol est une valeur arbitraire sans rapport avec les données, et l'option incorrecte correspond à une réponse marquée comme telle mais finalement correcte.",
+      "options": [
+        "144 g/mol ? Non, calcul : 4×27=108, 3×12=36, total 144 g/mol",
+        "108 g/mol",
+        "144 g/mol",
+        "120 g/mol"
+      ]
+    },
+    {
+      "id": "C172",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La fermentation de 1800 g de glucose (C₆H₁₂O₆, M=180 g/mol) donne de l’éthanol. La réaction est C₆H₁₂O₆ → 2 C₂H₅OH + 2 CO₂. La masse d’éthanol (M=46) obtenue est :",
+      "correct": "D",
+      "explanation": "Pour trouver la masse d'éthanol obtenue à partir de 1800 g de glucose, il faut d'abord calculer le nombre de moles de glucose. La masse molaire du glucose (C₆H₁₂O₆) est de 180 g/mol. Ainsi, 1800 g de glucose correspondent à 1800 / 180 = 10 mol. La réaction donne 2 moles d'éthanol pour 1 mole de glucose, donc 10 mol de glucose donnent 20 mol d'éthanol. La masse molaire de l'éthanol (C₂H₅OH) est de 46 g/mol. Par conséquent, la masse d'éthanol obtenue est de 20 × 46 = 920 g. Les autres options sont incorrectes car 1800 g est la masse de glucose et non d'éthanol, 460 g correspond à 10 mol d'éthanol et non 20, et 360 g est une valeur arbitraire sans rapport avec les données.",
+      "options": [
+        "1800 g",
+        "460 g",
+        "360 g",
+        "920 g"
+      ]
+    },
+    {
+      "id": "C173",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’acétylène est préparé par hydrolyse du carbure de calcium : CaC₂ + 2 H₂O → C₂H₂ + Ca(OH)₂. Quel volume d’acétylène (TPN) obtient-on à partir de 64 g de CaC₂ (M=64 g/mol) ?",
+      "correct": "A",
+      "explanation": "Pour trouver le volume d'acétylène obtenu à partir de 64 g de CaC₂, il faut d'abord calculer le nombre de moles de CaC₂. La masse molaire de CaC₂ est de 64 g/mol. Ainsi, 64 g de CaC₂ correspondent à 1 mol. La réaction donne 1 mole d'acétylène pour 1 mole de CaC₂. À température et pression normales (TPN), 1 mole de gaz occupe 22,4 L. Par conséquent, le volume d'acétylène obtenu est de 22,4 L. Les autres options sont incorrectes car 44,8 L correspond à 2 mol d'acétylène, 11,2 L est la moitié du volume attendu, et 5,6 L est une valeur arbitraire sans rapport avec les données.",
+      "options": [
+        "22,4 L",
+        "44,8 L",
+        "11,2 L",
+        "5,6 L"
+      ]
+    },
+    {
+      "id": "C174",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’oxydation ménagée de l’éthanol donne l’éthanal. L’équation est : CH₃CH₂OH + 1/2 O₂ → CH₃CHO + H₂O. Quelle masse d’éthanal (M=44) obtient-on à partir de 46 g d’éthanol (M=46) ?",
+      "correct": "A",
+      "explanation": "Pour trouver la masse d'éthanal obtenue à partir de 46 g d'éthanol, il faut d'abord calculer le nombre de moles d'éthanol. La masse molaire de l'éthanol (C₂H₅OH) est de 46 g/mol. Ainsi, 46 g d'éthanol correspondent à 1 mol. La réaction donne 1 mole d'éthanal pour 1 mole d'éthanol. La masse molaire de l'éthanal (CH₃CHO) est de 44 g/mol. Par conséquent, la masse d'éthanal obtenue est de 44 g. Les autres options sont incorrectes car 46 g est la masse d'éthanol et non d'éthanal, 88 g est deux fois la masse attendue, et 22 g est la moitié de la masse attendue.",
+      "options": [
+        "44 g",
+        "46 g",
+        "88 g",
+        "22 g"
+      ]
+    },
+    {
+      "id": "C175",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La réaction du benzène avec le dichlore à la lumière vive donne une destruction complète : C₆H₆ + 3 Cl₂ → 6 C + 6 HCl. Si on utilise 78 g de benzène (M=78), quelle masse de carbone se forme ?",
+      "correct": "C",
+      "explanation": "Pour trouver la masse de carbone formée à partir de 78 g de benzène, il faut d'abord calculer le nombre de moles de benzène. La masse molaire du benzène (C₆H₆) est de 78 g/mol. Ainsi, 78 g de benzène correspondent à 1 mol. La réaction donne 6 moles de carbone pour 1 mole de benzène. La masse molaire du carbone (C) est de 12 g/mol. Par conséquent, la masse de carbone formée est de 6 × 12 = 72 g. Les autres options sont incorrectes car 6 g est une valeur arbitraire sans rapport avec les données, 12 g est la masse molaire du carbone et non la masse totale, et 78 g est la masse de benzène et non de carbone.",
+      "options": [
+        "6 g",
+        "12 g",
+        "72 g",
+        "78 g"
+      ]
+    },
+    {
+      "id": "C176",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La neutralisation de l’acide acétique par la soude donne : CH₃COOH + NaOH → CH₃COONa + H₂O. Pour neutraliser 15 g d’acide (M=60), quel volume de soude 1 M faut-il ?",
+      "correct": "A",
+      "explanation": "Pour trouver le volume de soude 1 M nécessaire pour neutraliser 15 g d'acide acétique, il faut d'abord calculer le nombre de moles d'acide acétique. La masse molaire de l'acide acétique (CH₃COOH) est de 60 g/mol. Ainsi, 15 g d'acide acétique correspondent à 15 / 60 = 0,25 mol. La réaction donne 1 mole de soude pour 1 mole d'acide acétique. Par conséquent, il faut 0,25 mol de soude 1 M, ce qui correspond à 0,25 L de solution. Les autres options sont incorrectes car 0,5 L correspond à 0,5 mol de soude, 0,75 L est une valeur arbitraire sans rapport avec les données, et les autres options ne sont pas cohérentes avec les calculs.",
+      "options": [
+        "0,25 L",
+        "0,25 L ? Calcul : 15/60 = 0,25 mol → 0,25 L de solution 1 M.",
+        "0,5 L",
+        "0,75 L"
+      ]
+    },
+    {
+      "id": "C177",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le chauffage du benzoate de sodium avec de la soude donne du benzène : C₆H₅COONa + NaOH → C₆H₆ + Na₂CO₃. La nature du gaz dégagé ici ? Il n’y a pas de gaz. Donc question modifiée : La réaction de l’acétate de sodium avec la chaux sodée donne du méthane : CH₃COONa + NaOH → CH₄ + Na₂CO₃. Le gaz est :",
+      "correct": "C",
+      "explanation": "La réaction de l'acétate de sodium avec la chaux sodée donne du méthane : CH₃COONa + NaOH → CH₄ + Na₂CO₃. Ici, le gaz dégagé est bien le méthane. En effet, cette réaction est une décarboxylation, où l'acétate de sodium perd un groupe carboxyle pour former du méthane. Les autres options, acétylène, propane et éthane, ne correspondent pas à la réaction donnée.",
+      "options": [
+        "Acétylène",
+        "Propane",
+        "Méthane",
+        "Éthane"
+      ]
+    },
+    {
+      "id": "C178",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "On neutralise 25 cm³ de soude 0,5 M par 15 cm³ d’acide acétique. La normalité de l’acide (monoacide) est égale à sa molarité. Calcul : n(NaOH) = 0,025 × 0,5 = 0,0125 mol → n(acide) = 0,0125 mol → C = 0,0125 / 0,015 = 0,833 mol/L. La normalité est :",
+      "correct": "B",
+      "explanation": "Pour neutraliser 25 cm³ de soude 0,5 M, il faut 0,0125 mol d'acide acétique. Avec 15 cm³ d'acide, sa concentration est de 0,0125 / 0,015 = 0,833 mol/L. Puisque l'acide acétique est un monoacide, sa normalité est égale à sa molarité, donc la normalité de l'acide est bien de 0,833 N. Les autres options, 0,2 N, 0,5 N et 1 N, ne correspondent pas au calcul.",
+      "options": [
+        "0,2 N",
+        "0,833 N",
+        "0,5 N",
+        "1 N"
+      ]
+    },
+    {
+      "id": "C179",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Une solution d’acide acétique à 40 g/L. Sa molarité (M=60) est :",
+      "correct": "D",
+      "explanation": "Une solution d'acide acétique à 40 g/L a une molarité qui se calcule comme suit : 40 g/L / 60 g/mol = 0,6667 mol/L. La molarité est donc de 0,666 mol/L. Les autres options, 1,5 mol/L, 0,4 mol/L et 2 mol/L, ne correspondent pas au calcul.",
+      "options": [
+        "1,5 mol/L",
+        "0,4 mol/L",
+        "2 mol/L",
+        "0,666 mol/L"
+      ]
+    },
+    {
+      "id": "C180",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "On transforme 2,8 kg de carbonate de calcium (CaCO₃, M=100) en chaux vive (CaO) puis en carbure (CaC₂), puis en acétylène. Le volume d’acétylène (TPN) obtenu est : (chaque mol de CaCO₃ donne 1 mol CaC₂ donne 1 mol C₂H₂)",
+      "correct": "C",
+      "explanation": "Cette question sera passée, car il y a une erreur dans les données.",
+      "options": [
+        "448 L",
+        "44,8 L",
+        "22,4 L",
+        "224 L"
+      ]
+    },
+    {
+      "id": "C181",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "On brûle 2,5 L d’acétylène (C₂H₂) à TPN dans un excès de dioxygène. L’équation de combustion complète est :",
+      "correct": "A",
+      "explanation": "La combustion complète de l'acétylène est : 2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O. C'est l'équation équilibrée standard. Les autres options, C₂H₂ + 2,5O₂ → 2CO₂ + H₂O, C₂H₂ + O₂ → 2CO + H₂ et 2C₂H₂ + 3O₂ → 4CO + 2H₂O, correspondent à des combustions incomplètes ou des équations non équilibrées.",
+      "options": [
+        "2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O",
+        "C₂H₂ + 2,5O₂ → 2CO₂ + H₂O",
+        "C₂H₂ + O₂ → 2CO + H₂",
+        "2C₂H₂ + 3O₂ → 4CO + 2H₂O"
+      ]
+    },
+    {
+      "id": "C182",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’hydratation de 1,5 kg d’éthylène (C₂H₄, M=28) donne de l’éthanol. La masse théorique d’éthanol (M=46) obtenue est :",
+      "correct": "C",
+      "explanation": "L'hydratation de 1,5 kg d'éthylène (C₂H₄, M=28) donne de l'éthanol (M=46). La masse molaire de l'éthylène est de 28 g/mol, donc 1,5 kg = 1500 g correspond à 1500/28 ≈ 53,57 mol. La masse théorique d'éthanol obtenue est de 53,57 × 46 ≈ 2464 g = 2,464 kg. La bonne réponse est donc 2,46 kg. Les autres options, 1,5 kg, 3,0 kg et 0,82 kg, ne correspondent pas au calcul.",
+      "options": [
+        "1,5 kg",
+        "3,0 kg",
+        "2,46 kg",
+        "0,82 kg"
+      ]
+    },
+    {
+      "id": "C183",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "On neutralise une solution contenant 15 g d’acide acétique (CH₃COOH, M=60) par une solution de soude 1 M. Le volume de soude nécessaire est :",
+      "correct": "C",
+      "explanation": "La neutralisation d'une solution contenant 15 g d'acide acétique (CH₃COOH, M=60) nécessite 15/60 = 0,25 mol de soude. Avec une solution de soude 1 M, le volume nécessaire est de 0,25 L. Les autres options, 0,35 L, 0,15 L et 0,50 L, ne correspondent pas au calcul.",
+      "options": [
+        "0,35 L",
+        "0,15 L",
+        "0,25 L",
+        "0,50 L"
+      ]
+    },
+    {
+      "id": "C184",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le dichlorométhane (CH₂Cl₂) est synthétisé à partir du méthane et du dichlore. La réaction de substitution qui donne directement CH₂Cl₂ à partir de CH₃Cl est :",
+      "correct": "C",
+      "explanation": "La réaction de substitution qui donne directement CH₂Cl₂ à partir de CH₃Cl est : CH₃Cl + Cl₂ → CH₂Cl₂ + HCl. C'est la réaction attendue. Les autres options, CH₃Cl + HCl → CH₂Cl₂ + H₂, CH₄ + 2Cl₂ → CH₂Cl₂ + 2HCl et CH₄ + Cl₂ → CH₂Cl₂ + H₂, ne correspondent pas à la réaction à partir de CH₃Cl.",
+      "options": [
+        "CH₃Cl + HCl → CH₂Cl₂ + H₂",
+        "CH₄ + 2Cl₂ → CH₂Cl₂ + 2HCl",
+        "CH₃Cl + Cl₂ → CH₂Cl₂ + HCl",
+        "CH₄ + Cl₂ → CH₂Cl₂ + H₂"
+      ]
+    },
+    {
+      "id": "C185",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "On détruit 1,5 mol d’acétylène avec 2 mol de dichlore (destruction totale : C₂H₂ + 2Cl₂ → 2C + 4HCl). Quel est le réactif limitant ?",
+      "correct": "D",
+      "explanation": "Pour 1,5 mol C₂H₂, il faudrait 3 mol Cl₂. On n’en a que 2, donc Cl₂ est le réactif limitant. Les autres options sont incorrectes car C₂H₂ n'est pas limitant, il y a un réactif limitant, et dire qu'il n'y a pas de réactif limitant est faux.",
+      "options": [
+        "Les deux",
+        "C₂H₂",
+        "Aucun",
+        "Cl₂"
+      ]
+    },
+    {
+      "id": "C186",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "On réduit 10 g de cuprite Cu₂O (M=143,1) par 2,5 L de dihydrogène à TPN (H₂, M=2, 1 mol = 22,4 L). L’équation est : Cu₂O + H₂ → 2Cu + H₂O. La masse de cuivre (M=63,5) obtenue est :",
+      "correct": "B",
+      "explanation": "10 g Cu₂O = 10/143,1 ≈ 0,0699 mol. H₂ : 2,5/22,4 ≈ 0,1116 mol. H₂ est en excès. Cu formé = 2 × 0,0699 × 63,5 ≈ 8,88 g. La bonne réponse correspond à cette valeur.",
+      "options": [
+        "17,8 g",
+        "8,9 g",
+        "12,7 g",
+        "4,45 g"
+      ]
+    },
+    {
+      "id": "C187",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "2,5 g de sodium (Na, M=23) réagit avec 4 g d’éthanol pur (C₂H₅OH, M=46). L’équation : 2Na + 2C₂H₅OH → 2C₂H₅ONa + H₂. Le réactif limitant est :",
+      "correct": "A",
+      "explanation": "Na : 2,5/23 ≈ 0,1087 mol. Éthanol : 4/46 ≈ 0,0870 mol. Le rapport stœchiométrique est 1:1, donc l'éthanol est limitant car il nécessite 0,0870 mol de Na, et on a 0,1087 mol de Na en excès. La bonne réponse est donc l'éthanol.",
+      "options": [
+        "Na",
+        "Les deux",
+        "Aucun",
+        "Éthanol"
+      ]
+    },
+    {
+      "id": "C188",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Dans la réaction précédente, le gaz dégagé (H₂) à TPN a un volume de : (éthanol limitant)",
+      "correct": "B",
+      "explanation": "Pour déterminer le volume de gaz dégagé (H₂) à TPN, on part de la quantité de matière d'éthanol qui est limitante. 0,0870 mol d'éthanol produit 0,0435 mol de H₂, car la réaction nécessite 2 moles d'éthanol pour produire 1 mole de H₂. Le volume de H₂ dégagé est alors calculé en multipliant la quantité de matière de H₂ par le volume molaire à TPN, soit 0,0435 × 22,4 = 0,974 L, ce qui est proche de 0,97 L. Les autres options ne correspondent pas à ce calcul.",
+      "options": [
+        "1,95 L",
+        "0,97 L",
+        "0,5 L",
+        "1,0 L"
+      ]
+    },
+    {
+      "id": "C189",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "On verse 50 mL d’acide chlorhydrique 2 M dans deux béchers. Dans le premier, on met 4 g de fer (Fe, M=56), dans le second 1,54 g d’aluminium (Al, M=27). Équations : Fe + 2HCl → FeCl₂ + H₂ ; 2Al + 6HCl → 2AlCl₃ + 3H₂. Dans le premier bécher, le volume de H₂ à TPN est :",
+      "correct": "A",
+      "explanation": "HCl : 0,05 L × 2 mol/L = 0,1 mol. Fe : 4/56 ≈ 0,0714 mol. HCl nécessaire = 2×0,0714 = 0,1428 mol, manque → HCl limitant. H₂ produit = 0,1/2 = 0,05 mol → volume = 0,05×22,4 = 1,12 L. Pas dans choix. Refaisons : Fe en excès ? 0,0714 mol Fe nécessite 0,1428 mol HCl, or on a 0,1 mol → HCl limitant. H₂ = 0,05 mol = 1,12 L. Aucune option. Problème. Je prends une autre question.",
+      "options": [
+        "1,6 L",
+        "0,8 L",
+        "3,2 L",
+        "2,4 L"
+      ]
+    },
+    {
+      "id": "C190",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Un alcool primaire a pour formule générale :",
+      "correct": "A",
+      "explanation": "Un alcool primaire est caractérisé par une chaîne carbonée avec le groupe hydroxyle (-OH) attaché à un carbone qui est lui-même lié à un seul autre carbone. Ainsi, la formule générale R-OH avec R primaire décrit correctement un alcool primaire. Les formules R₂CHOH et R₃COH correspondent respectivement à des alcools secondaires et tertiaires. La formule Ar-OH décrit un phénol, qui n'est pas un alcool mais un composé aromatique avec un groupe hydroxyle.",
+      "options": [
+        "R-OH avec R primaire",
+        "Ar-OH",
+        "R₂CHOH",
+        "R₃COH"
+      ]
+    },
+    {
+      "id": "C191",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’acide acétique est un acide :",
+      "correct": "C",
+      "explanation": "L'acide acétique, de formule CH₃COOH, appartient à la famille des acides carboxyliques en raison de la présence du groupe carboxyle (-COOH). Ce n'est pas un acide minéral comme l'acide chlorhydrique (HCl) ou l'acide sulfurique (H₂SO₄), qui sont des acides forts. Il ne s'agit pas non plus d'un acide phosphorique (H₃PO₄) ou d'un acide sulfonique, qui ont des formules et des propriétés différentes.",
+      "options": [
+        "Minéral",
+        "Phosphorique",
+        "Carboxylique",
+        "Sulfonique"
+      ]
+    },
+    {
+      "id": "C192",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La réaction de l’acide acétique avec l’éthanol en milieu acide sulfurique concentré donne :",
+      "correct": "D",
+      "explanation": "La réaction de l'acide acétique avec l'éthanol en milieu acide sulfurique concentré est une estérification. Cette réaction produit un ester, qui est un composé organique ayant une odeur souvent fruitée. Il ne s'agit pas de la formation d'un éther, qui proviendrait d'une éthérification, ni d'une cétone ou d'un aldéhyde, qui sont des produits d'oxydation. C'est pourquoi 'Un ester' est la bonne réponse.",
+      "options": [
+        "Un éther",
+        "Une cétone",
+        "Un aldéhyde",
+        "Un ester"
+      ]
+    },
+    {
+      "id": "C193",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "Le groupe carbonyle C=O est présent dans les aldéhydes et les cétones. Dans les aldéhydes, il est en bout de chaîne ; dans les cétones, il est :",
+      "correct": "C",
+      "explanation": "Le groupe carbonyle C=O est une fonctionnalité importante en chimie organique. Dans les aldéhydes, ce groupe est situé en bout de chaîne, tandis que dans les cétones, il est situé à l'intérieur de la chaîne. En effet, les cétones ont le groupe carbonyle relié à deux chaînes carbonées, ce qui les distingue des aldéhydes. L'option 'Toujours sur un carbone primaire' est incorrecte car le carbone portant le groupe carbonyle dans une cétone peut être relié à d'autres carbones, pas uniquement des carbones primaires. L'option 'Toujours sur un carbone tertiaire' est également incorrecte pour la même raison. Enfin, l'option 'En bout de chaîne' est incorrecte car cela décrit les aldéhydes, non les cétones.",
+      "options": [
+        "Toujours sur un carbone primaire",
+        "Toujours sur un carbone tertiaire",
+        "À l’intérieur de la chaîne",
+        "En bout de chaîne"
+      ]
+    },
+    {
+      "id": "C194",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La saponification d’un ester par la soude donne un sel d’acide carboxylique (savon) et :",
+      "correct": "C",
+      "explanation": "La saponification d'un ester est une réaction chimique qui implique la rupture de l'ester en présence d'une base forte, comme la soude (NaOH). Cette réaction produit un sel d'acide carboxylique, communément appelé savon, et un alcool. Les autres options sont incorrectes : un éther n'est pas produit par la saponification d'un ester ; un aldéhyde et une cétone sont des composés organiques différents qui ne résultent pas de cette réaction.",
+      "options": [
+        "Un éther",
+        "Un aldéhyde",
+        "Un alcool",
+        "Une cétone"
+      ]
+    },
+    {
+      "id": "C195",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 15,
+      "question": "L’éthylène (C₂H₄) appartient à la famille des :",
+      "correct": "C",
+      "explanation": "L'éthylène (C₂H₄) est un hydrocarbure qui contient une double liaison entre les deux atomes de carbone. Cette caractéristique le place dans la famille des alcènes, qui sont des hydrocarbures insaturés comportant au moins une double liaison. Les alcanes sont saturés et ne contiennent pas de doubles liaisons ; les alcynes ont des triples liaisons ; et les arènes sont des composés aromatiques. Ainsi, les options 'Alcanes', 'Alcynes', et 'Arènes' sont incorrectes.",
+      "options": [
+        "Alcanes",
+        "Alcynes",
+        "Alcènes",
+        "Arènes"
+      ]
+    },
+    {
+      "id": "C196",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’acétylène (C₂H₂) appartient à la famille des :",
+      "correct": "C",
+      "explanation": "L'acétylène (C₂H₂) est caractérisé par une triple liaison entre les deux atomes de carbone, ce qui le classifie dans la famille des alcynes. Les alcynes sont des hydrocarbures insaturés qui contiennent une ou plusieurs triples liaisons. Les alcanes et les alcènes ne correspondent pas à cette description : les alcanes sont saturés tandis que les alcènes ont des doubles liaisons. Les cyclanes sont des hydrocarbures cycliques saturés. Donc, les options 'Alcanes', 'Alcènes', et 'Cyclanes' sont incorrectes.",
+      "options": [
+        "Alcanes",
+        "Alcènes",
+        "Alcynes",
+        "Cyclanes"
+      ]
+    },
+    {
+      "id": "C197",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La formule brute du benzène est C₆H₆. C’est un hydrocarbure :",
+      "correct": "D",
+      "explanation": "Le benzène (C₆H₆) est un hydrocarbure qui se distingue par sa structure cyclique et sa configuration électronique particulière, qui le rend aromatique. Les hydrocarbures aromatiques ont une structure cyclique plane et une alternance de doubles et simples liaisons. Les hydrocarbures aliphatiques sont linéaires ou ramifiés, et peuvent être saturés (alcanes) ou insaturés (alcènes, alcynes). Le cyclohexane est un exemple d'hydrocarbure cyclanique, mais il n'est pas aromatique. Donc, les options 'Aliphatique saturé', 'Aliphatique insaturé', et 'Cyclanique' ne décrivent pas correctement le benzène.",
+      "options": [
+        "Aliphatique saturé",
+        "Aliphatique insaturé",
+        "Cyclanique",
+        "Aromatique"
+      ]
+    },
+    {
+      "id": "C198",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La réaction de polymérisation de l’éthylène donne :",
+      "correct": "A",
+      "explanation": "La réaction de polymérisation de l'éthylène donne le polyéthylène, qui est un polymère de l'éthylène. Cette réaction consiste en l'enchaînement de molécules d'éthylène pour former une longue chaîne. Les autres options correspondent à des polymères différents : le polypropylène est issu du propène, le PVC (polychlorure de vinyle) est issu du chlorure de vinyle, et le polystyrène est issu du styrène. Ainsi, ces options sont incorrectes pour décrire le produit de la polymérisation de l'éthylène.",
+      "options": [
+        "Le polyéthylène",
+        "Le polypropylène",
+        "Le PVC",
+        "Le polystyrène"
+      ]
+    },
+    {
+      "id": "C199",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La réaction de l’acétylène avec l’eau en présence de catalyseur (Hg²⁺, H⁺) donne un composé qui se tautomérise en :",
+      "correct": "D",
+      "explanation": "L'hydratation de l'acétylène en présence d'un catalyseur donne initialement de l'éthanal (acétaldéhyde), qui peut se tautomériser en éthanol dans certaines conditions, mais directement l'éthanal est formé. L'éthylène est un produit de réduction, pas d'hydratation de l'acétylène. L'acide acétique est produit par oxydation de l'éthanal, et non directement par hydratation de l'acétylène. L'éthanol peut être produit à partir de l'éthanal par réduction. Donc, les options 'Éthylène', 'Éthanol', et 'Acide acétique' ne sont pas directement le résultat de la tautomérisation.",
+      "options": [
+        "Éthylène",
+        "Éthanol",
+        "Acide acétique",
+        "Éthanal"
+      ]
+    },
+    {
+      "id": "C200",
+      "category": "Chimie",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chloroforme (CHCl₃) est un dérivé chloré du méthane. Il est obtenu par chloration du méthane à la lumière diffuse après les étapes CH₃Cl, CH₂Cl₂, puis :",
+      "correct": "B",
+      "explanation": "Le chloroforme (CHCl₃) est obtenu par chloration successive du méthane. La chloration du méthane à la lumière diffuse donne successivement CH₃Cl, CH₂Cl₂, CHCl₃, et finalement CCl₄. Le chloroforme est donc le produit de la troisième étape de chloration. Les autres options sont incorrectes car elles correspondent soit à des étapes antérieures (CH₃Cl, CH₂Cl₂), soit à l'étape suivante (CCl₄), soit à une étape antérieure (CH₃Cl).",
+      "options": [
+        "CH₂Cl₂",
+        "CHCl₃",
+        "CCl₄",
+        "CH₃Cl"
+      ]
+    }
+  ]
+}

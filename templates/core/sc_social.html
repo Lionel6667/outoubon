@@ -1,0 +1,718 @@
+﻿{% extends 'base.html' %}
+{% block title %}Sciences Sociales — OU TOU BON{% endblock %}
+
+{% block extra_css %}
+<style>
+
+.cours-page {
+  --c1: #34d399;
+  --c2: #38bdf8;
+  --c3: #fbbf24;
+  --shell: linear-gradient(180deg, rgba(6,16,32,0.96) 0%, rgba(2,8,23,1) 42%, rgba(9,20,35,1) 100%);
+  --glass: rgba(15,23,42,0.72);
+  --line-soft: rgba(148,163,184,0.14);
+  --t1: #f1f5f9; --t2: #cbd5e1; --t3: #94a3b8;
+}
+.cours-page { overflow-x: hidden; overflow-y: auto; }
+.cours-shell { overflow-x: hidden; }
+.chapter-full-content { overflow-x: hidden; }
+.cours-page .view-area {
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--c1) 16%, transparent), transparent 28%),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--c2) 16%, transparent), transparent 24%),
+    var(--shell);
+  overflow-x: hidden;
+}
+.cours-shell { max-width: 1440px; margin: 0 auto; padding: clamp(0.5rem,2vw,1.25rem) clamp(0.5rem,2vw,1.25rem) 3rem; }
+
+.cours-hero {
+  position: relative; overflow: hidden; padding: 2rem;
+  border: 1px solid rgba(52,211,153,0.18); border-radius: 28px;
+  background: linear-gradient(135deg, rgba(8,15,29,0.96), rgba(17,24,39,0.9)),
+              linear-gradient(120deg, color-mix(in srgb, var(--c1) 12%, transparent), color-mix(in srgb, var(--c2) 12%, transparent));
+  box-shadow: 0 30px 90px rgba(2,8,23,0.45);
+}
+.hero-top-row { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1rem; }
+.back-to-cours-btn {
+  display:inline-flex; align-items:center; gap:0.45rem; padding:0.4rem 0.85rem;
+  border-radius:10px; background:rgba(15,23,42,0.6); border:1px solid rgba(148,163,184,0.18);
+  color:#94a3b8; font-size:0.78rem; font-weight:700; text-decoration:none; transition:all 0.2s;
+}
+.back-to-cours-btn:hover { background:rgba(52,211,153,0.12); border-color:rgba(52,211,153,0.3); color:#34d399; }
+.hero-kicker {
+  display:inline-flex; align-items:center; gap:0.55rem; padding:0.45rem 0.8rem;
+  border-radius:999px; background:rgba(15,23,42,0.75); border:1px solid color-mix(in srgb, var(--c1) 20%, transparent);
+  color:var(--c1); font-size:0.76rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+}
+.hero-copy h1 { max-width:760px; margin:0 0 0.85rem; font-size:clamp(1.8rem,4vw,3.2rem); line-height:1.05; font-weight:900; letter-spacing:-0.05em; color:var(--t1); }
+.hero-copy p { max-width:760px; color:#e2e8f0; opacity:0.86; font-size:1rem; line-height:1.85; }
+
+.chapters-container { display:grid; opacity:1; transition:opacity 0.3s; width:100%; grid-template-columns:1fr; }
+.chapters-container.hidden { display:none; }
+.cours-hero.hidden { display:none; }
+.chapters-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; margin-top:clamp(1.5rem,4vw,2.5rem); width:100%; align-items:stretch; }
+.chapter-card-btn {
+  position:relative; overflow:visible; width:100%; border-radius:clamp(12px,1.5vw,18px);
+  border:2px solid color-mix(in srgb, var(--c1) 20%, transparent);
+  background:linear-gradient(135deg, rgba(20,30,48,0.92), rgba(25,35,55,0.88));
+  box-shadow:0 12px 32px rgba(2,8,23,0.28); padding:clamp(1.2rem,4vw,1.6rem) clamp(0.9rem,2.5vw,1rem);
+  cursor:pointer; transition:all 0.24s cubic-bezier(0.4,0,0.2,1); display:flex; flex-direction:column;
+  gap:0.85rem; text-align:center; font-family:inherit; justify-content:space-between;
+}
+.chapter-card-btn:hover { transform:translateY(-4px); border-color:color-mix(in srgb, var(--c1) 50%, transparent); box-shadow:0 20px 50px color-mix(in srgb, var(--c1) 25%, transparent); }
+.chapter-card-btn::before { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(120deg, color-mix(in srgb, var(--c1) 8%, transparent), transparent 50%, color-mix(in srgb, var(--c2) 6%, transparent)); border-radius:inherit; }
+.chapter-card-top { display:flex; flex-direction:column; gap:0.6rem; }
+.chapter-number-badge { font-size:clamp(1.1rem,4vw,1.8rem); font-weight:900; background:linear-gradient(135deg, var(--c1), var(--c2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1.1; }
+.chapter-title { margin:0; font-size:clamp(0.75rem,2.5vw,0.95rem); font-weight:700; color:var(--t1); line-height:1.4; word-break:break-word; overflow-wrap:break-word; }
+.chapter-group-badge { margin:0 auto; font-size:0.65rem; font-weight:800; color:var(--c2); background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.2); padding:0.2rem 0.55rem; border-radius:999px; letter-spacing:0.05em; }
+.chapter-progress-bar-container { position:relative; width:100%; height:clamp(4px,1vw,6px); border-radius:3px; background:rgba(148,163,184,0.15); overflow:hidden; }
+.chapter-progress-bar { height:100%; width:0%; border-radius:3px; transition:width 0.3s; box-shadow:0 0 12px color-mix(in srgb, var(--c1) 40%, transparent); }
+.progress-percentage { font-size:clamp(0.65rem,1.5vw,0.75rem); color:#fff; font-weight:700; text-align:center; margin-top:0.3rem; }
+
+.cours-content-area { display:none; }
+.cours-content-area.active { display:grid; }
+.chapter-full {
+  position:relative; overflow:visible; border-radius:clamp(20px,3vw,32px);
+  border:1px solid rgba(52,211,153,0.15); background:linear-gradient(180deg, rgba(5,12,24,0.96), rgba(8,15,28,0.92));
+  box-shadow:0 20px 60px rgba(0,0,0,0.5), inset 0 1px 1px rgba(52,211,153,0.1);
+  padding:clamp(1.5rem,4vw,2.5rem); max-width:900px; margin:0 auto;
+}
+.chapter-full-header {
+  position:relative; z-index:1; margin-bottom:clamp(1.4rem,3vw,2.2rem); padding-bottom:clamp(1rem,2vw,1.8rem);
+  border-bottom:2px solid rgba(52,211,153,0.2); display:flex; align-items:center; gap:clamp(1rem,2vw,1.5rem);
+}
+.chapter-back-btn {
+  background:rgba(52,211,153,0.12); border:1px solid rgba(52,211,153,0.2); color:#34d399;
+  padding:0.7rem; border-radius:12px; cursor:pointer; transition:all 0.2s; font-size:1rem;
+  display:flex; align-items:center; justify-content:center; width:40px; height:40px; flex-shrink:0;
+}
+.chapter-back-btn:hover { background:rgba(52,211,153,0.22); border-color:rgba(52,211,153,0.4); }
+.chapter-full h2 {
+  margin:0; font-size:clamp(1.8rem,5vw,2.4rem); line-height:1.1;
+  background:linear-gradient(135deg, var(--c1), var(--c3)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  flex:1; word-break:break-word; font-weight:800; letter-spacing:-0.02em;
+}
+
+.chapter-text { color:#cdd9e8; line-height:1.95; font-size:clamp(0.97rem,2.1vw,1.07rem); margin-bottom:clamp(1.8rem,3.5vw,2.4rem); font-weight:400; letter-spacing:0.22px; overflow-wrap:break-word; word-break:break-word; max-width:100%; }
+.chapter-text strong, .chapter-text b { color:#f0f6ff; font-weight:700; }
+.chapter-text em, .chapter-text i { color:#b8d0ea; font-style:italic; }
+.chapter-text code { background:rgba(52,211,153,0.15); color:#34d399; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.92em; font-weight:600; }
+.chapter-text h3 {
+  position:relative; margin:3rem 0 1.4rem; padding:1.1rem 1.5rem 1.1rem 4.8rem;
+  font-size:clamp(1.05rem,2.3vw,1.3rem); font-weight:800; letter-spacing:-0.015em; line-height:1.4;
+  color:#6ee7b7; background:linear-gradient(135deg, rgba(52,211,153,0.13), rgba(56,189,248,0.07));
+  border:1px solid rgba(52,211,153,0.22); border-left:4px solid #34d399; border-radius:0 16px 16px 0;
+  box-shadow:0 4px 32px rgba(52,211,153,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.chapter-text h3::before {
+  content:'\f02d'; font-family:'Font Awesome 6 Free'; font-weight:900; color:rgba(255,255,255,0.9); font-size:0.9rem;
+  display:flex; align-items:center; justify-content:center;
+  position:absolute; left:1.1rem; top:50%; transform:translateY(-50%);
+  width:2.4rem; height:2.4rem; background:linear-gradient(135deg, #34d399, #0891b2); border-radius:9px; box-shadow:0 0 20px rgba(52,211,153,0.55);
+}
+.chapter-text h4 { position:relative; margin:2.2rem 0 1rem; padding:0.75rem 1.2rem 0.75rem 1.6rem; font-size:clamp(0.98rem,2vw,1.12rem); font-weight:700; color:#67e8f9; border-left:3px solid #38bdf8; background:linear-gradient(90deg, rgba(56,189,248,0.1), transparent 65%); border-radius:0 10px 10px 0; }
+.chapter-text p { margin:clamp(1rem,2vw,1.4rem) 0; letter-spacing:0.22px; color:#cdd9e8; overflow-wrap:break-word; word-break:break-word; }
+.chapter-text ul, .chapter-text ol { margin:clamp(1.2rem,2.5vw,1.8rem) 0 clamp(1.2rem,2.5vw,1.8rem) clamp(1.6rem,3vw,2.4rem); padding:0; }
+.chapter-text li { margin:clamp(0.55rem,1.1vw,0.82rem) 0; color:#cdd9e8; line-height:1.9; }
+.chapter-text ul > li::marker { color:#34d399; font-weight:700; }
+.chapter-text ol > li::marker { color:#fbbf24; font-weight:700; }
+.chapter-text table { width:100%; border-collapse:collapse; margin:1.5rem 0; overflow-x:auto; display:block; }
+.chapter-text th { background:linear-gradient(135deg, rgba(52,211,153,0.18), rgba(56,189,248,0.12)); color:#6ee7b7; font-weight:800; padding:0.8rem 1rem; border:1px solid rgba(52,211,153,0.2); font-size:0.88rem; text-align:left; }
+.chapter-text td { padding:0.65rem 1rem; border:1px solid rgba(148,163,184,0.12); color:#cdd9e8; font-size:0.9rem; vertical-align:top; }
+.chapter-text tr:nth-child(even) td { background:rgba(52,211,153,0.04); }
+
+.formula-block, .formula-card {
+  position:relative; margin:2.2rem 0; padding:1.8rem 2rem 1.6rem;
+  background:radial-gradient(ellipse at top, rgba(37,99,235,0.18) 0%, transparent 60%), linear-gradient(135deg, rgba(15,30,80,0.45), rgba(8,20,50,0.4));
+  border:1px solid rgba(96,165,250,0.32); border-top:2px solid rgba(96,165,250,0.6);
+  border-radius:18px; box-shadow:0 0 0 1px rgba(96,165,250,0.06), 0 12px 55px rgba(96,165,250,0.15);
+  overflow-x:auto; text-align:center;
+}
+.formula-block::before, .formula-card::before {
+  content:'FORMULE'; position:absolute; top:-1px; right:1.5rem;
+  background:linear-gradient(135deg, #1e40af, #0369a1); color:#fff; font-size:0.58rem;
+  font-weight:900; letter-spacing:0.14em; padding:0.24rem 0.9rem; border-radius:0 0 11px 11px;
+}
+.katex-display { margin:0 !important; padding:0.5rem 0 !important; overflow-x:auto; }
+
+.highlight-box { position:relative; margin:1.5rem 0; padding:1.1rem 1.5rem 1.1rem 4.2rem; border-radius:0 14px 14px 0; border-left:4px solid; line-height:1.85; font-weight:500; }
+.highlight-box::before { position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:1.3rem; }
+.highlight-astuce, .highlight-tip { background:linear-gradient(135deg, rgba(34,197,94,0.11), rgba(16,185,129,0.06)); border-left-color:#22c55e; color:#d1fae5; }
+.highlight-astuce::before, .highlight-tip::before { content:'✅'; }
+.highlight-attention, .highlight-warning { background:linear-gradient(135deg, rgba(239,68,68,0.11), rgba(220,38,38,0.06)); border-left-color:#ef4444; color:#fee2e2; }
+.highlight-attention::before, .highlight-warning::before { content:'⚠️'; }
+.highlight-info { background:linear-gradient(135deg, rgba(56,189,248,0.11), rgba(14,165,233,0.06)); border-left-color:#38bdf8; color:#e0f2fe; }
+.highlight-info::before { content:'💡'; }
+.highlight-note { background:linear-gradient(135deg, rgba(168,85,247,0.11), rgba(139,92,246,0.06)); border-left-color:#a855f7; color:#f3e8ff; }
+.highlight-note::before { content:'📌'; }
+.highlight-important { background:linear-gradient(135deg, rgba(245,158,11,0.13), rgba(217,119,6,0.07)); border-left-color:#f59e0b; color:#fef3c7; }
+.highlight-important::before { content:'⭐'; }
+.highlight-definition { background:linear-gradient(135deg, rgba(168,85,247,0.13), rgba(139,92,246,0.07)); border-left-color:#a855f7; color:#f3e8ff; }
+.highlight-definition::before { content:'📖'; }
+.numbered-block { position:relative; margin:0.9rem 0; padding:1rem 1.3rem 1rem 1.5rem; background:linear-gradient(135deg, rgba(52,211,153,0.09), rgba(56,189,248,0.04)); border-left:3px solid #34d399; border-radius:0 13px 13px 0; display:flex; gap:1rem; align-items:flex-start; line-height:1.85; }
+.numbered-block .enum-symbol { color:#34d399; font-weight:800; font-size:1.35em; flex-shrink:0; min-width:2.1rem; height:2.1rem; display:flex; align-items:center; justify-content:center; background:rgba(52,211,153,0.14); border-radius:8px; }
+.numbered-block .enum-content { color:#dde6f3; flex:1; font-weight:500; }
+.definition-item { position:relative; margin:0.8rem 0; padding:0.95rem 1.2rem 0.95rem 3.8rem; background:linear-gradient(135deg, rgba(52,211,153,0.1), rgba(56,189,248,0.05)); border-left:3px solid #34d399; border-radius:0 12px 12px 0; color:#dde8f5; line-height:1.75; font-size:clamp(0.9rem,2vw,1rem); }
+.definition-item::before { content:'Déf'; position:absolute; left:0.6rem; top:50%; transform:translateY(-50%); font-size:0.58rem; font-weight:900; color:#34d399; background:rgba(52,211,153,0.18); padding:0.15rem 0.35rem; border-radius:4px; }
+
+.calc-chain { display:flex; flex-direction:column; gap:0.28rem; padding:1rem 1.25rem; margin:0.9rem 0; background:rgba(37,99,235,0.08); border-radius:12px; border-left:3px solid rgba(96,165,250,0.35); }
+.calc-step { color:#cdd9e8; padding:0.15rem 0; line-height:1.8; font-size:clamp(0.9rem,2vw,1rem); }
+.calc-step:first-child { color:#e2e8f0; font-weight:500; }
+
+.embedded-q { display:flex; gap:0.75rem; padding:0.8rem 1.1rem; margin:0.4rem 0; background:rgba(52,211,153,0.07); border-left:3px solid rgba(52,211,153,0.3); border-radius:0 10px 10px 0; align-items:flex-start; }
+.eq-num { color:#34d399; font-weight:800; font-size:0.88em; flex-shrink:0; min-width:2.2rem; }
+.eq-text { color:#cdd9e8; flex:1; line-height:1.7; }
+
+.quiz-wrap { width:100%; background:linear-gradient(180deg, rgba(15,23,42,0.4), rgba(15,23,42,0.2)); border:1px solid rgba(52,211,153,0.12); border-radius:clamp(18px,3vw,24px); padding:clamp(1.8rem,3.5vw,2.5rem); margin:clamp(2rem,4vw,3rem) 0; }
+.quiz-grid { display:grid; gap:clamp(1.4rem,2.5vw,1.8rem); margin:clamp(1.4rem,2.5vw,2rem) 0; }
+.quiz-card { background:linear-gradient(135deg, rgba(52,211,153,0.07), rgba(56,189,248,0.05)); border:1px solid rgba(52,211,153,0.15); border-radius:clamp(14px,2vw,20px); padding:clamp(1.2rem,2vw,1.6rem); opacity:0; animation:slideIn 0.4s cubic-bezier(0.4,0,0.2,1) forwards; }
+@keyframes slideIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.quiz-card:nth-child(1){animation-delay:.1s}.quiz-card:nth-child(2){animation-delay:.2s}.quiz-card:nth-child(3){animation-delay:.3s}
+.quiz-card h4 { margin:0 0 clamp(1rem,2vw,1.4rem); font-size:clamp(1rem,2vw,1.15rem); font-weight:700; color:#e2e8f0; line-height:1.6; }
+.quiz-options { display:flex; flex-direction:column; gap:clamp(0.8rem,1.5vw,1rem); margin-bottom:clamp(1.2rem,2vw,1.6rem); }
+.quiz-option { display:flex; gap:clamp(0.6rem,1.5vw,0.85rem); align-items:flex-start; width:100%; padding:clamp(0.75rem,1.5vw,0.95rem) clamp(0.9rem,2vw,1.1rem); border-radius:14px; background:rgba(15,23,42,0.6); border:1px solid rgba(148,163,184,0.12); color:var(--t2); text-align:left; cursor:pointer; transition:border-color 0.18s, background 0.18s, transform 0.18s; font-size:clamp(0.9rem,1.8vw,0.95rem); font-weight:500; }
+.quiz-option:hover { transform:translateY(-2px); border-color:rgba(52,211,153,0.25); background:rgba(52,211,153,0.08); }
+.quiz-option.selected { border-color:rgba(52,211,153,0.35); background:linear-gradient(135deg, rgba(52,211,153,0.15), rgba(56,189,248,0.12)); color:var(--t1); }
+.quiz-option.correct-answer { border-color:rgba(34,197,94,0.35); background:linear-gradient(135deg, rgba(34,197,94,0.12), rgba(22,163,74,0.08)); color:#86efac; }
+.quiz-option.wrong-answer { border-color:rgba(239,68,68,0.3); background:linear-gradient(135deg, rgba(239,68,68,0.12), rgba(220,38,38,0.08)); color:#fecaca; }
+.option-letter { width:clamp(28px,3vw,32px); height:clamp(28px,3vw,32px); border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:clamp(0.7rem,1.5vw,0.8rem); font-weight:800; background:rgba(148,163,184,0.12); color:rgba(148,163,184,0.7); }
+.quiz-option.correct-answer .option-letter { background:linear-gradient(135deg, #22c55e, #16a34a); color:#000; }
+.quiz-option.wrong-answer .option-letter { background:linear-gradient(135deg, #ef4444, #dc2626); color:#fff; }
+.quiz-option.selected .option-letter { background:linear-gradient(135deg, #34d399, #0891b2); color:#000; }
+.quiz-explanation { padding:clamp(0.9rem,2vw,1.2rem); background:rgba(52,211,153,0.08); border-left:3px solid #34d399; border-radius:10px; color:#cbd5e1; line-height:1.6; font-size:clamp(0.9rem,1.8vw,0.95rem); display:none; }
+.quiz-explanation.show { display:block; animation:fadeIn 0.3s ease-in; }
+.quiz-actions { display:flex; gap:1rem; flex-wrap:wrap; margin:clamp(1.5rem,3vw,2rem) 0; }
+.quiz-submit { padding:clamp(0.75rem,1.5vw,0.95rem) clamp(1.2rem,2vw,1.6rem); border-radius:12px; border:none; background:linear-gradient(135deg, #34d399, #0891b2); color:white; font-weight:700; cursor:pointer; font-size:clamp(0.85rem,1.8vw,0.95rem); transition:all 0.3s; box-shadow:0 4px 12px rgba(52,211,153,0.3); }
+.quiz-submit:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 20px rgba(52,211,153,0.4); }
+.quiz-submit:disabled { opacity:0.6; cursor:not-allowed; }
+.quiz-reset { padding:clamp(0.75rem,1.5vw,0.95rem) clamp(1.2rem,2vw,1.6rem); border-radius:12px; border:1px solid rgba(148,163,184,0.2); background:rgba(148,163,184,0.08); color:#cbd5e1; font-weight:700; cursor:pointer; font-size:clamp(0.85rem,1.8vw,0.95rem); transition:all 0.3s; }
+
+.key-points-section { margin-top:2.5rem; padding:1.8rem; border-radius:20px; background:linear-gradient(135deg, rgba(52,211,153,0.1), rgba(56,189,248,0.07)); border:1px solid rgba(52,211,153,0.25); }
+.key-points-header { display:flex; align-items:center; gap:0.85rem; margin-bottom:1.4rem; padding-bottom:1rem; border-bottom:1px solid rgba(52,211,153,0.2); }
+.key-points-icon { font-size:1.6rem; flex-shrink:0; }
+.key-points-title { margin:0; font-size:1.1rem; font-weight:800; color:#6ee7b7; flex:1; }
+.key-points-refresh-btn { background:rgba(52,211,153,0.15); border:1px solid rgba(52,211,153,0.25); color:#34d399; padding:0.45rem 0.7rem; border-radius:9px; cursor:pointer; font-size:0.85rem; transition:all 0.2s; }
+.key-points-list { display:flex; flex-direction:column; gap:0.75rem; }
+.key-points-loading { display:flex; align-items:center; gap:0.8rem; color:#94a3b8; font-size:0.9rem; }
+.key-point-item { display:flex; gap:0.85rem; align-items:flex-start; padding:0.9rem 1.1rem; background:rgba(52,211,153,0.08); border-left:3px solid #34d399; border-radius:0 12px 12px 0; color:#d1fae5; font-size:0.93rem; line-height:1.7; animation:slideIn 0.3s ease forwards; }
+.key-point-num { min-width:1.6rem; height:1.6rem; background:linear-gradient(135deg, #34d399, #0891b2); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:900; color:white; flex-shrink:0; margin-top:0.1rem; }
+
+.essay-section { margin:clamp(2rem,4vw,3rem) 0; padding:clamp(1.5rem,3vw,2rem); background:linear-gradient(135deg, rgba(251,191,36,0.07), rgba(245,158,11,0.04)); border:1px solid rgba(251,191,36,0.18); border-radius:clamp(16px,2vw,22px); }
+.essay-section h3 { margin:0 0 0.6rem; font-size:clamp(1rem,2.2vw,1.2rem); font-weight:800; color:#fde68a; }
+.essay-section > p { color:#cbd5e1; font-size:0.92rem; margin:0 0 1.4rem; line-height:1.7; }
+.essay-grid { display:grid; gap:1.2rem; }
+.essay-card { background:rgba(15,23,42,0.6); border:1px solid rgba(251,191,36,0.15); border-radius:14px; padding:1.2rem 1.4rem; }
+.essay-card h4 { margin:0 0 0.6rem; font-size:clamp(0.92rem,2vw,1rem); font-weight:700; color:#e2e8f0; line-height:1.55; }
+.essay-hint { display:block; color:#94a3b8; font-size:0.83rem; line-height:1.6; margin-bottom:0.9rem; }
+.essay-card textarea { width:100%; min-height:120px; background:rgba(8,15,29,0.7); border:1px solid rgba(148,163,184,0.18); border-radius:10px; color:#e2e8f0; padding:0.75rem 1rem; font-size:0.9rem; line-height:1.6; resize:vertical; font-family:inherit; box-sizing:border-box; }
+.essay-card textarea:focus { outline:none; border-color:rgba(251,191,36,0.3); }
+.essay-toolbar { display:flex; align-items:center; justify-content:flex-end; gap:1rem; margin-top:0.75rem; flex-wrap:wrap; }
+.essay-submit { padding:0.6rem 1.2rem; border-radius:10px; border:none; background:linear-gradient(135deg, #f59e0b, #d97706); color:#000; font-weight:700; cursor:pointer; font-size:0.88rem; transition:all 0.2s; display:flex; align-items:center; gap:0.45rem; }
+.essay-submit:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(251,191,36,0.3); }
+.essay-feedback { margin-top:0.85rem; padding:0.9rem 1.1rem; background:rgba(52,211,153,0.08); border-left:3px solid #34d399; border-radius:0 10px 10px 0; color:#d1fae5; font-size:0.9rem; line-height:1.65; display:none; }
+.essay-feedback.visible { display:block; animation:fadeIn 0.3s ease; }
+
+.ai-chat-button { position:fixed; bottom:2rem; right:2rem; width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg, #34d399 0%, #38bdf8 100%) !important; border:2px solid rgba(52,211,153,0.4); color:white; font-size:1.8rem; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 8px 32px rgba(52,211,153,0.4); transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); z-index:999; }
+.ai-chat-button.visible { display:flex; animation:slideIn 0.4s ease-out; }
+.ai-chat-button:hover { transform:scale(1.1); }
+.ai-chat-window { position:fixed; bottom:120px; right:2rem; width:380px; max-height:600px; background:linear-gradient(135deg, rgba(15,23,42,0.95), rgba(8,15,29,0.98)); border:1px solid rgba(52,211,153,0.2); border-radius:20px; display:none; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.5); z-index:1000; overflow:hidden; }
+.ai-chat-window.active { display:flex; animation:slideUp 0.4s ease-out; }
+@keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.chat-header { padding:1rem; border-bottom:1px solid rgba(52,211,153,0.15); display:flex; justify-content:space-between; align-items:center; background:linear-gradient(135deg, rgba(52,211,153,0.1), rgba(56,189,248,0.05)); }
+.chat-header h3 { margin:0; font-size:1rem; color:#f1f5f9; display:flex; align-items:center; gap:0.5rem; }
+.chat-header .close-btn { background:none; border:none; color:#94a3b8; font-size:1.2rem; cursor:pointer; padding:0; display:flex; align-items:center; }
+.chat-messages { flex:1; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:0.75rem; }
+.chat-message { padding:0.8rem 1rem; border-radius:14px; font-size:0.92rem; line-height:1.6; max-width:90%; }
+.chat-message.user { align-self:flex-end; background:linear-gradient(135deg, rgba(52,211,153,0.2), rgba(56,189,248,0.15)); color:#e2e8f0; border-bottom-right-radius:4px; }
+.chat-message.ai { align-self:flex-start; background:rgba(30,41,59,0.8); color:#cbd5e1; border-bottom-left-radius:4px; border:1px solid rgba(52,211,153,0.1); }
+.chat-message.loading { align-self:flex-start; background:rgba(30,41,59,0.5); border:1px solid rgba(52,211,153,0.08); padding:0.8rem 1rem; border-radius:14px; }
+.typing-indicator { display:flex; gap:0.4rem; align-items:center; }
+.typing-dot { width:7px; height:7px; border-radius:50%; background:#34d399; animation:bounce 1.2s infinite; }
+.typing-dot:nth-child(2){animation-delay:.15s}.typing-dot:nth-child(3){animation-delay:.3s}
+@keyframes bounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)} }
+.chat-input-area { padding:0.85rem; border-top:1px solid rgba(52,211,153,0.1); display:flex; gap:0.6rem; }
+.chat-input { flex:1; padding:0.7rem 1rem; border-radius:12px; border:1px solid rgba(52,211,153,0.15); background:rgba(15,23,42,0.9); color:#f1f5f9; font-size:0.9rem; outline:none; }
+.chat-input:focus { border-color:rgba(52,211,153,0.35); }
+.chat-send-btn { width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg, #34d399, #0891b2); border:none; color:white; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; }
+
+@media(max-width:1400px){.chapters-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:1024px){.chapters-grid{grid-template-columns:repeat(3,1fr);gap:0.9rem;}}
+@media(max-width:768px){
+  .cours-shell{padding:0.5rem 0.5rem 2.5rem;}
+  .chapters-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem;margin-top:1.2rem;}
+  .chapter-card-btn{padding:1rem 0.8rem;gap:0.5rem;border-radius:14px;}
+  .chapter-number-badge{font-size:1.4rem;}
+  .chapter-title{font-size:0.8rem;}
+  .chapter-full{padding:clamp(1rem,3vw,1.4rem);border-radius:20px;overflow-x:hidden;}
+  .chapter-full-header{gap:0.75rem;}
+  .chapter-text{font-size:clamp(0.85rem,2vw,0.95rem);overflow-x:hidden;}
+  .chapter-text h3{font-size:clamp(1rem,3vw,1.2rem);margin:1.5rem 0 0.8rem;padding-left:1rem;padding-right:0.5rem;}
+  .chapter-text h3::before{left:0.3rem;width:1.8rem;height:1.8rem;font-size:0.75rem;}
+  .chapter-text h4{font-size:clamp(0.95rem,2.5vw,1.05rem);}
+  .formula-card,.formula-block{padding:1.2rem 0.8rem 1rem;margin:1.4rem 0;overflow-x:auto;max-width:100%;}
+  .ai-chat-window{width:calc(100vw - 2rem);right:1rem;bottom:100px;}
+  .ai-chat-button{bottom:1rem;right:1rem;width:52px;height:52px;}
+  .key-points-section{padding:1.2rem;margin-top:1.5rem;}
+  .quiz-wrap{padding:1.2rem;}
+  .chapter-text table{font-size:0.82rem;}
+  .essay-section{padding:1.2rem;}
+}
+@media(max-width:480px){
+  .chapters-grid{grid-template-columns:repeat(2,1fr);gap:0.6rem;}
+  .chapter-card-btn{padding:0.8rem 0.6rem;}
+  .chapter-number-badge{font-size:1.2rem;}
+  .chapter-title{font-size:0.75rem;}
+  .chapter-full{padding:0.9rem;}
+  .chapter-text{font-size:0.88rem;}
+  .chapter-text h3{padding:0.9rem 0.8rem 0.9rem 3.8rem;}
+  .chapter-text h3::before{left:0.6rem;width:1.9rem;height:1.9rem;}
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="view-area cours-page">
+  <div class="cours-shell">
+    
+    <div class="cours-hero" id="hero-section">
+      <div class="hero-top-row">
+        <a href="{% url 'cours' %}" class="back-to-cours-btn"><i class="fas fa-arrow-left"></i> Cours</a>
+        <span class="hero-kicker"><i class="fas fa-landmark"></i> Sciences Sociales BAC</span>
+      </div>
+      <div class="hero-copy">
+        <h1>Histoire nationale &amp; universelle</h1>
+        <p>Tous les chapitres structurés en parcours visuel premium : chronologie, QCM, questions à développer corrigées par l'IA.</p>
+      </div>
+    </div>
+
+    
+    <div class="chapters-container" id="chapters-container">
+      <div class="chapters-grid" id="chapters-list"></div>
+    </div>
+
+    
+    <div class="cours-content-area" id="content-area">
+      <div class="chapter-full">
+        <div class="chapter-full-header">
+          <button class="chapter-back-btn" id="back-btn" title="Retour à la liste des chapitres">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <h2 id="chapter-title"></h2>
+        </div>
+        <div class="chapter-full-content">
+          <div class="chapter-text" id="chapter-body"></div>
+          
+          <div class="key-points-section" id="key-points-section" style="display:none;">
+            <div class="key-points-header">
+              <span class="key-points-icon">🧠</span>
+              <h3 class="key-points-title">Points Clés à Retenir</h3>
+              <button class="key-points-refresh-btn" id="key-points-refresh-btn"><i class="fas fa-sync-alt"></i></button>
+            </div>
+            <div id="key-points-list" class="key-points-list">
+              <div class="key-points-loading"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div><span>L'IA analyse le chapitre...</span></div>
+            </div>
+          </div>
+          
+          <div id="essay-container"></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <button class="ai-chat-button" id="ai-chat-btn" title="Poser une question à l'IA"><i class="fas fa-comments"></i></button>
+    <div class="ai-chat-window" id="ai-chat-window">
+      <div class="chat-header">
+        <h3><i class="fas fa-robot"></i> Assistant IA — Sciences Sociales</h3>
+        <button class="close-btn" id="close-chat-btn">✕</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Poser une question sur le chapitre...">
+        <button class="chat-send-btn" id="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SC_SOCIAL_DATA = JSON.parse(`{{ sc_social_data_json|default:'{}'|escapejs }}`);
+const COURSE_NAME = 'Sciences Sociales';
+const SC_SOCIAL_CORRECT_URL = '{% url "api_sc_social_correct" %}';
+
+let chapters = [];
+let currentChapterIndex = -1;
+let chapterProgress = {};
+
+(SC_SOCIAL_DATA.sections || []).forEach(section => {
+  (section.chapters || []).map(ch => {
+    chapters.push({
+      title: ch.title || '',
+      number: ch.number || chapters.length + 1,
+      group: section.group || '',
+      text: ch.raw_text || ch.rawText || '',
+      qcm: (ch.qcm || []).filter(q => Number.isInteger(q.answer)),
+      essays: (ch.essay_prompts || []),
+      period: ch.period || '',
+      summary: ch.summary || '',
+    });
+  });
+});
+
+chapters.forEach((ch, idx) => { chapterProgress[idx] = Math.random() * 65; });
+
+function formatContent(text) {
+  if (!text) return '<p>Pas de contenu disponible</p>';
+  let result = text;
+
+  result = result.replace(/\*?\*?Question\s+\d+\s*\(QCM\)\s*:?\*?\*?\n[\s\S]*?\*\(R[ée]ponse\s*:\s*[A-D]\)\*/gm, '');
+  result = result.replace(/^###\s+R[ÉE]CAPITULONS AVEC UN QCM BILAN[\s\S]*/im, '');
+  result = result.replace(/^###\s+[ÉE]VALUATION COMPL[ÈE]TE[\s\S]*/im, '');
+  result = result.replace(/^\*\(R[ée]ponse\s*:\s*[A-D]\)\*$/gm, '');
+  result = result.replace(/^-\s+[A-D]\)\s+.+$/gm, '');
+
+  result = result.replace(/\\\[\s*([\s\S]*?)\s*\\\]/g, (m, c) => '\n$$' + c.trim() + '$$\n');
+  result = result.replace(/\\\(\s*([\s\S]*?)\s*\\\)/g, (m, c) => '$' + c.trim() + '$');
+
+  result = result.replace(/([^\n]*?)(\$\$[\s\S]*?\$\$)([^\n]*)/g, (m, before, formula, after) => {
+    const parts = [];
+    if (before.trim()) parts.push(before.trim());
+    parts.push(formula);
+    if (after.trim()) parts.push(after.trim());
+    return parts.join('\n');
+  });
+
+  result = result.replace(/^[═─=]{3,}.*$/gm, '');
+  result = result.replace(/^_{3,}.*$/gm, '');
+  result = result.replace(/^####\s+/gm, '');
+  result = result.replace(/^---+$/gm, '');
+  result = result.replace(/\n\n\n+/g, '\n\n');
+
+  result = result.replace(/^⚠️\s*(.{3,300})$/gm, '<div class="highlight-box highlight-attention"><strong>⚠️</strong> $1</div>');
+  result = result.replace(/^✅\s*(.{3,300})$/gm, '<div class="highlight-box highlight-astuce"><strong>✅</strong> $1</div>');
+  result = result.replace(/^💡\s*(.{3,300})$/gm, '<div class="highlight-box highlight-info"><strong>💡</strong> $1</div>');
+  result = result.replace(/^📌\s*(.{3,300})$/gm, '<div class="highlight-box highlight-note"><strong>📌</strong> $1</div>');
+
+  result = result.replace(/^\*\*(Attention|Note|Important|Astuce|Conseil|Définition|À savoir|À retenir|Piège du Bac)(\s*[:\—]\s*)(.*?)\*\*(.*?)$/gim, (m, label, sep, desc, rest) => {
+    const cls = label.toLowerCase().includes('attention') ? 'highlight-attention' : label.toLowerCase().includes('astuce') || label.toLowerCase().includes('retenir') ? 'highlight-astuce' : label.toLowerCase().includes('piège') ? 'highlight-attention' : 'highlight-info';
+    return `<div class="highlight-box ${cls}"><strong>${label}${sep}${desc}</strong>${rest}</div>`;
+  });
+
+  result = result.replace(/^###\s+(.+?)$/gm, '<h4>$1</h4>');
+  result = result.replace(/^##\s+(.+?)$/gm, '<h3>$1</h3>');
+  result = result.replace(/^#\s+(.+?)$/gm, '<h2>$1</h2>');
+
+  result = result.replace(/^[–—]\s+([A-ZÀÂÇÉÈÊËÎÏÔÙÛÜÆŒ][^a-z\n]{3,120})$/gm, '<h3>$1</h3>');
+  result = result.replace(/^[–—]\s+(.{5,120})$/gm, '<h4>$1</h4>');
+
+  result = result.replace(/^([\u{1F300}-\u{1FAFF}][\uFE0F]?)\s+(.{3,150})$/gmu, '<h3>$1 $2</h3>');
+
+  const _fs = [];
+  result = result.replace(/\$\$[\s\S]*?\$\$|\$[^$\n]+?\$/g, m => { _fs.push(m); return '\x00F' + (_fs.length-1) + '\x00'; });
+  result = result.replace(/\*\*([^\*]+?)\*\*/g, '<strong>$1</strong>');
+  result = result.replace(/_([^_\s<>][^_<>]*?)_/g, '<em>$1</em>');
+  result = result.replace(/\x00F(\d+)\x00/g, (m, i) => _fs[parseInt(i)]);
+
+  result = result.replace(/^[•·]\s*(.+)$/gm, '<li>$1</li>');
+  result = result.replace(/^[\-\*]\s+(.{1,})$/gm, '<li>$1</li>');
+  result = result.replace(/^(\d+)\.\s+(.+)$/gm, '<li>$2</li>');
+
+  result = result.replace(/(<li>[^\n]*<\/li>(?:\n<li>[^\n]*<\/li>)*)/g, m => '<ul>' + m + '</ul>');
+
+  result = result.replace(/^>\s+(.+?)$/gm, (m, c) => `<div class="highlight-box highlight-info">${c}</div>`);
+
+  result = result.replace(/^\|(.+)\|$/gm, row => {
+    const cells = row.split('|').filter((c,i) => i > 0 && i < row.split('|').length - 1);
+    if (cells.every(c => /^[-\s:]+$/.test(c.trim()))) return '<tr class="separator"></tr>';
+    const isHeader = cells.some(c => c.trim().startsWith('**'));
+    const tag = isHeader ? 'th' : 'td';
+    return '<tr>' + cells.map(c => `<${tag}>${c.trim().replace(/\*\*/g,'')}</${tag}>`).join('') + '</tr>';
+  });
+
+  const tableLines = result.split('\n');
+  let inTable = false;
+  const processed = [];
+  for (const line of tableLines) {
+    if (line.includes('<tr>') || line.includes('<tr class=')) {
+      if (!inTable) { processed.push('<div style="overflow-x:auto;width:100%;max-width:100%"><table>'); inTable = true; }
+      if (!line.includes('class="separator"')) processed.push(line);
+    } else {
+      if (inTable) { processed.push('</table></div>'); inTable = false; }
+      processed.push(line);
+    }
+  }
+  if (inTable) processed.push('</table></div>');
+  result = processed.join('\n');
+
+  const lines2 = result.split('\n');
+  let html = [], inPara = false;
+  for (const line of lines2) {
+    const t = line.trim();
+    if (!t) { if (inPara) { html.push('</p>'); inPara = false; } }
+    else if (t.startsWith('<') || t.startsWith('$$') || /^\\\[/.test(t)) {
+      if (inPara) { html.push('</p>'); inPara = false; }
+      html.push(t);
+    } else {
+      if (!inPara) { html.push('<p>'); inPara = true; } else { html.push('<br>'); }
+      html.push(t);
+    }
+  }
+  if (inPara) html.push('</p>');
+  result = html.join('\n');
+  result = result.replace(/<p><\/p>/g, '').replace(/<p>\s*(<h[1-4]|<div|<ul|<ol|<table)/g, '$1').replace(/(<\/h[1-4]>|<\/div>|<\/ul>|<\/table>)\s*<\/p>/g, '$1');
+
+  return result.trim();
+}
+
+function buildQuizHTML(qcm) {
+  if (!qcm || !qcm.length) return '';
+  let html = `<div class="quiz-wrap"><div style="margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:2px solid rgba(52,211,153,0.2);">
+    <h3 style="margin:0;font-size:clamp(1.4rem,3vw,1.8rem);background:linear-gradient(135deg,#34d399,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;">📋 QCM du Chapitre</h3>
+    <p style="margin:0.5rem 0 0;color:#cbd5e1;font-size:0.95rem;">${qcm.length} questions de vérification</p></div><div class="quiz-grid">`;
+  qcm.forEach((q, idx) => {
+    const opts = q.options.map((opt, oi) => {
+      const letter = String.fromCharCode(65 + oi);
+      const isCorrect = (oi === q.answer);
+      return `<div class="quiz-option" onclick="selectQuizOption(this)" data-correct="${isCorrect}"><span class="option-letter">${letter}</span><span>${opt}</span></div>`;
+    }).join('');
+    const explanation = q.explanation || (q.options[q.answer] ? `Bonne réponse : ${q.options[q.answer]}` : '');
+    html += `<div class="quiz-card"><h4>Q${idx+1}. ${q.question}</h4><div class="quiz-options" data-quiz-id="${idx}">${opts}</div>
+      <div class="quiz-actions"><button class="quiz-submit" onclick="submitQuizAnswer(this.closest('.quiz-card'))">✓ Valider</button>
+      <button class="quiz-reset" onclick="resetQuiz(this.closest('.quiz-card'))">↻ Réinitialiser</button></div>
+      <div class="quiz-explanation"><strong>✓ Correction :</strong><br/>${explanation}</div></div>`;
+  });
+  html += '</div></div>';
+  return html;
+}
+
+function buildEssayHTML(chapter) {
+  if (!chapter.essays || !chapter.essays.length) return '';
+  let cards = chapter.essays.map((prompt, idx) =>
+    `<div class="essay-card">
+      <h4>${idx+1}. ${prompt}</h4>
+      <span class="essay-hint">Rédige une réponse structurée (idée directrice, arguments, exemples). L'IA corrige la précision historique et la logique.</span>
+      <textarea placeholder="Rédige ici ta réponse en phrases complètes..."></textarea>
+      <div class="essay-toolbar">
+        <button class="essay-submit" data-chapter="${chapter.title}" data-question="${prompt}" data-focus=""><i class="fas fa-wand-magic-sparkles"></i> Corriger avec l'IA</button>
+      </div>
+      <div class="essay-feedback"></div>
+    </div>`
+  ).join('');
+  return `<div class="essay-section">
+    <h3><i class="fas fa-feather-pointed" style="margin-right:0.5rem;"></i>Questions à développer</h3>
+    <p>Entraîne-toi sur les formulations attendues à l'examen. L'IA corrige ta réponse et repère les oublis.</p>
+    <div class="essay-grid">${cards}</div>
+  </div>`;
+}
+
+function getProgressColor(p) {
+  if (p < 25) return 'linear-gradient(90deg, #ef4444, #f87171)';
+  if (p < 50) return 'linear-gradient(90deg, #f97316, #fb923c)';
+  if (p < 75) return 'linear-gradient(90deg, #eab308, #facc15)';
+  return 'linear-gradient(90deg, #22c55e, #4ade80)';
+}
+
+function initChaptersGrid() {
+  const list = document.getElementById('chapters-list');
+  if (!list) return;
+  list.innerHTML = '';
+  if (chapters.length === 0) {
+    list.innerHTML = '<div style="padding:2rem;color:#ff6b6b;text-align:center;">⚠️ Aucun chapitre chargé.</div>';
+    return;
+  }
+  chapters.forEach((chapter, index) => {
+    const progress = chapterProgress[index] || 0;
+    const btn = document.createElement('button');
+    btn.className = 'chapter-card-btn';
+    btn.onclick = (e) => { e.preventDefault(); selectChapter(index); };
+    const shortTitle = chapter.title.replace(/^(?:CHAPITRE|KONPETANS)\s+\d+\s*[—\-:]\s*/i, '').trim();
+    btn.innerHTML = `
+      <div class="chapter-card-top">
+        <div class="chapter-number-badge">${chapter.number}</div>
+        ${chapter.group ? `<div class="chapter-group-badge">${chapter.group === 'Histoire nationale' ? '🇭🇹 Nationale' : '🌍 Universelle'}</div>` : ''}
+        <h3 class="chapter-title">${shortTitle || chapter.title}</h3>
+      </div>
+      <div style="width:100%">
+        <div class="chapter-progress-bar-container">
+          <div class="chapter-progress-bar" style="width:${progress}%;background:${getProgressColor(progress)}"></div>
+        </div>
+        <div class="progress-percentage">${Math.round(progress)}%</div>
+      </div>`;
+    list.appendChild(btn);
+  });
+}
+
+function selectChapter(index) {
+  currentChapterIndex = index;
+  const chapter = chapters[index];
+  const shortTitle = chapter.title.replace(/^(?:CHAPITRE|KONPETANS)\s+\d+\s*[—\-:]\s*/i, '').trim();
+  document.getElementById('chapter-title').textContent = shortTitle || chapter.title;
+
+  const body = document.getElementById('chapter-body');
+  body.innerHTML = formatContent(chapter.text);
+
+  if (chapter.qcm && chapter.qcm.length) {
+    body.innerHTML += buildQuizHTML(chapter.qcm);
+  }
+
+  setupQuizInteractions(body);
+
+  const essayContainer = document.getElementById('essay-container');
+  essayContainer.innerHTML = buildEssayHTML(chapter);
+
+  document.getElementById('chapters-container').classList.add('hidden');
+  document.getElementById('hero-section').classList.add('hidden');
+  document.getElementById('content-area').classList.add('active');
+
+  const kpSection = document.getElementById('key-points-section');
+  if (kpSection) { kpSection.style.display = 'block'; loadKeyPoints(); }
+
+  chatMessages.innerHTML = '';
+  updateFloatingButtonVisibility();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setupQuizInteractions(container) {
+  container.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.addEventListener('click', () => selectQuizOption(opt));
+  });
+}
+window.selectQuizOption = function(el) {
+  el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+};
+window.submitQuizAnswer = function(card) {
+  const sel = card.querySelector('.quiz-option.selected');
+  if (!sel) { alert('Sélectionne une réponse'); return; }
+  const isCorrect = sel.dataset.correct === 'true';
+  card.querySelectorAll('.quiz-option').forEach(o => { o.style.pointerEvents = 'none'; o.classList.remove('selected'); });
+  sel.classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
+  if (!isCorrect) { const ca = card.querySelector('[data-correct="true"]'); if (ca) ca.classList.add('correct-answer'); }
+  const exp = card.querySelector('.quiz-explanation'); if (exp) { exp.classList.add('show'); exp.style.display = 'block'; }
+  const sb = card.querySelector('.quiz-submit'); if (sb) { sb.disabled = true; }
+};
+window.resetQuiz = function(card) {
+  card.querySelectorAll('.quiz-option').forEach(o => { o.classList.remove('selected','correct-answer','wrong-answer'); o.style.pointerEvents = 'auto'; });
+  const exp = card.querySelector('.quiz-explanation'); if (exp) { exp.classList.remove('show'); exp.style.display = 'none'; }
+  const sb = card.querySelector('.quiz-submit'); if (sb) { sb.disabled = false; }
+};
+
+document.addEventListener('click', async (event) => {
+  const btn = event.target.closest('.essay-submit');
+  if (!btn) return;
+  const card = btn.closest('.essay-card');
+  const textarea = card.querySelector('textarea');
+  const feedback = card.querySelector('.essay-feedback');
+  const answer = textarea.value.trim();
+  if (!answer) { feedback.textContent = 'Écris d\'abord une réponse.'; feedback.classList.add('visible'); return; }
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Correction...';
+  feedback.classList.remove('visible');
+  try {
+    const res = await fetch(SC_SOCIAL_CORRECT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify({ chapter: btn.dataset.chapter, question: btn.dataset.question, focus_points: [], answer }),
+    });
+    const data = await res.json();
+    feedback.textContent = data.ok ? data.feedback : (data.error || 'Erreur de correction.');
+    feedback.classList.add('visible');
+  } catch(e) {
+    feedback.textContent = 'Erreur de connexion.';
+    feedback.classList.add('visible');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Corriger avec l\'IA';
+  }
+});
+
+document.getElementById('back-btn').addEventListener('click', () => {
+  document.getElementById('content-area').classList.remove('active');
+  document.getElementById('chapters-container').classList.remove('hidden');
+  document.getElementById('hero-section').classList.remove('hidden');
+  currentChapterIndex = -1;
+  const kp = document.getElementById('key-points-section'); if (kp) kp.style.display = 'none';
+  updateFloatingButtonVisibility();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+async function loadKeyPoints() {
+  if (currentChapterIndex < 0) return;
+  const chapter = chapters[currentChapterIndex];
+  const listEl = document.getElementById('key-points-list');
+  if (!listEl) return;
+  listEl.innerHTML = `<div class="key-points-loading"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div><span>Chargement du résumé...</span></div>`;
+  try {
+    const res = await fetch('/dashboard/api/chapter-summary/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+      body: JSON.stringify({ course: COURSE_NAME, chapter_num: currentChapterIndex + 1, chapter_title: chapter.title, context: chapter.text.substring(0, 4000) }),
+    });
+    const data = await res.json();
+    if (data.success && data.summary) {
+      const items = data.summary.split('\n').filter(l => l.trim() && l.trim().length > 10);
+      const points = items.filter(l => /^\d+[\.\)]/.test(l.trim()) || /^[-•]/.test(l.trim())).slice(0, 6);
+      const toShow = points.length > 0 ? points : items.slice(0, 5);
+      const cachedBadge = data.cached ? '' : ' <span style="font-size:0.7rem;color:#6ee7b7;margin-left:0.3rem;">✨ nouveau</span>';
+      listEl.innerHTML = toShow.map((line, i) => {
+        const clean = line.replace(/^\d+[\.\)]\s*/, '').replace(/^[-•]\s*/, '').trim();
+        return `<div class="key-point-item" style="animation-delay:${i*0.08}s"><span class="key-point-num">${i+1}</span><span>${clean}${i===0?cachedBadge:''}</span></div>`;
+      }).join('');
+    } else listEl.innerHTML = '<p style="color:#94a3b8;font-size:0.9rem;">Impossible de générer le résumé.</p>';
+  } catch(e) { listEl.innerHTML = '<p style="color:#fca5a5;font-size:0.9rem;">❌ Erreur de connexion.</p>'; }
+}
+const refreshKpBtn = document.getElementById('key-points-refresh-btn');
+if (refreshKpBtn) refreshKpBtn.addEventListener('click', loadKeyPoints);
+
+const aiChatBtn = document.getElementById('ai-chat-btn');
+const aiChatWindow = document.getElementById('ai-chat-window');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
+const chatSendBtn = document.getElementById('chat-send-btn');
+
+aiChatBtn.addEventListener('click', () => {
+  aiChatWindow.classList.toggle('active');
+  if (aiChatWindow.classList.contains('active') && chatMessages.children.length === 0) {
+    const w = document.createElement('div'); w.className = 'chat-message ai';
+    w.textContent = `👋 Salut ! Je suis ton assistant IA pour Sciences Sociales. Pose-moi ta question !`;
+    chatMessages.appendChild(w);
+  }
+  if (aiChatWindow.classList.contains('active')) setTimeout(() => chatInput.focus(), 300);
+});
+document.getElementById('close-chat-btn').addEventListener('click', () => aiChatWindow.classList.remove('active'));
+
+function updateFloatingButtonVisibility() {
+  if (currentChapterIndex >= 0) { aiChatBtn.classList.add('visible'); chatInput.disabled = false; chatSendBtn.disabled = false; }
+  else { aiChatBtn.classList.remove('visible'); aiChatWindow.classList.remove('active'); chatInput.disabled = true; chatSendBtn.disabled = true; }
+}
+
+async function sendChatMessage() {
+  const message = chatInput.value.trim();
+  if (!message || currentChapterIndex < 0) return;
+  chatInput.disabled = true; chatSendBtn.disabled = true;
+  const um = document.createElement('div'); um.className = 'chat-message user'; um.textContent = message; chatMessages.appendChild(um);
+  chatInput.value = '';
+  const loading = document.createElement('div'); loading.className = 'chat-message loading'; loading.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>'; chatMessages.appendChild(loading);
+  setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+  try {
+    const r = await fetch('/dashboard/api/course-question/', { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':getCookie('csrftoken')}, body:JSON.stringify({ question:message, course:COURSE_NAME, context:chapters[currentChapterIndex].text.substring(0,3000) }) });
+    const d = await r.json(); loading.remove();
+    const am = document.createElement('div'); am.className = 'chat-message ai'; am.textContent = d.success ? d.answer : '❌ ' + (d.error || 'Erreur'); chatMessages.appendChild(am);
+  } catch(e) { loading.remove(); const em = document.createElement('div'); em.className = 'chat-message ai'; em.textContent = '❌ Erreur: ' + e.message; chatMessages.appendChild(em); }
+  finally { chatInput.disabled = false; chatSendBtn.disabled = false; setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50); chatInput.focus(); }
+}
+chatSendBtn.addEventListener('click', sendChatMessage);
+chatInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); } });
+
+function getCookie(name) {
+  let v = null;
+  if (document.cookie) document.cookie.split(';').forEach(c => { c = c.trim(); if (c.startsWith(name+'=')) v = decodeURIComponent(c.substring(name.length+1)); });
+  return v;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initChaptersGrid();
+});
+</script>
+{% endblock %}
+

@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% block title %}Fiches Mémo – OU TOU BON{% endblock %}
+{% block extra_css %}
+<style>
+.fiches-wrap { padding:1.5rem; display:flex; flex-direction:column; height:100%; }
+.fiches-top { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+.fiches-top h2 { font-size:1.1rem; font-weight:700; margin:0; }
+.mat-pills { display:flex; gap:.5rem; overflow-x:auto; overflow-y:hidden; padding:.5rem 0; scroll-behavior:smooth; scrollbar-width:thin; scrollbar-color:rgba(16,185,129,.3) transparent; }
+.mat-pills::-webkit-scrollbar { height:4px; }
+.mat-pills::-webkit-scrollbar-track { background:transparent; }
+.mat-pills::-webkit-scrollbar-thumb { background:rgba(16,185,129,.3); border-radius:2px; }
+.mat-pills::-webkit-scrollbar-thumb:hover { background:rgba(16,185,129,.5); }
+.mat-pill { padding:.4rem .9rem; border-radius:20px; font-size:.8rem; font-weight:600; background:var(--card); border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; text-decoration:none; white-space:nowrap; flex-shrink:0; }
+.mat-pill.active { background:rgba(16,185,129,.15); border-color:var(--green); color:var(--green); }
+.fiches-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem; flex-wrap:wrap; gap:.75rem; }
+.fc-stats { display:flex; gap:.75rem; }
+.fc-stat { background:var(--card); border:1px solid var(--border2); border-radius:10px; padding:.5rem .9rem; text-align:center; }
+.fc-stat .n { font-weight:800; font-size:1.1rem; }
+.fc-stat .n.known { color:var(--green); }
+.fc-stat .n.review { color:#f59e0b; }
+.fc-stat .l { font-size:.7rem; color:var(--t3); margin-top:.1rem; }
+.btn-gen { background:var(--green); color:#fff; border-radius:10px; padding:.6rem 1.1rem; font-size:.85rem; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:.5rem; }
+.btn-gen:disabled { opacity:.6; cursor:default; }
+
+.fc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; overflow-y:auto; flex:1; align-content:start; }
+.fc-card { background:var(--card); border:1px solid var(--border2); border-radius:14px; cursor:pointer; min-height:180px; }
+.fc-card-inner { width:100%; height:100%; }
+.fc-face { border-radius:14px; padding:1.1rem 1.25rem; display:flex; flex-direction:column; min-height:180px; }
+.fc-front { background:var(--card); }
+.fc-back { background:var(--card2); display:none; border:1px solid rgba(16,185,129,.2); }
+.fc-card.flipped .fc-front { display:none; }
+.fc-card.flipped .fc-back { display:flex; }
+.fc-diff { display:flex; gap:3px; margin-bottom:.5rem; }
+.fc-diff span { width:6px; height:6px; border-radius:50%; }
+.fc-d1 { background:var(--green); }
+.fc-d2 { background:#f59e0b; }
+.fc-d3 { background:var(--red); }
+.fc-q { font-size:.875rem; font-weight:600; flex:1; line-height:1.55; word-break:break-word; }
+.fc-hint { font-size:.72rem; color:var(--green); font-weight:600; margin-top:.6rem; padding:.35rem .55rem; background:rgba(16,185,129,.07); border-radius:7px; word-break:break-word; }
+.fc-a { font-size:.85rem; flex:1; color:var(--t1); line-height:1.6; word-break:break-word; overflow-wrap:break-word; }
+.fc-status-row { display:flex; gap:.4rem; margin-top:.75rem; }
+.fc-status-btn { flex:1; padding:.38rem; border-radius:7px; font-size:.72rem; font-weight:700; cursor:pointer; text-align:center; transition:all .15s; }
+.fc-status-btn.new { background:rgba(239,68,68,.1); color:#fca5a5; border:1px solid rgba(239,68,68,.2); }
+.fc-status-btn.review { background:rgba(245,158,11,.12); color:#fcd34d; border:1px solid rgba(245,158,11,.25); }
+.fc-status-btn.known { background:rgba(16,185,129,.12); color:var(--green); border:1px solid rgba(16,185,129,.25); }
+.fc-status-btn.active { opacity:1; } .fc-status-btn:not(.active) { opacity:.5; }
+.empty-cards { grid-column:1/-1; text-align:center; padding:4rem; color:var(--t3); }
+</style>
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="fiches" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title" data-i18n="fiches_title">Fiches Mémo IA</div><div style="font-size:.8rem;color:var(--t3)">Cliquez sur une fiche pour la retourner</div></div>
+    <div class="view-area" style="overflow-y:auto">
+      <div class="fiches-wrap">
+        
+        <div class="mat-pills" style="margin-bottom:1.25rem">
+          {% for key, mat in mats.items %}
+          {% if key in user_serie_subjects %}
+          <a href="?subject={{ key }}" class="mat-pill {% if subject == key %}active{% endif %}">{{ mat.label }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        
+        <div class="fiches-header">
+          <div class="fc-stats">
+            <div class="fc-stat"><div class="n">{{ total }}</div><div class="l">Total</div></div>
+            <div class="fc-stat"><div class="n known">{{ known }}</div><div class="l">Connus</div></div>
+            <div class="fc-stat"><div class="n review">{{ review }}</div><div class="l">À revoir</div></div>
+          </div>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+            <div style="font-size:.78rem;color:var(--t3);display:flex;align-items:center;gap:.35rem;">
+              <i class="fas fa-robot" style="color:var(--green)"></i>
+              L'IA ajoute automatiquement des fiches quand tu rates plusieurs fois la même question
+            </div>
+            {% if mistakes_count %}
+            <button class="btn-gen" id="btnGenMistakes" onclick="generateFromMistakes()" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);">
+              <i class="fas fa-exclamation-circle"></i> Réviser mes erreurs ({{ mistakes_count }})
+            </button>
+            {% endif %}
+          </div>
+        </div>
+
+        
+        <div class="fc-grid" id="fcGrid">
+          {% if cards %}
+            {% for card in cards %}
+            <div class="fc-card {% if card.status == 'known' %}known-card{% endif %}" id="fc-{{ card.id }}" onclick="flipCard(this)">
+              <div class="fc-card-inner">
+                <div class="fc-face fc-front">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;">
+                    <div class="fc-diff">
+                      <span class="fc-d1"></span>
+                      {% if card.difficulty >= 2 %}<span class="fc-d2"></span>{% endif %}
+                      {% if card.difficulty == 'difficile' or card.source == 'mistake' %}<span class="fc-d3"></span>{% endif %}
+                    </div>
+                    {% if card.source == 'mistake' %}<span style="font-size:.65rem;font-weight:800;color:#f87171;background:rgba(239,68,68,.12);padding:.15rem .45rem;border-radius:99px;">ERREUR</span>{% endif %}
+                  </div>
+                  <div class="fc-q">{{ card.question }}</div>
+                  {% if card.hint and card.source != 'mistake' %}<div class="fc-hint"><i class="fas fa-lightbulb"></i> {{ card.hint }}</div>{% endif %}
+                  {% if card.source == 'mistake' %}<div style="font-size:.68rem;color:var(--t3);margin-top:auto;"><i class="fas fa-redo" style="font-size:.6rem;"></i> Retournez pour voir l'explication</div>{% endif %}
+                </div>
+                <div class="fc-face fc-back">
+                  <div style="font-size:.68rem;font-weight:700;color:var(--green);margin-bottom:.45rem;text-transform:uppercase;letter-spacing:.06em;">Réponse</div>
+                  {% if card.hint %}<div class="fc-hint"><i class="fas fa-check-circle"></i> {{ card.hint }}</div>{% endif %}
+                  <div class="fc-a" style="margin-top:.55rem;">{{ card.answer }}</div>
+                  {% if card.source != 'mistake' %}
+                  <div class="fc-status-row" onclick="event.stopPropagation()">
+                    <button class="fc-status-btn new {% if card.status == 'new' %}active{% endif %}" onclick="setStatus('{{ card.id }}','new',this)">À apprendre</button>
+                    <button class="fc-status-btn review {% if card.status == 'review' %}active{% endif %}" onclick="setStatus('{{ card.id }}','review',this)">À revoir</button>
+                    <button class="fc-status-btn known {% if card.status == 'known' %}active{% endif %}" onclick="setStatus('{{ card.id }}','known',this)">Connu ?</button>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          {% else %}
+          <div class="empty-cards">
+            <i class="fas fa-layer-group" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:.25"></i>
+            <div style="font-weight:600;font-size:1.05rem;color:var(--t2)">Aucune fiche pour cette matière</div>
+            <div style="margin-top:.5rem;font-size:.875rem">Cliquez sur "Générer avec l'IA" pour créer des fiches mémo intelligentes.</div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+const CURRENT_SUBJECT = '{{ subject }}';
+
+function initFcMath() {
+  const grid = document.getElementById('fcGrid');
+  if (grid && typeof renderKatex !== 'undefined') renderKatex(grid);
+}
+document.addEventListener('DOMContentLoaded', initFcMath);
+
+function flipCard(el) {
+  el.classList.toggle('flipped');
+  if (typeof renderKatex !== 'undefined') renderKatex(el);
+}
+
+function setStatus(id, status, btn) {
+  if (String(id).startsWith('mistake_')) return;
+  const card = btn.closest('.fc-card');
+  card.querySelectorAll('.fc-status-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  fetch('/dashboard/api/fiches/status/', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+    body: JSON.stringify({id: parseInt(id), status})
+  });
+}
+
+async function generateFromMistakes() {
+  const btn = document.getElementById('btnGenMistakes');
+  if (!btn) return;
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement…';
+  window.location.reload();
+}
+
+async function generateCards() {
+  const btn = document.getElementById('btnGen');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Génération…';
+  try {
+    const res = await fetch('/dashboard/api/fiches/generate/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify({subject: CURRENT_SUBJECT, count: 8})
+    });
+    const data = await res.json();
+    if (data.ok && data.cards.length) {
+      const grid = document.getElementById('fcGrid');
+      grid.innerHTML = '';
+      data.cards.forEach(card => {
+        grid.innerHTML += buildCard(card);
+      });
+      showToast(`${data.cards.length} fiches générées !`);
+      initFcMath();
+    }
+  } catch(e) {
+    showToast('Erreur lors de la génération', 'error');
+  }
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-magic"></i> Générer avec l\'IA';
+}
+
+function buildCard(card) {
+  const dots = `<span class="fc-d1"></span>${card.difficulty>=2?'<span class="fc-d2"></span>':''}${card.difficulty>=3?'<span class="fc-d3"></span>':''}`;
+  return `
+  <div class="fc-card" id="fc-${card.id}" onclick="flipCard(this)">
+    <div class="fc-card-inner">
+      <div class="fc-face fc-front">
+        <div class="fc-diff">${dots}</div>
+        <div class="fc-q">${card.question}</div>
+        ${card.hint ? `<div class="fc-hint"><i class="fas fa-lightbulb"></i> ${card.hint}</div>` : ''}
+      </div>
+      <div class="fc-face fc-back">
+        <div style="font-size:.7rem;font-weight:700;color:var(--green);margin-bottom:.5rem">RÉPONSE</div>
+        <div class="fc-a">${card.answer}</div>
+        <div class="fc-status-row" onclick="event.stopPropagation()">
+          <button class="fc-status-btn new active" onclick="setStatus(${card.id},'new',this)">À apprendre</button>
+          <button class="fc-status-btn review" onclick="setStatus(${card.id},'review',this)">À revoir</button>
+          <button class="fc-status-btn known" onclick="setStatus(${card.id},'known',this)">Connu ?</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+</script>
+{% endblock %}
+

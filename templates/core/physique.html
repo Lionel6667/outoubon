@@ -1,0 +1,3340 @@
+﻿{% extends 'base.html' %}
+{% block title %}Physique - OU TOU BON{% endblock %}
+
+{% block extra_css %}
+<style>
+.physique-page {
+  --shell: linear-gradient(180deg, rgba(6, 16, 32, 0.96) 0%, rgba(2, 8, 23, 1) 42%, rgba(9, 20, 35, 1) 100%);
+  --glass: rgba(15, 23, 42, 0.72);
+  --glass-strong: rgba(11, 18, 32, 0.88);
+  --line-soft: rgba(148, 163, 184, 0.14);
+  --blue: #60a5fa;
+  --blue-deep: #1e40af;
+  --amber: #f59e0b;
+  --cyan: #38bdf8;
+  --cream: #e2e8f0;
+  --t1: #f1f5f9;
+  --t2: #cbd5e1;
+  --t3: #94a3b8;
+}
+
+.physique-page {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.physique-page .view-area {
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.16), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(96, 165, 250, 0.12), transparent 24%),
+    var(--shell);
+  overflow-x: hidden;
+}
+
+.physique-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(0.5rem, 2vw, 1.25rem) clamp(0.5rem, 2vw, 1.25rem) 3rem;
+}
+
+.physique-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(8, 15, 29, 0.96), rgba(17, 24, 39, 0.9)),
+    linear-gradient(120deg, rgba(96, 165, 250, 0.12), rgba(245, 158, 11, 0.12));
+  box-shadow: 0 30px 90px rgba(2, 8, 23, 0.45);
+}
+
+.physique-hero::before,
+.physique-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(10px);
+  opacity: 0.75;
+}
+
+.physique-hero::before {
+  width: 220px;
+  height: 220px;
+  top: -120px;
+  right: -40px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.28), transparent 70%);
+}
+
+.physique-hero::after {
+  width: 280px;
+  height: 280px;
+  bottom: -180px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent 70%);
+}
+
+.hero-top-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.back-to-cours-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.back-to-cours-btn:hover {
+  background: rgba(96, 165, 250, 0.12);
+  border-color: rgba(96, 165, 250, 0.3);
+  color: #60a5fa;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  color: var(--blue);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 {
+  max-width: 760px;
+  margin: 0 0 0.85rem;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.02;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--t1);
+}
+
+.hero-copy p {
+  max-width: 760px;
+  color: var(--cream);
+  opacity: 0.86;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.chapters-container {
+  display: grid;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+}
+
+.chapters-container.hidden {
+  display: none;
+}
+
+.physique-hero.hidden {
+  display: none;
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  width: 100%;
+  align-items: stretch;
+  min-height: auto;
+}
+
+.chapter-card-btn {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  border-radius: clamp(12px, 1.5vw, 18px);
+  border: 2px solid rgba(96, 165, 250, 0.2);
+  background: linear-gradient(135deg, rgba(20, 30, 48, 0.92), rgba(25, 35, 55, 0.88));
+  box-shadow: 0 12px 32px rgba(2, 8, 23, 0.28);
+  padding: clamp(1.2rem, 4vw, 1.6rem) clamp(0.9rem, 2.5vw, 1rem);
+  cursor: pointer;
+  transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.85rem, 2vw, 0.9rem);
+  text-align: center;
+  font-family: inherit;
+  justify-content: space-between;
+}
+
+.chapter-card-btn:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 20px 50px rgba(96, 165, 250, 0.25);
+  background: linear-gradient(135deg, rgba(30, 40, 60, 0.95), rgba(35, 45, 65, 0.92));
+}
+
+.chapter-card-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(96, 165, 250, 0.08), transparent 50%, rgba(245, 158, 11, 0.06));
+}
+
+.chapter-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.chapter-number-badge {
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--blue), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.chapter-title {
+  margin: 0;
+  font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+  font-weight: 700;
+  color: var(--t1);
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.chapter-progress-bar-container {
+  position: relative;
+  width: 100%;
+  height: clamp(4px, 1vw, 6px);
+  border-radius: 3px;
+  background: rgba(148, 163, 184, 0.15);
+  overflow: hidden;
+}
+
+.chapter-progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  position: relative;
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.progress-percentage {
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  margin-top: clamp(0.3rem, 1vw, 0.4rem);
+}
+
+.physique-content-area {
+  display: none;
+}
+
+.physique-content-area.active {
+  display: grid;
+}
+
+.chapter-full {
+  position: relative;
+  overflow: visible;
+  border-radius: clamp(20px, 3vw, 32px);
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  background: linear-gradient(180deg, rgba(5, 12, 24, 0.96), rgba(8, 15, 28, 0.92));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(96, 165, 250, 0.1);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.chapter-full::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.05), transparent 60%);
+  border-radius: clamp(20px, 3vw, 32px);
+}
+
+.chapter-full-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+  padding-bottom: clamp(1rem, 2vw, 1.8rem);
+  border-bottom: 2px solid rgba(96, 165, 250, 0.2);
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.chapter-back-btn {
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  color: var(--blue);
+  padding: 0.7rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.chapter-back-btn:hover {
+  background: rgba(96, 165, 250, 0.22);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.chapter-full h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.1;
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex: 1;
+  word-break: break-word;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.chapter-full-content {
+  position: relative;
+  z-index: 1;
+}
+
+.chapter-text {
+  color: #cdd9e8;
+  line-height: 1.95;
+  font-size: clamp(0.97rem, 2.1vw, 1.07rem);
+  margin-bottom: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.22px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.chapter-text strong, .chapter-text b {
+  color: #f0f6ff;
+  font-weight: 700;
+}
+
+.chapter-text em, .chapter-text i {
+  color: #b8d0ea;
+  font-style: italic;
+}
+
+.chapter-text code {
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.92em;
+  font-weight: 600;
+}
+
+.chapter-text h3 {
+  position: relative;
+  margin: 3rem 0 1.4rem;
+  padding: 1.1rem 1.5rem 1.1rem 4.8rem;
+  font-size: clamp(1.05rem, 2.3vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  color: #fcd34d;
+  background: linear-gradient(135deg, rgba(245,158,11,0.13) 0%, rgba(249,115,22,0.07) 100%);
+  border: 1px solid rgba(245,158,11,0.22);
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0 4px 32px rgba(245,158,11,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.chapter-text h3::before {
+  content: '\f02d';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.4rem;
+  height: 2.4rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  border-radius: 9px;
+  box-shadow: 0 0 20px rgba(245,158,11,0.55), 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.chapter-text h3::after {
+  display: none;
+}
+
+.chapter-text h4 {
+  position: relative;
+  margin: 2.2rem 0 1rem;
+  padding: 0.75rem 1.2rem 0.75rem 1.6rem;
+  font-size: clamp(0.98rem, 2vw, 1.12rem);
+  font-weight: 700;
+  letter-spacing: 0.05px;
+  color: #7de8ff;
+  border-left: 3px solid #38bdf8;
+  background: linear-gradient(90deg, rgba(56,189,248,0.1) 0%, transparent 65%);
+  border-radius: 0 10px 10px 0;
+}
+
+.chapter-text p {
+  margin: clamp(1rem, 2vw, 1.4rem) 0;
+  letter-spacing: 0.22px;
+  color: #cdd9e8;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.chapter-text ul, .chapter-text ol {
+  margin: clamp(1.2rem, 2.5vw, 1.8rem) 0 clamp(1.2rem, 2.5vw, 1.8rem) clamp(1.6rem, 3vw, 2.4rem);
+  padding: 0;
+}
+
+.chapter-text li {
+  margin: clamp(0.55rem, 1.1vw, 0.82rem) 0;
+  color: #cdd9e8;
+  line-height: 1.9;
+  position: relative;
+}
+
+.chapter-text ul > li::marker {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.chapter-text ol > li::marker {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.formula-block {
+  position: relative;
+  margin: 2.2rem 0;
+  padding: 1.8rem 2rem 1.6rem;
+  background: linear-gradient(135deg,
+    rgba(30, 58, 138, 0.25) 0%,
+    rgba(12, 74, 110, 0.18) 55%,
+    rgba(15, 23, 42, 0.28) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-top: 2px solid rgba(96, 165, 250, 0.55);
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 1px rgba(96, 165, 250, 0.07),
+    0 10px 48px rgba(96, 165, 250, 0.14),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  text-align: center;
+}
+
+.formula-block::before {
+  content: 'FORMULE';
+  position: absolute;
+  top: -1px;
+  right: 1.5rem;
+  background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  padding: 0.22rem 0.85rem;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.45);
+  text-transform: uppercase;
+}
+
+.formula-block::after {
+  display: none;
+}
+
+.formula-card {
+  position: relative;
+  margin: 2.2rem 0;
+  padding: 2rem 2.2rem 1.8rem;
+  background:
+    radial-gradient(ellipse at top, rgba(37,99,235,0.18) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(15,30,80,0.45) 0%, rgba(8,20,50,0.4) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-top: 2px solid rgba(96, 165, 250, 0.6);
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(96,165,250,0.06),
+    0 12px 55px rgba(96, 165, 250, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+  overflow-x: auto;
+  text-align: center;
+  scrollbar-width: thin;
+}
+
+.formula-card::before {
+  content: 'FORMULE';
+  position: absolute;
+  top: -1px;
+  right: 1.6rem;
+  background: linear-gradient(135deg, #1e40af 0%, #0369a1 100%);
+  color: white;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  padding: 0.24rem 0.9rem;
+  border-radius: 0 0 11px 11px;
+  box-shadow: 0 4px 16px rgba(30, 64, 175, 0.5);
+}
+
+.katex-display {
+  margin: 0 !important;
+  padding: 0.5rem 0 !important;
+  overflow-x: auto;
+}
+
+.formula-card .katex-display > .katex,
+.formula-block .katex-display > .katex {
+  font-size: 1.35em;
+}
+
+.chapter-text .katex:not(.katex-display .katex) {
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.12);
+  padding: 0.05rem 0.4rem;
+  border-radius: 5px;
+  color: #93c5fd;
+  font-size: 1.05em;
+}
+
+.formula-inline {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(96,165,250,0.18), rgba(56,189,248,0.12));
+  padding: 0.18rem 0.65rem;
+  border-radius: 7px;
+  font-style: italic;
+  color: #93c5fd;
+  font-weight: 600;
+  border: 1px solid rgba(96, 165, 250, 0.22);
+}
+
+.key-point {
+  position: relative;
+  margin: 1.4rem 0;
+  padding: 1.15rem 1.5rem 1.15rem 4.2rem;
+  background: linear-gradient(135deg, rgba(245,158,11,0.11), rgba(249,115,22,0.06));
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 14px 14px 0;
+  color: #f5e8c8;
+  font-weight: 500;
+  line-height: 1.85;
+  box-shadow: 0 4px 22px rgba(245,158,11,0.09);
+}
+
+.key-point::before {
+  content: '💡';
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.key-point strong {
+  color: #fbbf24;
+  margin-right: 0.5rem;
+  font-weight: 800;
+}
+
+.highlight-box {
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.5rem 1.1rem 4.2rem;
+  border-radius: 0 14px 14px 0;
+  border-left: 4px solid;
+  line-height: 1.85;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.highlight-box::before {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.highlight-box strong {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.highlight-astuce, .highlight-tip {
+  background: linear-gradient(135deg, rgba(34,197,94,0.11), rgba(16,185,129,0.06));
+  border-left-color: #22c55e;
+  color: #d1fae5;
+}
+.highlight-astuce::before, .highlight-tip::before { content: '✅'; }
+.highlight-astuce strong, .highlight-tip strong { color: #86efac; }
+
+.highlight-attention, .highlight-warning {
+  background: linear-gradient(135deg, rgba(239,68,68,0.11), rgba(220,38,38,0.06));
+  border-left-color: #ef4444;
+  color: #fee2e2;
+}
+.highlight-attention::before, .highlight-warning::before { content: '⚠️'; }
+.highlight-attention strong, .highlight-warning strong { color: #fca5a5; }
+
+.highlight-note, .highlight-info {
+  background: linear-gradient(135deg, rgba(96,165,250,0.11), rgba(56,189,248,0.06));
+  border-left-color: #60a5fa;
+  color: #dbeafe;
+}
+.highlight-note::before, .highlight-info::before { content: '📌'; }
+.highlight-note strong, .highlight-info strong { color: #93c5fd; }
+
+.highlight-important {
+  background: linear-gradient(135deg, rgba(245,158,11,0.13), rgba(217,119,6,0.07));
+  border-left-color: #f59e0b;
+  color: #fef3c7;
+}
+.highlight-important::before { content: '⭐'; }
+.highlight-important strong { color: #fcd34d; }
+
+.highlight-definition {
+  background: linear-gradient(135deg, rgba(168,85,247,0.13), rgba(139,92,246,0.07));
+  border-left-color: #a855f7;
+  color: #f3e8ff;
+}
+.highlight-definition::before { content: '📖'; }
+.highlight-definition strong { color: #d8b4fe; }
+
+.callout-raisonnement {
+  background: linear-gradient(135deg, rgba(99,102,241,0.13), rgba(79,70,229,0.07));
+  border-left-color: #818cf8;
+  color: #e0e7ff;
+}
+.callout-raisonnement::before { content: '🧠'; }
+.callout-raisonnement strong { color: #a5b4fc; }
+
+.callout-cas {
+  background: linear-gradient(135deg, rgba(245,158,11,0.11), rgba(234,88,12,0.06));
+  border-left-color: #f59e0b;
+  color: #fef3c7;
+}
+.callout-cas::before { content: '🔍'; }
+.callout-cas strong { color: #fcd34d; }
+
+.highlight-quote {
+  color: #fbbf24;
+  font-style: italic;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+}
+
+.code-inline {
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.92em;
+  font-weight: 600;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.definition-item {
+  position: relative;
+  margin: 0.8rem 0;
+  padding: 0.95rem 1.2rem 0.95rem 3.8rem;
+  background: linear-gradient(135deg, rgba(96,165,250,0.1), rgba(56,189,248,0.05));
+  border-left: 3px solid #60a5fa;
+  border-radius: 0 12px 12px 0;
+  color: #dde8f5;
+  line-height: 1.75;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  box-shadow: 0 2px 12px rgba(96,165,250,0.07);
+}
+
+.definition-item::before {
+  content: 'Déf';
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #60a5fa;
+  background: rgba(96,165,250,0.18);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.definition-item .def-key {
+  color: #7dd3fc;
+  font-weight: 800;
+  font-size: 1.1em;
+  margin-right: 0.3rem;
+}
+
+.definition-item .def-value {
+  color: #bdd3ea;
+  font-weight: 500;
+}
+
+.numbered-block {
+  position: relative;
+  margin: 0.9rem 0;
+  padding: 1rem 1.3rem 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(245,158,11,0.09), rgba(249,115,22,0.04));
+  border-left: 3px solid #f59e0b;
+  border-radius: 0 13px 13px 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  line-height: 1.85;
+  box-shadow: 0 2px 14px rgba(245,158,11,0.07);
+}
+
+.numbered-block .enum-symbol {
+  color: #f59e0b;
+  font-weight: 800;
+  font-size: 1.35em;
+  flex-shrink: 0;
+  min-width: 2.1rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245,158,11,0.14);
+  border-radius: 8px;
+  box-shadow: 0 0 14px rgba(245,158,11,0.28);
+}
+
+.numbered-block .enum-content {
+  color: #dde6f3;
+  flex: 1;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 2vw, 1.04rem);
+}
+
+.quiz-wrap {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.2));
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  border-radius: clamp(18px, 3vw, 24px);
+  padding: clamp(1.8rem, 3.5vw, 2.5rem);
+  margin: clamp(2rem, 4vw, 3rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.08), transparent 60%);
+  border-radius: clamp(18px, 3vw, 24px);
+}
+
+.quiz-grid {
+  display: grid;
+  gap: clamp(1.4rem, 2.5vw, 1.8rem);
+  margin: clamp(1.4rem, 2.5vw, 2rem) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-card {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(99, 102, 241, 0.06));
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: clamp(14px, 2vw, 20px);
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  opacity: 0;
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.quiz-card:hover {
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.quiz-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.06), transparent 70%);
+}
+
+.quiz-card:nth-child(1) { animation-delay: 0.1s; }
+.quiz-card:nth-child(2) { animation-delay: 0.2s; }
+.quiz-card:nth-child(3) { animation-delay: 0.3s; }
+.quiz-card:nth-child(4) { animation-delay: 0.4s; }
+.quiz-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.quiz-card h4 {
+  margin: 0 0 clamp(1rem, 2vw, 1.4rem) 0;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1.5vw, 1rem);
+  margin-bottom: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.quiz-option {
+  display: flex;
+  gap: clamp(0.6rem, 1.5vw, 0.85rem);
+  align-items: flex-start;
+  width: 100%;
+  padding: clamp(0.75rem, 1.5vw, 0.95rem) clamp(0.9rem, 2vw, 1.1rem);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  color: var(--t2, #cbd5e1);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease, color 0.18s ease;
+  font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.quiz-option:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.25);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.quiz-option.selected {
+  border-color: rgba(59, 130, 246, 0.35);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.12));
+  color: var(--t1, #e2e8f0);
+  font-weight: 600;
+}
+
+.quiz-option.correct-answer {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(22, 163, 74, 0.08));
+  color: #86efac;
+}
+
+.quiz-option.wrong-answer {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(220, 38, 38, 0.08));
+  color: #fecaca;
+}
+
+.option-letter {
+  width: clamp(28px, 3vw, 32px);
+  height: clamp(28px, 3vw, 32px);
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+  font-weight: 800;
+  background: rgba(148, 163, 184, 0.12);
+  color: rgba(148, 163, 184, 0.7);
+}
+
+.quiz-option.correct-answer .option-letter {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #000;
+}
+
+.quiz-option.wrong-answer .option-letter {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+}
+
+.quiz-option.selected .option-letter {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+}
+
+.quiz-explanation {
+  padding: clamp(0.9rem, 2vw, 1.2rem) clamp(1rem, 2vw, 1.3rem);
+  background: rgba(99, 102, 241, 0.08);
+  border-left: 3px solid #6366f1;
+  border-radius: 10px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+  display: none;
+}
+
+.quiz-explanation.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.quiz-explanation strong {
+  color: #a5b4fc;
+  font-weight: 700;
+}
+
+.quiz-actions {
+  display: flex;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
+  flex-wrap: wrap;
+  margin: clamp(1.5rem, 3vw, 2rem) 0;
+  justify-content: flex-start;
+}
+
+.quiz-submit,
+.quiz-reset {
+  padding: clamp(0.75rem, 1.5vw, 0.95rem) clamp(1.2rem, 2vw, 1.6rem);
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(148, 163, 184, 0.08);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  color: #cbd5e1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz-submit {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.quiz-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.quiz-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.quiz-reset:hover:not(:disabled) {
+  border-color: rgba(148, 163, 184, 0.4);
+  color: #e2e8f0;
+  background: rgba(148, 163, 184, 0.12);
+  transform: translateY(-1px);
+}
+
+.quiz-reset:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.quiz-result {
+  padding: clamp(1rem, 2vw, 1.4rem);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 12px;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+  display: none;
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  font-weight: 600;
+  color: #a5b4fc;
+}
+
+.quiz-result.show {
+  display: block;
+  animation: slideIn 0.4s ease;
+}
+
+.quiz-solution-marker,
+.quiz-answer-marker {
+  display: none;
+}
+
+.qa-section {
+  display: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.1);
+}
+
+.qa-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid rgba(96, 165, 250, 0.4);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(245, 158, 11, 0.2));
+  color: #f1f5f9;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(96, 165, 250, 0.4);
+  border-color: rgba(96, 165, 250, 0.7);
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.35), rgba(245, 158, 11, 0.3));
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.qa-response {
+  margin-top: 1rem;
+  padding: 1.2rem;
+  border-left: 4px solid var(--blue);
+  background: rgba(96, 165, 250, 0.08);
+  border-radius: 12px;
+  color: var(--t1);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.key-points-section {
+  margin-top: 2.5rem;
+  padding: 1.8rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.07) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+}
+
+.key-points-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.key-points-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.key-points-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #c4b5fd;
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.key-points-refresh-btn {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: #a78bfa;
+  padding: 0.45rem 0.7rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.key-points-refresh-btn:hover {
+  background: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+}
+
+.key-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.key-points-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+
+.key-point-item {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  padding: 0.9rem 1.1rem;
+  background: rgba(99, 102, 241, 0.08);
+  border-left: 3px solid #818cf8;
+  border-radius: 0 12px 12px 0;
+  color: #e0e7ff;
+  font-size: 0.93rem;
+  line-height: 1.7;
+  animation: slideIn 0.3s ease forwards;
+}
+
+.key-point-num {
+  min-width: 1.6rem;
+  height: 1.6rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: white;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.step-block {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.2rem;
+  margin: 0.7rem 0;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.15), rgba(15, 23, 42, 0.2));
+  border-left: 3px solid #60a5fa;
+  border-radius: 0 12px 12px 0;
+  line-height: 1.8;
+}
+
+.step-label {
+  min-width: 2.8rem;
+  height: 2rem;
+  background: linear-gradient(135deg, #1e40af, #0369a1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+}
+
+.step-content {
+  color: #cdd9e8;
+  flex: 1;
+  font-size: clamp(0.92rem, 2vw, 1rem);
+}
+
+.calc-chain { display:flex; flex-direction:column; gap:0.28rem; padding:1rem 1.25rem; margin:0.9rem 0; background:rgba(37,99,235,0.08); border-radius:12px; border-left:3px solid rgba(96,165,250,0.35); }
+.calc-step { color:#cdd9e8; padding:0.15rem 0; line-height:1.8; font-size:clamp(0.9rem,2vw,1rem); }
+.calc-step:first-child { color:#e2e8f0; font-weight:500; }
+
+.embedded-q { display:flex; gap:0.75rem; padding:0.8rem 1.1rem; margin:0.4rem 0; background:rgba(96,165,250,0.07); border-left:3px solid rgba(96,165,250,0.3); border-radius:0 10px 10px 0; align-items:flex-start; }
+.eq-num { color:#60a5fa; font-weight:800; font-size:0.88em; flex-shrink:0; min-width:2.2rem; }
+.eq-text { color:#cdd9e8; flex:1; line-height:1.7; }
+
+@media (max-width: 1400px) {
+  .chapters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .chapters-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+  }
+
+  .chapter-full {
+    padding: 1.6rem;
+  }
+
+  .physique-shell {
+    padding: clamp(0.5rem, 1.5vw, 1rem) clamp(0.5rem, 1.5vw, 1rem) 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .chapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.2rem;
+  }
+
+  .chapter-card-btn {
+    padding: 1rem 0.8rem;
+    gap: 0.5rem;
+    border-radius: 14px;
+    width: 100%;
+  }
+
+  .chapter-number-badge {
+    font-size: 1.4rem;
+  }
+
+  .chapter-title {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .progress-percentage {
+    font-size: 0.62rem;
+  }
+
+  .chapter-progress-bar-container {
+    height: 3px;
+  }
+  
+  .chapter-full {
+    padding: clamp(1rem, 3vw, 1.4rem);
+    border-radius: 20px;
+  }
+  
+  .chapter-full h2 {
+    font-size: clamp(1.3rem, 4vw, 1.6rem);
+  }
+  
+  .chapter-text {
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    line-height: 1.8;
+  }
+  
+  .chapter-text h3 {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin: 1.5rem 0 0.8rem;
+  }
+
+  .key-points-section {
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .qa-section,
+  .key-points-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .physique-shell {
+    padding: clamp(0.7rem, 2vw, 1rem) clamp(0.7rem, 2vw, 1rem) 1.8rem;
+  }
+  
+  .physique-hero {
+    padding: clamp(1rem, 3vw, 1.3rem);
+    border-radius: 18px;
+  }
+  
+  .hero-copy h1 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+  
+  .hero-copy p {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+  }
+  
+  .chapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  
+  .chapter-card-btn {
+    padding: 0.8rem 0.6rem;
+    gap: 0.45rem;
+    border-radius: 12px;
+  }
+
+  .chapter-number-badge {
+    font-size: 1.2rem;
+  }
+
+  .chapter-title {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .progress-percentage {
+    font-size: 0.65rem;
+  }
+
+  .chapter-progress-bar-container {
+    height: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .physique-shell {
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(0.8rem, 2vw, 1.2rem) 1.6rem;
+  }
+  
+  .physique-hero {
+    padding: clamp(1rem, 3vw, 1.4rem);
+    border-radius: 16px;
+  }
+  
+  .hero-kicker {
+    font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+    padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.7rem, 1.2vw, 0.85rem);
+  }
+  
+  .hero-copy h1 {
+    font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+    margin-bottom: clamp(0.5rem, 1vw, 0.7rem);
+  }
+  
+  .hero-copy p {
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    line-height: 1.5;
+  }
+  
+  .chapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+    margin-top: 0.9rem;
+  }
+  
+  .chapter-card-btn {
+    padding: 0.75rem 0.55rem;
+    gap: 0.4rem;
+    border-radius: 10px;
+  }
+
+  .chapter-number-badge {
+    font-size: 1.1rem;
+  }
+
+  .chapter-title {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  .chapter-progress-bar-container {
+    height: 3px;
+  }
+
+  .progress-percentage {
+    font-size: 0.62rem;
+  }
+  
+  .btn-primary {
+    padding: clamp(0.85rem, 2.2vw, 1rem) clamp(1rem, 2.5vw, 1.3rem);
+    font-size: clamp(0.9rem, 2vw, 0.95rem);
+  }
+  
+  .qa-title,
+  .exercise-title {
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    margin-bottom: clamp(0.9rem, 1.8vw, 1rem);
+  }
+  
+  .qa-input {
+    min-height: clamp(85px, 22vw, 95px);
+    padding: clamp(0.8rem, 1.8vw, 1rem);
+    font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+    margin-bottom: clamp(0.7rem, 1.2vw, 0.8rem);
+  }
+  
+  .chapter-full {
+    padding: clamp(1rem, 2.5vw, 1.2rem);
+    border-radius: 16px;
+  }
+  
+  .chapter-full h2 {
+    font-size: clamp(1.3rem, 4vw, 1.5rem);
+  }
+  
+  .chapter-text {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 380px) {
+  .chapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .chapter-card-btn {
+    padding: 0.65rem 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .chapter-number-badge {
+    font-size: 1rem;
+  }
+
+  .chapter-title {
+    font-size: 0.68rem;
+    line-height: 1.3;
+  }
+
+  .progress-percentage {
+    font-size: 0.6rem;
+  }
+  
+  .hero-copy h1 {
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
+  }
+  
+  .hero-copy p {
+    font-size: clamp(0.8rem, 1.8vw, 0.85rem);
+  }
+}
+
+.ai-chat-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  border: 2px solid rgba(96, 165, 250, 0.4);
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;  
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(96, 165, 250, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 999;
+}
+
+.ai-chat-button.visible {
+  display: flex;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ai-chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 48px rgba(96, 165, 250, 0.6);
+}
+
+.ai-chat-button:active {
+  transform: scale(0.95);
+}
+
+.ai-chat-button::before {
+  display: none;
+}
+
+.ai-chat-window {
+  position: fixed;
+  bottom: 120px;
+  right: 2rem;
+  width: 380px;
+  max-height: 600px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(8, 15, 29, 0.98) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+}
+
+.ai-chat-window.active {
+  display: flex;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(56, 189, 248, 0.05));
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chat-header .close-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.chat-header .close-btn:hover {
+  color: #f1f5f9;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(96, 165, 250, 0.05);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.3);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.5);
+}
+
+.chat-message {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 100%;
+  word-wrap: break-word;
+  animation: messageAppear 0.3s ease-out;
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  color: white;
+  max-width: 85%;
+}
+
+.chat-message.ai {
+  align-self: flex-start;
+  background: rgba(30, 64, 175, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  color: #e2e8f0;
+  max-width: 85%;
+}
+
+.chat-message.loading {
+  align-self: flex-start;
+  background: rgba(96, 165, 250, 0.1);
+  color: #cbd5e1;
+  max-width: 85%;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 0.4rem 0.6rem;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(96, 165, 250, 0.6);
+  animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+.chat-input-area {
+  padding: 1rem;
+  border-top: 1px solid rgba(96, 165, 250, 0.15);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 10px;
+  color: #f1f5f9;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: all 0.2s;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(15, 23, 42, 0.8);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.chat-input::placeholder {
+  color: #64748b;
+}
+
+.chat-send-btn {
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-send-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4);
+}
+
+.chat-send-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.chat-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .ai-chat-button {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ai-chat-window {
+    bottom: 70px;
+    right: 1rem;
+    width: calc(100vw - 2rem);
+    max-width: none;
+    max-height: 400px;
+  }
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="view-area physique-page">
+  <div class="physique-shell">
+    
+    <div class="physique-hero" id="hero-section">
+      <div class="hero-top-row">
+        <a href="{% url 'cours' %}" class="back-to-cours-btn"><i class="fas fa-arrow-left"></i> Cours</a>
+        <span class="hero-kicker"><i class="fas fa-atom"></i> Physique BAC</span>
+      </div>
+      <div class="hero-copy">
+        <h1>Maîtrise la Physique pour le Baccalauréat Haïtien</h1>
+        <p>Découvre les 10 chapitres essentiels. Clique sur un chapitre pour voir le contenu complet.</p>
+      </div>
+    </div>
+
+    
+    <svg style="display: none;">
+      <defs>
+        <linearGradient id="gradientBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color: #60a5fa; stop-opacity: 1;" />
+          <stop offset="100%" style="stop-color: #f59e0b; stop-opacity: 1;" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    
+    <div class="chapters-container" id="chapters-container">
+      <div class="chapters-grid" id="chapters-list">
+        
+      </div>
+    </div>
+
+    
+    <div class="physique-content-area" id="content-area">
+      <div class="chapter-full">
+        
+        <div class="chapter-full-header">
+          <button class="chapter-back-btn" id="back-btn" title="Retour à la liste des chapitres">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <h2 id="chapter-title"></h2>
+        </div>
+
+        <div class="chapter-full-content">
+          
+          <div class="chapter-text" id="chapter-body"></div>
+
+          
+          <div class="key-points-section" id="key-points-section" style="display:none;">
+            <div class="key-points-header">
+              <span class="key-points-icon">🧠</span>
+              <h3 class="key-points-title">Points Clés à Retenir</h3>
+              <button class="key-points-refresh-btn" id="key-points-refresh-btn" title="Régénérer les points clés">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+            <div id="key-points-list" class="key-points-list">
+              <div class="key-points-loading">
+                <div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+                <span>L'IA analyse le chapitre...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <button class="ai-chat-button" id="ai-chat-btn" title="Poser une question à l'IA">
+      <i class="fas fa-comments"></i>
+    </button>
+
+    <div class="ai-chat-window" id="ai-chat-window">
+      <div class="chat-header">
+        <h3><i class="fas fa-robot"></i> Assistant IA</h3>
+        <button class="close-btn" id="close-chat-btn">✕</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-area">
+        <input 
+          type="text" 
+          class="chat-input" 
+          id="chat-input" 
+          placeholder="Poser une question sur le chapitre..."
+        >
+        <button class="chat-send-btn" id="chat-send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const courseDataRaw = `{{ physique_course_json|escapejs }}`;
+  console.log('✓ Template variable courseDataRaw (first 200 chars):', courseDataRaw.substring(0, 200));
+  console.log('✓ Fullength:', courseDataRaw.length);
+  
+  let courseData = {};
+  let chapters = [];
+  let currentChapterIndex = -1;
+  let chapterProgress = {};
+
+  try {
+    courseData = JSON.parse(courseDataRaw);
+  } catch (e) {
+    console.error('✗ Error parsing course JSON:', e);
+    console.error('✗ courseDataRaw:', courseDataRaw.substring(0, 500));
+  }
+
+  console.log('✓ courseData loaded:', courseData);
+  console.log('✓ raw_text length:', courseData.raw_text ? courseData.raw_text.length : 0);
+
+  function extractChapters() {
+    const rawText = courseData.raw_text || '';
+    const lines = rawText.split('\n');
+    console.log('✓ extractChapters() called with', lines.length, 'lines');
+    console.log('  Raw text length:', rawText.length, 'bytes');
+    if (lines.length > 0) {
+      console.log('  First line:', lines[0].substring(0, 100));
+      console.log('  Line with CHAPITRE:', lines.find(l => l.includes('CHAPITRE')) ? 'FOUND' : 'NOT FOUND');
+    }
+    
+    const chapterLineIndex = lines.findIndex(l => l.includes('CHAPITRE'));
+    if (chapterLineIndex >= 0) {
+      console.log('  First CHAPITRE at line:', chapterLineIndex, ':', lines[chapterLineIndex]);
+    }
+    
+    chapters = [];
+    let currentChapter = null;
+    let chapterCount = 0;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      
+      const isChapterLine = /^##\s+CHAPITRE\s+\d+/i.test(line);
+      
+      if (isChapterLine) {
+        if (currentChapter && chapterCount < 10) {
+          chapters.push(currentChapter);
+          chapterCount++;
+        }
+        
+        if (chapterCount < 10) {
+          const titleMatch = line.match(/^##\s+(CHAPITRE\s+.*?)$/i);
+          const title = titleMatch ? titleMatch[1] : line.replace(/^##\s+/, '');
+          currentChapter = {
+            title: title,
+            number: chapterCount + 1,
+            content: [],
+            startLine: i,
+          };
+          console.log(`  Found chapter ${chapterCount + 1}: ${title.substring(0, 50)}`);
+        }
+      } else if (currentChapter) {
+        currentChapter.content.push(line);
+      }
+    }
+
+    if (currentChapter && chapterCount < 10) {
+      chapters.push(currentChapter);
+    }
+
+    console.log('✓ Extracted chapters:', chapters.length);
+    chapters.forEach((ch, idx) => {
+      console.log(`  Chapter ${idx + 1}: ${ch.title.substring(0, 50)} (${ch.content.length} lines)`);
+    });
+
+    chapters.forEach((ch, idx) => {
+      ch.text = ch.content.join('\n');
+      chapterProgress[idx] = Math.random() * 65;
+    });
+
+    if (chapters.length === 0) {
+      console.warn('⚠️  NO CHAPTERS EXTRACTED - USING FALLBACK DATA');
+      const chapterTitles = [
+        'CHAPITRE 1 : LE CONDENSATEUR',
+        'CHAPITRE 2 : LE SOLÉNOÏDE ET L\'INDUCTANCE',
+        'CHAPITRE 3 : INDUCTION ÉLECTROMAGNÉTIQUE',
+        'CHAPITRE 4 : FORCE DE LAPLACE ET GALVANOMÈTRE',
+        'CHAPITRE 5 : COURANT ALTERNATIF SINUSOÏDAL',
+        'CHAPITRE 6 : CINÉMATIQUE — MOUVEMENT RECTILIGNE',
+        'CHAPITRE 7 : MOUVEMENT DE PROJECTILE (BALISTIQUE)',
+        'CHAPITRE 8 : PENDULE SIMPLE ET OSCILLATIONS',
+        'CHAPITRE 9 : ONDES',
+        'CHAPITRE 10 : COMMENT RÉPONDRE AUX QUESTIONS DU BAC',
+      ];
+      
+      chapterTitles.forEach((title, idx) => {
+        chapters.push({
+          title: title,
+          number: idx + 1,
+          text: 'Chapitre ' + (idx + 1) + ' - Contenu en cours de chargement...',
+          content: []
+        });
+        chapterProgress[idx] = Math.random() * 65;
+      });
+      
+      console.log('✓ Fallback: Created', chapters.length, 'chapter placeholders');
+    }
+  }
+
+  function getProgressColor(progress) {
+    if (progress < 25) {
+      return 'linear-gradient(90deg, #ef4444 0%, #f87171 100%)';
+    } else if (progress < 50) {
+      return 'linear-gradient(90deg, #f97316 0%, #fb923c 100%)';
+    } else if (progress < 75) {
+      return 'linear-gradient(90deg, #eab308 0%, #facc15 100%)';
+    } else {
+      return 'linear-gradient(90deg, #22c55e 0%, #4ade80 100%)';
+    }
+  }
+
+  window.toggleQuiz = function(btn) {
+    const quizCard = btn.closest('.quiz-card');
+    if (!quizCard) return;
+    
+    const quizBody = quizCard.querySelector('.quiz-body');
+    const isHidden = quizBody.style.display === 'none';
+    
+    quizBody.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? '✓ Voir moins' : '📖 Voir réponse';
+    
+    if (isHidden) {
+      quizBody.animation = 'fadeIn 0.3s ease-in';
+    }
+  };
+
+  function initChaptersGrid() {
+    const list = document.getElementById('chapters-list');
+    console.log('✓ initChaptersGrid() called');
+    console.log('  list element found:', !!list);
+    console.log('  chapters to render:', chapters.length);
+    
+    if (!list) {
+      console.error('ERROR: Could not find #chapters-list element!');
+      return;
+    }
+    
+    list.innerHTML = '';
+    
+    if (chapters.length === 0) {
+      console.warn('WARNING: No chapters extracted! Showing error message.');
+      list.innerHTML = '<div style="grid-column: 1; padding: 2rem; color: #ff6b6b; text-align: center;"><strong>Erreur:</strong> Les chapitres n\'ont pas pu être chargés. Vérifiez que les données du cours sont disponibles.</div>';
+      return;
+    }
+
+    chapters.forEach((chapter, index) => {
+      const progress = chapterProgress[index] || 0;
+
+      const btn = document.createElement('button');
+      btn.className = 'chapter-card-btn';
+      btn.onclick = (e) => {
+        e.preventDefault();
+        selectChapter(index);
+      };
+
+      btn.innerHTML = `
+        <div class="chapter-card-top">
+          <div class="chapter-number-badge">${chapter.number}</div>
+          <h3 class="chapter-title">${chapter.title.replace(/^CHAPITRE\s+\d+:\s*/, '')}</h3>
+        </div>
+        <div style="width: 100%;">
+          <div class="chapter-progress-bar-container">
+            <div class="chapter-progress-bar" style="width: ${progress}%; background: ${getProgressColor(progress)};" data-progress="${progress}"></div>
+          </div>
+          <div class="progress-percentage">${Math.round(progress)}%</div>
+        </div>
+      `;
+
+      list.appendChild(btn);
+    });
+    
+    const actualButtons = list.querySelectorAll('.chapter-card-btn');
+    console.log(`✓ Actual buttons in DOM: ${actualButtons.length}`);
+    if (actualButtons.length > 0) {
+      console.log('  First button:', actualButtons[0].textContent.substring(0, 50));
+    }
+  }
+
+  function selectChapter(index) {
+    currentChapterIndex = index;
+    const chapter = chapters[index];
+    
+    let chapterText = chapter.text;
+    if (!chapterText || chapterText.trim() === '') {
+      chapterText = extractChapterContent(index);
+    }
+    
+    document.getElementById('chapter-title').textContent = chapter.title.replace(/^CHAPITRE \d+:\s*/, '');
+    document.getElementById('chapter-body').innerHTML = formatContent(chapterText);
+    
+    const chapterBody = document.getElementById('chapter-body');
+    const quizBodies = chapterBody.querySelectorAll('.quiz-body');
+    
+    quizBodies.forEach(body => {
+      if (body.textContent.trim() === '') {
+        let next = body.nextElementSibling;
+        let accumulated = '';
+        
+        while (next && !next.classList.contains('quiz-card') && !next.classList.contains('quiz-solution-marker')) {
+          if (!next.classList.contains('quiz-answer-marker')) {
+            accumulated += next.outerHTML;
+          }
+          next = next.nextElementSibling;
+        }
+        
+        if (accumulated) {
+          body.innerHTML = accumulated;
+        }
+      }
+    });
+    
+    chapterBody.querySelectorAll('.quiz-solution-marker, .quiz-answer-marker').forEach(m => m.remove());
+    
+    setupQuizInteractions(chapterBody);
+    
+    if (window.renderMathInElement) {
+      try {
+        window.renderMathInElement(document.getElementById('chapter-body'), {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+          ],
+          throwOnError: false
+        });
+        document.getElementById('chapter-body').querySelectorAll('.katex-display').forEach(katexEl => {
+          if (!katexEl.closest('.formula-card') && !katexEl.closest('.formula-block')) {
+            const parent = katexEl.parentNode;
+            const card = document.createElement('div');
+            card.className = 'formula-card';
+            parent.insertBefore(card, katexEl);
+            card.appendChild(katexEl);
+            const strayText = [];
+            card.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE && n.textContent.trim()) strayText.push(n); });
+            strayText.forEach(n => {
+              const p = document.createElement('p');
+              p.textContent = n.textContent.trim();
+              card.parentNode.insertBefore(p, card.nextSibling);
+              n.remove();
+            });
+          }
+        });
+      } catch (e) {
+        console.warn('KaTeX rendering error:', e);
+      }
+    }
+    
+    document.getElementById('chapters-container').classList.add('hidden');
+    document.getElementById('hero-section').classList.add('hidden');
+    
+    document.getElementById('content-area').classList.add('active');
+    
+    const kpSection = document.getElementById('key-points-section');
+    if (kpSection) {
+      kpSection.style.display = 'block';
+      loadKeyPoints();
+    }
+
+    chatMessages.innerHTML = '';
+    updateFloatingButtonVisibility();
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function extractChapterContent(chapterIndex) {
+    const rawText = courseData.raw_text || '';
+    const lines = rawText.split('\n');
+    const chapterNum = chapterIndex + 1;
+    
+    let startLine = -1;
+    let endLine = lines.length;
+    
+    for (let i = 0; i < lines.length; i++) {
+      if (new RegExp(`^##\\s+CHAPITRE\\s+${chapterNum}`, 'i').test(lines[i])) {
+        startLine = i;
+        break;
+      }
+    }
+    
+    if (startLine === -1) return '';
+    
+    for (let i = startLine + 1; i < lines.length; i++) {
+      if (/^##\s+CHAPITRE\s+\d+/i.test(lines[i])) {
+        endLine = i;
+        break;
+      }
+    }
+    
+    return lines.slice(startLine, endLine).join('\n');
+  }
+
+  document.getElementById('back-btn').addEventListener('click', () => {
+    document.getElementById('content-area').classList.remove('active');
+    document.getElementById('chapters-container').classList.remove('hidden');
+    document.getElementById('hero-section').classList.remove('hidden');
+    currentChapterIndex = -1;
+
+    const kpSection = document.getElementById('key-points-section');
+    if (kpSection) kpSection.style.display = 'none';
+
+    updateFloatingButtonVisibility();
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  
+  const QUIZ_DATA = {
+    'physique-chapter-1': [
+      {
+        num: 1,
+        question: 'Un condensateur de 20 µF est soumis à 12 V. Calcule la charge Q et l\'énergie W.',
+        options: [
+          { letter: 'A', text: 'Q = 0,12 mC, W = 0,72 mJ', correct: false, feedback: '❌ Tu as oublié un facteur 2. Sachant que Q = C × U = 20×10⁻⁶ × 12 = 2,4×10⁻⁴ C = 0,24 mC (double de ta réponse)' },
+          { letter: 'B', text: 'Q = 0,24 mC, W = 1,44 mJ', correct: true, feedback: '✅ Correct! Q = C × U = 0,24 mC et W = ½CU² = 1,44 mJ' },
+          { letter: 'C', text: 'Q = 0,48 mC, W = 2,88 mJ', correct: false, feedback: '❌ Tu as doublé la charge. La formule est Q = C × U, pas 2CU. Revérifier tes calculs.' },
+          { letter: 'D', text: 'Q = 1,20 mC, W = 7,20 mJ', correct: false, feedback: '❌ Ces valeurs sont 5 fois trop grandes. Tu as peut-être utilisé C = 100 µF au lieu de 20 µF.' }
+        ],
+        solution: '$$Q = C × U = 20×10⁻⁶ × 12 = 2,4×10⁻⁴ C = 0,24 mC$$<br/>$$W = \\frac{1}{2} × C × U² = \\frac{1}{2} × 20×10⁻⁶ × 144 = 1,44×10⁻³ J = 1,44 mJ$$'
+      },
+      {
+        num: 2,
+        question: 'C₁ = 6 µF et C₂ = 3 µF en série sous 9 V. Calcule Ceq, Q, U₁ et U₂.',
+        options: [
+          { letter: 'A', text: 'Ceq = 2 µF, Q = 18 µC, U₁ = 3V, U₂ = 6V', correct: true, feedback: '✅ Parfait! Pour des condensateurs en série: 1/Ceq = 1/C₁ + 1/C₂ = 2 µF, puis Q = 18 µC et U₁ + U₂ = 9V' },
+          { letter: 'B', text: 'Ceq = 9 µF, Q = 81 µC, U₁ = 6V, U₂ = 3V', correct: false, feedback: '❌ Tu as additionné les capacités au lieu de les mettre en série! En série: 1/Ceq = 1/6 + 1/3 = 1/2, donc Ceq = 2 µF' },
+          { letter: 'C', text: 'Ceq = 4.5 µF, Q = 40.5 µC, U₁ = 4.5V, U₂ = 4.5V', correct: false, feedback: '❌ Ceq n\'est pas la moyenne! Formule correcte pour série: Ceq = (C₁ × C₂)/(C₁ + C₂) = 2 µF' },
+          { letter: 'D', text: 'Ceq = 1 µF, Q = 9 µC, U₁ = 1.5V, U₂ = 7.5V', correct: false, feedback: '❌ Ta valeur de Ceq est trop faible. Revérifie: 1/Ceq = 1/6 + 1/3 = 1/2, donc Ceq = 2 µF (pas 1 µF)' }
+        ],
+        solution: '$$C_{eq} = \\frac{C₁ × C₂}{C₁ + C₂} = \\frac{6 × 3}{6 + 3} = \\frac{18}{9} = 2 µF$$<br/>$$Q = C_{eq} × U = 2×10⁻⁶ × 9 = 1,8×10⁻⁵ C = 18 µC$$<br/>$$U₁ = \\frac{Q}{C₁} = \\frac{18}{6} = 3V, \\quad U₂ = \\frac{Q}{C₂} = \\frac{18}{3} = 6V$$'
+      },
+      {
+        num: 3,
+        question: 'C₁ = 4 µF chargé à 10 V est connecté à C₂ = 6 µF non chargé. Quelle est la tension finale?',
+        options: [
+          { letter: 'A', text: 'U = 4V', correct: true, feedback: '✅ Correct! Par conservation de charge: U_final = (Q_initial)/(C₁+C₂) = (40 µC)/(10 µF) = 4V' },
+          { letter: 'B', text: 'U = 5V', correct: false, feedback: '❌ Tu as fait (10V)/2 = 5V, mais tu dois tenir compte des capacités! Utilise Q = C₁ × U₁ initial = 40 µC' },
+          { letter: 'C', text: 'U = 6V', correct: false, feedback: '❌ Cette valeur est trop proche de U₂. La tension finale est (4×10)/(4+6) = 40/10 = 4V' },
+          { letter: 'D', text: 'U = 10V', correct: false, feedback: '❌ La tension utile ne reste pas! C₂ était déchargé, donc la tension baisse. U_final = 4V' }
+        ],
+        solution: '$$Q_{initial} = C₁ × U₁ = 4×10⁻⁶ × 10 = 4×10⁻⁵ C$$<br/>$$U_{final} = \\frac{Q_{total}}{C₁ + C₂} = \\frac{4×10⁻⁵}{10×10⁻⁶} = 4V$$'
+      },
+      {
+        num: 4,
+        question: 'Complète: "L\'énergie emmagasinée dans un condensateur est W = ____. L\'unité de la capacité est le ____."',
+        options: [
+          { letter: 'A', text: 'W = ½QU et Farad', correct: true, feedback: '✅ Exact! W = ½CV² = ½QU = Q²/2C. Le Farad (F) est l\'unité SI de capacité.' },
+          { letter: 'B', text: 'W = Q²/C et Coulomb', correct: false, feedback: '❌ La formule est presque juste mais utilise ½ devant, et le Coulomb est l\'unité de charge, pas de capacité!' },
+          { letter: 'C', text: 'W = CU et Ampère', correct: false, feedback: '❌ Non, c\'est W = ½CU², pas CU. L\'Ampère est une unité de courant, pas de capacité.' },
+          { letter: 'D', text: 'W = UI et Ohm', correct: false, feedback: '❌ W = UI est la puissance électrique. Pour un condensateur: W = ½CV². L\'Ohm mesure la résistance.' }
+        ],
+        solution: '$$W = \\frac{1}{2}CV² = \\frac{1}{2}QU = \\frac{Q²}{2C}$$<br/>L\'unité de capacité est le <strong>Farad (F)</strong>'
+      },
+      {
+        num: 5,
+        question: 'Un condensateur plan a S = 0,01 m², d = 2 mm, εᵣ = 5. Calcule C (ε₀ = 8,85×10⁻¹² F/m).',
+        options: [
+          { letter: 'A', text: 'C = 0,221 nF', correct: true, feedback: '✅ Correct! C = (ε₀εᵣS)/d = (8,85×10⁻¹² × 5 × 0,01)/(2×10⁻³) = 0,221 nF' },
+          { letter: 'B', text: 'C = 2,21 nF', correct: false, feedback: '❌ Tu as multiplié par 10! Revérifie: (0,4425×10⁻¹²)/(2×10⁻³) = 0,221×10⁻⁹ F = 0,221 nF' },
+          { letter: 'C', text: 'C = 22,1 nF', correct: false, feedback: '❌ Tu as multiplié par 100. L\'erreur vient probablement de la conversion de d: 2 mm = 2×10⁻³ m' },
+          { letter: 'D', text: 'C = 0,0221 nF', correct: false, feedback: '❌ Tu as divisé par 10. Recalcule: (8,85 × 5 × 0,01 × 10⁻¹²) / (2 × 10⁻³) = 0,221 nF' }
+        ],
+        solution: '$$C = \\frac{ε₀ε_r S}{d} = \\frac{8,85×10⁻¹² × 5 × 0,01}{2×10⁻³}$$<br/>$$C = \\frac{0,4425×10⁻¹²}{2×10⁻³} = 0,22125×10⁻⁹ F = 0,221 nF = 2,21×10⁻¹⁰ F$$'
+      }
+    ],
+    'physique-chapter-2': [
+      {
+        num: 1,
+        question: 'Un solénoïde de 500 spires, longueur 0,5 m, parcourue par 2 A. Calcule B au centre (μ₀ = 4π×10⁻⁷ H/m).',
+        options: [
+          { letter: 'A', text: 'B = 2,51 mT', correct: true, feedback: '✅ Correct! B = μ₀nI = μ₀(N/L)I = (4π×10⁻⁷ × 1000 × 2) = 2,51 mT' },
+          { letter: 'B', text: 'B = 1,26 mT', correct: false, feedback: '❌ Tu as oublié le 2π en haut. Revérifie: (4π×10⁻⁷ × 500/0,5 × 2)' },
+          { letter: 'C', text: 'B = 5,03 mT', correct: false, feedback: '❌ Tu as doublé le résultat. N/L = 500/0,5 = 1000 spires/m, puis B = μ₀nI' },
+          { letter: 'D', text: 'B = 0,251 mT', correct: false, feedback: '❌ Tu as oublié un facteur 10. Vérifie l\'ordre de grandeur: 10⁻⁷ × 10⁴ ≈ 10⁻³' }
+        ],
+        solution: '$$n = \\frac{N}{L} = \\frac{500}{0,5} = 1000 \\text{ spires/m}$$<br/>$$B = μ₀nI = 4π×10⁻⁷ × 1000 × 2 = 2,51×10⁻³ T = 2,51 \\text{ mT}$$'
+      },
+      {
+        num: 2,
+        question: 'L\'inductance d\'une bobine est L = 50 mH. Si le courant passe de 0 à 5 A en 0,1 s, calcule la FEM d\'auto-induction.',
+        options: [
+          { letter: 'A', text: 'e = 2,5 V', correct: true, feedback: '✅ Correct! e = L(di/dt) = 0,05 × (5/0,1) = 0,05 × 50 = 2,5 V' },
+          { letter: 'B', text: 'e = 0,25 V', correct: false, feedback: '❌ Tu as oublié le facteur 10. Revérifie: 50 mH = 0,05 H, et di/dt = 5/0,1 = 50 A/s' },
+          { letter: 'C', text: 'e = 25 V', correct: false, feedback: '❌ Tu as multiplié par 10. La FEM est e = L(di/dt) = 0,05 × 50 = 2,5 V' },
+          { letter: 'D', text: 'e = 1,25 V', correct: false, feedback: '❌ Tu as divisé par 2. Calcul correct: 0,05 × (5/0,1) = 0,05 × 50 = 2,5 V' }
+        ],
+        solution: '$$\\frac{di}{dt} = \\frac{5 - 0}{0,1} = 50 \\text{ A/s}$$<br/>$$e = L\\frac{di}{dt} = 0,05 × 50 = 2,5 \\text{ V}$$'
+      },
+      {
+        num: 3,
+        question: 'Deux bobines ont L₁ = 0,1 H et L₂ = 0,2 H. Quelle est l\'inductance totale en série?',
+        options: [
+          { letter: 'A', text: 'L_total = 0,3 H', correct: true, feedback: '✅ Correct! En série: L_total = L₁ + L₂ = 0,1 + 0,2 = 0,3 H' },
+          { letter: 'B', text: 'L_total = 0,067 H', correct: false, feedback: '❌ Tu as fait un calcul parallèle! En série on additionne tout simplement: 0,1 + 0,2 = 0,3 H' },
+          { letter: 'C', text: 'L_total = 0,15 H', correct: false, feedback: '❌ C\'est la moyenne! L_total = L₁ + L₂ = 0,3 H en série' },
+          { letter: 'D', text: 'L_total = 0,02 H', correct: false, feedback: '❌ Tu as fait un produit. En série: L_total = L₁ + L₂ = 0,3 H' }
+        ],
+        solution: '$$L_{total} = L₁ + L₂ = 0,1 + 0,2 = 0,3 \\text{ H}$$<br/>Note: En parallèle ce serait $\\frac{1}{L_{total}} = \\frac{1}{L₁} + \\frac{1}{L₂}$'
+      },
+      {
+        num: 4,
+        question: 'L\'énergie stockée dans une inductance est W = ____ avec unité ____.',
+        options: [
+          { letter: 'A', text: 'W = ½LI² en Joule', correct: true, feedback: '✅ Exact! W = ½LI² (analogue à W = ½CV² pour condensateur). Unité: Joule' },
+          { letter: 'B', text: 'W = LI² en Watt', correct: false, feedback: '❌ Le facteur ½ est manquant, et le Watt est une puissance, pas une énergie!' },
+          { letter: 'C', text: 'W = L/I en Henry', correct: false, feedback: '❌ Formule fausse. C\'est W = ½LI² en Joule, pas L/I' },
+          { letter: 'D', text: 'W = LI en Farad', correct: false, feedback: '❌ Non, c\'est W = ½LI² en Joule. Le Farad est pour les condensateurs!' }
+        ],
+        solution: '$$W = \\frac{1}{2}LI²$$<br/>Unité: Joule (J)'
+      },
+      {
+        num: 5,
+        question: 'Qu\'est-ce qui change quand on augmente le nombre de spires d\'une bobine?',
+        options: [
+          { letter: 'A', text: 'L augmente, B augmente, Inductance ↑', correct: true, feedback: '✅ Correct! L ∝ N² donc plus de spires = inductance plus grande et champ plus fort' },
+          { letter: 'B', text: 'L diminue, Résistance ↑', correct: false, feedback: '❌ L augmente avec N! Plus de spires = inductance PLUS grande, pas plus petite' },
+          { letter: 'C', text: 'Seul B change', correct: false, feedback: '❌ Faux, les deux changent! L et B augmentent tous les deux avec plus de spires' },
+          { letter: 'D', text: 'Rien ne change', correct: false, feedback: '❌ Tout change! B = μ₀nI et L ∝ N² donc plus de spires affecte les deux' }
+        ],
+        solution: '$$B = μ₀\\frac{N}{L}I \\quad \\text{et} \\quad L ∝ N²$$<br/>Augmenter N: B↑ et L↑'
+      }
+    ],
+    'physique-chapter-3': [
+      {
+        num: 1,
+        question: 'Un magnet tombe à travers une bobine (Φ change). Quel phénomène se produit?',
+        options: [
+          { letter: 'A', text: 'FEM induite par variation de flux', correct: true, feedback: '✅ Correct! Par la loi de Faraday: e = -dΦ/dt. Quand Φ change, une FEM apparaît' },
+          { letter: 'B', text: 'Aucun phénomène n\'a lieu', correct: false, feedback: '❌ Faux! Une variation de flux magnétique induit toujours une FEM' },
+          { letter: 'C', text: 'Courant continu constant', correct: false, feedback: '❌ Non, c\'est une FEM VARIABLE car dΦ/dt change. Le flux est variable!' },
+          { letter: 'D', text: 'Augmentation de capacité', correct: false, feedback: '❌ La capacité n\'est pas concernée. C\'est l\'induction: e = -dΦ/dt' }
+        ],
+        solution: '$$e = -\\frac{dΦ}{dt}$$<br/>Une variation du flux magnétique induit une FEM'
+      },
+      {
+        num: 2,
+        question: 'Φ varie de 0,5 Wb à 0,2 Wb en 0,3 s dans une bobine de 100 spires. Calcule e.',
+        options: [
+          { letter: 'A', text: 'e = 100 V', correct: true, feedback: '✅ Correct! e = N|dΦ/dt| = 100 × |0,2-0,5|/0,3 = 100 × 1 = 100 V' },
+          { letter: 'B', text: 'e = 33,3 V', correct: false, feedback: '❌ Tu as oublié le nombre de spires! e = N × (ΔΦ/Δt) = 100 × 1 = 100 V' },
+          { letter: 'C', text: 'e = 10 V', correct: false, feedback: '❌ Tu as utilisé N=10 au lieu de 100. Revérifie: e = 100 × 0,3/0,3 = 100 V' },
+          { letter: 'D', text: 'e = 150 V', correct: false, feedback: '❌ Calcul faux. ΔΦ = 0,3 Wb donc dΦ/dt = 1 Wb/s, d\'où e = 100 × 1 = 100 V' }
+        ],
+        solution: '$$\\frac{dΦ}{dt} = \\frac{0,5 - 0,2}{0,3} = \\frac{0,3}{0,3} = 1 \\text{ Wb/s}$$<br/>$$e = N\\left|\\frac{dΦ}{dt}\\right| = 100 × 1 = 100 \\text{ V}$$'
+      },
+      {
+        num: 3,
+        question: 'Qu\'énonce la loi de Lenz?',
+        options: [
+          { letter: 'A', text: 'Le courant induit s\'oppose à la variation de flux', correct: true, feedback: '✅ Exact! La loi de Lenz dit que le sens du courant induit crée un champ qui s\'oppose à ΔΦ' },
+          { letter: 'B', text: 'Le courant induit est dans le même sens que Φ', correct: false, feedback: '❌ Non, c\'est l\'inverse! Le courant s\'oppose à la variation (loi de Lenz)' },
+          { letter: 'C', text: 'Il n\'y a pas de rapport avec le flux', correct: false, feedback: '❌ Faux! Lenz parle exactement de la relation entre courant induit et flux' },
+          { letter: 'D', text: 'La FEM est toujours positive', correct: false, feedback: '❌ Non, le signe négatif dans e = -dΦ/dt vient de la loi de Lenz!' }
+        ],
+        solution: 'La loi de Lenz: <strong>Le courant induit s\'oppose toujours à la cause qui l\'a provoqué</strong>'
+      },
+      {
+        num: 4,
+        question: 'Une spire de surface S passe d\'une zone B forte à B faible. Qu\'observe-t-on?',
+        options: [
+          { letter: 'A', text: 'Apparition d\'une FEM induite', correct: true, feedback: '✅ Correct! En changeant de zone, Φ = BS change, donc e = -dΦ/dt ≠ 0' },
+          { letter: 'B', text: 'Rien ne change', correct: false, feedback: '❌ Si, le flux change! Φ diminue quand on va vers B faible, donc e ≠ 0' },
+          { letter: 'C', text: 'Force répulsive permanente', correct: false, feedback: '❌ La force ne persiste que tant que Φ varie. Une fois stable, e = 0' },
+          { letter: 'D', text: 'Augmentation de la capacité', correct: false, feedback: '❌ La capacité n\'intervient pas. C\'est l\'induction: e = -dΦ/dt' }
+        ],
+        solution: '$$Φ = BS \\Rightarrow \\text{Si } B \\downarrow \\text{ alors } Φ \\downarrow$$<br/>$$e = -\\frac{dΦ}{dt} \\neq 0$$'
+      },
+      {
+        num: 5,
+        question: 'Quel appareil utilise l\'induction électromagnétique?',
+        options: [
+          { letter: 'A', text: 'Transformateur électrique', correct: true, feedback: '✅ Correct! Le transfo utilise l\'induction pour convertir les tensions AC' },
+          { letter: 'B', text: 'Pile AA', correct: false, feedback: '❌ La pile se base sur une réaction chimique, pas l\'induction' },
+          { letter: 'C', text: 'Ampoule LED', correct: false, feedback: '❌ La LED émet de la lumière par électroluminescence, pas par induction' },
+          { letter: 'D', text: 'Condensateur', correct: false, feedback: '❌ Le condensateur stocke charge, pas induction. C\'est el transfo qui utilise l\'induction!' }
+        ],
+        solution: 'Le <strong>transformateur électrique</strong> utilise l\'induction pour convertir les tensions'
+      }
+    ],
+    'physique-chapter-4': [
+      {
+        num: 1,
+        question: 'Une charge q = 2 C se déplace dans un champ B = 0,5 T avec v = 10 m/s perpendiculaire à B. Calcule F.',
+        options: [
+          { letter: 'A', text: 'F = 10 N', correct: true, feedback: '✅ Correct! F = qvB = 2 × 10 × 0,5 = 10 N (car sin(90°) = 1)' },
+          { letter: 'B', text: 'F = 5 N', correct: false, feedback: '❌ Tu as oublié la charge! F = qvB = 2 × 10 × 0,5 = 10 N' },
+          { letter: 'C', text: 'F = 20 N', correct: false, feedback: '❌ Tu as doublé. F = qvB = 2 × 10 × 0,5 = 10 N' },
+          { letter: 'D', text: 'F = 1 N', correct: false, feedback: '❌ Tu as oublié un ordre de grandeur. F = 2 × 10 × 0,5 = 10 N' }
+        ],
+        solution: '$$F = qvB\\sin(θ) = 2 × 10 × 0,5 × 1 = 10 \\text{ N}$$'
+      },
+      {
+        num: 2,
+        question: 'Un conducteur de 0,3 m perpendiculaire à B = 0,2 T porte 5 A. Force de Laplace?',
+        options: [
+          { letter: 'A', text: 'F = 0,3 N', correct: true, feedback: '✅ Correct! F = BIL = 0,2 × 5 × 0,3 = 0,3 N' },
+          { letter: 'B', text: 'F = 1,5 N', correct: false, feedback: '❌ Tu as multiplié par 5 de trop. F = 0,2 × 5 × 0,3 = 0,3 N' },
+          { letter: 'C', text: 'F = 0,03 N', correct: false, feedback: '❌ Tu as oublié un facteur 10. F = BIL = 0,2 × 5 × 0,3 = 0,3 N' },
+          { letter: 'D', text: 'F = 3 N', correct: false, feedback: '❌ Tu as multiplié par 10 de trop. Le calcul correct: 0,2 × 5 × 0,3 = 0,3 N' }
+        ],
+        solution: '$$F = BIL = 0,2 × 5 × 0,3 = 0,3 \\text{ N}$$'
+      },
+      {
+        num: 3,
+        question: 'Dans un galvanomètre, quel est le rôle du champ magnétique?',
+        options: [
+          { letter: 'A', text: 'Créer une force sur la bobine pour la dévier', correct: true, feedback: '✅ Correct! F = BIL dévie la bobine proportionnellement au courant I' },
+          { letter: 'B', text: 'Augmenter la résistance', correct: false, feedback: '❌ Non, c\'est la force de Laplace qui dévie. Le champ ne change pas la résistance' },
+          { letter: 'C', text: 'Stocker de l\'énergie', correct: false, feedback: '❌ Le galvanomètre mesure, il ne stocke pas. C\'est la force F = BIL qui compte' },
+          { letter: 'D', text: 'Rien, on pourrait s\'en passer', correct: false, feedback: '❌ Le champ est ESSENTIEL pour créer la force de déviation (F = BIL)' }
+        ],
+        solution: 'Le champ B crée la <strong>force de Laplace F = BIL</strong> qui dévie la bobine'
+      },
+      {
+        num: 4,
+        question: 'Un électron (q = -1,6×10⁻¹⁹ C) entre perpendiculairement dans B = 10 T à v = 10⁶ m/s. F?',
+        options: [
+          { letter: 'A', text: 'F = 1,6×10⁻¹² N', correct: true, feedback: '✅ Correct! F = |q|vB = 1,6×10⁻¹⁹ × 10⁶ × 10 = 1,6×10⁻¹² N' },
+          { letter: 'B', text: 'F = 1,6×10⁻¹³ N', correct: false, feedback: '❌ Tu as divisé par 10. Calcul: 1,6×10⁻¹⁹ × 10⁶ × 10 = 1,6×10⁻¹² N' },
+          { letter: 'C', text: 'F = 1,6×10⁻¹¹ N', correct: false, feedback: '❌ Tu as multiplié par 10 de trop. 1,6×10⁻¹⁹ × 10⁶ × 10 = 1,6×10⁻¹² N' },
+          { letter: 'D', text: 'F = 0', correct: false, feedback: '❌ Non! Même négatif, la charge subit une force. F = |q|vB = 1,6×10⁻¹² N' }
+        ],
+        solution: '$$F = |q|vB = 1,6×10⁻¹⁹ × 10⁶ × 10 = 1,6×10⁻¹² \\text{ N}$$'
+      },
+      {
+        num: 5,
+        question: 'Comment change le sens de la force de Laplace si on inverse le courant?',
+        options: [
+          { letter: 'A', text: 'La force change de direction (règle de la main droite)', correct: true, feedback: '✅ Exact! Inverser I revient à inverser la force F de manière symétrique' },
+          { letter: 'B', text: 'La force augmente en intensité', correct: false, feedback: '❌ Non, c\'est la DIRECTION qui change, pas l\'intensité. |F| reste la même' },
+          { letter: 'C', text: 'Aucun changement', correct: false, feedback: '❌ Si! Inverser le courant inverse la force (F ∝ I)' },
+          { letter: 'D', text: 'La force devient nulle', correct: false, feedback: '❌ Non, elle devient juste opposée. |F| ne change pas, mais direction opposite' }
+        ],
+        solution: 'Inverser I: $$\\vec{F}_{nouveau} = -\\vec{F}_{ancien}$$<br/>La direction change mais le module reste le même!'
+      }
+    ],
+    'physique-chapter-5': [
+      {
+        num: 1,
+        question: 'Une tension AC est u(t) = 100sin(100πt) V. Quelle est la fréquence?',
+        options: [
+          { letter: 'A', text: 'f = 50 Hz', correct: true, feedback: '✅ Correct! ω = 100π rad/s, donc f = ω/2π = 50 Hz' },
+          { letter: 'B', text: 'f = 100 Hz', correct: false, feedback: '❌ Tu as pris ω directement. f = ω/2π = 100π/2π = 50 Hz' },
+          { letter: 'C', text: 'f = 100 Hz', correct: false, feedback: '❌ Non, f = ω/2π. Le coefficient 100 n\'est pas la fréquence!' },
+          { letter: 'D', text: 'f = π Hz', correct: false, feedback: '❌ Faux. f = ω/2π = 100π/2π = 50 Hz, pas π' }
+        ],
+        solution: '$$u(t) = U_m\\sin(ωt) \\Rightarrow ω = 100π \\text{ rad/s}$$<br/>$$f = \\frac{ω}{2π} = \\frac{100π}{2π} = 50 \\text{ Hz}$$'
+      },
+      {
+        num: 2,
+        question: 'Tension AC efficace U_eff = 230 V. Quelle est l\'amplitude?',
+        options: [
+          { letter: 'A', text: 'U_m = 325 V', correct: true, feedback: '✅ Correct! U_m = U_eff × √2 = 230 × 1,414 = 325 V' },
+          { letter: 'B', text: 'U_m = 230 V', correct: false, feedback: '❌ Tu confonds efficace et amplitude! U_m = U_eff × √2 = 325 V' },
+          { letter: 'C', text: 'U_m = 115 V', correct: false, feedback: '❌ C\'est la moitié! U_m = U_eff × √2, pas U_eff/2' },
+          { letter: 'D', text: 'U_m = 460 V', correct: false, feedback: '❌ Tu as multiplié par 2 au lieu de √2. U_m = 230 × √2 = 325 V' }
+        ],
+        solution: '$$U_m = U_{eff} × \\sqrt{2} = 230 × 1,414 = 325 \\text{ V}$$'
+      },
+      {
+        num: 3,
+        question: 'Impédance Z = √(R² + X²) d\'un circuit avec R = 60Ω, X = 80Ω.',
+        options: [
+          { letter: 'A', text: 'Z = 100 Ω', correct: true, feedback: '✅ Correct! Z = √(60² + 80²) = √(3600 + 6400) = √10000 = 100 Ω' },
+          { letter: 'B', text: 'Z = 140 Ω', correct: false, feedback: '❌ Tu as additionné! C\'est Z = √(60² + 80²) = 100 Ω, pas 60 + 80' },
+          { letter: 'C', text: 'Z = 70 Ω', correct: false, feedback: '❌ C\'est ni la somme ni la moyenne. Z = √(R² + X²) = √(3600 + 6400) = 100 Ω' },
+          { letter: 'D', text: 'Z = 20 Ω', correct: false, feedback: '❌ Tu as divisé. Z = √(60² + 80²) = √10000 = 100 Ω' }
+        ],
+        solution: '$$Z = \\sqrt{R² + X²} = \\sqrt{60² + 80²} = \\sqrt{10000} = 100 \\text{ Ω}$$'
+      },
+      {
+        num: 4,
+        question: 'Puissance moyenne P = ____ dans un circuit AC avec U_eff et I_eff.',
+        options: [
+          { letter: 'A', text: 'P = U_eff × I_eff × cos(φ)', correct: true, feedback: '✅ Exact! C\'est la puissance active. Le cos(φ) est le facteur de puissance' },
+          { letter: 'B', text: 'P = U_eff × I_eff', correct: false, feedback: '❌ Il manque le cos(φ). P = U × I × cos(φ) où φ est le déphasage' },
+          { letter: 'C', text: 'P = U_eff²/R', correct: false, feedback: '❌ C\'est la formule pour une résistance pure. Générale: P = U × I × cos(φ)' },
+          { letter: 'D', text: 'P = 0 toujours', correct: false, feedback: '❌ Non! P ≠ 0 si une résistance existe. P = U × I × cos(φ)' }
+        ],
+        solution: '$$P = U_{eff} × I_{eff} × \\cos(φ)$$<br/>où φ est le déphasage entre U et I'
+      },
+      {
+        num: 5,
+        question: 'Qu\'est-ce qu\'une résistance purement ohmique?',
+        options: [
+          { letter: 'A', text: 'Tension et courant en phase, déphasage = 0°', correct: true, feedback: '✅ Correct! Pour une résistance pure: φ = 0° et cos(φ) = 1' },
+          { letter: 'B', text: 'Tension et courant déphasés de 90°', correct: false, feedback: '❌ C\'est pour une inductance pure ou capacité. Résistance: φ = 0°' },
+          { letter: 'C', text: 'Résistance infinie', correct: false, feedback: '❌ Non, c\'est une résistance normale (finie). La caractéristique: φ = 0°' },
+          { letter: 'D', text: 'Dissipe pas d\'énergie', correct: false, feedback: '❌ Une résistance dissipe TOUJOURS de l\'énergie (effet Joule)!' }
+        ],
+        solution: 'Résistance purement ohmique: <br/>✓ Tension et courant <strong>en phase</strong> (φ = 0°)<br/>✓ cos(φ) = 1<br/>✓ Dissipation d\'énergie: P = RI²'
+      }
+    ],
+    'physique-chapter-6': [
+      {
+        num: 1,
+        question: 'Un objet parcourt 100 m en 5 s à vitesse constante. Calcule la vitesse moyenne.',
+        options: [
+          { letter: 'A', text: 'v = 20 m/s', correct: true, feedback: '✅ Correct! v = d/t = 100/5 = 20 m/s' },
+          { letter: 'B', text: 'v = 10 m/s', correct: false, feedback: '❌ Tu as divisé par 10. v = 100/5 = 20 m/s' },
+          { letter: 'C', text: 'v = 25 m/s', correct: false, feedback: '❌ Tu as divisé par 4. v = d/t = 100/5 = 20 m/s' },
+          { letter: 'D', text: 'v = 500 m/s', correct: false, feedback: '❌ Tu as multiplié. v = d/t = 100/5 = 20 m/s' }
+        ],
+        solution: '$$v = \\frac{d}{t} = \\frac{100}{5} = 20 \\text{ m/s}$$'
+      },
+      {
+        num: 2,
+        question: 'Accélération: le moteur produit une force constante F. Si la masse est m = 50 kg et F = 100 N, calcule a.',
+        options: [
+          { letter: 'A', text: 'a = 2 m/s²', correct: true, feedback: '✅ Correct! a = F/m = 100/50 = 2 m/s²' },
+          { letter: 'B', text: 'a = 0,5 m/s²', correct: false, feedback: '❌ Tu as inversé! a = F/m = 100/50 = 2 m/s²' },
+          { letter: 'C', text: 'a = 5000 m/s²', correct: false, feedback: '❌ Tu as multiplié. a = F/m = 100/50 = 2 m/s²' },
+          { letter: 'D', text: 'a = 1 m/s²', correct: false, feedback: '❌ Faux. a = F/m = 100/50 = 2 m/s² (c\'est 2, pas 1)' }
+        ],
+        solution: '$$a = \\frac{F}{m} = \\frac{100}{50} = 2 \\text{ m/s}²$$'
+      },
+      {
+        num: 3,
+        question: 'Équation horaire: x = 5t² + 10t (m). Que vaut x à t = 2s?',
+        options: [
+          { letter: 'A', text: 'x = 40 m', correct: true, feedback: '✅ Correct! x = 5(2)² + 10(2) = 20 + 20 = 40 m' },
+          { letter: 'B', text: 'x = 20 m', correct: false, feedback: '❌ Tu as oublié le terme 5t². x = 5×4 + 10×2 = 40 m' },
+          { letter: 'C', text: 'x = 50 m', correct: false, feedback: '❌ Calcul faux. x = 5×4 + 20 = 40 m (pas 50)' },
+          { letter: 'D', text: 'x = 10 m', correct: false, feedback: '❌ Tu as seulement pris 10t. x = 5t² + 10t = 20 + 20 = 40 m' }
+        ],
+        solution: '$$x = 5t² + 10t$$<br/>À t = 2s: $$x = 5(2)² + 10(2) = 20 + 20 = 40 \\text{ m}$$'
+      },
+      {
+        num: 4,
+        question: 'Graphe x-t rectiligne: si la pente est grande, qu\'est-ce que cela signifie?',
+        options: [
+          { letter: 'A', text: 'Grande vitesse', correct: true, feedback: '✅ Correct! dx/dt = v, donc pente grande = vitesse grande' },
+          { letter: 'B', text: 'Bonne accélération', correct: false, feedback: '❌ L\'accélération se voit sur un graphe v-t, pas x-t!' },
+          { letter: 'C', text: 'Petite distance', correct: false, feedback: '❌ Non, grande pente = grande Δx sur peu de temps = GRANDE vitesse' },
+          { letter: 'D', text: 'Aucun mouvement', correct: false, feedback: '❌ Si la pente est grande, le mouvement est RAPIDE, pas nul' }
+        ],
+        solution: '$$v = \\frac{dx}{dt}$$<br/>Pente du graphe x-t = vitesse'
+      },
+      {
+        num: 5,
+        question: 'Vrai ou faux: En mouvement rectiligne uniforme, l\'accélération vaut 0.',
+        options: [
+          { letter: 'A', text: 'Vrai', correct: true, feedback: '✅ Correct! MRU = vitesse constante = a = dv/dt = 0' },
+          { letter: 'B', text: 'Faux', correct: false, feedback: '❌ C\'est vrai! Mouvement UNIFORME signifie v constante donc a = 0' },
+          { letter: 'C', text: 'Dépend de la distance', correct: false, feedback: '❌ Non, pour MRU: a = 0 toujours, quelle que soit la distance' },
+          { letter: 'D', text: 'a diminue avec le temps', correct: false, feedback: '❌ Pour MRU: a = 0 constant. C\'est ce qui définit l\'uniformité' }
+        ],
+        solution: '<strong>VRAI</strong><br/>MRU = v = cste ⟹ a = dv/dt = 0'
+      }
+    ],
+    'physique-chapter-7': [
+      {
+        num: 1,
+        question: 'Projectile lancé horizontalement à v₀ = 20 m/s du haut d\'une falaise. Quelle est sa vitesse vₓ après 3s?',
+        options: [
+          { letter: 'A', text: 'vₓ = 20 m/s', correct: true, feedback: '✅ Correct! Pas de force horizontale, donc vₓ = v₀ = 20 m/s (constant!)' },
+          { letter: 'B', text: 'vₓ = 30 m/s', correct: false, feedback: '❌ vₓ ne change pas! Seule gravité agit (verticalement). vₓ reste 20 m/s' },
+          { letter: 'C', text: 'vₓ = 0 m/s', correct: false, feedback: '❌ Non, vₓ est constant = 20 m/s. Seule vᵧ change avec g' },
+          { letter: 'D', text: 'vₓ = 60 m/s', correct: false, feedback: '❌ vₓ = v₀ toujours. Il n\'y a rien qui change vₓ!' }
+        ],
+        solution: '$$v_x = v_0 = 20 \\text{ m/s (constant)}$$<br/>Pas de force horizontale, donc vₓ ne change pas!'
+      },
+      {
+        num: 2,
+        question: 'Projectile lancé à 45° avec v₀ = 10√2 m/s. Portée max sur terrain plat?',
+        options: [
+          { letter: 'A', text: 'R = 10 m', correct: true, feedback: '✅ Correct! À 45°: R = v₀²sin(2×45°)/g = (10√2)²×1/10 = 200/20 = 10 m' },
+          { letter: 'B', text: 'R = 20 m', correct: false, feedback: '❌ Tu as doublé. R = v₀²sin(90°)/g = 200/20 = 10 m' },
+          { letter: 'C', text: 'R = 5 m', correct: false, feedback: '❌ Tu as divisé par 2. R = v₀²/g = 200/20 = 10 m' },
+          { letter: 'D', text: 'R = 100 m', correct: false, feedback: '❌ Tu as oublié de diviser par g. R = v₀²/g = 200/20 = 10 m' }
+        ],
+        solution: '$$R = \\frac{v_0²\\sin(2θ)}{g} = \\frac{200 × 1}{10} = 20 \\text{ m}$$<br/>À θ = 45°: sin(90°) = 1'
+      },
+      {
+        num: 3,
+        question: 'Hauteur max d\'un projectile lancé à v₀ = 40 m/s, angle 30°, g = 10 m/s²?',
+        options: [
+          { letter: 'A', text: 'h = 20 m', correct: true, feedback: '✅ Correct! h = (v₀sin30°)²/2g = (20)²/20 = 400/20 = 20 m' },
+          { letter: 'B', text: 'h = 40 m', correct: false, feedback: '❌ Tu as oublié le sin² et le 2g. h = (v₀sin30°)²/2g = 20 m' },
+          { letter: 'C', text: 'h = 80 m', correct: false, feedback: '❌ Tu as doublé. h = (40×0,5)²/(2×10) = 400/20 = 20 m' },
+          { letter: 'D', text: 'h = 10 m', correct: false, feedback: '❌ Tu as divisé par 2 de trop. h = 20² / 20 = 20 m' }
+        ],
+        solution: '$$h = \\frac{(v_0\\sin30°)²}{2g} = \\frac{(40 × 0,5)²}{20} = \\frac{400}{20} = 20 \\text{ m}$$'
+      },
+      {
+        num: 4,
+        question: 'Quel angle de lancement donne la portée maximale?',
+        options: [
+          { letter: 'A', text: '45°', correct: true, feedback: '✅ Exact! À 45°: sin(2×45°) = sin(90°) = 1 (max!)' },
+          { letter: 'B', text: '30°', correct: false, feedback: '❌ À 30°: sin(60°) < 1. C\'est 45° qui donne le max (sin(90°) = 1)' },
+          { letter: 'C', text: '60°', correct: false, feedback: '❌ À 60°: sin(120°) = sin(60°) < 1. C\'est 45° = max' },
+          { letter: 'D', text: '0°', correct: false, feedback: '❌ À 0°: sin(0°) = 0 (pas de portée!). Le max est à 45°' }
+        ],
+        solution: '$$R = \\frac{v_0²\\sin(2θ)}{g}$$<br/>Max quand sin(2θ) = 1 ⟹ θ = <strong>45°</strong>'
+      },
+      {
+        num: 5,
+        question: 'Un projectile atteint la même hauteur de départ après 4s. Temps pour atteindre max?',
+        options: [
+          { letter: 'A', text: 't = 2 s', correct: true, feedback: '✅ Correct! Symétrie: tᵐᵃˣ = T_total/2 = 4/2 = 2 s' },
+          { letter: 'B', text: 't = 4 s', correct: false, feedback: '❌ C\'est le temps total. Le max est atteint à la MOITIÉ: 4/2 = 2 s' },
+          { letter: 'C', text: 't = 1 s', correct: false, feedback: '❌ Tu as divisé par 4. Le max est à T/2 = 4/2 = 2 s' },
+          { letter: 'D', text: 't = 3 s', correct: false, feedback: '❌ Par symétrie, tᵐᵃˣ = T/2 = 2 s (pas 3)' }
+        ],
+        solution: 'Par symétrie du mouvement projectile:<br/>$$t_{max} = \\frac{T_{total}}{2} = \\frac{4}{2} = 2 \\text{ s}$$'
+      }
+    ],
+    'physique-chapter-8': [
+      {
+        num: 1,
+        question: 'Pendule simple: longueur 1,6 m. Quelle est sa période (g = 10 m/s²)?',
+        options: [
+          { letter: 'A', text: 'T = 2,5 s', correct: true, feedback: '✅ Correct! T = 2π√(L/g) = 2π√(1,6/10) = 2π×0,4 ≈ 2,5 s' },
+          { letter: 'B', text: 'T = 1,25 s', correct: false, feedback: '❌ Tu as oublié le 2π. T = 2π√(L/g) = 2π×0,4 = 2,5 s' },
+          { letter: 'C', text: 'T = 5 s', correct: false, feedback: '❌ Tu as doublé. T = 2π√(1,6/10) = 2π×0,4 = 2,5 s' },
+          { letter: 'D', text: 'T = 0,4 s', correct: false, feedback: '❌ C\'est juste le √(L/g). La formule: T = 2π√(L/g) = 2,5 s' }
+        ],
+        solution: '$$T = 2π\\sqrt{\\frac{L}{g}} = 2π\\sqrt{\\frac{1,6}{10}} = 2π × 0,4 = 2,5 \\text{ s}$$'
+      },
+      {
+        num: 2,
+        question: 'Fréquence d\'un pendule T = 2 s. Quelle est f?',
+        options: [
+          { letter: 'A', text: 'f = 0,5 Hz', correct: true, feedback: '✅ Correct! f = 1/T = 1/2 = 0,5 Hz' },
+          { letter: 'B', text: 'f = 2 Hz', correct: false, feedback: '❌ Tu as inversé. f = 1/T = 1/2 = 0,5 Hz' },
+          { letter: 'C', text: 'f = 4 Hz', correct: false, feedback: '❌ Tu as divisé par T mal. f = 1/T = 0,5 Hz (pas 4)' },
+          { letter: 'D', text: 'f = 10 Hz', correct: false, feedback: '❌ Faux. f = 1/T = 1/2 = 0,5 Hz' }
+        ],
+        solution: '$$f = \\frac{1}{T} = \\frac{1}{2} = 0,5 \\text{ Hz}$$'
+      },
+      {
+        num: 3,
+        question: 'Énergie mécanique totale d\'un oscillateur: E = ____ en fonction de A et m.',
+        options: [
+          { letter: 'A', text: 'E = ½mω²A²', correct: true, feedback: '✅ Correct! E = Eₖ_max = ½mω²A² (ou ½kA² pour ressort)' },
+          { letter: 'B', text: 'E = mω²A', correct: false, feedback: '❌ Il manque le ½ et on oublie le A². E = ½mω²A²' },
+          { letter: 'C', text: 'E = mωA²', correct: false, feedback: '❌ Il manque le ½ et ω². E = ½mω²A² (pas mωA²)' },
+          { letter: 'D', text: 'E = ½mωA', correct: false, feedback: '❌ L\'amplitude doit être au carré. E = ½mω²A² (pas ½mωA)' }
+        ],
+        solution: '$$E = \\frac{1}{2}mω²A² = \\frac{1}{2}kA²$$<br/>où k = mω² = m(2πf)²'
+      },
+      {
+        num: 4,
+        question: 'Oscillateur: à l\'amplitude max A, l\'énergie est ____ cinétique.',
+        options: [
+          { letter: 'A', text: '0 (tout potentielle)', correct: true, feedback: '✅ Correct! À x = A: v = 0, donc Eₖ = 0. Tout est potentielle!' },
+          { letter: 'B', text: 'Maximum', correct: false, feedback: '❌ À l\'amplitude: v = 0 donc Eₖ = 0. C\'est au centre que Eₖ = max' },
+          { letter: 'C', text: 'La moitié', correct: false, feedback: '❌ À l\'amplitude: Eₖ = 0 (tout potentielle). Pas la moitié!' },
+          { letter: 'D', text: 'Toute l\'énergie est cinétique', correct: false, feedback: '❌ À l\'amplitude: v = 0 donc Eₖ = 0. C\'est potentielle qui max!' }
+        ],
+        solution: 'À l\'amplitude maximale:<br/>v = 0 ⟹ Eₖ = 0<br/>Toute l\'énergie est <strong>potentielle</strong>'
+      },
+      {
+        num: 5,
+        question: 'Comment varie la période avec la longueur d\'un pendule?',
+        options: [
+          { letter: 'A', text: 'T ∝ √L', correct: true, feedback: '✅ Correct! T = 2π√(L/g) donc T ∝ √L' },
+          { letter: 'B', text: 'T ∝ L', correct: false, feedback: '❌ La racine est importante! T ∝ √L, pas L' },
+          { letter: 'C', text: 'T ∝ 1/L', correct: false, feedback: '❌ Non, c\'est inverse. T augmente avec L: T ∝ √L' },
+          { letter: 'D', text: 'T indépendante de L', correct: false, feedback: '❌ Faux! T DÉPEND de L. T = 2π√(L/g)' }
+        ],
+        solution: '$$T = 2π\\sqrt{\\frac{L}{g}}$$<br/>Donc $$T ∝ \\sqrt{L}$$<br/>Doubler L ⟹ T muliplié par √2'
+      }
+    ],
+    'physique-chapter-9': [
+      {
+        num: 1,
+        question: 'Onde sinusoïdale: λ = 2 m, T = 0,5 s. Vitesse v?',
+        options: [
+          { letter: 'A', text: 'v = 4 m/s', correct: true, feedback: '✅ Correct! v = λ/T = 2/0,5 = 4 m/s (ou v = λf)' },
+          { letter: 'B', text: 'v = 1 m/s', correct: false, feedback: '❌ Tu as divé par 2. v = λ/T = 2/0,5 = 4 m/s' },
+          { letter: 'C', text: 'v = 8 m/s', correct: false, feedback: '❌ Tu as doublé. v = λ/T = 2/0,5 = 4 m/s' },
+          { letter: 'D', text: 'v = 0,25 m/s', correct: false, feedback: '❌ Tu as inversé. v = λ/T = 2/0,5 = 4 m/s' }
+        ],
+        solution: '$$v = \\frac{λ}{T} = \\frac{2}{0,5} = 4 \\text{ m/s}$$<br/>ou $$v = λf$$'
+      },
+      {
+        num: 2,
+        question: 'Fréquence d\'une onde: f = 100 Hz. Longueur d\'onde λ = 3 m. Vitesse v?',
+        options: [
+          { letter: 'A', text: 'v = 300 m/s', correct: true, feedback: '✅ Correct! v = λf = 3 × 100 = 300 m/s' },
+          { letter: 'B', text: 'v = 100 m/s', correct: false, feedback: '❌ Tu as oublié λ. v = λf = 3 × 100 = 300 m/s' },
+          { letter: 'C', text: 'v = 3 m/s', correct: false, feedback: '❌ Tu as oublié f. v = λf = 3 × 100 = 300 m/s' },
+          { letter: 'D', text: 'v = 333 m/s', correct: false, feedback: '❌ Calcul faux. v = 3 × 100 = 300 m/s' }
+        ],
+        solution: '$$v = λf = 3 × 100 = 300 \\text{ m/s}$$'
+      },
+      {
+        num: 3,
+        question: 'Interférence constructive: différence de chemin = ____.',
+        options: [
+          { letter: 'A', text: 'Δ = nλ (n entier)', correct: true, feedback: '✅ Correct! Constructive: Δ = 0, λ, 2λ, ... (en phase!)' },
+          { letter: 'B', text: 'Δ = (n + ½)λ', correct: false, feedback: '❌ C\'est déstructive! Constructive: Δ = nλ' },
+          { letter: 'C', text: 'Δ = λ/2', correct: false, feedback: '❌ C\'est qu\'UN cas particulier de destructive. Constructive: Δ = nλ' },
+          { letter: 'D', text: 'Δ quelconque', correct: false, feedback: '❌ Non, doit être précis. Constructive: Δ = nλ' }
+        ],
+        solution: 'Interférence <strong>constructive</strong>:<br/>Δ = nλ (n = 0, 1, 2, ...)<br/>Les ondes s\'ajoutent!'
+      },
+      {
+        num: 4,
+        question: 'Quel type d\'onde ne nécessite pas de milieu de propagation?',
+        options: [
+          { letter: 'A', text: 'Onde électromagnétique (lumière)', correct: true, feedback: '✅ Correct! Lumière se propage dans le vide' },
+          { letter: 'B', text: 'Onde sonore', correct: false, feedback: '❌ Le son NÉCESSITE un milieu (air, eau..). EM pas besoin!' },
+          { letter: 'C', text: 'Onde mécanique', correct: false, feedback: '❌ Mécanique NÉCESSITE milieu. EM = électromagnétique (pas besoin)' },
+          { letter: 'D', text: 'Vague de surface', correct: false, feedback: '❌ Vague nécessite eau! Les ondes EM (lumière) sont les seules sans milieu' }
+        ],
+        solution: '<strong>Ondes électromagnétiques</strong> (optique)<br/>✓ Se propagent dans le vide (contrairement aux autres)'
+      },
+      {
+        num: 5,
+        question: 'Doppler: si la source s\'approche, la fréquence observée...',
+        options: [
+          { letter: 'A', text: 'Augmente (décalage bleu)', correct: true, feedback: '✅ Correct! Source qui s\'approche ⟹ f vue augmente (blueshift)' },
+          { letter: 'B', text: 'Diminue (décalage rouge)', correct: false, feedback: '❌ C\'est l\'inverse! Source qui s\'ÉLOIGNE ⟹ redshift' },
+          { letter: 'C', text: 'Reste identique', correct: false, feedback: '❌ Non, l\'effet Doppler change f. Source approche ⟹ f augmente' },
+          { letter: 'D', text: 'Oscille entre augmentation et diminution', correct: false, feedback: '❌ Non, ça bouge vers bleu si approche, vers rouge si éloigne' }
+        ],
+        solution: '<strong>Effet Doppler</strong><br/>Source approche ⟹ f augmente (ondesccompressed)<br/>Source éloigne ⟹ f diminue'
+      }
+    ]
+  };
+
+  function generateQuizOptions(answers, solutionText) {
+    const options = [];
+    
+    if (answers.length === 0) {
+      return [
+        {text: 'Correct', isCorrect: true},
+        {text: 'Incorrect 1', isCorrect: false},
+        {text: 'Incorrect 2', isCorrect: false},
+        {text: 'Incorrect 3', isCorrect: false}
+      ];
+    }
+    
+    answers.forEach(ans => {
+      options.push({
+        text: ans.full || ans.value || ans.key,
+        isCorrect: true
+      });
+    });
+    
+    const lastAnswer = answers[answers.length - 1];
+    if (lastAnswer && lastAnswer.value) {
+      const value = lastAnswer.value;
+      
+      const variations = [
+        value + ' (faux)',
+        value.replace(/(\d+,?\d*)/, (m) => (parseFloat(m.replace(',', '.')) * 2).toString().replace('.', ',')),
+        value.replace(/(\d+,?\d*)/, (m) => (parseFloat(m.replace(',', '.')) / 2).toString().replace('.', ',')),
+        value.replace(/(\d+,?\d*)/, (m) => (parseFloat(m.replace(',', '.')) * 0.5).toString().replace('.', ','))
+      ];
+      
+      variations.forEach(v => {
+        if (v && v !== value) {
+          options.push({text: v, isCorrect: false});
+        }
+      });
+    }
+    
+    return options.slice(0, 4);
+  }
+
+  function setupQuizInteractions(container) {
+    const oldQuizCards = container.querySelectorAll('.quiz-card:has(.quiz-body)');
+    
+    oldQuizCards.forEach(card => {
+      const btn = card.querySelector('.quiz-btn');
+      if (btn && !btn.hasListener) {
+        btn.addEventListener('click', toggleQuizBody);
+        btn.hasListener = true;
+      }
+    });
+    
+  }
+
+  function toggleQuizBody(event) {
+    event.preventDefault();
+    const btn = event.target.closest('.quiz-btn');
+    const card = btn.closest('.quiz-card');
+    const body = card.querySelector('.quiz-body');
+    
+    if (!body) return;
+    
+    const isHidden = body.style.display === 'none' || getComputedStyle(body).display === 'none';
+    
+    if (isHidden) {
+      body.style.display = 'block';
+      btn.textContent = '📖 Masquer réponse';
+      btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+    } else {
+      body.style.display = 'none';
+      btn.textContent = '📖 Voir réponse';
+      btn.style.background = 'linear-gradient(135deg, #3b82f6, #6366f1)';
+    }
+  }
+
+  function selectQuizOption(optionElement) {
+    const optionsContainer = optionElement.closest('.quiz-options');
+    
+    if (!optionsContainer) return;
+    
+    optionsContainer.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.classList.remove('selected');
+    });
+    
+    optionElement.classList.add('selected');
+  }
+
+  function submitQuizAnswer(quizCard) {
+    const optionsContainer = quizCard.querySelector('.quiz-options');
+    const explanation = quizCard.querySelector('.quiz-explanation');
+    const submitBtn = quizCard.querySelector('.quiz-submit');
+    
+    if (!optionsContainer) return;
+    
+    const selectedOption = optionsContainer.querySelector('.quiz-option.selected');
+    if (!selectedOption) {
+      alert('Veuillez sélectionner une réponse');
+      return;
+    }
+    
+    const isCorrect = selectedOption.dataset.correct === 'true';
+    
+    const quizId = optionsContainer.dataset.quizId;
+    const chapterNum = (currentChapterIndex + 1);
+    const quizKey = `physique-chapter-${chapterNum}`;
+    const quizzes = QUIZ_DATA[quizKey] || [];
+    const quiz = quizzes.find(q => q.num == quizId);
+    
+    const selectedOptionElement = selectedOption.querySelector('span:last-child');
+    const selectedText = selectedOptionElement ? selectedOptionElement.textContent : '';
+    const selectedOptionData = quiz && quiz.options.find(opt => opt.text === selectedText);
+    
+    optionsContainer.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.style.pointerEvents = 'none';
+    });
+    
+    optionsContainer.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.classList.remove('selected');
+      const optText = opt.querySelector('span:last-child').textContent;
+      const optData = quiz && quiz.options.find(o => o.text === optText);
+      
+      if (opt === selectedOption) {
+        if (isCorrect) {
+          opt.classList.add('correct-answer');
+        } else {
+          opt.classList.add('wrong-answer');
+        }
+      }
+    });
+    
+    if (!isCorrect) {
+      const correctOption = optionsContainer.querySelector('[data-correct="true"]');
+      if (correctOption) {
+        correctOption.classList.add('correct-answer');
+      }
+    }
+    
+    let explanationHTML = '';
+    
+    if (isCorrect) {
+      explanationHTML = `
+        <div style="display: flex; gap: 0.8rem; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">✅</span>
+          <div>
+            <strong style="color: #22c55e; font-size: 1.05rem;">Bravo, c'est correct!</strong>
+            <p style="margin: 0.5rem 0 0; color: #cbd5e1;">${selectedOptionData && selectedOptionData.feedback ? selectedOptionData.feedback : 'Bonne réponse!'}</p>
+          </div>
+        </div>
+        <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(34, 197, 94, 0.3);">
+          <strong style="color: #60a5fa;">📖 Solution détaillée:</strong><br/>${quiz.solution}
+        </div>
+      `;
+      explanation.style.borderLeftColor = '#22c55e';
+      explanation.style.background = 'rgba(34, 197, 94, 0.08)';
+    } else {
+      explanationHTML = `
+        <div style="display: flex; gap: 0.8rem; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">❌</span>
+          <div>
+            <strong style="color: #ef4444; font-size: 1.05rem;">Mauvaise réponse</strong>
+            <p style="margin: 0.5rem 0 0; color: #fecaca; line-height: 1.6;">${selectedOptionData && selectedOptionData.feedback ? selectedOptionData.feedback : 'Réessaye en révisant ton cours.'}</p>
+          </div>
+        </div>
+        <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(239, 68, 68, 0.3);">
+          <strong style="color: #22c55e;">✅ Bonne réponse:</strong>
+          <p style="margin: 0.5rem 0 0; color: #86efac;" id="correct-feedback-${quizId}"></p>
+        </div>
+        <div style="margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(96, 165, 250, 0.2);">
+          <strong style="color: #60a5fa;">📖 Solution détaillée:</strong><br/>${quiz.solution}
+        </div>
+      `;
+      explanation.style.borderLeftColor = '#ef4444';
+      explanation.style.background = 'rgba(239, 68, 68, 0.08)';
+      
+      setTimeout(() => {
+        const correctFeedbackDiv = document.getElementById(`correct-feedback-${quizId}`);
+        if (correctFeedbackDiv) {
+          const correctOption = quiz.options.find(opt => opt.correct);
+          if (correctOption) {
+            correctFeedbackDiv.innerHTML = correctOption.feedback;
+          }
+        }
+      }, 0);
+    }
+    
+    explanation.innerHTML = explanationHTML;
+    
+    explanation.classList.add('show');
+    explanation.style.display = 'block';
+    
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.5';
+    submitBtn.style.pointerEvents = 'none';
+  }
+
+  function resetQuiz(quizCard) {
+    const optionsContainer = quizCard.querySelector('.quiz-options');
+    const explanation = quizCard.querySelector('.quiz-explanation');
+    const submitBtn = quizCard.querySelector('.quiz-submit');
+    
+    if (!optionsContainer) return;
+    
+    optionsContainer.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+      opt.style.pointerEvents = 'auto';
+    });
+    
+    explanation.classList.remove('show');
+    explanation.style.display = 'none';
+    explanation.style.borderLeftColor = '#6366f1';
+    explanation.style.background = 'rgba(99, 102, 241, 0.08)';
+    
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+    submitBtn.style.pointerEvents = 'auto';
+  }
+
+  function formatContent(text) {
+    if (!text) return '<p>Pas de contenu disponible</p>';
+
+    let result = text;
+
+    result = result.replace(/\\\[\s*([\s\S]*?)\s*\\\]/g, function(m, content) {
+      return '\n$$' + content.trim() + '$$\n';
+    });
+    result = result.replace(/\\\(\s*([\s\S]*?)\s*\\\)/g, function(m, content) {
+      return '$' + content.trim() + '$';
+    });
+
+    result = result.replace(/([^\n]*?)(\$\$[\s\S]*?\$\$)([^\n]*)/g, function(m, before, formula, after) {
+      const parts = [];
+      if (before.trim()) parts.push(before.trim());
+      parts.push(formula);
+      if (after.trim()) parts.push(after.trim());
+      return parts.join('\n');
+    });
+
+    result = result.replace(/\b([A-Za-zΩωτφΦθα-ζ]{1,4})_([A-Za-z0-9]{1,8})\b/g, function(match, base, sub) {
+      return '$' + base + '_{' + sub + '}$';
+    });
+
+    result = result.replace(/^(Étape|Step|Pas)\s+(\d+)\s*[:\-—]\s*(.+)$/gm, function(m, label, num, content) {
+      return `<div class="step-block"><span class="step-label">Ét. ${num}</span><span class="step-content">${content}</span></div>`;
+    });
+
+    result = result.replace(/\$\$\s*([①②③④⑤⑥⑦⑧⑨⑩])(.+?)\$\$/gm, '$1$2');
+    result = result.replace(/\$\$\s*(>\s+.+?)\$\$/gm, '$1');
+    result = result.replace(/\$\$\s*([\-\*]\s+.+?)\$\$/gm, '$1');
+    
+    result = result.replace(/<details[^>]*>[\s\S]*?<\/details>/gm, '');
+    
+    result = result.replace(/(?:^|\n)[0-9.]*\s*Quiz du chapitre[^\n]*(?:\n[\s\S]*?)(?=\n## CHAPITRE|\n[0-9]+\.[0-9]+|\Z)/gm, '\n___QUIZ_SECTION___');
+    
+    if (!result.includes('___QUIZ_SECTION___')) {
+      result = result.replace(/[\s\S]*?Quiz.*?(?=## CHAPITRE|[0-9]+\.[0-9]+\s+[A-Z]|\Z)/im, '___QUIZ_SECTION___');
+    }
+    
+    result = result.replace(/^[\d.]+\s+/gm, '');
+    
+    result = result.replace(/^####\s+/gm, '');
+    result = result.replace(/^---+$/gm, '');
+    
+    result = result.replace(/\n\n\n+/g, '\n\n');
+    
+    result = result.replace(/^\s*([①②③④⑤⑥⑦⑧⑨⑩])\s+(.+?)$/gm, function(match, symbol, content) {
+      return '<div class="numbered-block"><strong class="enum-symbol">' + symbol + '</strong><span class="enum-content">' + content + '</span></div>';
+    });
+    
+    result = result.replace(/^>\s+(.+?)$/gm, function(match, content) {
+      return '<div class="highlight-box highlight-info">' + content + '</div>';
+    });
+    
+    result = result.replace(/^[\-\*]\s+(.+?)$/gm, '<li>$1</li>');
+    result = result.replace(/(<li>[\s\S]*?<\/li>)/g, function(match) {
+      return '<ul>' + match + '</ul>';
+    });
+    
+    let quizHTML = '';
+    const chapterNum = (currentChapterIndex + 1);
+    const quizKey = `physique-chapter-${chapterNum}`;
+    const quizzes = QUIZ_DATA[quizKey] || [];
+    
+    console.log('📊 QUIZ DEBUG - Format Content called');
+    console.log('   Current chapter index:', currentChapterIndex);
+    console.log('   Quiz key:', quizKey);
+    console.log('   Quiz data found:', quizzes.length > 0 ? 'OUI' : 'NON');
+    console.log('   Number of quizzes:', quizzes.length);
+    console.log('   Marker present before:', result.includes('___QUIZ_SECTION___'));
+    
+    if (quizzes.length > 0) {
+      quizHTML = `<div class="quiz-wrap">
+        <div style="margin-bottom: 1.8rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(96, 165, 250, 0.2);">
+          <h3 style="margin: 0; font-size: clamp(1.4rem, 3vw, 1.8rem); background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800;">📋 Quiz du Chapitre</h3>
+          <p style="margin: 0.5rem 0 0; color: #cbd5e1; font-size: 0.95rem; opacity: 0.8;">À faire après avoir lu le contenu (${quizzes.length} questions)</p>
+        </div>
+        <div class="quiz-grid">`;
+      
+      quizzes.forEach((quiz) => {
+        let optionsHTML = '';
+        quiz.options.forEach((opt) => {
+          optionsHTML += `<div class="quiz-option" onclick="selectQuizOption(this)" data-correct="${opt.correct ? 'true' : 'false'}">
+            <span class="option-letter">${opt.letter}</span>
+            <span>${opt.text}</span>
+          </div>`;
+        });
+        
+        const actionsHTML = `<div class="quiz-actions">
+          <button class="quiz-submit" onclick="submitQuizAnswer(this.closest('.quiz-card'))">✓ Valider</button>
+          <button class="quiz-reset" onclick="resetQuiz(this.closest('.quiz-card'))" style="background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.2);">↻ Réinitialiser</button>
+        </div>`;
+        
+        quizHTML += `<div class="quiz-card">
+          <h4>Q${quiz.num}. ${quiz.question}</h4>
+          <div class="quiz-options" data-quiz-id="${quiz.num}">
+            ${optionsHTML}
+          </div>
+          ${actionsHTML}
+          <div class="quiz-explanation">
+            <strong>✓ Solution:</strong><br/>${quiz.solution}
+          </div>
+        </div>`;
+      });
+      
+      quizHTML += `</div></div>`;
+      console.log('   Quiz HTML generated:', quizHTML.length > 100 ? `OUI (${quizHTML.length} chars)` : 'NON');
+    } else {
+      console.log('   ⚠️ NO QUIZZES FOUND!');
+    }
+    
+    result = result.replace(/___QUIZ_SECTION___/g, quizHTML);
+    console.log('   Marker replaced:', result.includes('quiz-card') ? 'OUI' : 'NON');
+    
+    result = result.replace(/^\s*\*\*Q\d+\.\*\*\s*.+?(?=^\*\*Q\d+|^###|^##|$)/gm, '');
+    result = result.replace(/^\s*Q\d+\.\s+.+?$/gm, '');
+    result = result.replace(/^(Solution|Réponse)\s*\n?/gm, '');
+    result = result.replace(/\n\n\n+/g, '\n\n');
+    result = result.split('\n').map(line => {
+      if (line.includes('$$')) {
+        return line;
+      }
+      
+      if (line.trim().startsWith('<')) {
+        return line;
+      }
+      
+      const hasMathSymbols = /[×÷√²³⁻⁺∫π∑∞≈≠≤≥]/.test(line);
+      const hasEquals = /[=:]/.test(line);
+      
+      const startsWithVariable = /^[A-Za-zα-ωΑ-Ω₀₁₂₃₄₅₆₇₈₉₊₋ᵢᵣ₂][₀₁₂₃₄₅₆₇₈₉ᵣ₊₋()]*\s*[=·∝]/.test(line);
+      
+      const startsWithFrench = /^(Avant|Après|Pour|Cette|Dans|On|Le|La|Où|Si|Donc|Pour|Quand|Pendant|Comme)\s+/.test(line);
+      
+      if (!startsWithFrench && startsWithVariable && hasMathSymbols && hasEquals) {
+        return '$$' + line.trim() + '$$';
+      }
+      
+      return line;
+    }).join('\n');
+    
+    result = result.replace(
+      /^\*\*(Raisonnement|Cas particulier|Propriété|Principe|Théorème|Démonstration)(\s*[:\-—]?\s*)(.*?)\*\*(.*?)$/gim,
+      function(m, label, sep, desc, rest) {
+        const cls = label.toLowerCase().startsWith('raisonnement') ? 'callout-raisonnement' : 'callout-cas';
+        const content = (desc + rest).trim();
+        return `<div class="highlight-box ${cls}"><strong>${label}${sep}${desc}</strong>${rest}</div>`;
+      }
+    );
+    result = result.replace(
+      /^\*\*(Attention|Note|Important|Astuce|Conseil|Définition)(\s*[:\—]\s*)(.*?)\*\*(.*?)$/gim,
+      function(m, label, sep, desc, rest) {
+        const map = {
+          'attention': 'highlight-attention', 'note': 'highlight-note',
+          'important': 'highlight-important', 'astuce': 'highlight-astuce',
+          'conseil': 'highlight-tip', 'définition': 'highlight-definition',
+        };
+        const cls = map[label.toLowerCase()] || 'highlight-info';
+        return `<div class="highlight-box ${cls}"><strong>${label}${sep}${desc}</strong>${rest}</div>`;
+      }
+    );
+
+    const _fStore = [];
+    result = result.replace(/\$\$[\s\S]*?\$\$|\$[^$\n]+?\$/g, function(m) {
+      _fStore.push(m);
+      return '\x00F' + (_fStore.length - 1) + '\x00';
+    });
+
+    result = result.replace(/\*\*([^\*]+?)\*\*/g, '<strong>$1</strong>');
+    result = result.replace(/_([^_\s<>][^_<>]*?)_/g, '<em>$1</em>');
+
+    result = result.replace(/\x00F(\d+)\x00/g, (m, i) => _fStore[parseInt(i)]);
+    
+    result = result.replace(/`([^`]+?)`/g, '<code class="code-inline">$1</code>');
+    
+    result = result.replace(/^([A-Z]{1})\s*:\s*(.+?)$/gm, function(match, key, value) {
+      if (!match.includes('<')) {
+        return '<div class="definition-item"><strong class="def-key">' + key + '</strong> : ' + value + '</div>';
+      }
+      return match;
+    });
+    
+    result = result.replace(/^###\s+(.+?)$/gm, '<h4>$1</h4>');
+    result = result.replace(/^##\s+(.+?)$/gm, '<h3>$1</h3>');
+    result = result.replace(/^#\s+(.+?)$/gm, '<h2>$1</h2>');
+
+    result = result.replace(/^(Q\d+)\.\s+(.+)$/gm, (m, num, text) =>
+      `<div class="embedded-q"><span class="eq-num">${num}.</span><span class="eq-text">${text}</span></div>`);
+
+    result = result.split('\n').map(line => {
+      const t = line.trim();
+      if (t.startsWith('<') || t.includes('$$')) return line;
+      const eqCount = (t.match(/ = /g) || []).length;
+      if (eqCount >= 2 && /[×÷√²³⁻⁺∫πi₀-₉⁰-⁹\d(){}]/.test(t)) {
+        const parts = t.split(' = ');
+        return '<div class="calc-chain">' +
+          parts.map((s, i) => `<div class="calc-step">${i > 0 ? '= ' : ''}${s}</div>`).join('') +
+          '</div>';
+      }
+      return line;
+    }).join('\n');
+
+    const lines = result.split('\n');
+    let html = [];
+    let inPara = false;
+    
+    for (let line of lines) {
+      const trimmed = line.trim();
+      
+      if (!trimmed) {
+        if (inPara) {
+          html.push('</p>');
+          inPara = false;
+        }
+      } else if (trimmed.startsWith('<') || trimmed.startsWith('$$') || /^\\\[/.test(trimmed)) {
+        if (inPara) {
+          html.push('</p>');
+          inPara = false;
+        }
+        html.push(trimmed);
+      } else {
+        if (!inPara) {
+          html.push('<p>');
+          inPara = true;
+        } else {
+          html.push('<br>');
+        }
+        html.push(trimmed);
+      }
+    }
+    
+    if (inPara) {
+      html.push('</p>');
+    }
+    
+    result = html.join('\n');
+    
+    result = result.replace(/<p><\/p>/g, '');
+    result = result.replace(/<p>\s*(<h[1-4]|<div|<ul|<ol|<li|<\$)/g, '$1');
+    result = result.replace(/(<\/h[1-4]>|<\/div>|<\/ul>|<\/ol>|<\/li>|\$\$)\s*<\/p>/g, '$1');
+    
+    if (!result.includes('quiz-card') && quizHTML && quizHTML.length > 0) {
+      console.log('   🔄 FALLBACK: Injecting quiz at end of content');
+      result = result + '\n' + quizHTML;
+    }
+    
+    return result.trim();
+  }
+
+  async function loadKeyPoints() {
+    if (currentChapterIndex < 0) return;
+    const chapter = chapters[currentChapterIndex];
+    const listEl = document.getElementById('key-points-list');
+    if (!listEl) return;
+
+    listEl.innerHTML = `<div class="key-points-loading">
+      <div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+      <span>Chargement du résumé...</span>
+    </div>`;
+
+    try {
+      const res = await fetch('/dashboard/api/chapter-summary/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+        body: JSON.stringify({
+          course: 'Physique',
+          chapter_num: currentChapterIndex + 1,
+          chapter_title: chapter.title.replace(/^CHAPITRE\s+\d+:\s*/i, ''),
+          context: chapter.text.substring(0, 4000),
+        }),
+      });
+      const data = await res.json();
+      if (data.success && data.summary) {
+        const lines = data.summary.split('\n').filter(l => l.trim() && l.trim().length > 10);
+        const items = lines.filter(l => /^\d+[\.\)]/.test(l.trim()) || /^[-•]/.test(l.trim())).slice(0, 6);
+        const toShow = items.length > 0 ? items : lines.slice(0, 5);
+        const cachedBadge = data.cached ? '' : ' <span style="font-size:0.7rem;color:#6ee7b7;margin-left:0.3rem;">✨ nouveau</span>';
+        listEl.innerHTML = toShow.map((line, i) => {
+          const clean = line.replace(/^\d+[\.\)]\s*/, '').replace(/^[-•]\s*/, '').trim();
+          return `<div class="key-point-item" style="animation-delay:${i * 0.08}s"><span class="key-point-num">${i+1}</span><span>${clean}${i===0?cachedBadge:''}</span></div>`;
+        }).join('');
+      } else {
+        listEl.innerHTML = '<p style="color:#94a3b8;font-size:0.9rem;">Impossible de générer le résumé pour ce chapitre.</p>';
+      }
+    } catch (e) {
+      listEl.innerHTML = '<p style="color:#fca5a5;font-size:0.9rem;">❌ Erreur de connexion.</p>';
+    }
+  }
+
+  const refreshKpBtn = document.getElementById('key-points-refresh-btn');
+  if (refreshKpBtn) {
+    refreshKpBtn.addEventListener('click', loadKeyPoints);
+  }
+
+  function getCookie(name) {
+    let value = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          value = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return value;
+  }
+
+  const aiChatBtn = document.getElementById('ai-chat-btn');
+  const aiChatWindow = document.getElementById('ai-chat-window');
+  const closeChatBtn = document.getElementById('close-chat-btn');
+  const chatInput = document.getElementById('chat-input');
+  const chatSendBtn = document.getElementById('chat-send-btn');
+  const chatMessages = document.getElementById('chat-messages');
+
+  aiChatBtn.addEventListener('click', () => {
+    aiChatWindow.classList.toggle('active');
+    if (aiChatWindow.classList.contains('active')) {
+      if (chatMessages.children.length === 0) {
+        const welcomeDiv = document.createElement('div');
+        welcomeDiv.className = 'chat-message ai';
+        welcomeDiv.textContent = "👋 Salut ! Je suis ton assistant IA. Si tu n'as pas bien compris quelque chose dans ce chapitre, pose-moi ta question — je suis là pour t'aider à comprendre !";
+        chatMessages.appendChild(welcomeDiv);
+      }
+      setTimeout(() => chatInput.focus(), 300);
+    }
+  });
+
+  function updateFloatingButtonVisibility() {
+    if (currentChapterIndex >= 0) {
+      aiChatBtn.classList.add('visible');
+      chatInput.disabled = false;
+      chatSendBtn.disabled = false;
+    } else {
+      aiChatBtn.classList.remove('visible');
+      aiChatWindow.classList.remove('active');
+      chatInput.disabled = true;
+      chatSendBtn.disabled = true;
+    }
+  }
+
+  closeChatBtn.addEventListener('click', () => {
+    aiChatWindow.classList.remove('active');
+  });
+
+  async function sendChatMessage(e) {
+    e?.preventDefault();
+    const message = chatInput.value.trim();
+    
+    if (!message) return;
+    if (currentChapterIndex < 0) {
+      alert('Veuillez d\'abord sélectionner un chapitre');
+      return;
+    }
+
+    chatInput.disabled = true;
+    chatSendBtn.disabled = true;
+
+    const userMsgDiv = document.createElement('div');
+    userMsgDiv.className = 'chat-message user';
+    userMsgDiv.textContent = message;
+    chatMessages.appendChild(userMsgDiv);
+
+    chatInput.value = '';
+
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'chat-message loading';
+    loadingDiv.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+    chatMessages.appendChild(loadingDiv);
+
+    setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+
+    try {
+      const chapter = chapters[currentChapterIndex];
+      const chapterTitle = chapter.title.replace(/^CHAPITRE \d+:\s*/, '');
+      
+      const context = chapter.text.substring(0, 3000);
+
+      const response = await fetch('/dashboard/api/course-question/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+          question: message,
+          course: 'Physique',
+          context: context
+        })
+      });
+
+      const data = await response.json();
+
+      loadingDiv.remove();
+
+      if (data.success) {
+        const aiMsgDiv = document.createElement('div');
+        aiMsgDiv.className = 'chat-message ai';
+        aiMsgDiv.textContent = data.answer;
+        chatMessages.appendChild(aiMsgDiv);
+      } else {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'chat-message ai';
+        errorDiv.textContent = '❌ ' + (data.error || 'Erreur lors de la réponse');
+        chatMessages.appendChild(errorDiv);
+      }
+    } catch (error) {
+      loadingDiv.remove();
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'chat-message ai';
+      errorDiv.textContent = '❌ Erreur de connexion: ' + error.message;
+      chatMessages.appendChild(errorDiv);
+    } finally {
+      chatInput.disabled = false;
+      chatSendBtn.disabled = false;
+      
+      setTimeout(() => chatMessages.scrollTop = chatMessages.scrollHeight, 50);
+      
+      chatInput.focus();
+    }
+  }
+
+  chatSendBtn.addEventListener('click', sendChatMessage);
+
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendChatMessage();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('✓ DOMContentLoaded event fired');
+    extractChapters();
+    initChaptersGrid();
+    console.log('✓ Grid initialization complete, total chapters rendered:', chapters.length);
+    
+    if (window.renderMathInElement) {
+      try {
+        renderMathInElement(document.body, {
+          delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}],
+          throwOnError: false
+        });
+      } catch(e) {}
+    }
+  });
+</script>
+
+{% endblock %}
+

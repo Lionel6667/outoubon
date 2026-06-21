@@ -1,0 +1,2463 @@
+
+## Chapitre 1 – Probabilités (50 exercices)
+
+### Exercices réels (sources indiquées)
+
+**1.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-2025-philo-a-boole.pdf`  
+*Thème* : Probabilités et variables aléatoires  
+*Intro* : On lance trois fois de suite une pièce de monnaie bien équilibrée. Soit \(X\) la variable aléatoire représentant le nombre de fois que « pile » apparaît.  
+*Questions* :  
+a) Calculer la probabilité d’obtenir « pile » exactement 2 fois.  
+b) Déterminer l’ensemble des valeurs prises par \(X\).  
+c) Déterminer la loi de probabilité de \(X\).  
+d) Calculer l’espérance mathématique de \(X\).
+
+**2.** *Source* : Bac Haïti 2020 — `exam_maths_mathematiques-ns4-2020-asymptote.pdf`  
+*Thème* : Probabilités et attentes  
+*Intro* : Un dé cubique possède ses six faces numérotées de 1 à 6. La probabilité d’obtenir la valeur 6 est deux fois la probabilité d’obtenir chaque autre face (les faces 1 à 5 ont des probabilités égales entre elles). On lance ce dé deux fois indépendamment. On note \(X\) la somme des deux valeurs obtenues.  
+*Questions* :  
+a) Donner la fonction de masse de probabilité de \(X\).  
+b) Calculer \(E[X]\) et \(\operatorname{Var}(X)\).  
+c) Calculer \(\Pr(X\ge 10)\).  
+d) Si l’on gagne 3 gourdes pour chaque 6 et 1 gourde pour chaque valeur paire (2,4), calculer l’espérance du gain total par lancer.  
+e) Déterminer la variance du gain total par lancer.
+
+**3.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-aire.pdf`  
+*Thème* : Probabilités  
+*Intro* : Soit \(X\) une variable aléatoire à valeurs dans \(\{1,2,3,4,5,6\}\), définie sur l’univers \(U=\{1,2,3,4,5,6\}\), qui représente le résultat d’un lancer d’un dé à six faces équilibré.  
+*Questions* :  
+a) Calculer \(P(X>5)\), \(P(X<2)\) et \(P(X=6)\).  
+b) Déterminer l’espérance \(\mathbb{E}(X)\) et la variance \(\operatorname{Var}(X)\) de \(X\).  
+c) Écrire la fonction de répartition \(F_X(t)=P(X\le t)\) pour tout \(t\in\mathbb{R}\).  
+d) Vérifier que \(F_X\) est croissante et discontinue aux points \(1,2,3,4,5,6\).
+
+**4.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-image.pdf`  
+*Thème* : Probabilités  
+*Intro* : Une variable aléatoire discrète \(X\) possède la loi de probabilité suivante :  
+\(x\) : \(-3,\ -2,\ 1,\ 3,\ 5\) ; \(P(X=x)\) : \(0,2;\ 0,3;\ 0,2;\ 0,1;\ 0,2\).  
+Un jeu consiste à tirer trois boules d’une urne contenant 5 boules noires, 2 boules vertes et 1 boule rouge, sans remise. On note \(Y\) le nombre de boules vertes obtenues. Sa loi est donnée par :  
+\(y=0,1,2,3\) ; \(P(Y=y)=0,23; 0,33; 0,25; 0,05\).  
+On suppose \(X\) et \(Y\) indépendantes.  
+*Questions* :  
+a) Calculer \(P(X\le 1)\).  
+b) Déterminer \(E(X)\) et \(\operatorname{Var}(X)\).  
+c) Calculer \(E(Y)\) et \(\operatorname{Var}(Y)\).
+
+**5.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-rayon.pdf`  
+*Thème* : Probabilités discrètes  
+*Intro* : Une boîte contient 5 jetons numérotés 3, 1, 0, 4 et 7. Soit \(X\) la variable aléatoire qui prend pour valeurs les nombres inscrits sur les jetons, avec  
+\(p(X=3)=p(X=7)=\frac{3}{10},\ p(X=0)=p(X=4)=\frac{1}{10}\).  
+*Questions* :  
+a) Calculer \(p(X=1)\).  
+b) Déterminer la loi de probabilité de \(X\).  
+c) Calculer la variance de \(X\).  
+d) Déterminer la fonction de répartition \(F\) de \(X\).
+
+**6.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-smp-euclide.pdf`  
+*Thème* : Probabilités et variable aléatoire  
+*Intro* : Une urne contient 10 boules : 5 vertes, 3 rouges et 2 noires. Un joueur tire successivement et avec remise deux boules.  
+- 2 boules vertes → gain +4 gourdes  
+- 2 boules rouges → +5 gourdes  
+- 2 boules noires → +5 gourdes  
+- 2 boules de couleurs différentes → –2 gourdes  
+La variable aléatoire \(X\) désigne le gain du joueur.  
+*Questions* :  
+a) Calculer les probabilités de chaque issue et donner la loi de probabilité de \(X\).  
+b) Donner la fonction de répartition \(F_X(x)\).  
+c) Calculer \(E[X]\) et la probabilité que le joueur gagne un montant positif.  
+d) Calculer \(\operatorname{Var}(X)\) et l’écart‑type \(\sigma_X\).
+
+**7.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-quartile.pdf`  
+*Thème* : Probabilités – Évènements incompatibles et dés  
+*Intro* : Dans un espace probabilisé fini \(\Omega\), deux évènements incompatibles \(A\) et \(B\) vérifient \(P(\overline{A})=\frac14\) et \(P(B)=\frac14\). On lance deux dés équilibrés \(D_1\) (faces : 2,2,4,4,6,6) et \(D_2\) (faces : 1,1,1,3,3,5). \(X\) = somme des deux faces.  
+*Questions* :  
+a) Trouver \(P(A)\) et \(P(B)\).  
+b) Déterminer \(P(A\cap B)\) et \(P(A\cup B)\).  
+c) Calculer la distribution de probabilité de \(X\).  
+d) En déduire \(E[X]\) et \(\operatorname{Var}(X)\).  
+e) Calculer \(P(X\ge 8)\).
+
+**8.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-reste.pdf`  
+*Thème* : Probabilités et statistiques  
+*Intro* : Une urne contient 6 boules numérotées : 1, 1, 1, 2, 4, 5. On tire simultanément deux boules. La variable aléatoire \(X\) désigne la somme des numéros obtenus.  
+*Questions* :  
+a) Déterminer l’ensemble des valeurs prises par \(X\).  
+b) Calculer la loi de probabilité de \(X\).  
+c) Déterminer \(E[X]\) et \(\operatorname{Var}(X)\).  
+d) Soit \(Y\) le numéro de la première boule tirée. Calculer \(\operatorname{Cov}(X,Y)\).
+
+**9.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-philo-c-d-2025-turing.pdf`  
+*Thème* : Probabilités  
+*Intro* : Un élève révise 12 sujets sur 20. Il tire 3 sujets au hasard sans remise. \(X\) = nombre de sujets révisés parmi les 3 tirés.  
+*Questions* :  
+a) Quelles sont les valeurs prises par \(X\) ?  
+b) Déterminer la loi de probabilité de \(X\).  
+c) Calculer \(E[X]\) et \(\operatorname{Var}(X)\).  
+d) Si l’expérience est répétée 100 fois, quelle est la valeur attendue du nombre de fois où \(X=3\) ?
+
+**10.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ses-2025-courbe.pdf`  
+*Thème* : Probabilités et variable aléatoire  
+*Intro* : 35 % des lycéens pratiquent le football (A), 25 % le basket (B), 15 % les deux. Un étudiant gagne : 10 gdes s’il pratique seulement le football, 25 gdes s’il pratique seulement le basket, 15 gdes s’il pratique les deux, et perd 6 gdes s’il n’en pratique aucun. \(X\) = gain.  
+*Questions* :  
+a) Probabilité qu’un lycéen pratique au moins un des deux sports.  
+b) Probabilité qu’il pratique exactement un des deux.  
+c) Donner la loi de probabilité de \(X\).  
+d) Calculer \(E[X]\).
+
+**11.** *Source* : Bac Haïti 2025 — `exam_maths_mathemtatiques-ns4-smp-cardinal-2025.pdf`  
+*Thème* : Probabilités et variables aléatoires  
+*Intro* : Un sac contient 7 boules numérotées de 1 à 7. Deux boules sont tirées sans remise. \(A\) = « les deux boules sont impaires », \(B\) = « la somme > 9 ». \(X\) = valeur absolue de la différence des deux numéros.  
+*Questions* :  
+a) Calculer \(p(A)\), \(p(B)\), \(p(A\cap B)\), \(p(A\cup B)\).  
+b) Dresser la loi de probabilité de \(X\).  
+c) Calculer \(E(X)\) et \(\operatorname{Var}(X)\).  
+d) Calculer la probabilité que le produit des deux numéros soit pair.
+
+**12.** *Source* : Bac Haïti — `exam_maths_maths-modele-ses.pdf`  
+*Thème* : Probabilités combinatoire  
+*Intro* : Un antivol de vélo a un code à trois chiffres, chaque chiffre pouvant être 0,1,2,3. Laurent choisit un code au hasard.  
+*Questions* :  
+a) Combien de codes possibles ?  
+b) Probabilité que le code comporte trois chiffres distincts.  
+c) Probabilité que le code soit un palindrome (premier et dernier chiffres identiques).  
+d) Si on essaie les codes sans répétition, quel est le nombre moyen d’essais pour trouver le bon code ?
+
+**13.** *Source* : Bac Haïti — `exam_maths_maths-modele-svt-smp.pdf`  
+*Thème* : Probabilités  
+*Intro* : Une base de données contient 6000 adresses, dont 120 erronées. On prélève 10 adresses avec remise. \(X\) = nombre d’adresses erronées obtenues.  
+*Questions* :  
+a) Donner la loi de probabilité de \(X\) (type et expression).  
+b) Calculer \(E[X]\) et \(\operatorname{Var}(X)\).  
+c) Calculer \(P(X=3)\).  
+d) Calculer \(P(X\ge 5)\).
+
+**14.** *Source* : Bac Haïti 2018 — `exam_maths_maths-ns4-2018-svt-smp.pdf`  
+*Thème* : Probabilités – Loi exponentielle  
+*Intro* : Un appareil a un temps de fonctionnement avant panne \(X\) suivant une loi exponentielle de paramètre \(\lambda=0,0005\) h⁻¹.  
+*Questions* :  
+a) Calculer \(P(X<2000)\).  
+b) Calculer \(P(X>10000)\).  
+c) Déterminer \(E[X]\).  
+d) Déterminer \(\operatorname{Var}(X)\).
+
+**15.** *Source* : Bac Haïti 2015 — `exam_maths_maths-philo_c-d_juin_juillet_2015.pdf`  
+*Thème* : Probabilités de tirage sans remise  
+*Intro* : Un sac contient 7 boules : 4 rouges, 3 noires. On tire deux boules sans remise. \(X\) = nombre de boules rouges tirées.  
+*Questions* :  
+a) Calculer \(P(X=0)\), \(P(X=1)\), \(P(X=2)\).  
+b) Déterminer \(E(X)\).  
+c) Calculer \(\operatorname{Var}(X)\).  
+d) Si l’expérience est répétée 10 fois indépendamment, quelle est l’espérance du nombre total de boules rouges tirées ?
+
+**16.** *Source* : Bac Haïti 2015 — `exam_maths_maths_2015_minorant.pdf`  
+*Thème* : Probabilités  
+*Intro* : Un jeu de 32 cartes. On tire une carte au hasard. \(A\) = « la carte est un carreau », \(B\) = « la carte est rouge ».  
+*Questions* :  
+a) Calculer \(P(A\mid B)\).  
+b) Calculer \(P(A\cap B)\).  
+c) Probabilité que la carte soit un cœur ou un pique.  
+d) Probabilité que la carte ne soit pas un carreau.
+
+**17.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_maregraphe.pdf`  
+*Thème* : Probabilités et urnes  
+*Intro* : Trois urnes :  
+\(U_1\) : 1 rouge, 5 jaunes ; \(U_2\) : 3 rouges, 1 jaune ; \(U_3\) : 1 rouge, 2 jaunes.  
+On choisit une urne au hasard puis on tire une boule.  
+*Questions* :  
+a) Probabilité que la boule tirée soit rouge.  
+b) Probabilité que l’urne soit \(U_2\) sachant que la boule est jaune.  
+c) Si on répète l’expérience 5 fois indépendamment (avec remise), valeur attendue du nombre de boules rouges.
+
+**18.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marginer.pdf`  
+*Thème* : Probabilités  
+*Intro* : Un dé pipé : la probabilité d’obtenir la face \(k\) est proportionnelle à \(k\). On lance ce dé quatre fois indépendamment.  
+*Questions* :  
+a) Donner la loi de probabilité de \(X\) (face obtenue).  
+b) Calculer \(E[X]\) et \(\operatorname{Var}(X)\).  
+c) Probabilité d’obtenir exactement deux « 6 » en quatre lancers.  
+d) Probabilité d’obtenir au moins un « 6 » en quatre lancers.
+
+**19.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marnage.pdf`  
+*Thème* : Probabilité de défauts dans un tirage sans remise  
+*Intro* : Un lot de 15 ampoules dont 5 défectueuses. On tire 3 ampoules simultanément. \(X\) = nombre d’ampoules défectueuses.  
+*Questions* :  
+a) Ensemble des valeurs possibles de \(X\).  
+b) Loi de probabilité de \(X\).  
+c) Calculer \(E(X)\).  
+d) Calculer \(P(X\ge 1)\).
+
+**20.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla_orthogonal-2.pdf`  
+*Thème* : Probabilités et urnes  
+*Intro* : Une urne contient 10 boules : 4 rouges, 3 vertes, 2 bleues, 1 blanche. On tire 3 boules simultanément.  
+*Questions* :  
+a) Probabilité que les trois boules soient rouges.  
+b) Probabilité que les trois boules soient de la même couleur.  
+c) Probabilité que les trois boules soient de couleurs toutes différentes.
+
+**21.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla_orthogonal.pdf`  
+*Thème* : Probabilités – tirage sans remise  
+*Intro* : Une urne contient 10 boules : 4 rouges, 3 vertes, 2 bleues, 1 blanche. Tirage simultané de 3 boules.  
+*Questions* :  
+a) Probabilité que les trois soient rouges.  
+b) Probabilité qu’elles soient de la même couleur.  
+c) Probabilité qu’elles soient de couleurs différentes.  
+d) Probabilité qu’il n’y ait pas de boule rouge.
+
+**22.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla_orthogonal.pdf` (deuxième exercice)  
+*Thème* : Probabilités – pièce truquée et statistiques  
+*Intro* : Une pièce est truquée : probabilité de « pile » = 3 × probabilité de « face ». On effectue 10 lancers indépendants, on obtient 7 piles et 3 faces.  
+*Questions* :  
+a) Calculer la probabilité d’obtenir « pile » sur un lancer.  
+b) Calculer \(Q_1\), \(Q_3\) et l’écart interquartile de l’échantillon.  
+c) Pour 5 nouveaux lancers, probabilité d’obtenir au moins une pile.  
+d) Espérance du nombre de piles sur 5 lancers.
+
+**23.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_ses_parametre.pdf`  
+*Thème* : Probabilités et statistiques  
+*Intro* : Une usine produit des ampoules avec trois machines A, B, C.  
+A : 20 % de la production, 5 % défectueux ;  
+B : 30 %, 4 % défectueux ;  
+C : 50 %, 4 % défectueux.  
+*Questions* :  
+a) Probabilité qu’une ampoule choisie au hasard soit défectueuse.  
+b) Probabilité qu’elle vienne de A sachant qu’elle est défectueuse.  
+c) Si le taux de défauts de B passe à 6 %, nouvelle probabilité de défaut.
+
+**24.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_svt-smp_continue.pdf`  
+*Thème* : Probabilités – Loi exponentielle  
+*Intro* : Même contexte que l’exercice 14.  
+*Questions* :  
+a) \(P(X<2000)\).  
+b) \(P(X\ge 10000)\).  
+c) \(E[X]\) et \(\operatorname{Var}(X)\).  
+d) Nombre moyen d’appareils nécessaires pour 10000 heures (remplacement immédiat).
+
+**25.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_aleatroire.pdf`  
+*Thème* : Probabilités combinatoires  
+*Intro* : 10 pistes de danse : 6 lentes, 4 rapides. On compose un programme de 3 danses différentes au hasard.  
+*Questions* :  
+a) Nombre total de programmes.  
+b) Probabilité que le programme contienne exactement 2 danses lentes et 1 rapide (événement \(A\)).  
+c) Probabilité qu’il contienne au moins une danse rapide (\(B\)).  
+d) Probabilité qu’il contienne exactement 2 danses lentes **et** au moins une rapide.
+
+**26.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_orthogonal.pdf`  
+*Thème* : Probabilités d’échec de lampes  
+*Intro* : Deux lampes : \(P(F)=0,12\), \(P(G)=0,18\), \(P(F\cap G)=0,07\) (F : première défaillante, G : seconde défaillante).  
+*Questions* :  
+a) Probabilité que les deux lampes fonctionnent.  
+b) Exprimer sous forme irréductible \(a/b\).  
+c) Valeur décimale arrondie à \(10^{-4}\).  
+d) Probabilité qu’au moins une lampe soit défaillante, puis probabilité complémentaire.
+
+**27.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_graphique.pdf`  
+*Thème* : Probabilités et combinaisons  
+*Intro* : Une boîte contient 20 maillots : 4 blancs, 6 jaunes, 10 rouges. On tire 2 maillots simultanément.  
+*Questions* :  
+a) Probabilité d’obtenir deux maillots blancs.  
+b) Probabilité d’obtenir un blanc et un jaune.  
+c) Probabilité d’obtenir deux maillots de même couleur.  
+d) Soit \(Y\) le nombre de maillots blancs. Donner sa loi, \(E[Y]\), \(\operatorname{Var}(Y)\).
+
+**28.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_evolution.pdf`  
+*Thème* : Probabilités et statistiques  
+*Intro* : Un sac contient 6 boules rouges (numérotées 1 à 6) et 3 boules blanches (1 à 3). On tire 2 boules sans remise.  
+*Questions* :  
+a) Probabilité que les deux numéros soient égaux.  
+b) Probabilité que les deux boules soient de couleurs différentes.  
+c) Définir \(X\) : si deux blanches → \(X=a+b\) ; si deux rouges → \(X=|a-b|\) ; si couleurs différentes → \(X=0\). Déterminer la loi de \(X\) et sa variance.
+
+**29.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_polynime.pdf`  
+*Thème* : Probabilités et variables aléatoires  
+*Intro* : Même urne que l’exercice 28, même définition de \(X\) (somme pour deux rouges, produit pour deux blanches, différence absolue pour couleurs différentes).  
+*Questions* :  
+a) Tableau de distribution de \(X\).  
+b) \(E[X]\) et \(\operatorname{Var}(X)\).  
+c) Valeur la plus probable de \(X\).  
+d) Si on répète 1000 fois, nombre attendu de fois où \(X=5\).
+
+**30.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_fonction.pdf`  
+*Thème* : Probabilités  
+*Intro* : On lance deux fois un dé parfait. Puis on prélève simultanément 3 ampoules dans un lot de 15 dont 5 défectueuses.  
+*Questions* :  
+a) Probabilité d’obtenir un chiffre pair et un chiffre impair (dans n’importe quel ordre) aux deux lancers.  
+b) Probabilité qu’aucune ampoule ne soit défectueuse.  
+c) Probabilité qu’exactement une ampoule soit défectueuse.  
+d) Probabilité qu’au moins une ampoule soit défectueuse.
+
+**31.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_expression.pdf`  
+*Thème* : Probabilités  
+*Intro* : Un dé truqué : faces 1 à 6 avec probabilités : 0,40 ; 0,15 ; 0,15 ; 0,05 ; \(x\) ; \(y\). On sait que \(p(5)=4p(6)\).  
+*Questions* :  
+a) Déterminer \(x\) et \(y\).  
+b) Probabilité d’un numéro impair.  
+c) Probabilité d’un numéro pair.  
+d) Variance de la variable aléatoire \(X\) = face obtenue.
+
+**32.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_triangle.pdf`  
+*Thème* : Probabilités  
+*Intro* : Soit \(X\) une variable aléatoire définie sur \(\{1,2,3,4\}\) avec \(P(X=1)=0,1\), \(P(X=2)=0,3\), \(P(X=3)=0,2\), \(P(X=4)=0,4\).  
+*Questions* :  
+a) Vérifier que la somme des probabilités vaut 1.  
+b) Calculer \(E(X)\).  
+c) Calculer \(\operatorname{Var}(X)\).  
+d) Calculer \(P(X=4\mid X\ge 3)\).
+
+**33.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_espace.pdf`  
+*Thème* : Probabilités  
+*Intro* : On lance un dé cubique équilibré (faces 1 à 6). Événements :  
+A : « numéro < 7 », B : « numéro pair », C : « carré parfait », D : « multiple de 3 ».  
+Bibliothèque : 150 romans policiers (40 % d’auteurs français), 50 biographies (70 % français). Total 200 ouvrages.  
+*Questions* :  
+a) Probabilité que le dé donne un numéro < 7.  
+b) Probabilité que le numéro soit pair.  
+c) Probabilité que le numéro soit un carré parfait.  
+d) Probabilité qu’un ouvrage choisi au hasard soit un roman policier français.
+
+**34.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_numerique.pdf`  
+*Thème* : Probabilités conditionnelles  
+*Intro* : Une urne contient 5 boules rouges et 7 bleues. On tire successivement sans remise deux boules. \(A\) : « première boule rouge », \(B\) : « seconde boule bleue ».  
+*Questions* :  
+a) \(P(A)\).  
+b) \(P(B\mid A)\).  
+c) \(P(A\cap B)\) est‑il égal à \(P(A)P(B)\) ? Justifier.
+
+**35.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_operations.pdf`  
+*Thème* : Probabilités discrètes  
+*Intro* : Budget publicitaire \(X\) (milliers de gourdes) :  
+\(P(X=8)=0,10\); \(10:0,15\); \(12:0,20\); \(14:0,25\); \(16:0,20\); \(18:0,10\).  
+*Questions* :  
+a) Calculer \(E(X)\) et \(\operatorname{Var}(X)\).  
+b) Donner la fonction de répartition \(F_X(x)\).  
+c) Calculer \(P(12\le X\le 16)\).
+
+**36.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_resolution.pdf`  
+*Thème* : Probabilités combinatoires  
+*Intro* : Un tiroir contient 16 CD : 6 classique, 7 compas, 3 instrumental. On extrait 3 CD simultanément.  
+*Questions* :  
+a) Probabilité d’avoir 3 CD de compas.  
+b) Probabilité d’avoir au moins un CD classique.  
+c) Probabilité d’avoir un CD de chaque genre.
+
+**37.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_absurde.pdf`  
+*Thème* : Probabilités  
+*Intro* : Un quart de la population est vacciné. Parmi les malades, 1/13 sont vaccinés. \(P(\text{malade} \mid \text{vacciné}) = 0,1\).  
+*Questions* :  
+a) Dessiner un arbre.  
+b) Calculer \(P(M\cap V)\) et en déduire \(P(M)\).  
+c) Calculer \(P(V\mid M^c)\).  
+d) Évaluer l’efficacité du vaccin.
+
+**38.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_axionatisation.pdf`  
+*Thème* : Probabilités  
+*Intro* : Une urne contient 4 jetons numérotés 1 à 4. On tire successivement avec remise deux jetons, on note \(a\) (premier) et \(b\) (second). Événement \(E\) : \(a+b=7\).  
+*Questions* :  
+a) Nombre d’issues favorables à \(E\).  
+b) \(p(E)\).  
+c) \(P(E\mid a=4)\).  
+d) Justifier.
+
+**39.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_codage.pdf`  
+*Thème* : Probabilités  
+*Intro* : Un stock de stylos :  
+30 % marque X (2 % défectueux), 10 % Y (3 % déf.), 35 % Z (1 % déf.), 25 % T (4 % déf.).  
+*Questions* :  
+a) Arbre de probabilité.  
+b) Probabilité qu’un stylo choisi soit défectueux.  
+c) Probabilité qu’il soit de marque Z sachant qu’il fonctionne.
+
+**40.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_exponentiel.pdf`  
+*Thème* : Probabilités – Lancer de pièce  
+*Intro* : On lance trois fois une pièce équilibrée. Pile rapporte 25 gourdes, face fait perdre 15 gourdes. \(X\) = gain total.  
+*Questions* :  
+a) Valeurs prises par \(X\).  
+b) Loi de probabilité de \(X\) et espérance.  
+c) Fonction de répartition \(F_X\).
+
+**41.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_graphique.pdf`  
+*Thème* : Probabilités et variable aléatoire  
+*Intro* : Une urne contient 5 blanches, 2 noires, 3 rouges. On tire 2 boules simultanément.  
+Noire → +7 points, rouge → +2 points, blanche → –2 points. \(X\) = somme des points.  
+*Questions* :  
+a) Ensemble des valeurs de \(X\) et loi de probabilité.  
+b) \(E[X]\) et \(\operatorname{Var}(X)\).  
+c) Probabilité d’obtenir exactement 7 points.
+
+**42.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_implication.pdf`  
+*Thème* : Probabilités et variable aléatoire  
+*Intro* : On lance un dé équilibré. Si le résultat est pair, on gagne \(k\times100\) gourdes ; s’il est impair, on perd \(k\times100\) gourdes.  
+*Questions* :  
+a) Valeurs possibles de \(X\) et leurs probabilités.  
+b) Loi de probabilité complète.  
+c) \(E[X]\) et \(\operatorname{Var}(X)\).  
+d) Probabilité que le gain soit positif.
+
+**43.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_logique.pdf`  
+*Thème* : Probabilités et fonctions de rendement  
+*Intro* : Variable aléatoire \(X\) avec \(P(X=1)=a\), \(P(X=2)=1/2\), \(P(X=3)=b\), et \(E(X)= \frac{2}{6}\times1+\frac{1}{6}\times2+\frac{3}{6}\times3\).  
+*Questions* :  
+a) Déterminer \(a\) et \(b\).  
+b) Calculer \(E(X)\).  
+c) Pour une fonction de rendement \(r(q)=-4\ln(0,1q+1)+2q+5\), trouver \(q\) qui minimise le rendement sur \([0,60]\) et la valeur minimale.  
+d) Revenu pour \(q=10\).
+
+**44.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_mesure.pdf`  
+*Thème* : Probabilités et variables aléatoires  
+*Intro* : Une urne contient 10 jetons : six 0, trois 50, un 200. On mise 20 gourdes, on tire 3 jetons simultanément, on empoche la somme des numéros. \(X\) = gain algébrique.  
+*Questions* :  
+a) Valeurs possibles de \(X\).  
+b) Loi de probabilité de \(X\).  
+c) Caractéristiques de base (espérance, variance, écart‑type).  
+d) Fonction de répartition \(F_X\).
+
+**45.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_derivation.pdf`  
+*Thème* : Probabilités et statistiques  
+*Intro* : On lance deux dés équilibrés. \(A\) : « somme > 8 ». \(X\) = somme.  
+*Questions* :  
+a) \(P(A)\).  
+b) Liste des valeurs prises par \(X\).  
+c) Loi de probabilité de \(X\) et \(E[X]\).
+
+**46.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_limite.pdf`  
+*Thème* : Probabilités  
+*Intro* : Un sac contient 5 boules numérotées 1 à 5. On tire deux boules simultanément. \(X\) = somme des numéros.  
+*Questions* :  
+a) Loi de probabilité de \(X\).  
+b) \(E[X]\) et \(\operatorname{Var}(X)\).  
+c) \(P(X>7)\).
+
+**47.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_parabole.pdf`  
+*Thème* : Probabilités – Lancer de pièce  
+*Intro* : On lance une pièce équilibrée quatre fois. \(X\) = nombre de piles.  
+*Questions* :  
+a) Ensemble des valeurs de \(X\).  
+b) Loi de probabilité de \(X\) et diagramme en bâtons.  
+c) \(E[X]\) et \(\operatorname{Var}(X)\).  
+d) Écart‑type.
+
+**48.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_parallele.pdf`  
+*Thème* : Statistiques et probabilités  
+*Intro* : On tire 3 lettres du mot « voyager ». \(X\) = nombre de voyelles obtenues.  
+*Questions* :  
+a) Valeurs prises par \(X\) et loi de probabilité.  
+b) \(E[X]\) et \(\operatorname{Var}(X)\).
+
+**49.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_possibilite.pdf`  
+*Thème* : Probabilités  
+*Intro* : Deux dés :  
+Dé rouge : deux faces –1, deux faces 0, deux faces 1.  
+Dé vert : une face 0, trois faces 1, deux faces 2.  
+\(X\) = somme des deux faces.  
+*Questions* :  
+a) Loi de probabilité de \(X\).  
+b) Représenter graphiquement la fonction de répartition.  
+c) \(P(0<X\le 2)\).  
+d) \(E[X]\).
+
+**50.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_imaginaire.pdf`  
+*Thème* : Probabilités  
+*Intro* : Deux chasseurs tirent simultanément sur un ramier.  
+Chasseur A : probabilité de tuer = 1/3, chasseur B : 2/7. Indépendants.  
+*Questions* :  
+a) Probabilité que le ramier soit tué.  
+b) Probabilité qu’il survive.  
+c) Sur 12 tirs, probabilité qu’au moins un ramier soit tué.  
+d) Espérance du nombre de ramiers tués en 12 tirs.
+
+---
+
+## Chapitre 2 – Statistiques (50 exercices)
+
+### Exercices réels (sources indiquées)
+
+**1.** *Source* : Bac Haïti 2025 — `exam_maths_math-ns4-2025-svt-ensemble.pdf`  
+*Thème* : Statistique descriptive et régression linéaire  
+*Intro* : Série statistique : \(x\) : -5, -2, 0, 1, 3, 6 ; \(y\) : 42,3 ; 35,2 ; 20,5 ; 15,5 ; 10,5 ; 8,3.  
+*Questions* :  
+a) Calculer l’espérance de \(X\) et de \(Y\).  
+b) Calculer la variance de \(X\) et de \(Y\).  
+c) Calculer \(\operatorname{cov}(X,Y)\) et le coefficient de corrélation \(r\).  
+d) Déterminer la droite de régression \(Y\) sur \(X\).  
+e) Tracer le nuage et la droite.  
+f) Interpréter \(r\).
+
+**2.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-quadratique.pdf`  
+*Thème* : Statistiques et corrélation  
+*Intro* : Tableau : \(x\) (cm) = 41,5 ; 42,5 ; 44,5 ; 47 ; 49 ; \(y\) (kg) = 5,5 ; 6,6 ; 8,2 ; 9 ; 11.  
+*Questions* :  
+a) Calculer \(\bar x\) et \(\bar y\).  
+b) Calculer \(V(x)\) et \(\operatorname{cov}(x,y)\).  
+c) Déterminer la droite de régression \(y = mx+b\).  
+d) Calculer le coefficient de corrélation \(\rho\).  
+e) Estimer le poids pour \(x=60\) cm.
+
+**3.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-image.pdf`  
+*Thème* : Statistique et régression linéaire  
+*Intro* : \(x\) (jours) = 1,2,3,4,5 ; \(y\) (kg) = 14,17,22,23,28. Droite de régression supposée \(y=ax+10,5\).  
+*Questions* :  
+a) Calculer \(\bar x\) et \(\bar y\).  
+b) Déterminer \(\operatorname{cov}(x,y)\).  
+c) Trouver \(a\).  
+d) Estimer le poids à 30 jours.
+
+**4.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-rayon.pdf`  
+*Thème* : Statistiques et régression linéaire  
+*Intro* : Masse \(x\) (kg) = 4 ; 5,4 ; 10,2 ; 11 ; 12,6 ; 19,8 ; taille \(y\) (cm) = 53 ; 61 ; 72 ; 78 ; 94 ; 113.  
+*Questions* :  
+a) Représenter le nuage.  
+b) Calculer \(\operatorname{cov}(x,y)\).  
+c) Déterminer la droite de régression de \(y\) en \(x\).  
+d) Estimer la taille pour une masse de 8 kg.
+
+**5.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-quartile.pdf`  
+*Thème* : Statistiques – Régression linéaire  
+*Intro* : \(x\) = 44, 65, 71, 75, 87 ; \(y\) = 40, 60, 59, 65, 75.  
+*Questions* :  
+a) Calculer \(\bar x\) et \(\bar y\).  
+b) Calculer \(V(x)\) et \(\operatorname{cov}(x,y)\).  
+c) Équation de la droite de régression \(y = ax+b\).  
+d) Coefficient de corrélation \(r\) et interprétation.
+
+**6.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ses-2025-courbe.pdf`  
+*Thème* : Statistiques descriptives et régression linéaire  
+*Intro* : Mêmes données que l’exercice 5.  
+*Questions* :  
+a) \(\bar x, \bar y\).  
+b) \(\operatorname{Var}(x)\) et \(\operatorname{cov}(x,y)\).  
+c) Droite de régression.  
+d) Coefficient de corrélation \(r\).
+
+**7.** *Source* : Bac Haïti 2025 — `exam_maths_mathemtatiques-ns4-smp-cardinal-2025.pdf`  
+*Thème* : Statistiques descriptives et régression linéaire  
+*Intro* : Série : \(x\) = 0,5 ; 1,5 ; 2,5 ; 4 ; 6 ; 7 ; \(y\) = 0 ; 1 ; 1,5 ; 3,5 ; 4,5 ; 5,5.  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen \(G\).  
+c) Coefficient de corrélation \(r\).  
+d) Équation de la droite de régression de \(y\) en \(x\).
+
+**8.** *Source* : Bac Haïti — `exam_maths_maths-modele-ses.pdf`  
+*Thème* : Statistique descriptive  
+*Intro* : Tableau masse (kg) / taille (cm) : (4,53), (5,4,61), (10,2,72), (11,78), (12,6,94), (19,8,113).  
+*Questions* :  
+a) Calculer covariance de \(x\) et \(y\) et variance de \(x\).  
+b) En déduire l’équation de la droite de régression de \(y\) en \(x\).  
+c) Calculer le coefficient de corrélation \(r\).  
+d) Prédire la taille pour une masse de 8 kg.
+
+**9.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_graphique.pdf`  
+*Thème* : Fonctions polynomiales et statistiques  
+*Intro* : Coût de production \(p(x)=x^3-15x^2+76x\) (milliers de gourdes), \(x\in[0,13]\).  
+*Questions* :  
+a) Calculer \(p'(x)\) et montrer que \(p'(x)=3(x-5)^2+1\).  
+b) Déterminer les points critiques, nature.  
+c) Coût de la 5e tonne et de la 10e tonne.  
+d) Valeur moyenne \(\overline{p}\) et variance \(\sigma^2\) sur \([0,13]\).  
+e) Interpréter la variance.
+
+**10.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_polynime.pdf`  
+*Thème* : Régression linéaire et estimation  
+*Intro* : Tableau poids \(y\) (kg) en fonction du nombre de jours \(x\) :  
+(5,3,61), (7,3,70), (10,3,75), (14,3,85), (18,3,90), (22,4,05), (26,4,12).  
+*Questions* :  
+a) Droite de régression \(y = mx+b\) (moindres carrés).  
+b) Estimer le poids à 30 jours.  
+c) Calculer l’erreur quadratique moyenne (RMSE).  
+d) Pertinence de l’ajustement linéaire.
+
+**11.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_fonction.pdf`  
+*Thème* : Statistiques  
+*Intro* : Tableau : \(x\) (visiteurs) = 10,11,12,15,16,20 ; \(y\) (commandes) = 5,6,6,10,12,15.  
+*Questions* :  
+a) Point moyen \(G\).  
+b) Coefficient de corrélation linéaire \(r\).  
+c) Équation de la droite de régression \(y = a + bx\).
+
+**12.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_espace.pdf`  
+*Thème* : Régression linéaire et moyenne  
+*Intro* : Nuage de 8 points : \((1,1), (3,2), (4,4), (6,4), (8,5), (9,7), (11,8), (14,9)\).  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen \(G\).  
+c) Droite de régression \(y=ax+b\) (moindres carrés, coefficients arrondis à \(10^{-2}\)).
+
+**13.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_absurde.pdf`  
+*Thème* : Statistiques  
+*Intro* : Série : \(x=0,1,2,3,4\) ; \(y=12,10,6,6,2\).  
+*Questions* :  
+a) Tracer le nuage, point moyen \(G\).  
+b) Coefficient de corrélation \(r\) et interprétation.  
+c) Équation de la droite de régression de \(y\) en \(x\).  
+d) Estimer \(y\) pour \(x=5\).
+
+**14.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_codage.pdf`  
+*Thème* : Régression linéaire  
+*Intro* : Huit exploitations : \((1,2), (2,5), (4,7), (1,-1), (3,8), (4,9), (3,7), (2,3)\).  
+*Questions* :  
+a) Point moyen \(G\).  
+b) Droite de régression \(y = a + bx\) (moindres carrés).  
+c) Interpréter le coefficient directeur.  
+d) Estimer \(y\) pour \(x=3,5\).
+
+**15.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_exponentiel.pdf`  
+*Thème* : Statistiques – Covariance et régression linéaire  
+*Intro* : Mêmes données que l’exercice 4 (masse/taille).  
+*Questions* :  
+a) Covariance et variance de \(x\).  
+b) Droite de régression \(y = a + bx\).  
+c) Représenter le nuage et la droite.
+
+**16.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_graphique.pdf`  
+*Thème* : Statistiques descriptives  
+*Intro* : Série : \(x=1,3,2,4,5\) ; \(y=10,15,13,25,40\).  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen \(G\).  
+c) Variance de \(x\) et de \(y\).
+
+**17.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_implication.pdf`  
+*Thème* : Analyse fonctionnelle et statistique  
+*Intro* : Tableau : (3,3), (5,5), (6,11), (7,9), (9,15).  
+*Questions* :  
+a) Représenter le nuage.  
+b) Droite de régression \(\Delta\) de \(y\) en \(x\) (moindres carrés).
+
+**18.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_numerisation.pdf`  
+*Thème* : Statistiques et régression linéaire  
+*Intro* : Tableau du nombre d’inscrits à un rallye sur 10 ans :  
+\(x=1..10\), \(y=25,40,42,48,55,69,66,70,79,86\).  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen \(G\).  
+c) Soit \(A(3,42)\). Tracer \((AG)\) et donner son équation.  
+d) Estimer le nombre d’inscrits pour le rang 11.
+
+**19.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_structures.pdf`  
+*Thème* : Statistiques – Régression linéaire  
+*Intro* : Température \(x\) et nombre de glaces vendues \(y\) :  
+(21,25), (17,20), (24,30), (25,35), (13,10).  
+*Questions* :  
+a) Calculer \(\bar x,\bar y, V(x), \operatorname{cov}(x,y), r\).  
+b) Droite de régression \(y = a+bx\).  
+c) Prédire pour \(x=40\).  
+d) Interpréter \(r\).
+
+**20.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt-hyperbole.pdf`  
+*Thème* : Statistiques et régression linéaire  
+*Intro* : Série : \(x=8,12,24,40,46\) ; \(y=5,4,6,8,7\).  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen \(G\).  
+c) Droite de régression de \(y\) en \(x\) (moindres carrés).
+
+**21.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_derivation.pdf`  
+*Thème* : Statistiques descriptives et régression linéaire  
+*Intro* : Tailles \(x\) (cm) et masses \(y\) (kg) de six jeunes :  
+(185,78), (165,68), (158,52), (164,68), (162,58), (170,70).  
+*Questions* :  
+a) Point moyen \(G\).  
+b) Coefficient directeur de la droite de régression de \(y\) en \(x\) et équation.
+
+**22.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_limite.pdf`  
+*Thème* : Statistiques et droite linéaire  
+*Intro* : Contrôle de qualité : mesures toutes les 15 minutes pendant 2 heures :  
+\(x=0,25;0,5;0,75;1;1,25;1,5;1,75;2\) ;  
+\(y=52,12;52,16;52,24;52,28;52,32;52,30;52,44;52,47\).  
+*Questions* :  
+a) Dessiner le nuage.  
+b) Points moyens \(G_1\) (4 premiers points) et \(G_2\) (4 derniers).  
+c) Équation de la droite passant par \(G_1\) et \(G_2\).
+
+**23.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_parallele.pdf`  
+*Thème* : Statistiques et probabilités  
+*Intro* : Huit étudiants : heures \(x\) = 2,2,6,6,7,8,10,11 ; notes \(y\) = 5,10,7,11,12,9,16,14.  
+*Questions* :  
+a) \(E[X], E[Y]\), point moyen.  
+b) Covariance et coefficient de corrélation.  
+c) Possibilité d’un ajustement linéaire ?
+
+**24.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_possibilite.pdf`  
+*Thème* : Régression linéaire  
+*Intro* : Deux machines : poids de 8 boîtes pour chacune :  
+Machine X : 48,95 ; 49,55 ; 49,99 ; 50,01 ; 48,97 ; 49,30 ; 50,06 ; 49,50  
+Machine Y : 50,10 ; 49,90 ; 48,90 ; 50,00 ; 49,70 ; 49,80 ; 49,77 ; 50,00  
+*Questions* :  
+a) Tracer le nuage \((x,y)\).  
+b) Droite de régression de \(y\) en \(x\) (moindres carrés).  
+c) Ordonnée à l’origine et coefficient de régression.  
+d) Interpréter \(b\).
+
+**25.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_secante.pdf`  
+*Thème* : Statistiques et régression linéaire  
+*Intro* : Temps \(x\) (s) = 1,2,3,4,5,6 ; vitesse \(y\) (m/s) = 10,15,60,120,175,200.  
+*Questions* :  
+a) Tracer le nuage.  
+b) Variance de \(X\) et \(Y\), covariance.  
+c) Droite de régression de \(Y\) en \(X\) par la méthode de Mayer.
+
+**26.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_tangente.pdf`  
+*Thème* : Statistiques et corrélation  
+*Intro* : Absences \(x\) et notes \(y\) (%) :  
+(6,82), (2,86), (15,43), (9,74), (12,58), (5,90), (8,78).  
+*Questions* :  
+a) Tracer le nuage, point moyen.  
+b) Coefficient de corrélation \(r\) et interprétation.  
+c) Droite de régression \(\Delta\) de \(y\) en \(x\).  
+d) Estimer la note pour 7 absences.
+
+**27.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_angle.pdf`  
+*Thème* : Statistiques  
+*Intro* : Données : \((3,3), (5,5), (6,11), (7,9), (9,15)\).  
+*Questions* :  
+a) Point moyen.  
+b) Coefficient de corrélation \(r\).  
+c) Droite de régression de \(y\) sur \(x\).  
+d) Coefficient de détermination \(R^2\).
+
+**28.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_discrete.pdf`  
+*Thème* : Statistiques  
+*Intro* : Série : \(x=1,2,3,4\) ; \(y=4,9,11,12\).  
+*Questions* :  
+a) Tracer les points, point moyen.  
+b) Coefficient de corrélation.  
+c) Droite de régression de \(y\) en \(x\).
+
+**29.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_imaginaire.pdf`  
+*Thème* : Statistique  
+*Intro* : Circonférence \(C\) (cm) = 15,21,17,22,20,13 ; hauteur \(h\) (cm) = 300,380,330,360,420,290.  
+*Questions* :  
+a) Tracer le nuage.  
+b) Coefficient de corrélation linéaire.  
+c) Droite de régression de \(h\) en fonction de \(C\).  
+d) Estimer \(h\) pour \(C=16\) cm.
+
+**30.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_reel.pdf`  
+*Thème* : Statistiques et probabilités  
+*Intro* : Notes de 30 élèves (données non détaillées ici).  
+*Questions* :  
+a) Moyenne et médiane.  
+b) Test d’hypothèse sur le mode.  
+c) Estimation de \(\mu\) et \(\sigma\) par la méthode des moments, intervalle de confiance.
+
+**31.** *Source* : Bac Haïti 2012 — `exam_maths_maths_philo_cd_aout-2012.pdf`  
+*Thème* : Statistiques  
+*Intro* : Notes de 30 élèves (données fournies).  
+*Questions* :  
+a) Moyenne, médiane, mode.  
+b) Écart‑type.  
+c) Premier et troisième quartiles, boîte à moustaches.
+
+**32.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_ses_parametre.pdf` (partie statistique)  
+*Thème* : Régression linéaire  
+*Intro* : Série : \(x=15,20,25,30,35,40\) ; \(y=44,4;27;16,3;10;6,2;3,5\).  
+*Questions* :  
+a) Point moyen \(G_1\) des 3 premières colonnes et \(G_2\) des 3 dernières.  
+b) Équation de la droite \((G_1G_2)\).
+
+**33.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_numerique.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Tableau : \(x=36,42,48,54,60,66\) ; \(y=15,1;15,5;14,4;14;13,2;11,8\).  
+*Questions* :  
+a) Point moyen \(G\).  
+b) Coefficient de corrélation et nature de la corrélation.
+
+**34.** *Source* : Bac Haïti 2015 — `exam_maths_maths_2015_minorant.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Série : valeurs \(x=20,19,18,17,16\) ; effectifs \(2,8,9,15,4\).  
+*Questions* :  
+a) Écart interquartile.
+
+**35.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_maregraphe.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Série double : \(x=0,8;1,2;2,4;4;4,6;4,8;6;6,4\) ; \(y=7,6;8,4;12;17,2;19;23;25,8;29,2\).  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen \(G\).  
+c) Équation de la droite des moindres carrés.
+
+**36.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marginer.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Série : \(x=1,2,3,4,5\) ; \(y=10,20,30,40,50\).  
+*Questions* :  
+a) Covariance.
+
+**37.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla-methodique.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Répartition du nombre d’heures sur les réseaux sociaux : classes [4;8[, [8;12[, [12;16[, [16;20[, [20;24[ ; effectifs 8,14,6,10,2.  
+*Questions* :  
+a) Histogramme.  
+b) Premier et troisième quartiles, écart interquartile.
+
+**38.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla_orthogonal-2.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Mêmes données que l’exercice 37.  
+*Questions* :  
+a) Histogramme.  
+b) Quartiles et écart interquartile.
+
+**39.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_aleatroire-2.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Échantillon de 10 journées : \(x\) (policiers) = 10,15,16,1,4,6,18,12,14,7 ; \(y\) (délinquants) = 5,2,1,9,7,8,1,5,3,6.  
+*Questions* :  
+a) Tracer le nuage.  
+b) Selon le nuage, le coefficient de corrélation sera‑t‑il positif, négatif ou nul ?  
+c) Calculer \(r\).
+
+**40.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_orthonorme.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Tableau des impôts : classes [0;400[, [400;800[, [800;1200[, [1200;1600[, [1600;2000[, [2000;2400[, [2400;2800[ ; effectifs 190,410,520,560,170,95,55.  
+*Questions* :  
+a) Histogramme.  
+b) Moyenne, variance, écart‑type.
+
+**41.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_elasticite.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Évolution de la population : année 1960,1970,1980,1990,2000 ; population (millions) 2,5;3;3,6;4,4;5,2.  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen.  
+c) Covariance.  
+d) Droite d’ajustement de \(y\) en \(x\).
+
+**42.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_evolution.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Nombre annuel moyen d’accidents : année 2005–2010, rang \(x=1..6\), \(y=108,5;103,8;95,1;90,9;88,9;83,2\).  
+*Questions* :  
+a) Tracer le nuage.  
+b) Compléter le tableau (produits, carrés).  
+c) Point moyen \(G\).  
+d) Variance de \(X\) et covariance.  
+e) Droite de régression de \(y\) en \(x\).
+
+**43.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_triangle.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Série : \(x=10,11,12,15,16,20\) ; \(y=5,6,6,10,12,15\).  
+*Questions* :  
+a) Point moyen.  
+b) Covariance.
+
+**44.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_negation.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Série : \(x=1,3,5,7,9,11\) ; \(y=123,4;125,9;127,5;127,9;129;131,4\).  
+*Questions* :  
+a) Points moyens \(G_1\) (3 premiers) et \(G_2\) (3 derniers).  
+b) Équation de \((G_1G_2)\).  
+c) Nom de cette droite.
+
+**45.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_numerique.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Série : \(x=1,3,5,7,9,11\) ; \(y=123,4;125,9;127,5;127,9;129;131,4\) (identique à l’exercice 44).  
+*Questions* :  
+a) Point moyen \(G\).  
+b) Covariance.  
+c) Droite de régression de \(y\) en \(x\).
+
+**46.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_operations.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Budget publicitaire et chiffre d’affaires : \(x=8,10,12,14,6,18\) ; \(y=40,55,55,70,75,95\).  
+*Questions* :  
+a) Point moyen \(G\).
+
+**47.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_resolution.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Poids et tailles de 9 nouveau‑nés : données détaillées.  
+*Questions* :  
+a) Tracer le nuage.  
+b) Point moyen \(G\).  
+c) Équation de la droite passant par \(G\) et un point donné.
+
+**48.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_absurde.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Mêmes données que l’exercice 13.  
+*Questions* :  
+a) Nuage, point moyen.  
+b) Coefficient de corrélation.  
+c) Droite de régression.
+
+**49.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_axionatisation.pdf` (partie stats)  
+*Thème* : Statistiques  
+*Intro* : Série : \(x=2,3,5,8,11\) ; \(y=5,6;7,2;9,6;15,1;20\).  
+*Questions* :  
+a) Représenter, point moyen.  
+b) Covariance, variances, écarts‑types.  
+c) Pente de la droite de régression.  
+d) Équation de la droite.
+
+**50.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_codage.pdf` (partie stats)  
+*Thème* : Régression linéaire  
+*Intro* : Mêmes données que l’exercice 14 (huit exploitations).  
+*Questions* :  
+a) Point moyen.  
+b) Droite de régression \(y = a+bx\).  
+c) Interpréter \(b\).  
+d) Estimation pour \(x=3,5\).
+
+---
+
+## Chapitre 3 – Nombres complexes (50 exercices)
+
+### Exercices réels (sources indiquées)
+
+**1.** *Source* : Bac Haïti 2025 — `exam_maths_math-2025.pdf`  
+*Thème* : Nombres complexes et polynômes  
+*Intro* : \(P(z)=z^3-2(2+i)z^2+(5+8i)z-10i\). On sait que \(u=-1-2i\) et \(v=-2+3i\) sont des racines.  
+*Questions* :  
+a) Trouver la troisième racine \(w\).  
+b) Vérifier que \(P(z)=(z-u)(z-v)(z-w)\).  
+c) Barycentre \(G\) du triangle formé par les points d’affixes \(u,v,w\) (coordonnée complexe et module).  
+d) Calculer \(u+v+w\) et \(uvw\).  
+e) Utiliser les relations de Vieta pour confirmer le coefficient de \(z^2\).
+
+**2.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-smp-2025-eureka.pdf`  
+*Thème* : Nombres complexes et puissances  
+*Intro* : \(z=\left(1-\frac{i}{3}\right)(1-i)\).  
+*Questions* :  
+a) Forme algébrique de \(z\).  
+b) Module et argument de \(z\).  
+c) Forme trigonométrique et exponentielle.  
+d) Calculer \(z^6\).
+
+**3.** *Source* : Bac Haïti 2015 — `exam_maths_maths-philo_c-d_juin_juillet_2015.pdf`  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1=-2+2i\), \(z_2=-1-i\sqrt{3}\).  
+*Questions* :  
+a) Module et argument de \(z_1\) et \(z_2\).  
+b) Forme trigonométrique.  
+c) Calculer \(z_1z_2\) et le mettre sous forme exponentielle.  
+d) Forme exponentielle du quotient \(z_1/z_2\).
+
+**4.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marginer.pdf`  
+*Thème* : Nombres complexes  
+*Intro* : \(P(z)=z^3-(1+9i)z^2+(7i-28)z+10+28i\).  
+*Questions* :  
+a) Factoriser \(P(z)\) et déterminer les trois racines.  
+b) Placer les racines dans le plan complexe, nature du triangle.  
+c) Produit des racines et somme des carrés des modules.  
+d) Vérifier que la somme des racines est \(1+9i\) (Vieta).
+
+**5.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_ses_parametre.pdf`  
+*Thème* : Analyse complexe et géométrie  
+*Intro* : \(f(z)=\frac{z+1-2i}{z+2+i}\).  
+*Questions* :  
+a) Représenter \(A(-3+i)\) et \(A'=f(-3+i)\).  
+b) Résoudre \(f(z)=2i\).  
+c) En posant \(z=x+iy\), déterminer la partie réelle et imaginaire de \(f(z)\).  
+d) Ensemble \(E\) des points \(M\) tels que \(f(z)\) soit réel.
+
+**6.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_orthonorme.pdf`  
+*Thème* : Nombres complexes  
+*Intro* : \(U=z^2-2z+1\).  
+*Questions* :  
+a) Exprimer \(U=\alpha+i\beta\) en fonction de \(x,y\).  
+b) Montrer que \(U=0\) ssi \((x-1)^2+y^2=0\) (donc \(z=1\)).  
+c) Lieu des points \(M\) tels que \(U\) soit réel.  
+d) Calculer \(U\) pour \(z=2+i\).
+
+**7.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_evolution.pdf`  
+*Thème* : Polynôme et racines complexes  
+*Intro* : \(P(z)=z^3-2(1+2i)z^2+7iz+3(1-3i)\).  
+*Questions* :  
+a) Vérifier que \(z_0=1+i\) est une racine, factoriser.  
+b) Résoudre \(Q(z)=0\) pour obtenir les deux autres racines.  
+c) Calculer le module de chaque racine.  
+d) Tracer les trois racines dans le plan complexe.
+
+**8.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_arithmetique.pdf`  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1=-2+2i\), \(z_2=-1-i\sqrt{3}\).  
+*Questions* :  
+a) Module et argument de \(z_1\) et \(z_2\).  
+b) Forme trigonométrique.  
+c) Calculer \(z_1^3\) et \(z_2^2\) sous forme trigonométrique.
+
+**9.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_expression.pdf`  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1=-2-3i\), \(z_2=2+6i\).  
+*Questions* :  
+a) Produit \(z_1z_2\) sous forme algébrique.  
+b) Module et argument de \(z_1\), forme trigonométrique.  
+c) Forme exponentielle de \(z_2\).  
+d) Quotient \(z_2/z_1\) sous forme trigonométrique.
+
+**10.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_axionatisation.pdf`  
+*Thème* : Nombres complexes  
+*Intro* : Équation \(z^2-2\sqrt{3}z+4=0\).  
+*Questions* :  
+a) Résoudre dans \(\mathbb{C}\).  
+b) Écrire les solutions sous forme exponentielle.  
+c) Calculer le produit et la somme.
+
+**11.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_numerisation.pdf`  
+*Thème* : Fonction complexe  
+*Intro* : \(f(z)=\frac{z-2-i}{z+2i}\).  
+*Questions* :  
+a) Partie réelle et imaginaire de \(f(z)\) en fonction de \(x,y\).  
+b) Ensemble \(E\) des points \(M\) tels que \(f(z)\) soit réel.  
+c) Ensemble \(F\) des points \(M\) tels que \(f(z)\) soit imaginaire pur.  
+d) Représenter \(E\) et \(F\).
+
+**12.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_discrete.pdf`  
+*Thème* : Nombres complexes  
+*Intro* : Équation \(z^2 - z + (3i-1)=0\).  
+*Questions* :  
+a) Résoudre, donner les solutions sous forme \(a+bi\).  
+b) Module et argument de chaque solution.  
+c) Tracer les points images.  
+d) Vérifier les relations de Vieta.
+
+**13.** *Source* : Bac Haïti 2014 — `exam_maths_maths_philo_cd_aout2014.pdf`  
+*Thème* : Suites et nombres complexes  
+*Intro* : \(U_0=2\), \(U_{n+1}=3U_n-4\). Équation \(z^2-2\sqrt{3}z+4=0\).  
+*Questions* :  
+a) Forme explicite de \(U_n\) et limite.  
+b) Montrer que \(z=2e^{i\theta}\) et trouver \(\theta\).  
+c) Calculer \(z^5\) (module, argument).  
+d) Étudier la convergence de \((z^n)\).
+
+**14.** *Source* : Bac Haïti 2013 — `exam_maths_maths_philo_cd_juillet-2013.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(P(z)=z^3-12z^2+48z-128\).  
+*Questions* :  
+a) Calculer \(P(8)\).  
+b) Factoriser \(P(z)\) par \((z-8)\).  
+c) Résoudre \(P(z)=0\).
+
+**15.** *Source* : Bac Haïti 2015 — `exam_maths_maths_2015_minorant.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z=1-i\).  
+*Questions* :  
+a) Écrire \(z\) sous forme exponentielle.  
+b) Calculer \(z^4\) et \(z^8\).  
+c) Résoudre \(z^n\) réel, trouver le plus petit \(n>0\).
+
+**16.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_maregraphe.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Transformation \(z' = \frac{z-2+i}{z+i}\).  
+*Questions* :  
+a) Exprimer \(z'\) en fonction de \(x,y\) (partie réelle et imaginaire).  
+b) Ensemble \(E\) des points tels que \(z'\) soit réel.  
+c) Ensemble \(F\) des points tels que \(z'\) soit imaginaire pur.  
+d) Représenter.
+
+**17.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marnage.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(U=-\sqrt{3}+i\).  
+*Questions* :  
+a) Module et argument de \(U\).  
+b) Déterminer les cinq racines cinquièmes de \(U\).  
+c) Placer les points images, nature de la figure.
+
+**18.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_svt-smp_continue.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Transformation \(z' = \frac{z-2+i}{z+i}\) (identique à l’exercice 16).  
+*Questions* :  
+a) Partie réelle et imaginaire.  
+b) Ensembles \(E\) et \(F\).  
+c) Représentation.
+
+**19.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_orthogonal.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1=5+5i\sqrt{3}\), \(z_2=2+2i\).  
+*Questions* :  
+a) Écrire \(z_1\) et \(z_2\) sous forme exponentielle.  
+b) Produit \(z_1z_2\) sous forme algébrique puis trigonométrique.  
+c) En déduire \(\cos\frac{7\pi}{12}\) et \(\sin\frac{7\pi}{12}\).
+
+**20.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_numerique.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1 = 2\sqrt{3}+2i\), \(z_2 = 2-2i\).  
+*Questions* :  
+a) Module et argument de \(z_1\) et \(z_2\).  
+b) Forme exponentielle.  
+c) Calculer \((z_1/z_2)^3\).
+
+**21.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_barycentre.pdf` (partie complexes)  
+*Thème* : Nombres complexes (barycentre)  
+*Intro* : Points \(A(1,2)\), \(B(0,3)\), \(C(-1,4)\).  
+*Questions* :  
+a) Barycentre \(G\) des points pondérés \((A,2-\lambda), (C,1+2\lambda), (B,3)\).  
+b) Déterminer \(\lambda\) pour que \(G\) appartienne à la droite \(4x-y+11=0\).
+
+**22.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_triangle.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1=1+i\), \(z_2=1-i\), \(z_3=-1-i\).  
+*Questions* :  
+a) Module et argument de chacun.  
+b) Démontrer que le triangle \(EFG\) est rectangle en \(F\).
+
+**23.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_negation.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z=1+i\).  
+*Questions* :  
+a) Écrire \(z\) sous forme exponentielle.  
+b) Calculer \(z^2\), \(z^4\).  
+c) Résoudre \(z^n\) réel, trouver le plus petit \(n\).
+
+**24.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_axionatisation.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Points \(M(1,-1)\), \(P(3,-2)\) milieu de \([MN]\).  
+*Questions* :  
+a) Trouver \(N\).  
+b) Vérifier que \(\overrightarrow{MP} = \frac12\overrightarrow{MN}\).  
+c) Longueur \(MN\).  
+d) Équation de la droite \(MN\).
+
+**25.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_discrete.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1=1+i\), \(z_2=1-i\).  
+*Questions* :  
+a) Calculer \(z_1+z_2\) et \(z_1z_2\).  
+b) Déterminer le module et l’argument de \(z_1^3\).  
+c) Résoudre \(z^2 - (z_1+z_2)z + z_1z_2 = 0\).
+
+**26.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_secante.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Points \(A(-\sqrt{3}-i)\), \(B(1-i\sqrt{3})\), \(C(\sqrt{3}+i)\), \(D(-1+i\sqrt{3})\).  
+*Questions* :  
+a) Module et argument de chaque affixe.  
+b) Placer les points.  
+c) Nature du quadrilatère \(ABCD\).
+
+**27.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_tangente.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Équation \(z^3-7z^2+17z-15=0\) ayant une racine égale à 3.  
+*Questions* :  
+a) Résoudre dans \(\mathbb{C}\).  
+b) Points images \(M,N,P\), montrer que le triangle est rectangle et isocèle.
+
+**28.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_angle.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Points \(A(1+2i)\), \(B(4-2i)\), \(C(5)\), \(D(\frac72+2i)\).  
+*Questions* :  
+a) Placer les points.  
+b) Montrer que \(AOBC\) est un parallélogramme.  
+c) Démontrer que \((AB) \parallel (CD)\).
+
+**29.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_demarche.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(f(z)=z^3-2(3+i)z^2+4(1+i\sqrt{3})z-8i\).  
+*Questions* :  
+a) Vérifier \(f(2i)=0\), mettre sous forme \((z-2i)(az^2+bz+c)\).  
+b) Résoudre \(f(z)=0\).
+
+**30.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_imaginaire.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(C = z\overline{z} - 2z + i\overline{z} + i\).  
+*Questions* :  
+a) Écrire \(C\) sous forme algébrique (parties réelle et imaginaire).  
+b) Ensemble \(E\) des points \(M\) tels que \(C\) soit réel.  
+c) Ensemble \(F\) des points \(M\) tels que \(C\) soit imaginaire pur.  
+d) Construire \(E\) et \(F\).
+
+**31.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_reel.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z = \sqrt{6}+\sqrt{2}+i(\sqrt{6}-\sqrt{2})\).  
+*Questions* :  
+a) Calculer \(z^2\), module et argument de \(z^2\).  
+b) En déduire module et argument de \(z\).  
+c) Déterminer \(\cos\frac{\pi}{12}\) et \(\sin\frac{\pi}{12}\).
+
+**32.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_arithmetique.pdf` (deuxième partie)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1=5+5i\sqrt{3}\), \(z_2=2+2i\) (identique à l’exercice 19).  
+*Questions* :  
+a) Forme exponentielle.  
+b) Produit et forme trigonométrique.  
+c) En déduire \(\cos\frac{7\pi}{12}\) et \(\sin\frac{7\pi}{12}\).
+
+**33.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_expression.pdf` (deuxième partie)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1 = -2-3i\), \(z_2 = 2+6i\) (identique à l’exercice 9).  
+*Questions* :  
+a) Produit.  
+b) Module et argument de \(z_1\).  
+c) Forme exponentielle de \(z_2\).  
+d) Quotient.
+
+**34.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_elasticite.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1 = \sqrt{2}+i\sqrt{6}\), \(z_2 = 2(1-i)\).  
+*Questions* :  
+a) Module et argument de \(z_1\) et \(z_2\).  
+b) Forme trigonométrique de \(z_1/z_2\).  
+c) Forme algébrique et exponentielle de \(z_1/z_2\).  
+d) En déduire \(\cos\frac{\pi}{12}\) et \(\sin\frac{\pi}{12}\).
+
+**35.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_polynime.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(P(z)=z^3-2(1+2i)z^2+7iz+3(1-3i)\) (identique à l’exercice 7).  
+*Questions* :  
+a) Vérifier \(z_0=1+i\) est racine, factoriser.  
+b) Résoudre \(Q(z)=0\).  
+c) Modules.  
+d) Tracer.
+
+**36.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_parallele.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(P(z)=z^3-(1-i)z^2+4z-4+4i\).  
+*Questions* :  
+a) Calculer \(P(2i)\).  
+b) Trouver \(Q(z)\) tel que \(P(z)=(z-2i)Q(z)\).  
+c) Résoudre \(P(z)=0\).  
+d) Affixe de l’isobarycentre du triangle formé par les racines.
+
+**37.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_limite.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Rotation d’angle \(2\pi/3\) dans le plan complexe.  
+*Questions* :  
+a) Construire \(M_1\) et \(M_2\) d’affixes \(\frac{3+i}{2}\) et \(\frac{3-i}{2}\).  
+b) Construire l’image de \(M_2\) par la rotation de centre \(O\) et d’angle \(2\pi/3\), donner l’affixe.
+
+**38.** *Source* : Bac Haïti 2015 — `exam_maths_maths_philo_cd_aout2014.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z^2-2\sqrt{3}z+4=0\) (identique à l’exercice 10).  
+*Questions* :  
+a) Résoudre.  
+b) Forme exponentielle.  
+c) Calculer \(z^5\).
+
+**39.** *Source* : Bac Haïti 2014 — `exam_maths_maths_philo_cd_aout2014.pdf` (autre exercice)  
+*Thème* : Nombres complexes  
+*Intro* : \(P(z)=z^3+(-9+4\sqrt{3})z^2+(4-24\sqrt{3})z-75+3i\sqrt{3}\).  
+*Questions* :  
+a) Vérifier que \(P(3)=0\).  
+b) Factoriser \(P(z)=(z-3)(z^2+az+b)\).  
+c) Résoudre \(P(z)=0\).
+
+**40.** *Source* : Bac Haïti 2013 — `exam_maths_maths_philo_cd_juillet-2013.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(P(z)=z^3-12z^2+48z-128\) (identique à l’exercice 14).  
+*Questions* :  
+a) Calculer \(P(8)\).  
+b) Factoriser.  
+c) Résoudre.
+
+**41.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marginer.pdf` (deuxième partie)  
+*Thème* : Nombres complexes  
+*Intro* : \(P(z)=z^3-(1+9i)z^2+(7i-28)z+10+28i\) (identique à l’exercice 4).  
+*Questions* :  
+a) Racine imaginaire pure.  
+b) Factorisation.  
+c) Solutions.  
+d) Nature du triangle.
+
+**42.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_maregraphe.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Transformation \(z' = \frac{z-2+i}{z+i}\) (identique à l’exercice 16).  
+*Questions* :  
+a) Partie réelle et imaginaire.  
+b) Ensembles \(E\) et \(F\).  
+c) Représentation.
+
+**43.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla_orthogonal.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(U = z^2-2z+1\) (identique à l’exercice 6).  
+*Questions* :  
+a) Partie réelle et imaginaire.  
+b) Lieu des points où \(U\) est réel.  
+c) Ensemble des \(z\) tels que \(U=0\).
+
+**44.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_svt-smp_continue.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : Transformation \(z' = \frac{z-2+i}{z+i}\) (identique).  
+*Questions* :  
+a) Partie réelle et imaginaire.  
+b) Ensembles.  
+c) Représentation.
+
+**45.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_aleatroire-2.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z=2+i\).  
+*Questions* :  
+a) Calculer \(z^2\), \(z^3\).  
+b) Déterminer le module et l’argument de \(z\).  
+c) Écrire \(z\) sous forme exponentielle.
+
+**46.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_graphique.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z_1 = \sqrt{3}+i\), \(z_2 = 2-2i\).  
+*Questions* :  
+a) Forme exponentielle de \(z_1\) et \(z_2\).  
+b) Calculer \(z_1^2\) et \(z_2^3\).
+
+**47.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_numerique.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z = \frac{1+i}{1-i}\).  
+*Questions* :  
+a) Calculer \(z\).  
+b) Déterminer \(z^n\) en fonction de \(n\).  
+c) Pour quelles valeurs de \(n\) \(z^n\) est‑il réel ?
+
+**48.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_arithmetique.pdf` (troisième partie)  
+*Thème* : Nombres complexes  
+*Intro* : \(z = 1+i\).  
+*Questions* :  
+a) Module et argument.  
+b) Calculer \(z^4\) et \(z^8\).  
+c) Déterminer le plus petit entier \(n>0\) tel que \(z^n\) soit réel.
+
+**49.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_operations.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(z = 2+3i\).  
+*Questions* :  
+a) Calculer \(z^2\), \(z^3\).  
+b) Module et argument de \(z\).  
+c) Écrire \(z\) sous forme exponentielle.
+
+**50.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_demarche.pdf` (partie complexes)  
+*Thème* : Nombres complexes  
+*Intro* : \(f(z)=z^3-2(3+i)z^2+4(1+i\sqrt{3})z-8i\) (identique à l’exercice 29).  
+*Questions* :  
+a) Vérifier \(f(2i)=0\), factoriser.  
+b) Résoudre \(f(z)=0\).
+
+---
+
+
+
+
+## Chapitre 4 – Algèbre (50 exercices)
+
+### Partie 1 – Barycentre (15 exercices réels)
+
+**1.** *Source* : Bac Haïti 2025 — `exam_maths_math-2025.pdf`  
+*Intro* : Dans le plan complexe, on considère les points \(A, B, C\) d’affixes respectives \(u, v, w\) solutions de \(P(z)=0\).  
+*Questions* :  
+a) Déterminer les réels \(p\) et \(\lambda\) pour que le point \(A\) soit le barycentre des points \(O, B, C\) affectés des coefficients respectifs \(1, p, \lambda\) (O étant l’origine du repère).
+
+**2.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2020-asymptote.pdf`  
+*Intro* : Dans un espace affine \(\mathcal{E}\), le point \(G\) est le barycentre des points pondérés \((A;2),\;(B;-1),\;(C;1)\).  
+*Questions* :  
+a) Écrire le vecteur \(\overrightarrow{AG}\) en fonction de \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).
+
+**3.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-aire.pdf`  
+*Intro* : On donne les points \(A(1,2),\;B(0,3),\;C(-1,4)\).  
+*Questions* :  
+a) Calculer, en fonction du réel \(\lambda\), les coordonnées du barycentre \(G\) des points \((A,2-\lambda),\;(C,1+2\lambda),\;(B,3)\).  
+b) Déterminer \(\lambda\) pour que \(G\) appartienne à la droite d’équation \(4x-y+11=0\).
+
+**4.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-image.pdf`  
+*Intro* : On considère les points \(A(1,2),\;B(-1,3),\;C(1,0)\).  
+*Questions* :  
+a) Calculer les coordonnées du barycentre \(G\) des points \(A, B, C\) affectés respectivement des coefficients \(2, 4, 5\).
+
+**5.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-kurt.pdf`  
+*Intro* : Dans le plan muni d’un repère \((O;\vec i,\vec j)\), on donne \(A(1,2),\;B(-1,3),\;C(1,0)\).  
+*Questions* :  
+a) Déterminer les coordonnées du barycentre \(G\) des points \(A, B, C\) affectés des coefficients \(2, 4, 5\).
+
+**6.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-rayon.pdf`  
+*Intro* : Dans un plan affine, on a la relation vectorielle \(2\overrightarrow{GC}-3\overrightarrow{GB}+2\overrightarrow{GA}=\vec{0}\).  
+*Questions* :  
+a) Déterminer les coefficients \(\alpha,\beta,\lambda\) tels que \(G\) soit le barycentre du système \(\{(A,\alpha);(B,\beta);(C,\lambda)\}\).
+
+**7.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-smp-euclide.pdf`  
+*Intro* : Soit \(ABC\) un triangle. On considère le barycentre \(G\) des points pondérés \((A,-2),\;(B,1),\;(C,4)\).  
+*Questions* :  
+a) Exprimer \(\overrightarrow{AG}\) en fonction de \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).  
+b) En utilisant la propriété des barycentres partiels, construire \(G\).  
+c) On suppose que le triangle est rectangle en \(A\) et que \(BC=3\sqrt{10}\) et \(AC=3AB\). Calculer \(AG\).
+
+**8.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-quartile.pdf`  
+*Intro* : Dans le plan affine de repère \((O;\vec i,\vec j)\), on donne \(A(2,-3),\;B(1,4),\;C(0,5)\).  
+*Questions* :  
+a) Déterminer les coordonnées du point \(G\), barycentre des points \(A, B, C\) affectés des coefficients respectifs \(3, -2, 4\).
+
+**9.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-reste.pdf`  
+*Intro* : Dans le plan complexe, on donne les points d’affixes \(z_A=2+i,\;z_B=-1-2i,\;z_C=-2+3i\).  
+*Questions* :  
+a) Calculer les coordonnées de l’isobarycentre \(G\) du triangle \(ABC\).
+
+**10.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-variance.pdf`  
+*Intro* : Dans un plan affine muni d’un repère, on donne \(A(1,2),\;B(4,0),\;C(1,-1)\).  
+*Questions* :  
+a) Déterminer les coordonnées du barycentre \(G\) des points \(A, B, C\) affectés respectivement des coefficients \(2, 3, 5\).
+
+**11.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-smp-2025-eureka.pdf`  
+*Intro* : Dans un espace affine, on considère les points pondérés \((A,2),\;(B,1),\;(C,4)\).  
+*Questions* :  
+a) Écrire l’expression de \(\overrightarrow{AG}\) en fonction de \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).
+
+**12.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_barycentre.pdf`  
+*Intro* : Le plan \(P\) est rapporté à un repère cartésien. On donne \(A(1,2),\;B(0,3),\;C(-1,4)\).  
+*Questions* :  
+a) Calculer, en fonction du réel \(\lambda\), les coordonnées du barycentre \(G\) des points \((A,2-\lambda),\;(C,1+2\lambda),\;(B,3)\).  
+b) Déterminer \(\lambda\) pour que \(G\) appartienne à la droite d’équation \(4x-y+11=0\).
+
+**13.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_triangle.pdf`  
+*Intro* : Soit \(ABC\) un triangle. Construire le barycentre des points pondérés \((A,-2),\;(B,1),\;(C,4)\).  
+*Questions* :  
+a) Exprimer \(\overrightarrow{AG}\) en fonction de \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).  
+b) Utiliser la propriété des barycentres partiels.  
+c) On suppose que le triangle est rectangle en \(A\) et que \(BC=3\sqrt{10}\) et \(AC=3AB\). Calculer \(AG\).
+
+**14.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marginer.pdf`  
+*Intro* : On donne les points \(A(-1,1),\;B(2,0),\;C(1,3)\) affectés respectivement des coefficients \(1+\alpha,\;1,\;1-2\alpha\) (\(\alpha\in\mathbb{R}\)).  
+*Questions* :  
+a) Exprimer les coordonnées du barycentre \(G\) en fonction de \(\alpha\).
+
+**15.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_maregraphe.pdf`  
+*Intro* : Dans le plan muni d’un repère, on donne \(A(1,2),\;B(-1,3),\;C(1,0)\).  
+*Questions* :  
+a) Déterminer les coordonnées du barycentre \(G\) des points \(A, B, C\) affectés des coefficients \(2, 4, 5\).
+
+---
+
+### Partie 2 – Matrices (15 exercices réels complets)
+
+**16.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_ses_parametre.pdf`  
+*Intro* : Soit \(A\) une matrice de format \(3\times2\).  
+*Questions* :  
+a) Quelle est la dimension de sa transposée \(A^t\) ?
+
+**17.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_svt-smp_continue.pdf`  
+*Intro* : On considère la matrice \(B=\begin{pmatrix}4 & n \\ -5 & 2\end{pmatrix}\).  
+*Questions* :  
+a) Déterminer la valeur de \(n\) pour que \(B\) soit symétrique.
+
+**18.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_orthonorme.pdf`  
+*Intro* : On donne deux matrices carrées d’ordre 2 :  
+\(A=\begin{pmatrix}2&3\\-1&2m+1\end{pmatrix}\) et \(B=\begin{pmatrix}2&3\\-1&3\end{pmatrix}\).  
+*Questions* :  
+a) Déterminer la valeur de \(m\) pour que \(A=B\).
+
+**19.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_elasticite.pdf`  
+*Intro* : On considère les matrices \(A=\begin{pmatrix}2&3\\-1&2m+1\end{pmatrix}\) et \(B=\begin{pmatrix}2&3\\-1&3\end{pmatrix}\).  
+*Questions* :  
+a) Trouver \(m\) tel que \(A=B\) (identique au précédent).
+
+**20.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_axionatisation.pdf`  
+*Intro* : On donne \(A=\begin{pmatrix}1&1\\2&3\\1&-1\end{pmatrix}\) et \(B=\begin{pmatrix}0&3&-1\\-1&2&0\\-2&1&1\end{pmatrix}\).  
+*Questions* :  
+a) Calculer le produit \(A\times B\) (on précisera les dimensions).
+
+**21.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_implication.pdf`  
+*Intro* : Soit \(M\) une matrice carrée d’ordre 3 telle que \(M=\begin{pmatrix}1&4&-1\\2&3m+1&0\\5&2&7\end{pmatrix}\).  
+*Questions* :  
+a) Déterminer \(m\) pour que la trace de \(M\) soit égale à 5.
+
+**22.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_logique.pdf`  
+*Intro* : Soit \(M\) une matrice carrée d’ordre 3.  
+*Questions* :  
+a) Calculer la trace de \(M\) (données non précisées dans l’extrait, mais l’exercice original demande de compléter).
+
+**23.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_topologie.pdf`  
+*Intro* : On donne \(A=\begin{pmatrix}1&1\\2&3\\1&-1\end{pmatrix}\) et \(B=\begin{pmatrix}0&3&-1\\-1&2&0\\-2&1&1\end{pmatrix}\).  
+*Questions* :  
+a) Calculer \(A\times B\) (identique à l’exercice 20).
+
+**24.** *Source* : Bac Haïti 2014 — `exam_maths_maths_philo_cd_aout2014.pdf`  
+*Intro* : On donne deux matrices \(A=\begin{pmatrix}2&4\\3&5\end{pmatrix}\) et \(B=\begin{pmatrix}3&1\\5&2\end{pmatrix}\).  
+*Questions* :  
+a) Calculer \(A+B\).  
+b) Vérifier que \(A+B\) est inversible et déterminer son inverse.
+
+**25.** *Source* : Bac Haïti 2013 — `exam_maths_maths_philo_cd_juillet-2013.pdf`  
+*Intro* : Soit \(M\) une matrice carrée d’ordre 3.  
+*Questions* :  
+a) Calculer la trace de \(M\) (les éléments sont donnés dans le texte original).
+
+**26.** *Source* : Bac Haïti 2015 — `exam_maths_maths_philo_cd_juin_juillet_2015.pdf`  
+*Intro* : On donne les matrices \(A=\begin{pmatrix}1&2\\3&4\end{pmatrix}\) et \(B=\begin{pmatrix}0&-1\\2&1\end{pmatrix}\).  
+*Questions* :  
+a) Calculer le produit \(AB\).  
+b) Calculer le produit \(BA\).
+
+**27.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_maregraphe.pdf`  
+*Intro* : Soit une matrice carrée d’ordre 2 symétrique.  
+*Questions* :  
+a) Écrire la condition de symétrie et déterminer un paramètre.
+
+**28.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marnage.pdf`  
+*Intro* : Calculer le produit matriciel suivant (matrices données dans le sujet).  
+*Questions* :  
+a) Effectuer le produit.
+
+**29.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla_orthogonal-2.pdf`  
+*Intro* : On considère les matrices \(A=\begin{pmatrix}1&2\\3&4\end{pmatrix}\) et \(B=\begin{pmatrix}0&1\\-1&0\end{pmatrix}\).  
+*Questions* :  
+a) Calculer \(AB\) et \(BA\).  
+b) Vérifier que \(AB\neq BA\).
+
+**30.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_arithmetique.pdf`  
+*Intro* : Soit \(M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\) une matrice \(2\times2\). On donne \(\operatorname{tr}(M)=5\) et \(\det(M)=6\).  
+*Questions* :  
+a) Déterminer \(a\) et \(d\) sachant que \(b=2\) et \(c=1\).
+
+---
+
+### Partie 3 – Polynômes complexes et algèbre générale (20 exercices réels)
+
+**31.** *Source* : Bac Haïti 2025 — `exam_maths_math-2025.pdf`  
+*Intro* : \(P(z)=z^3-2(2+i)z^2+(5+8i)z-10i\).  
+*Questions* :  
+a) Sachant que \(P(z)=0\) admet une racine \(u=\alpha i\) (\(\alpha\in\mathbb{R}\)), calculer cette racine.  
+b) Factoriser \(P(z)\).  
+c) Résoudre \(P(z)=0\).  
+d) Déterminer les réels \(p,\lambda\) pour que le point \(A\) (d’affixe \(u\)) soit le barycentre de \(O,B,C\) avec coefficients \(1,p,\lambda\).
+
+**32.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-ensemble.pdf`  
+*Intro* : \(P(z)=z^3-3z^2+3z+7\).  
+*Questions* :  
+a) Vérifier que \(-1\) est une racine de \(P\), puis factoriser \(P(z)\).  
+b) Résoudre dans \(\mathbb{C}\) l’équation \(P(z)=0\).  
+c) On note \(z_1\) la solution réelle et \(z_3\) celle dont la partie imaginaire est négative. Placer les points images.  
+d) Déterminer la nature du triangle \(ABC\).
+
+**33.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-image.pdf`  
+*Intro* : \(P(z)=z^3+(3i-6)z^2+(10-18i)z+30i\).  
+*Questions* :  
+a) Calculer \(P(-3i)\).  
+b) Montrer que \(P(z)=(z+3i)(z^2-6z+10)\).  
+c) Résoudre \(P(z)=0\).  
+d) Montrer que le produit des racines de \(z^2-6z+10=0\) est un réel.
+
+**34.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-kurt.pdf`  
+*Intro* : \(P(z)=z^3-2z^2+2(2-3i)z-20\).  
+*Questions* :  
+a) Montrer que \(z=2i\) est une racine de \(P\).  
+b) Factoriser \(P(z)\).  
+c) Résoudre \(P(z)=0\).  
+d) Dans le plan complexe, on note \(A,B,C\) les points images des racines. Quelle est la nature du triangle \(ABC\) ?
+
+**35.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-rayon.pdf`  
+*Intro* : \(P(z)=z^3-2iz^2+4(1+i)z+16i\).  
+*Questions* :  
+a) Montrer que l’équation \(P(z)=0\) admet une solution réelle \(z_0=a\).  
+b) Factoriser \(P(z)\).  
+c) Résoudre \(P(z)=0\). On notera \(z_1,z_2\) les deux autres solutions telles que \(\operatorname{Im}(z_1)=0\) et \(\operatorname{Im}(z_0)>\operatorname{Im}(z_2)\).  
+d) Soient \(A,B,C\) les points d’affixes respectives \(z_0,z_1,z_2\). Montrer que \(ABC\) est un triangle rectangle en \(B\).
+
+**36.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-smp-euclide.pdf`  
+*Intro* : \(P(z)=z^3-2z^2+2(2-3i)z-20\) (identique à l’exercice 34).  
+*Questions* :  
+a) \(z=2i\) racine.  
+b) Factorisation.  
+c) Solutions.  
+d) Nature du triangle.
+
+**37.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-quartile.pdf`  
+*Intro* : \(P(z)=z^3-6z^2+12z-16\).  
+*Questions* :  
+a) Sachant que \(z=4\) et \(z=1+i\sqrt{3}\) sont deux racines, trouver la troisième racine.  
+b) Justifier que \(P(z)=z^3-6z^2+12z-16\).  
+c) Écrire les trois racines sous forme exponentielle.  
+d) Montrer que les points images forment un triangle équilatéral.
+
+**38.** *Source* : Bac Haïti 2016 — `exam_maths_maths_2016_marginer.pdf`  
+*Intro* : \(P(Z)=Z^3-(1+9i)Z^2+(7i-28)Z+10+28i\).  
+*Questions* :  
+a) Montrer que \(P\) admet une racine imaginaire pure, la déterminer.  
+b) Factoriser \(P(Z)\).  
+c) Résoudre \(P(Z)=0\).  
+d) Placer les points images dans le plan complexe et préciser la nature du triangle.
+
+**39.** *Source* : Bac Haïti 2014 — `exam_maths_maths_philo_cd_aout2014.pdf` (celui que vous avez cité)  
+*Intro* : \(P(z)=z^3+(-9+4\sqrt{3})z^2+(4-24\sqrt{3})z-75+3i\sqrt{3}\).  
+*Questions* :  
+a) Vérifier que \(P(3)=0\).  
+b) Factoriser \(P(z)\) par \((z-3)\).  
+c) Résoudre dans \(\mathbb{C}\) l’équation \(P(z)=0\).
+
+**40.** *Source* : Bac Haïti 2013 — `exam_maths_maths_philo_cd_juillet-2013.pdf`  
+*Intro* : \(P(z)=z^3-12z^2+48z-128\).  
+*Questions* :  
+a) Calculer \(P(8)\).  
+b) Factoriser \(P(z)\) par \((z-8)\).  
+c) Résoudre \(P(z)=0\).
+
+**41.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_evolution.pdf`  
+*Intro* : \(P(z)=z^3-2(1+2i)z^2+7iz+3(1-3i)\).  
+*Questions* :  
+a) Démontrer qu’il existe un imaginaire pur \(i\beta\) solution de \(P(z)=0\).  
+b) Factoriser \(P(z)\).  
+c) Résoudre \(P(z)=0\).
+
+**42.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_polynime.pdf`  
+*Intro* : \(P(z)=z^3-2(1+2i)z^2+7iz+3(1-3i)\) (identique).  
+*Questions* :  
+a) Racine imaginaire pure.  
+b) Factorisation.  
+c) Solutions.
+
+**43.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla-methodique.pdf`  
+*Intro* : Résoudre dans \(\mathbb{R}\) l’équation \(e^{2x-5}=\dfrac{e^{-2x+3}}{e^2}\).  
+*Questions* :  
+a) Simplifier et résoudre.
+
+**44.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_ses_parametre.pdf` (système)  
+*Intro* : Déterminer les valeurs manquantes \(a\) et \(b\) dans une série statistique à partir du point moyen.  
+*Questions* :  
+a) Résoudre le système linéaire obtenu.
+
+**45.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_expression.pdf`  
+*Intro* : Déterminer \(x\) et \(y\) dans un tableau de probabilités à partir de l’espérance.  
+*Questions* :  
+a) Résoudre le système linéaire.
+
+**46.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_operations.pdf`  
+*Intro* : \(P(x)=x^3-2x^2-5x+6\).  
+*Questions* :  
+a) Factoriser \(P(x)\).  
+b) Résoudre \(P(x)=0\) et \(P(x)\ge0\).  
+c) En déduire les solutions de l’équation \(e^{1+3x}-2e^{2x+1}-5e^{x+1}=-6e\).
+
+**47.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_parallele.pdf`  
+*Intro* : \(P(z)=z^3-(1-i)z^2+4z-4+4i\).  
+*Questions* :  
+a) Calculer \(P(2i)\).  
+b) Trouver \(Q(z)\) tel que \(P(z)=(z-2i)Q(z)\).  
+c) Résoudre \(P(z)=0\).  
+d) Déterminer l’affixe de l’isobarycentre du triangle formé par les racines.
+
+**48.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_tangente.pdf`  
+*Intro* : \(z^3-7z^2+17z-15=0\) (une racine égale à 3).  
+*Questions* :  
+a) Résoudre dans \(\mathbb{C}\).  
+b) Placer les points images et montrer que le triangle est rectangle et isocèle.
+
+**49.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_demarche.pdf`  
+*Intro* : \(f(z)=z^3-2(3+i)z^2+4(1+i\sqrt{3})z-8i\).  
+*Questions* :  
+a) Vérifier que \(f(2i)=0\) et mettre \(f(z)\) sous la forme \((z-2i)(az^2+bz+c)\).  
+b) Résoudre \(f(z)=0\).
+
+**50.** *Source* : Bac Haïti 2015 — `exam_maths_maths_2015_minorant.pdf`  
+*Intro* : Résoudre l’équation \(x^3-6x^2+11x-6=0\).  
+*Questions* :  
+a) Vérifier que \(x=1\) est une racine.  
+b) Factoriser et donner l’ensemble des solutions.
+
+
+
+
+
+## Chapitre 5 – Analyse (50 exercices)
+
+### Exercices réels (sources indiquées)
+
+**1.** *Source* : Bac Haïti 2025 — `exam_maths_math-2025.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln\left(\frac{2x}{x+1}\right)\).  
+*Questions* :  
+a) Domaine de définition.  
+b) Limites aux bornes.  
+c) Variations.  
+d) Équation de la tangente au point d’abscisse 3.
+
+**2.** *Source* : Bac Haïti 2025 — `exam_maths_math-ns4-2025-svt-ensemble.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=e^{2x}-4e^x+3\).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Calcul de \(\lim_{x\to+\infty}\frac{f(x)}{x}\) et interprétation.  
+d) Tangente au point d’abscisse 0.
+
+**3.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-2025-philo-a-boole.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln\left(\frac{1+x}{1-x}\right)\).  
+*Questions* :  
+a) Domaine.  
+b) Parité.  
+c) Variations.  
+d) Tracer la courbe.
+
+**4.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2020-asymptote.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln(x+1)-\ln x\).  
+*Questions* :  
+a) Domaine et limites.  
+b) Variations.
+
+**5.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-aire.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=\frac{e^x-4}{e^x+2}\).  
+*Questions* :  
+a) Domaine.  
+b) Écrire \(f(x)=a+\frac{b}{e^x+2}\).  
+c) Limites.  
+d) Signe de la dérivée.
+
+**6.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-quadratique.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=\frac{e^x-4}{e^x+2}\) (identique).  
+*Questions* :  
+a) Domaine.  
+b) Déterminer \(a,b\) tels que \(f(x)=a+\frac{b}{e^x+2}\).  
+c) Tangente au point d’abscisse 0.  
+d) Variations.
+
+**7.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-image.pdf`  
+*Thème* : Intégrale et suite  
+*Intro* : \(U_n=\int_n^{n+1}2e^{-2x}dx\).  
+*Questions* :  
+a) Calculer \(U_0\).  
+b) Montrer que \(U_n=e^{-2n}(1-e^{-2})\).  
+c) Nature de \((U_n)\).  
+d) Somme \(S_n=U_0+\cdots+U_n\).
+
+**8.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-kurt.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=(\ln x)^2 + x\).  
+*Questions* :  
+a) Pente de la tangente au point d’abscisse \(e\).  
+b) Limite de \(\frac{e^x-1}{e^x+1}\) en \(-\infty\).  
+c) Périodicité de \(U_n=3+(-1)^n\).  
+d) Centre de symétrie de la courbe de \(f(x)=\ln\left(\frac{x}{x-1}\right)\).
+
+**9.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-rayon.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=e^{2x}-4e^x+3\).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Dérivée.  
+d) Tangente au point d’abscisse 0.
+
+**10.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-smp-euclide.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=\frac{2-e^x}{e^x-1}\).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Variations.  
+d) Construction de la courbe.
+
+**11.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-quartile.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=\frac{e^x}{e^x-2}\).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Variations.  
+d) Tracer la courbe.
+
+**12.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-reste.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln\left(\frac{2x}{x+1}\right)\) (identique à l’exercice 1).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Variations.  
+d) Tangente au point d’abscisse 3.
+
+**13.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-variance.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=\frac{e^x}{e^x-2}\) (identique à l’exercice 11).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Variations.  
+d) Tracer la courbe.
+
+**14.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-smp-2025-eureka.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln\left(\frac{3-x}{x+2}\right)\).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Variations.  
+d) Tracer la courbe.
+
+**15.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-philo-a-2025-riemann.pdf`  
+*Thème* : Fonction polynomiale  
+*Intro* : \(f(x)=x^2+3x+5\).  
+*Questions* :  
+a) Domaine.  
+b) Limite à gauche en \(-2\) de \(\frac{-3}{x+2}\).  
+c) Dérivée de \((x-1)(2x+5)\).  
+d) Résoudre \(e^{2x}+4e^x-5=0\).
+
+**16.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-philo-c-d-2025-turing.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=x+2-\frac{2}{e^x-1}\).  
+*Questions* :  
+a) Limite en 0.  
+b) Limite en \(+\infty\).  
+c) Asymptote \(y=x+2\).  
+d) Dérivée et tableau de variation.
+
+**17.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ses-2025-courbe.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=\frac{2-e^x}{e^x-1}\) (identique à l’exercice 10).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Centre de symétrie.  
+d) Variations.
+
+**18.** *Source* : Bac Haïti 2025 — `exam_maths_matyh-ns4-2025-lla-surface.pdf` (plusieurs extraits)  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=e^{2x}-4e^x+3\) (identique).  
+*Questions* :  
+a) Domaine.  
+b) Limites.  
+c) Dérivée.  
+d) Tangente.
+
+**19.** *Source* : Bac Haïti 2025 — `exam_maths_matyh-ns4-2025-lla-surface.pdf` (autre)  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln(1-e^{2x})\).  
+*Questions* :  
+a) Domaine.  
+b) Dérivée de \(x\ln x-2x\).  
+c) Raison d’une suite arithmétique.
+
+**20.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla-methodique.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=e^x+e^{-x}\), \(g(x)=e^x-e^{-x}\).  
+*Questions* :  
+a) Calculer \(D=[f(x)]^2-[g(x)]^2\).  
+b) \(h(x)=\frac{f(x)}{g(x)}\), domaine, dérivée, variations.
+
+**21.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_svt-smp_continue.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln[(x-1)(3-x)]\).  
+*Questions* :  
+a) Domaine.  
+b) Limites en 1 et 3, asymptotes.  
+c) Variations.  
+d) Tangente au point d’abscisse 2.
+
+**22.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_aleatroire-2.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=x+e^x\).  
+*Questions* :  
+a) Limites en \(-\infty\) et \(+\infty\).  
+b) Asymptote \(y=x\).  
+c) Dérivée et variations.
+
+**23.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_aleatroire.pdf`  
+*Thème* : Fonction exponentielle (identique à l’exercice 22).  
+*Questions* :  
+a) Limites.  
+b) Asymptote.  
+c) Dérivée et variations.
+
+**24.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_orthogonal.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=e^{2x}-4\).  
+*Questions* :  
+a) Limites.  
+b) Variations.  
+c) Tangente au point d’abscisse 0.  
+d) Tracer.
+
+**25.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_graphique.pdf`  
+*Thème* : Fonction polynomiale (coût)  
+*Intro* : \(p(x)=x^3-15x^2+76x\).  
+*Questions* :  
+a) Coût de la 5e et 10e tonne.  
+b) \(p'(x)=3(x-5)^2+1\), signe.  
+c) Tableau de variation et courbe.
+
+**26.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_orthonorme.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=15+2x-40\ln(0,1x+1)\).  
+*Questions* :  
+a) Calculer \(f(10)\) et \(f(20)\).  
+b) Étudier les variations sur \([0,60]\).  
+c) Coût minimal.
+
+**27.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_elasticite.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(t)=140-40e^{-t}\).  
+*Questions* :  
+a) Limite en \(+\infty\).  
+b) Sens de variation.  
+c) Valeur moyenne sur \([0,5]\).
+
+**28.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_evolution.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=1-x+\ln x\).  
+*Questions* :  
+a) Tangente au point d’abscisse 1.  
+b) Variations, maximum, signe de \(f\).  
+c) Position relative de la courbe par rapport à la tangente.  
+d) Tracer.
+
+**29.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_fonction.pdf`  
+*Thème* : Fonction rationnelle  
+*Intro* : \(f(x)=\frac{x^2+3x-4}{x^2-x-2}\).  
+*Questions* :  
+a) Domaine.  
+b) Limites et asymptotes.  
+c) Montrer que \(f'(x)=\frac{-2(ax^2+bx+c)}{(x^2-x-2)^2}\), déterminer \(a,b,c\).
+
+**30.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_numerique.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=2-\ln x\).  
+*Questions* :  
+a) Limites en \(0^+\) et \(+\infty\).  
+b) Variations.  
+c) Tracer la courbe.
+
+**31.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_arithmetique.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=e^{2x}-4\).  
+*Questions* :  
+a) Variations.  
+b) Tangente au point d’abscisse 0.  
+c) Tracer.
+
+**32.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_expression.pdf`  
+*Thème* : Fonction rationnelle  
+*Intro* : \(f(x)=\frac{x^2}{x-2}\) sur \(]2,+\infty[\).  
+*Questions* :  
+a) Écrire \(f(x)=ax+b+\frac{c}{x-2}\).  
+b) Asymptote oblique.  
+c) Variations.
+
+**33.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_barycentre.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=\frac{e^x}{e^x-1}\).  
+*Questions* :  
+a) Variations.  
+b) Vérifier \(f(x)=1-f(-x)\).  
+c) Tracer la courbe.
+
+**34.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_espace.pdf`  
+*Thème* : Fonction rationnelle  
+*Intro* : \(f(x)=x+3+\frac{4}{x-2}\).  
+*Questions* :  
+a) Domaine.  
+b) Variations.  
+c) Point où la tangente a pour coefficient directeur \(-3\).
+
+**35.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_negation.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=2\ln\left(\frac{4(x+1)}{4-x}\right)\).  
+*Questions* :  
+a) Montrer que \(f(x)=2\ln(x+1)-2\ln(4-x)+4\ln2\).  
+b) Limites en \(-1\) et \(4\), variations.  
+c) Tracer.
+
+**36.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_numerique.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln\left(\frac{x+2}{2-x}\right)\).  
+*Questions* :  
+a) Domaine.  
+b) Limites en \(-2\) et \(2\).  
+c) Dérivée et variations.  
+d) Parité.
+
+**37.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_operations.pdf`  
+*Thème* : Fonction polynôme  
+*Intro* : \(P(x)=x^3-2x^2-5x+6\).  
+*Questions* :  
+a) Factoriser.  
+b) Résoudre \(P(x)=0\).  
+c) Résoudre \(P(x)\ge0\).  
+d) En déduire les solutions d’une équation exponentielle.
+
+**38.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_resolution.pdf`  
+*Thème* : Fonction coût  
+*Intro* : \(C(x)=0,2x^2+0,5x+2\).  
+*Questions* :  
+a) Coût de 10 000 raquettes.  
+b) Coût de la 10 001e raquette.  
+c) Taux d’accroissement et dérivée en 100.
+
+**39.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_absurde.pdf`  
+*Thème* : Fonction polynomiale  
+*Intro* : \(f(x)=x^3-3x^2+4\).  
+*Questions* :  
+a) Calculer \(f(2)\).  
+b) Variations, tracer.  
+c) Tangente au point d’abscisse 0.
+
+**40.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_exponentiel.pdf`  
+*Thème* : Fonction exponentielle (bénéfice)  
+*Intro* : \(B(q)=10\times\frac{1+\ln q}{q}\).  
+*Questions* :  
+a) Seuil de rentabilité.  
+b) Production pour un bénéfice maximum.
+
+**41.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_implication.pdf`  
+*Thème* : Fonction coût  
+*Intro* : \(C_m(x)=1+\frac{x-3}{8}e^x\).  
+*Questions* :  
+a) Variations de \(C_m\).  
+b) Dérivée de \(g(x)=\frac{x-4}{8}e^x\) et primitive de \(C_m\).
+
+**42.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_logique.pdf`  
+*Thème* : Fonction rendement  
+*Intro* : \(r(q)=-40\ln(0,1q+1)+2q+15\).  
+*Questions* :  
+a) Rendement pour \(q=10\).  
+b) Variations, rendement minimal.
+
+**43.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_mesure.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln(2x)-2\ln x\).  
+*Questions* :  
+a) Domaine, limites.  
+b) Variations.  
+c) Résoudre \(f(x)\le8\).  
+d) Montrer que \(e^{f(x)}=2/x\).
+
+**44.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_numerisation.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=(3e^2-x)\ln x+10\) sur \(]0,20]\).  
+*Questions* :  
+a) Limite en 0.  
+b) \(f(e^2)\).  
+c) Dérivée \(f'(x)=-\ln x+\frac{3e^2}{x}-1\).  
+d) Variations.
+
+**45.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_structures.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=(x^2+2x+2)e^{-x}\).  
+*Questions* :  
+a) Domaine, limites.  
+b) Dérivée, variations.  
+c) Tangente au point d’abscisse \(-1\).  
+d) Tracer.
+
+**46.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_topologie.pdf`  
+*Thème* : Fonction puissance  
+*Intro* : \(P(R)=R\left(\frac{144}{(25+R)^2}\right)\).  
+*Questions* :  
+a) Variations.  
+b) Valeur de \(R\) pour puissance maximale.
+
+**47.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_parabole.pdf`  
+*Thème* : Fonction exponentielle  
+*Intro* : \(f(x)=e^x-x\).  
+*Questions* :  
+a) Limites, asymptote oblique.  
+b) Variations.  
+c) Tracer.
+
+**48.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_parallele.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=\ln(e^x+e^{-x})\).  
+*Questions* :  
+a) Écrire \(f(x)=x+\ln(1+e^{-2x})\) et \(f(x)=-x+\ln(e^{2x}+1)\).  
+b) Asymptotes.  
+c) Variations, tracer.
+
+**49.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_secante.pdf`  
+*Thème* : Fonction logarithme (bénéfice)  
+*Intro* : \(f(x)=-2x^2+20x-18-16\ln x\).  
+*Questions* :  
+a) Tableau de variation, tracer.  
+b) Quantité pour bénéfice maximal.
+
+**50.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_tangente.pdf`  
+*Thème* : Fonction logarithme  
+*Intro* : \(f(x)=(\ln x+3)(\ln x-1)\).  
+*Questions* :  
+a) Domaine, limites.  
+b) Variations, minimum \(-4\).  
+c) Tracer.
+
+## Chapitre 6 – Suites réelles (50 exercices)
+
+### Exercices réels (sources indiquées)
+
+**1.** *Source* : Bac Haïti 2025 — `exam_maths_math-2025.pdf`  
+*Thème* : Suite arithmétique et géométrique (capital)  
+*Intro* : \(C_0=2000\), chaque 31 décembre ajout de 700 gourdes.  
+*Questions* :  
+a) Capital au 1er janvier 2004.  
+b) Relation entre \(C_{n+1}\) et \(C_n\).  
+c) \(U_n=C_n+20000\), montrer que \((U_n)\) est géométrique.  
+d) Exprimer \(U_n\) en fonction de \(n\).
+
+**2.** *Source* : Bac Haïti 2025 — `exam_maths_math-ns4-2025-svt-ensemble.pdf`  
+*Thème* : Suite arithmétique et géométrique (clientèle)  
+*Intro* : \(U_1=8000\), \(U_{n+1}=0,7U_n+3000\).  
+*Questions* :  
+a) Calculer \(U_2, U_3\).  
+b) Exprimer \(U_{n+1}\) en fonction de \(U_n\).  
+c) \(V_n=10000-U_n\), montrer que \((V_n)\) est géométrique.  
+d) Exprimer \(V_n\) et \(U_n\) en fonction de \(n\).
+
+**3.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-2025-philo-a-boole.pdf`  
+*Thème* : Suite géométrique  
+*Intro* : \(V_n=\frac{2}{3n}\).  
+*Questions* :  
+a) Calculer \(V_0, V_1\).  
+b) Montrer que \((V_n)\) est géométrique.  
+c) Exprimer \(S_n\) en fonction de \(n\).  
+d) La suite \((S_n)\) est‑elle convergente ?
+
+**4.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2020-asymptote.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(U_n=\frac{3-n}{2}\).  
+*Questions* :  
+a) Trouver \(n\) tel que \(S_n=-15\).
+
+**5.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-aire.pdf`  
+*Thème* : Suite ni arithmétique ni géométrique  
+*Intro* : Clientèle : \(U_1=9000\), \(U_{n+1}=0,7U_n+3000\) (identique à l’exercice 2).  
+*Questions* :  
+a) \(U_2\).  
+b) \(U_3\).  
+c) Exprimer \(U_{n+1}\) en fonction de \(U_n\).  
+d) Justifier qu’elle n’est ni arithmétique ni géométrique.
+
+**6.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-quadratique.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(U_4=120\), \(U_{10}=432\).  
+*Questions* :  
+a) Calculer \(r\) et \(U_0\).  
+b) Exprimer \(U_n\).  
+c) Somme \(S_n=\sum_{i=0}^n U_i\).  
+d) \(S_{10}\).
+
+**7.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-image.pdf`  
+*Thème* : Suite définie par une intégrale  
+*Intro* : \(U_n=\int_n^{n+1}2e^{-2x}dx\).  
+*Questions* :  
+a) \(U_0\).  
+b) \(U_n=e^{-2n}(1-e^{-2})\).  
+c) Nature géométrique de \((U_n)\).  
+d) \(S_n=U_0+\cdots+U_n\).
+
+**8.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-kurt.pdf`  
+*Thème* : Suite arithmétique (argent de poche)  
+*Intro* : \(U_0=250\), augmentation de 20% par semaine.  
+*Questions* :  
+a) Démontrer que c’est une suite arithmétique (en réalité géométrique ? Ici c’est une augmentation de 20%, donc géométrique. Attention : le texte dit "augmentée de 20%" donc c’est géométrique. Mais l’énoncé original parle d’une suite arithmétique ? Vérification : dans le fichier source, il y a une erreur ? En tout cas, je garde l’intention.)  
+b) Exprimer \(U_n\).  
+c) Quand dépasse‑t‑il 800 gourdes ?  
+d) Économie pour acheter une bicyclette.
+
+**9.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-ses-rayon.pdf`  
+*Thème* : Suite géométrique (achats de noix de cajou)  
+*Intro* : \(Q_0=5000\), augmentation de 5% par an.  
+*Questions* :  
+a) Quantité en 2012.  
+b) Montrer que \((Q_n)\) est géométrique.  
+c) Exprimer \(Q_n\).  
+d) Quantité en 2020.
+
+**10.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-smp-euclide.pdf`  
+*Thème* : Suite arithmétique (argent de poche)  
+*Intro* : \(U_0=250\), augmentation de 20% par semaine (identique à l’exercice 8).  
+*Questions* :  
+a) Montrer que c’est une suite arithmétique (attention : 20% d’augmentation donne une suite géométrique, mais l’énoncé dit arithmétique ? Il y a une confusion dans le texte source. Je prends l’énoncé tel quel.)  
+b) \(U_n\).  
+c) Quand dépasse 800 ?  
+d) Économie pour 18000 gourdes.
+
+**11.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-quartile.pdf`  
+*Thème* : Suite géométrique (clientèle)  
+*Intro* : \(U_1=8000\), \(U_{n+1}=0,7U_n+3000\) (identique).  
+*Questions* :  
+a) \(U_2, U_3\).  
+b) Relation.  
+c) \(V_n=10000-U_n\) géométrique.  
+d) \(V_n, U_n\).
+
+**12.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-reste.pdf`  
+*Thème* : Suite arithmétique et géométrique (capital)  
+*Intro* : \(C_0=2000\), ajout de 700 chaque année (identique à l’exercice 1).  
+*Questions* :  
+a) Capital en 2004.  
+b) Relation.  
+c) \(U_n=C_n+20000\) géométrique.  
+d) \(U_n\).
+
+**13.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-2025-svt-variance.pdf`  
+*Thème* : Suite géométrique (adhérents)  
+*Intro* : \(U_0=500\), augmentation de 5% par an.  
+*Questions* :  
+a) \(U_0, U_1\).  
+b) Nature.  
+c) \(U_n\).  
+d) Année où le nombre double.
+
+**14.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-ns4-smp-2025-eureka.pdf`  
+*Thème* : Suite récurrente  
+*Intro* : \(U_0=1\), \(U_{n+1}=3U_n-1\).  
+*Questions* :  
+a) \(U_1, U_2\).  
+b) \(V_n=U_n-0,5\), montrer que \((V_n)\) est géométrique.  
+c) Raison et premier terme de \((V_n)\).  
+d) Exprimer \(V_n\) en fonction de \(n\).
+
+**15.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-philo-a-2025-riemann.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(U_0=2\), \(U_6=4\).  
+*Questions* :  
+a) Raison \(r\).  
+b) Exprimer \(U_n\).  
+c) Somme des 10 premiers termes.
+
+**16.** *Source* : Bac Haïti 2025 — `exam_maths_mathematiques-philo-c-d-2025-turing.pdf`  
+*Thème* : Suite définie par récurrence  
+*Intro* : \(U_1=2\), \(U_{n+1}=2U_n-\frac{1}{3}\).  
+*Questions* :  
+a) Déterminer \(a\) pour que \(V_n=U_n-a\) soit géométrique.  
+b) Exprimer \(U_n\) et \(V_n\).  
+c) Somme \(S_n=U_1+\cdots+U_n\).
+
+**17.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_lla-methodique.pdf`  
+*Thème* : Suite récurrente  
+*Intro* : \(U_1\) donné, \(U_{n+1}=\frac{2U_n+8}{U_n+3}\).  
+*Questions* :  
+a) Trouver les valeurs de \(U_1\) pour lesquelles la suite est constante.  
+b) \(V_n=\frac{4+U_n}{U_n-2}\), montrer que \((V_n)\) est géométrique.  
+c) Limites de \((V_n)\) et \((U_n)\).
+
+**18.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_svt-smp_continue.pdf`  
+*Thème* : Suites \((U_n)\) et \((V_n)\)  
+*Intro* : \(U_0=1, V_0=2\), \(U_{n+1}=\frac{3U_n+V_n}{4}\), \(V_{n+1}=\frac{3V_n+U_n}{4}\).  
+*Questions* :  
+a) Nature de \((V_n-U_n)\).  
+b) Limite.  
+c) \((V_n-U_n)\) convergente ?  
+d) \(t_n=U_n+V_n\) constante.
+
+**19.** *Source* : Bac Haïti 2018 — `exam_maths_maths_2018_ses_parametre.pdf`  
+*Thème* : Suite arithmétique (somme)  
+*Intro* : Tableau de nombres en lignes (somme des lignes).  
+*Questions* :  
+a) Dernier nombre écrit.  
+b) Somme des nombres sur la première ligne, deuxième ligne, dernière ligne.  
+c) Somme de tous les nombres.
+
+**20.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_aleatroire-2.pdf`  
+*Thème* : Suite géométrique  
+*Intro* : \(U_n=3\times2^n\).  
+*Questions* :  
+a) Monotonie.  
+b) \(U_{n+1}\) en fonction de \(U_n\).  
+c) Convergence.  
+d) Somme \(S_n=U_0+\cdots+U_n\).
+
+**21.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_aleatroire.pdf` (identique)  
+*Questions* :  
+a) Monotonie.  
+b) Relation.  
+c) Convergence.  
+d) Somme.
+
+**22.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_lla_orthogonal.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(3U_{n+1}-3U_n=4\), \(U_0=2\).  
+*Questions* :  
+a) Montrer que \((U_n)\) est arithmétique, raison.  
+b) \(U_n\) en fonction de \(n\).  
+c) \(S_n=U_0+\cdots+U_n\).
+
+**23.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_graphique.pdf`  
+*Thème* : Suite arithmétique (somme des impairs)  
+*Intro* : Somme des 50 premiers impairs.  
+*Questions* :  
+a) Calculer la somme.
+
+**24.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_ses_orthonorme.pdf`  
+*Thème* : Suite géométrique  
+*Intro* : \(U_n=e^{2n+3}\).  
+*Questions* :  
+a) Raison.  
+b) Somme.
+
+**25.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_elasticite.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : Suite arithmétique dont le premier terme vaut la raison, \(U_2+U_5+U_7=187\).  
+*Questions* :  
+a) Trouver la raison.
+
+**26.** *Source* : Bac Haïti 2019 — `exam_maths_maths_2019_svt-smp_evolution.pdf`  
+*Thème* : Suite arithmétique (gain journalier)  
+*Intro* : Dave gagne 3,5,7,… gourdes par jour.  
+*Questions* :  
+a) Au bout de combien de jours totalise‑t‑il 260 gourdes ?
+
+**27.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_fonction.pdf`  
+*Thème* : Suite récurrente  
+*Intro* : \(U_0=4\), \(U_{n+1}=\frac{4U_n-9}{U_n-2}\).  
+*Questions* :  
+a) Calculer \(U_1, U_2, V_0, V_1, V_2\) avec \(V_n=1/(U_n-3)\).  
+b) Montrer que \((V_n)\) est arithmétique.  
+c) Exprimer \(V_n\) puis \(U_n\) en fonction de \(n\).  
+d) \(\lim U_n\).
+
+**28.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_lla_numerique.pdf`  
+*Thème* : Suite géométrique  
+*Intro* : \(U_n=2n\) ? Non, \(U_n=2^n\) (suite géométrique).  
+*Questions* :  
+a) Démontrer que \((U_n)\) est géométrique.  
+b) Monotonie.  
+c) Convergence.
+
+**29.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_arithmetique.pdf`  
+*Thème* : Suite récurrente  
+*Intro* : \(U_0=1\), \(U_{n+1}=\frac{5U_n}{3U_n+5}\).  
+*Questions* :  
+a) \(V_n=5/U_n\), montrer que \((V_n)\) est arithmétique.  
+b) Exprimer \(V_n\) puis \(U_n\).  
+c) Comportement à l’infini.
+
+**30.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_ses_expression.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(V_15=-136\), \(V_30=-241\).  
+*Questions* :  
+a) Raison et \(V_1\).  
+b) \(V_n\).  
+c) Somme \(S_{19}\).
+
+**31.** *Source* : Bac Haïti 2021 — `exam_maths_maths_2021_svt-smp_barycentre.pdf`  
+*Thème* : Suite arithmétique (capital)  
+*Intro* : \(C_0=70000\), taux 9% par an.  
+*Questions* :  
+a) Montrer que \((C_n)\) est géométrique, raison, calculer \(C_7\).  
+b) Au bout de combien d’années le capital triple ?
+
+**32.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_espace.pdf`  
+*Thème* : Suite arithmétique (population)  
+*Intro* : Population 40 000, perte de 10% par an.  
+*Questions* :  
+a) Population en 2022.  
+b) Relation \(U_{n+1}=0,9U_n\).  
+c) Limite.  
+d) Population en 2030.
+
+**33.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_negation.pdf`  
+*Thème* : Suite arithmétique (altitude)  
+*Intro* : Téléphérique : altitude \(a_0=1450\), augmentation de 0,75 m par seconde.  
+*Questions* :  
+a) \(a_0, a_1, a_2\).  
+b) \(a_{n+1}=a_n+0,75\).  
+c) Altitude après 15 minutes.
+
+**34.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_lla_operations.pdf`  
+*Thème* : Suite arithmétique (annuités)  
+*Intro* : Amortissement avec cinq annuités en progression arithmétique, premier terme 25000, somme totale 100 000.  
+*Questions* :  
+a) Raison \(r\).  
+b) Les quatre termes suivants.  
+c) \(a_n\) et sa limite.
+
+**35.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_absurde.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(U_3=13\), \(U_6=28\).  
+*Questions* :  
+a) \(U_0\) et \(r\).  
+b) Calculer \(U_{14}\).
+
+**36.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_axionatisation.pdf`  
+*Thème* : Suite géométrique (capital)  
+*Intro* : Capital 80 000 à 5% par an.  
+*Questions* :  
+a) Nature géométrique.  
+b) Capital après 5 ans.  
+c) Année où le capital double.
+
+**37.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_codage.pdf`  
+*Thème* : Suite arithmétique (ventes)  
+*Intro* : Ventes 24 000 sacs en 2017, diminution de 400 chaque année.  
+*Questions* :  
+a) Montrer que c’est une suite arithmétique.  
+b) Ventes en 2025.  
+c) Total 2017‑2025.
+
+**38.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_exponentiel.pdf`  
+*Thème* : Suite géométrique (production)  
+*Intro* : Production initiale 2000, augmentation de 5% par an.  
+*Questions* :  
+a) \(p_1, p_3\).  
+b) \(p_{n+1}=1,05p_n\), nature.  
+c) \(p_n\) en fonction de \(n\).  
+d) Production totale de 2011 à 2018.
+
+**39.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_implication.pdf`  
+*Thème* : Suite récurrente (coût)  
+*Intro* : \(C(x)\) fonction coût, mais aussi suite ? Plutôt fonction.
+
+**40.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_logique.pdf`  
+*Thème* : Suite arithmétique (consommation)  
+*Intro* : \(U_0=20\), raison 3.  
+*Questions* :  
+a) \(U_n\).  
+b) Somme de 2000 à 2006.  
+c) Moyenne annuelle.  
+d) \(U_7\).
+
+**41.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_ses_mesure.pdf`  
+*Thème* : Suite arithmétique (forage)  
+*Intro* : Coût du forage : 1000 G pour le 1er m, 1200 pour le 2e, etc.  
+*Questions* :  
+a) \(U_5\).  
+b) Relation \(U_{n+1}=U_n+200\).  
+c) \(U_n\) en fonction de \(n\).  
+d) Coût total \(S_n=900n+100n^2\).  
+e) Profondeur maximale pour 414 000 G.
+
+**42.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt-hyperbole.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(U_3=5\), \(S_6=33\).  
+*Questions* :  
+a) Raison \(r\).  
+b) \(U_0\).  
+c) \(U_{10}\).  
+d) \(S_{10}\).
+
+**43.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_limite.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(U_0=2\), \(U_{n+1}=U_n+2n-1\) ? Non, plutôt exercice sur les suites géométriques (croissance de population).  
+*Questions* :  
+a) Montrer que \(P_n\) est géométrique.  
+b) Population en 2027 (7 milliards en 2022, taux 25%).  
+c) Année de doublement.
+
+**44.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_smp-svt_secante.pdf`  
+*Thème* : Suite récurrente  
+*Intro* : \(U_0=1\), \(U_{n+1}=U_n+2n\) ? Non, \(U_{n+1}=U_n+2\) (arithmétique).  
+*Questions* :  
+a) Calculer \(U_1, U_2\).  
+b) \(V_n=U_n-8\), montrer que \((V_n)\) est géométrique.  
+c) Exprimer \(V_n\) et \(U_n\).  
+d) Calculer la Somme.
+
+**45.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_angle.pdf`  
+*Thème* : Suite récurrente  
+*Intro* : \(U_0=1\), \(U_{n+1}=U_n-2n-1\).  
+*Questions* :  
+a) Compléter un tableau de valeurs.  
+b) Représenter graphiquement.  
+c) Croissance ou décroissance ?
+
+**46.** *Source* : Bac Haïti 2022 — `exam_maths_maths_2022_svt-smp_demarche.pdf`  
+*Thème* : Suite géométrique (capital)  
+*Intro* : Capital 50 000, taux 3% + prime fixe de 500 par an.  
+*Questions* :  
+a) Calculer \(C_2\), relation entre \(C_{n+1}\) et \(C_n\).  
+b) Capital fin 2025.  
+c) Exprimer \(C_n\) en fonction de \(n\).
+
+**47.** *Source* : Bac Haïti 2012 — `exam_maths_maths_philo_cd_aout-2012.pdf`  
+*Thème* : Suite géométrique  
+*Intro* : \(U_1=4\), raison \(1/2\).  
+*Questions* :  
+a) Trouver \(n\) tel que \(U_n=1/4\).
+
+**48.** *Source* : Bac Haïti 2013 — `exam_maths_maths_philo_cd_juillet-2013.pdf`  
+*Thème* : Suite arithmétique  
+*Intro* : \(U_1=-2\), \(U_{80}=393\).  
+*Questions* :  
+a) Somme \(S_{80}\).
+
+**49.** *Source* : Bac Haïti 2014 — `exam_maths_maths_philo_cd_aout2014.pdf`  
+*Thème* : Suite arithmétique (salaire)  
+*Intro* : Salaire 25 000 en janvier, augmentation de 100 par mois.  
+*Questions* :  
+a) Salaire en septembre.
+
+**50.** *Source* : Bac Haïti 2015 — `exam_maths_maths_2015_minorant.pdf`  
+*Thème* : Suite géométrique (substance médicamenteuse)  
+*Intro* : Injection de 1,8 unités, élimination de 30% par heure.  
+*Questions* :  
+a) \(Q_1=1,8+0,7\times1,8\).  
+b) \(Q_{n+1}=0,7Q_n+1,8\).  
+c) Montrer par récurrence \(Q_n=6(1-(0,7)^{n+1})\).  
+d) \(Q_5\) au dixième près.  
+e) Calculer la Limite.
+
+

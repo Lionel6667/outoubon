@@ -1,0 +1,1882 @@
+{
+  "matiere": "art",
+  "total": 125,
+  "description": "Quiz Art / Culture — BAC Haïti",
+  "quiz": [
+    {
+      "id": "A2",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mouvement intellectuel né en réaction à l’occupation américaine, valorisant la culture et les traditions haïtiennes, est :",
+      "correct": "C",
+      "explanation": "Le mouvement intellectuel né en réaction à l'occupation américaine, valorisant la culture et les traditions haïtiennes, est l'Indigénisme. Ce mouvement, lancé par Jean Price-Mars, visait à promouvoir l'identité haïtienne et à encourager la fierté nationale. Les autres options ne sont pas pertinentes : le Mouvement des Droits Civiques est un mouvement social américain, le Surréalisme est un mouvement artistique européen, et le Marxisme est une théorie politique qui n'est pas spécifiquement liée à la culture haïtienne.",
+      "options": [
+        "Le Mouvement des Droits Civiques",
+        "Le Surréalisme",
+        "L’Indigénisme",
+        "Le Marxisme"
+      ]
+    },
+    {
+      "id": "A3",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Lequel de ces artistes haïtiens est connu comme « père de la peinture haïtienne » ?",
+      "correct": "B",
+      "explanation": "Philippe Thoby Marcelin est considéré comme le 'père de la peinture haïtienne' en raison de son influence sur l'art haïtien et de son rôle dans la promotion de la culture visuelle du pays. Wilson Bigaud, Hector Hyppolite et Préfète Duffaut sont tous des peintres haïtiens importants, mais ils ne sont pas considérés comme le 'père de la peinture haïtienne'.",
+      "options": [
+        "Wilson Bigaud",
+        "Philippe Thoby Marcelin",
+        "Hector Hyppolite",
+        "Préfète Duffaut"
+      ]
+    },
+    {
+      "id": "A4",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Quel sculpteur haïtien a réalisé la statue du « Nègre marron » ?",
+      "correct": "B",
+      "explanation": "La statue du 'Nègre marron' a été réalisée par Albert Mangonès, un sculpteur haïtien. Les autres options sont incorrectes : Carpeaux, Gustave Eiffel et François Rude sont tous des artistes français, et bien qu'ils aient réalisé des œuvres célèbres, ils ne sont pas associés à la statue du 'Nègre marron'.",
+      "options": [
+        "Carpeaux",
+        "Albert Mangonès",
+        "Gustave Eiffel",
+        "François Rude"
+      ]
+    },
+    {
+      "id": "A5",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le sigle MUPANAH signifie :",
+      "correct": "B",
+      "explanation": "Le sigle MUPANAH désigne le Musée du Panthéon National Haïtien, qui est un musée qui célèbre l'histoire et la culture haïtiennes. Les autres options ne sont pas correctes : le Ministère de l'Art et du Patrimoine est une institution gouvernementale, le Mouvement des Peintres Naïfs est un groupe d'artistes, et le Musée de la Peinture Haïtienne n'est pas un musée bien connu.",
+      "options": [
+        "Ministère de l’Art et du Patrimoine",
+        "Musée du Panthéon National Haïtien",
+        "Mouvement des Peintres Naïfs",
+        "Musée de la Peinture Haïtienne"
+      ]
+    },
+    {
+      "id": "A6",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le sigle ISPAN désigne :",
+      "correct": "C",
+      "explanation": "Le sigle ISPAN désigne l'Institut de Sauvegarde du Patrimoine National, qui est une institution chargée de protéger et de promouvoir le patrimoine culturel haïtien. Les autres options ne sont pas correctes : l'Institut de Sculpture et Peinture est un établissement d'enseignement artistique, l'Association des Artistes Haïtiens est un groupe de professionnels, et l'École des Arts Plastiques est une institution éducative.",
+      "options": [
+        "Institut de Sculpture et Peinture",
+        "Association des Artistes Haïtiens",
+        "Institut de Sauvegarde du Patrimoine National",
+        "École des Arts Plastiques"
+      ]
+    },
+    {
+      "id": "A7",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La gamme de Fa majeur comporte :",
+      "correct": "B",
+      "explanation": "La gamme de Fa majeur comporte 1 bémol (Si♭). En effet, la gamme de Fa majeur est composée des notes Fa, Sol, La, Si♭, Do, Ré, Mi. Les autres options ne sont pas correctes : la gamme de Fa majeur n'a pas 1 dièse, 2 bémols ou 2 dièses.",
+      "options": [
+        "1 dièse",
+        "1 bémol (Si♭)",
+        "2 bémols",
+        "2 dièses"
+      ]
+    },
+    {
+      "id": "A8",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La gamme de Sol majeur comporte :",
+      "correct": "D",
+      "explanation": "La gamme de Sol majeur comporte 1 dièse (Fa♯). En effet, la gamme de Sol majeur est composée des notes Sol, La, Si, Do, Ré, Mi, Fa♯. Les autres options ne sont pas correctes : la gamme de Sol majeur n'a pas 2 dièses, 1 bémol ou 2 bémols.",
+      "options": [
+        "2 dièses",
+        "1 bémol",
+        "2 bémols",
+        "1 dièse (Fa♯)"
+      ]
+    },
+    {
+      "id": "A9",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’accord parfait de Do (Do majeur) est composé des notes :",
+      "correct": "A",
+      "explanation": "L'accord parfait de Do (Do majeur) est composé des notes Do – Mi – Sol. En effet, l'accord parfait de Do majeur est formé de la fondamentale (Do), de la majeure (Mi) et de la quinte (Sol). Les autres options ne sont pas correctes : l'accord de Fa est composé des notes Fa – La – Do, l'accord de Do mineur est composé des notes Do – Mi♭ – Sol, et l'accord formé des notes Do – Ré – Fa n'est pas un accord parfait.",
+      "options": [
+        "Do – Mi – Sol",
+        "Do – Fa – La",
+        "Do – Mi♭ – Sol",
+        "Do – Ré – Fa"
+      ]
+    },
+    {
+      "id": "A10",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’accord de Do septième (Do7) est composé de :",
+      "correct": "B",
+      "explanation": "L'accord de Do septième (Do7) est composé de la fondamentale (Do), de la majeure tierce (Mi), de la quinte (Sol) et de la mineure septième (Si♭). C'est pourquoi l'option 'Do – Mi – Sol – Si♭' est la bonne réponse. Les autres options sont incorrectes car 'Do – Mi♭ – Sol – Si♭' correspond à un accord mineur septième, 'Do – Mi – Sol – Si' correspond à un accord majeur septième et 'Do – Fa – La – Do' ne correspond pas à un accord de septième.",
+      "options": [
+        "Do – Mi♭ – Sol – Si♭",
+        "Do – Mi – Sol – Si♭",
+        "Do – Mi – Sol – Si",
+        "Do – Fa – La – Do"
+      ]
+    },
+    {
+      "id": "A11",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La mesure à 4/4 contient :",
+      "correct": "A",
+      "explanation": "Une mesure à 4/4 contient quatre temps, ce qui signifie que la noire vaut un temps. C'est pourquoi l'option '4 temps' est la bonne réponse. Les autres options sont incorrectes car '2 temps' correspond à une mesure à 2/4, '3 temps' correspond à une mesure à 3/4 et '6 temps' correspond à une mesure à 6/8.",
+      "options": [
+        "4 temps",
+        "2 temps",
+        "3 temps",
+        "6 temps"
+      ]
+    },
+    {
+      "id": "A12",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La noire, dans une mesure à 4/4, vaut :",
+      "correct": "B",
+      "explanation": "Dans une mesure à 4/4, la noire vaut un temps. C'est l'unité de temps de base. C'est pourquoi l'option '1 temps' est la bonne réponse. Les autres options sont incorrectes car '2 temps' correspond à une blanche, '4 temps' correspond à une ronde et '1/2 temps' correspond à une croche.",
+      "options": [
+        "2 temps",
+        "1 temps",
+        "4 temps",
+        "1/2 temps"
+      ]
+    },
+    {
+      "id": "A13",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La blanche pointée vaut :",
+      "correct": "B",
+      "explanation": "La blanche pointée vaut trois temps car la blanche vaut deux temps et le point ajoute la moitié de la durée de la blanche, soit un temps. C'est pourquoi l'option '3 temps' est la bonne réponse. Les autres options sont incorrectes car '2 temps' correspond à une blanche sans point, '1 temps' est trop court et '4 temps' est trop long.",
+      "options": [
+        "2 temps",
+        "3 temps",
+        "1 temps",
+        "4 temps"
+      ]
+    },
+    {
+      "id": "A14",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « point » en musique augmente la durée de la note de :",
+      "correct": "C",
+      "explanation": "Le point en musique augmente la durée de la note de sa moitié. Par exemple, une noire (deux temps) pointée vaudra deux temps et demi. C'est pourquoi l'option 'Sa moitié' est la bonne réponse. Les autres options sont incorrectes car 'Son double' est trop élevé, 'Son quart' est trop faible et 'Rien' n'est pas logique.",
+      "options": [
+        "Son double",
+        "Son quart",
+        "Sa moitié",
+        "Rien"
+      ]
+    },
+    {
+      "id": "A15",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La clé de Sol (clé de violon) place le Sol sur la :",
+      "correct": "B",
+      "explanation": "La clé de Sol (clé de violon) place le Sol sur la deuxième ligne de la portée. C'est pourquoi l'option '2e ligne' est la bonne réponse. Les autres options sont incorrectes car le Sol ne se trouve pas sur la première, troisième ou quatrième ligne.",
+      "options": [
+        "3e ligne",
+        "2e ligne",
+        "4e ligne",
+        "1re ligne"
+      ]
+    },
+    {
+      "id": "A16",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La clé de Fa (4e ligne) place le Fa sur la :",
+      "correct": "C",
+      "explanation": "La clé de Fa (4e ligne) place le Fa sur la quatrième ligne de la portée. C'est pourquoi l'option '4e ligne' est la bonne réponse. Les autres options sont incorrectes car le Fa ne se trouve pas sur la première, deuxième ou troisième ligne.",
+      "options": [
+        "2e ligne",
+        "3e ligne",
+        "4e ligne",
+        "1re ligne"
+      ]
+    },
+    {
+      "id": "A17",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’intervalle de Do à Sol est une :",
+      "correct": "D",
+      "explanation": "L'intervalle de Do à Sol est une quinte car il y a cinq notes entre Do et Sol (Do, Ré, Mi, Fa, Sol). C'est pourquoi l'option 'Quinte' est la bonne réponse. Les autres options sont incorrectes car 'Quarte' correspond à un intervalle de quatre notes, 'Tierce' correspond à un intervalle de trois notes et 'Sixte' correspond à un intervalle de six notes.",
+      "options": [
+        "Quarte",
+        "Tierce",
+        "Sixte",
+        "Quinte"
+      ]
+    },
+    {
+      "id": "A18",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’intervalle de Do à Mi est une :",
+      "correct": "D",
+      "explanation": "L'intervalle de Do à Mi est une tierce majeure car il s'agit d'un intervalle de trois degrés, avec un ton et un demi-ton, soit un total de quatre demi-tons. C'est pourquoi l'option 'Tierce majeure' est la bonne réponse. Les autres options sont incorrectes : l'intervalle de Do à Ré est une seconde, et non une quarte ; l'intervalle de Do à Fa est une quarte, et non une quinte ; l'intervalle de Do à Sol est une quinte, et non une seconde.",
+      "options": [
+        "Quarte",
+        "Quinte",
+        "Seconde",
+        "Tierce majeure"
+      ]
+    },
+    {
+      "id": "A19",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’intervalle de Do à Fa♯ est une :",
+      "correct": "D",
+      "explanation": "L'intervalle de Do à Fa# est une quarte augmentée car il s'agit d'un intervalle de quatre degrés, avec un ton et trois demi-tons, soit un total de six demi-tons. C'est pourquoi l'option 'Quarte augmentée' est la bonne réponse. Les autres options sont incorrectes : l'intervalle de Do à Sol est une quinte juste, et non une quinte diminuée ; l'intervalle de Do à Fa est une quarte juste, et non une quarte augmentée ; l'intervalle de Do à Fa# ne correspond pas à une quinte juste.",
+      "options": [
+        "Quinte juste",
+        "Quarte juste",
+        "Quinte diminuée",
+        "Quarte augmentée"
+      ]
+    },
+    {
+      "id": "A20",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le compositeur Wolfgang Amadeus Mozart est de nationalité :",
+      "correct": "B",
+      "explanation": "Wolfgang Amadeus Mozart est de nationalité autrichienne car il est né et a vécu la majeure partie de sa vie à Salzbourg, en Autriche. C'est pourquoi l'option 'Autrichienne' est la bonne réponse. Les autres options sont incorrectes : bien que Mozart ait voyagé en Allemagne, en France et en Italie, il n'était pas de nationalité allemande, française ou italienne.",
+      "options": [
+        "Allemande",
+        "Autrichienne",
+        "Française",
+        "Italienne"
+      ]
+    },
+    {
+      "id": "A21",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Johann Sebastian Bach est de nationalité :",
+      "correct": "D",
+      "explanation": "Johann Sebastian Bach est de nationalité allemande car il est né et a vécu la majeure partie de sa vie en Allemagne, notamment à Leipzig et à Weimar. C'est pourquoi l'option 'Allemande' est la bonne réponse. Les autres options sont incorrectes : Bach n'était pas de nationalité italienne, autrichienne ou française.",
+      "options": [
+        "Italienne",
+        "Autrichienne",
+        "Française",
+        "Allemande"
+      ]
+    },
+    {
+      "id": "A22",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Frédéric Chopin est de nationalité :",
+      "correct": "B",
+      "explanation": "Frédéric Chopin est de nationalité polonaise car il est né et a grandi en Pologne, avant de s'exiler en France. C'est pourquoi l'option 'Polonaise' est la bonne réponse. Les autres options sont incorrectes : Chopin n'était pas de nationalité française, russe ou allemande.",
+      "options": [
+        "Française",
+        "Polonaise",
+        "Russe",
+        "Allemande"
+      ]
+    },
+    {
+      "id": "A23",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Ludwig van Beethoven est de nationalité :",
+      "correct": "A",
+      "explanation": "Ludwig van Beethoven est de nationalité allemande car il est né et a vécu la majeure partie de sa vie en Allemagne, notamment à Bonn et à Vienne. C'est pourquoi l'option 'Allemande' est la bonne réponse. Les autres options sont incorrectes : Beethoven n'était pas de nationalité italienne, autrichienne ou française, bien qu'il ait vécu en Autriche.",
+      "options": [
+        "Allemande",
+        "Italienne",
+        "Autrichienne",
+        "Française"
+      ]
+    },
+    {
+      "id": "A24",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le compositeur haïtien Occide Jeanty est connu pour :",
+      "correct": "C",
+      "explanation": "Le compositeur haïtien Occide Jeanty est connu pour la mélodie de l'hymne national haïtien, qu'il a composée avec Justin L'Hérisson. C'est pourquoi l'option 'La mélodie de l'hymne national (avec Justin L'Hérisson)' est la bonne réponse. Les autres options sont incorrectes : Occide Jeanty n'est pas particulièrement connu pour la musique populaire haïtienne ou le compas, et il n'a pas composé de musique classique européenne.",
+      "options": [
+        "La musique populaire haïtienne",
+        "Le compas",
+        "La mélodie de l’hymne national (avec Justin L’Hérisson)",
+        "La musique classique européenne"
+      ]
+    },
+    {
+      "id": "A25",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’auteur des paroles de l’hymne national haïtien (« La Dessalinienne ») est :",
+      "correct": "D",
+      "explanation": "L'auteur des paroles de l'hymne national haïtien ('La Dessalinienne') est Justin L'Hérisson. C'est pourquoi l'option 'Justin L'Hérisson' est la bonne réponse. Les autres options sont incorrectes : Auguste de Pradines est le compositeur de la musique, mais pas l'auteur des paroles ; Nicolas Geffrard n'est pas connu pour être l'auteur des paroles ; Occide Jeanty a composé la mélodie, mais pas les paroles.",
+      "options": [
+        "Occide Jeanty",
+        "Auguste de Pradines",
+        "Nicolas Geffrard",
+        "Justin L’Hérisson"
+      ]
+    },
+    {
+      "id": "A26",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le compositeur de la musique de l’hymne national haïtien est :",
+      "correct": "A",
+      "explanation": "Le compositeur de la musique de l'hymne national haïtien est Nicolas Geffrard. En effet, l'hymne national haïtien, également appelé 'La Dessalinienne', a été composé par Nicolas Geffrard, un musicien haïtien de renom. Les autres options sont incorrectes car Justin L'Hérisson n'est pas connu pour avoir composé la musique de l'hymne national, Nemours Jean-Baptiste est un compositeur haïtien mais il n'est pas associé à l'hymne national, et Occide Jeanty est un musicien haïtien mais il n'a pas composé la musique de l'hymne national.",
+      "options": [
+        "Nicolas Geffrard",
+        "Justin L’Hérisson",
+        "Nemours Jean-Baptiste",
+        "Occide Jeanty"
+      ]
+    },
+    {
+      "id": "A27",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le rythme musical « compas » a été créé par :",
+      "correct": "D",
+      "explanation": "Le rythme musical 'compas' a été popularisé par Nemours Jean-Baptiste. Le compas est un genre musical haïtien qui a été popularisé par Nemours Jean-Baptiste, un musicien et compositeur haïtien. Les autres options sont incorrectes car Ti Manno est un musicien haïtien mais il n'est pas associé à la création du compas, Occide Jeanty est un musicien haïtien mais il n'a pas créé le compas, et Coupé Cloué est un chanteur haïtien mais il n'est pas associé à la création du compas.",
+      "options": [
+        "Ti Manno",
+        "Occide Jeanty",
+        "Coupé Cloué",
+        "Nemours Jean-Baptiste"
+      ]
+    },
+    {
+      "id": "A28",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le chanteur haïtien connu sous le nom de « Coupé Cloué » s’appelait :",
+      "correct": "B",
+      "explanation": "Le chanteur haïtien connu sous le nom de 'Coupé Cloué' s'appelait Jean Gesner Henry. En effet, Coupé Cloué est un surnom donné au chanteur haïtien Jean Gesner Henry, qui est connu pour ses chansons populaires en Haïti. Les autres options sont incorrectes car Jean-Baptiste Nemours est un compositeur haïtien mais il n'est pas connu sous le nom de Coupé Cloué, Ti Manno est un musicien haïtien mais il n'est pas associé à Coupé Cloué, et Ti Paris n'est pas un nom associé à Coupé Cloué.",
+      "options": [
+        "Jean-Baptiste Nemours",
+        "Jean Gesner Henry",
+        "Ti Manno",
+        "Ti Paris"
+      ]
+    },
+    {
+      "id": "A29",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « Foyer des Arts Plastiques » (FDAP) a été fondé par des artistes haïtiens en :",
+      "correct": "B",
+      "explanation": "Le 'Foyer des Arts Plastiques' (FDAP) a été fondé par des artistes haïtiens en 1950. En effet, le FDAP est une institution artistique haïtienne qui a été fondée en 1950 par un groupe d'artistes haïtiens. Les autres options sont incorrectes car 1944 est la date de fondation du Centre d'Art, 1982 n'est pas une date associée à la fondation du FDAP, et 1972 n'est pas non plus une date associée à la fondation du FDAP.",
+      "options": [
+        "1944",
+        "1950",
+        "1982",
+        "1972"
+      ]
+    },
+    {
+      "id": "A30",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Centre d’Art de Port-au-Prince a été fondé en :",
+      "correct": "B",
+      "explanation": "Le Centre d'Art de Port-au-Prince a été fondé en 1944. En effet, le Centre d'Art est une institution artistique haïtienne qui a été fondée en 1944 par Dewitt Peters, un Américain. Les autres options sont incorrectes car 1950 est la date de fondation du FDAP, 1972 n'est pas une date associée à la fondation du Centre d'Art, et 1946 n'est pas la bonne date de fondation.",
+      "options": [
+        "1950",
+        "1944",
+        "1972",
+        "1946"
+      ]
+    },
+    {
+      "id": "A31",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Dewitt Peters était :",
+      "correct": "D",
+      "explanation": "Dewitt Peters était le fondateur du Centre d'Art, un Américain. En effet, Dewitt Peters est un Américain qui a fondé le Centre d'Art en 1944. Les autres options sont incorrectes car Dewitt Peters n'est pas un peintre haïtien, il n'est pas un sculpteur français, et il n'est pas un critique d'art haïtien.",
+      "options": [
+        "Un peintre haïtien",
+        "Un sculpteur français",
+        "Un critique d’art haïtien",
+        "Le fondateur du Centre d’Art (Américain)"
+      ]
+    },
+    {
+      "id": "A32",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le premier directeur du Centre d’Art fut :",
+      "correct": "D",
+      "explanation": "Le premier directeur du Centre d'Art fut Dewitt Peters. En effet, Dewitt Peters est le fondateur et le premier directeur du Centre d'Art. Les autres options sont incorrectes car Albert Mangonès est un artiste haïtien mais il n'a pas été le premier directeur du Centre d'Art, Philippe Thoby Marcelin est un artiste haïtien mais il n'a pas occupé ce poste, et Lucien Price n'est pas associé à la direction du Centre d'Art.",
+      "options": [
+        "Albert Mangonès",
+        "Philippe Thoby Marcelin",
+        "Lucien Price",
+        "Dewitt Peters"
+      ]
+    },
+    {
+      "id": "A33",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La première exposition du Centre d’Art a eu lieu en :",
+      "correct": "C",
+      "explanation": "La première exposition du Centre d'Art a eu lieu en 1946. En effet, la première exposition du Centre d'Art a eu lieu en 1946, après sa fondation en 1944. Les autres options sont incorrectes car 1944 est la date de fondation du Centre d'Art, 1945 n'est pas la bonne date, et 1947 n'est pas non plus la bonne date.",
+      "options": [
+        "1945",
+        "1947",
+        "1946",
+        "1944"
+      ]
+    },
+    {
+      "id": "A34",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le peintre Hector Hyppolite est connu pour ses tableaux inspirés du :",
+      "correct": "D",
+      "explanation": "Hector Hyppolite est un peintre haïtien célèbre pour ses tableaux inspirés du vaudou. Le vaudou est une pratique spirituelle originaire d'Afrique de l'Ouest, largement répandue en Haïti, qui mêle des éléments de spiritualité africaine, catholique et indigène. Les œuvres d'Hyppolite reflètent souvent cette culture vaudou, riche en symboles et en rituels. Les autres options, portrait, paysage et histoire, ne reflètent pas fidèlement l'inspiration première de son travail.",
+      "options": [
+        "Portrait",
+        "Paysage",
+        "Histoire",
+        "Vaudou"
+      ]
+    },
+    {
+      "id": "A35",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Préfète Duffaut est célèbre pour ses peintures de :",
+      "correct": "A",
+      "explanation": "Préfète Duffaut est une artiste haïtienne connue pour ses peintures de villes imaginaires. Ses œuvres représentent souvent des villes idéalisées, fantastiques, qui reflètent son imagination et sa créativité. Les autres options, natures mortes, portraits de présidents et scènes de marché, ne correspondent pas au style et aux thèmes de ses peintures.",
+      "options": [
+        "Villes imaginaires",
+        "Natures mortes",
+        "Portraits de présidents",
+        "Scènes de marché"
+      ]
+    },
+    {
+      "id": "A36",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Wilson Bigaud a participé à la décoration de la cathédrale Sainte-Trinité de Port-au-Prince avec des fresques sur :",
+      "correct": "B",
+      "explanation": "Wilson Bigaud a participé à la décoration de la cathédrale Sainte-Trinité de Port-au-Prince en créant des fresques sur la vie de Jésus. Ces fresques sont des représentations picturales des événements importants de la vie de Jésus-Christ, destinées à inspirer la foi des fidèles. Les autres options, la révolution haïtienne, les paysages et le vaudou, ne sont pas les thèmes des fresques de Bigaud dans cette cathédrale.",
+      "options": [
+        "La révolution haïtienne",
+        "La vie de Jésus",
+        "Les paysages",
+        "Le vaudou"
+      ]
+    },
+    {
+      "id": "A37",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le sculpteur Albert Mangonès a réalisé le monument du « Nègre marron » situé à :",
+      "correct": "C",
+      "explanation": "Le sculpteur Albert Mangonès a réalisé le monument du « Nègre marron » situé à Port-au-Prince, au Champ de Mars. Ce monument est un symbole de la lutte pour la liberté et de la résistance contre l'esclavage. Les autres options, Les Cayes, Cap-Haïtien et Jacmel, ne sont pas les lieux où se trouve ce monument.",
+      "options": [
+        "Les Cayes",
+        "Cap-Haïtien",
+        "Port-au-Prince (Champ de Mars)",
+        "Jacmel"
+      ]
+    },
+    {
+      "id": "A38",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Citadelle Laferrière a été construite par :",
+      "correct": "D",
+      "explanation": "La Citadelle Laferrière a été construite par Henri Christophe. Cette forteresse est un exemple impressionnant d'architecture militaire et un symbole de la résistance haïtienne contre les forces coloniales françaises. Les autres options, Toussaint Louverture, Jean-Jacques Dessalines et Alexandre Pétion, ne sont pas les constructeurs de cette citadelle.",
+      "options": [
+        "Toussaint Louverture",
+        "Jean-Jacques Dessalines",
+        "Alexandre Pétion",
+        "Henri Christophe"
+      ]
+    },
+    {
+      "id": "A39",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le Palais Sans-Souci (Milot) a été construit par :",
+      "correct": "B",
+      "explanation": "Le Palais Sans-Souci, situé à Milot, a été construit par Henri Christophe. Ce palais est un exemple remarquable d'architecture royale et reflète la grandeur de l'ancienne monarchie haïtienne. Les autres options, Jean-Jacques Dessalines, Alexandre Pétion et Faustin Soulouque, ne sont pas les constructeurs de ce palais.",
+      "options": [
+        "Jean-Jacques Dessalines",
+        "Henri Christophe",
+        "Alexandre Pétion",
+        "Faustin Soulouque"
+      ]
+    },
+    {
+      "id": "A40",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La cathédrale Notre-Dame de Paris a brûlé en :",
+      "correct": "D",
+      "explanation": "La cathédrale Notre-Dame de Paris a brûlé en 2019. Cet incendie a été un événement majeur qui a touché le patrimoine culturel et historique français. Les autres options, 2010, 2020 et 2021, ne correspondent pas à la date de cet incendie.",
+      "options": [
+        "2010",
+        "2021",
+        "2020",
+        "2019"
+      ]
+    },
+    {
+      "id": "A41",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « Nègre marron » (statue) symbolise :",
+      "correct": "D",
+      "explanation": "Le « Nègre marron » (statue) symbolise la liberté et la révolte des esclaves. Cette statue est un monument qui rend hommage aux esclaves qui se sont révoltés contre leurs oppresseurs et qui ont lutté pour leur liberté. Les autres options, la paix, l’indépendance nationale et la religion vaudou, ne reflètent pas fidèlement le symbolisme de cette statue.",
+      "options": [
+        "La paix",
+        "L’indépendance nationale",
+        "La religion vaudou",
+        "La liberté et la révolte des esclaves"
+      ]
+    },
+    {
+      "id": "A42",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La technique de peinture « fresque » consiste à peindre sur :",
+      "correct": "C",
+      "explanation": "La technique de peinture « fresque » consiste à peindre sur un enduit frais. En effet, la fresque est une technique de peinture qui utilise des pigments mélangés à de l'eau pour créer des œuvres d'art directement sur un support, généralement un mur ou un plafond, recouvert d'un enduit frais. Cela permet aux pigments de se fondre dans l'enduit et de créer une œuvre durable. Les autres options, comme peindre sur toile sèche, papier ou bois, ne correspondent pas à la technique de la fresque.",
+      "options": [
+        "Toile sèche",
+        "Papier",
+        "Enduit frais",
+        "Bois"
+      ]
+    },
+    {
+      "id": "A43",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « ronde-bosse » est une sculpture en :",
+      "correct": "B",
+      "explanation": "La « ronde-bosse » est une sculpture en trois dimensions, c'est-à-dire une sculpture qui est réalisée en relief, avec des formes qui se détachent dans l'espace. Cela signifie que l'œuvre d'art est sculptée de manière à avoir une forme tridimensionnelle, pouvant être observée sous différents angles. Les autres options, comme la sculpture en deux dimensions ou en bas-relief, ne correspondent pas à la définition de la ronde-bosse.",
+      "options": [
+        "Deux dimensions",
+        "Rond (en trois dimensions)",
+        "Bas-relief",
+        "Haut-relief"
+      ]
+    },
+    {
+      "id": "A44",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « trompe-l’œil » est une technique qui :",
+      "correct": "B",
+      "explanation": "Le « trompe-l’œil » est une technique qui donne l'illusion de la réalité. En effet, cette technique consiste à créer une illusion d'optique qui trompe le regard en créant une représentation réaliste d'un objet ou d'un espace. Cela peut être utilisé en peinture ou en sculpture pour créer des effets visuels étonnants. Les autres options, comme imiter la sculpture, utiliser des couleurs vives ou cacher les défauts, ne correspondent pas à la définition du trompe-l'œil.",
+      "options": [
+        "Imite la sculpture",
+        "Donne l’illusion de la réalité",
+        "Utilise des couleurs vives",
+        "Cache les défauts"
+      ]
+    },
+    {
+      "id": "A45",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les couleurs primaires en peinture (pigments) sont :",
+      "correct": "C",
+      "explanation": "Les couleurs primaires en peinture (pigments) sont le rouge, le jaune et le bleu. En effet, ces trois couleurs sont les bases de la colorimétrie et ne peuvent pas être obtenues en mélangeant d'autres couleurs. Les autres options, comme le cyan, le magenta et le jaune, correspondent à la synthèse soustractive utilisée en imprimerie, tandis que le rouge, le vert et le bleu correspondent à la synthèse additive utilisée en lumière.",
+      "options": [
+        "Cyan, magenta, jaune",
+        "Rouge, vert, bleu",
+        "Rouge, jaune, bleu",
+        "Orange, vert, violet"
+      ]
+    },
+    {
+      "id": "A46",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mélange du jaune et du bleu donne :",
+      "correct": "C",
+      "explanation": "Le mélange du jaune et du bleu donne le vert. En effet, lorsque l'on mélange ces deux couleurs primaires, on obtient une couleur secondaire qui est le vert. Les autres options, comme l'orange, le noir ou le violet, ne correspondent pas au mélange du jaune et du bleu.",
+      "options": [
+        "Orange",
+        "Noir",
+        "Vert",
+        "Violet"
+      ]
+    },
+    {
+      "id": "A47",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le mélange du rouge et du bleu donne :",
+      "correct": "D",
+      "explanation": "Le mélange du rouge et du bleu donne le violet. En effet, lorsque l'on mélange ces deux couleurs primaires, on obtient une couleur secondaire qui est le violet. Les autres options, comme le noir, le vert ou l'orange, ne correspondent pas au mélange du rouge et du bleu.",
+      "options": [
+        "Noir",
+        "Vert",
+        "Orange",
+        "Violet"
+      ]
+    },
+    {
+      "id": "A48",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La perspective aérienne utilise la dégradation des couleurs pour suggérer :",
+      "correct": "C",
+      "explanation": "La perspective aérienne utilise la dégradation des couleurs pour suggérer la profondeur et l'éloignement. En effet, cette technique consiste à estomper les couleurs et à réduire leur intensité pour donner l'impression de profondeur et de distance. Les autres options, comme le mouvement, la largeur ou la hauteur, ne correspondent pas à l'effet obtenu par la perspective aérienne.",
+      "options": [
+        "Le mouvement",
+        "La largeur",
+        "La profondeur et l’éloignement",
+        "La hauteur"
+      ]
+    },
+    {
+      "id": "A49",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La ligne horizontale suggère :",
+      "correct": "B",
+      "explanation": "La ligne horizontale suggère le calme et l'étendue. En effet, cette ligne est souvent associée à la stabilité et à la sérénité, car elle semble s'étendre à l'infini. Les autres options, comme la tension, le mouvement ou la hauteur, ne correspondent pas à l'effet obtenu par la ligne horizontale.",
+      "options": [
+        "La tension",
+        "Le calme, l’étendue",
+        "Le mouvement",
+        "La hauteur"
+      ]
+    },
+    {
+      "id": "A50",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La ligne verticale suggère :",
+      "correct": "A",
+      "explanation": "Lorsqu'on analyse les lignes dans l'art et la culture, on constate que la ligne verticale est souvent associée à l'équilibre et à la stabilité. En effet, les lignes verticales évoquent une sensation de solidité et de verticalité, créant un sentiment de calme et de sérénité. Les autres options ne sont pas directement liées aux lignes verticales : le dynamisme est souvent associé aux lignes obliques ou courbes, l'infini est une notion plus philosophique, et la joie est une émotion qui peut être évoquée par diverses formes d'art, mais n'est pas spécifiquement liée aux lignes verticales.",
+      "options": [
+        "L’équilibre, la stabilité",
+        "Le dynamisme",
+        "L’infini",
+        "La joie"
+      ]
+    },
+    {
+      "id": "A51",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un angle aigu mesure :",
+      "correct": "C",
+      "explanation": "Un angle aigu est un angle dont la mesure est inférieure à 90 degrés. Cela signifie que l'angle est plus petit qu'un angle droit. Les autres options sont incorrectes car un angle obtus mesure plus de 90 degrés et moins de 180 degrés, un angle droit mesure exactement 90 degrés, et 180 degrés correspond à un angle plat.",
+      "options": [
+        "Plus de 90°",
+        "180°",
+        "Moins de 90°",
+        "90°"
+      ]
+    },
+    {
+      "id": "A52",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un angle obtus mesure :",
+      "correct": "A",
+      "explanation": "Un angle obtus est un angle dont la mesure est supérieure à 90 degrés et inférieure à 180 degrés. Cela signifie que l'angle est plus grand qu'un angle droit, mais plus petit qu'un angle plat. Les autres options sont incorrectes car un angle aigu mesure moins de 90 degrés, un angle plat mesure exactement 180 degrés, et un angle droit mesure exactement 90 degrés.",
+      "options": [
+        "Plus de 90° et moins de 180°",
+        "Moins de 90°",
+        "180°",
+        "90°"
+      ]
+    },
+    {
+      "id": "A53",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un carré possède :",
+      "correct": "C",
+      "explanation": "Un carré est un polygone qui possède quatre angles droits, c'est-à-dire que chaque angle mesure exactement 90 degrés. Cela signifie que le carré a une forme parfaitement symétrique et régulière. Les autres options sont incorrectes car un carré ne possède pas 3, 2 ou 0 angles droits, mais bien 4 angles droits.",
+      "options": [
+        "3 angles droits",
+        "2 angles droits",
+        "4 angles droits",
+        "0 angle droit"
+      ]
+    },
+    {
+      "id": "A54",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La somme des angles d’un triangle est :",
+      "correct": "C",
+      "explanation": "La somme des angles d'un triangle est toujours de 180 degrés. Cela signifie que si vous additionnez les mesures de tous les angles d'un triangle, vous obtiendrez toujours ce résultat, quelle que soit la forme du triangle. Les autres options sont incorrectes car 360 degrés correspond à la somme des angles d'un quadrilatère, 90 degrés est la mesure d'un angle droit, et 270 degrés n'est pas une somme d'angles de triangle.",
+      "options": [
+        "360°",
+        "90°",
+        "180°",
+        "270°"
+      ]
+    },
+    {
+      "id": "A55",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un cube a :",
+      "correct": "B",
+      "explanation": "Un cube est un solide géométrique qui possède 6 faces, 12 arêtes et 8 sommets. Les faces d'un cube sont des carrés. Les autres options sont incorrectes car un cube ne possède pas 12 faces, 8 faces ou 4 faces, mais bien 6 faces.",
+      "options": [
+        "12 faces",
+        "6 faces",
+        "8 faces",
+        "4 faces"
+      ]
+    },
+    {
+      "id": "A56",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La perspective à un point de fuite est dite :",
+      "correct": "A",
+      "explanation": "La perspective à un point de fuite est dite frontale. Cela signifie que les lignes de fuite se rencontrent en un seul point sur l'horizon, créant une illusion de profondeur. Les autres options sont incorrectes car la perspective aérienne concerne les couleurs et la distance, la perspective oblique utilise plusieurs points de fuite, et la perspective cavalière est une technique de dessin qui ne utilise pas de points de fuite.",
+      "options": [
+        "Frontale",
+        "Aérienne",
+        "Oblique",
+        "Cavalière"
+      ]
+    },
+    {
+      "id": "A57",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le graphite des crayons est classé de :",
+      "correct": "C",
+      "explanation": "Le graphite des crayons est classé de 9H (très dur) à 9B (très tendre). Les crayons H sont durs et produisent des lignes fines et claires, tandis que les crayons B sont tendres et produisent des lignes épaisses et foncées. Les autres options sont incorrectes car la classification inverse est fausse, et les options B et D ne sont pas des classifications complètes.",
+      "options": [
+        "9B (dur) à 9H (tendre)",
+        "F (moyen)",
+        "9H (très dur) à 9B (très tendre)",
+        "H (tendre) à B (dur)"
+      ]
+    },
+    {
+      "id": "A58",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un crayon 6B est :",
+      "correct": "A",
+      "explanation": "Un crayon 6B est considéré comme très tendre car il contient une grande quantité de graphite, ce qui le rend idéal pour les dessins détaillés et les ombres. Les crayons B sont connus pour leur tendreté, qui augmente à mesure que le numéro augmente. Les autres options sont incorrectes car un crayon 6B n'est pas incolore, ce qui serait le cas d'un crayon HB ou d'un crayon blanc, et il n'est certainement pas moyen ou très dur, qui sont des caractéristiques de crayons plus durs comme les crayons H.",
+      "options": [
+        "Très tendre",
+        "Incolore",
+        "Moyen",
+        "Très dur"
+      ]
+    },
+    {
+      "id": "A59",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La technique du fusain utilise :",
+      "correct": "D",
+      "explanation": "La technique du fusain utilise du charbon de bois pour créer des dessins, souvent avec des effets de texture et de contraste. Le charbon de bois est un matériau qui permet une grande expressivité et une large gamme de tons. Les autres options sont incorrectes car la craie est un autre matériau utilisé en dessin, mais pas pour le fusain ; l'encre et la peinture sont des liquides qui nécessitent des outils différents pour les appliquer.",
+      "options": [
+        "De la craie",
+        "De l’encre",
+        "De la peinture",
+        "Du charbon de bois"
+      ]
+    },
+    {
+      "id": "A60",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La gouache est une peinture :",
+      "correct": "B",
+      "explanation": "La gouache est une peinture opaque et à base d'eau, ce qui signifie qu'elle est non transparente et utilise de l'eau comme solvant. Elle est souvent utilisée pour les illustrations et les dessins qui nécessitent des couleurs vives et opaques. Les autres options sont incorrectes car la peinture à l'huile utilise de l'huile comme solvant et est généralement plus longue à sécher ; l'acrylique est une peinture à base d'eau mais elle est généralement plus flexible et plus rapide à sécher que la gouache ; la peinture transparente à base d'eau décrit mieux l'aquarelle.",
+      "options": [
+        "À l’huile",
+        "Opaque et à base d’eau",
+        "Acrylique",
+        "Transparente"
+      ]
+    },
+    {
+      "id": "A61",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’aquarelle est une peinture :",
+      "correct": "C",
+      "explanation": "L'aquarelle est une peinture transparente à base d'eau, ce qui signifie qu'elle est transparente et utilise de l'eau comme solvant. Elle est souvent utilisée pour créer des effets de lumière et de transparence dans les paysages et les fleurs. Les autres options sont incorrectes car la peinture au pastel utilise des bâtonnets de pigments agglomérés ; la peinture à l'huile est une technique complètement différente qui utilise de l'huile comme solvant ; la peinture opaque décrit mieux la gouache.",
+      "options": [
+        "Au pastel",
+        "À l’huile",
+        "Transparente à base d’eau",
+        "Opaque"
+      ]
+    },
+    {
+      "id": "A62",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le pastel est un bâtonnet de :",
+      "correct": "D",
+      "explanation": "Le pastel est un bâtonnet de pigments agglomérés, ce qui signifie qu'il est composé de pigments colorés mélangés à un liant pour former un bâtonnet. Les pastels sont souvent utilisés pour les dessins et les peintures qui nécessitent une grande expressivité et une large gamme de tons. Les autres options sont incorrectes car le fusain est une technique qui utilise du charbon de bois ; la cire et la craie sont des matériaux différents qui peuvent être utilisés pour des techniques de dessin ou de sculpture.",
+      "options": [
+        "Fusain",
+        "Cire",
+        "Craie",
+        "Pigments agglomérés"
+      ]
+    },
+    {
+      "id": "A63",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’impressionnisme se caractérise par :",
+      "correct": "D",
+      "explanation": "L'impressionnisme se caractérise par des touches de couleurs séparées, rendant la lumière et les effets de l'éclairage. Les impressionnistes cherchaient à capturer les moments de la vie quotidienne et les effets de la lumière naturelle. Les autres options sont incorrectes car les sujets historiques sont plus souvent associés au romantisme et au réalisme ; les couleurs sombres sont à l'opposé de ce que les impressionnistes utilisaient, qui étaient des couleurs claires et vives ; les contours nets sont plus caractéristiques du réalisme et du classicisme.",
+      "options": [
+        "Des sujets historiques",
+        "Des couleurs sombres",
+        "Des contours nets",
+        "Des touches de couleurs séparées, rendant la lumière"
+      ]
+    },
+    {
+      "id": "A64",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le pointillisme (Seurat) utilise :",
+      "correct": "C",
+      "explanation": "Le pointillisme, développé par Seurat, utilise des petits points de couleurs pures pour créer des images. Cette technique repose sur le principe que les points de couleur, lorsqu'ils sont vus de loin, se fondent pour former une image. Les autres options sont incorrectes car les aplats et les dégradés sont des techniques utilisées dans d'autres styles de peinture ; les traits épais sont plus caractéristiques de l'expressionnisme et de l'abstrait.",
+      "options": [
+        "Des aplats",
+        "Des dégradés",
+        "Des petits points de couleurs pures",
+        "Des traits épais"
+      ]
+    },
+    {
+      "id": "A65",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le peintre haïtien « primitif » se caractérise par :",
+      "correct": "D",
+      "explanation": "Le peintre haïtien 'primitif' se caractérise par un style naïf, sans formation académique. Ces peintres, souvent autodidactes, créent des œuvres qui sont directes, spontanées et souvent empreintes de traditions et de folklore haïtiens. Les autres options sont incorrectes car un style réaliste suppose une attention aux détails et une représentation fidèle de la réalité ; une technique sophistiquée implique une grande maîtrise des outils et des techniques artistiques ; l'abstraction est un style qui s'éloigne de la représentation réaliste.",
+      "options": [
+        "Un style réaliste",
+        "Une technique sophistiquée",
+        "L’abstraction",
+        "Un style naïf, sans formation académique"
+      ]
+    },
+    {
+      "id": "A66",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « réalisme » en peinture cherche à :",
+      "correct": "D",
+      "explanation": "Le réalisme en peinture est un mouvement artistique qui cherche à représenter le monde de manière objective et précise, sans idéalisation ni déformation. C'est pourquoi l'option 'Représenter le réel fidèlement' est la bonne réponse. Les autres options sont incorrectes car l'expressionnisme cherche à exprimer les émotions, le cubisme décompose les formes en figures géométriques, et l'abstraction crée des motifs non représentatifs.",
+      "options": [
+        "Créer des motifs abstraits",
+        "Exprimer les émotions",
+        "Déformer les formes",
+        "Représenter le réel fidèlement"
+      ]
+    },
+    {
+      "id": "A67",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le surréalisme (André Breton) vise à :",
+      "correct": "D",
+      "explanation": "Le surréalisme, fondé par André Breton, est un mouvement littéraire et artistique qui vise à explorer l'inconscient et le rêve, en créant des œuvres qui mélangent le réel et l'irréel. C'est pourquoi l'option 'Explorer l'inconscient et le rêve' est la bonne réponse. Les autres options sont incorrectes car le cubisme cherche à décomposer les formes en figures géométriques, le réalisme cherche à imiter la réalité, et la réduction des formes géométriques est une caractéristique du cubisme.",
+      "options": [
+        "Réduire les formes géométriques",
+        "Peindre des scènes historiques",
+        "Imiter la réalité",
+        "Explorer l’inconscient et le rêve"
+      ]
+    },
+    {
+      "id": "A68",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le cubisme (Picasso, Braque) décompose les formes en :",
+      "correct": "C",
+      "explanation": "Le cubisme, développé par Pablo Picasso et Georges Braque, est un mouvement artistique qui décompose les formes en figures géométriques, telles que des cubes, des sphères et des cylindres. C'est pourquoi l'option 'Figures géométriques' est la bonne réponse. Les autres options sont incorrectes car les lignes courbes sont caractéristiques de l'art nouveau, les points sont utilisés dans le pointillisme, et les couleurs pures sont utilisées dans l'abstraction.",
+      "options": [
+        "Lignes courbes",
+        "Points",
+        "Figures géométriques",
+        "Couleurs pures"
+      ]
+    },
+    {
+      "id": "A69",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le tableau « Les Noces de Cana » est de :",
+      "correct": "B",
+      "explanation": "Le tableau 'Les Noces de Cana' est une œuvre du peintre vénitien Paolo Véronèse, qui a vécu au XVIe siècle. C'est pourquoi l'option 'Véronèse' est la bonne réponse. Les autres options sont incorrectes car Michel-Ange était un sculpteur et un peintre florentin, Léonard de Vinci était un peintre et un inventeur florentin, et Caravage était un peintre baroque italien.",
+      "options": [
+        "Michel-Ange",
+        "Véronèse",
+        "Léonard de Vinci",
+        "Caravage"
+      ]
+    },
+    {
+      "id": "A70",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « Joconde » (Mona Lisa) est de :",
+      "correct": "B",
+      "explanation": "La 'Joconde' (Mona Lisa) est une œuvre du peintre florentin Léonard de Vinci, qui a vécu au XVe et au XVIe siècle. C'est pourquoi l'option 'Léonard de Vinci' est la bonne réponse. Les autres options sont incorrectes car Raphaël était un peintre et un architecte florentin, Michel-Ange était un sculpteur et un peintre florentin, et Botticelli était un peintre florentin.",
+      "options": [
+        "Raphaël",
+        "Léonard de Vinci",
+        "Michel-Ange",
+        "Botticelli"
+      ]
+    },
+    {
+      "id": "A71",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "« La Liberté guidant le peuple » est de :",
+      "correct": "D",
+      "explanation": "Le tableau 'La Liberté guidant le peuple' est une œuvre du peintre romantique français Eugène Delacroix, qui a vécu au XIXe siècle. C'est pourquoi l'option 'Delacroix' est la bonne réponse. Les autres options sont incorrectes car Ingres était un peintre néoclassique français, Géricault était un peintre romantique français, et David était un peintre néoclassique français.",
+      "options": [
+        "Ingres",
+        "Géricault",
+        "David",
+        "Delacroix"
+      ]
+    },
+    {
+      "id": "A72",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "« Les Femmes d’Alger » de Delacroix est un tableau :",
+      "correct": "C",
+      "explanation": "Le tableau 'Les Femmes d'Alger' de Delacroix est une œuvre orientaliste, qui représente des femmes dans un intérieur algérien. C'est pourquoi l'option 'Orientaliste' est la bonne réponse. Les autres options sont incorrectes car le romantisme est un mouvement artistique qui cherche à exprimer les émotions, le baroque est un style artistique qui se caractérise par des formes complexes et des couleurs vives, et le classicisme est un mouvement artistique qui cherche à imiter les formes antiques.",
+      "options": [
+        "Romantique",
+        "Baroque",
+        "Orientaliste",
+        "Classique"
+      ]
+    },
+    {
+      "id": "A73",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « Serment des Horaces » est de :",
+      "correct": "C",
+      "explanation": "Le 'Serment des Horaces' est une œuvre du peintre néoclassique français Jacques-Louis David, qui a vécu au XVIIIe et au XIXe siècle. C'est pourquoi l'option 'Jacques-Louis David' est la bonne réponse. Les autres options sont incorrectes car Delacroix était un peintre romantique français, Géricault était un peintre romantique français, et Ingres était un peintre néoclassique français.",
+      "options": [
+        "Delacroix",
+        "Géricault",
+        "Jacques-Louis David",
+        "Ingres"
+      ]
+    },
+    {
+      "id": "A74",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le sculpteur de « La Danse » (bas-relief) est :",
+      "correct": "D",
+      "explanation": "Le sculpteur de « La Danse » est Jean-Baptiste Carpeaux, un artiste français connu pour ses œuvres sculpturales expressives. Carpeaux a créé cette sculpture en 1869, qui représente une scène de danse joyeuse. Les autres options, Bourdelle, Rodin et Maillol, sont également des sculpteurs célèbres, mais ils ne sont pas les auteurs de « La Danse ». Bourdelle est connu pour ses sculptures monumentales, Rodin pour « Le Penseur », et Maillol pour ses sculptures de femmes nues.",
+      "options": [
+        "Bourdelle",
+        "Rodin",
+        "Maillol",
+        "Carpeaux"
+      ]
+    },
+    {
+      "id": "A75",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "« Le Penseur » de Rodin est une sculpture en :",
+      "correct": "C",
+      "explanation": "« Le Penseur » d'Auguste Rodin est une sculpture emblématique qui représente un homme en train de réfléchir. La version originale de cette sculpture a été créée en bronze en 1880. Le bronze est un matériau qui permet une grande liberté de création et une reproduction en plusieurs exemplaires. Les autres options, terre cuite, marbre et plâtre, sont des matériaux utilisés en sculpture, mais ils ne sont pas associés à la création originale de « Le Penseur ».",
+      "options": [
+        "Terre cuite",
+        "Marbre",
+        "Bronze",
+        "Plâtre"
+      ]
+    },
+    {
+      "id": "A76",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La Tour Eiffel a été construite par :",
+      "correct": "A",
+      "explanation": "La Tour Eiffel a été construite par Gustave Eiffel et son entreprise, Compagnie des Établissements Eiffel, pour l'Exposition universelle de Paris en 1889. Gustave Eiffel est un ingénieur français qui a donné son nom à la tour. Les autres options, Alexandre Gustave, Albert Mangonès et Henri Eiffel, ne sont pas les noms corrects de l'ingénieur qui a construit la Tour Eiffel. Gustave Eiffel est le nom complet et correct de l'ingénieur.",
+      "options": [
+        "Gustave Eiffel",
+        "Alexandre Gustave",
+        "Albert Mangonès",
+        "Henri Eiffel"
+      ]
+    },
+    {
+      "id": "A77",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le style architectural « gingerbread » en Haïti est caractérisé par :",
+      "correct": "B",
+      "explanation": "Le style architectural « gingerbread » en Haïti est caractérisé par des ornements en bois découpé, qui donnent aux bâtiments un aspect élégant et détaillé. Ce style est courant dans l'architecture haïtienne, en particulier dans les maisons bourgeoises du XIXe siècle. Les autres options, des colonnes grecques, des murs en pierre et des toits plats, ne sont pas des caractéristiques du style « gingerbread ». Les colonnes grecques sont typiques de l'architecture classique, les murs en pierre sont courants dans de nombreux styles architecturaux, et les toits plats sont souvent associés à l'architecture moderne.",
+      "options": [
+        "Des colonnes grecques",
+        "Des ornements en bois découpé",
+        "Des murs en pierre",
+        "Des toits plats"
+      ]
+    },
+    {
+      "id": "A78",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le palais national d’Haïti (avant 2010) a été détruit par :",
+      "correct": "A",
+      "explanation": "Le palais national d'Haïti, situé à Port-au-Prince, a été détruit par le séisme du 12 janvier 2010, qui a frappé Haïti et causé des dégâts considérables. Les autres options, un ouragan, une explosion et un incendie, ne sont pas les causes de la destruction du palais national. Le séisme a été un événement majeur qui a eu des conséquences dévastatrices pour Haïti.",
+      "options": [
+        "Le séisme du 12 janvier 2010",
+        "Un ouragan",
+        "Une explosion",
+        "Un incendie"
+      ]
+    },
+    {
+      "id": "A79",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le marché Hyppolite (Port-au-Prince) est aussi appelé :",
+      "correct": "C",
+      "explanation": "Le marché Hyppolite, situé à Port-au-Prince, est également appelé « Marché de Fer ». Ce marché est connu pour ses étals de fer et son atmosphère animée. Les autres options, Marché de la Ferraille, Marché de la Croix-des-Bouquets et Marché en fer, ne sont pas les noms corrects de ce marché. Le nom correct est Marché de Fer.",
+      "options": [
+        "Marché de la Ferraille",
+        "Marché de la Croix-des-Bouquets",
+        "Marché de Fer",
+        "Marché en fer"
+      ]
+    },
+    {
+      "id": "A80",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La commune de Pétion-Ville s’appelait autrefois :",
+      "correct": "A",
+      "explanation": "La commune de Pétion-Ville, située près de Port-au-Prince, s'appelait autrefois « Thor ». Ce nom a été donné à la commune avant qu'elle ne soit renommée Pétion-Ville. Les autres options, Pétion, Laplaine et Le Haut-du-Cap, ne sont pas les noms précédents de cette commune. Le nom « Thor » est historique et précédait le nom actuel.",
+      "options": [
+        "Thor",
+        "Pétion",
+        "Laplaine",
+        "Le Haut-du-Cap"
+      ]
+    },
+    {
+      "id": "A81",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le hounfor (temple vaudou) possède une colonne centrale appelée :",
+      "correct": "A",
+      "explanation": "Le hounfor, ou temple vaudou, possède une colonne centrale appelée « Poteau-mitan ». Cette colonne est considérée comme l'axe central du temple et joue un rôle important dans les rituels vaudous. Les autres options, Mitan, Potomitan et Poteau central, ne sont pas les noms corrects de cette colonne. Le « Poteau-mitan » est un terme spécifique utilisé dans le contexte du vaudou haïtien.",
+      "options": [
+        "Poteau-mitan",
+        "Mitan",
+        "Potomitan",
+        "Poteau central"
+      ]
+    },
+    {
+      "id": "A82",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Les « vèvès » sont des :",
+      "correct": "A",
+      "explanation": "Les 'vèvès' sont des symboles dessinés qui représentent les divinités vaudou, également appelées loa. Ils sont utilisés dans les rituels vaudou pour invoquer ces divinités et sont souvent tracés sur le sol avec de la farine ou de la poudre. Les autres options sont incorrectes car les danses rituelles sont des mouvements exécutés pendant les cérémonies, les costumes cérémoniels sont des vêtements portés lors des rituels, et les chants vaudou sont des hymnes chantés pour invoquer les divinités.",
+      "options": [
+        "Symboles dessinés des divinités vaudou",
+        "Danses rituelles",
+        "Costumes cérémoniels",
+        "Chants vaudou"
+      ]
+    },
+    {
+      "id": "A83",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le rite « Petro » est associé à :",
+      "correct": "C",
+      "explanation": "Le rite 'Petro' est associé aux divinités d'origine africaine, notamment celles de la région Kongo. Ce rite est caractérisé par des pratiques plus énergiques et des divinités plus 'combattives'. Les autres options sont incorrectes car les divinités du feu sont associées à un autre type de rite, les divinités douces sont généralement liées au rite 'Rada', et les divinités de l'eau ne sont pas spécifiquement associées au rite 'Petro'.",
+      "options": [
+        "Des divinités du feu",
+        "Des divinités douces",
+        "Des divinités d’origine africaine (Kongo)",
+        "Des divinités de l’eau"
+      ]
+    },
+    {
+      "id": "A84",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La danse « Yanvalou » est une danse :",
+      "correct": "D",
+      "explanation": "La danse 'Yanvalou' est une danse vaoudouesque, c'est-à-dire qu'elle est liée aux pratiques et croyances vaudou. Elle est caractérisée par des mouvements spécifiques qui visent à invoquer les divinités. Les autres options sont incorrectes car la danse folklorique est un terme plus large qui englobe de nombreuses danses traditionnelles, la danse classique est un style de danse occidentalisé, et la danse moderne est un style de danse contemporain.",
+      "options": [
+        "Folklorique",
+        "Classique",
+        "Moderne",
+        "Vaoudouesque"
+      ]
+    },
+    {
+      "id": "A85",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « rara » est une fête traditionnelle haïtienne associée au carnaval et à :",
+      "correct": "D",
+      "explanation": "Le 'rara' est une fête traditionnelle haïtienne qui se déroule pendant la période de Pâques. Elle est associée au carnaval et est caractérisée par des défilés, des danses et des chants. Les autres options sont incorrectes car l'indépendance est célébrée le 18 novembre, Noël est une fête chrétienne qui n'est pas spécifiquement liée au 'rara', et la moisson n'est pas une période spécifiquement associée à cette fête.",
+      "options": [
+        "L’indépendance",
+        "Noël",
+        "La moisson",
+        "La période de Pâques"
+      ]
+    },
+    {
+      "id": "A86",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le carnaval des fleurs à Haïti se déroule à :",
+      "correct": "C",
+      "explanation": "Le carnaval des fleurs à Haïti se déroule à Jacmel. Cette ville est connue pour ses festivités colorées et ses traditions culturelles riches. Les autres options sont incorrectes car Port-au-Prince est la capitale et organise son propre carnaval, Cap-Haïtien est une autre ville importante mais ne organise pas spécifiquement le carnaval des fleurs, et Les Cayes est une ville située dans le sud-ouest du pays qui a ses propres traditions.",
+      "options": [
+        "Port-au-Prince",
+        "Cap-Haïtien",
+        "Jacmel",
+        "Les Cayes"
+      ]
+    },
+    {
+      "id": "A87",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « cour Souvenance » (Gonaïves) est un lieu de :",
+      "correct": "B",
+      "explanation": "La 'cour Souvenance' à Gonaïves est un lieu de pèlerinage vaudou. C'est un endroit où les pratiquants vaudou viennent pour invoquer les divinités et effectuer des rituels. Les autres options sont incorrectes car il ne s'agit pas d'un palais royal (même si Gonaïves a une histoire riche), il ne s'agit pas d'un musée (même si des objets culturels y sont conservés), et il ne s'agit pas d'un marché (même si des échanges commerciaux peuvent y avoir lieu).",
+      "options": [
+        "Palais royal",
+        "Pèlerinage vaudou",
+        "Musée",
+        "Marché"
+      ]
+    },
+    {
+      "id": "A88",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « combat de coqs » est considéré comme un :",
+      "correct": "B",
+      "explanation": "Le 'combat de coqs' est considéré comme un patrimoine culturel immatériel haïtien. C'est une pratique traditionnelle qui fait partie des coutumes et des traditions haïtiennes. Les autres options sont incorrectes car il ne s'agit pas d'un divertissement étranger (même si des pratiques similaires existent ailleurs), il ne s'agit pas d'un sport olympique (même si des compétitions de coqs existent), et il ne s'agit pas d'un jeu interdit (même si certaines réglementations peuvent exister).",
+      "options": [
+        "Divertissement étranger",
+        "Patrimoine culturel immatériel haïtien",
+        "Sport olympique",
+        "Jeu interdit"
+      ]
+    },
+    {
+      "id": "A89",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le jeu « lago » (cache-cache) est un :",
+      "correct": "C",
+      "explanation": "Le jeu 'lago' (cache-cache) est un jeu traditionnel haïtien. C'est un jeu qui fait partie des pratiques ludiques traditionnelles haïtiennes. Les autres options sont incorrectes car il ne s'agit pas d'un jeu de société importé (même si des jeux similaires existent ailleurs), il ne s'agit pas d'un sport collectif (même si des jeux de groupe existent), et il ne s'agit pas d'un jeu de cartes (même si des jeux de cartes existent).",
+      "options": [
+        "Jeu de société importé",
+        "Sport collectif",
+        "Jeu traditionnel haïtien",
+        "Jeu de cartes"
+      ]
+    },
+    {
+      "id": "A90",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le conte « Bouki ak Malis » met en scène deux personnages :",
+      "correct": "B",
+      "explanation": "Le conte 'Bouki ak Malis' met en scène deux personnages principaux qui représentent des types de personnages traditionnels dans la littérature orale haïtienne. Bouki est souvent décrit comme un personnage naïf et crédule, tandis que Malis est rusé et trompeur. C'est pourquoi l'option 'Un naïf et un rusé' est la plus appropriée. Les autres options, telles que 'Un roi et un paysan', 'Un prêtre et un vaudouisant', ou 'Un maître et un esclave', ne reflètent pas fidèlement les personnages principaux du conte.",
+      "options": [
+        "Un roi et un paysan",
+        "Un naïf et un rusé",
+        "Un prêtre et un vaudouisant",
+        "Un maître et un esclave"
+      ]
+    },
+    {
+      "id": "A91",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le monument « Fort Jacques » se trouve dans le département de :",
+      "correct": "B",
+      "explanation": "Le monument 'Fort Jacques' est situé dans le département de l'Ouest, plus précisément dans les environs de Port-au-Prince. C'est un site historique important en Haïti, lié à la lutte pour l'indépendance du pays. Les autres départements mentionnés, tels que l'Artibonite, le Nord et le Sud, ne sont pas les emplacements corrects du Fort Jacques.",
+      "options": [
+        "Artibonite",
+        "Ouest",
+        "Nord",
+        "Sud"
+      ]
+    },
+    {
+      "id": "A92",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « Palais aux 365 portes » (Sans-Souci) est situé à :",
+      "correct": "B",
+      "explanation": "Le 'Palais aux 365 portes', également connu sous le nom de Palais Sans-Souci, est situé à Milot, dans le département du Nord. Ce palais est un exemple remarquable d'architecture haïtienne et est lié à l'histoire du roi Henri Christophe. Les autres options, telles que le Cap-Haïtien, Jacmel et Port-au-Prince, ne sont pas les emplacements corrects du Palais Sans-Souci.",
+      "options": [
+        "Cap-Haïtien",
+        "Milot",
+        "Jacmel",
+        "Port-au-Prince"
+      ]
+    },
+    {
+      "id": "A93",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’UNESCO a classé la Citadelle et le Palais Sans-Souci au patrimoine mondial en :",
+      "correct": "D",
+      "explanation": "L'UNESCO a classé la Citadelle et le Palais Sans-Souci au patrimoine mondial en 1982. Cette reconnaissance internationale souligne l'importance de ces sites historiques pour la culture et l'histoire universelles. Les autres années mentionnées, telles que 1972, 1992 et 2000, ne correspondent pas à la date de classement de ces sites par l'UNESCO.",
+      "options": [
+        "2000",
+        "1992",
+        "1972",
+        "1982"
+      ]
+    },
+    {
+      "id": "A94",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « parc national historique » de la Citadelle comprend :",
+      "correct": "C",
+      "explanation": "Le 'parc national historique' de la Citadelle comprend la Citadelle elle-même, le Palais Sans-Souci et les Ramiers. Ce parc national est un site historique et naturel important en Haïti, qui reflète la richesse culturelle et historique du pays. Les autres options, telles que 'Citadelle, Fort Saint-Michel, Fort Picolet' ou 'Sans-Souci, Palais National, Fort Dimanche', ne décrivent pas fidèlement les composantes du parc national historique.",
+      "options": [
+        "Citadelle, Fort Saint-Michel, Fort Picolet",
+        "Sans-Souci, Palais National, Fort Dimanche",
+        "Citadelle, Sans-Souci, Ramiers",
+        "Citadelle, Fort Jacques, Fort Alexandre"
+      ]
+    },
+    {
+      "id": "A95",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le musée du Panthéon National Haïtien (MUPANAH) abrite :",
+      "correct": "D",
+      "explanation": "Le musée du Panthéon National Haïtien (MUPANAH) abrite la couronne de Faustin Soulouque, qui est un objet historique important lié à l'histoire de Haïti. Les autres options, telles que 'Le sabre de Toussaint', 'Le trône de Dessalines' ou 'Le manteau de Christophe', ne sont pas les objets conservés au MUPANAH.",
+      "options": [
+        "Le sabre de Toussaint",
+        "Le trône de Dessalines",
+        "Le manteau de Christophe",
+        "La couronne de Faustin Soulouque"
+      ]
+    },
+    {
+      "id": "A96",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’architecte Albert Mangonès a réalisé le plan du :",
+      "correct": "D",
+      "explanation": "L'architecte Albert Mangonès a réalisé le plan du Palais National, qui a été détruit en 2010. Le Palais National était un bâtiment historique important à Port-au-Prince, qui représentait la culture et l'histoire haïtiennes. Les autres options, telles que le Musée d'Art haïtien, le Centre d'Art ou le Théâtre de Verdure, ne sont pas les bâtiments conçus par Albert Mangonès.",
+      "options": [
+        "Musée d’Art haïtien",
+        "Centre d’Art",
+        "Théâtre de Verdure",
+        "Palais National (détruit en 2010)"
+      ]
+    },
+    {
+      "id": "A97",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le peintre « primitif » Rigaud Benoit a peint :",
+      "correct": "B",
+      "explanation": "Le peintre 'primitif' Rigaud Benoit a peint 'La famille'. Rigaud Benoit est connu pour ses œuvres qui reflètent la vie quotidienne et la culture haïtiennes. Les autres options, telles que 'La mort du Marron', 'La cérémonie vaudou' ou 'Le marché', ne sont pas les œuvres les plus représentatives de Rigaud Benoit.",
+      "options": [
+        "« La mort du Marron »",
+        "« La famille »",
+        "« La cérémonie vaudou »",
+        "« Le marché »"
+      ]
+    },
+    {
+      "id": "A98",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le tableau « Paradie » a été peint par :",
+      "correct": "A",
+      "explanation": "Le tableau « Paradie » a été peint par Wilson Bigaud parce que c'est un artiste haïtien connu pour ses œuvres qui reflètent la culture et la vie haïtiennes. Les autres options, Castera Bazile, Hector Hyppolite et Préfète Duffaut, sont également des artistes haïtiens, mais ils ne sont pas associés à ce tableau spécifique. Pour rappel, Wilson Bigaud est un peintre haïtien qui a souvent représenté des scènes de vie quotidienne et des paysages haïtiens dans ses œuvres.",
+      "options": [
+        "Wilson Bigaud",
+        "Castera Bazile",
+        "Hector Hyppolite",
+        "Préfète Duffaut"
+      ]
+    },
+    {
+      "id": "A99",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "« Les Noces de Cana » est un chef-d’œuvre de :",
+      "correct": "A",
+      "explanation": "« Les Noces de Cana » n'est pas un chef-d'œuvre de Wilson Bigaud car il s'agit en réalité d'une peinture de Jésus de Nazareth réalisée par le peintre italien Véronèse. Les autres options, Hector Hyppolite, Rigaud Benoit et Préfète Duffaut, ne sont pas non plus associés à cette œuvre. Il est important de noter que « Les Noces de Cana » est une scène biblique peinte par Véronèse au XVIe siècle.",
+      "options": [
+        "Wilson Bigaud",
+        "Hector Hyppolite",
+        "Rigaud Benoit",
+        "Préfète Duffaut"
+      ]
+    },
+    {
+      "id": "A100",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "« La Cène » de Léonard de Vinci se trouve à :",
+      "correct": "C",
+      "explanation": "« La Cène » de Léonard de Vinci se trouve à Milan, en Italie, parce que c'est dans cette ville que le peintre a réalisé cette célèbre scène biblique pour le monastère de Santa Maria delle Grazie. Les autres options, Florence, Rome et Paris, ne sont pas les lieux où se trouve cette œuvre. Il est essentiel de rappeler que « La Cène » est l'une des œuvres les plus célèbres de Léonard de Vinci et qu'elle se trouve dans un état de conservation remarquable à Milan.",
+      "options": [
+        "Florence",
+        "Rome",
+        "Milan (Italie)",
+        "Paris"
+      ]
+    },
+    {
+      "id": "A101",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "« La Naissance de Vénus » est de :",
+      "correct": "D",
+      "explanation": "« La Naissance de Vénus » est une œuvre de Botticelli parce que ce peintre florentin du XVe siècle est connu pour ses représentations mythologiques et allégoriques. Les autres options, Titien, Raphaël et Michel-Ange, sont également des artistes de la Renaissance italienne, mais ils ne sont pas associés à cette œuvre spécifique. Pour noter, « La Naissance de Vénus » est l'une des peintures les plus célèbres du musée des Uffizi à Florence.",
+      "options": [
+        "Titien",
+        "Raphaël",
+        "Michel-Ange",
+        "Botticelli"
+      ]
+    },
+    {
+      "id": "A102",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « David » de Michel-Ange est une sculpture en :",
+      "correct": "B",
+      "explanation": "Le « David » de Michel-Ange est une sculpture en marbre parce que l'artiste a utilisé ce matériau noble pour réaliser cette œuvre monumentale qui représente le héros biblique David. Les autres options, terre cuite, bronze et plâtre, ne sont pas les matériaux utilisés par Michel-Ange pour cette sculpture. Il est important de souligner que le « David » de Michel-Ange est considéré comme l'une des plus grandes sculptures de la Renaissance.",
+      "options": [
+        "Terre cuite",
+        "Marbre",
+        "Bronze",
+        "Plâtre"
+      ]
+    },
+    {
+      "id": "A103",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La période musicale baroque (XVIIe-début XVIIIe) a pour compositeur emblématique :",
+      "correct": "C",
+      "explanation": "La période musicale baroque a pour compositeur emblématique Johann Sebastian Bach parce que ce musicien allemand du XVIIe et du XVIIIe siècle est l'un des représentants les plus célèbres de cette période. Les autres options, Chopin, Beethoven et Mozart, sont des compositeurs d'époques différentes : Chopin et Beethoven appartiennent à la période romantique, tandis que Mozart appartient à la période classique. Il est essentiel de noter que Bach a composé de nombreuses œuvres sacrées et profanes qui caractérisent la musique baroque.",
+      "options": [
+        "Chopin",
+        "Beethoven",
+        "Johann Sebastian Bach",
+        "Mozart"
+      ]
+    },
+    {
+      "id": "A104",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La période classique (fin XVIIIe) a pour compositeur :",
+      "correct": "C",
+      "explanation": "La période classique a pour compositeur Wolfgang Amadeus Mozart parce que ce musicien autrichien du XVIIIe siècle est l'un des représentants les plus célèbres de cette période. Les autres options, Bach, Debussy et Chopin, ne sont pas associés à cette époque : Bach est baroque, Debussy est impressionniste et Chopin est romantique. Il est important de rappeler que Mozart a composé de nombreuses symphonies, opéras et œuvres de musique de chambre qui caractérisent la musique classique.",
+      "options": [
+        "Bach",
+        "Debussy",
+        "Wolfgang Amadeus Mozart",
+        "Chopin"
+      ]
+    },
+    {
+      "id": "A105",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La période romantique (XIXe) a pour compositeur :",
+      "correct": "A",
+      "explanation": "La période romantique a pour compositeur Frédéric Chopin parce que ce musicien polonais du XIXe siècle est l'un des représentants les plus célèbres de cette période. Les autres options, Vivaldi, Haydn et Ravel, ne sont pas associés à cette époque : Vivaldi est baroque, Haydn est classique et Ravel est impressionniste. Il est essentiel de noter que Chopin a composé de nombreuses œuvres pour piano qui caractérisent la musique romantique.",
+      "options": [
+        "Frédéric Chopin",
+        "Vivaldi",
+        "Haydn",
+        "Ravel"
+      ]
+    },
+    {
+      "id": "A106",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’opéra « La Flûte enchantée » est de :",
+      "correct": "B",
+      "explanation": "L'opéra 'La Flûte enchantée' est une œuvre de Mozart, compositeur autrichien de l'époque classique. Elle est considérée comme l'une de ses œuvres les plus populaires et est encore largement jouée aujourd'hui. Les autres options, Wagner, Beethoven et Verdi, sont également des compositeurs célèbres, mais ils ne sont pas les auteurs de 'La Flûte enchantée'.",
+      "options": [
+        "Wagner",
+        "Mozart",
+        "Beethoven",
+        "Verdi"
+      ]
+    },
+    {
+      "id": "A107",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « Requiem » de Mozart est :",
+      "correct": "D",
+      "explanation": "Le 'Requiem' de Mozart est une messe de requiem qu'il a composée en 1791, mais qu'il n'a pas pu achever avant sa mort. Il s'agit donc d'une œuvre inachevée. Les autres options, symphonie, opéra et concerto, sont des formes musicales différentes qui ne correspondent pas au 'Requiem' de Mozart.",
+      "options": [
+        "Une symphonie",
+        "Un opéra",
+        "Un concerto",
+        "Une messe de requiem inachevée"
+      ]
+    },
+    {
+      "id": "A109",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le terme « pianiste » désigne celui qui joue du :",
+      "correct": "C",
+      "explanation": "Le terme 'pianiste' désigne un musicien qui joue du piano, instrument à cordes frappées. Les autres options, clavecin, violon et orgue, sont des instruments de musique différents qui nécessitent des techniques de jeu spécifiques et ont des appellations particulières pour leurs pratiquants.",
+      "options": [
+        "Clavecin",
+        "Violon",
+        "Piano",
+        "Orgue"
+      ]
+    },
+    {
+      "id": "A110",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « musique instrumentale » s’oppose à :",
+      "correct": "A",
+      "explanation": "La 'musique instrumentale' s'oppose à la 'musique vocale', car la première est jouée uniquement par des instruments, tandis que la seconde est chantée par des voix. Les autres options, musique symphonique, musique électronique et musique de chambre, sont des catégories musicales qui peuvent être instrumentales ou vocales.",
+      "options": [
+        "La musique vocale",
+        "La musique symphonique",
+        "La musique électronique",
+        "La musique de chambre"
+      ]
+    },
+    {
+      "id": "A112",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La gamme majeure se caractérise par une succession de :",
+      "correct": "C",
+      "explanation": "La gamme majeure se caractérise par une succession de tons et de demi-tons spécifique : 1 ton, 1 ton, 1/2 ton, 1 ton, 1 ton, 1 ton, 1/2 ton. C'est cette structure qui donne à la gamme majeure son timbre et son caractère uniques. Les autres options ne correspondent pas à cette structure.",
+      "options": [
+        "1/2 ton, 1 ton, 1 ton, 1/2 ton, 1 ton, 1 ton, 1 ton",
+        "1 ton, 1 ton, 1 ton, 1/2 ton, 1 ton, 1 ton, 1/2 ton",
+        "1 ton, 1 ton, 1/2 ton, 1 ton, 1 ton, 1 ton, 1/2 ton",
+        "1 ton, 1/2 ton, 1 ton, 1/2 ton, 1 ton, 1 ton, 1/2 ton"
+      ]
+    },
+    {
+      "id": "A113",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le dièse (#) augmente la note d’un :",
+      "correct": "D",
+      "explanation": "Le dièse (#) augmente la note d'un demi-ton, ce qui signifie qu'il modifie la hauteur de la note en l'augmentant légèrement. Les autres options, rien, ton et deux demi-tons, ne correspondent pas à l'effet du dièse.",
+      "options": [
+        "Rien",
+        "Ton",
+        "Deux demi-tons",
+        "Demi-ton"
+      ]
+    },
+    {
+      "id": "A114",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le bémol (♭) diminue la note d’un :",
+      "correct": "D",
+      "explanation": "Le bémol (♭) diminue la note d'un demi-ton, ce qui signifie qu'il modifie la hauteur de la note en la diminuant légèrement. Les autres options, rien, ton et deux demi-tons, ne correspondent pas à l'effet du bémol.",
+      "options": [
+        "Rien",
+        "Ton",
+        "Deux demi-tons",
+        "Demi-ton"
+      ]
+    },
+    {
+      "id": "A116",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La portée musicale compte généralement :",
+      "correct": "C",
+      "explanation": "La portée musicale compte généralement 5 lignes, qui servent à noter les hauteurs des sons. Les autres options, 4 lignes, 6 lignes et 7 lignes, ne sont pas les configurations standard pour une portée musicale.",
+      "options": [
+        "4 lignes",
+        "7 lignes",
+        "5 lignes",
+        "6 lignes"
+      ]
+    },
+    {
+      "id": "A117",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le solfège est :",
+      "correct": "C",
+      "explanation": "Le solfège est l'art de lire et écrire la musique, c'est-à-dire qu'il s'agit d'un système de notation musicale qui permet de représenter les différents éléments de la musique tels que les notes, les rythmes, les mélodies, etc. Les autres options sont incorrectes car un compositeur est une personne qui crée de la musique, une danse est un type de mouvement ou de spectacle, et un instrument est un objet utilisé pour produire de la musique.",
+      "options": [
+        "Un compositeur",
+        "Une danse",
+        "L’art de lire et écrire la musique",
+        "Un instrument"
+      ]
+    },
+    {
+      "id": "A118",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « timbre » en musique est la qualité qui permet de distinguer :",
+      "correct": "D",
+      "explanation": "Le « timbre » en musique est la qualité qui permet de distinguer la source sonore, qu'il s'agisse d'un instrument ou d'une voix. Cela signifie que le timbre est ce qui nous permet de reconnaître si c'est un violon ou une flûte qui joue une note donnée. Les autres options sont incorrectes car l'intensité se rapporte au volume sonore, la hauteur se rapporte à la fréquence du son, et la durée se rapporte à la longueur du son.",
+      "options": [
+        "L’intensité",
+        "La hauteur",
+        "La durée",
+        "La source sonore (instrument, voix)"
+      ]
+    },
+    {
+      "id": "A119",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’« intensité » en musique se rapporte au :",
+      "correct": "B",
+      "explanation": "L'« intensité » en musique se rapporte au volume sonore, c'est-à-dire à la manière dont un son est fort ou faible. On parle souvent de « forte » ou de « piano » pour décrire l'intensité d'un son. Les autres options sont incorrectes car le rythme se rapporte à la manière dont les sons sont organisés dans le temps, la mélodie se rapporte à la suite de notes qui créent une ligne musicale, et la hauteur se rapporte à la fréquence du son.",
+      "options": [
+        "Au rythme",
+        "Volume sonore (forte, piano)",
+        "À la mélodie",
+        "À la hauteur"
+      ]
+    },
+    {
+      "id": "A120",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « hauteur » d’un son dépend de sa :",
+      "correct": "B",
+      "explanation": "La « hauteur » d'un son dépend de sa fréquence, c'est-à-dire du nombre de vibrations par seconde qui produisent le son. Une fréquence plus élevée correspond à un son plus aigu, tandis qu'une fréquence plus basse correspond à un son plus grave. Les autres options sont incorrectes car la durée se rapporte à la longueur du son, la forme d'onde se rapporte à la manière dont le son est représenté graphiquement, et l'amplitude se rapporte à l'intensité du son.",
+      "options": [
+        "Durée",
+        "Fréquence",
+        "Forme d’onde",
+        "Amplitude"
+      ]
+    },
+    {
+      "id": "A122",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La musique « a cappella » se chante :",
+      "correct": "D",
+      "explanation": "La musique « a cappella » se chante sans accompagnement instrumental, c'est-à-dire que les chanteurs produisent seuls la musique sans l'aide d'instruments. Les autres options sont incorrectes car avec orchestre ou avec piano, il y aurait un accompagnement instrumental, et avec chœur, il s'agirait simplement d'un groupe de chanteurs.",
+      "options": [
+        "Avec orchestre",
+        "Avec piano",
+        "Avec chœur",
+        "Sans accompagnement instrumental"
+      ]
+    },
+    {
+      "id": "A123",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « quintette à cordes » comprend :",
+      "correct": "D",
+      "explanation": "Un « quintette à cordes » comprend cinq instruments à cordes, c'est-à-dire des instruments qui produisent du son grâce à des cordes vibrantes. Les autres options sont incorrectes car un quatuor à cordes comprendrait quatre instruments à cordes, et des cuivres ou des instruments à vent ne feraient pas partie d'un quintette à cordes.",
+      "options": [
+        "5 cuivres",
+        "4 instruments à cordes",
+        "5 instruments à vent",
+        "5 instruments à cordes"
+      ]
+    },
+    {
+      "id": "A124",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Un « quatuor à cordes » se compose de :",
+      "correct": "D",
+      "explanation": "Un « quatuor à cordes » se compose de deux violons, un alto et un violoncelle, c'est-à-dire de quatre instruments à cordes. Les autres options sont incorrectes car un quatuor à cordes ne comprendrait pas un seul violon ou un seul alto, et il ne comprendrait pas non plus deux violoncelles.",
+      "options": [
+        "1 violon, 2 altos, 1 violoncelle",
+        "2 violons, 2 violoncelles",
+        "1 violon, 1 alto, 2 violoncelles",
+        "2 violons, 1 alto, 1 violoncelle"
+      ]
+    },
+    {
+      "id": "A127",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « saxophone » appartient à la famille des :",
+      "correct": "C",
+      "explanation": "Le « saxophone » appartient à la famille des bois, même si c'est un instrument hybride qui combine des éléments de bois et de cuivre. Les autres options sont incorrectes car les cuivres sont des instruments qui produisent du son grâce à la vibration de l'air dans un tube, les cordes sont des instruments qui produisent du son grâce à des cordes vibrantes, et les percussions sont des instruments qui produisent du son grâce à des coups ou des frappes.",
+      "options": [
+        "Cuivres",
+        "Cordes",
+        "Bois",
+        "Percussions"
+      ]
+    },
+    {
+      "id": "A128",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « trompette » appartient à la famille des :",
+      "correct": "D",
+      "explanation": "La trompette appartient à la famille des cuivres car elle produit du son grâce à la vibration de l'air dans un tube de métal, provoquée par la vibration des lèvres du joueur. Les cuivres sont caractérisés par leur embouchure, où l'on porte les lèvres pour produire le son. Les autres options sont incorrectes car les bois utilisent des anches ou des fentes pour produire le son, les cordes utilisent des cordes pour produire le son et les percussions utilisent des membranes ou des surfaces pour produire le son.",
+      "options": [
+        "Bois",
+        "Cordes",
+        "Percussions",
+        "Cuivres"
+      ]
+    },
+    {
+      "id": "A129",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « violon » appartient à la famille des :",
+      "correct": "C",
+      "explanation": "Le violon appartient à la famille des cordes frottées car il produit du son grâce à la vibration de cordes frottées par un archet. Les cordes frottées sont caractérisées par l'utilisation d'un archet pour produire le son. Les autres options sont incorrectes car les percussions utilisent des membranes ou des surfaces pour produire le son, les cordes pincées utilisent les doigts pour pincer les cordes et les vent utilisent l'air pour produire le son.",
+      "options": [
+        "Percussions",
+        "Cordes pincées",
+        "Cordes frottées",
+        "Vent"
+      ]
+    },
+    {
+      "id": "A130",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « guitare » appartient à la famille des :",
+      "correct": "D",
+      "explanation": "La guitare appartient à la famille des cordes pincées car elle produit du son grâce à la vibration de cordes pincées par les doigts ou un médiator. Les cordes pincées sont caractérisées par l'utilisation des doigts ou d'un objet pour pincer les cordes. Les autres options sont incorrectes car les cordes frottées utilisent un archet pour produire le son, les percussions utilisent des membranes ou des surfaces pour produire le son et les vent utilisent l'air pour produire le son.",
+      "options": [
+        "Cordes frottées",
+        "Percussions",
+        "Vent",
+        "Cordes pincées"
+      ]
+    },
+    {
+      "id": "A131",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « batterie » appartient à la famille des :",
+      "correct": "B",
+      "explanation": "La batterie appartient à la famille des percussions car elle produit du son grâce à la frappe de membranes ou de surfaces. Les percussions sont caractérisées par l'utilisation de la force pour produire le son. Les autres options sont incorrectes car les cuivres utilisent l'air pour produire le son, les bois utilisent des anches ou des fentes pour produire le son et les cordes utilisent des cordes pour produire le son.",
+      "options": [
+        "Cuivres",
+        "Percussions",
+        "Bois",
+        "Cordes"
+      ]
+    },
+    {
+      "id": "A133",
+      "category": "Art / Culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’« orgue » est un instrument à :",
+      "correct": "C",
+      "explanation": "L'orgue est un instrument à vent (à anche) et clavier car il produit du son grâce à la vibration de l'air dans des tuyaux, provoquée par l'action de touches sur un clavier. Les autres options sont incorrectes car les percussions utilisent des membranes ou des surfaces pour produire le son, les cordes utilisent des cordes pour produire le son et électrique n'est pas une famille d'instruments de musique.",
+      "options": [
+        "Électrique",
+        "Percussions",
+        "Vent (à anche) et clavier",
+        "Cordes"
+      ]
+    }
+  ]
+}

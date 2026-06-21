@@ -1,0 +1,560 @@
+"""
+Secret Admin Dashboard — password-protected analytics panel.
+URL: /dashboard/otb-ctrl-9x7k/
+"""
+import hashlib
+import json
+from datetime import date, timedelta
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.utils import timezone
+
+def _local_time(dt):
+    """Convert a UTC datetime to local time (America/Port-au-Prince)."""
+    if dt is None:
+        return None
+    try:
+        return timezone.localtime(dt)
+    except Exception:
+        return dt
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Sum, Count, Q, F
+from django.db.models.functions import TruncDate, TruncMonth, TruncWeek
+from django.contrib.auth.models import User
+
+from accounts.models import (
+    UserProfile, Payment, Agent, AgentReferral, AgentWithdrawal,
+    AdminMessage, AdminPanelConfig, SiteVisit, DailyUsage,
+)
+from core.models import ExtraBetPost, ExtraBetAttempt, UserStats
+
+
+# ─────────────── AUTH HELPERS ───────────────
+
+def _admin_authenticated(request):
+    """Check if the current session has admin panel access."""
+    return request.session.get('_otb_admin_ok') is True
+
+
+def _require_admin(view_func):
+    """Decorator: redirect to admin login if not authenticated."""
+    def wrapper(request, *args, **kwargs):
+        if not _admin_authenticated(request):
+            return redirect('admin_panel_login')
+        return view_func(request, *args, **kwargs)
+    return wrapper
+
+
+# ─────────────── VIEWS ───────────────
+
+def admin_login_view(request):
+    """Login page for the admin panel. First visit = set password."""
+    config = AdminPanelConfig.get_instance()
+    is_first = config is None
+    error = None
+
+    if request.method == 'POST':
+        password = request.POST.get('password', '')
+        if is_first:
+            # First time: set password
+            confirm = request.POST.get('confirm', '')
+            if len(password) < 6:
+                error = 'Le mot de passe doit contenir au moins 6 caractères.'
+            elif password != confirm:
+                error = 'Les mots de passe ne correspondent pas.'
+            else:
+                AdminPanelConfig.set_password(password)
+                request.session['_otb_admin_ok'] = True
+                return redirect('admin_panel')
+        else:
+            if config.check_password(password):
+                request.session['_otb_admin_ok'] = True
+                return redirect('admin_panel')
+            else:
+                error = 'Mot de passe incorrect.'
+
+    return render(request, 'core/admin_login.html', {
+        'is_first': is_first,
+        'error': error,
+    })
+
+
+@_require_admin
+def admin_panel_view(request):
+    """Main admin dashboard page with all analytics."""
+    today = date.today()
+    now = timezone.now()
+
+    # ── Users (élèves uniquement — agents exclus) ──
+    from accounts.models import Agent as _Agent
+    _agent_ids = _Agent.objects.values_list('user_id', flat=True)
+    _student_qs = User.objects.filter(is_active=True, is_superuser=False).exclude(id__in=_agent_ids)
+    total_users = _student_qs.count()
+    today_signups = _student_qs.filter(date_joined__date=today).count()
+    week_signups = _student_qs.filter(date_joined__date__gte=today - timedelta(days=7)).count()
+    month_signups = _student_qs.filter(date_joined__date__gte=today - timedelta(days=30)).count()
+
+    # ── Premium ──
+    premium_profiles = UserProfile.objects.filter(plan_expiration__gte=today).select_related('user')
+    premium_count = premium_profiles.count()
+    premium_pct = round(premium_count / max(total_users, 1) * 100, 1)
+
+    # ── Visits ──
+    visits_today = SiteVisit.objects.filter(visited_at__date=today).count()
+    unique_today = SiteVisit.objects.filter(visited_at__date=today).values('ip_hash').distinct().count()
+    visits_week = SiteVisit.objects.filter(visited_at__date__gte=today - timedelta(days=7)).count()
+    visits_month = SiteVisit.objects.filter(visited_at__date__gte=today - timedelta(days=30)).count()
+
+    # ── Revenue ──
+    # Revenue is computed based on active premium users count (750 G Plan) as most activations are manual
+    rev_total = premium_count * 750
+    rev_today = premium_profiles.filter(user__date_joined__date=today).count() * 750
+    rev_week = premium_profiles.filter(user__date_joined__date__gte=today - timedelta(days=7)).count() * 750
+    rev_month = premium_profiles.filter(user__date_joined__date__gte=today - timedelta(days=30)).count() * 750
+
+    # ── Revenue chart data (last 30 days) ──
+    # Group by student join dates to show chronological active premium signups
+    rev_chart_qs = (
+        premium_profiles
+        .filter(user__date_joined__date__gte=today - timedelta(days=30))
+        .annotate(day=TruncDate('user__date_joined'))
+        .values('day')
+        .annotate(total=Count('id'))
+        .order_by('day')
+    )
+    rev_chart_labels = []
+    rev_chart_data = []
+    for r in rev_chart_qs:
+        if r['day']:
+            rev_chart_labels.append(r['day'].strftime('%d/%m'))
+            rev_chart_data.append(r['total'] * 750)
+
+    if not rev_chart_data:
+        rev_chart_labels = [today.strftime('%d/%m')]
+        rev_chart_data = [rev_total]
+
+    # ── Signups chart (last 30 days — students only) ──
+    signups_chart = list(
+        _student_qs.filter(date_joined__date__gte=today - timedelta(days=30))
+        .annotate(day=TruncDate('date_joined'))
+        .values('day')
+        .annotate(count=Count('id'))
+        .order_by('day')
+    )
+    signup_labels = [s['day'].strftime('%d/%m') for s in signups_chart]
+    signup_data = [s['count'] for s in signups_chart]
+
+    # ── Agents ──
+    agents = Agent.objects.select_related('user').all()
+    total_agents = agents.count()
+    total_agent_earned = agents.aggregate(s=Sum('total_earned'))['s'] or 0
+    total_agent_balance = agents.aggregate(s=Sum('balance'))['s'] or 0
+
+    # ── Withdrawals ──
+    pending_withdrawals = AgentWithdrawal.objects.filter(status='pending').select_related('agent__user').order_by('-created_at')
+    all_withdrawals = AgentWithdrawal.objects.select_related('agent__user').order_by('-created_at')[:50]
+    total_withdrawn = AgentWithdrawal.objects.filter(status='approved').aggregate(s=Sum('amount'))['s'] or 0
+
+    # ── Recent users (students only) ──
+    recent_users = _student_qs.select_related('profile').order_by('-date_joined')[:30]
+
+    # ── Recent payments (confirmed only) ──
+    recent_payments = Payment.objects.filter(status='completed').select_related('user').order_by('-created_at')[:30]
+
+    # ── Usage stats ──
+    active_today = DailyUsage.objects.filter(date=today).values('user').distinct().count()
+    active_week = DailyUsage.objects.filter(date__gte=today - timedelta(days=7)).values('user').distinct().count()
+    total_chats = DailyUsage.objects.aggregate(s=Sum('chat_count'))['s'] or 0
+    total_quizzes = DailyUsage.objects.aggregate(s=Sum('quiz_count'))['s'] or 0
+
+    # ── Admin messages sent ──
+    admin_msgs_count = AdminMessage.objects.count()
+
+    # ── Extra Bète stats ──
+    extra_bet_posts = ExtraBetPost.objects.count()
+    extra_bet_answers = ExtraBetAttempt.objects.count()
+
+    # ── Real-time Active (last 15 min) ──
+    realtime_active = SiteVisit.objects.filter(visited_at__gte=now - timedelta(minutes=15)).values('ip_hash').distinct().count()
+
+    # ── Top 5 Leaderboard ──
+    top_users = UserStats.objects.select_related('user', 'user__profile').annotate(
+        xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
+    ).order_by('-xp')[:5]
+
+    # ── Popular Subjects (approximate from recent DailyUsage) ──
+    # We look at the last 1000 DailyUsage entries to find which subjects are hot
+    popular_subjects = []
+    recent_usage = DailyUsage.objects.order_by('-id')[:200]
+    subj_map = {}
+    for usage in recent_usage:
+        if usage.exercise_subjects:
+            for s, c in usage.exercise_subjects.items():
+                # c peut être un int ou un dict (structure imbriquée) — on normalise
+                count = c if isinstance(c, (int, float)) else (sum(c.values()) if isinstance(c, dict) else 0)
+                subj_map[s] = subj_map.get(s, 0) + int(count)
+    popular_subjects = sorted(subj_map.items(), key=lambda x: x[1], reverse=True)[:5]
+
+    # ── All users for messaging dropdown (students only) ──
+    all_users = _student_qs.select_related('profile').order_by('first_name', 'username')[:500]
+
+    context = {
+        'total_users': total_users,
+        'today_signups': today_signups,
+        'week_signups': week_signups,
+        'month_signups': month_signups,
+        'premium_count': premium_count,
+        'premium_pct': premium_pct,
+        'visits_today': visits_today,
+        'unique_today': unique_today,
+        'visits_week': visits_week,
+        'visits_month': visits_month,
+        'rev_today': rev_today,
+        'rev_week': rev_week,
+        'rev_month': rev_month,
+        'rev_total': rev_total,
+        'rev_chart_labels': json.dumps(rev_chart_labels),
+        'rev_chart_data': json.dumps(rev_chart_data),
+        'signup_labels': json.dumps(signup_labels),
+        'signup_data': json.dumps(signup_data),
+        'total_agents': total_agents,
+        'total_agent_earned': total_agent_earned,
+        'total_agent_balance': total_agent_balance,
+        'pending_withdrawals': pending_withdrawals,
+        'all_withdrawals': all_withdrawals,
+        'total_withdrawn': total_withdrawn,
+        'recent_users': recent_users,
+        'recent_payments': recent_payments,
+        'active_today': active_today,
+        'active_week': active_week,
+        'total_chats': total_chats,
+        'total_quizzes': total_quizzes,
+        'admin_msgs_count': admin_msgs_count,
+        'extra_bet_posts':   extra_bet_posts,
+        'extra_bet_answers': extra_bet_answers,
+        'realtime_active':   realtime_active,
+        'top_users':         top_users,
+        'popular_subjects':  popular_subjects,
+        'agents': agents,
+        'all_users': all_users,
+    }
+    return render(request, 'core/admin_panel.html', context)
+
+
+# ─────────────── API ENDPOINTS ───────────────
+
+@_require_admin
+def api_admin_withdrawal(request):
+    """Approve or reject a withdrawal request."""
+    if request.method != 'POST':
+        return JsonResponse({'error': 'POST only'}, status=405)
+
+    try:
+        data = json.loads(request.body)
+    except (json.JSONDecodeError, ValueError):
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    wid = data.get('id')
+    action = data.get('action')  # 'approve' or 'reject'
+    note = data.get('note', '')
+
+    if action not in ('approve', 'reject'):
+        return JsonResponse({'error': 'Action invalide'}, status=400)
+
+    try:
+        w = AgentWithdrawal.objects.select_related('agent').get(pk=wid)
+    except AgentWithdrawal.DoesNotExist:
+        return JsonResponse({'error': 'Retrait introuvable'}, status=404)
+
+    if w.status != 'pending':
+        return JsonResponse({'error': 'Déjà traité'}, status=400)
+
+    if action == 'approve':
+        w.status = 'approved'
+        w.note = note or 'Approuvé'
+        w.save(update_fields=['status', 'note', 'updated_at'])
+        # Deduct from agent balance
+        agent = w.agent
+        agent.balance = max(0, agent.balance - w.amount)
+        agent.save(update_fields=['balance'])
+    else:
+        w.status = 'rejected'
+        w.note = note or 'Refusé'
+        w.save(update_fields=['status', 'note', 'updated_at'])
+
+    return JsonResponse({'ok': True, 'status': w.status})
+
+
+@_require_admin
+def api_admin_send_message(request):
+    """Send admin message to specific user or broadcast."""
+    if request.method != 'POST':
+        return JsonResponse({'error': 'POST only'}, status=405)
+
+    try:
+        data = json.loads(request.body)
+    except (json.JSONDecodeError, ValueError):
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    content = data.get('content', '').strip()
+    receiver_id = data.get('receiver_id')
+    broadcast = data.get('broadcast', False)
+
+    if not content:
+        return JsonResponse({'error': 'Message vide'}, status=400)
+
+    def _personalize(text, user):
+        """Replace @eleve with the user's first name."""
+        name = (getattr(getattr(user, 'profile', None), 'first_name', '') or user.first_name or user.username)
+        return text.replace('@eleve', name)
+
+    if broadcast:
+        from accounts.models import Agent as _AgentMsg
+        _agent_ids_msg = _AgentMsg.objects.values_list('user_id', flat=True)
+        users = User.objects.filter(is_active=True, is_superuser=False).exclude(id__in=_agent_ids_msg)
+        for u in users:
+            AdminMessage.objects.create(receiver=u, content=_personalize(content, u))
+        return JsonResponse({'ok': True, 'count': users.count()})
+    else:
+        if not receiver_id:
+            return JsonResponse({'error': 'receiver_id requis'}, status=400)
+        try:
+            receiver = User.objects.get(pk=receiver_id)
+        except User.DoesNotExist:
+            return JsonResponse({'error': 'Utilisateur introuvable'}, status=404)
+        AdminMessage.objects.create(receiver=receiver, content=_personalize(content, receiver))
+        return JsonResponse({'ok': True})
+
+
+@_require_admin
+def api_admin_users(request):
+    """Paginated user list with search."""
+    search = request.GET.get('q', '').strip()
+    page = int(request.GET.get('page', 1))
+    per_page = 30
+    offset = (page - 1) * per_page
+
+    from accounts.models import Agent as _AgentSearch
+    _agent_ids_s = _AgentSearch.objects.values_list('user_id', flat=True)
+    qs = User.objects.filter(is_superuser=False).exclude(id__in=_agent_ids_s).select_related('profile').order_by('-date_joined')
+
+    if search:
+        qs = qs.filter(
+            Q(username__icontains=search) |
+            Q(first_name__icontains=search) |
+            Q(last_name__icontains=search) |
+            Q(email__icontains=search) |
+            Q(profile__phone__icontains=search)
+        )
+
+    total = qs.count()
+    users = qs[offset:offset + per_page]
+
+    results = []
+    for u in users:
+        p = getattr(u, 'profile', None)
+        results.append({
+            'id': u.id,
+            'username': u.username,
+            'name': f"{u.first_name} {u.last_name}".strip() or u.username,
+            'email': u.email,
+            'phone': p.phone if p else '',
+            'school': p.school if p else '',
+            'serie': p.serie if p else '',
+            'is_premium': p.is_premium if p else False,
+            'expiration': p.plan_expiration.strftime('%d/%m/%Y') if p and p.plan_expiration else None,
+            'joined': _local_time(u.date_joined).strftime('%d/%m/%Y %H:%M'),
+            'last_active': _local_time(p.last_activity).strftime('%d/%m/%Y') if p and p.last_activity else None,
+        })
+
+    return JsonResponse({
+        'users': results,
+        'total': total,
+        'page': page,
+        'pages': (total + per_page - 1) // per_page,
+    })
+
+
+@_require_admin
+def api_admin_stats_chart(request):
+    """Return chart data for different periods."""
+    period = request.GET.get('period', '30')  # 7, 30, 90, 365
+    try:
+        days = int(period)
+    except ValueError:
+        days = 30
+
+    today = date.today()
+    start = today - timedelta(days=days)
+    completed = Payment.objects.filter(status='completed', paid_at__date__gte=start)
+
+    rev = list(
+        completed
+        .annotate(day=TruncDate('paid_at'))
+        .values('day')
+        .annotate(total=Sum('amount'))
+        .order_by('day')
+    )
+
+    signups = list(
+        User.objects.filter(date_joined__date__gte=start, is_superuser=False)
+        .annotate(day=TruncDate('date_joined'))
+        .values('day')
+        .annotate(count=Count('id'))
+        .order_by('day')
+    )
+
+    return JsonResponse({
+        'revenue': {
+            'labels': [r['day'].strftime('%d/%m') for r in rev],
+            'data': [r['total'] for r in rev],
+        },
+        'signups': {
+            'labels': [s['day'].strftime('%d/%m') for s in signups],
+            'data': [s['count'] for s in signups],
+        },
+    })
+
+
+@_require_admin
+def admin_logout_view(request):
+    """Logout from admin panel only."""
+    request.session.pop('_otb_admin_ok', None)
+    return redirect('admin_panel_login')
+
+
+# ─────────────── GESTION ABONNEMENTS ───────────────
+
+@_require_admin
+def api_admin_subscription(request):
+    """Activer, prolonger ou annuler l'abonnement d'un élève manuellement."""
+    if request.method != 'POST':
+        return JsonResponse({'error': 'POST only'}, status=405)
+
+    try:
+        data = json.loads(request.body)
+    except (json.JSONDecodeError, ValueError):
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    action  = data.get('action')   # 'activate_monthly' | 'activate_annual' | 'cancel'
+    user_id = data.get('user_id')
+
+    if action not in ('activate_monthly', 'activate_annual', 'cancel'):
+        return JsonResponse({'error': 'Action invalide'}, status=400)
+
+    try:
+        user = User.objects.get(pk=user_id)
+    except User.DoesNotExist:
+        return JsonResponse({'error': 'Utilisateur introuvable'}, status=404)
+
+    from accounts.payments import _activate_subscription_and_pay_commission, PLANS
+    from accounts.models import UserProfile as _UP
+
+    profile, _ = _UP.objects.get_or_create(user=user)
+
+    if action == 'cancel':
+        profile.plan_expiration = None
+        profile.save(update_fields=['plan_expiration'])
+        return JsonResponse({'ok': True, 'message': f'Abonnement annulé pour {user.username}', 'is_premium': False, 'expiration': None})
+
+    days = PLANS['monthly']['days'] if action == 'activate_monthly' else PLANS['annual']['days']
+    _activate_subscription_and_pay_commission(user, days)
+    profile.refresh_from_db()
+
+    return JsonResponse({
+        'ok': True,
+        'message': f'Abonnement activé jusqu\'au {profile.plan_expiration.strftime("%d/%m/%Y")}',
+        'is_premium': True,
+        'expiration': profile.plan_expiration.strftime('%d/%m/%Y'),
+    })
+
+
+@_require_admin
+def api_admin_user_detail(request):
+    """Retourne les détails complets d'un utilisateur."""
+    user_id = request.GET.get('id')
+    try:
+        user = User.objects.select_related('profile', 'stats').get(pk=user_id)
+    except User.DoesNotExist:
+        return JsonResponse({'error': 'Introuvable'}, status=404)
+
+    p = getattr(user, 'profile', None)
+    s = getattr(user, 'stats', None)
+
+    from accounts.models import AgentReferral as _AR
+    referral = _AR.objects.filter(referred_user=user).select_related('agent__user').first()
+
+    payments_qs = user.payments.filter(status='completed').order_by('-paid_at')[:10]
+    payments = [{'plan': py.plan, 'amount': py.amount, 'date': _local_time(py.paid_at).strftime('%d/%m/%Y %H:%M') if py.paid_at else '-'} for py in payments_qs]
+
+    xp = 0
+    if s:
+        xp = s.quiz_completes * 20 + s.exercices_resolus * 50 + s.messages_envoyes * 5 + getattr(s, 'minutes_etude', 0) // 10
+
+    return JsonResponse({
+        'id': user.id,
+        'username': user.username,
+        'name': f"{user.first_name} {user.last_name}".strip() or user.username,
+        'email': user.email,
+        'phone': p.phone if p else '',
+        'school': p.school if p else '',
+        'serie': p.serie if p else '',
+        'level': p.level if p else '',
+        'is_premium': p.is_premium if p else False,
+        'expiration': p.plan_expiration.strftime('%d/%m/%Y') if p and p.plan_expiration else None,
+        'streak': p.streak if p else 0,
+        'joined': _local_time(user.date_joined).strftime('%d/%m/%Y'),
+        'last_active': _local_time(p.last_activity).strftime('%d/%m/%Y') if p and p.last_activity else None,
+        'xp': xp,
+        'quiz_completes': s.quiz_completes if s else 0,
+        'exercices_resolus': s.exercices_resolus if s else 0,
+        'messages_envoyes': s.messages_envoyes if s else 0,
+        'minutes_etude': s.minutes_etude if s else 0,
+        'referred_by': referral.agent.user.username if referral else None,
+        'commission_paid': referral.paid if referral else None,
+        'payments': payments,
+    })
+
+
+@_require_admin
+def api_admin_users_by_type(request):
+    """Retourne la liste complète des utilisateurs filtrée par type pour l'affichage des fenêtres modales."""
+    filter_type = request.GET.get('type', 'registered') # 'registered', 'premium', 'active'
+    today = date.today()
+    now = timezone.now()
+
+    from accounts.models import Agent as _AgentFilter
+    _agent_ids = _AgentFilter.objects.values_list('user_id', flat=True)
+    qs = User.objects.filter(is_superuser=False).exclude(id__in=_agent_ids).select_related('profile').order_by('-date_joined')
+
+    if filter_type == 'premium':
+        qs = qs.filter(profile__plan_expiration__gte=today)
+    elif filter_type == 'active':
+        # Actifs ces 15 dernières minutes (visite récente) ou dernière activité récente
+        qs = qs.filter(profile__last_activity__gte=now - timedelta(minutes=15))
+
+    users = qs[:200]  # Limite raisonnable pour la modale
+
+    results = []
+    for u in users:
+        p = getattr(u, 'profile', None)
+        results.append({
+            'id': u.id,
+            'username': u.username,
+            'name': f"{u.first_name} {u.last_name}".strip() or u.username,
+            'email': u.email,
+            'phone': p.phone if p else '',
+            'school': p.school if p else 'OU TOU BON',
+            'serie': p.serie if p else '',
+            'is_premium': p.is_premium if p else False,
+            'joined': _local_time(u.date_joined).strftime('%d/%m/%Y'),
+            'last_active': _local_time(p.last_activity).strftime('%d/%m/%Y %H:%M') if p and p.last_activity else None,
+        })
+
+    return JsonResponse({
+        'users': results,
+        'total': qs.count(),
+        'type': filter_type,
+    })
+

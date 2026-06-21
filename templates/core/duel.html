@@ -1,0 +1,509 @@
+{% extends "base.html" %}
+{% block title %}Duel Quiz · OU TOU BON{% endblock %}
+{% block extra_css %}
+<style>
+
+.duel-wrap   { max-width: 780px; margin: 0 auto; padding: 1.5rem; }
+.duel-center { text-align: center; }
+
+.duel-mat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .65rem; margin-top: 1.25rem; }
+.duel-tile { background: var(--card); border: 1.5px solid var(--border2); border-radius: 14px; padding: .85rem .5rem; cursor: pointer; transition: all .18s; display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.duel-tile:hover { border-color: var(--color, var(--green)); transform: translateY(-2px); }
+.duel-tile-icon { font-size: 1.5rem; }
+.duel-tile-label { font-size: .8rem; font-weight: 700; color: var(--t1); }
+
+.duel-tabs { display: flex; gap: .5rem; background: var(--card); border: 1px solid var(--border2); border-radius: 12px; padding: .3rem; margin-bottom: 1.25rem; }
+.duel-tab  { flex: 1; padding: .55rem; border-radius: 9px; border: none; background: transparent; color: var(--t2); font-size: .875rem; font-weight: 700; cursor: pointer; transition: all .18s; }
+.duel-tab.active { background: var(--green); color: #fff; }
+
+.duel-code-box { background: var(--card); border: 2px dashed var(--green); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
+.duel-code-big { font-size: 2.8rem; font-weight: 900; letter-spacing: .25em; color: var(--green); font-family: 'Courier New', monospace; }
+.duel-copy-btn { background: rgba(16,185,129,.15); color: var(--green); border: 1px solid rgba(16,185,129,.3); border-radius: 8px; padding: .4rem 1rem; font-size: .82rem; font-weight: 700; cursor: pointer; transition: all .15s; margin-top: .5rem; }
+.duel-copy-btn:hover { background: rgba(16,185,129,.25); }
+
+.duel-code-input { width: 100%; padding: .85rem 1rem; background: var(--card); border: 1.5px solid var(--border2); border-radius: 12px; color: var(--t1); font-size: 1.5rem; font-weight: 800; text-align: center; letter-spacing: .18em; text-transform: uppercase; outline: none; transition: border-color .2s; font-family: 'Courier New', monospace; }
+.duel-code-input:focus { border-color: var(--green); }
+
+.duel-scoreboard { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .75rem; background: var(--card); border: 1px solid var(--border2); border-radius: 16px; padding: .85rem 1.25rem; margin-bottom: 1.25rem; }
+.duel-player     { display: flex; flex-direction: column; align-items: center; gap: .2rem; }
+.duel-avatar     { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--blue2)); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; color: #fff; }
+.duel-player-name { font-size: .75rem; font-weight: 700; color: var(--t2); max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.duel-score-num  { font-size: 1.6rem; font-weight: 900; color: var(--green); }
+.duel-vs         { font-size: 1.1rem; font-weight: 900; color: var(--t3); }
+.duel-opp-score  { color: var(--blue2); }
+
+.duel-q-progress { margin-bottom: 1rem; }
+.duel-q-track    { height: 5px; background: var(--border2); border-radius: 99px; }
+.duel-q-fill     { height: 5px; background: var(--green); border-radius: 99px; transition: width .4s; }
+.duel-timer      { font-size: .9rem; font-weight: 700; color: var(--green); transition: color .3s; }
+.duel-timer.warn { color: #f97316; }
+.duel-timer.danger { color: #ef4444; }
+
+.duel-card       { background: var(--card); border: 1px solid var(--border2); border-radius: 16px; padding: 1.5rem; }
+.duel-question   { font-size: 1.05rem; font-weight: 600; line-height: 1.55; margin-bottom: 1.25rem; color: var(--t1); }
+.duel-options    { display: flex; flex-direction: column; gap: .6rem; }
+.duel-opt-btn    { background: var(--card2); border: 1.5px solid var(--border2); border-radius: 12px; padding: .8rem 1rem; text-align: left; font-size: .9rem; cursor: pointer; transition: all .18s; color: var(--t1); display: flex; align-items: center; gap: .65rem; }
+.duel-opt-btn:hover:not(:disabled) { border-color: var(--green); background: rgba(16,185,129,.08); }
+.duel-opt-btn.correct  { background: rgba(16,185,129,.15); border-color: var(--green); color: var(--green); }
+.duel-opt-btn.wrong    { background: rgba(239,68,68,.12); border-color: #ef4444; color: #fca5a5; }
+.duel-opt-letter { font-weight: 800; font-size: .8rem; background: var(--border2); border-radius: 6px; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.duel-feedback   { background: var(--card); border: 1px solid var(--border2); border-radius: 12px; padding: .85rem 1rem; font-size: .87rem; margin-top: .85rem; line-height: 1.5; }
+
+.duel-result-wrap { background: var(--card); border: 1px solid var(--border2); border-radius: 20px; padding: 2rem 1.5rem; text-align: center; }
+.duel-result-emoji { font-size: 3.5rem; margin-bottom: .5rem; }
+.duel-result-title { font-size: 1.6rem; font-weight: 900; margin-bottom: .4rem; }
+.duel-result-sub   { color: var(--t2); font-size: .9rem; }
+.duel-scores-bar   { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+.duel-scores-side  { background: var(--card2); border: 1px solid var(--border2); border-radius: 14px; padding: 1.25rem; }
+.duel-scores-side.winner { border-color: var(--green); background: rgba(16,185,129,.07); }
+.duel-scores-side .score { font-size: 2.2rem; font-weight: 900; }
+.duel-scores-side.winner .score { color: var(--green); }
+.duel-scores-side .label { font-size: .78rem; color: var(--t3); font-weight: 700; margin-top: .25rem; }
+
+.btn-duel-primary { background: var(--green); color: #fff; border: none; border-radius: 12px; padding: .75rem 1.5rem; font-size: .925rem; font-weight: 700; cursor: pointer; transition: opacity .15s; display: inline-flex; align-items: center; gap: .5rem; }
+.btn-duel-primary:hover { opacity: .88; }
+.btn-duel-primary:disabled { opacity: .45; cursor: not-allowed; }
+.btn-duel-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); border-radius: 12px; padding: .75rem 1.5rem; font-size: .925rem; font-weight: 700; cursor: pointer; transition: all .15s; }
+.btn-duel-outline:hover { background: rgba(16,185,129,.1); }
+
+.duel-waiting { padding: 2.5rem 1rem; }
+.duel-pulse   { width: 60px; height: 60px; border-radius: 50%; background: rgba(16,185,129,.15); border: 3px solid var(--green); margin: 0 auto 1rem; animation: duel-ping 1.2s ease-in-out infinite; }
+@keyframes duel-ping { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.18);opacity:.6} }
+
+.duel-error { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; border-radius: 10px; padding: .7rem 1rem; font-size: .85rem; margin-top: .6rem; display: none; }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="duel" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title"><i class="fas fa-swords" style="color:var(--green);margin-right:.5rem;"></i>Duel Quiz</div>
+    </div>
+    <div class="view-area" style="overflow-y:auto;">
+      <div class="duel-wrap">
+
+        
+        <div id="phaseHome">
+          <div class="duel-tabs">
+            <button class="duel-tab active" id="tabCreate" onclick="switchTab('create')">
+              <i class="fas fa-plus-circle"></i> Créer un duel
+            </button>
+            <button class="duel-tab" id="tabJoin" onclick="switchTab('join')">
+              <i class="fas fa-sign-in-alt"></i> Rejoindre
+            </button>
+          </div>
+
+          
+          <div id="panelCreate">
+            <div style="font-weight:700;font-size:1rem;margin-bottom:.3rem;">Choisis une matière</div>
+            <div style="color:var(--t2);font-size:.85rem;margin-bottom:.9rem;">Tu recevras un code à partager avec ton ami</div>
+            <div class="duel-mat-grid">
+              {% for key, mat in mats.items %}
+              <button class="duel-tile" onclick="selectSubject('{{ key }}')" style="--color:{{ mat.color }}" id="tile_{{ key }}">
+                <div class="duel-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
+                <div class="duel-tile-label">{{ mat.label }}</div>
+              </button>
+              {% endfor %}
+            </div>
+            <div id="createError" class="duel-error"></div>
+            <div id="createLoading" style="display:none;text-align:center;margin-top:1.5rem;">
+              <div class="duel-pulse"></div>
+              <div style="color:var(--t2);font-size:.88rem;">Génération des questions…</div>
+            </div>
+          </div>
+
+          
+          <div id="panelJoin" style="display:none;">
+            <div style="font-weight:700;font-size:1rem;margin-bottom:.3rem;">Entrer le code d'invitation</div>
+            <div style="color:var(--t2);font-size:.85rem;margin-bottom:.9rem;">Demande le code à ton ami qui a créé le duel</div>
+            <input type="text" class="duel-code-input" id="joinCodeInput"
+              maxlength="6" placeholder="ABC123"
+              oninput="this.value=this.value.toUpperCase().replace(/[^A-F0-9]/g,'')">
+            <div id="joinError" class="duel-error"></div>
+            <div style="margin-top:1rem;text-align:center;">
+              <button class="btn-duel-primary" onclick="joinDuel()">
+                <i class="fas fa-play"></i> Rejoindre le duel
+              </button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="phaseWaiting" style="display:none;">
+          <div class="duel-center duel-waiting">
+            <div style="font-size:1.5rem;margin-bottom:.4rem;font-weight:800;">Duel créé !</div>
+            <div style="color:var(--t2);font-size:.88rem;margin-bottom:1.5rem;">Partage ce code avec ton ami :</div>
+            <div class="duel-code-box">
+              <div class="duel-code-big" id="displayCode">——</div>
+              <div style="margin-top:.5rem;">
+                <button class="duel-copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copier</button>
+              </div>
+            </div>
+            <div class="duel-pulse"></div>
+            <div style="font-weight:700;margin-bottom:.3rem;">En attente de ton adversaire…</div>
+            <div style="color:var(--t2);font-size:.82rem;" id="waitExpiry"></div>
+            <div style="margin-top:1.5rem;">
+              <button class="btn-duel-outline" onclick="cancelDuel()"><i class="fas fa-times"></i> Annuler</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="phaseQuiz" style="display:none;">
+          
+          <div class="duel-scoreboard">
+            <div class="duel-player">
+              <div class="duel-avatar" id="myAvatar">?</div>
+              <div class="duel-player-name" id="myName">Moi</div>
+              <div class="duel-score-num" id="myLiveScore">0</div>
+            </div>
+            <div class="duel-vs">VS</div>
+            <div class="duel-player">
+              <div class="duel-avatar" style="background:linear-gradient(135deg,#f97316,#ef4444)" id="oppAvatar">?</div>
+              <div class="duel-player-name" id="oppName">Adversaire…</div>
+              <div class="duel-score-num duel-opp-score" id="oppLiveScore">—</div>
+            </div>
+          </div>
+
+          
+          <div class="duel-q-progress">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem;">
+              <span style="font-size:.82rem;color:var(--t2);">Question <span id="qNum">1</span> / <span id="qTotal">10</span></span>
+              <span class="duel-timer" id="qTimer"><i class="fas fa-clock"></i> <span id="qTimerVal">15</span>s</span>
+            </div>
+            <div class="duel-q-track"><div class="duel-q-fill" id="qProgFill" style="width:0%"></div></div>
+          </div>
+
+          
+          <div class="duel-card">
+            <div class="duel-question" id="qText"></div>
+            <div class="duel-options" id="qOptions"></div>
+            <div class="duel-feedback" id="qFeedback" style="display:none;"></div>
+          </div>
+
+          <div style="text-align:center;margin-top:1rem;">
+            <button class="btn-duel-primary" id="nextBtn" onclick="nextQuestion()" style="display:none;">
+              Suivant <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        
+        <div id="phaseFinishing" style="display:none;">
+          <div class="duel-center duel-waiting">
+            <div class="duel-pulse"></div>
+            <div style="font-weight:700;font-size:1.1rem;margin-bottom:.4rem;">En attente de ton adversaire…</div>
+            <div style="color:var(--t2);font-size:.85rem;">Il répond encore aux dernières questions</div>
+          </div>
+        </div>
+
+        
+        <div id="phaseResults" style="display:none;">
+          <div class="duel-result-wrap">
+            <div class="duel-result-emoji" id="resultEmoji">🏆</div>
+            <div class="duel-result-title" id="resultTitle">Résultats</div>
+            <div class="duel-result-sub" id="resultSub"></div>
+            <div class="duel-scores-bar">
+              <div class="duel-scores-side" id="myResultSide">
+                <div class="duel-avatar" style="margin: 0 auto .5rem" id="myResultAvatar">?</div>
+                <div class="label" id="myResultName">Moi</div>
+                <div class="score" id="myResultScore">0</div>
+                <div class="label">points</div>
+              </div>
+              <div class="duel-scores-side" id="oppResultSide">
+                <div class="duel-avatar" style="margin: 0 auto .5rem;background:linear-gradient(135deg,#f97316,#ef4444)" id="oppResultAvatar">?</div>
+                <div class="label" id="oppResultName">Adversaire</div>
+                <div class="score" id="oppResultScore">0</div>
+                <div class="label">points</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem;">
+              <button class="btn-duel-primary" onclick="location.reload()"><i class="fas fa-redo"></i> Nouveau duel</button>
+              <button class="btn-duel-outline" onclick="location.href='{% url "quiz" %}'"><i class="fas fa-bolt"></i> Quiz solo</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ME = "{{ request.user.get_full_name|default:request.user.username }}";
+let duelCode    = null;
+let duelSubject = null;
+let questions   = [];
+let answers     = [];
+let myScore     = 0;
+let currentTab  = 'create';
+let currentQ    = 0;
+let timerInterval = null;
+let pollInterval  = null;
+let myFinished  = false;
+
+function getCookie(name) {
+  let v = null;
+  document.cookie.split(';').forEach(c => {
+    const [k, val] = c.trim().split('=');
+    if (k === name) v = decodeURIComponent(val);
+  });
+  return v;
+}
+const CSRF = getCookie('csrftoken');
+
+async function post(url, data) {
+  const r = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+    body: JSON.stringify(data),
+  });
+  return r.json().then(d => ({ ok: r.ok, status: r.status, data: d }));
+}
+async function get(url) {
+  const r = await fetch(url);
+  return r.json().then(d => ({ ok: r.ok, data: d }));
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById('tabCreate').classList.toggle('active', tab === 'create');
+  document.getElementById('tabJoin').classList.toggle('active', tab === 'join');
+  document.getElementById('panelCreate').style.display = tab === 'create' ? '' : 'none';
+  document.getElementById('panelJoin').style.display   = tab === 'join'   ? '' : 'none';
+}
+
+function showPhase(name) {
+  ['Home','Waiting','Quiz','Finishing','Results'].forEach(p =>
+    document.getElementById('phase'+p).style.display = p === name ? '' : 'none'
+  );
+}
+
+async function selectSubject(subject) {
+  document.querySelectorAll('.duel-tile').forEach(t => t.style.border = '');
+  document.getElementById('tile_' + subject).style.border = '2px solid var(--green)';
+  document.getElementById('createError').style.display = 'none';
+  document.getElementById('createLoading').style.display = '';
+  duelSubject = subject;
+
+  const res = await post('/api/duel/create/', { subject, count: 10 });
+  document.getElementById('createLoading').style.display = 'none';
+  if (!res.ok) {
+    showError('createError', res.data.error || 'Erreur lors de la création');
+    document.getElementById('tile_' + subject).style.border = '';
+    return;
+  }
+  duelCode = res.data.code;
+  document.getElementById('displayCode').textContent = duelCode;
+  const expMin = Math.round((res.data.expires_in || 900) / 60);
+  document.getElementById('waitExpiry').textContent = `Expire dans ${expMin} minutes`;
+  showPhase('Waiting');
+  startPolling();
+}
+
+function copyCode() {
+  navigator.clipboard.writeText(duelCode).then(() => {
+    const btn = document.querySelector('.duel-copy-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copié !';
+    setTimeout(() => btn.innerHTML = '<i class="fas fa-copy"></i> Copier', 1800);
+  });
+}
+
+function cancelDuel() {
+  stopPolling();
+  duelCode = null;
+  showPhase('Home');
+}
+
+async function joinDuel() {
+  const code = document.getElementById('joinCodeInput').value.trim().toUpperCase();
+  document.getElementById('joinError').style.display = 'none';
+  if (code.length !== 6) { showError('joinError', 'Le code doit faire 6 caractères'); return; }
+
+  const res = await post('/api/duel/join/', { code });
+  if (!res.ok) {
+    showError('joinError', res.data.error || 'Erreur');
+    return;
+  }
+  duelCode    = res.data.code;
+  duelSubject = res.data.subject;
+  document.getElementById('oppName').textContent     = res.data.creator || 'Adversaire';
+  document.getElementById('oppResultName').textContent = res.data.creator || 'Adversaire';
+  document.getElementById('oppAvatar').textContent   = (res.data.creator || '?')[0].toUpperCase();
+  document.getElementById('oppResultAvatar').textContent = (res.data.creator || '?')[0].toUpperCase();
+  pollState();
+}
+
+function startPolling() { pollInterval = setInterval(pollState, 2500); }
+function stopPolling()  { clearInterval(pollInterval); pollInterval = null; }
+
+async function pollState() {
+  if (!duelCode) return;
+  const res = await get(`/api/duel/state/?code=${duelCode}`);
+  if (!res.ok) return;
+  const d = res.data;
+
+  document.getElementById('myLiveScore').textContent  = d.my_score ?? 0;
+  document.getElementById('oppLiveScore').textContent = d.opp_finished || d.status === 'finished' ? (d.opp_score ?? 0) : '…';
+
+  if (d.opponent_name) {
+    document.getElementById('oppName').textContent     = d.opponent_name;
+    document.getElementById('oppResultName').textContent = d.opponent_name;
+    document.getElementById('oppAvatar').textContent   = d.opponent_name[0].toUpperCase();
+    document.getElementById('oppResultAvatar').textContent = d.opponent_name[0].toUpperCase();
+  }
+
+  if (d.status === 'active' && questions.length === 0 && d.questions && d.questions.length > 0) {
+    stopPolling();
+    questions = d.questions;
+    startQuiz();
+    return;
+  }
+
+  if (d.status === 'active' && questions.length > 0 && myFinished) {
+    if (d.opp_finished || d.status === 'finished') {
+      stopPolling();
+      showResults(d.my_score, d.opp_score, d.opponent_name);
+    }
+    return;
+  }
+
+  if (d.status === 'finished') {
+    stopPolling();
+    showResults(d.my_score, d.opp_score, d.opponent_name);
+    return;
+  }
+
+  if (d.status === 'expired') {
+    stopPolling();
+    alert('Ce duel a expiré. Crée-en un nouveau !');
+    showPhase('Home');
+  }
+}
+
+function startQuiz() {
+  currentQ = 0;
+  myScore  = 0;
+  answers  = [];
+  document.getElementById('myName').textContent       = ME;
+  document.getElementById('myResultName').textContent = ME;
+  document.getElementById('myAvatar').textContent     = ME[0].toUpperCase();
+  document.getElementById('myResultAvatar').textContent = ME[0].toUpperCase();
+  document.getElementById('qTotal').textContent = questions.length;
+  showPhase('Quiz');
+  showQuestion();
+  startPolling();
+}
+
+function showQuestion() {
+  if (currentQ >= questions.length) { finishQuiz(); return; }
+  const q = questions[currentQ];
+  document.getElementById('qNum').textContent = currentQ + 1;
+  document.getElementById('qProgFill').style.width = ((currentQ / questions.length) * 100) + '%';
+  document.getElementById('qText').innerHTML = renderMathText(q.enonce);
+  const opts = q.options || [];
+  const labels = ['A', 'B', 'C', 'D'];
+  document.getElementById('qOptions').innerHTML = opts.map((o, i) =>
+    `<button class="duel-opt-btn" id="opt${i}" onclick="answerQuestion(${i})">
+       <span class="duel-opt-letter">${labels[i]}</span> ${renderMathText(o)}
+     </button>`
+  ).join('');
+  document.getElementById('qFeedback').style.display = 'none';
+  document.getElementById('nextBtn').style.display   = 'none';
+  startTimer(15);
+}
+
+function renderMathText(text) {
+  if (!text) return '';
+  return text.replace(/\$([^$]+)\$/g, '<i>$1</i>');
+}
+
+let timerVal = 15;
+function startTimer(seconds) {
+  clearInterval(timerInterval);
+  timerVal = seconds;
+  updateTimerUI();
+  timerInterval = setInterval(() => {
+    timerVal--;
+    updateTimerUI();
+    if (timerVal <= 0) {
+      clearInterval(timerInterval);
+      answerQuestion(-1);
+    }
+  }, 1000);
+}
+function updateTimerUI() {
+  const el = document.getElementById('qTimer');
+  document.getElementById('qTimerVal').textContent = timerVal;
+  el.className = 'duel-timer' + (timerVal <= 5 ? ' danger' : timerVal <= 9 ? ' warn' : '');
+}
+
+function answerQuestion(chosenIdx) {
+  clearInterval(timerInterval);
+  const q       = questions[currentQ];
+  const correct = q.reponse_correcte;
+  const isOk    = chosenIdx === correct;
+  if (isOk) myScore++;
+  answers.push({ q_idx: currentQ, chosen: chosenIdx, correct: isOk });
+  document.getElementById('myLiveScore').textContent = myScore;
+
+  document.querySelectorAll('.duel-opt-btn').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correct)    btn.classList.add('correct');
+    if (i === chosenIdx && !isOk) btn.classList.add('wrong');
+  });
+
+  const fb = document.getElementById('qFeedback');
+  fb.style.display = '';
+  if (chosenIdx === -1) {
+    fb.innerHTML = `<span style="color:#f59e0b">? Temps écoulé !</span>${q.explication ? ' — ' + q.explication : ''}`;
+  } else {
+    fb.innerHTML = isOk
+      ? `<span style="color:var(--green)">? Correct !</span>${q.explication ? ' — ' + q.explication : ''}`
+      : `<span style="color:#ef4444">? Mauvaise réponse.</span>${q.explication ? ' — ' + q.explication : ''}`;
+  }
+  document.getElementById('nextBtn').style.display = '';
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= questions.length) { finishQuiz(); return; }
+  showQuestion();
+}
+
+async function finishQuiz() {
+  myFinished = true;
+  showPhase('Finishing');
+  await post('/api/duel/finish/', { code: duelCode, answers, score: myScore });
+  startPolling();
+}
+
+function showResults(myS, oppS, oppLabel) {
+  const total = questions.length;
+  document.getElementById('myResultScore').textContent  = myS;
+  document.getElementById('oppResultScore').textContent = oppS;
+
+  let emoji, title, sub;
+  if (myS > oppS)       { emoji = '🏆'; title = 'Tu as gagné !';   sub = `${myS}/${total} contre ${oppS}/${total}`; }
+  else if (myS < oppS)  { emoji = '😢'; title = 'Tu as perdu…';    sub = `${myS}/${total} contre ${oppS}/${total}`; }
+  else                  { emoji = '🤝'; title = 'Égalité !';        sub = `${myS}/${total} chacun — beau match !`; }
+
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultSub').textContent   = sub;
+
+  document.getElementById('myResultSide').classList.toggle('winner',  myS >= oppS && myS > 0);
+  document.getElementById('oppResultSide').classList.toggle('winner', oppS > myS);
+  showPhase('Results');
+}
+
+function showError(id, msg) {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.style.display = '';
+}
+</script>
+{% endblock %}
+

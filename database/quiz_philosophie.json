@@ -1,0 +1,3007 @@
+{
+  "matiere": "philosophie",
+  "total": 200,
+  "description": "Quiz Philosophie — BAC Haïti",
+  "quiz": [
+    {
+      "id": "P1",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Descartes, le point de départ indubitable de la connaissance est :",
+      "correct": "D",
+      "explanation": "Selon Descartes, le point de départ indubitable de la connaissance est le doute méthodique et le « Cogito ergo sum ». Cela signifie que Descartes met en doute tout ce qui peut être douté, jusqu'aux vérités mathématiques, pour trouver un fondement solide pour la connaissance. L'expérience et la sensation sont des sources de connaissance incertaines, car nos sens peuvent nous tromper. La révélation divine n'est pas considérée comme un point de départ indubitable par Descartes, qui cherche une certitude rationnelle.",
+      "options": [
+        "L’expérience",
+        "La révélation divine",
+        "La sensation",
+        "Le doute méthodique et le « Cogito ergo sum »"
+      ]
+    },
+    {
+      "id": "P2",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le courant philosophique qui affirme que toute connaissance vient de l’expérience sensible est :",
+      "correct": "B",
+      "explanation": "Le courant philosophique qui affirme que toute connaissance vient de l'expérience sensible est l’empirisme. Cela signifie que les empiristes, comme John Locke, pensent que nos connaissances viennent de nos expériences et de nos observations du monde sensible. L'idéalisme soutient que la réalité est fondamentalement mentale ou spirituelle. Le rationalisme affirme que la raison est la source première de la connaissance. Le scepticisme met en doute la possibilité de toute connaissance certaine.",
+      "options": [
+        "L’idéalisme",
+        "L’empirisme",
+        "Le rationalisme",
+        "Le scepticisme"
+      ]
+    },
+    {
+      "id": "P3",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Platon, la véritable connaissance (épistémè) porte sur :",
+      "correct": "B",
+      "explanation": "Pour Platon, la véritable connaissance (épistémè) porte sur le monde intelligible (Idées). Selon Platon, les Idées sont des entités abstraites et parfaites qui constituent la réalité fondamentale. Les opinions et les apparences sont des formes de connaissance inférieure, appelées doxa. Le monde sensible est considéré comme une copie imparfaite du monde des Idées.",
+      "options": [
+        "Les opinions",
+        "Le monde intelligible (Idées)",
+        "Le monde sensible",
+        "Les apparences"
+      ]
+    },
+    {
+      "id": "P4",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « cogito ergo sum » signifie :",
+      "correct": "A",
+      "explanation": "Le « cogito ergo sum » signifie « Je pense donc je suis ». Cette phrase de Descartes exprime la découverte de la certitude de son propre existence, car il est impossible de douter de sa propre existence lorsqu'on pense. Les autres options sont incorrectes : « Dieu existe donc je pense » n'est pas une formulation cartésienne ; « Je sens donc j’existe » est une formulation sensualiste ; « Je doute donc tout est faux » est une formulation sceptique.",
+      "options": [
+        "Je pense donc je suis",
+        "Dieu existe donc je pense",
+        "Je sens donc j’existe",
+        "Je doute donc tout est faux"
+      ]
+    },
+    {
+      "id": "P5",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Kant, la connaissance résulte de :",
+      "correct": "D",
+      "explanation": "Selon Kant, la connaissance résulte de la synthèse entre la sensibilité et l’entendement. Dans sa Critique de la raison pure, Kant soutient que la connaissance humaine vient de l'interaction entre les données de la sensibilité et les catégories de l'entendement. Une connaissance qui vient uniquement de la raison ou uniquement de l’expérience est incomplète. L'intuition intellectuelle est un concept qui n'est pas central dans la philosophie de Kant.",
+      "options": [
+        "Uniquement de la raison",
+        "Uniquement de l’expérience",
+        "L’intuition intellectuelle",
+        "La synthèse entre la sensibilité et l’entendement"
+      ]
+    },
+    {
+      "id": "P6",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le doute cartésien est dit hyperbolique car il :",
+      "correct": "D",
+      "explanation": "Le doute cartésien est dit hyperbolique car il met en doute tout ce qui peut l’être, jusqu’aux vérités mathématiques. Cela signifie que Descartes pousse le doute à son extrême, en doutant même des vérités les plus certaines, comme les mathématiques. Les autres options sont incorrectes : le doute cartésien n'est pas limité aux questions religieuses ; il ne concerne pas seulement les sens ; et il n'est pas modéré.",
+      "options": [
+        "Est religieux",
+        "Ne concerne que les sens",
+        "Est modéré",
+        "Met en doute tout ce qui peut l’être, jusqu’aux vérités mathématiques"
+      ]
+    },
+    {
+      "id": "P7",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’intuition, en philosophie, est souvent définie comme :",
+      "correct": "B",
+      "explanation": "L'intuition, en philosophie, est souvent définie comme une connaissance immédiate et évidente. Cela signifie que l'intuition est considérée comme une forme de connaissance qui ne passe pas par la raison ou le discours, mais qui est immédiatement donnée. Les autres options sont incorrectes : une connaissance discursive passe par la raison et le discours ; un raisonnement logique est une forme de connaissance qui passe par la déduction ; une expérience sensorielle est une forme de connaissance qui passe par les sens.",
+      "options": [
+        "Une connaissance discursive",
+        "Une connaissance immédiate et évidente",
+        "Un raisonnement logique",
+        "Une expérience sensorielle"
+      ]
+    },
+    {
+      "id": "P8",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour un rationaliste, la source première de la connaissance est :",
+      "correct": "A",
+      "explanation": "Pour un rationaliste, la source première de la connaissance est la raison. Cela signifie que les rationalistes pensent que la raison est la faculté qui nous permet d'accéder à la connaissance certaine. Les autres options sont incorrectes : l'imagination n'est pas considérée comme une source de connaissance certaine ; la tradition et les sens sont des sources de connaissance incertaines.",
+      "options": [
+        "La raison",
+        "L’imagination",
+        "La tradition",
+        "Les sens"
+      ]
+    },
+    {
+      "id": "P9",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le critère de vérité chez Descartes est :",
+      "correct": "D",
+      "explanation": "Le critère de vérité chez Descartes est l'évidence claire et distincte. Cela signifie que pour lui, une connaissance est vraie si elle est évidente et ne peut être mise en doute. Cette approche se base sur l'idée que la vérité doit être accessible à l'esprit de manière claire et distincte, sans ambiguïté ni confusion. Les autres options sont incorrectes car la conformité aux faits relève de la théorie de la correspondance, l'utilité est un critère pragmatique et le consensus est un critère relativiste.",
+      "options": [
+        "La conformité aux faits",
+        "L’utilité",
+        "Le consensus",
+        "L’évidence claire et distincte"
+      ]
+    },
+    {
+      "id": "P10",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La méthode scientifique, selon Karl Popper, repose sur :",
+      "correct": "D",
+      "explanation": "La méthode scientifique, selon Karl Popper, repose sur la falsifiabilité. Cela signifie que pour lui, une théorie scientifique doit être capable d'être testée et potentiellement réfutée par des observations ou des expériences. Cette approche met l'accent sur la capacité d'une théorie à être falsifiée plutôt que sur sa vérification. Les autres options sont incorrectes car la vérification est une approche qui cherche à confirmer une théorie, l'induction est une méthode qui consiste à généraliser à partir de cas particuliers et l'autorité n'est pas une méthode scientifique.",
+      "options": [
+        "La vérification",
+        "L’induction",
+        "L’autorité",
+        "La falsifiabilité"
+      ]
+    },
+    {
+      "id": "P11",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’opposition entre rationalisme et empirisme concerne :",
+      "correct": "B",
+      "explanation": "L'opposition entre rationalisme et empirisme concerne l'origine de la connaissance. Le rationalisme soutient que la connaissance vient de la raison, tandis que l'empirisme affirme que la connaissance vient de l'expérience sensible. Cette opposition fondamentale concerne donc la manière dont les connaissances sont acquises. Les autres options sont incorrectes car la politique, l'existence de Dieu et la morale sont des domaines qui peuvent être abordés par ces deux approches, mais ne constituent pas l'objet de leur opposition.",
+      "options": [
+        "La politique",
+        "L’origine de la connaissance",
+        "L’existence de Dieu",
+        "La morale"
+      ]
+    },
+    {
+      "id": "P12",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Locke, l’esprit humain à la naissance est :",
+      "correct": "C",
+      "explanation": "Pour Locke, l'esprit humain à la naissance est une table rase, c'est-à-dire qu'il est vierge de toute idée ou connaissance innée. Selon lui, toutes les connaissances viennent de l'expérience et de la sensation. Les autres options sont incorrectes car un reflet du monde intelligible relève de la philosophie platonicienne, les idées innées sont soutenues par les tenants de l'innéisme et une émanation divine est une perspective plus religieuse ou métaphysique.",
+      "options": [
+        "Un reflet du monde intelligible",
+        "Déjà rempli d’idées innées",
+        "Une table rase (tabula rasa)",
+        "Une émanation divine"
+      ]
+    },
+    {
+      "id": "P13",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Nietzsche, la vérité est :",
+      "correct": "C",
+      "explanation": "Selon Nietzsche, la vérité est une illusion dont on a oublié qu'elle en est une. Cela signifie qu'il considère la vérité comme une construction humaine, une sorte de convention ou de fiction qui a été adoptée par les hommes. Les autres options sont incorrectes car une vérité absolue est une notion qui relève de la métaphysique traditionnelle, la vérité mathématique est une notion qui concerne les mathématiques et non la philosophie de Nietzsche, et la révélation par Dieu est une perspective religieuse.",
+      "options": [
+        "Absolue",
+        "Mathématique",
+        "Une illusion dont on a oublié qu’elle en est une",
+        "Révélée par Dieu"
+      ]
+    },
+    {
+      "id": "P14",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « malin génie » de Descartes sert à :",
+      "correct": "D",
+      "explanation": "Le 'malin génie' de Descartes sert à susciter un doute radical sur les vérités mathématiques. Descartes utilise cette hypothèse pour tester la solidité de ses connaissances et pour trouver une base solide pour la connaissance. Les autres options sont incorrectes car justifier les sens relève de la théorie de la connaissance, prouver l'existence de Dieu est un objectif de certaines preuves ontologiques et expliquer le mal est un problème éthique et métaphysique.",
+      "options": [
+        "Justifier les sens",
+        "Prouver l’existence de Dieu",
+        "Expliquer le mal",
+        "Susciter un doute radical sur les vérités mathématiques"
+      ]
+    },
+    {
+      "id": "P15",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’auteur du « Discours de la méthode » est :",
+      "correct": "C",
+      "explanation": "L'auteur du 'Discours de la méthode' est Descartes. Ce texte fondateur expose sa méthode philosophique et certains des fondements de sa philosophie. Les autres options sont incorrectes car Platon, Aristote et Kant sont d'autres philosophes qui ont écrit des œuvres importantes, mais pas le 'Discours de la méthode'.",
+      "options": [
+        "Platon",
+        "Aristote",
+        "Descartes",
+        "Kant"
+      ]
+    },
+    {
+      "id": "P16",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La connaissance a priori est celle qui est :",
+      "correct": "D",
+      "explanation": "La connaissance a priori est celle qui est indépendante de l'expérience. Cela signifie qu'elle peut être acquise sans recours à l'expérience sensible, par la seule activité de la raison. Les autres options sont incorrectes car la connaissance fondée sur l'autorité est une connaissance qui repose sur la parole d'autrui, la connaissance tirée de l'expérience est une connaissance a posteriori et la connaissance religieuse est une connaissance qui repose sur la foi.",
+      "options": [
+        "Fondée sur l’autorité",
+        "Tirée de l’expérience",
+        "Religieuse",
+        "Indépendante de l’expérience"
+      ]
+    },
+    {
+      "id": "P17",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Aristote, la connaissance commence par :",
+      "correct": "B",
+      "explanation": "Pour Aristote, la connaissance commence par les sensations. En effet, selon lui, l'expérience sensible est à la base de toute connaissance. Les sensations nous permettent de percevoir les objets et les événements du monde qui nous entoure, et c'est à partir de ces données que nous pouvons élaborer des concepts et des connaissances plus abstraites. Les autres options sont incorrectes car les idées innées sont une théorie attribuée à Platon, la raison pure est un concept plus proche du rationalisme, et la révélation est liée à la foi.",
+      "options": [
+        "Les idées innées",
+        "Les sensations",
+        "La raison pure",
+        "La révélation"
+      ]
+    },
+    {
+      "id": "P18",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La théorie de la vérité comme « adéquation de l’intellect et de la chose » est d’origine :",
+      "correct": "B",
+      "explanation": "La théorie de la vérité comme 'adéquation de l'intellect et de la chose' est d'origine aristotélicienne. Cette théorie, également appelée théorie de la correspondance, affirme que la vérité consiste dans la correspondance entre nos idées et les choses réelles. Les autres options sont incorrectes car la théorie cartésienne de la vérité est liée à l'évidence de la raison, la théorie nietzschéenne de la vérité est plus proche de la perspectivisme, et la théorie kantienne de la vérité est liée à la cohérence entre les connaissances et l'expérience.",
+      "options": [
+        "Cartésienne",
+        "Aristotélicienne",
+        "Nietzschéenne",
+        "Kantienne"
+      ]
+    },
+    {
+      "id": "P19",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Pascal, la raison a ses limites, et le cœur a ses raisons que la raison ne connaît pas. Cela illustre :",
+      "correct": "B",
+      "explanation": "Pour Pascal, la raison a ses limites, et le cœur a ses raisons que la raison ne connaît pas. Cela illustre l'importance de l'intuition et de la foi. En effet, Pascal affirme que la raison est insuffisante pour atteindre certaines vérités, notamment celles qui concernent la foi et la morale. Les autres options sont incorrectes car la supériorité de la raison est une thèse rationaliste, l'empirisme est une théorie épistémologique qui privilégie l'expérience sensible, et le scepticisme absolu est une position philosophique qui doute de tout.",
+      "options": [
+        "La supériorité de la raison",
+        "L’importance de l’intuition et de la foi",
+        "L’empirisme",
+        "Le scepticisme absolu"
+      ]
+    },
+    {
+      "id": "P20",
+      "category": "Chapitre 1 : La connaissance et la vérité",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le « cercle cartésien » désigne le problème de :",
+      "correct": "C",
+      "explanation": "Le 'cercle cartésien' désigne le problème de la circularité entre la preuve de Dieu et la garantie de la raison. En effet, Descartes utilise l'existence de Dieu pour garantir la fiabilité de notre raison, mais en même temps, il utilise la raison pour prouver l'existence de Dieu. Les autres options sont incorrectes car le raisonnement circulaire en logique est un problème plus général, la perception est un processus psychologique, et le mouvement des planètes est un phénomène physique.",
+      "options": [
+        "Le raisonnement circulaire en logique",
+        "La perception",
+        "La circularité entre la preuve de Dieu et la garantie de la raison",
+        "Le mouvement des planètes"
+      ]
+    },
+    {
+      "id": "P21",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Freud, l’inconscient est principalement constitué de :",
+      "correct": "A",
+      "explanation": "Pour Freud, l'inconscient est principalement constitué de refoulements de pulsions sexuelles et agressives. En effet, selon Freud, l'inconscient est un réservoir de pensées, de désirs et de souvenirs qui sont refoulés par la conscience, notamment ceux qui sont liés à la sexualité et à l'agressivité. Les autres options sont incorrectes car les perceptions sensorielles sont des données conscientes, les pensées rationnelles sont des produits de la conscience, et les idées innées sont une théorie attribuée à Platon.",
+      "options": [
+        "Refoulements de pulsions sexuelles et agressives",
+        "Perceptions sensorielles",
+        "Pensées rationnelles",
+        "Idées innées"
+      ]
+    },
+    {
+      "id": "P22",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le dualisme cartésien oppose :",
+      "correct": "A",
+      "explanation": "Le dualisme cartésien oppose l'âme et le corps. En effet, Descartes affirme que l'âme est une substance immatérielle, tandis que le corps est une substance matérielle. Les autres options sont incorrectes car la raison et les passions sont des facultés de l'âme, le bien et le mal sont des concepts moraux, et l'être et le néant sont des concepts ontologiques.",
+      "options": [
+        "L’âme et le corps",
+        "La raison et les passions",
+        "Le bien et le mal",
+        "L’être et le néant"
+      ]
+    },
+    {
+      "id": "P23",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Selon Hegel, la conscience de soi passe par :",
+      "correct": "B",
+      "explanation": "Selon Hegel, la conscience de soi passe par la reconnaissance par autrui. En effet, Hegel affirme que la conscience de soi est une conscience qui se reconnaît elle-même dans autrui, et que cette reconnaissance est constitutive de l'identité personnelle. Les autres options sont incorrectes car la foi est une attitude religieuse, la solitude est une situation psychologique, et l'intuition est une faculté cognitive.",
+      "options": [
+        "La foi",
+        "La reconnaissance par autrui",
+        "La solitude",
+        "L’intuition"
+      ]
+    },
+    {
+      "id": "P24",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’identité personnelle, selon Locke, repose sur :",
+      "correct": "C",
+      "explanation": "L'identité personnelle, selon Locke, repose sur la continuité de la conscience (mémoire). En effet, Locke affirme que l'identité personnelle est liée à la continuité de la conscience, notamment la mémoire, qui permet de se souvenir de ses expériences passées. Les autres options sont incorrectes car l'âme immortelle est une théorie attribuée à la religion, le destin est un concept fataliste, et la continuité du corps est une théorie essentialiste.",
+      "options": [
+        "L’âme immortelle",
+        "Le destin",
+        "La continuité de la conscience (mémoire)",
+        "La continuité du corps"
+      ]
+    },
+    {
+      "id": "P25",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Sartre, la conscience est :",
+      "correct": "D",
+      "explanation": "Pour Jean-Paul Sartre, la conscience est essentiellement caractérisée par sa liberté et son ouverture au monde. Elle n'est pas une chose, un objet ou une substance, mais plutôt un néant, un rien qui se détermine en permanence. C'est-à-dire qu'elle n'a pas de contenu fixe ou déterminé, mais elle est capable de choisir et de créer son propre contenu. Les options qui la décrivent comme une chose, un objet ou une substance sont incorrectes car elles la figent et la déterminent, ce qui contredit la notion sartrienne de conscience comme liberté.",
+      "options": [
+        "Une chose",
+        "Un objet",
+        "Une substance",
+        "Un rien (néant)"
+      ]
+    },
+    {
+      "id": "P26",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le monisme matérialiste affirme que :",
+      "correct": "D",
+      "explanation": "Le monisme matérialiste est une position philosophique qui affirme que la seule réalité existante est la matière. Cela signifie que tout ce qui existe peut être expliqué en termes de processus et de propriétés matérielles. Les autres options sont incorrectes : l'option qui affirme que Dieu est tout est une forme de théisme ou de panthéisme, celle qui affirme que seul l'esprit existe est une forme d'idéalisme, et celle qui distingue l'esprit et le corps comme deux substances est une forme de dualisme.",
+      "options": [
+        "Dieu est tout",
+        "Seul l’esprit existe",
+        "L’esprit et le corps sont deux substances distinctes",
+        "Seule la matière existe"
+      ]
+    },
+    {
+      "id": "P27",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Husserl, la phénoménologie vise à :",
+      "correct": "B",
+      "explanation": "Pour Edmund Husserl, la phénoménologie est une approche philosophique qui vise à décrire les essences des phénomènes vécus, c'est-à-dire les expériences subjectives que nous avons du monde. Cela implique de se concentrer sur les structures et les contenus de la conscience, sans se soucier des questions causales ou explicatives. Les autres options sont incorrectes : expliquer les causes naturelles relève de la science, analyser le langage est une tâche de la philosophie du langage, et prouver l'existence de Dieu est une question de théologie ou de métaphysique.",
+      "options": [
+        "Expliquer les causes naturelles",
+        "Décrire les essences des phénomènes vécus",
+        "Analyser le langage",
+        "Prouver l’existence de Dieu"
+      ]
+    },
+    {
+      "id": "P28",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le concept d’« inconscient » a été popularisé par :",
+      "correct": "B",
+      "explanation": "Le concept d'inconscient a été popularisé par Sigmund Freud, qui a développé la théorie psychanalytique. Freud a montré que les processus inconscients jouent un rôle important dans la formation de nos pensées, de nos sentiments et de nos comportements. Les autres options sont incorrectes : Friedrich Nietzsche a abordé l'idée de l'inconscient, mais c'est Freud qui l'a systématisé ; René Descartes et Immanuel Kant ont également discuté de l'inconscient, mais c'est Freud qui en a fait un concept central de sa théorie.",
+      "options": [
+        "Nietzsche",
+        "Freud",
+        "Descartes",
+        "Kant"
+      ]
+    },
+    {
+      "id": "P29",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le « moi » selon Hume est :",
+      "correct": "D",
+      "explanation": "Selon David Hume, le 'moi' est un faisceau de perceptions, c'est-à-dire un ensemble de pensées, de sentiments et d'expériences qui se succèdent et se combinent de manière fluide. Cela signifie que le moi n'est pas une substance permanente ou une entité fixe, mais plutôt un processus dynamique et changeant. Les autres options sont incorrectes : l'idée que le moi est un reflet de Dieu est une forme de théisme, celle qui affirme que le moi est une substance permanente est une forme de substantialisme, et celle qui affirme que le moi est une idée innée est une forme de rationalisme.",
+      "options": [
+        "Un reflet de Dieu",
+        "Une substance permanente",
+        "Une idée innée",
+        "Un faisceau de perceptions (bundle theory)"
+      ]
+    },
+    {
+      "id": "P30",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’altérité (autrui) est essentielle pour la constitution de la conscience selon :",
+      "correct": "D",
+      "explanation": "L'altérité, ou autrui, est essentielle pour la constitution de la conscience selon Edmund Husserl, qui a développé la notion d'intersubjectivité. Cela signifie que la conscience est toujours déjà orientée vers autrui et qu'elle se comprend elle-même en relation avec lui. Les autres options sont incorrectes : Platon a discuté de l'altérité, mais c'est Husserl qui en a fait un concept central de sa phénoménologie ; Épicure et Machiavel n'ont pas abordé l'altérité de manière significative.",
+      "options": [
+        "Platon",
+        "Épicure",
+        "Machiavel",
+        "Husserl"
+      ]
+    },
+    {
+      "id": "P31",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Bergson, la conscience du temps est :",
+      "correct": "A",
+      "explanation": "Pour Henri Bergson, la conscience du temps est une durée continue et qualitative, c'est-à-dire une expérience fluide et changeante qui se déroule de manière irreversible. Cela signifie que le temps n'est pas une simple succession d'instants discrets, mais plutôt une réalité vivante et dynamique. Les autres options sont incorrectes : l'idée que la conscience du temps est une illusion est une forme de scepticisme, celle qui affirme que le temps est une succession discrète d'instants est une forme de mécanisme, et celle qui affirme que le temps est un cycle éternel est une forme de mythologie.",
+      "options": [
+        "Une durée continue et qualitative",
+        "Une illusion",
+        "Une succession discrète d’instants",
+        "Un cycle éternel"
+      ]
+    },
+    {
+      "id": "P32",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le dualisme de Platon distingue :",
+      "correct": "C",
+      "explanation": "Le dualisme de Platon distingue le corps et l'âme comme deux substances, mais il distingue également le monde sensible et le monde intelligible. Cela signifie que Platon oppose la réalité matérielle et changeante du monde sensible à la réalité éternelle et immuable des idées. Toutes ces distinctions sont correctes, ce qui fait que l'option 'Toutes ces réponses' est la bonne.",
+      "options": [
+        "Le corps et l’âme comme deux substances",
+        "La matière et l’esprit (idées)",
+        "Toutes ces réponses. Ici le mieux est C. Mais le dualisme platonicien est corps/âme et monde sensible/intelligible. La question typique : « Dans quel dualisme platonicien oppose-t-il ? » Souvent on répond le monde sensible et le monde intelligible. Je vais prendre C : Le sensible et l’intelligible",
+        "Le sensible et l’intelligible"
+      ]
+    },
+    {
+      "id": "P33",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Merleau-Ponty, le corps est :",
+      "correct": "A",
+      "explanation": "Merleau-Ponty considère le corps comme un sujet percevant, ou 'corps vécu', car il est à la fois l'instrument et le lieu de notre expérience du monde. Cette perspective se distingue de la vision cartésienne qui oppose l'esprit et la matière. L'option 'Un obstacle à la connaissance' et 'Un simple objet' ou 'Une machine' réduisent le corps à un objet inerte, ce qui contredit la phénoménologie de Merleau-Ponty. Ainsi, le corps est bien plus qu'un simple objet, il est le moyen par lequel nous expérimentons et comprenons le monde.",
+      "options": [
+        "Un sujet percevant (corps vécu)",
+        "Un obstacle à la connaissance",
+        "Un simple objet",
+        "Une machine"
+      ]
+    },
+    {
+      "id": "P34",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le concept de « cogito » pré-réflexif chez Sartre désigne :",
+      "correct": "A",
+      "explanation": "Le concept de 'cogito' pré-réflexif chez Sartre désigne la conscience non-thétique d'elle-même, c'est-à-dire une conscience qui se prend pour objet sans se reconnaître elle-même comme entité pensante. Cette conscience non-thétique est fondamentale dans la philosophie de Sartre car elle permet de comprendre la liberté et la responsabilité humaines. Les autres options sont incorrectes car la conscience réflexive implique une prise de conscience de soi-même en tant qu'entité pensante, l'inconscient n'est pas directement lié au cogito, et le moi substantiel est une notion qui contredit la philosophie sartrienne.",
+      "options": [
+        "La conscience non-thétique d’elle-même",
+        "La conscience réflexive",
+        "L’inconscient",
+        "Le moi substantiel"
+      ]
+    },
+    {
+      "id": "P35",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’inconscient freudien se manifeste notamment par :",
+      "correct": "A",
+      "explanation": "L'inconscient freudien se manifeste notamment par les actes manqués, les rêves et les symptômes, qui sont des expressions indirectes de nos désirs et conflits refoulés. Ces manifestations de l'inconscient révèlent l'existence d'une sphère psychique qui opère en dehors de notre conscience volontaire. Les perceptions claires, les décisions volontaires et les raisonnements logiques sont, quant à eux, des processus conscients qui ne reflètent pas l'inconscient.",
+      "options": [
+        "Les actes manqués, les rêves et les symptômes",
+        "Les perceptions claires",
+        "Les décisions volontaires",
+        "Les raisonnements logiques"
+      ]
+    },
+    {
+      "id": "P36",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Nietzsche, la conscience est :",
+      "correct": "C",
+      "explanation": "Pour Nietzsche, la conscience est un produit récent et superficiel de l'évolution, une 'superstructure' qui émerge de processus physiologiques et culturels complexes. Cette perspective critique l'idée que la conscience est l'essence de l'homme ou un don divin. L'option 'Une illusion totale' est excessive car Nietzsche n'affirme pas que la conscience n'a aucune réalité, mais plutôt qu'elle est une construction évolutive.",
+      "options": [
+        "L’essence de l’homme",
+        "Une illusion totale",
+        "Un produit récent et superficiel de l’évolution",
+        "Un don divin"
+      ]
+    },
+    {
+      "id": "P37",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « ça », le « moi » et le « surmoi » sont des instances psychiques chez :",
+      "correct": "D",
+      "explanation": "Le 'ça', le 'moi' et le 'surmoi' sont des instances psychiques chez Freud, qui les a décrites dans sa théorie de l'appareil psychique. Ces instances correspondent à différentes sphères de la personnalité : le 'ça' représente les pulsions primitives, le 'moi' est la partie de la personnalité qui interagit avec la réalité, et le 'surmoi' est la composante morale. Les autres options, Jung, Lacan et Adler, ont développé des théories psychologiques distinctes.",
+      "options": [
+        "Jung",
+        "Lacan",
+        "Adler",
+        "Freud"
+      ]
+    },
+    {
+      "id": "P38",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La reconnaissance de l’autre comme un alter ego est centrale dans la philosophie de :",
+      "correct": "C",
+      "explanation": "La reconnaissance de l'autre comme un alter ego est centrale dans la philosophie de Husserl, qui a développé le concept d'intersubjectivité transcendantale. Cela signifie que nous expérimentons les autres comme des sujets semblables à nous-mêmes, dotés d'une expérience subjective propre. Cette idée est fondamentale pour comprendre comment nous partageons un monde commun.",
+      "options": [
+        "Comte",
+        "Spinoza",
+        "Husserl",
+        "Marx"
+      ]
+    },
+    {
+      "id": "P39",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Selon Kant, le « je pense » doit pouvoir accompagner toutes mes représentations. C’est le principe de :",
+      "correct": "B",
+      "explanation": "Selon Kant, le 'je pense' doit pouvoir accompagner toutes mes représentations, ce qui est le principe de l'unité transcendantale de l'aperception. Ce principe garantit que nos expériences sont unifiées sous une conscience unique et qu'elles peuvent être attribuées à un sujet pensant. Cela n'a pas directement rapport avec la raison pure, le cogito cartésien ou l'idéalisme subjectif.",
+      "options": [
+        "La raison pure",
+        "L’unité transcendantale de l’aperception",
+        "Le cogito cartésien",
+        "L’idéalisme subjectif"
+      ]
+    },
+    {
+      "id": "P40",
+      "category": "Chapitre 2 : La conscience et le sujet",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le problème du « cerveau dans une cuve » illustre :",
+      "correct": "C",
+      "explanation": "Le problème du 'cerveau dans une cuve' illustre le scepticisme sur la réalité extérieure, car il met en question notre capacité à connaître le monde extérieur. L'hypothèse que tout ce que nous expérimentons pourrait être une simulation créée par des entités extérieures remet en cause notre confiance dans nos perceptions et notre compréhension de la réalité. Cela n'a pas directement rapport avec le dualisme, le matérialisme ou l'empirisme.",
+      "options": [
+        "Le dualisme",
+        "Le matérialisme",
+        "Le scepticisme sur la réalité extérieure",
+        "L’empirisme"
+      ]
+    },
+    {
+      "id": "P41",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Sartre, l’homme est « condamné à être libre » car :",
+      "correct": "D",
+      "explanation": "Pour comprendre pourquoi l'homme est 'condamné à être libre' selon Sartre, il faut saisir le concept de liberté fondamentale. Sartre affirme que l'homme n'a pas choisi de naître et qu'il doit se définir par ses actes, ce qui implique une totale liberté de choix. Cette liberté est à la fois une possibilité et une condamnation, car l'homme doit assumer la responsabilité de ses choix. L'option 'Il n'a pas choisi de naître et doit se définir par ses actes' reflète fidèlement cette idée. Les autres options sont incorrectes : 'La nature le détermine' est une vision déterministe qui nie la liberté, 'Dieu lui a donné le libre arbitre' implique une origine divine de la liberté qui n'est pas sartrienne, et 'Il n'a pas le choix' est une contradiction avec le concept même de liberté.",
+      "options": [
+        "La nature le détermine",
+        "Dieu lui a donné le libre arbitre",
+        "Il n’a pas le choix",
+        "Il n’a pas choisi de naître et doit se définir par ses actes"
+      ]
+    },
+    {
+      "id": "P42",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le déterminisme est la thèse selon laquelle :",
+      "correct": "A",
+      "explanation": "Le déterminisme est une thèse philosophique qui soutient que tous les événements, y compris les actions humaines, sont causés par des antécédents. Cela signifie que tout ce qui se produit est le résultat de causes précédentes et que, par conséquent, les actions humaines ne sont pas vraiment libres. L'option 'Tous les événements sont causés par des antécédents' exprime clairement cette idée. Les autres options sont incorrectes : 'Dieu intervient à chaque instant' implique une intervention divine qui n'est pas déterministe au sens strict, 'Le hasard règne' est une vision indéterministe qui nie la causalité, et 'L'homme est totalement libre' est une vision libertaire qui contredit le déterminisme.",
+      "options": [
+        "Tous les événements sont causés par des antécédents",
+        "Dieu intervient à chaque instant",
+        "Le hasard règne",
+        "L’homme est totalement libre"
+      ]
+    },
+    {
+      "id": "P43",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Épicure, le libre arbitre est rendu possible par :",
+      "correct": "B",
+      "explanation": "Selon Épicure, le libre arbitre est rendu possible par le 'clinamen' ou déviation aléatoire des atomes. Cela signifie que les atomes qui composent l'univers et les êtres vivants ne suivent pas une trajectoire entièrement déterminée, mais peuvent dévier légèrement de leur course, permettant ainsi l'apparition de la liberté. L'option 'Le clinamen (déviation aléatoire des atomes)' reflète cette idée. Les autres options sont incorrectes : 'La volonté divine' implique une origine divine de la liberté, 'La raison' est une faculté qui peut être présente dans un système déterministe, et 'Le destin' est une vision qui nie la liberté.",
+      "options": [
+        "La volonté divine",
+        "Le clinamen (déviation aléatoire des atomes)",
+        "La raison",
+        "Le destin"
+      ]
+    },
+    {
+      "id": "P44",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Spinoza, la liberté consiste :",
+      "correct": "B",
+      "explanation": "Pour Spinoza, la liberté consiste à agir selon la nécessité de sa nature, en connaissance de cause. Cela signifie que l'individu qui agit en accord avec ce qu'il est, en comprenant les raisons et les nécessités qui guident ses actions, est véritablement libre. L'option 'À agir selon la nécessité de sa nature, en connaissance de cause' exprime cette idée. Les autres options sont incorrectes : 'À obéir aux lois' peut être une forme d'esclavage ou de contrainte, 'À suivre ses passions' est une vision qui peut conduire à l'asservissement, et 'À faire ce qu'on veut' est une vision arbitraire qui ne garantit pas la liberté.",
+      "options": [
+        "À obéir aux lois",
+        "À agir selon la nécessité de sa nature, en connaissance de cause",
+        "À suivre ses passions",
+        "À faire ce qu’on veut"
+      ]
+    },
+    {
+      "id": "P45",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’existentialisme sartrien affirme que « l’existence précède l’essence ». Cela signifie :",
+      "correct": "C",
+      "explanation": "L'existentialisme sartrien affirme que 'l'existence précède l'essence', ce qui signifie que l'homme se définit d'abord par ses actes et ses choix, et non par une essence ou une nature prédéfinie. L'option 'L'homme se définit d'abord par ses actes, non par une essence prédéfinie' reflète fidèlement cette idée. Les autres options sont incorrectes : 'L'homme a une nature fixe' nie la liberté de choix, 'L'essence de l'homme est la raison' est une vision essentialiste, et 'Dieu a créé l'homme avec une essence' implique une origine divine et essentialiste de l'humanité.",
+      "options": [
+        "L’homme a une nature fixe",
+        "L’essence de l’homme est la raison",
+        "L’homme se définit d’abord par ses actes, non par une essence prédéfinie",
+        "Dieu a créé l’homme avec une essence"
+      ]
+    },
+    {
+      "id": "P46",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Leibniz, le libre arbitre est compatible avec le déterminisme : c’est le :",
+      "correct": "B",
+      "explanation": "Pour Leibniz, le libre arbitre est compatible avec le déterminisme, c'est-à-dire que les choix humains peuvent être déterminés tout en étant libres. C'est le 'compatibilisme'. L'option 'Compatibilisme' exprime cette idée. Les autres options sont incorrectes : 'Fatalisme' implique que tout est prédéterminé et inévitable, 'Incompatibilisme' soutient que le libre arbitre et le déterminisme sont incompatibles, et 'Libertarianisme' est une vision qui soutient que la liberté nécessite l'absence de déterminisme.",
+      "options": [
+        "Fatalisme",
+        "Compatibilisme",
+        "Incompatibilisme",
+        "Libertarianisme"
+      ]
+    },
+    {
+      "id": "P47",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La responsabilité morale suppose :",
+      "correct": "B",
+      "explanation": "La responsabilité morale suppose la liberté, car pour être tenu responsable de ses actes, il faut avoir la capacité de faire des choix. L'option 'La liberté' reflète cette idée. Les autres options sont incorrectes : 'Le déterminisme' nie la liberté, 'L'ignorance' excuse souvent de la responsabilité, et 'Le hasard' n'est pas un fondement de la responsabilité morale.",
+      "options": [
+        "Le déterminisme",
+        "La liberté",
+        "L’ignorance",
+        "Le hasard"
+      ]
+    },
+    {
+      "id": "P48",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Selon Kant, la liberté est une condition de la morale. Elle est :",
+      "correct": "B",
+      "explanation": "Selon Kant, la liberté est une condition de la morale et est considérée comme 'transcendantale' ou 'pratique'. Cela signifie que la liberté est une nécessité pour la raison pratique et pour l'expérience morale. L'option 'Transcendantale (pratique)' exprime cette idée. Les autres options sont incorrectes : 'Illusoire' nie la réalité de la liberté, 'Naturelle' est une vision qui réduit la liberté à des processus naturels, et 'Empirique' est une vision qui base la liberté sur l'expérience sensible.",
+      "options": [
+        "Illusoire",
+        "Transcendantale (pratique)",
+        "Naturelle",
+        "Empirique"
+      ]
+    },
+    {
+      "id": "P49",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le fatalisme est la croyance que :",
+      "correct": "A",
+      "explanation": "Le fatalisme est une doctrine qui affirme que tout ce qui arrive est inévitable et prédéterminé. C'est pourquoi l'option 'Tout est déterminé par un destin inéluctable' est la définition même du fatalisme. Les autres options sont incorrectes car 'L’homme est libre' est le contraire du fatalisme, 'Le hasard gouverne' relève de l'indéterminisme et 'Dieu a tout prévu' est une forme de prédestination qui se rapproche du fatalisme mais n'en est pas synonyme.",
+      "options": [
+        "Tout est déterminé par un destin inéluctable",
+        "L’homme est libre",
+        "Le hasard gouverne",
+        "Dieu a tout prévu"
+      ]
+    },
+    {
+      "id": "P50",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Rousseau, « l’homme est né libre, et partout il est dans les fers ». Cette phrase dénonce :",
+      "correct": "A",
+      "explanation": "Lorsque Rousseau affirme que 'l’homme est né libre, et partout il est dans les fers', il dénonce la perte de la liberté naturelle de l'homme dans la société. Cela signifie que l'homme naît avec une liberté inhérente, mais que les structures sociales et les conventions l'en privent. Les autres options sont incorrectes car elles ne reflètent pas fidèlement le sens de cette phrase : 'Le bonheur' n'est pas directement lié à cette problématique, 'La science' n'est pas mentionnée et 'La nécessité de l’esclavage' est en réalité le contraire de ce que Rousseau défend.",
+      "options": [
+        "La liberté naturelle perdue dans la société",
+        "Le bonheur",
+        "La science",
+        "La nécessité de l’esclavage"
+      ]
+    },
+    {
+      "id": "P51",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La liberté chez les stoïciens consiste à :",
+      "correct": "D",
+      "explanation": "Pour les stoïciens, la liberté consiste à accepter le destin avec vertu, c'est-à-dire à vivre en accord avec la raison et la nature. Cela implique de ne pas se laisser déstabiliser par les événements extérieurs et de suivre une vie en accord avec les principes moraux. Les autres options sont incorrectes car 'Se révolter contre les dieux' est une attitude contraire à l'esprit stoïcien, 'Agir selon ses désirs' relève de l'hédonisme et 'Changer le monde' n'est pas l'objectif premier de la philosophie stoïcienne.",
+      "options": [
+        "Se révolter contre les dieux",
+        "Agir selon ses désirs",
+        "Changer le monde",
+        "Accepter le destin avec vertu"
+      ]
+    },
+    {
+      "id": "P52",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Bergson, la liberté est vécue dans :",
+      "correct": "D",
+      "explanation": "Selon Bergson, la liberté est vécue dans la durée concrète et l’acte imprévisible. Cela signifie que la liberté se manifeste dans l'expérience vécue et dans la capacité à faire des choix qui ne sont pas déterminés par des facteurs extérieurs. Les autres options sont incorrectes car 'Le calcul utilitaire' relève du déterminisme, 'La contrainte' est le contraire de la liberté et 'L’acte délibéré' peut être une manifestation de la liberté mais n'en est pas la définition bergsonienne.",
+      "options": [
+        "Le calcul utilitaire",
+        "La contrainte",
+        "L’acte délibéré",
+        "La durée concrète et l’acte imprévisible"
+      ]
+    },
+    {
+      "id": "P53",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « déterminisme dur » (hard determinism) soutient que :",
+      "correct": "B",
+      "explanation": "Le 'déterminisme dur' soutient que le libre arbitre est une illusion et que tout est déterminé. Cela signifie que les événements, y compris les choix humains, sont causés par des facteurs antérieurs et ne sont pas réellement libres. Les autres options sont incorrectes car 'Le hasard existe' relève de l'indéterminisme, 'Dieu est la cause' est une forme de déterminisme théologique et 'Le libre arbitre existe' est le contraire du déterminisme dur.",
+      "options": [
+        "Le hasard existe",
+        "Le libre arbitre est une illusion et tout est déterminé",
+        "Dieu est la cause",
+        "Le libre arbitre existe"
+      ]
+    },
+    {
+      "id": "P54",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon la physique quantique, l’indéterminisme au niveau microscopique :",
+      "correct": "B",
+      "explanation": "Selon la physique quantique, l’indéterminisme au niveau microscopique n’implique pas nécessairement le libre arbitre macroscopique. Cela signifie que même si les particules élémentaires ont un comportement imprévisible, cela ne signifie pas que les choix humains sont libres. Les autres options sont incorrectes car 'Prouve le libre arbitre' est une conclusion hâtive, 'Confirme le déterminisme' est le contraire de ce que la physique quantique suggère au niveau microscopique et 'Est une illusion' ne reflète pas fidèlement les principes de la physique quantique.",
+      "options": [
+        "Prouve le libre arbitre",
+        "N’implique pas nécessairement le libre arbitre macroscopique",
+        "Confirme le déterminisme",
+        "Est une illusion"
+      ]
+    },
+    {
+      "id": "P55",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’idée que la liberté est l’obéissance à la loi qu’on s’est prescrite à soi-même est de :",
+      "correct": "B",
+      "explanation": "L’idée que la liberté est l’obéissance à la loi qu’on s’est prescrite à soi-même est attribuée à Rousseau. Cela signifie que la liberté consiste à se soumettre à des lois que l'on s'est données à soi-même, dans le cadre d'un contrat social. Les autres options sont incorrectes car 'Machiavel' défend des idées différentes sur la politique et la liberté, 'Hobbes' est connu pour son 'Léviathan' qui présente une vision différente de la souveraineté et 'Bentham' est un utilitariste qui se concentre sur la maximisation du bonheur.",
+      "options": [
+        "Machiavel",
+        "Rousseau",
+        "Hobbes",
+        "Bentham"
+      ]
+    },
+    {
+      "id": "P56",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Schopenhauer, le libre arbitre est :",
+      "correct": "D",
+      "explanation": "Pour Schopenhauer, le libre arbitre est une illusion, car le caractère est déterminé. Cela signifie que les choix humains sont déterminés par le caractère de l'individu et ne sont pas réellement libres. Les autres options sont incorrectes car 'Divin' n'est pas une catégorie pertinente pour Schopenhauer, 'Réel' est le contraire de ce que Schopenhauer affirme et 'Le fondement de la morale' n'est pas directement lié à la question du libre arbitre chez Schopenhauer.",
+      "options": [
+        "Divin",
+        "Réel",
+        "Le fondement de la morale",
+        "Une illusion, car le caractère est déterminé"
+      ]
+    },
+    {
+      "id": "P57",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « mauvaise foi » chez Sartre consiste à :",
+      "correct": "C",
+      "explanation": "La notion de 'mauvaise foi' chez Sartre consiste à se mentir à soi-même pour fuir sa liberté, c'est-à-dire refuser d'assumer la responsabilité de ses choix et de ses actions. Cela revient à adopter des comportements ou des croyances qui nous permettent d'échapper à l'angoisse de la liberté. Les autres options sont incorrectes car agir immoralement n'est pas nécessairement lié à la mauvaise foi, mentir aux autres est une forme de comportement malhonnête mais pas spécifiquement une fuite de la liberté, et croire en Dieu peut être une forme de foi mais pas nécessairement de mauvaise foi au sens sartrien.",
+      "options": [
+        "Agir immoralement",
+        "Mentir aux autres",
+        "Se mentir à soi-même pour fuir sa liberté",
+        "Croire en Dieu"
+      ]
+    },
+    {
+      "id": "P58",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Marx, la liberté réelle passe par :",
+      "correct": "B",
+      "explanation": "Selon Marx, la liberté réelle ne consiste pas simplement à faire des choix individuels dans un cadre prédéfini, mais à prendre conscience des déterminismes économiques qui conditionnent nos vies et à agir pour les changer. C'est pourquoi la prise de conscience des déterminismes économiques et la révolution est la bonne réponse. Les autres options sont incorrectes car la prière est une forme de comportement religieux qui ne change rien aux conditions matérielles, la consommation est une caractéristique du capitalisme que Marx critique, et la retraite intérieure est une forme d'évasion qui ne permet pas de transformer la réalité.",
+      "options": [
+        "La prière",
+        "La prise de conscience des déterminismes économiques et la révolution",
+        "La consommation",
+        "La retraite intérieure"
+      ]
+    },
+    {
+      "id": "P59",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le compatibilisme (ou déterminisme doux) affirme que :",
+      "correct": "B",
+      "explanation": "Le compatibilisme affirme que la liberté et le déterminisme sont compatibles. Cela signifie que nos choix peuvent être déterminés par des facteurs externes ou internes sans que cela ne remette en cause notre liberté. Les autres options sont incorrectes car la liberté absolue est une notion souvent associée à l'incompatibilisme, et les options 'Liberté et déterminisme sont incompatibles' et 'Le déterminisme est faux' sont directement opposées au compatibilisme.",
+      "options": [
+        "La liberté est absolue",
+        "Liberté et déterminisme sont compatibles",
+        "Liberté et déterminisme sont incompatibles",
+        "Le déterminisme est faux"
+      ]
+    },
+    {
+      "id": "P60",
+      "category": "Chapitre 3 : La liberté et le déterminisme",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La liberté politique selon Benjamin Constant distingue :",
+      "correct": "A",
+      "explanation": "Benjamin Constant distingue la liberté des Anciens, qui concerne la participation active aux affaires de la cité, et la liberté des Modernes, qui est centrée sur la protection des droits individuels et la liberté de jouir de sa vie privée. Les autres options sont incorrectes car la distinction entre liberté intérieure et extérieure n'est pas celle de Constant, la distinction entre liberté positive et liberté négative est celle d'Isaiah Berlin, et la distinction entre liberté d'expression et de pensée est trop étroite et ne rend pas compte de la richesse de la pensée de Constant.",
+      "options": [
+        "Liberté des Anciens (participation citoyenne) et liberté des Modernes (individuelle)",
+        "Liberté intérieure et extérieure",
+        "Liberté positive et liberté négative",
+        "Liberté d’expression et de pensée"
+      ]
+    },
+    {
+      "id": "P61",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’impératif catégorique de Kant commande :",
+      "correct": "C",
+      "explanation": "L'impératif catégorique de Kant est un principe moral qui commande d'agir de telle sorte que la maxime de son action puisse être érigée en loi universelle. Cela signifie qu'avant d'agir, il faut se demander si la règle qui guide notre action pourrait être adoptée par tous les êtres raisonnables. L'option 'Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle' reflète donc fidèlement ce principe. Les autres options sont incorrectes car 'Aime ton prochain' est un commandement religieux, 'Fais ce que tu veux' est un principe anarchique qui ignore la nécessité d'une règle morale universelle, et 'Recherche le plaisir' est un principe hédoniste qui ne correspond pas à la morale kantienne.",
+      "options": [
+        "« Aime ton prochain »",
+        "« Fais ce que tu veux »",
+        "« Agis de telle sorte que la maxime de ton action puisse être érigée en loi universelle »",
+        "« Recherche le plaisir »"
+      ]
+    },
+    {
+      "id": "P62",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’utilitarisme (Bentham, Mill) évalue la moralité d’une action par :",
+      "correct": "B",
+      "explanation": "L'utilitarisme, développé par Bentham et Mill, évalue la moralité d'une action en fonction de ses conséquences, notamment en termes de bonheur ou de bien-être qu'elle procure. L'option 'Les conséquences (maximiser le bonheur)' est donc la bonne réponse. Les autres options sont incorrectes car l'intention est un critère kantien, la conformité à la loi est un critère légaliste, et la volonté divine est un critère religieux, qui ne sont pas ceux de l'utilitarisme.",
+      "options": [
+        "L’intention",
+        "Les conséquences (maximiser le bonheur)",
+        "La conformité à la loi",
+        "La volonté divine"
+      ]
+    },
+    {
+      "id": "P63",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Kant, une action morale doit être accomplie :",
+      "correct": "A",
+      "explanation": "Selon Kant, une action morale doit être accomplie par devoir, c'est-à-dire pour la raison que la loi morale nous donne, et non par inclination, peur ou intérêt. L'option 'Par devoir' est donc la bonne réponse. Les autres options sont incorrectes car agir par inclination ou par intérêt n'est pas moral selon Kant, et agir par peur n'est pas non plus considéré comme un motif moralement justifiable.",
+      "options": [
+        "Par devoir",
+        "Par inclination",
+        "Par peur",
+        "Par intérêt"
+      ]
+    },
+    {
+      "id": "P64",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le « souverain bien » chez Kant est l’union de :",
+      "correct": "A",
+      "explanation": "Le 'souverain bien' chez Kant est l'union de la vertu et du bonheur. Cela signifie que la vie morale idéale est celle où la vertu (le fait de vivre en accord avec la loi morale) est récompensée par le bonheur. L'option 'La vertu et du bonheur' reflète donc fidèlement cette notion. Les autres options sont incorrectes car elles ne correspondent pas à la définition kantienne du souverain bien.",
+      "options": [
+        "La vertu et du bonheur",
+        "La justice et la charité",
+        "La liberté et l’égalité",
+        "Le plaisir et la raison"
+      ]
+    },
+    {
+      "id": "P65",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Aristote, la vertu morale est un :",
+      "correct": "A",
+      "explanation": "La vertu morale, selon Aristote, est un juste milieu entre deux extrêmes. Cela signifie qu'elle se situe entre un excès et une insuffisance, permettant ainsi à l'individu de prendre des décisions éthiques équilibrées. Les autres options sont incorrectes car le commandement divin relève de la morale religieuse, le calcul utilitaire est un principe de l'utilitarisme et le don divin est une notion qui relève de la grâce ou de la faveur divine.",
+      "options": [
+        "Juste milieu entre deux extrêmes",
+        "Commandement divin",
+        "Calcul utilitaire",
+        "Don divin"
+      ]
+    },
+    {
+      "id": "P66",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le principe de l’utilitarisme est parfois résumé par :",
+      "correct": "B",
+      "explanation": "Le principe de l'utilitarisme est parfois résumé par l'expression 'le plus grand bonheur pour le plus grand nombre'. Cela reflète l'idée que les actions morales doivent viser à maximiser le bonheur collectif. Les autres options sont incorrectes car 'agis selon ta conscience' est un principe de la morale subjective, 'ne fais pas à autrui…' est la règle d'or, et 'la fin justifie les moyens' est un principe du machiavélisme.",
+      "options": [
+        "« Agis selon ta conscience »",
+        "« Le plus grand bonheur pour le plus grand nombre »",
+        "« Ne fais pas à autrui… »",
+        "« La fin justifie les moyens »"
+      ]
+    },
+    {
+      "id": "P67",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La notion de « devoir » chez Kant est liée à :",
+      "correct": "D",
+      "explanation": "La notion de 'devoir' chez Kant est liée à la loi morale universelle. Selon Kant, les actions morales doivent être guidées par une règle universelle qui peut être appliquée à tous les êtres raisonnables. Les autres options sont incorrectes car les sentiments et l'intérêt personnel sont des motivations subjectives, tandis que les conséquences sont prises en compte dans l'utilitarisme.",
+      "options": [
+        "Les sentiments",
+        "Les conséquences",
+        "L’intérêt personnel",
+        "La loi morale universelle"
+      ]
+    },
+    {
+      "id": "P68",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La conscience morale, selon Freud, est principalement l’œuvre du :",
+      "correct": "A",
+      "explanation": "La conscience morale, selon Freud, est principalement l'œuvre du surmoi. Le surmoi est l'instance psychique qui intériorise les normes et les interdits de la société, permettant ainsi à l'individu de se sentir coupable ou responsable. Les autres options sont incorrectes car le 'ça' représente les pulsions primitives, le 'moi' est l'instance de la réalité, et l'inconscient est un concept plus large qui englobe plusieurs aspects de la psyché.",
+      "options": [
+        "Surmoi",
+        "Ça",
+        "Moi",
+        "Inconscient"
+      ]
+    },
+    {
+      "id": "P69",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Nietzsche, la morale chrétienne est une morale :",
+      "correct": "B",
+      "explanation": "Pour Nietzsche, la morale chrétienne est une morale d'esclaves, caractérisée par le ressentiment. Nietzsche critique la morale chrétienne en la voyant comme une expression de faiblesse et de soumission, plutôt que comme une affirmation de la vie et de la puissance. Les autres options sont incorrectes car la morale rationnelle est un concept plus large, la morale de maîtres est ce que Nietzsche oppose à la morale d'esclaves, et la morale naturelle est un concept qui varie selon les philosophes.",
+      "options": [
+        "Rationnelle",
+        "D’esclaves (ressentiment)",
+        "De maîtres",
+        "Naturelle"
+      ]
+    },
+    {
+      "id": "P70",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « voile d’ignorance » de John Rawls vise à :",
+      "correct": "C",
+      "explanation": "Le 'voile d'ignorance' de John Rawls vise à établir une justice procédurale impartiale. Rawls propose que les principes de justice soient choisis derrière un voile d'ignorance, c'est-à-dire sans que les individus connaissent leur position sociale ou leurs avantages personnels, afin d'assurer l'impartialité. Les autres options sont incorrectes car cacher la vérité n'est pas l'objectif, favoriser les riches est injuste, et ignorer les droits est contraire à la justice.",
+      "options": [
+        "Cacher la vérité",
+        "Favoriser les riches",
+        "Établir une justice procédurale impartiale",
+        "Ignorer les droits"
+      ]
+    },
+    {
+      "id": "P71",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Épicure, le bonheur moral consiste en :",
+      "correct": "A",
+      "explanation": "Pour Épicure, le bonheur moral consiste en l'absence de trouble (ataraxie) et le plaisir modéré. Épicure préconise une vie sobre et paisible, exempte de souffrances et de troubles, comme chemin vers le bonheur. Les autres options sont incorrectes car la gloire est un objectif de la morale aristocratique, la vertu pour elle-même est un principe kantien, et l'accomplissement du devoir est un concept plus généralement associé à la morale déontologique.",
+      "options": [
+        "L’absence de trouble (ataraxie) et le plaisir modéré",
+        "La gloire",
+        "La vertu pour elle-même",
+        "L’accomplissement du devoir"
+      ]
+    },
+    {
+      "id": "P72",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le stoïcisme enseigne que le bien consiste à :",
+      "correct": "B",
+      "explanation": "Le stoïcisme enseigne que le bien consiste à vivre conformément à la nature et à la raison. Les stoïciens estiment que l'individu doit se conformer à l'ordre naturel de l'univers et agir de manière rationnelle pour atteindre la vertu. Les autres options sont incorrectes car obéir aux lois est un principe de la morale civique, poursuivre le plaisir est un objectif épicurien, et se révolter est une attitude qui varie selon les contextes.",
+      "options": [
+        "Obéir aux lois",
+        "Vivre conformément à la nature et à la raison",
+        "Poursuivre le plaisir",
+        "Se révolter"
+      ]
+    },
+    {
+      "id": "P73",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Kant, mentir est toujours immoral, même pour sauver une vie. C’est une position :",
+      "correct": "B",
+      "explanation": "Selon Kant, mentir est toujours immoral, même pour sauver une vie, car il considère que les actions morales doivent être guidées par des règles universelles et non par des conséquences particulières. C'est une position déontologique, qui met l'accent sur le caractère obligatoire des règles morales. Les autres options sont incorrectes : le relativisme considère que les jugements moraux sont relatifs à des cultures ou des individus, le pragmatisme se concentre sur les résultats pratiques, et l'utilitarisme cherche à maximiser le bonheur général.",
+      "options": [
+        "Relativiste",
+        "Déontologique",
+        "Pragmatiste",
+        "Utilitariste"
+      ]
+    },
+    {
+      "id": "P74",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « loi naturelle » dans la philosophie morale classique (Thomas d’Aquin) est :",
+      "correct": "A",
+      "explanation": "La 'loi naturelle' dans la philosophie morale classique, telle que défendue par Thomas d'Aquin, est une loi inscrite dans la nature humaine par Dieu, qui guide les actions humaines vers le bien. Les autres options sont incorrectes : une convention est un accord social, un contrat social est un accord entre individus pour former une société, et une loi écrite par l'homme est une règle créée par les autorités humaines.",
+      "options": [
+        "Une loi inscrite dans la nature humaine par Dieu",
+        "Une convention",
+        "Un contrat social",
+        "Une loi écrite par l’homme"
+      ]
+    },
+    {
+      "id": "P75",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Hegel, la morale abstraite (Moralität) s’oppose à l’éthique concrète (Sittlichkeit) qui est :",
+      "correct": "C",
+      "explanation": "Pour Hegel, la morale abstraite (Moralität) s'oppose à l'éthique concrète (Sittlichkeit), qui est la vie éthique dans les institutions, telles que la famille, la société et l'État. Cette éthique concrète est considérée comme plus élevée que la morale abstraite, car elle prend en compte les relations sociales et les institutions. Les autres options sont incorrectes : le kantisme est une théorie morale abstraite, l'utilitarisme est une théorie qui cherche à maximiser le bonheur général, et la morale individuelle est trop étroite pour caractériser l'éthique concrète.",
+      "options": [
+        "Le kantisme",
+        "L’utilitarisme",
+        "La vie éthique dans les institutions (famille, société, État)",
+        "La morale individuelle"
+      ]
+    },
+    {
+      "id": "P76",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « règle d’or » : « Ne fais pas à autrui ce que tu ne voudrais pas qu’on te fasse » se retrouve chez :",
+      "correct": "C",
+      "explanation": "La 'règle d'or' : 'Ne fais pas à autrui ce que tu ne voudrais pas qu'on te fasse' se retrouve chez Confucius et dans la sagesse populaire, qui l'expriment de manière similaire. Cette règle est une expression de la réciprocité et de la considération pour les autres. Les autres options sont incorrectes : Marx a une approche plus critique de la société, Nietzsche a une approche plus individualiste, et Kant a une formulation similaire mais plus rigoureuse de l'impératif catégorique.",
+      "options": [
+        "Marx",
+        "Nietzsche",
+        "Confucius et dans la sagesse populaire",
+        "Kant (sous forme d’impératif)"
+      ]
+    },
+    {
+      "id": "P77",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « mauvaise conscience » chez Nietzsche est :",
+      "correct": "B",
+      "explanation": "La 'mauvaise conscience' chez Nietzsche est une maladie issue du refoulement des instincts, qui conduit à la culpabilité et à la honte. Cette mauvaise conscience est considérée comme un produit de la morale chrétienne, qui punit les instincts naturels. Les autres options sont incorrectes : un guide sûr serait une conscience morale positive, un don divin serait une grâce, et la conscience morale authentique serait une expression de la personnalité individuelle.",
+      "options": [
+        "Un guide sûr",
+        "Une maladie issue du refoulement des instincts",
+        "Un don divin",
+        "La conscience morale authentique"
+      ]
+    },
+    {
+      "id": "P78",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Levinas, l’éthique première est :",
+      "correct": "A",
+      "explanation": "Pour Levinas, l'éthique première est la responsabilité infinie envers l'autre, qui est autrui en tant que personne unique et irremplaçable. Cette responsabilité est considérée comme antérieure à toute autre considération, y compris les règles morales ou les intérêts personnels. Les autres options sont incorrectes : l'obéissance à Dieu serait une forme de dévotion, le devoir envers soi-même serait une forme d'égoïsme, et la recherche du bonheur serait une forme d'hédonisme.",
+      "options": [
+        "La responsabilité infinie envers l’autre",
+        "L’obéissance à Dieu",
+        "Le devoir envers soi-même",
+        "La recherche du bonheur"
+      ]
+    },
+    {
+      "id": "P79",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « raisonnement en double effet » est utilisé en morale pour :",
+      "correct": "D",
+      "explanation": "Le 'raisonnement en double effet' est utilisé en morale pour justifier une action ayant une bonne et une mauvaise conséquence, sous certaines conditions. Ce raisonnement permet de prendre en compte les conséquences complexes d'une action et de déterminer si la bonne conséquence l'emporte sur la mauvaise. Les autres options sont incorrectes : ignorer les conséquences serait une forme de dogmatisme, maximiser le plaisir serait une forme d'utilitarisme, et condamner toute action serait une forme de rigorisme.",
+      "options": [
+        "Ignorer les conséquences",
+        "Maximiser le plaisir",
+        "Condamner toute action",
+        "Justifier une action ayant une bonne et une mauvaise conséquence sous conditions"
+      ]
+    },
+    {
+      "id": "P80",
+      "category": "Chapitre 4 : La morale et le devoir",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Bentham, la valeur d’un plaisir se mesure par son intensité, sa durée, etc. C’est le calcul :",
+      "correct": "D",
+      "explanation": "Selon Bentham, la valeur d'un plaisir se mesure par son intensité, sa durée, etc., c'est le calcul hédonistique, ou 'felicific calculus'. Ce calcul permet de déterminer la quantité de plaisir ou de douleur associée à une action et de prendre des décisions éclairées. Les autres options sont incorrectes : le stoïcisme met l'accent sur la vertu, l'aristotélisme met l'accent sur la raison et la vertu, et le kantisme met l'accent sur les règles morales universelles.",
+      "options": [
+        "Stoïcien",
+        "Aristotélicien",
+        "Kantien",
+        "Hédonistique (felicific calculus)"
+      ]
+    },
+    {
+      "id": "P81",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Hobbes, l’état de nature est :",
+      "correct": "C",
+      "explanation": "Selon Hobbes, l'état de nature est un état où les hommes sont livrés à eux-mêmes, sans autorité centrale, et où la loi du plus fort prédomine. L'option 'Un état de guerre de tous contre tous' décrit donc correctement cet état. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la description hobbesienne de l'état de nature.",
+      "options": [
+        "Un état de grâce",
+        "Un état de paix et d’harmonie",
+        "Un état de guerre de tous contre tous",
+        "Un état de liberté parfaite"
+      ]
+    },
+    {
+      "id": "P82",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le contrat social selon Rousseau vise à concilier :",
+      "correct": "A",
+      "explanation": "Le contrat social selon Rousseau vise à concilier la liberté naturelle de l'homme à l'état de nature et la liberté civile qui existe dans la société. L'option 'Liberté naturelle et liberté civile' reflète donc fidèlement cet objectif. Les autres options sont incorrectes car elles ne correspondent pas à l'objectif principal du contrat social chez Rousseau.",
+      "options": [
+        "Liberté naturelle et liberté civile",
+        "Hommes et femmes",
+        "Citoyens et étrangers",
+        "Riches et pauvres"
+      ]
+    },
+    {
+      "id": "P83",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Selon Locke, le pouvoir politique légitime repose sur :",
+      "correct": "D",
+      "explanation": "Selon Locke, le pouvoir politique légitime repose sur le consentement des gouvernés. Cela signifie que le pouvoir est légitimé par l'accord des personnes qui sont gouvernées. Les autres options, telles que 'La force', 'Le droit divin' et 'La naissance', ne reflètent pas fidèlement la pensée de Locke sur la légitimité du pouvoir politique. En effet, Locke soutient que le pouvoir politique trouve sa source dans le consentement des individus, ce qui exclut d'office la force, le droit divin et la naissance comme fondements légitimes.",
+      "options": [
+        "La force",
+        "Le droit divin",
+        "La naissance",
+        "Le consentement des gouvernés"
+      ]
+    },
+    {
+      "id": "P84",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Montesquieu, la séparation des pouvoirs est essentielle pour :",
+      "correct": "B",
+      "explanation": "Pour Montesquieu, la séparation des pouvoirs est essentielle pour éviter l'arbitraire et garantir la liberté. Cette séparation permet d'empêcher qu'un seul pouvoir ne devienne trop puissant et abuse de son autorité. Les options 'La centralisation', 'La rapidité' et 'L'efficacité', bien que potentiellement désirables dans certains contextes, ne reflètent pas l'objectif premier de Montesquieu, qui est de protéger les libertés individuelles et de prévenir les abus de pouvoir.",
+      "options": [
+        "La centralisation",
+        "Éviter l’arbitraire et garantir la liberté",
+        "La rapidité",
+        "L’efficacité"
+      ]
+    },
+    {
+      "id": "P85",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La démocratie directe se caractérise par :",
+      "correct": "A",
+      "explanation": "La démocratie directe se caractérise par le fait que le peuple exerce lui-même le pouvoir. Cela signifie que les décisions politiques sont prises directement par les citoyens, sans intermédiaires. Les autres options, telles que 'Le peuple élit des représentants', 'Une oligarchie' et 'Un monarque décide', décrivent en réalité des systèmes politiques différents, où le pouvoir n'est pas directement aux mains du peuple.",
+      "options": [
+        "Le peuple exerce lui-même le pouvoir",
+        "Le peuple élit des représentants",
+        "Une oligarchie",
+        "Un monarque décide"
+      ]
+    },
+    {
+      "id": "P86",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Marx, l’État est :",
+      "correct": "D",
+      "explanation": "Pour Marx, l'État est un instrument de domination de la classe bourgeoise. Selon Marx, l'État est utilisé par la classe dominante pour maintenir son pouvoir et son influence sur la société, au détriment des intérêts de la classe ouvrière. Les options 'L'expression de l'intérêt général', 'Une nécessité naturelle' et 'Un contrat volontaire' ne reflètent pas fidèlement la vision marxiste de l'État, qui y voit plutôt un outil de domination de classe.",
+      "options": [
+        "L’expression de l’intérêt général",
+        "Une nécessité naturelle",
+        "Un contrat volontaire",
+        "Un instrument de domination de la classe bourgeoise"
+      ]
+    },
+    {
+      "id": "P87",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La notion de « volonté générale » chez Rousseau :",
+      "correct": "B",
+      "explanation": "La notion de 'volonté générale' chez Rousseau est la volonté du peuple souverain visant l'intérêt commun. Rousseau distingue la 'volonté générale' de la 'volonté de tous', qui est simplement la somme des volontés individuelles. La 'volonté générale' est donc ce qui guide les décisions du peuple dans son ensemble, pour le bien de tous. Les options 'Est la somme des volontés particulières', 'Est celle du monarque' et 'Est celle de la majorité' ne capturent pas correctement cette distinction.",
+      "options": [
+        "Est la somme des volontés particulières",
+        "Est la volonté du peuple souverain visant l’intérêt commun",
+        "Est celle du monarque",
+        "Est celle de la majorité"
+      ]
+    },
+    {
+      "id": "P88",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Tocqueville, la démocratie peut engendrer un risque de :",
+      "correct": "A",
+      "explanation": "Selon Tocqueville, la démocratie peut engendrer un risque de tyrannie de la majorité. Tocqueville met en garde contre le danger que la majorité, dans un système démocratique, puisse imposer ses volontés à la minorité, menaçant ainsi les libertés individuelles. Les options 'Despotisme éclairé', 'Anarchie' et 'Théocratie' ne correspondent pas au risque spécifique identifié par Tocqueville dans le contexte de la démocratie.",
+      "options": [
+        "Tyrannie de la majorité",
+        "Despotisme éclairé",
+        "Anarchie",
+        "Théocratie"
+      ]
+    },
+    {
+      "id": "P89",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Hannah Arendt, le totalitarisme se caractérise par :",
+      "correct": "A",
+      "explanation": "Hannah Arendt définit le totalitarisme comme un régime qui se caractérise par la combinaison de l'idéologie et de la terreur. L'idéologie fournit une vision du monde qui justifie la violence et la répression, tandis que la terreur est le moyen utilisé pour éliminer toute opposition. Les autres options, telles que 'L'absence de violence', 'Le libéralisme' et 'La démocratie', sont incorrectes car elles ne correspondent pas aux caractéristiques du totalitarisme.",
+      "options": [
+        "L’idéologie et la terreur",
+        "L’absence de violence",
+        "Le libéralisme",
+        "La démocratie"
+      ]
+    },
+    {
+      "id": "P90",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La légitimité, selon Max Weber, peut être :",
+      "correct": "B",
+      "explanation": "Selon Max Weber, la légitimité peut être de trois types : traditionnelle, charismatique ou légale-rationnelle. Ces trois types de légitimité correspondent à des formes de domination qui sont acceptées par les individus en raison de leur attachement à la tradition, à la personnalité d'un leader ou à la rationalité de la loi. Les autres options, telles que 'Divine, naturelle ou contractuelle', 'Simple, double ou triple' et 'Démocratique, aristocratique ou monarchique', sont incorrectes car elles ne reflètent pas la classification weberienne de la légitimité.",
+      "options": [
+        "Divine, naturelle ou contractuelle",
+        "Traditionnelle, charismatique ou légale-rationnelle",
+        "Simple, double ou triple",
+        "Démocratique, aristocratique ou monarchique"
+      ]
+    },
+    {
+      "id": "P91",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le libéralisme politique défend :",
+      "correct": "D",
+      "explanation": "Le libéralisme politique défend les libertés individuelles et la limitation de l'État. Il promeut l'idée que les individus doivent être libres de prendre leurs propres décisions et que l'État ne doit intervenir que pour protéger les droits et les libertés de chacun. Les autres options, telles que 'La dictature', 'L'égalité absolue' et 'L'état providence', sont incorrectes car elles ne correspondent pas aux principes fondamentaux du libéralisme politique.",
+      "options": [
+        "La dictature",
+        "L’égalité absolue",
+        "L’état providence",
+        "Les libertés individuelles et la limitation de l’État"
+      ]
+    },
+    {
+      "id": "P92",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Rawls, la justice sociale implique :",
+      "correct": "A",
+      "explanation": "Pour John Rawls, la justice sociale implique l'égalité des chances et la différence justifiée par le bénéfice aux plus défavorisés. Cela signifie que les inégalités ne sont acceptables que si elles profitent aux membres les plus défavorisés de la société. Les autres options, telles que 'L'égalité des résultats', 'La méritocratie stricte' et 'Le laissez-faire', sont incorrectes car elles ne reflètent pas la théorie rawlsienne de la justice sociale.",
+      "options": [
+        "L’égalité des chances et la différence justifiée par le bénéfice aux plus défavorisés",
+        "L’égalité des résultats",
+        "La méritocratie stricte",
+        "Le laissez-faire"
+      ]
+    },
+    {
+      "id": "P93",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’anarchisme rejette :",
+      "correct": "B",
+      "explanation": "L'anarchisme rejette l'État et toute autorité coercitive. Les anarchistes estiment que les individus doivent être libres de s'organiser et de prendre leurs propres décisions sans l'intervention de l'État ou d'autres autorités. Les autres options, telles que 'La religion', 'La technologie' et 'La propriété privée', sont incorrectes car elles ne sont pas nécessairement rejetées par l'anarchisme.",
+      "options": [
+        "La religion",
+        "L’État et toute autorité coercitive",
+        "La technologie",
+        "La propriété privée"
+      ]
+    },
+    {
+      "id": "P94",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Platon, la cité juste est celle où :",
+      "correct": "D",
+      "explanation": "Selon Platon, la cité juste est celle où les philosophes sont rois. Cela signifie que les décisions politiques doivent être prises par des individus qui ont atteint un niveau élevé de sagesse et de connaissance. Les autres options, telles que 'Le peuple vote', 'Les guerriers commandent' et 'Les riches gouvernent', sont incorrectes car elles ne correspondent pas à la vision platonicienne de la cité juste.",
+      "options": [
+        "Le peuple vote",
+        "Les guerriers commandent",
+        "Les riches gouvernent",
+        "Les philosophes sont rois"
+      ]
+    },
+    {
+      "id": "P95",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La « désobéissance civile » (Thoreau) est :",
+      "correct": "D",
+      "explanation": "La 'désobéissance civile' selon Henry David Thoreau est un refus illégal mais non violent de se soumettre à une loi injuste. Cela implique que les individus doivent être prêts à enfreindre la loi pour défendre leurs droits et leurs principes. Les autres options sont incorrectes car la désobéissance civile ne consiste pas en une action terroriste, ni en une révolte armée, ni en un simple désaccord.",
+      "options": [
+        "Une action terroriste",
+        "Une révolte armée",
+        "Un simple désaccord",
+        "Un refus illégal mais non violent de se soumettre à une loi injuste"
+      ]
+    },
+    {
+      "id": "P96",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Machiavel, le Prince doit :",
+      "correct": "A",
+      "explanation": "Pour Nicolas Machiavel, le Prince doit savoir utiliser la ruse et la force pour maintenir l'État. Cela signifie que le leader doit être capable de prendre des décisions difficiles et de mettre en œuvre des stratégies pour assurer la stabilité et la sécurité de l'État. Les autres options sont incorrectes car le Prince ne doit pas nécessairement obéir à l'Église, ni être élu par le peuple, ni être toujours vertueux.",
+      "options": [
+        "Savoir utiliser la ruse et la force pour maintenir l’État",
+        "Obéir à l’Église",
+        "Être élu par le peuple",
+        "Être toujours vertueux"
+      ]
+    },
+    {
+      "id": "P97",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « contrat social » selon Hobbes donne naissance au Léviathan, c’est-à-dire :",
+      "correct": "C",
+      "explanation": "Le concept de 'contrat social' chez Hobbes aboutit à la création d'un État puissant, souvent symbolisé par le Léviathan. Cet État est qualifié d'absolu car il concentre entre ses mains tout le pouvoir, permettant ainsi de mettre fin à l'état de nature et d'établir la paix. C'est pourquoi l'option 'Un État absolu garantissant la paix' est la bonne réponse. Les autres options sont incorrectes car une démocratie implique une répartition du pouvoir, une anarchie signifie l'absence de gouvernement centralisé, et une théocratie repose sur des principes religieux.",
+      "options": [
+        "Une démocratie",
+        "Une anarchie",
+        "Un État absolu garantissant la paix",
+        "Une théocratie"
+      ]
+    },
+    {
+      "id": "P98",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Rousseau, la souveraineté est :",
+      "correct": "D",
+      "explanation": "Selon Rousseau, la souveraineté est un concept clé de sa théorie politique. Il affirme que la souveraineté est 'indivisible et inaliénable', c'est-à-dire qu'elle ne peut pas être divisée entre différents organes ou aliénée à un autre corps. Cela signifie que le pouvoir législatif appartient au peuple dans son ensemble et ne peut être délégué. L'option 'Indivisible et inaliénable' reflète fidèlement cette idée. Les autres options sont incorrectes car la souveraineté représentative implique une délégation de pouvoir, la divisibilité contredit le principe d'indivisibilité, et l'aliénabilité va à l'encontre de l'inaliénabilité.",
+      "options": [
+        "Représentative",
+        "Divisible",
+        "Aliénable",
+        "Indivisible et inaliénable"
+      ]
+    },
+    {
+      "id": "P99",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le républicanisme insiste sur :",
+      "correct": "D",
+      "explanation": "Le républicanisme met l'accent sur la vertu civique et le bien commun, c'est-à-dire sur les valeurs et les intérêts partagés par les citoyens d'une république. Il promeut une citoyenneté active et la participation au bien public. L'option 'La vertu civique et le bien commun' correspond parfaitement à cette définition. Les autres options sont incorrectes car la monarchie est une forme de gouvernement différente, les droits individuels absolus sont davantage liés au libéralisme, et l'anarchie implique l'absence de gouvernement.",
+      "options": [
+        "La monarchie",
+        "Les droits individuels absolus",
+        "L’anarchie",
+        "La vertu civique et le bien commun"
+      ]
+    },
+    {
+      "id": "P100",
+      "category": "Chapitre 5 : L’État, la politique et la société",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Foucault, le pouvoir moderne s’exerce principalement par :",
+      "correct": "B",
+      "explanation": "Selon Foucault, le pouvoir moderne ne s'exerce pas principalement par la force militaire, la loi ou la violence, mais plutôt de manière plus diffuse et insidieuse à travers la surveillance et le contrôle, qu'il appelle 'biopouvoir'. Ce concept décrit comment les États modernes exercent un contrôle sur les populations en gérant leur santé, leur comportement et leur bien-être. L'option 'La surveillance et le contrôle (biopouvoir)' est donc la bonne réponse. Les autres options sont incorrectes car elles représentent des conceptions plus traditionnelles ou simplistes du pouvoir.",
+      "options": [
+        "La force militaire",
+        "La surveillance et le contrôle (biopouvoir)",
+        "La loi",
+        "La violence"
+      ]
+    },
+    {
+      "id": "P101",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Camus, le mythe de Sisyphe illustre :",
+      "correct": "C",
+      "explanation": "Le mythe de Sisyphe, tel que repris par Camus, illustre l'absurdité de l'existence humaine et la nécessité de trouver un sens à la vie malgré cette absurdité. Sisyphe, condamné à rouler éternellement un rocher vers le sommet d'une montagne, trouve une forme de révolte joyeuse dans son action incessante. L'option 'L'absurdité de l'existence et la révolte joyeuse' reflète fidèlement cette interprétation. Les autres options sont incorrectes car elles ne rendent pas compte de la complexité de la philosophie de Camus.",
+      "options": [
+        "Le sens de l’histoire",
+        "Le déterminisme",
+        "L’absurdité de l’existence et la révolte joyeuse",
+        "La condition divine"
+      ]
+    },
+    {
+      "id": "P102",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Heidegger, le « Dasein » (être-là) est caractérisé par :",
+      "correct": "C",
+      "explanation": "Pour Heidegger, le 'Dasein' (être-là) est un concept central de sa philosophie, désignant la manière d'être spécifique à l'existence humaine. Le Dasein est caractérisé par sa temporalité (il est dans le temps) et son souci (Sorge), c'est-à-dire son être-affecté par son existence et son futur. L'option 'La temporalité et le souci (Sorge)' est donc la bonne réponse. Les autres options sont incorrectes car elles ne décrivent pas avec précision les caractéristiques du Dasein selon Heidegger.",
+      "options": [
+        "L’immortalité",
+        "La raison",
+        "La temporalité et le souci (Sorge)",
+        "La sensation"
+      ]
+    },
+    {
+      "id": "P103",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le temps chez Augustin est :",
+      "correct": "B",
+      "explanation": "Augustin aborde le temps dans ses réflexions philosophiques en le décrivant comme une 'distension de l'âme'. Selon lui, le temps est constitué du présent du passé (la mémoire), du présent du présent (la perception) et du présent du futur (l'attente). L'option 'Une distension de l'âme (présent du passé, présent du présent, présent du futur)' reflète cette compréhension. Les autres options sont incorrectes car elles représentent des conceptions alternatives du temps.",
+      "options": [
+        "Une illusion",
+        "Une distension de l’âme (présent du passé, présent du présent, présent du futur)",
+        "Un cycle éternel",
+        "Une mesure du mouvement"
+      ]
+    },
+    {
+      "id": "P104",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Épicure, le bonheur consiste en :",
+      "correct": "A",
+      "explanation": "Pour Épicure, le bonheur consiste dans l'ataraxie (absence de trouble) et l'aponie (absence de douleur). Il préconise une vie modeste et libre de troubles, permettant ainsi d'atteindre un état de tranquillité et de sérénité. L'option 'L'ataraxie (absence de trouble) et l'aponie (absence de douleur)' correspond à cette définition. Les autres options sont incorrectes car elles décrivent des objectifs qui ne sont pas au cœur de la philosophie épicurienne.",
+      "options": [
+        "L’ataraxie (absence de trouble) et l’aponie (absence de douleur)",
+        "La gloire",
+        "Le pouvoir",
+        "La richesse"
+      ]
+    },
+    {
+      "id": "P105",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon les stoïciens, le bonheur dépend :",
+      "correct": "A",
+      "explanation": "Selon les stoïciens, le bonheur dépend de notre jugement et de notre vertu. En effet, les stoïciens considèrent que le bonheur est une conséquence de la vertu et de la maîtrise de soi, plutôt que de facteurs externes. Les biens extérieurs, la société et le hasard ne sont pas considérés comme des sources de bonheur durables. L'option 'Des biens extérieurs' est incorrecte car les stoïciens estiment que les richesses et les plaisirs ne procurent qu'un bonheur éphémère. Les options 'De la société' et 'Du hasard' sont également incorrectes, car le bonheur stoïcien est basé sur la raison et la vertu individuelle.",
+      "options": [
+        "De notre jugement et de notre vertu",
+        "Des biens extérieurs",
+        "De la société",
+        "Du hasard"
+      ]
+    },
+    {
+      "id": "P106",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Kierkegaard, les trois stades de l’existence sont :",
+      "correct": "C",
+      "explanation": "Pour Kierkegaard, les trois stades de l'existence sont l'esthétique, l'éthique et le religieux. Ces stades représentent les différentes étapes de la vie humaine, depuis la recherche du plaisir jusqu'à la recherche de la vérité et de la foi. L'option 'Animal, homme, dieu' est incorrecte car elle ne correspond pas à la classification de Kierkegaard. L'option 'Sensible, moral, religieux' est proche, mais ne précise pas les termes exacts utilisés par Kierkegaard. L'option 'Enfant, adulte, vieillard' est incorrecte car elle décrit des étapes de la vie biologique plutôt que des stades existentiels.",
+      "options": [
+        "Animal, homme, dieu",
+        "Sensible, moral, religieux",
+        "Esthétique, éthique, religieux",
+        "Enfant, adulte, vieillard"
+      ]
+    },
+    {
+      "id": "P107",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’angoisse existentielle, selon Heidegger, révèle :",
+      "correct": "D",
+      "explanation": "L'angoisse existentielle, selon Heidegger, révèle le néant et la liberté. En effet, l'angoisse est une expérience fondamentale qui dévoile l'existence humaine comme étant caractérisée par la liberté et la responsabilité, mais également confrontée au néant. L'option 'La colère' est incorrecte car la colère est une émotion différente de l'angoisse. L'option 'La peur d'un objet' est également incorrecte, car la peur est une émotion plus spécifique et moins existentielle que l'angoisse. L'option 'La maladie' est incorrecte car la maladie est un état physique ou psychologique, tandis que l'angoisse est une expérience existentielle.",
+      "options": [
+        "La colère",
+        "La peur d’un objet",
+        "La maladie",
+        "Le néant et la liberté"
+      ]
+    },
+    {
+      "id": "P108",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Marx, le travail aliéné est :",
+      "correct": "A",
+      "explanation": "Pour Marx, le travail aliéné est un travail forcé qui dépossède l'ouvrier de son produit et de son humanité. En effet, Marx considère que le travail aliéné est une conséquence de l'exploitation capitaliste, qui prive les travailleurs de leur dignité et de leur créativité. L'option 'Une activité libre' est incorrecte car le travail aliéné est précisément le contraire de l'activité libre. Les options 'Créateur de sens' et 'Un jeu' sont également incorrectes, car le travail aliéné est dépourvu de sens et de plaisir pour les travailleurs.",
+      "options": [
+        "Un travail forcé qui dépossède l’ouvrier de son produit et de son humanité",
+        "Une activité libre",
+        "Créateur de sens",
+        "Un jeu"
+      ]
+    },
+    {
+      "id": "P109",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La technique selon Heidegger n’est pas seulement un outil, mais :",
+      "correct": "D",
+      "explanation": "La technique selon Heidegger n'est pas seulement un outil, mais un mode de dévoilement de l'être (Gestell). En effet, Heidegger considère que la technique moderne est une manière de dévoiler le monde et l'être humain, qui transforme les êtres vivants et les objets en ressources exploitables. Les options 'Une magie', 'Une simple fabrication' et 'Une science' sont incorrectes car elles réduisent la technique à des aspects spécifiques, tandis que Heidegger la considère comme un phénomène plus profond et plus global.",
+      "options": [
+        "Une magie",
+        "Une simple fabrication",
+        "Une science",
+        "Un mode de dévoilement de l’être (Gestell)"
+      ]
+    },
+    {
+      "id": "P110",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « pari de Pascal » concerne :",
+      "correct": "B",
+      "explanation": "Le 'pari de Pascal' concerne l'existence de Dieu. En effet, Blaise Pascal propose un argument pour justifier la croyance en Dieu, basé sur la raison et l'intérêt personnel. Les options 'La liberté', 'La morale' et 'La science' sont incorrectes car elles ne sont pas au cœur du pari de Pascal.",
+      "options": [
+        "La liberté",
+        "L’existence de Dieu",
+        "La morale",
+        "La science"
+      ]
+    },
+    {
+      "id": "P111",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Schopenhauer, la vie est essentiellement :",
+      "correct": "D",
+      "explanation": "Pour Schopenhauer, la vie est essentiellement souffrance et ennui. En effet, Schopenhauer considère que la vie humaine est caractérisée par la souffrance et l'insatisfaction, qui ne peuvent être surmontées que par la résignation et la compassion. Les options 'Action', 'Joie' et 'Contemplation' sont incorrectes car elles ne reflètent pas l'essence pessimiste de la philosophie de Schopenhauer.",
+      "options": [
+        "Action",
+        "Joie",
+        "Contemplation",
+        "Souffrance et ennui"
+      ]
+    },
+    {
+      "id": "P112",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « temps » chez Bergson est :",
+      "correct": "B",
+      "explanation": "Le 'temps' chez Bergson est une durée qualitative et indivisible. En effet, Henri Bergson considère que le temps est une expérience vécue, qualitative et continue, qui ne peut être réduite à des mesures quantitatives ou à des divisions spatiales. Les options 'Linéaire', 'Un cycle' et 'Quantifiable' sont incorrectes car elles décrivent des conceptions du temps qui sont opposées à celle de Bergson.",
+      "options": [
+        "Linéaire",
+        "Une durée qualitative et indivisible",
+        "Un cycle",
+        "Quantifiable"
+      ]
+    },
+    {
+      "id": "P113",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La mort, selon Épicure, « n’est rien pour nous » car :",
+      "correct": "A",
+      "explanation": "La mort, selon Épicure, 'n'est rien pour nous' car quand la mort est là, nous ne sommes plus. En effet, Épicure considère que la mort marque la fin de la conscience et des sensations, ce qui signifie qu'elle ne peut pas être une source de souffrance ou de plaisir pour nous. Les autres options sont incorrectes car la peur de la mort est justement ce qu'Épicure cherche à dissiper, la mort n'est pas un passage au sens où elle ne conduit pas à une autre forme d'existence, et l'âme n'est pas considérée comme immortelle dans la philosophie épicurienne.",
+      "options": [
+        "Quand la mort est là, nous ne sommes plus",
+        "Il faut la craindre",
+        "La mort est un passage",
+        "L’âme est immortelle"
+      ]
+    },
+    {
+      "id": "P114",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Sartre, l’existence humaine est « absurde » au sens où :",
+      "correct": "B",
+      "explanation": "Pour Sartre, l'existence humaine est 'absurde' au sens où elle n'a pas de sens a priori, mais c'est à l'homme de lui en donner un. Cela signifie que notre existence est caractérisée par une liberté radicale qui nous permet de choisir notre propre voie, mais cette liberté est également source d'angoisse et de responsabilité. Les autres options sont incorrectes car l'existence n'est pas gouvernée par le hasard de manière déterministe, elle n'est pas dénuée de tout sens car nous pouvons lui donner un sens, et Dieu n'a pas voulu l'existence ainsi dans une perspective existentialiste.",
+      "options": [
+        "Elle est gouvernée par le hasard",
+        "Elle n’a pas de sens a priori, mais c’est à l’homme de lui en donner un",
+        "Elle est dénuée de tout sens",
+        "Dieu l’a voulue ainsi"
+      ]
+    },
+    {
+      "id": "P115",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le travail, selon Hegel, est :",
+      "correct": "A",
+      "explanation": "Le travail, selon Hegel, est un moyen de se réaliser et de transformer le monde. En effet, Hegel considère que le travail est un processus dialectique qui permet à l'individu de se développer et de se réaliser en transformant la nature et en créant des œuvres culturelles. Les autres options sont incorrectes car le travail n'est pas une perte de temps, il est au contraire une activité essentielle à la réalisation de soi, il n'est pas une punition mais plutôt une forme d'auto-réalisation, et il n'est pas une malédiction mais plutôt une nécessité pour le développement humain.",
+      "options": [
+        "Un moyen de se réaliser et de transformer le monde",
+        "Une perte de temps",
+        "Une punition",
+        "Une malédiction"
+      ]
+    },
+    {
+      "id": "P116",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Hannah Arendt, le travail (labor) se distingue de l’œuvre (work) et de l’action. Le travail correspond à :",
+      "correct": "A",
+      "explanation": "Pour Hannah Arendt, le travail (labor) se distingue de l'œuvre (work) et de l'action, et le travail correspond aux activités vitales répétitives. En effet, Arendt considère que le travail est lié à la reproduction de la vie et à la satisfaction des besoins biologiques, alors que l'œuvre est liée à la création d'objets durables et l'action est liée à la sphère publique et politique. Les autres options sont incorrectes car la création artistique relève de l'œuvre, la production d'objets durables relève également de l'œuvre, et l'action politique relève de l'action.",
+      "options": [
+        "Les activités vitales répétitives",
+        "La création artistique",
+        "La production d’objets durables",
+        "L’action politique"
+      ]
+    },
+    {
+      "id": "P117",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’« éternel retour » chez Nietzsche est :",
+      "correct": "D",
+      "explanation": "L'« éternel retour » chez Nietzsche est une pensée éthique pour aimer la vie. En effet, Nietzsche considère que l'éternel retour est une hypothèse métaphysique qui doit être vécue comme une exigence éthique, c'est-à-dire qu'il faut aimer la vie de telle sorte que l'on puisse la vouloir éternellement. Les autres options sont incorrectes car l'éternel retour n'est pas un concept biologique au sens strict, il n'est pas une croyance religieuse au sens traditionnel, et il n'est pas une théorie cosmologique mais plutôt une pensée éthique.",
+      "options": [
+        "Un concept biologique",
+        "Une croyance religieuse",
+        "Une théorie cosmologique",
+        "Une pensée éthique pour aimer la vie"
+      ]
+    },
+    {
+      "id": "P118",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon le stoïcisme, il faut distinguer ce qui dépend de nous et ce qui n’en dépend pas. Le bonheur consiste à :",
+      "correct": "C",
+      "explanation": "Selon le stoïcisme, il faut distinguer ce qui dépend de nous et ce qui n'en dépend pas, et le bonheur consiste à vouloir ce qui arrive (volonté conforme à la nature). En effet, les stoïciens considèrent que le bonheur réside dans la conformité à la raison et à la nature, et que l'on doit accepter ce qui est hors de notre contrôle avec sérénité. Les autres options sont incorrectes car se révolter est source de trouble, désirer ce qui ne dépend pas de nous est une source de souffrance, et ignorer le destin n'est pas une attitude philosophique.",
+      "options": [
+        "Se révolter",
+        "Désirer ce qui ne dépend pas de nous",
+        "Vouloir ce qui arrive (volonté conforme à la nature)",
+        "Ignorer le destin"
+      ]
+    },
+    {
+      "id": "P119",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Epicure, l’amitié est :",
+      "correct": "C",
+      "explanation": "Pour Epicure, l'amitié est un des plus grands biens pour le bonheur. En effet, Epicure considère que l'amitié est une source de plaisir et de sécurité, et qu'elle est essentielle à la vie heureuse. Les autres options sont incorrectes car l'amitié n'est pas une convention au sens où elle est un choix libre, elle n'est pas dangereuse mais plutôt bénéfique, et elle n'est pas superflue mais plutôt nécessaire.",
+      "options": [
+        "Une convention",
+        "Dangereuse",
+        "Un des plus grands biens pour le bonheur",
+        "Superflue"
+      ]
+    },
+    {
+      "id": "P120",
+      "category": "Chapitre 6 : L’existence, le temps et le bonheur",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « mauvaise foi » existentielle consiste à :",
+      "correct": "A",
+      "explanation": "La « mauvaise foi » existentielle consiste à se comporter comme une chose (se fuir). En effet, Sartre considère que la mauvaise foi est une attitude qui consiste à se nier soi-même en se comportant comme un objet, ce qui est une forme de fuite devant sa propre liberté et responsabilité. Les autres options sont incorrectes car agir avec authenticité est le contraire de la mauvaise foi, mentir aux autres n'est pas la même chose que la mauvaise foi existentielle, et assumer sa liberté est ce que la mauvaise foi cherche à éviter.",
+      "options": [
+        "Se comporter comme une chose (se fuir)",
+        "Agir avec authenticité",
+        "Mentir aux autres",
+        "Assumer sa liberté"
+      ]
+    },
+    {
+      "id": "P121",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Feuerbach, Dieu est :",
+      "correct": "A",
+      "explanation": "Pour Feuerbach, Dieu est considéré comme une projection des aspirations humaines. Cela signifie que l'homme a créé Dieu en fonction de ses propres désirs et besoins, plutôt que Dieu étant une entité réelle et indépendante. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la pensée de Feuerbach : l'option 'Un être personnel' suggère une compréhension plus traditionnelle de Dieu, tandis que 'Une réalité transcendante' et 'Une illusion sans intérêt' ne capturent pas l'essence de sa critique de la religion.",
+      "options": [
+        "Une projection des aspirations humaines",
+        "Un être personnel",
+        "Une réalité transcendante",
+        "Une illusion sans intérêt"
+      ]
+    },
+    {
+      "id": "P122",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Freud, la religion est :",
+      "correct": "D",
+      "explanation": "Selon Freud, la religion est considérée comme une névrose obsessionnelle collective. Freud pense que la religion est un mécanisme de défense qui permet aux individus de faire face à leurs angoisses et à leurs insécurités. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la pensée de Freud : l'option 'Un art' est trop large et ne capture pas la dimension psychologique de la religion, tandis que 'Une science' et 'La vérité absolue' sont des descriptions qui ne correspondent pas à la critique freudienne de la religion.",
+      "options": [
+        "Un art",
+        "Une science",
+        "La vérité absolue",
+        "Une névrose obsessionnelle collective"
+      ]
+    },
+    {
+      "id": "P123",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Kant, la foi raisonnable (religion dans les limites de la simple raison) repose sur :",
+      "correct": "D",
+      "explanation": "Pour Kant, la foi raisonnable, ou la religion dans les limites de la simple raison, repose sur la morale, qui est elle-même fondée sur le postulat de l'existence de Dieu. Kant argue que la morale est une condition nécessaire à la foi, et que l'existence de Dieu est un postulat de la raison pratique. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la pensée de Kant : les options 'Les miracles', 'La révélation' et 'Les dogmes' sont des éléments qui relèvent de la foi positive et non de la foi raisonnable.",
+      "options": [
+        "Les miracles",
+        "La révélation",
+        "Les dogmes",
+        "La morale (postulat de l’existence de Dieu)"
+      ]
+    },
+    {
+      "id": "P124",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’art, selon Aristote, est imitation (mimésis). La tragédie provoque la catharsis, c’est-à-dire :",
+      "correct": "D",
+      "explanation": "Selon Aristote, la tragédie provoque la catharsis, qui est la purgation des passions. La catharsis est un concept clé dans la Poétique d'Aristote, et désigne le processus par lequel les émotions sont purifiées et apaisées par l'expérience artistique. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la pensée d'Aristote : les options 'La colère', 'L'indifférence' et 'L'enthousiasme' ne capturent pas l'essence de la catharsis.",
+      "options": [
+        "La colère",
+        "L’indifférence",
+        "L’enthousiasme",
+        "La purgation des passions"
+      ]
+    },
+    {
+      "id": "P125",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Hegel, l’art est :",
+      "correct": "D",
+      "explanation": "Pour Hegel, l'art est une manifestation de l'Esprit absolu, mais il est dépassé par la religion et la philosophie. Hegel considère que l'art est une étape nécessaire dans le développement de l'Esprit, mais qu'il est finalement dépassé par des formes plus élevées de conscience. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la pensée de Hegel : l'option 'Inférieur à la religion' est trop simpliste, tandis que 'Supérieur à la philosophie' et 'Inutile' ne correspondent pas à la vision hégélienne de l'art.",
+      "options": [
+        "Inférieur à la religion",
+        "Supérieur à la philosophie",
+        "Inutile",
+        "Une manifestation de l’Esprit absolu, mais dépassé par la religion et la philosophie"
+      ]
+    },
+    {
+      "id": "P126",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Nietzsche, l’art est :",
+      "correct": "C",
+      "explanation": "Selon Nietzsche, l'art est une métaphysique de l'artiste, qui justifie l'existence. Nietzsche considère que l'art est une forme de création de valeurs, qui permet à l'artiste de donner un sens à son existence. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la pensée de Nietzsche : les options 'Une illusion', 'Un mensonge' et 'Un divertissement' ne capturent pas l'essence de la philosophie nietzschéenne de l'art.",
+      "options": [
+        "Une illusion",
+        "Un mensonge",
+        "Une métaphysique de l’artiste, justification de l’existence",
+        "Un divertissement"
+      ]
+    },
+    {
+      "id": "P127",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La culture, au sens anthropologique (Tylor), désigne :",
+      "correct": "C",
+      "explanation": "La culture, au sens anthropologique (Tylor), désigne l'ensemble des comportements, croyances et institutions acquis par l'homme en société. Cette définition met en avant l'idée que la culture est un ensemble de traits acquis et transmis socialement. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la définition anthropologique de la culture : les options 'La nature', 'L'éducation' et 'La haute culture (arts, lettres)' sont trop restreintes ou trop spécifiques.",
+      "options": [
+        "La nature",
+        "L’éducation",
+        "L’ensemble des comportements, croyances et institutions acquis par l’homme en société",
+        "La haute culture (arts, lettres)"
+      ]
+    },
+    {
+      "id": "P128",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Rousseau, l’homme naturel est bon, c’est la société qui le corrompt. La culture est donc :",
+      "correct": "A",
+      "explanation": "Pour Rousseau, l'homme naturel est bon, c'est la société qui le corrompt. La culture est donc source de corruption. Rousseau pense que la société et la culture ont un impact négatif sur l'homme, qui est naturellement bon. Les autres options sont incorrectes car elles ne reflètent pas fidèlement la pensée de Rousseau : les options 'Naturelle', 'Divine' et 'Source de progrès' ne correspondent pas à sa vision de la culture et de la société.",
+      "options": [
+        "Source de corruption",
+        "Naturelle",
+        "Divine",
+        "Source de progrès"
+      ]
+    },
+    {
+      "id": "P129",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le beau, selon Platon, est :",
+      "correct": "D",
+      "explanation": "Selon Platon, le beau est une idée éternelle et immuable, qui se manifeste dans le monde sensible de manière imparfaite. L'éclat du vrai, l'idée du beau en soi, est la réponse correcte car elle reflète la pensée platonicienne sur la nature du beau, qui est indépendante des opinions subjectives et des réalités sensibles. Les autres options sont incorrectes car le beau n'est pas relatif ou subjectif selon Platon, ni simplement utile.",
+      "options": [
+        "Relatif",
+        "Subjectif",
+        "Utile",
+        "L’éclat du vrai, l’idée du beau en soi"
+      ]
+    },
+    {
+      "id": "P130",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Kant, le jugement esthétique (beau) est :",
+      "correct": "C",
+      "explanation": "Pour Kant, le jugement esthétique sur le beau est subjectif mais universel, car il se base sur un sentiment de plaisir ou de déplaisir qui est partagé par tous les êtres humains, sans être fondé sur un concept objectif. C'est pourquoi l'option 'Subjectif mais universel (sans concept)' est la bonne réponse. Les autres options sont incorrectes car le jugement esthétique n'est pas pure émotion, ni objectif ou logique selon Kant.",
+      "options": [
+        "Pure émotion",
+        "Objectif",
+        "Subjectif mais universel (sans concept)",
+        "Logique"
+      ]
+    },
+    {
+      "id": "P131",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Durkheim, la religion est :",
+      "correct": "C",
+      "explanation": "Selon Durkheim, la religion est un ensemble de croyances et de rites qui unissent une communauté et créent un sentiment de solidarité entre ses membres, en distinguant le sacré du profane. C'est pourquoi l'option 'Un ensemble de croyances et rites qui unissent une communauté (sacré/profane)' est la bonne réponse. Les autres options sont incorrectes car la religion n'est pas considérée comme une illusion, une superstition ou une affaire privée selon Durkheim.",
+      "options": [
+        "Une illusion",
+        "Une superstition",
+        "Un ensemble de croyances et rites qui unissent une communauté (sacré/profane)",
+        "Une affaire privée"
+      ]
+    },
+    {
+      "id": "P132",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’art conceptuel (Duchamp) remet en question :",
+      "correct": "D",
+      "explanation": "L'art conceptuel, tel que représenté par Marcel Duchamp, remet en question la définition traditionnelle de l'art comme objet fait par l'artiste, en affirmant que l'art peut prendre de nombreuses formes et être défini par l'intention de l'artiste plutôt que par ses qualités esthétiques ou techniques. C'est pourquoi l'option 'La définition traditionnelle de l’art comme objet fait par l’artiste' est la bonne réponse. Les autres options sont incorrectes car l'art conceptuel ne se limite pas à remettre en question la peinture ou la sculpture, ni simplement la beauté.",
+      "options": [
+        "La peinture",
+        "La beauté",
+        "La sculpture",
+        "La définition traditionnelle de l’art comme objet fait par l’artiste"
+      ]
+    },
+    {
+      "id": "P133",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Heidegger, l’œuvre d’art est :",
+      "correct": "D",
+      "explanation": "Pour Heidegger, l'œuvre d'art est une mise en œuvre de la vérité de l'être, car elle révèle la manière dont l'être se manifeste dans le monde. C'est pourquoi l'option 'Une mise en œuvre de la vérité de l’être' est la bonne réponse. Les autres options sont incorrectes car l'œuvre d'art n'est pas considérée comme un simple objet, un divertissement ou une décoration selon Heidegger.",
+      "options": [
+        "Un simple objet",
+        "Un divertissement",
+        "Une décoration",
+        "Une mise en œuvre de la vérité de l’être"
+      ]
+    },
+    {
+      "id": "P134",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le sacré, selon Mircea Eliade, se manifeste par :",
+      "correct": "D",
+      "explanation": "Selon Mircea Eliade, le sacré se manifeste par la hiérophanie, c'est-à-dire une manifestation du sacré dans le monde profane. C'est pourquoi l'option 'Le hiérophanie (manifestation du sacré)' est la bonne réponse. Les autres options sont incorrectes car la nature, la routine et le profane ne sont pas des manifestations du sacré selon Eliade.",
+      "options": [
+        "La nature",
+        "La routine",
+        "Le profane",
+        "Le hiérophanie (manifestation du sacré)"
+      ]
+    },
+    {
+      "id": "P135",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La foi chez Kierkegaard est :",
+      "correct": "C",
+      "explanation": "Pour Kierkegaard, la foi est un saut dans l'absurde, au-delà de la raison, car elle implique une adhésion à des vérités qui dépassent la compréhension humaine. C'est pourquoi l'option 'Un saut dans l’absurde, au-delà de la raison' est la bonne réponse. Les autres options sont incorrectes car la foi n'est pas considérée comme une certitude évidente, une adhésion rationnelle ou une tradition selon Kierkegaard.",
+      "options": [
+        "Une certitude évidente",
+        "Une adhésion rationnelle",
+        "Un saut dans l’absurde, au-delà de la raison",
+        "Une tradition"
+      ]
+    },
+    {
+      "id": "P136",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Nietzsche, « Dieu est mort » signifie :",
+      "correct": "B",
+      "explanation": "Selon Nietzsche, 'Dieu est mort' signifie que la croyance en un fondement métaphysique et moral absolu a disparu, ce qui entraîne une dévaluation des valeurs supérieures. C'est pourquoi l'option 'La fin de la croyance en un fondement métaphysique et moral absolu' est la bonne réponse. Les autres options sont incorrectes car 'Dieu est mort' ne signifie pas la mort physique de Dieu, l'athéisme pratique ou la fin de la religion selon Nietzsche.",
+      "options": [
+        "La mort physique de Dieu",
+        "La fin de la croyance en un fondement métaphysique et moral absolu",
+        "L’athéisme pratique",
+        "La fin de la religion"
+      ]
+    },
+    {
+      "id": "P137",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’art pour l’art (théorie de l’art autonome) défend que :",
+      "correct": "C",
+      "explanation": "La théorie de l'art autonome, également connue sous le nom de 'l'art pour l'art', défend l'idée que l'art n'a pas de fin utilitaire, sa fin est elle-même. Cela signifie que l'art ne doit pas être jugé en fonction de sa capacité à servir la morale, à plaire ou à être politique, mais plutôt en fonction de sa propre valeur artistique. Les options qui soutiennent que l'art doit servir la morale, plaire ou être politique sont incorrectes car elles donnent à l'art une fin utilitaire qui n'est pas conforme à la théorie de l'art autonome. L'option qui soutient que l'art doit plaire est également incorrecte car elle réduit l'art à une simple question de goût personnel.",
+      "options": [
+        "L’art doit servir la morale",
+        "L’art doit plaire",
+        "L’art n’a pas de fin utilitaire, sa fin est elle-même",
+        "L’art doit être politique"
+      ]
+    },
+    {
+      "id": "P138",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La culture selon Lévi-Strauss est universelle, mais chaque culture a sa spécificité. Il défend :",
+      "correct": "B",
+      "explanation": "Selon Lévi-Strauss, la culture est universelle, mais chaque culture a sa spécificité. Cela signifie qu'il défend le relativisme culturel, qui soutient que chaque culture doit être comprise et jugée en fonction de ses propres valeurs et normes, plutôt qu'en fonction de celles d'une autre culture. Les options qui soutiennent l'universalisme abstrait, l'ethnocentrisme et le racisme sont incorrectes car elles ne tiennent pas compte de la spécificité de chaque culture et peuvent conduire à des jugements de valeur erronés.",
+      "options": [
+        "L’universalisme abstrait",
+        "Le relativisme culturel",
+        "L’ethnocentrisme",
+        "Le racisme"
+      ]
+    },
+    {
+      "id": "P139",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Adorno, l’industrie culturelle (culture de masse) :",
+      "correct": "B",
+      "explanation": "Pour Adorno, l'industrie culturelle, également connue sous le nom de culture de masse, standardise et aliène les individus. Cela signifie qu'elle produit des œuvres culturelles qui sont uniformes et dépourvues de sens, et qui servent à contrôler les masses plutôt qu'à les émanciper. Les options qui soutiennent que l'industrie culturelle favorise la créativité, crée de l'art authentique ou émancipe les masses sont incorrectes car elles ne correspondent pas à la critique d'Adorno envers la culture de masse.",
+      "options": [
+        "Favorise la créativité",
+        "Standardise et aliène",
+        "Crée de l’art authentique",
+        "Émancipe les masses"
+      ]
+    },
+    {
+      "id": "P140",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le « sublime » chez Kant est :",
+      "correct": "A",
+      "explanation": "Chez Kant, le sublime est une émotion mêlée de plaisir et d'effroi devant l'immensité ou la puissance. Cela signifie qu'il s'agit d'une expérience esthétique qui dépasse les limites de la beauté harmonieuse et qui peut inspirer un sentiment de respect ou de crainte. Les options qui soutiennent que le sublime est la laideur, la beauté harmonieuse ou le gracieux sont incorrectes car elles ne correspondent pas à la définition kantienne du sublime.",
+      "options": [
+        "Une émotion mêlée de plaisir et d’effroi devant l’immensité ou la puissance",
+        "La laideur",
+        "La beauté harmonieuse",
+        "Le gracieux"
+      ]
+    },
+    {
+      "id": "P141",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le positivisme d’Auguste Comte affirme que :",
+      "correct": "C",
+      "explanation": "Le positivisme d'Auguste Comte affirme que seule la connaissance scientifique positive est valable. Cela signifie qu'il rejette les formes de connaissance qui ne sont pas fondées sur des preuves empiriques et des méthodes scientifiques. Les options qui soutiennent que la théologie est vraie, la métaphysique est le stade suprême ou l'intuition prime sont incorrectes car elles ne correspondent pas à la philosophie positiviste de Comte.",
+      "options": [
+        "La théologie est vraie",
+        "La métaphysique est le stade suprême",
+        "Seule la connaissance scientifique positive est valable",
+        "L’intuition prime"
+      ]
+    },
+    {
+      "id": "P142",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Pour Bachelard, la connaissance scientifique procède par :",
+      "correct": "B",
+      "explanation": "Pour Bachelard, la connaissance scientifique procède par rupture épistémologique, c'est-à-dire qu'elle nécessite de surmonter des obstacles et de rompre avec les idées reçues. Cela signifie que la connaissance scientifique ne se développe pas de manière continue et linéaire, mais plutôt par des sauts et des révolutions. Les options qui soutiennent que la connaissance scientifique procède par accumulation continue, intuition ou révélation sont incorrectes car elles ne correspondent pas à la philosophie épistémologique de Bachelard.",
+      "options": [
+        "Accumulation continue",
+        "Rupture épistémologique (obstacles à surmonter)",
+        "Intuition",
+        "Révélation"
+      ]
+    },
+    {
+      "id": "P143",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La phénoménologie de Husserl a pour devise :",
+      "correct": "A",
+      "explanation": "La phénoménologie de Husserl a pour devise 'Retour aux choses mêmes'. Cela signifie qu'elle cherche à revenir aux expériences et aux phénomènes eux-mêmes, sans les filtrer à travers des préjugés ou des théories. Les options qui soutiennent que la devise est 'Dieu est mort', 'Connais-toi toi-même' ou 'Je pense donc je suis' sont incorrectes car elles ne correspondent pas à la philosophie phénoménologique de Husserl.",
+      "options": [
+        "« Retour aux choses mêmes »",
+        "« Dieu est mort »",
+        "« Connais-toi toi-même »",
+        "« Je pense donc je suis »"
+      ]
+    },
+    {
+      "id": "P144",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Ryle, l’esprit n’est pas une substance, mais :",
+      "correct": "D",
+      "explanation": "Selon Ryle, l'esprit n'est pas une substance, mais un ensemble de dispositions comportementales. Cela signifie qu'il rejette la vision cartésienne de l'esprit comme une substance immatérielle et qu'il soutient plutôt que l'esprit est constitué de capacités et de dispositions qui se manifestent dans le comportement. Les options qui soutiennent que l'esprit est une âme, un fantôme dans la machine ou un cerveau sont incorrectes car elles ne correspondent pas à la philosophie de Ryle.",
+      "options": [
+        "Une âme",
+        "Un fantôme dans la machine",
+        "Un cerveau",
+        "Un ensemble de dispositions comportementales"
+      ]
+    },
+    {
+      "id": "P145",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Diderot, le déterminisme biologique :",
+      "correct": "A",
+      "explanation": "Pour Diderot, le déterminisme biologique est compatible avec une certaine liberté morale. Cela signifie que même si nos actions sont influencées par des facteurs biologiques, nous avons toujours la capacité de prendre des décisions morales. Le déterminisme biologique ne nie pas la liberté, mais la comprend dans le contexte de nos conditions biologiques. Les autres options sont incorrectes car le déterminisme biologique n'est pas simplement une croyance, il n'est pas faux, et il ne nie pas toute liberté.",
+      "options": [
+        "Est compatible avec une certaine liberté morale",
+        "Est une croyance",
+        "Est faux",
+        "Nie toute liberté"
+      ]
+    },
+    {
+      "id": "P146",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La liberté négative (Berlin) est :",
+      "correct": "B",
+      "explanation": "La liberté négative, telle que définie par Berlin, est l'absence d'entraves extérieures. Cela signifie que la liberté est considérée comme l'absence d'obstacles ou de contraintes qui pourraient limiter nos actions. Les autres options sont incorrectes car la participation politique est une forme de liberté positive, la liberté de faire ce qu'on veut est une définition trop large et trop subjective, et la maîtrise de soi est une forme de liberté intérieure.",
+      "options": [
+        "La participation politique",
+        "L’absence d’entraves extérieures",
+        "La liberté de faire ce qu’on veut",
+        "La maîtrise de soi"
+      ]
+    },
+    {
+      "id": "P147",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "L’éthique de la vertu (Aristote) met l’accent sur :",
+      "correct": "D",
+      "explanation": "L'éthique de la vertu, telle que développée par Aristote, met l'accent sur le caractère et l'excellence morale, ou vertu. Cela signifie que la moralité est considérée comme une question de développement du caractère et de cultivation de vertus, plutôt que comme une question de règles ou de conséquences. Le plaisir est une notion associée à l'hédonisme, qui est une autre théorie éthique.",
+      "options": [
+        "Les règles",
+        "Les conséquences",
+        "Le plaisir",
+        "Le caractère et l’excellence morale (vertu)"
+      ]
+    },
+    {
+      "id": "P148",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Lévinas, le visage de l’autre m’enjoint :",
+      "correct": "B",
+      "explanation": "Pour Lévinas, le visage de l'autre m'enjoint de ne pas tuer, c'est-à-dire 'Tu ne tueras pas'. Cela signifie que la rencontre avec l'autre est une expérience éthique fondamentale qui m'oblige à respecter la vie de l'autre. Les autres options sont incorrectes car 'Obéis aux lois' est une prescription juridique, 'Aime-toi toi-même' est une prescription narcissique, et 'Connais-toi' est une prescription philosophique.",
+      "options": [
+        "« Obéis aux lois »",
+        "« Tu ne tueras pas »",
+        "« Aime-toi toi-même »",
+        "« Connais-toi »"
+      ]
+    },
+    {
+      "id": "P149",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Marx, la lutte des classes est le moteur de l’histoire. Les deux classes principales dans le capitalisme sont :",
+      "correct": "C",
+      "explanation": "Selon Marx, les deux classes principales dans le capitalisme sont la bourgeoisie et le prolétariat. Cela signifie que la lutte des classes est considérée comme une lutte entre ceux qui possèdent les moyens de production et ceux qui sont contraints de vendre leur force de travail. Les autres options sont incorrectes car 'Riches et pauvres' est une distinction trop générale, 'Patrons et ouvriers' est une distinction trop vague, et 'Noblesse et clergé' est une distinction pertinente pour l'ancien régime.",
+      "options": [
+        "Riches et pauvres",
+        "Patrons et ouvriers (synonyme)",
+        "Bourgeoisie et prolétariat",
+        "Noblesse et clergé"
+      ]
+    },
+    {
+      "id": "P150",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La notion de « société ouverte » (Popper) s’oppose à :",
+      "correct": "A",
+      "explanation": "La notion de 'société ouverte' développée par Popper s'oppose à la société fermée, ou totalitaire. Cela signifie que la société ouverte est caractérisée par la liberté, la tolérance et la diversité, tandis que la société fermée est caractérisée par la rigidité, la censure et la répression. Les autres options sont incorrectes car l'anarchie est une absence de gouvernement, la république est une forme de gouvernement, et la démocratie est un système politique.",
+      "options": [
+        "La société fermée (totalitaire)",
+        "L’anarchie",
+        "La république",
+        "La démocratie"
+      ]
+    },
+    {
+      "id": "P151",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Pascal, le divertissement est :",
+      "correct": "D",
+      "explanation": "Pour Pascal, le divertissement est un moyen de fuir l'angoisse de la mort et le vide. Cela signifie que les activités de divertissement sont des stratégies pour éviter de penser à la mort et à la condition humaine. Les autres options sont incorrectes car le divertissement n'est pas simplement une perte de temps, il n'est pas un plaisir innocent, et il n'est pas une activité noble.",
+      "options": [
+        "Une perte de temps",
+        "Un plaisir innocent",
+        "Une activité noble",
+        "Un moyen de fuir l’angoisse de la mort et le vide"
+      ]
+    },
+    {
+      "id": "P152",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "La « nostalgie » chez les romantiques (Novalis) est :",
+      "correct": "B",
+      "explanation": "La 'nostalgie' chez les romantiques, telle que Novalis, est le désir de l'infini, l'aspiration à l'unité perdue. Cela signifie que la nostalgie est une expérience de désir et de regret pour une unité ou une totalité perdue. Les autres options sont incorrectes car la nostalgie n'est pas une maladie, elle n'est pas simplement un regret du passé, et elle n'est pas une mélancolie.",
+      "options": [
+        "Une maladie",
+        "Le désir de l’infini, l’aspiration à l’unité perdue",
+        "Un regret du passé",
+        "Une mélancolie"
+      ]
+    },
+    {
+      "id": "P153",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Bergson, la religion statique est celle qui :",
+      "correct": "A",
+      "explanation": "La religion statique, selon Bergson, est celle qui joue un rôle fabulateur et a une fonction biologique de conservation. Cela signifie qu'elle contribue à maintenir l'ordre social et à préserver les valeurs et les traditions de la communauté. Les autres options sont incorrectes car la religion statique n'est pas nécessairement mystique, elle ne se caractérise pas par la fixation des croyances, et elle n'est pas rationnelle.",
+      "options": [
+        "Est fabulatrice, fonction biologique de conservation",
+        "Est mystique",
+        "Fige les croyances",
+        "Est rationnelle"
+      ]
+    },
+    {
+      "id": "P154",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’art roman et l’art gothique sont des styles :",
+      "correct": "D",
+      "explanation": "Les styles artistiques roman et gothique sont tous deux caractéristiques de l'art médiéval, qui s'est développé en Europe au Moyen Âge. Ces deux styles se distinguent par leurs caractéristiques architecturales et décoratives, mais ils partagent une origine commune dans la période médiévale. Les autres options sont incorrectes car ces styles ne sont pas contemporains, ils ne sont pas modernes, et ils ne sont pas antiques.",
+      "options": [
+        "Contemporains",
+        "Modernes",
+        "Antiques",
+        "Médiévaux"
+      ]
+    },
+    {
+      "id": "P155",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Lévi-Strauss, le mythe a une structure :",
+      "correct": "B",
+      "explanation": "Selon Lévi-Strauss, le mythe a une structure logique faite d'oppositions binaires, ce qui signifie qu'il repose sur des paires de concepts opposés qui s'articulent pour former un récit. Cette structure logique permet de comprendre les mécanismes de pensée et les catégories mentales qui sous-tendent les mythes. Les autres options sont incorrectes car la structure du mythe n'est pas historique, elle n'est pas psychologique, et elle n'est pas aléatoire.",
+      "options": [
+        "Historique",
+        "Logique, faite d’oppositions binaires",
+        "Psychologique",
+        "Aléatoire"
+      ]
+    },
+    {
+      "id": "P156",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’épistémologie est la branche de la philosophie qui étudie :",
+      "correct": "C",
+      "explanation": "L'épistémologie est la branche de la philosophie qui étudie la connaissance scientifique et les conditions de possibilité de la connaissance. Elle s'intéresse à la théorie de la connaissance et à la manière dont nous acquérons des connaissances. Les autres options sont incorrectes car l'épistémologie ne porte pas sur l'art, elle ne concerne pas la morale, et elle ne traite pas de la politique.",
+      "options": [
+        "L’art",
+        "La morale",
+        "La connaissance scientifique (théorie de la connaissance)",
+        "La politique"
+      ]
+    },
+    {
+      "id": "P157",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Damasio, les émotions sont :",
+      "correct": "B",
+      "explanation": "Selon Damasio, les émotions sont intégrées à la rationalité et jouent un rôle essentiel dans la prise de décision. Il introduit le concept de 'somatic marker' pour décrire la manière dont les émotions influencent nos choix. Les autres options sont incorrectes car les émotions ne sont pas contradictoires avec la raison, elles ne sont pas nuisibles, et elles ne sont pas illusoires.",
+      "options": [
+        "Contradictoires avec la raison",
+        "Intégrées à la rationalité (somatic marker)",
+        "Nuisibles",
+        "Illusoires"
+      ]
+    },
+    {
+      "id": "P158",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 25,
+      "question": "Le « compatibilisme » est défendu par :",
+      "correct": "B",
+      "explanation": "Le compatibilisme est une position philosophique qui défend l'idée que la liberté et la détermination sont compatibles. Hume est l'un des philosophes qui défendent cette position, en considérant que la liberté est une absence de contrainte. Les autres options sont incorrectes car Sartre défend une position de liberté radicale, Kant a une position plus complexe et souvent considérée comme incompatibiliste, et Dostoïevski n'est pas un philosophe qui a défendu le compatibilisme.",
+      "options": [
+        "Sartre",
+        "Hume",
+        "Kant",
+        "Dostoïevski"
+      ]
+    },
+    {
+      "id": "P159",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « dilemme du tramway » est souvent utilisé pour opposer :",
+      "correct": "A",
+      "explanation": "Le dilemme du tramway est souvent utilisé pour opposer les positions déontologique et utilitariste en éthique. Il met en scène un choix difficile entre sauver des vies ou respecter une règle morale. Kant et Bentham sont les représentants de ces deux positions, respectivement déontologique et utilitariste. Les autres options, Platon et Aristote, Nietzsche et Schopenhauer, et Marx et Hegel, ne sont pas directement concernés par ce dilemme.",
+      "options": [
+        "Kant et Bentham",
+        "Platon et Aristote",
+        "Nietzsche et Schopenhauer",
+        "Marx et Hegel"
+      ]
+    },
+    {
+      "id": "P160",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « despotisme éclairé » désigne :",
+      "correct": "B",
+      "explanation": "Le despotisme éclairé désigne une forme de gouvernement où un monarque absolu se réclame de la raison et des Lumières pour justifier son pouvoir. Ce type de gouvernement se caractérise par une volonté de réforme et de modernisation, tout en maintenant le pouvoir absolu du monarque. Les autres options, une démocratie, une anarchie et une théocratie, ne correspondent pas à cette définition.",
+      "options": [
+        "Une démocratie",
+        "Un monarque absolu qui se réclame de la raison et des Lumières",
+        "Une anarchie",
+        "Une théocratie"
+      ]
+    },
+    {
+      "id": "P161",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Schopenhauer, l’art permet :",
+      "correct": "A",
+      "explanation": "Pour Schopenhauer, l'art permet une contemplation désintéressée, une trêve à la volonté. Cela signifie que l'art nous permet de nous élever au-dessus de nos désirs et de nos intérêts personnels, et de contempler le monde de manière objective et désintéressée. Les autres options, dominer les autres, gagner de l'argent et s'évader, ne reflètent pas fidèlement la pensée de Schopenhauer.",
+      "options": [
+        "Une contemplation désintéressée, une trêve à la volonté",
+        "De dominer les autres",
+        "De gagner de l’argent",
+        "De s’évader"
+      ]
+    },
+    {
+      "id": "P162",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Albert Camus, l’absurde naît de la confrontation entre :",
+      "correct": "C",
+      "explanation": "Selon Albert Camus, l'absurde naît de la confrontation entre le désir humain de sens et le silence du monde. Cela signifie que l'homme cherche à donner un sens à sa vie et au monde, mais que le monde ne répond pas à cette quête, ce qui crée un sentiment d'absurdité. Les autres options, le bien et le mal, l'homme et Dieu, et la raison et les sens, ne reflètent pas fidèlement la pensée de Camus.",
+      "options": [
+        "Le bien et le mal",
+        "L’homme et Dieu",
+        "Le désir humain de sens et le silence du monde",
+        "La raison et les sens"
+      ]
+    },
+    {
+      "id": "P163",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « musique » chez Nietzsche est :",
+      "correct": "A",
+      "explanation": "La « musique » chez Nietzsche est l'art dionysiaque par excellence. Cela signifie que la musique est considérée comme une expression de la vie, de l'émotion et de l'instinct, et qu'elle est opposée à l'art apollinien, qui est plus rationnel et plus formel. Les autres options, une mathématique, imitation de la nature et un divertissement, ne reflètent pas fidèlement la pensée de Nietzsche.",
+      "options": [
+        "L’art dionysiaque par excellence",
+        "Une mathématique",
+        "Imitation de la nature",
+        "Un divertissement"
+      ]
+    },
+    {
+      "id": "P164",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Bourdieu, la culture légitime (haute culture) est :",
+      "correct": "C",
+      "explanation": "Pour Bourdieu, la culture légitime (haute culture) est un instrument de distinction sociale. Cela signifie que la culture légitime est utilisée pour se distinguer des autres, pour montrer son statut social et son éducation. Les autres options, naturelle, universelle et accessible à tous, ne reflètent pas fidèlement la pensée de Bourdieu.",
+      "options": [
+        "Naturelle",
+        "Universelle",
+        "Un instrument de distinction sociale",
+        "Accessible à tous"
+      ]
+    },
+    {
+      "id": "P165",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « rasoir d’Occam » est un principe de :",
+      "correct": "A",
+      "explanation": "Le « rasoir d'Occam » est un principe de simplicité, qui consiste à ne pas multiplier les entités sans nécessité. Cela signifie que l'on doit préférer les explications simples aux explications complexes, et que l'on ne doit pas introduire de nouvelles entités sans raison valable. Les autres options, telles que la complexité, la vérité et la moralité, ne reflètent pas fidèlement le principe du rasoir d'Occam.",
+      "options": [
+        "Simplicité (ne pas multiplier les entités sans nécessité)",
+        "Complexité",
+        "Vérité",
+        "Moralité"
+      ]
+    },
+    {
+      "id": "P166",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Bergson, le rire est :",
+      "correct": "A",
+      "explanation": "Pour Bergson, le rire est un mécanique plaqué sur du vivant, fonction sociale. Cela signifie que le rire est un phénomène complexe qui combine des éléments mécaniques et vivants, et qu'il a une fonction sociale importante. Les autres options, telles que le rire comme manifestation de joie, moquerie ou réflexe, ne reflètent pas fidèlement la pensée de Bergson.",
+      "options": [
+        "Un mécanique plaqué sur du vivant, fonction sociale",
+        "Une manifestation de joie",
+        "Une moquerie",
+        "Un réflexe"
+      ]
+    },
+    {
+      "id": "P167",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La liberté d’indifférence (pouvoir choisir entre deux contraires) est critiquée par :",
+      "correct": "A",
+      "explanation": "La liberté d'indifférence est critiquée par Leibniz, car elle serait un pur hasard, non une vraie liberté. Cela signifie que Leibniz considère que la liberté d'indifférence n'est pas une véritable liberté, car elle ne permet pas de choisir de manière rationnelle et éclairée. Les autres options, telles que Rousseau, Spinoza et Sartre, ont des idées différentes sur la liberté.",
+      "options": [
+        "Leibniz (car elle serait un pur hasard, non une vraie liberté)",
+        "Rousseau",
+        "Spinoza",
+        "Sartre"
+      ]
+    },
+    {
+      "id": "P168",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon la morale kantienne, le mensonge est interdit même si cela cause un mal. Cela montre le caractère :",
+      "correct": "B",
+      "explanation": "Selon la morale kantienne, le mensonge est interdit même si cela cause un mal. Cela montre le caractère déontologique (absolu) de la morale kantienne. Cela signifie que la morale kantienne est basée sur des principes absolus et universels, qui doivent être respectés quoi qu'il arrive. Les autres options, telles que le pragmatisme, le relativisme et l'utilitarisme, ne reflètent pas fidèlement la pensée de Kant.",
+      "options": [
+        "Pragmatique",
+        "Déontologique (absolu)",
+        "Relativiste",
+        "Utilitariste"
+      ]
+    },
+    {
+      "id": "P169",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Rawls, le principe de différence autorise les inégalités à condition qu’elles profitent :",
+      "correct": "D",
+      "explanation": "Le principe de différence chez Rawls est une composante clé de sa théorie de la justice. Il stipule que les inégalités sociales et économiques sont justifiables si elles profitent aux membres les plus défavorisés de la société. Cela signifie que les inégalités ne sont acceptables que si elles améliorent la situation de ceux qui sont dans la position la moins avantageuse. Les options qui suggèrent que les inégalités profitent aux plus riches, à tous de manière égale ou à la majorité ne reflètent pas fidèlement le principe de Rawls. Le principe de différence est conçu pour garantir que les bénéfices de la coopération sociale soient distribués de manière à améliorer la situation des plus vulnérables.",
+      "options": [
+        "Aux plus riches",
+        "À tous également",
+        "À la majorité",
+        "Aux plus défavorisés"
+      ]
+    },
+    {
+      "id": "P170",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « nausée » chez Sartre est :",
+      "correct": "C",
+      "explanation": "La 'nausée' est un concept central dans la philosophie existentielle de Jean-Paul Sartre. Elle décrit le moment où l'individu est confronté à la contingence et à l'absurdité du monde, révélant ainsi la liberté radicale qui est la sienne. Cette expérience ne peut être réduite à une simple émotion passagère, un malaise physique ou une maladie. La nausée est une expérience ontologique qui dévoile la réalité existentielle de l'homme. Les autres options ne rendent pas compte de la profondeur philosophique de ce concept.",
+      "options": [
+        "Une émotion passagère",
+        "Un malaise physique",
+        "La révélation de la contingence et de l’absurdité du monde",
+        "Une maladie"
+      ]
+    },
+    {
+      "id": "P171",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Hegel, la religion est une forme de l’Esprit absolu, mais inférieure à :",
+      "correct": "C",
+      "explanation": "Selon Georg Wilhelm Friedrich Hegel, la religion est une étape dans le développement de l'Esprit absolu, mais elle est considérée comme inférieure à la philosophie. Pour Hegel, l'art, la religion et la philosophie sont des formes successives de la conscience que l'Esprit a de lui-même. La philosophie est considérée comme la forme la plus élevée de l'Esprit absolu parce qu'elle permet une compréhension conceptuelle et rationnelle de la réalité. Les autres options ne reflètent pas la hiérarchie hégélienne des formes de l'Esprit absolu.",
+      "options": [
+        "La politique",
+        "La science",
+        "La philosophie",
+        "L’art"
+      ]
+    },
+    {
+      "id": "P172",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’intuition chez Bergson est :",
+      "correct": "D",
+      "explanation": "L'intuition chez Henri Bergson est une méthode philosophique qui permet de saisir la durée, c'est-à-dire l'expérience vécue du temps. Bergson distingue son intuition de la perception sensible et de la raison. L'intuition n'est pas simplement une sensation, un raisonnement ou un instinct. Elle est une manière de se fondre dans la réalité pour la comprendre de l'intérieur. Les autres options ne rendent pas compte de la spécificité de l'intuition bergsonienne.",
+      "options": [
+        "Une sensation",
+        "Un raisonnement",
+        "Un instinct",
+        "Une méthode philosophique pour saisir la durée"
+      ]
+    },
+    {
+      "id": "P173",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Freud, le rêve est :",
+      "correct": "A",
+      "explanation": "Selon Sigmund Freud, le rêve est considéré comme 'la voie royale vers l'inconscient'. Cela signifie que les rêves offrent un accès privilégié aux processus inconscients qui gouvernent la vie psychique. Les rêves ne sont pas simplement des souvenirs, des prophéties ou des événements sans signification. Ils sont des formations complexes qui expriment les désirs et les conflits refoulés du sujet.",
+      "options": [
+        "La voie royale vers l’inconscient",
+        "Un souvenir",
+        "Une prophétie",
+        "Sans signification"
+      ]
+    },
+    {
+      "id": "P174",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le déterminisme géographique (Montesquieu) affirme que :",
+      "correct": "C",
+      "explanation": "Le déterminisme géographique, tel que théorisé par Montesquieu, affirme que le climat et les conditions géographiques influencent les lois et les mœurs des sociétés. Cela signifie que les caractéristiques physiques de l'environnement façonnent la culture et les institutions des peuples. Les autres options ne reflètent pas fidèlement cette théorie.",
+      "options": [
+        "La religion seule",
+        "La liberté absolue",
+        "Le climat influence les lois et les mœurs",
+        "Le hasard"
+      ]
+    },
+    {
+      "id": "P175",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « vertu » chez Rousseau est :",
+      "correct": "D",
+      "explanation": "La 'vertu' chez Jean-Jacques Rousseau est étroitement liée à la volonté générale et à la conformité de la volonté particulière à cette volonté générale. La vertu, pour Rousseau, implique l'obéissance aux lois qui expriment la volonté générale. Elle ne se réduit pas à l'obéissance aux lois, à la force, ou à la modération, bien que ces qualités puissent être liées à la vertu.",
+      "options": [
+        "L’obéissance aux lois",
+        "La force",
+        "La modération",
+        "La conformité de la volonté particulière à la volonté générale"
+      ]
+    },
+    {
+      "id": "P176",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’anarchisme individualiste (Stirner) rejette :",
+      "correct": "A",
+      "explanation": "L'anarchisme individualiste de Max Stirner se caractérise par le rejet de toute contrainte, y compris morale et sociale. Stirner défend l'individualisme radical et l'autonomie de l'individu contre toutes les formes d'autorité et de pouvoir. Si son œuvre 'L'Unique et sa propriété' critique la propriété et l'État, le rejet de toute contrainte est au cœur de sa philosophie.",
+      "options": [
+        "Toute contrainte, y compris morale et sociale",
+        "La religion",
+        "L’État",
+        "La propriété"
+      ]
+    },
+    {
+      "id": "P177",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Levinas, la relation à autrui est asymétrique : je suis responsable de l’autre sans attendre de réciprocité. Cela s’oppose à :",
+      "correct": "B",
+      "explanation": "La relation à autrui selon Levinas est asymétrique, c'est-à-dire que je suis responsable de l'autre sans attendre de réciprocité. Cela s'oppose à la réciprocité du contrat social, qui suppose que les individus échangent des droits et des devoirs de manière égale. Les autres options, l'amour, la charité et la justice, ne sont pas nécessairement symétriques et peuvent même impliquer une forme de responsabilité envers autrui. Cependant, la réciprocité du contrat social est bien la notion qui contraste le plus avec la responsabilité asymétrique prônée par Levinas.",
+      "options": [
+        "L’amour",
+        "La réciprocité du contrat social",
+        "La charité",
+        "La justice"
+      ]
+    },
+    {
+      "id": "P178",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « kitsch » est :",
+      "correct": "B",
+      "explanation": "Le kitsch est un art de mauvais goût, stéréotypé. Cela s'oppose à l'art authentique, qui cherche à exprimer une forme de vérité ou de beauté. Les autres options, telles que l'art authentique, l'art d'avant-garde et l'art populaire, ne décrivent pas correctement le kitsch.",
+      "options": [
+        "Un art authentique",
+        "Un art de mauvais goût, stéréotypé",
+        "Un art d’avant-garde",
+        "Un art populaire"
+      ]
+    },
+    {
+      "id": "P179",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Thomas Kuhn, les révolutions scientifiques sont des :",
+      "correct": "B",
+      "explanation": "Selon Thomas Kuhn, les révolutions scientifiques sont des changements de paradigme, c'est-à-dire des ruptures avec les théories et les méthodes scientifiques établies. Cela signifie que les scientifiques passent d'un cadre de référence à un autre, ce qui transforme notre compréhension du monde. Les autres options, illusions, progrès continus et accumulations de faits, ne rendent pas compte de la nature radicale des révolutions scientifiques selon Kuhn, qui impliquent une transformation profonde de la pensée scientifique.",
+      "options": [
+        "Illusions",
+        "Changements de paradigme (ruptures)",
+        "Progrès continus",
+        "Accumulations de faits"
+      ]
+    },
+    {
+      "id": "P180",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Merleau-Ponty, la perception est :",
+      "correct": "D",
+      "explanation": "Pour Merleau-Ponty, la perception est active et corporelle, c'est-à-dire qu'elle donne sens au monde à travers notre expérience vécue et notre interaction avec l'environnement. Cela signifie que la perception n'est pas simplement une réception passive de données sensorielles, mais une construction active de notre compréhension du monde. Les autres options, illusoire, passive et innée, ne reflètent pas fidèlement la théorie de la perception de Merleau-Ponty, qui insiste sur l'importance de l'expérience corporelle et de l'engagement dans le monde.",
+      "options": [
+        "Illusoire",
+        "Passive",
+        "Innée",
+        "Active et corporelle, elle donne sens au monde"
+      ]
+    },
+    {
+      "id": "P181",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "L’existentialisme athée (Sartre) affirme que :",
+      "correct": "D",
+      "explanation": "L'existentialisme athée de Sartre affirme que l'homme n'a pas de nature prédéfinie, il se fait, c'est-à-dire qu'il est libre de choisir son existence et de créer son propre sens. Cela signifie que l'homme est condamné à être libre, c'est-à-dire qu'il doit assumer la responsabilité de ses choix et de ses actes. Les autres options, la liberté est impossible, Dieu existe et l'essence précède l'existence, sont incompatibles avec les principes fondamentaux de l'existentialisme athée de Sartre.",
+      "options": [
+        "La liberté est impossible",
+        "Dieu existe",
+        "L’essence précède l’existence",
+        "L’homme n’a pas de nature prédéfinie, il se fait"
+      ]
+    },
+    {
+      "id": "P182",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « contractualisme » en morale (Gauthier) soutient que la morale est :",
+      "correct": "A",
+      "explanation": "Le contractualisme en morale, tel que défendu par Gauthier, soutient que la morale est le résultat d'un contrat rationnel entre individus. Cela signifie que les principes moraux sont fondés sur la coopération et la réciprocité entre les individus, qui cherchent à maximiser leur intérêt personnel tout en respectant les droits et les intérêts des autres. Les autres options, émotionnelle, naturelle et divine, ne reflètent pas fidèlement la théorie contractualiste de la morale.",
+      "options": [
+        "Le résultat d’un contrat rationnel entre individus",
+        "Emotionnelle",
+        "Naturelle",
+        "Divine"
+      ]
+    },
+    {
+      "id": "P183",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « démocratie participative » se distingue de la démocratie représentative par :",
+      "correct": "B",
+      "explanation": "La démocratie participative se distingue de la démocratie représentative par le rôle accru des citoyens dans les décisions, c'est-à-dire qu'elle cherche à impliquer les citoyens directement dans le processus de prise de décision. Cela signifie que les citoyens ne se contentent pas d'élire des représentants, mais participent activement à la formulation des politiques et des décisions. Les autres options, le référendum seulement, la monarchie et l'élection des représentants, ne capturent pas l'essence de la démocratie participative.",
+      "options": [
+        "Le référendum seulement",
+        "Le rôle accru des citoyens dans les décisions",
+        "La monarchie",
+        "L’élection des représentants"
+      ]
+    },
+    {
+      "id": "P184",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Arendt, le mal radical (totalitarisme) est :",
+      "correct": "A",
+      "explanation": "Pour Arendt, le mal radical, tel qu'il se manifeste dans le totalitarisme, est l'absence de pensée, c'est-à-dire la banalité du mal. Cela signifie que le mal radical n'est pas motivé par une intentionnalité mauvaise, mais plutôt par une absence de réflexion et de pensée critique. Les autres options, la méchanceté, l'égoïsme et la cruauté, ne rendent pas compte de la nature spécifique du mal radical selon Arendt, qui insiste sur l'importance de la pensée et de la responsabilité.",
+      "options": [
+        "L’absence de pensée (banalité du mal)",
+        "La méchanceté",
+        "L’égoïsme",
+        "La cruauté"
+      ]
+    },
+    {
+      "id": "P185",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « ready-made » de Duchamp (un urinoir) pose la question :",
+      "correct": "A",
+      "explanation": "Le « ready-made » de Duchamp pose la question de la définition de l'art, à savoir qu'est-ce qu'une œuvre d'art ? En effet, en présentant un objet ordinaire comme une œuvre d'art, Duchamp interroge les critères traditionnels qui définissent l'art. Les autres options, telles que la technique, la morale et la beauté, ne sont pas directement remises en question par le « ready-made ».",
+      "options": [
+        "De la définition de l’art (qu’est-ce qu’une œuvre d’art ?)",
+        "De la technique",
+        "De la morale",
+        "De la beauté"
+      ]
+    },
+    {
+      "id": "P186",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Bacon, les idoles de la tribu sont des :",
+      "correct": "B",
+      "explanation": "Selon Francis Bacon, les idoles de la tribu sont des illusions qui proviennent de la nature humaine elle-même, c'est-à-dire des biais et des erreurs de jugement inhérents à l'esprit humain, souvent liés à l'anthropomorphisme. C'est pourquoi l'option \"Illusions propres à l'humanité (anthropomorphisme)\" est la bonne réponse. Les dogmes religieux sont davantage liés aux idoles du théâtre, les vérités sont à l'opposé des idoles, et les erreurs individuelles sont plus proches des idoles de la caverne.",
+      "options": [
+        "Dogmes religieux",
+        "Illusions propres à l’humanité (anthropomorphisme)",
+        "Vérités",
+        "Erreurs individuelles"
+      ]
+    },
+    {
+      "id": "P187",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « conscience morale » selon Freud est le :",
+      "correct": "A",
+      "explanation": "La conscience morale, selon Sigmund Freud, est principalement associée au surmoi, qui est l'instance psychique qui intègre les normes et les valeurs sociales, éthiques et morales. C'est donc le \"Surmoi\" qui correspond à la conscience morale. L'inconscient est un concept plus large qui englobe beaucoup d'aspects de la psyché, le ça est l'instance pulsionnelle, et le moi est l'instance qui interagit avec la réalité, mais ni l'un ni l'autre ne sont spécifiquement la conscience morale.",
+      "options": [
+        "Surmoi",
+        "Inconscient",
+        "Ça",
+        "Moi"
+      ]
+    },
+    {
+      "id": "P188",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Dostoïevski, si Dieu n’existe pas, « tout est permis ». Cette phrase illustre :",
+      "correct": "B",
+      "explanation": "La phrase de Dostoïevski, \"si Dieu n'existe pas, tout est permis\", illustre le lien entre la croyance morale et l'existence de Dieu. Cela signifie que sans une instance divine qui instaure une morale transcendante, tout acte peut être considéré comme légitime. C'est pourquoi l'option \"Le lien entre croyance morale et existence de Dieu\" est la bonne réponse. Le nihilisme en est une conséquence possible, mais ce n'est pas ce que la phrase illustre directement, l'anarchisme est un mouvement politique qui n'est pas directement visé ici, et la liberté absolue est une interprétation possible mais pas la principale.",
+      "options": [
+        "Le nihilisme",
+        "Le lien entre croyance morale et existence de Dieu",
+        "L’anarchisme",
+        "La liberté absolue"
+      ]
+    },
+    {
+      "id": "P189",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Smith, la sympathie (empathie) est le fondement de :",
+      "correct": "D",
+      "explanation": "Selon Adam Smith, la sympathie, ou empathie, est le fondement de la morale naturelle. Dans sa \"Théorie des sentiments moraux\", il explique comment la capacité à se mettre à la place des autres et à partager leurs sentiments est essentielle pour comprendre et juger les actions morales. C'est donc l'option \"La morale naturelle\" qui est correcte. La religion, l'égoïsme, et la science ne sont pas directement liés à la sympathie comme fondement.",
+      "options": [
+        "La religion",
+        "L’égoïsme",
+        "La science",
+        "La morale naturelle"
+      ]
+    },
+    {
+      "id": "P190",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « lobby » est un groupe d’intérêt qui cherche à influencer :",
+      "correct": "A",
+      "explanation": "Un \"lobby\" est un groupe d'intérêt qui cherche à influencer les décisions politiques, en particulier celles qui concernent ses intérêts spécifiques. C'est pourquoi l'option \"Les décisions politiques\" est la bonne réponse. Les consommateurs, les médias, et l'opinion publique peuvent être ciblés par les actions d'un lobby, mais l'objectif principal est d'influencer les décisions politiques.",
+      "options": [
+        "Les décisions politiques",
+        "Les consommateurs",
+        "Les médias",
+        "L’opinion publique"
+      ]
+    },
+    {
+      "id": "P191",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Camus, le suicide est :",
+      "correct": "A",
+      "explanation": "Pour Albert Camus, le suicide est considéré comme un aveu d'échec face à l'absurde, mais il ne le recommande pas. Au lieu de cela, il préconise la révolte comme une manière de vivre avec l'absurde. C'est pourquoi l'option \"Un aveu d'échec face à l'absurde, mais non recommandé (préférer la révolte)\" est la bonne réponse. Le suicide n'est pas présenté comme un acte moral, une liberté, ou une solution dans la philosophie de Camus.",
+      "options": [
+        "Un aveu d’échec face à l’absurde, mais non recommandé (préférer la révolte)",
+        "Un acte moral",
+        "Une liberté",
+        "Une solution"
+      ]
+    },
+    {
+      "id": "P192",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Selon Walter Benjamin, l’œuvre d’art à l’ère de la reproductibilité technique perd son :",
+      "correct": "C",
+      "explanation": "Selon Walter Benjamin, l'œuvre d'art à l'ère de la reproductibilité technique perd son « aura », c'est-à-dire son unicité et sa présence unique dans le monde. C'est pourquoi l'option 'Aura (unicité)' est la bonne réponse. Les autres options, 'Couleur', 'Sens', et 'Valeur', peuvent être affectés par la reproductibilité, mais c'est la perte de l'aura qui est le thème central de Benjamin.",
+      "options": [
+        "Couleur",
+        "Sens",
+        "Aura (unicité)",
+        "Valeur"
+      ]
+    },
+    {
+      "id": "P193",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « raison suffisante » chez Leibniz énonce que :",
+      "correct": "A",
+      "explanation": "La notion de 'raison suffisante' chez Leibniz énonce que tout ce qui existe a une raison ou une explication pour son existence. Cela signifie que rien n'est sans cause ou sans raison. L'option 'Rien n'est sans raison' est donc la bonne réponse car elle reflète fidèlement cette idée. Les autres options sont incorrectes : 'Tout est hasard' contredit l'idée de raison suffisante, 'Dieu seul existe' est une affirmation métaphysique sans rapport direct avec la notion de raison suffisante, et 'La liberté absolue' est un concept qui concerne la liberté de l'homme, pas la raison suffisante.",
+      "options": [
+        "Rien n’est sans raison",
+        "Tout est hasard",
+        "Dieu seul existe",
+        "La liberté absolue"
+      ]
+    },
+    {
+      "id": "P194",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « conscience réflexive » se distingue de la conscience spontanée par :",
+      "correct": "A",
+      "explanation": "La conscience réflexive se caractérise par le retour sur soi, c'est-à-dire la capacité de penser à sa propre pensée. C'est cette capacité qui permet l'introspection et la prise de conscience de soi. L'option 'Le retour sur soi (pensée de sa pensée)' est donc la bonne réponse. Les autres options sont incorrectes : 'L'inconscient' est un concept qui renvoie à des processus psychiques qui ne sont pas accessibles à la conscience, 'La sensation' est une expérience sensorielle qui ne nécessite pas de retour sur soi, et 'La perception' est un processus de prise d'information sur l'environnement qui ne implique pas nécessairement la conscience réflexive.",
+      "options": [
+        "Le retour sur soi (pensée de sa pensée)",
+        "L’inconscient",
+        "La sensation",
+        "La perception"
+      ]
+    },
+    {
+      "id": "P195",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Maine de Biran, la liberté se manifeste dans :",
+      "correct": "D",
+      "explanation": "Pour Maine de Biran, la liberté se manifeste dans l'effort volontaire, c'est-à-dire dans la capacité de faire des choix et d'agir en conséquence. L'effort volontaire est considéré comme la preuve de la liberté de l'homme. L'option 'L'effort volontaire' est donc la bonne réponse. Les autres options sont incorrectes : 'Le langage' est une faculté de communication, 'La pensée' est une activité cognitive qui ne implique pas nécessairement la liberté, et 'Le doute' est un état d'incertitude qui ne manifeste pas la liberté.",
+      "options": [
+        "Le langage",
+        "La pensée",
+        "Le doute",
+        "L’effort volontaire"
+      ]
+    },
+    {
+      "id": "P196",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « casuistique » est :",
+      "correct": "C",
+      "explanation": "La casuistique est une méthode d'analyse des cas de conscience, c'est-à-dire des situations où l'on doit prendre une décision morale. Elle consiste à examiner des cas concrets pour déterminer la ligne de conduite à adopter. L'option 'Une méthode d'analyse des cas de conscience' est donc la bonne réponse. Les autres options sont incorrectes : 'Un scepticisme' est une attitude philosophique qui doute de la possibilité de connaître la vérité, 'Une doctrine morale absolue' est un système de principes moraux qui ne tolère pas d'exceptions, et 'Une éthique des vertus' est une approche morale qui se concentre sur les qualités de caractère.",
+      "options": [
+        "Un scepticisme",
+        "Une doctrine morale absolue",
+        "Une méthode d’analyse des cas de conscience",
+        "Une éthique des vertus"
+      ]
+    },
+    {
+      "id": "P197",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Le « populisme » se caractérise par :",
+      "correct": "B",
+      "explanation": "Le populisme se caractérise par la défense du peuple contre les élites, c'est-à-dire contre les personnes qui sont considérées comme supérieures ou plus puissantes. Le populisme souvent implique une critique de la part de ceux qui se sentent marginalisés ou exclus du pouvoir. L'option 'La défense du peuple contre les élites' est donc la bonne réponse. Les autres options sont incorrectes : 'L'anarchie' est une idéologie qui prône l'abolition de l'autorité, 'L'aristocratie' est un système politique où le pouvoir est détenu par une élite, et 'La technocratie' est un système où le pouvoir est détenu par des experts.",
+      "options": [
+        "L’anarchie",
+        "La défense du peuple contre les élites",
+        "L’aristocratie",
+        "La technocratie"
+      ]
+    },
+    {
+      "id": "P198",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Hannah Arendt, « la banalité du mal » signifie que le mal peut être commis par :",
+      "correct": "B",
+      "explanation": "Pour Hannah Arendt, la 'banalité du mal' signifie que le mal peut être commis par des gens ordinaires qui obéissent sans penser, c'est-à-dire sans se poser de questions éthiques. Cela montre que le mal n'est pas nécessairement le fait de personnes exceptionnelles ou de monstres, mais peut être le résultat d'une obéissance passive. L'option 'Des gens ordinaires obéissant sans penser' est donc la bonne réponse. Les autres options sont incorrectes : 'Des démons' et 'Des monstres' sont des entités mythiques ou des personnes exceptionnelles, et 'Des fous' sont des personnes qui ont des troubles mentaux.",
+      "options": [
+        "Des démons",
+        "Des gens ordinaires obéissant sans penser",
+        "Des fous",
+        "Des monstres"
+      ]
+    },
+    {
+      "id": "P199",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "La « sécularisation » désigne :",
+      "correct": "C",
+      "explanation": "La sécularisation désigne le déclin de l'influence religieuse dans la société, c'est-à-dire la perte de pouvoir des institutions religieuses et la diminution de l'importance de la religion dans la vie quotidienne. L'option 'Le déclin de l'influence religieuse dans la société' est donc la bonne réponse. Les autres options sont incorrectes : 'La laïcité' est un principe de séparation de l'État et des institutions religieuses, 'L'athéisme' est une position philosophique qui nie l'existence de Dieu, et 'Le retour de la religion' est le phénomène inverse de la sécularisation.",
+      "options": [
+        "La laïcité",
+        "L’athéisme",
+        "Le déclin de l’influence religieuse dans la société",
+        "Le retour de la religion"
+      ]
+    },
+    {
+      "id": "P200",
+      "category": "Chapitre 7 : La religion, l’art et la culture",
+      "difficulty": "moyen",
+      "timer_seconds": 20,
+      "question": "Pour Bergson, la religion dynamique (mystique) est :",
+      "correct": "D",
+      "explanation": "Pour Bergson, la religion dynamique, ou mystique, est créatrice, ouverte et source d'amour et d'action. Elle se distingue de la religion statique, qui est fermée et ritualisée. L'option 'Créatrice, ouverte, source d'amour et d'action' est donc la bonne réponse. Les autres options sont incorrectes : 'Fermée' et 'Statique' décrivent la religion statique, et 'Rituelle' est une caractéristique de la religion traditionnelle.",
+      "options": [
+        "Fermée",
+        "Statique",
+        "Rituelle",
+        "Créatrice, ouverte, source d’amour et d’action"
+      ]
+    }
+  ]
+}
