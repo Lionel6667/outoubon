@@ -178,6 +178,9 @@ def build_system_prompt(
     session: dict,
     mode: str,
     user_lang_rule: str = '',
+    student_profile: str = '',
+    mastery_level: str = '',
+    mastery_score: int = 0,
 ) -> str:
     questions = normalize_questions(exercise)
     total = len(questions)
@@ -187,9 +190,25 @@ def build_system_prompt(
     hints_used = (session.get('hints_used') or [0] * total)[idx] if idx < total else 0
     statuses = session.get('statuses') or []
 
+    level_block = ''
+    if mastery_level or mastery_score:
+        level_block = f"NIVEAU ÉLÈVE : {mastery_level or 'intermediaire'} (maîtrise ~{mastery_score or 50}%).\n"
+        if mastery_level in ('debutant', 'apprenti') or mastery_score < 40:
+            level_block += (
+                "Adapte-toi : vocabulaire simple, petites étapes, une formule à la fois, "
+                "vérifie la compréhension avant d'avancer.\n"
+            )
+        elif mastery_level in ('avance', 'expert') or mastery_score >= 75:
+            level_block += "Adapte-toi : élève solide — sois plus concis, pose des questions de synthèse.\n"
+
+    profile_block = ''
+    if student_profile and student_profile.strip():
+        profile_block = f"PROFIL : {student_profile[:350]}\n"
+
     base_rules = (
         f"Tu es Prof Bac — tuteur expert du BAC Haïti pour {student_name}.\n"
         f"{user_lang_rule}"
+        f"{level_block}{profile_block}"
         f"STYLE ASTRA : clair, encourageant, jamais condescendant. Phrases courtes. Une idée à la fois.\n"
         f"RÈGLE D'OR : ne donne JAMAIS la réponse finale directement — guide par questions.\n\n"
         f"--- EXERCICE ---\n{ctx}\n--- FIN ---\n\n"

@@ -121,6 +121,7 @@ class RevisionPlan(models.Model):
     user       = models.ForeignKey(User, on_delete=models.CASCADE, related_name='revision_plans')
     serie      = models.CharField(max_length=10, blank=True)
     content    = models.JSONField(default=dict)   # {weeks: [{week_label, days: [{subject, task, duration}]}]}
+    completed_tasks = models.JSONField(default=list, blank=True)  # IDs tâches cochées
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

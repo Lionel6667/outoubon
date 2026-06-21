@@ -805,14 +805,14 @@ def build_user_learning_profile(user) -> str:
     return result
 
 
-def build_user_learning_profile_short(user) -> str:
+def build_user_learning_profile_short(user, subject: str = '') -> str:
     """
     Version compacte du profil (~100-150 tokens) — utilisée dans les prompts de chat
     pour éviter d'injecter 2 000 tokens de contexte à chaque message.
     Mis en cache 5 min.
     """
     from django.core.cache import cache as _dj_cache
-    _cache_key = f'ulp_short_{user.pk}'
+    _cache_key = f'ulp_short_{user.pk}_{subject or "all"}'
     cached = _dj_cache.get(_cache_key)
     if cached is not None:
         return cached
@@ -857,6 +857,19 @@ def build_user_learning_profile_short(user) -> str:
         ).order_by('-importance', '-updated_at')[:3])
         for m in memories:
             parts.append(f"⚠ {m.content[:60]}")
+
+        if subject:
+            try:
+                from .models import SubjectMastery
+                sm = SubjectMastery.objects.filter(user=user, subject=subject).first()
+                if sm and sm.total_attempts() > 0:
+                    parts.append(
+                        f"Maîtrise {MATS.get(subject, subject)}: {round(sm.mastery_score)}% ({sm.confidence_level})"
+                    )
+                    if sm.weak_topics:
+                        parts.append(f"Lacunes: {', '.join(sm.weak_topics[:3])}")
+            except Exception:
+                pass
 
         result = ' | '.join(parts)
     except Exception:
@@ -7675,6 +7688,9 @@ def generate_quiz_questions(subject: str, count: int, weak_topics: list = None, 
 
     weak_hint = f"Focus: {', '.join(weak_topics[:3])}. " if weak_topics else ''
     serie_hint = f"Série {serie_key}. " if serie_key else ''
+    profile_hint = ''
+    if user_profile and user_profile.strip():
+        profile_hint = f"Profil élève: {user_profile[:400]}. "
     exam_snippet = exam_context[:900] if exam_context else (db_context[:900] if db_context else '')
     exam_block = ("\nExtraits d'examens BAC Haïti :\n" + exam_snippet + "\n") if exam_snippet else ''
     creole_instruction = _creole_subject_instruction(subject)
@@ -8053,7 +8069,7 @@ def generate_quiz_questions(subject: str, count: int, weak_topics: list = None, 
 
     # ── All other subjects ─────────────────────────────────────────────────
     prompt = (
-            f"Quiz Bac Haïti — {MATS.get(subject, subject)}. {serie_hint}{weak_hint}"
+            f"Quiz Bac Haïti — {MATS.get(subject, subject)}. {serie_hint}{profile_hint}{weak_hint}"
             f"{exam_block}\n"
             f"Génère EXACTEMENT {min(count, 5)} questions QCM Terminale.\n"
             "Formules : signe dollar uniquement ($F=ma$), PAS de \\( \\) ni \\[ \\].\n"

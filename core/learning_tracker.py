@@ -21,7 +21,8 @@ from typing import Optional
 EMA_ALPHA = 0.25
 
 # Max d'éléments dans recent_errors et recent_correct
-# Pas de limite — toutes les erreurs et bonnes réponses sont conservées
+MAX_RECENT_ERRORS = 30
+MAX_RECENT_CORRECT = 20
 
 CONFIDENCE_THRESHOLDS = {
     'expert':         85,
@@ -109,7 +110,7 @@ def update_subject_mastery(
             }
             errors = list(sm.recent_errors)
             errors.insert(0, entry)
-            sm.recent_errors = errors
+            sm.recent_errors = errors[:MAX_RECENT_ERRORS]
 
             # Mise à jour des topics faibles
             if topic:
@@ -128,7 +129,7 @@ def update_subject_mastery(
             }
             correct = list(sm.recent_correct)
             correct.insert(0, entry)
-            sm.recent_correct = correct
+            sm.recent_correct = correct[:MAX_RECENT_CORRECT]
 
             # Si ce topic était faible et qu'on a 3 bonnes réponses dessus → maîtrisé
             if topic and topic in sm.weak_topics:
@@ -407,3 +408,133 @@ def get_study_recommendations(user) -> list[dict]:
     except Exception as e:
         print(f"[LEARNING_TRACKER] get_study_recommendations error: {e}")
         return []
+
+
+# ─── Score & niveau unifiés ────────────────────────────────────────────────────
+
+LEVEL_TO_PROMPT = {
+    'debutant': 'faible',
+    'apprenti': 'faible',
+    'intermediaire': 'moyen',
+    'avance': 'avancé',
+    'expert': 'avancé',
+}
+
+
+def get_subject_level_score(user, subject: str) -> int:
+    """Score 0-100 pour adapter le coaching (remplace SubjectScore absent)."""
+    try:
+        from .models import SubjectMastery
+        sm = SubjectMastery.objects.filter(user=user, subject=subject).first()
+        if sm and sm.total_attempts() > 0:
+            return int(round(sm.mastery_score))
+    except Exception:
+        pass
+    try:
+        from accounts.models import DiagnosticResult
+        diag = DiagnosticResult.objects.filter(user=user, subject=subject).first()
+        if diag:
+            return int(diag.score)
+    except Exception:
+        pass
+    return 50
+
+
+def build_combined_weakness_scores(user) -> dict:
+    """Scores combinés diagnostic + maîtrise pour plans et UI lacunes."""
+    scores = {}
+    try:
+        from accounts.models import DiagnosticResult
+        for d in DiagnosticResult.objects.filter(user=user):
+            scores[d.subject] = int(d.score)
+    except Exception:
+        pass
+    try:
+        from .models import SubjectMastery
+        for sm in SubjectMastery.objects.filter(user=user):
+            prev = scores.get(sm.subject)
+            mastery = int(round(sm.mastery_score))
+            if prev is None:
+                scores[sm.subject] = mastery
+            elif sm.total_attempts() > 0:
+                scores[sm.subject] = int(round(prev * 0.35 + mastery * 0.65))
+    except Exception:
+        pass
+    return scores
+
+
+def get_mistake_topics_for_plan(user, limit: int = 8) -> list[str]:
+    """Thèmes prioritaires depuis MistakeTracker (révisions dues)."""
+    try:
+        from datetime import date
+        from .models import MistakeTracker
+        due = MistakeTracker.objects.filter(
+            user=user, mastered=False, next_review__lte=date.today()
+        ).order_by('next_review')[:limit]
+        return list({m.theme for m in due if m.theme})
+    except Exception:
+        return []
+
+
+def invalidate_ai_caches(user) -> None:
+    """Invalide caches coaching / profil après activité d'apprentissage."""
+    try:
+        from django.core.cache import cache as _dj_cache
+        _dj_cache.delete(f'ulp_full_{user.pk}')
+        _dj_cache.delete(f'ulp_short_{user.pk}')
+    except Exception:
+        pass
+    try:
+        from .models import AIProgressCache
+        AIProgressCache.objects.filter(user=user).update(is_valid=False)
+    except Exception:
+        pass
+
+
+def schedule_chat_learning_updates(user, session_key: str, user_message: str, ai_response: str, subject: str = '') -> None:
+    """Mémorisation + résumé de session en arrière-plan (chat matière)."""
+    import threading
+    from . import gemini as _gemini
+
+    def _run():
+        try:
+            _gemini.extract_and_save_memories(user, user_message, ai_response, subject or '')
+            invalidate_ai_caches(user)
+        except Exception:
+            pass
+        try:
+            generate_and_save_chat_summary(user, session_key)
+        except Exception:
+            pass
+
+    threading.Thread(target=_run, daemon=True).start()
+
+
+def get_quiz_personalization(user, subject: str) -> dict:
+    """Contexte quiz : niveau, lacunes, profil court."""
+    from . import gemini as _gemini
+    weak_topics = []
+    try:
+        from .models import SubjectMastery
+        sm = SubjectMastery.objects.filter(user=user, subject=subject).first()
+        if sm and sm.weak_topics:
+            weak_topics = list(sm.weak_topics[:5])
+    except Exception:
+        pass
+    serie_key = 'SVT'
+    try:
+        serie_key = user.profile.serie or 'SVT'
+    except Exception:
+        pass
+    profile = ''
+    try:
+        profile = _gemini.build_user_learning_profile_short(user, subject=subject)
+    except Exception:
+        pass
+    return {
+        'adaptive_level': get_adaptive_level(user, subject),
+        'weak_topics': weak_topics,
+        'serie_key': serie_key,
+        'user_profile': profile,
+        'prompt_level': LEVEL_TO_PROMPT.get(get_adaptive_level(user, subject), 'moyen'),
+    }

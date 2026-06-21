@@ -119,7 +119,7 @@
               Coach IA Avancé
               <span style="font-size:.68rem;background:linear-gradient(90deg,#10b981,#6366f1);color:#fff;border-radius:20px;padding:.15rem .55rem;font-weight:700;margin-left:.25rem;">PRO</span>
             </div>
-            <button onclick="loadSmartCoach()" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;color:var(--green);font-size:.72rem;font-weight:700;padding:.3rem .65rem;cursor:pointer;">
+            <button onclick="document.getElementById('coachAdvice').dataset.forceRefresh='1';loadSmartCoach()" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);border-radius:8px;color:var(--green);font-size:.72rem;font-weight:700;padding:.3rem .65rem;cursor:pointer;">
               <i class="fas fa-sync-alt"></i> Rafraîchir
             </button>
           </div>
@@ -131,6 +131,9 @@
           <div style="display:flex;gap:.65rem;margin-top:1rem;flex-wrap:wrap;">
             <a href="{% url 'chat' %}" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);border-radius:10px;color:var(--green);font-size:.82rem;font-weight:700;text-decoration:none;">
               <i class="fas fa-comments"></i> Discuter avec l'IA
+            </a>
+            <a href="{% url 'plan' %}" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);border-radius:10px;color:#a78bfa;font-size:.82rem;font-weight:700;text-decoration:none;">
+              <i class="fas fa-calendar-week"></i> Plan hebdomadaire
             </a>
           </div>
         </div>
@@ -238,6 +241,9 @@
             </div>
             {% endfor %}
           </div>
+          <a href="{% url 'plan' %}" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.8rem;font-weight:700;color:#a78bfa;text-decoration:none;">
+            <i class="fas fa-calendar-week"></i> Voir mon plan de révision hebdomadaire
+          </a>
         </div>
         {% endif %}
 
@@ -626,6 +632,7 @@ function renderExerciseRecs(recs) {
 }
 
 async function loadSmartCoach() {
+  window._coachingAdvice = '';
   document.getElementById('coachAdvice').innerHTML =
     '<div style="text-align:center;padding:1.5rem 0;color:var(--t3);"><i class="fas fa-spinner fa-spin" style="margin-right:.5rem;"></i>Analyse approfondie de ton profil en cours…</div>';
   document.getElementById('mistakesSummary').innerHTML =
@@ -643,6 +650,9 @@ async function loadSmartCoach() {
     } else {
       msCard.style.display = 'none';
     }
+    if (d.advice && d.advice.trim()) {
+      window._coachingAdvice = d.advice.replace(/\n/g, '<br>');
+    }
   }).catch(() => {
     const msEl = document.getElementById('mistakesSummary');
     const msCard = msEl.closest('.card');
@@ -650,15 +660,22 @@ async function loadSmartCoach() {
   });
 
   try {
-    const r = await fetch('/dashboard/api/smart-coach/');
+    const refresh = document.getElementById('coachAdvice').dataset.forceRefresh === '1' ? '?refresh=1' : '';
+    document.getElementById('coachAdvice').dataset.forceRefresh = '';
+    const r = await fetch('/dashboard/api/smart-coach/' + refresh);
     const d = await r.json();
 
     const coachEl = document.getElementById('coachAdvice');
-    if (d.message && d.message.trim()) {
-      coachEl.innerHTML = `<div style="line-height:1.8;">${d.message.replace(/\n/g,'<br>')}</div>`;
-    } else {
-      coachEl.innerHTML = '<span style="color:var(--t3);">Fais des quiz pour que ton Coach IA puisse t\'analyser en profondeur !</span>';
+    let coachHtml = '';
+    if (window._coachingAdvice) {
+      coachHtml += `<div style="margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border2);">${window._coachingAdvice}</div>`;
     }
+    if (d.message && d.message.trim()) {
+      coachHtml += `<div style="line-height:1.8;">${d.message.replace(/\n/g,'<br>')}</div>`;
+    } else if (!coachHtml) {
+      coachHtml = '<span style="color:var(--t3);">Fais des quiz pour que ton Coach IA puisse t\'analyser en profondeur !</span>';
+    }
+    coachEl.innerHTML = coachHtml;
 
     renderSmartQuizPicks(d.quiz_picks || []);
 

@@ -99,7 +99,7 @@
         <div class="plan-hero">
           <div class="plan-hero-info">
             <h2><i class="fas fa-robot" style="color:var(--green)"></i> Planificateur IA personnalisé</h2>
-            <p>L'IA analyse tes points faibles, puis génère un plan de révision semaine par semaine adapté à ta série <strong>{{ profile.serie }}</strong>. Chaque jour propose un cours, des exercices et un quiz ciblé.</p>
+            <p>L'IA combine diagnostic, quiz et maîtrise pour générer un plan semaine par semaine adapté à ta série <strong>{{ profile.serie }}</strong>.</p>
           </div>
           <div class="plan-hero-right">
             <div class="bac-countdown" id="bacCountdown"><i class="fas fa-calendar-check"></i> Calcul…</div>
@@ -130,19 +130,17 @@
             {% endif %}
           </div>
           <div class="weakness-grid" id="weaknessGrid">
-            {% if diag_scores %}
-              {% for subject, score in diag_scores.items %}
-              {% with pct=score color=score|floatformat:0 %}
+            {% if weakness_items %}
+              {% for item in weakness_items %}
               <div class="w-item">
                 <div class="w-item-top">
-                  <span class="w-item-label">{{ subject }}</span>
-                  <span class="w-item-pct" style="color:{% if score < 40 %}#f87171{% elif score < 65 %}#fcd34d{% else %}var(--green){% endif %}">{{ score|floatformat:0 }}%</span>
+                  <span class="w-item-label">{{ item.label }}</span>
+                  <span class="w-item-pct" style="color:{% if item.score < 40 %}#f87171{% elif item.score < 65 %}#fcd34d{% else %}var(--green){% endif %}">{{ item.score|floatformat:0 }}%</span>
                 </div>
-                <div class="w-bar"><div class="w-bar-fill" style="width:{{ score|floatformat:0 }}%;background:{% if score < 40 %}#ef4444{% elif score < 65 %}#f59e0b{% else %}#10b981{% endif %}"></div></div>
+                <div class="w-bar"><div class="w-bar-fill" style="width:{{ item.score|floatformat:0 }}%;background:{% if item.score < 40 %}#ef4444{% elif item.score < 65 %}#f59e0b{% else %}#10b981{% endif %}"></div></div>
               </div>
-              {% endwith %}
               {% endfor %}
-            {% else %}
+            {% elif diag_scores %}
             <div class="w-empty">
               <i class="fas fa-chart-pie" style="font-size:2rem;display:block;margin-bottom:.75rem;opacity:.2"></i>
               Passe le diagnostic pour que l'IA connaisse tes points faibles et génère un plan optimal.
@@ -248,15 +246,32 @@ function subjectUrls(label){
 }
 
 const DONE_KEY = 'bacia_plan_done_v2';
-function getDone(){ try{ return new Set(JSON.parse(localStorage.getItem(DONE_KEY)||'[]')); }catch{ return new Set(); } }
-function saveDone(s){ localStorage.setItem(DONE_KEY,JSON.stringify([...s])); }
+let PLAN_ID = {% if latest_plan %}{{ latest_plan.id }}{% else %}null{% endif %};
+let SERVER_DONE = {{ completed_tasks_json|default:"[]"|safe }};
 
-function markDone(id, btn){
+function getDone(){
+  const s = new Set(SERVER_DONE || []);
+  try { JSON.parse(localStorage.getItem(DONE_KEY)||'[]').forEach(id => s.add(id)); } catch(e) {}
+  return s;
+}
+function saveDone(s){
+  SERVER_DONE = [...s];
+  localStorage.setItem(DONE_KEY, JSON.stringify(SERVER_DONE));
+}
+
+async function markDone(id, btn){
   const s = getDone(); s.add(id); saveDone(s);
   const card = document.getElementById(id);
   if(card){ card.classList.add('done'); }
   if(btn){ btn.classList.add('is-done'); btn.disabled=true; }
   updateProgress();
+  if(PLAN_ID){
+    fetch('{% url "api_plan_progress" %}',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body:JSON.stringify({plan_id:PLAN_ID, task_id:id, done:true})
+    }).catch(()=>{});
+  }
 }
 
 function updateProgress(){
@@ -271,6 +286,16 @@ function updateProgress(){
   if(txt) txt.textContent = `${doneCount} tâche${doneCount>1?'s':''} accomplie${doneCount>1?'s':''}`;
   if(bar) bar.style.width = pct+'%';
   if(pctEl) pctEl.textContent = pct+'%';
+}
+
+function fixPlanDayLinks(){
+  document.querySelectorAll('.day-card').forEach(card => {
+    const subj = card.querySelector('.day-subject')?.textContent?.trim();
+    const urls = subjectUrls(subj);
+    const c = card.querySelector('.act-cours'); if(c) c.href = urls.cours;
+    const e = card.querySelector('.act-exo'); if(e) e.href = urls.exo;
+    const q = card.querySelector('.act-quiz'); if(q) q.href = urls.quiz;
+  });
 }
 
 function switchWeek(idx, tab){
@@ -305,6 +330,9 @@ async function generatePlan(){
     const data = await res.json();
     hideLoader();
     if(data.ok){
+      if(data.plan_id) PLAN_ID = data.plan_id;
+      SERVER_DONE = [];
+      localStorage.removeItem(DONE_KEY);
       renderPlan(data.plan);
       showToast('Plan de révision généré !');
     } else {
@@ -370,10 +398,12 @@ function renderPlan(plan){
       <span id="planProgressPct">0%</span>
     </div>
   </div>`;
+  fixPlanDayLinks();
   updateProgress();
 }
 
 document.addEventListener('DOMContentLoaded',function(){
+  fixPlanDayLinks();
   const done = getDone();
   document.querySelectorAll('.day-card[data-card-id]').forEach(el=>{
     if(done.has(el.dataset.cardId)){

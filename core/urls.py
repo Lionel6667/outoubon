@@ -61,6 +61,7 @@ urlpatterns = [
     path('api/fiches/generate/',   views.api_generate_fiches,   name='api_generate_fiches'),
     path('api/fiches/status/',     views.api_flashcard_status,  name='api_flashcard_status'),
     path('api/plan/generate/',     views.api_generate_plan,     name='api_generate_plan'),
+    path('api/plan/progress/',     views.api_plan_progress,     name='api_plan_progress'),
     path('api/bookmark/',          views.api_bookmark_toggle,   name='api_bookmark'),
     path('api/stats/',             views.api_stats,             name='api_stats'),
     path('api/guest/set-serie/',   views.api_guest_set_serie,   name='api_guest_set_serie'),

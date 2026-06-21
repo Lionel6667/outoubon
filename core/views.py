@@ -2223,8 +2223,10 @@ def chat_api(request):
             if text:
                 ChatMessage.objects.create(user=request.user, role='user', content=text, subject=subject, session_key=session_key)
             ChatMessage.objects.create(user=request.user, role='ai', content=reply, subject=subject, session_key=session_key)
-            # Incrémenter le compteur chat gratuit
             increment_chat(request.user)
+            if text and reply:
+                from .learning_tracker import schedule_chat_learning_updates
+                schedule_chat_learning_updates(request.user, session_key, text, reply, subject)
         except Exception as save_err:
             print(f"[SAVE_ERROR] {str(save_err)}\n{traceback.format_exc()}")
             # Continue même si la sauvegarde échoue
@@ -2987,6 +2989,23 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
 
     new_count = max(3, count - len(review_qs))
 
+    _quiz_pers = {}
+    if user is not None:
+        try:
+            from .learning_tracker import get_quiz_personalization
+            _quiz_pers = get_quiz_personalization(user, subject)
+        except Exception:
+            pass
+
+    def _quiz_ai_kw(**extra):
+        kw = {
+            'weak_topics': _quiz_pers.get('weak_topics') or None,
+            'serie_key': _quiz_pers.get('serie_key', ''),
+            'user_profile': _quiz_pers.get('user_profile', ''),
+        }
+        kw.update(extra)
+        return kw
+
     if subject == 'anglais':
         from pathlib import Path as _angPath
         import json as _angj, random as _angr
@@ -3033,7 +3052,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
         except Exception:
             import traceback; traceback.print_exc()
         # Fallback to AI
-        direct_qs = gemini.generate_quiz_questions(subject, count=new_count, chapter=chapter)
+        direct_qs = gemini.generate_quiz_questions(subject, count=new_count, chapter=chapter, **_quiz_ai_kw())
         if direct_qs:
             random.shuffle(direct_qs)
             return {'questions': review_qs + direct_qs, 'source': 'ai_anglais', 'review_count': len(review_qs)}
@@ -3085,7 +3104,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
         except Exception:
             import traceback; traceback.print_exc()
         # Fallback to AI
-        direct_qs = gemini.generate_quiz_questions(subject, count=new_count, chapter=chapter)
+        direct_qs = gemini.generate_quiz_questions(subject, count=new_count, chapter=chapter, **_quiz_ai_kw())
         if direct_qs:
             random.shuffle(direct_qs)
             return {'questions': review_qs + direct_qs, 'source': 'ai_espagnol', 'review_count': len(review_qs)}
@@ -3271,7 +3290,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
     if total_available == 0:
         _background_seed(subject, target=40)
         exam_ctx = pdf_loader.get_exam_context_json(subject, max_chars=3500)
-        direct_qs = gemini.generate_quiz_questions(subject, count=new_count, exam_context=exam_ctx)
+        direct_qs = gemini.generate_quiz_questions(subject, count=new_count, exam_context=exam_ctx, **_quiz_ai_kw())
         if direct_qs:
             random.shuffle(direct_qs)
             return {'questions': review_qs + direct_qs, 'source': 'ai_direct', 'review_count': len(review_qs)}
@@ -3453,6 +3472,8 @@ def quiz_save_api(request):
             details={'score': score, 'total': total, 'session_id': session.pk},
             score_pct=session.get_percentage(),
         )
+        from .learning_tracker import invalidate_ai_caches
+        invalidate_ai_caches(request.user)
     except Exception as _lt_err:
         print(f"[LEARNING_TRACKER] quiz: {_lt_err}")
 
@@ -5473,12 +5494,21 @@ def plan_view(request):
     try:
         profile, _ = UserProfile.objects.get_or_create(user=request.user)
         plans = RevisionPlan.objects.filter(user=request.user)[:5]
-        diag_scores = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
+        from .learning_tracker import build_combined_weakness_scores
+        diag_scores = build_combined_weakness_scores(request.user)
+        latest = plans.first()
+        weakness_items = sorted(
+            [{'key': k, 'label': MATS.get(k, {}).get('label', k), 'score': v}
+             for k, v in diag_scores.items()],
+            key=lambda x: x['score'],
+        )
         return render(request, 'core/plan.html', {
             'plans':       plans,
-            'latest_plan': plans.first(),
+            'latest_plan': latest,
             'mats':        MATS,
             'diag_scores': diag_scores,
+            'weakness_items': weakness_items,
+            'completed_tasks_json': json.dumps(list(latest.completed_tasks or []) if latest else []),
             'profile':     profile,
         })
     except Exception as _e:
@@ -5509,27 +5539,37 @@ def api_generate_plan(request):
         except Exception:
             serie_key = 'SVT'
 
-        diag_scores = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
+        from .learning_tracker import build_combined_weakness_scores, get_mistake_topics_for_plan
+        combined_scores = build_combined_weakness_scores(request.user)
+        diag_scores = combined_scores
 
         plan_data = None
 
         from django.core.cache import cache as _dj_cache
         import hashlib as _hashlib
-        _scores_hash = _hashlib.md5(str(sorted(diag_scores.items())).encode()).hexdigest()[:8]
+        _scores_hash = _hashlib.md5(str(sorted(combined_scores.items())).encode()).hexdigest()[:8]
         _plan_cache_key = f'rev_plan_{request.user.pk}_{serie_key}_{weeks}_{_scores_hash}'
         plan_data = _dj_cache.get(_plan_cache_key)
         if plan_data:
-            return JsonResponse({'plan': plan_data})
+            plan = RevisionPlan.objects.create(
+                user=request.user,
+                serie=serie_key,
+                content=plan_data,
+            )
+            return JsonResponse({'ok': True, 'plan_id': plan.id, 'plan': plan_data, 'cached': True})
 
         try:
             user_profile = gemini.build_user_learning_profile(request.user)
-            plan_data = gemini.generate_revision_plan(serie_key, diag_scores, weeks, user_profile=user_profile, user_lang=_get_user_lang(request))
+            due_topics = get_mistake_topics_for_plan(request.user)
+            if due_topics:
+                user_profile += '\nRÉVISIONS PRIORITAIRES (erreurs à revoir): ' + ', '.join(due_topics) + '\n'
+            plan_data = gemini.generate_revision_plan(serie_key, combined_scores, weeks, user_profile=user_profile, user_lang=_get_user_lang(request))
         except Exception as _e:
             _logger.error('generate_revision_plan error (attempt 1): %s', _e)
 
         if not plan_data:
             try:
-                plan_data = gemini.generate_revision_plan(serie_key, diag_scores, weeks, user_profile='', user_lang=_get_user_lang(request))
+                plan_data = gemini.generate_revision_plan(serie_key, combined_scores, weeks, user_profile='', user_lang=_get_user_lang(request))
             except Exception as _e2:
                 _logger.error('generate_revision_plan error (attempt 2): %s', _e2)
 
@@ -5559,6 +5599,36 @@ def api_generate_plan(request):
     except Exception as e:
         _logger.exception('api_generate_plan error')
         return JsonResponse({'ok': False, 'error': "L'IA est momentanément indisponible."})
+
+
+@login_required
+@require_POST
+def api_plan_progress(request):
+    """Sauvegarde la progression des tâches du plan de révision (serveur)."""
+    try:
+        data, _err = _parse_json_body(request)
+        if _err:
+            return _err
+        plan_id = data.get('plan_id')
+        task_id = (data.get('task_id') or '').strip()
+        done = bool(data.get('done', True))
+        if not plan_id or not task_id:
+            return JsonResponse({'ok': False, 'error': 'plan_id et task_id requis'}, status=400)
+        plan = RevisionPlan.objects.get(pk=plan_id, user=request.user)
+        tasks = list(plan.completed_tasks or [])
+        if done:
+            if task_id not in tasks:
+                tasks.append(task_id)
+        else:
+            tasks = [t for t in tasks if t != task_id]
+        plan.completed_tasks = tasks
+        plan.save(update_fields=['completed_tasks'])
+        return JsonResponse({'ok': True, 'completed_tasks': tasks})
+    except RevisionPlan.DoesNotExist:
+        return JsonResponse({'ok': False, 'error': 'Plan introuvable'}, status=404)
+    except Exception:
+        _logger.exception('api_plan_progress error')
+        return JsonResponse({'ok': False, 'error': 'Erreur serveur'}, status=500)
 
 
 # ─────────────────────────────────────────────
@@ -6048,11 +6118,11 @@ def _generate_coaching_cards(user) -> list:
         recent5 = (sm.recent_errors or [])[:5]
         top_err_topic = ''
         if recent5:
-            topics_in_5 = [e.get('topic','') for e in recent5 if e.get('topic')]
+            topics_in_5 = [e.get('topic', '') for e in recent5 if e.get('topic')]
             if topics_in_5:
                 from collections import Counter
-            raw_top_err_topic = Counter(topics_in_5).most_common(1)[0][0]
-            top_err_topic = _pick_clear_topic(s, raw_top_err_topic, mastery=sm, has_resources=_has_resources, get_subject_chapters_fn=(get_subject_chapters if _has_resources else None))
+                raw_top_err_topic = Counter(topics_in_5).most_common(1)[0][0]
+                top_err_topic = _pick_clear_topic(s, raw_top_err_topic, mastery=sm, has_resources=_has_resources, get_subject_chapters_fn=(get_subject_chapters if _has_resources else None))
         cards.append({
             'id':           f'regress_{s}',
             'type':         'decline',
@@ -6061,7 +6131,7 @@ def _generate_coaching_cards(user) -> list:
             'priority':     1,
             'title':        f'{label} — tendance négative récente',
             'description':  (
-                f'Tes {len(recent5)} dernières réponses enregistrées incluent {len(recent5)} erreur{"s" if len(recent5)>1 else ""}.'
+                f'{len(recent5)} erreur{"s" if len(recent5)>1 else ""} récente{"s" if len(recent5)>1 else ""} enregistrée{"s" if len(recent5)>1 else ""} sur cette matière.'
                 + (f' Le sujet problématique : <strong>{top_err_topic}</strong>.' if top_err_topic else '')
                 + f' Maîtrise actuelle : {round(sm.mastery_score)}%. Concentre-toi sur ce point avant le prochain quiz.'
             ),
@@ -6387,6 +6457,13 @@ def api_coaching(request):
         })
     if not request.user.is_authenticated:
         return JsonResponse({'ok': False, 'cards': [], 'advice': '', 'chapter_advice': ''}, status=401)
+    from core.premium import is_premium
+    if not is_premium(request.user):
+        return JsonResponse({
+            'ok': False, 'premium_required': True,
+            'error': 'Le coaching avancé est réservé aux abonnés premium.',
+            'cards': [], 'advice': '', 'chapter_advice': '',
+        }, status=403)
     from datetime import date
     from .models import MistakeTracker, AIMemory
     from django.db.models import Sum
@@ -6613,8 +6690,27 @@ def api_smart_coach(request):
         })
     if not request.user.is_authenticated:
         return JsonResponse({'ok': False, 'error': 'auth required'}, status=401)
+    from core.premium import is_premium
+    if not is_premium(request.user):
+        return JsonResponse({
+            'ok': False, 'premium_required': True,
+            'error': 'Le Coach IA Avancé est réservé aux abonnés premium.',
+            'message': '', 'quiz_picks': [], 'exercise_recs': [], 'chapter_recs': [],
+        }, status=403)
 
     user = request.user
+
+    from django.utils import timezone as _tz_sc
+    from datetime import timedelta as _td_sc
+    from .models import AIProgressCache
+    if request.GET.get('refresh') != '1':
+        try:
+            _sc_cache = AIProgressCache.objects.filter(user=user).first()
+            if (_sc_cache and _sc_cache.is_valid and _sc_cache.smart_coach_data
+                    and _sc_cache.last_updated > (_tz_sc.now() - _td_sc(hours=6))):
+                return JsonResponse({'ok': True, 'cached': True, **_sc_cache.smart_coach_data})
+        except Exception:
+            pass
 
     from .resource_index import get_full_resource_catalog, get_targeted_questions, COURS_URLS
 
@@ -6800,13 +6896,21 @@ def api_smart_coach(request):
         except Exception as _ce:
             print(f"[api_smart_coach] exercise clean error: {_ce}")
 
-    return JsonResponse({
-        'ok':           True,
+    _sc_payload = {
         'message':      plan.get('message', ''),
         'quiz_picks':   quiz_picks_enriched,
         'chapter_recs': chapter_recs,
         'exercise_recs': exercise_recs,
-    })
+    }
+    try:
+        _sc_store, _ = AIProgressCache.objects.get_or_create(user=user)
+        _sc_store.smart_coach_data = _sc_payload
+        _sc_store.is_valid = True
+        _sc_store.save(update_fields=['smart_coach_data', 'is_valid', 'last_updated'])
+    except Exception:
+        pass
+
+    return JsonResponse({'ok': True, **_sc_payload})
 
 
 def api_mistakes_summary(request):
@@ -8405,13 +8509,11 @@ def api_course_chat(request):
         except Exception:
             user_profile = ''
 
-        # Score DB pour la matière
+        # Score maîtrise pour la matière
         _subject_score = None
         try:
-            from accounts.models import SubjectScore as _SubjectScore
-            _ss = _SubjectScore.objects.filter(user=request.user, subject=subj).first()
-            if _ss:
-                _subject_score = _ss.score
+            from .learning_tracker import get_subject_level_score
+            _subject_score = get_subject_level_score(request.user, subj)
         except Exception:
             pass
 
@@ -8517,13 +8619,11 @@ def api_course_chat(request):
     except Exception:
         user_profile = ''
 
-    # Score DB pour la matière
+    # Score maîtrise pour la matière
     _subject_score = None
     try:
-        from accounts.models import SubjectScore as _SubjectScore
-        _ss = _SubjectScore.objects.filter(user=request.user, subject=subj).first()
-        if _ss:
-            _subject_score = _ss.score
+        from .learning_tracker import get_subject_level_score
+        _subject_score = get_subject_level_score(request.user, subj)
     except Exception:
         pass
 
@@ -10126,8 +10226,23 @@ def api_exercise_chat(request):
                     f"--- EXERCICE ---\n{exercise_ctx}\n--- FIN ---\n"
                 )
         else:
+            _exo_profile = ''
+            _exo_level = 'intermediaire'
+            _exo_score = 50
+            if request.user.is_authenticated:
+                try:
+                    from .learning_tracker import get_adaptive_level, get_subject_level_score
+                    from . import gemini as _gprof
+                    _exo_level = get_adaptive_level(request.user, subject)
+                    _exo_score = get_subject_level_score(request.user, subject)
+                    _exo_profile = _gprof.build_user_learning_profile_short(request.user, subject=subject)
+                except Exception:
+                    pass
             system_prompt = et.build_system_prompt(
                 exercise, subject, student_name, session, mode, lang_rule,
+                student_profile=_exo_profile,
+                mastery_level=_exo_level,
+                mastery_score=_exo_score,
             )
 
         from . import gemini as _gemini
@@ -10213,6 +10328,27 @@ def api_exercise_complete(request):
         stats.save(update_fields=['exercices_resolus', 'minutes_etude'])
 
         _update_streak(request.user)
+
+        subject = (data.get('subject') or 'maths').strip()
+        try:
+            from .learning_tracker import update_subject_mastery, invalidate_ai_caches, log_learning_event
+            update_subject_mastery(
+                user=request.user,
+                subject=subject,
+                score_pct=score * 10,
+                question_text='Session exercice guidée',
+                topic='exercice_tutoré',
+            )
+            log_learning_event(
+                user=request.user,
+                event_type='exercise_corrected',
+                subject=subject,
+                details={'score_note': score, 'source': 'exercise_chat'},
+                score_pct=score * 10,
+            )
+            invalidate_ai_caches(request.user)
+        except Exception:
+            pass
 
         def calc_xp(s):
             return s.quiz_completes * 20 + s.exercices_resolus * 50 + s.messages_envoyes * 5
