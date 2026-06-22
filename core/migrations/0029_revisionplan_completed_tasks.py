@@ -4,7 +4,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0028_dailyusage_ai_request_count'),
+        ('core', '0022_generated_exam_cache'),
     ]
 
     operations = [

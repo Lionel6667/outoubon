@@ -874,8 +874,8 @@ def _build_physique_parameterized_exercise(section: dict, source_ref: str, index
         current = [1.2, 1.5, 2.0, 2.4][(seed // 11) % 4]
         section_area = [2.5e-4, 3.0e-4, 4.0e-4, 5.0e-4][(seed // 17) % 4]
         intro = (
-            f"Un solenoide de {n} spires, de longueur ${length}\,m$ et de section ${section_area:.2e}\,m^2$, "
-            f"est parcouru par un courant continu de ${current}\,A$. On l etudie en s inspirant du sujet {source_ref}."
+            f"Un solenoide de {n} spires, de longueur ${length}\\,m$ et de section ${section_area:.2e}\\,m^2$, "
+            f"est parcouru par un courant continu de ${current}\\,A$. On l etudie en s inspirant du sujet {source_ref}."
         )
         questions = [
             "Calcule le champ magnetique $B$ au centre du solenoide.",
@@ -898,13 +898,13 @@ def _build_physique_parameterized_exercise(section: dict, source_ref: str, index
         current = [3.0, 4.0, 5.0, 6.0][(seed // 5) % 4]
         length = [0.18, 0.2, 0.24, 0.3][(seed // 11) % 4]
         intro = (
-            f"Une tige conductrice de longueur ${length}\,m$ parcourue par un courant de ${current}\,A$ est placee dans un champ uniforme "
-            f"de ${b}\,T$, perpendiculairement aux lignes de champ. Situation inspiree de {source_ref}."
+            f"Une tige conductrice de longueur ${length}\\,m$ parcourue par un courant de ${current}\\,A$ est placee dans un champ uniforme "
+            f"de ${b}\\,T$, perpendiculairement aux lignes de champ. Situation inspiree de {source_ref}."
         )
         questions = [
             "Determine la valeur de la force de Laplace exercee sur la tige.",
             "Precise le sens de la force en utilisant la regle des trois doigts.",
-            "Calcule le travail de cette force si la tige se deplace de $0,12\,m$ dans son sens.",
+            "Calcule le travail de cette force si la tige se deplace de $0,12\\,m$ dans son sens.",
         ]
         solution = "On applique $F = BIL\\sin \\alpha$ avec $\\alpha = 90^\\circ$, puis $W = Fd$ pour le travail."
         conseils = "Verifie d abord si le conducteur est parallele ou perpendiculaire au champ avant de calculer."
@@ -919,13 +919,13 @@ def _build_physique_parameterized_exercise(section: dict, source_ref: str, index
         b = [0.12, 0.15, 0.18, 0.2][(seed // 11) % 4]
         k = [2.0e-5, 2.5e-5, 3.0e-5, 3.5e-5][(seed // 17) % 4]
         intro = (
-            f"Un galvanometre a cadre mobile comporte {n} spires de surface ${area:.2e}\,m^2$ dans un champ radial de ${b}\,T$. "
-            f"La constante de torsion vaut ${k:.2e}\,N\\cdot m/rad$. Situation inspiree de {source_ref}."
+            f"Un galvanometre a cadre mobile comporte {n} spires de surface ${area:.2e}\\,m^2$ dans un champ radial de ${b}\\,T$. "
+            f"La constante de torsion vaut ${k:.2e}\\,N\\cdot m/rad$. Situation inspiree de {source_ref}."
         )
         questions = [
             "Etablis la relation entre la deviation $\\theta$ et le courant $I$.",
             "Calcule la sensibilite du galvanometre.",
-            "Determine la deviation pour un courant de $2\,mA$.",
+            "Determine la deviation pour un courant de $2\\,mA$.",
         ]
         solution = "Le couple electromagnetique $NBSI$ s equilibre avec le couple de torsion $k\\theta$, donc $\\theta = \\dfrac{NBS}{k}I$."
         conseils = "Ne confonds pas le couple de rappel avec la force: ici on travaille sur un equilibre de couples."
@@ -945,7 +945,7 @@ def _build_physique_parameterized_exercise(section: dict, source_ref: str, index
         )
         questions = [
             "Calcule les reactances $X_L$ et $X_C$ puis l impedance $Z$ du circuit.",
-            "Determine l intensite efficace du courant si la tension efficace vaut $120\,V$.",
+            "Determine l intensite efficace du courant si la tension efficace vaut $120\\,V$.",
             "Precise si le circuit est inductif, capacitif ou en resonance.",
         ]
         solution = "On utilise $X_L = L\\omega$, $X_C = \\dfrac{1}{C\\omega}$, puis $Z = \\sqrt{R^2 + (X_L-X_C)^2}$ et $I = \\dfrac{U}{Z}$."
@@ -8433,12 +8433,12 @@ def chapter_cours_view(request, subject, num):
         'subject': subject,
         'subject_info': subject_info,
         'messages': session.messages,
-        'messages_json': _json_mod.dumps(_visible_msgs).replace('</', '<\/'),
+        'messages_json': _json_mod.dumps(_visible_msgs).replace('</', r'<\/'),
         'progress_step': session.progress_step,
         'total_steps': _total_steps,
         'plan_tasks_json': _json_mod.dumps(_plan_tasks),
         'hybrid_mode': hybrid_mode,
-        'hybrid_course_json': _json_mod.dumps(hybrid_course, ensure_ascii=False).replace('</', '<\/'),
+        'hybrid_course_json': _json_mod.dumps(hybrid_course, ensure_ascii=False).replace('</', r'<\/'),
         'hybrid_state_json': _json_mod.dumps(hybrid_state),
     })
 

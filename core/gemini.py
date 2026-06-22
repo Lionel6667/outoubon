@@ -2261,7 +2261,7 @@ def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user
 
     # ── LaTeX sanitizer (Python-side, runs before JSON is sent to frontend) ──
     def _fix_latex(text: str) -> str:
-        """
+        r"""
         Nettoie et normalise le LaTeX dans un texte extrait de PDF :
           1. Corrige les caractères de contrôle que json.load injecte
              (\t → \\t, backspace → \\b, form-feed → \\f, newline → \\n pour \nu etc.)
