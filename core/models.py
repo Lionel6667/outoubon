@@ -1101,7 +1101,7 @@ class ExerciseSession(models.Model):
     """Session d'exercice (historique + favoris) — reprendre plus tard comme un chat."""
     STATUS = [('active', 'En cours'), ('completed', 'Terminé')]
 
-    user = models.ForeignKey(User, on_date=models.CASCADE, related_name='exercise_sessions')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='exercise_sessions')
     subject = models.CharField(max_length=50, db_index=True)
     chapter = models.CharField(max_length=200, blank=True, default='')
     chapter_id = models.CharField(max_length=40, blank=True, default='')

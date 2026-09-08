@@ -28,6 +28,7 @@ from .models import (
     SubjectChapter, CourseSession, CourseProgressState, GeneratedCourseAsset,
     MistakeTracker, SubjectMastery, ChatSessionSummary, LearningEvent,
     ExtraBetPost, ExtraBetAttempt, GeneratedExam, UserSeenExamItem,
+    ExerciseSession,
 )
 from . import gemini
 from . import pdf_loader
@@ -4333,6 +4334,18 @@ def _build_exercices_chapters_cached():
                 {'id': 2, 'title': 'Étude de texte', 'num': 2},
             ]
             continue
+        if subj in ('anglais', 'espagnol'):
+            try:
+                from . import lang_exo_loader as _lang_exo
+                from .exo_loader import normalize_chapter_key
+                _lang_chaps = _lang_exo.get_chapters(subj)
+                if _lang_chaps:
+                    for _ch in _lang_chaps:
+                        _ch['chapter_key'] = normalize_chapter_key(_ch['title']) or _ch['title']
+                    chapters_by_subject[subj] = _lang_chaps
+                    continue
+            except Exception:
+                pass
         if subj in ('maths', 'chimie'):
             try:
                 from . import exo_loader as _exo_loader_subj
@@ -4384,12 +4397,21 @@ def _build_exercices_chapters_cached():
                 _raw = _j2.loads(_fp.read_text(encoding='utf-8'))
                 _chs = _raw.get('chapitres', _raw.get('chapters', []))
                 if _chs:
-                    chapters_by_subject[subj] = [
-                        {'id': i+1, 'title': c.get('titre', c.get('title', '')), 'num': i+1}
+                    def _entry_title(c):
+                        if not isinstance(c, dict):
+                            return ''
+                        return (
+                            c.get('titre') or c.get('title') or c.get('chapter_title')
+                            or c.get('name') or ''
+                        ).strip()
+                    _parsed = [
+                        {'id': i+1, 'title': _entry_title(c), 'num': i+1}
                         for i, c in enumerate(_chs)
-                        if c.get('titre', c.get('title',''))
+                        if _entry_title(c)
                     ]
-                    continue
+                    if _parsed:
+                        chapters_by_subject[subj] = _parsed
+                        continue
             except Exception:
                 pass
         chaps = pdf_loader.get_chapters_from_json(subj)
@@ -4781,14 +4803,46 @@ def api_get_exercise(request):
             except Exception as _eq_err:
                 print(f'[api_get_exercise] equation_chimique error: {_eq_err}')
 
-        # ── 0. PRIORITÉ IA POUR MATIÈRES DE LANGUE ──────────────────────────
-        # Pour anglais, espagnol, kreyol: génération 100% IA style BAC
-        # Quantité illimitée, textes variés, toujours dans la langue cible
+        # ── 0. Langues : vrais exercices (notes + examens), IA seulement en dernier ──
         LANGUAGE_SUBJECTS = {'anglais', 'espagnol', 'kreyol'}
         if subject in LANGUAGE_SUBJECTS:
-            exercise_data = gemini.generate_language_exercise(subject, chapter)
-            if exercise_data and not exercise_data.get('questions'):
-                exercise_data = None  # retry via fallback if empty
+            try:
+                from . import lang_exo_loader as _lang_exo
+                _lex = _lang_exo.get_random_exercise(subject, chapter)
+                if _lex:
+                    exercise_data = {
+                        'intro': _lex.get('intro') or '',
+                        'enonce': _lex.get('enonce') or _lex.get('intro') or '',
+                        'texte': _lex.get('texte') or '',
+                        'questions': _lex.get('questions') or [],
+                        'reponses': _lex.get('reponses') or {},
+                        'theme': (_lex.get('theme') or _lex.get('chapter') or subject.upper()).strip(),
+                        'matiere': subject.upper(),
+                        'difficulte': _lex.get('difficulte') or 'moyen',
+                        'source': _lex.get('source') or '',
+                        'solution': '',
+                        'conseils': '',
+                        '_is_real_bac': True,
+                    }
+                    try:
+                        from .exercise_display import format_exercise_display_local
+                        _fmt = format_exercise_display_local(
+                            subject, exercise_data['intro'], exercise_data['questions'],
+                        )
+                        exercise_data['intro'] = _fmt['intro']
+                        exercise_data['enonce'] = _fmt['intro']
+                        exercise_data['questions'] = _fmt['questions']
+                    except Exception as _fmt_err:
+                        print(f'[api_get_exercise] lang format error: {_fmt_err}')
+            except Exception as _lang_err:
+                print(f'[api_get_exercise] lang_exo_loader error: {_lang_err}')
+            if not exercise_data:
+                try:
+                    exercise_data = gemini.generate_language_exercise(subject, chapter)
+                    if exercise_data and not exercise_data.get('questions'):
+                        exercise_data = None
+                except Exception:
+                    exercise_data = None
 
         # ── 1. Vrais exercices depuis exo*.json (priorité absolue) ───────────
         # SVT, physique, maths, chimie → on lit les vrais exos sans IA
@@ -4956,8 +5010,8 @@ def api_get_exercise(request):
                     candidate['_is_real_bac'] = False
                     exercise_data = candidate
 
-        # ── 5. Fallback final : IA pure ──────────────────────────────────────
-        if not exercise_data:
+        # ── 5. Fallback final : IA pure (pas pour les langues : énoncés incomplets) ──
+        if not exercise_data and subject not in LANGUAGE_SUBJECTS:
             exam_text = pdf_loader.get_exam_context(subject, max_chars=3000)
             exercise_data = gemini.generate_exam_exercise(subject, chapter, exam_text or '', chapter_rule=_chapter_rule)
             if exercise_data:
@@ -4976,17 +5030,33 @@ def api_get_exercise(request):
         src = _re.sub(r'exam_[a-z]+_[a-z]+-(\d{4})', r'Bac Haïti \1', src, flags=_re.IGNORECASE)
         exercise_data['source'] = src.strip()
 
-        # 2. Si pas de questions, découper l'intro localement (pas d'appel IA)
+        # 2. Si questions manquantes, extraire a)/1. depuis l'énoncé (sans IA)
         questions = [str(q).strip() for q in (exercise_data.get('questions') or []) if str(q).strip()]
         if len(questions) < 2:
-            intro = exercise_data.get('intro') or exercise_data.get('enonce', '')
-            split_qs = [
-                p.strip()
-                for p in _re.split(r'(?=(?:^|\n)\s*(?:[a-e]\)|\d+[\.)]\s))', intro or '')
-                if len(p.strip()) > 15
-            ]
-            if len(split_qs) >= 2:
-                exercise_data['questions'] = split_qs[:6]
+            try:
+                from .exo_loader import _extract_sub_questions
+                intro = exercise_data.get('intro') or exercise_data.get('enonce', '')
+                intro_clean, extracted = _extract_sub_questions(intro)
+                if extracted:
+                    if intro_clean:
+                        exercise_data['intro'] = intro_clean
+                        exercise_data['enonce'] = intro_clean
+                    exercise_data['questions'] = extracted
+            except Exception:
+                pass
+        try:
+            from .exercise_display import format_exercise_display_local
+            _fmt = format_exercise_display_local(
+                subject,
+                exercise_data.get('intro') or exercise_data.get('enonce') or '',
+                exercise_data.get('questions') or [],
+            )
+            exercise_data['intro'] = _fmt['intro']
+            exercise_data['enonce'] = _fmt['intro']
+            if _fmt['questions']:
+                exercise_data['questions'] = _fmt['questions']
+        except Exception:
+            pass
 
         from .exercise_tutor import init_session, session_public_view, opening_message
         from core.chat_exercise_local import exercise_public_payload
@@ -6624,6 +6694,105 @@ def api_bookmark_toggle(request):
         explication=data.get('explication', ''),
     )
     return JsonResponse({'ok': True, 'action': 'added'})
+
+
+def _exercise_fingerprint(ex: dict) -> str:
+    intro = (ex.get('intro') or ex.get('enonce') or '')[:800]
+    qs = '|'.join(str(q)[:200] for q in (ex.get('questions') or [])[:12])
+    return hashlib.md5(f"{intro}\n{qs}".encode('utf-8', errors='ignore')).hexdigest()
+
+
+def _exercise_session_public(row: ExerciseSession, include_payload: bool = False) -> dict:
+    data = {
+        'id': row.id,
+        'subject': row.subject,
+        'chapter': row.chapter,
+        'chapter_id': row.chapter_id,
+        'title': row.title or row.chapter or row.subject,
+        'preview': row.preview,
+        'status': row.status,
+        'is_favorite': row.is_favorite,
+        'msg_count': len(row.messages or []),
+        'updated_at': row.updated_at.isoformat() if row.updated_at else '',
+    }
+    if include_payload:
+        data['exercise'] = row.exercise or {}
+        data['messages'] = row.messages or []
+        data['session_state'] = row.session_state or {}
+    return data
+
+
+@login_required
+@require_GET
+def api_exercise_sessions(request):
+    qs = ExerciseSession.objects.filter(user=request.user)
+    subject = (request.GET.get('subject') or '').strip()
+    if subject:
+        qs = qs.filter(subject=subject)
+    if request.GET.get('favorites') == '1':
+        qs = qs.filter(is_favorite=True)
+    rows = list(qs[:50])
+    return JsonResponse({'ok': True, 'sessions': [_exercise_session_public(r) for r in rows]})
+
+
+@login_required
+@require_GET
+def api_exercise_session_detail(request, pk: int):
+    row = ExerciseSession.objects.filter(user=request.user, pk=pk).first()
+    if not row:
+        return JsonResponse({'error': 'Session introuvable.'}, status=404)
+    return JsonResponse({'ok': True, 'session': _exercise_session_public(row, include_payload=True)})
+
+
+@login_required
+@require_POST
+def api_exercise_session_save(request):
+    data, _err = _parse_json_body(request)
+    if _err:
+        return _err
+    exercise = data.get('exercise') or {}
+    if not isinstance(exercise, dict) or not (exercise.get('intro') or exercise.get('enonce')):
+        return JsonResponse({'error': 'Exercice manquant.'}, status=400)
+    exo_hash = _exercise_fingerprint(exercise)
+    title = (data.get('title') or exercise.get('theme') or data.get('subject') or 'Exercice')[:220]
+    preview = (data.get('preview') or exercise.get('intro') or exercise.get('enonce') or '')
+    preview = re.sub(r'\s+', ' ', str(preview)).strip()[:280]
+    defaults = {
+        'subject': (data.get('subject') or '')[:50],
+        'chapter': (data.get('chapter') or '')[:200],
+        'chapter_id': str(data.get('chapter_id') or '')[:40],
+        'title': title,
+        'preview': preview,
+        'exercise': exercise,
+        'messages': data.get('messages') if isinstance(data.get('messages'), list) else [],
+        'session_state': data.get('session_state') if isinstance(data.get('session_state'), dict) else {},
+        'status': data.get('status') if data.get('status') in ('active', 'completed') else 'active',
+    }
+    if 'is_favorite' in data:
+        defaults['is_favorite'] = bool(data.get('is_favorite'))
+    row, _created = ExerciseSession.objects.update_or_create(
+        user=request.user,
+        exercise_hash=exo_hash,
+        defaults=defaults,
+    )
+    return JsonResponse({'ok': True, **_exercise_session_public(row)})
+
+
+@login_required
+@require_POST
+def api_exercise_session_favorite(request, pk: int):
+    row = ExerciseSession.objects.filter(user=request.user, pk=pk).first()
+    if not row:
+        return JsonResponse({'error': 'Session introuvable.'}, status=404)
+    data, _err = _parse_json_body(request)
+    if _err:
+        data = {}
+    if 'is_favorite' in (data or {}):
+        row.is_favorite = bool(data.get('is_favorite'))
+    else:
+        row.is_favorite = not row.is_favorite
+    row.save(update_fields=['is_favorite', 'updated_at'])
+    return JsonResponse({'ok': True, **_exercise_session_public(row)})
 
 
 def bookmarks_view(request):
@@ -11876,39 +12045,11 @@ def api_exercise_chat(request):
             ai_messages.append({"role": "user", "content": user_message})
 
         if not getattr(settings, 'DEEPSEEK_API_KEY', ''):
-            if _ex_image_data:
-                return JsonResponse({
-                    'error': 'ia_auth',
-                    'message': 'Photo indisponible sans connexion IA complète.',
-                }, status=503)
-            response, session, meta = et.try_local_tutor_response(
-                exercise, session, user_message, mode, student_name,
-            )
-            response, session, meta = et.parse_ai_directives(response, session)
-            if mode == 'skip' and not meta.get('advance') and not session.get('completed'):
-                session = et.advance_question(session, 'skipped')
-            idx = int(session.get('current_index') or 0)
-            attempts = list(session.get('attempts') or [0] * session.get('total', 1))
-            while len(attempts) < session.get('total', 1):
-                attempts.append(0)
-            if mode == 'answer' and idx < len(attempts):
-                attempts[idx] = int(attempts[idx] or 0) + 1
-                session['attempts'] = attempts
-            import re as _re_loc
-            response = _re_loc.sub(r'\*\*(.+?)\*\*', r'\1', response)
-            response = _re_loc.sub(r'\*(.+?)\*', r'\1', response)
-            public_session = et.session_public_view(session, exercise)
-            summary = et.compute_session_summary(session, exercise) if session.get('completed') else None
             return JsonResponse({
-                'ok': True,
-                'response': response.strip(),
-                'session_state': session,
-                'session': public_session,
-                'meta': meta,
-                'offer_tutor': et.should_offer_tutor(session),
-                'summary': summary,
-                'local_mode': True,
-            })
+                'error': 'ia_unavailable',
+                'message': 'Problème réseau.',
+                'ok': False,
+            }, status=503)
 
         _ex_model = _gemini.VISION_MODEL if _ex_image_data else _gemini.FAST_MODEL
         _max_tok = 180 if tutor_mode else (400 if mode == 'answer' else 320)
@@ -11957,46 +12098,15 @@ def api_exercise_chat(request):
         if isinstance(exc, AiBudgetExceeded):
             return JsonResponse(budget_exceeded_json(exc.reason), status=429)
         if isinstance(exc, AuthenticationError):
-            if not _ex_image_data:
-                try:
-                    response, session, meta = et.try_local_tutor_response(
-                        exercise, session, user_message, mode, student_name,
-                    )
-                    response, session, meta = et.parse_ai_directives(response, session)
-                    if mode == 'skip' and not meta.get('advance') and not session.get('completed'):
-                        session = et.advance_question(session, 'skipped')
-                    idx = int(session.get('current_index') or 0)
-                    attempts = list(session.get('attempts') or [0] * session.get('total', 1))
-                    while len(attempts) < session.get('total', 1):
-                        attempts.append(0)
-                    if mode == 'answer' and idx < len(attempts):
-                        attempts[idx] = int(attempts[idx] or 0) + 1
-                        session['attempts'] = attempts
-                    import re as _re_loc_auth
-                    response = _re_loc_auth.sub(r'\*\*(.+?)\*\*', r'\1', response)
-                    response = _re_loc_auth.sub(r'\*(.+?)\*', r'\1', response)
-                    public_session = et.session_public_view(session, exercise)
-                    summary = et.compute_session_summary(session, exercise) if session.get('completed') else None
-                    return JsonResponse({
-                        'ok': True,
-                        'response': response.strip(),
-                        'session_state': session,
-                        'session': public_session,
-                        'meta': meta,
-                        'offer_tutor': et.should_offer_tutor(session),
-                        'summary': summary,
-                        'local_mode': True,
-                    })
-                except Exception:
-                    pass
             return JsonResponse({
                 'error': 'ia_unavailable',
-                'message': 'Le coach IA est temporairement indisponible. Réessaie dans un instant.',
+                'message': 'Problème réseau.',
+                'ok': False,
             }, status=503)
         if isinstance(exc, (APIConnectionError, APIStatusError)):
             return JsonResponse({
                 'error': 'ia_unavailable',
-                'message': 'L\'IA est temporairement indisponible. Réessaie dans un instant.',
+                'message': 'Problème réseau.',
             }, status=503)
         _logger.exception('Server error')
         return JsonResponse({'error': 'Erreur interne du serveur.'}, status=500)

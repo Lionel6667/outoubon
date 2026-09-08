@@ -198,7 +198,7 @@
     nav.hidden = false;
     nav.style.removeProperty('visibility');
     if (document.body.classList.contains('v2-exo-session-active')) {
-      nav.style.removeProperty('display');
+      hideBottomNav();
       return;
     }
     if (window.matchMedia('(max-width: 768px)').matches) {
@@ -251,6 +251,7 @@
   }
 
   window.OTB_ensureBottomNavVisible = ensureBottomNavVisible;
+  window.OTB_hideBottomNav = hideBottomNav;
 
   function isShellNavLink(a) {
     if (!a) return false;
