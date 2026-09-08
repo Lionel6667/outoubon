@@ -50,12 +50,24 @@ def _normalize_math_delims(text: str) -> str:
 
 
 def _fix_decimal_commas_in_math(text: str) -> str:
-    """0,12 dans $...$ → 0.12 (MathJax refuse la virgule décimale)."""
+    """0,12 dans $...$ → 0.12 (MathJax refuse la virgule décimale).
+
+    ATTENTION : ne jamais toucher aux virgules qui séparent une liste de
+    nombres (ex : ensemble \\{1,2,3,4\\} ou liste x=25,40,42) — ce sont des
+    séparateurs, pas des décimales. Sinon l'énoncé devient faux.
+    """
     if not text or '$' not in text:
         return text
 
     def _fix_block(m: re.Match) -> str:
         inner = m.group(1)
+        # Ensembles / arguments entre accolades : virgule = séparateur → intact.
+        if '{' in inner or '}' in inner:
+            return '$' + inner + '$'
+        # Liste de 3 nombres ou plus séparés par des virgules → séparateur → intact.
+        if re.search(r'\d\s*,\s*\d+\s*,\s*\d', inner):
+            return '$' + inner + '$'
+        # Décimale française isolée : 0,12 → 0.12
         inner = re.sub(r'(?<=\d),(?=\d)', '.', inner)
         return '$' + inner + '$'
 
