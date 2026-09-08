@@ -1,0 +1,35 @@
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.genius_hub_entry, name='genius_hub'),
+    path('team/', views.genius_team_view, name='genius_team'),
+    path('club/<int:team_id>/', views.genius_club_view, name='genius_club'),
+    path('match/<int:match_id>/', views.genius_match_view, name='genius_match'),
+    path('competition/<int:competition_id>/', views.genius_competition_view, name='genius_competition'),
+    path('api/hub/', views.api_genius_hub, name='api_genius_hub'),
+    path('api/team/create/', views.api_genius_team_create, name='api_genius_team_create'),
+    path('api/team/join/', views.api_genius_team_join, name='api_genius_team_join'),
+    path('api/team/join/request/', views.api_genius_join_request, name='api_genius_join_request'),
+    path('api/team/join/respond/', views.api_genius_join_respond, name='api_genius_join_respond'),
+    path('api/team/transfer-captain/', views.api_genius_transfer_captain, name='api_genius_transfer_captain'),
+    path('api/team/open-requests/', views.api_genius_team_open, name='api_genius_team_open'),
+    path('api/team/invite/', views.api_genius_team_invite, name='api_genius_team_invite'),
+    path('api/team/remove/', views.api_genius_team_remove, name='api_genius_team_remove'),
+    path('api/invitation/respond/', views.api_genius_invitation_respond, name='api_genius_invitation_respond'),
+    path('api/competition/register/', views.api_genius_competition_register, name='api_genius_competition_register'),
+    path('api/competition/lock/', views.api_genius_competition_lock, name='api_genius_competition_lock'),
+    path('api/match/presence/', views.api_genius_match_presence, name='api_genius_match_presence'),
+    path('api/match/start/', views.api_genius_match_start, name='api_genius_match_start'),
+    path('api/match/vote/', views.api_genius_match_vote, name='api_genius_match_vote'),
+    path('api/match/lock/', views.api_genius_match_lock, name='api_genius_match_lock'),
+    path('api/match/schedule/', views.api_genius_match_schedule, name='api_genius_match_schedule'),
+    path('api/match/state/', views.api_genius_match_state, name='api_genius_match_state'),
+    path('api/match/create/', views.api_genius_match_create, name='api_genius_match_create'),
+    path('api/teams/', views.api_genius_teams, name='api_genius_teams'),
+    path('api/competition/start/', views.api_genius_competition_start, name='api_genius_competition_start'),
+    path('api/notifications/', views.api_genius_notifications, name='api_genius_notifications'),
+    path('api/notifications/read/', views.api_genius_notifications_read, name='api_genius_notifications_read'),
+    path('api/leaderboard/', views.api_genius_leaderboard, name='api_genius_leaderboard'),
+]

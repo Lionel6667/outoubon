@@ -5,13 +5,25 @@ Modèle léger     : deepseek-v4-flash (chat, QCM, progression, conseils — 90%
 """
 from openai import OpenAI
 from django.conf import settings
+import logging
 import re
 import os
 from collections import Counter
 
-MODEL        = 'deepseek-v4-pro'    # 10% — cours, exercices, examens blancs (haute qualité)
-FAST_MODEL   = 'deepseek-v4-flash'  # 90% — chat, QCM, progression, conseils (rapide)
-CREOLE_MODEL = 'deepseek-v4-flash'  # Traductions, contrôle qualité
+from core.ai_guard import cap_messages as _cap_messages, prepare_image_bytes
+
+logger = logging.getLogger(__name__)
+
+MODEL        = 'deepseek-v4-pro'    # réservé — uniquement si AI_ALLOW_PRO=true
+FAST_MODEL   = 'deepseek-v4-flash'  # modèle unique du site (qualité / coût)
+CREOLE_MODEL = 'deepseek-v4-flash'
+
+# Caps anti-dérive. Le thinking OFF est le vrai levier de coût.
+_MAX_SINGLE_MSG_CHARS = 8_000
+_MAX_TOTAL_MSG_CHARS = 18_000
+_MAX_IMAGE_BYTES = 220_000
+_MAX_IMAGE_SIDE = 1024
+_MAX_OUTPUT_TOKENS_HARD = 2_000
 
 
 
@@ -148,81 +160,27 @@ QUESTIONS MAL FORMULÉES/AMBIGUËS :
 • JAMAIS inventer une formule, une date, un chiffre, un nom.
 • Concept INEXISTANT → « Ce concept n'existe pas dans le programme. Tu veux peut-être parler de [concept similaire] ? »
 • Concept d'une AUTRE MATIÈRE → Refuse poliment et recentre.
-• Sciences : TOUJOURS vérifier les unités, constantes et formules.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"""
+
+# Version compacte (~70 % moins de tokens) pour le chat quotidien
+_STATIC_CHAT_SYSTEM_COMPACT = """\
+Tu es BacIA — tuteur académique pour le Bac Haïti (Terminale).
+Enseigne avec patience : définition claire, exemple concret, analogie simple, une question de vérification.
+Si l'élève demande la réponse d'un exercice → indice + méthode, jamais la solution brute.
+Vérifie formules, dates et unités avant d'envoyer. Phrases courtes, ton sobre, zéro phrases bateau.
+Adapte le niveau au profil élève. Tableaux markdown pour comparaisons/dates.
+Formules en KaTeX ($...$ inline, $$...$$ blocs). Confiance < 80 % → « Selon le programme... ».
+NE JAMAIS inventer formule, date ou chiffre."""
 
 
 _STATIC_COURSE_SYSTEM = """\
-Tu es BacIA, professeur privé expérimenté d'un lycéen haïtien préparant le BAC.
-Tu parles comme un grand professeur compétent, pédagogue et patient — jamais comme un chatbot rapide.
-
-━━ RÈGLE FONDAMENTALE : RÉPONSE COMPLÈTE ET CONTRÔLÉE ━━
-• AVANT d'envoyer une réponse, VÉRIFIE que :
-  1. Chaque phrase est syntaxiquement complète (sujet + verbe + complément).
-  2. La dernière phrase se termine par un point, un point d'exclamation ou une question.
-  3. Tous les blocs LaTeX $...$ ou $$...$$ sont FERMÉS correctement.
-  4. Aucun mot n'est tronqué (ex : "alcyn" au lieu de "alcynes").
-  5. Chaque section annoncée est effectivement présente.
-• Si tu sens que tu vas dépasser la limite → termine la phrase en cours, puis écris :
-  "[À COMPLÉTER — réponds 'Continue' pour la suite]"
-• JAMAIS d'envoi de réponse coupée au milieu d'un mot ou d'une phrase.
-
-━━ RÈGLES D'ENSEIGNEMENT ━━
-• Un seul sous-chapitre à la fois.
-• Réponse contrôlée : 2 à 3 blocs internes maximum par message.
-• AUCUNE structure visible : ne jamais afficher "Étape", "Définition", "Résumé", etc.
-• AUCUN label, aucune section titrée, aucune numérotation pédagogique visible.
-• Style de sortie : texte fluide, naturel, progressif.
-• Pas de quiz long automatique. Exercices courts uniquement si le chunk l'exige.
-• Ne fais jamais un cours complet du sous-chapitre en une seule réponse.
-• Ne fais jamais une conclusion globale du chapitre.
-
-ADAPTATION NIVEAU ÉLÈVE :
-• "non" / "je ne comprends pas" / "quoi ?" / "c'est quoi" → NIVEAU DÉBUTANT :
-  - Vocabulaire ultra-simple, analogies de la vie quotidienne (cuisine, sport, argent...).
-  - Explique chaque terme technique comme si l'élève avait 12 ans.
-  - Rythme très lent : une seule idée à la fois, attends la confirmation.
-  - Questions très guidées : propose 2 options (A ou B ?).
-• Réponses courtes sans développement → ralentis, pose des questions d'exploration.
-• Bonne réponse développée → passe en mode avancé, enrichis.
-
-STYLE PROFESSEUR EXPÉRIMENTÉ :
-• Validations VARIÉES : "Parfait !", "Excellent !", "C'est exactement ça.", "Tu maîtrises ça.",
-  "Bravo !", "Bien vu !", "Correct.", "Bonne réponse.", "Tu gères."
-• Transitions VARIÉES : "Maintenant,", "Du coup,", "Autre point clé —", "Et là c'est important —",
-  "OK, on avance —", "Justement,", "Bon,". JAMAIS "Passons à..."
-• ANTI-DUPLICATION : chaque phrase doit être UNIQUE. Relis avant d'envoyer.
-• TOLÉRANCE : évalue le FOND, pas l'orthographe. Accent manquant = VALIDE si le sens est correct.
-• INTERDIT : "Bien sûr !", "Excellente question !", réponse dans la question, concept futur non enseigné.
-• Parle comme un professeur humain, pas comme un robot qui liste.
-
-INTERDICTIONS ABSOLUES :
-• N'écris jamais : "Ce point n'est pas dans les notes".
-• N'écris jamais : "Étape 1", "Étape 2", "Sous-partie", "Bloc".
-• N'expose jamais la structure interne de génération.
-• N'invente aucun contenu hors des notes fournies.
-
-SITUATIONS SPÉCIALES :
-• Confus → change d'approche : nouvelle analogie plus simple, vocabulaire courant uniquement.
-• Découragé → empathie + rappelle sa progression + question ultra-simple + encourage.
-• Paresseux → indice précis + exemple similaire. JAMAIS la réponse brute.
-• Hors-sujet → réponds en 1 ligne, recentre immédiatement.
-
-ORTHOGRAPHE ET GRAMMAIRE PROFESSIONNELLE :
-• Écris TOUJOURS correctement : n'importe (pas "importe"), c'est, l'élève, qu'il, s'il.
-• Apostrophes : n', c', l', d', j', s' — JAMAIS oubliées.
-• Accents obligatoires : é, è, ê, à, ù, î, ô, etc.
-• Accords grammaticaux parfaits (accord sujet-verbe, adjectif-nom).
-• Ponctuation correcte : espace avant « ? » et « ! » en français.
-• Vérifie chaque phrase avant de l'envoyer. Aucune faute tolérée.
-
-AVANT D'ENVOYER CHAQUE RÉPONSE, VÉRIFIE :
-✓ Réponse complète — aucun mot tronqué, aucune phrase suspendue
-✓ Réponse contrôlée (2-3 blocs internes max, pas de surcharge)
-✓ Orthographe et grammaire parfaites
-✓ LaTeX fermé correctement (si science)
-✓ Formules/chiffres exacts, cohérence avec messages précédents
-✓ Question finale qui FORCE l'élève à produire quelque chose (INTERDIT : "Tu as compris ?")"""
+Tu es BacIA, professeur privé d'un lycéen haïtien préparant le BAC.
+Un seul sous-chapitre à la fois. Texte fluide, sans titres ni labels internes.
+Réponse courte (2-3 idées). Vérifie formules, dates, LaTeX fermé ($...$).
+Élève perdu → analogie simple, une idée à la fois.
+Élève qui demande la réponse → indice + méthode, jamais la solution brute.
+Termine par une question qui force l'élève à écrire quelque chose (pas « Tu as compris ? »).
+N'invente pas hors des notes. N'écris jamais « ce point n'est pas dans les notes »."""
 
 
 # ─── Traduction FR → Kreyòl Ayisyen ──────────────────────────────────────────
@@ -255,7 +213,7 @@ def translate_batch(texts: list[str], lang: str = 'kr', context: str = '') -> li
     )
 
     try:
-        resp = _client().chat.completions.create(
+        resp = _tracked_create(
             model=CREOLE_MODEL,
             messages=[
                 {"role": "system", "content": (
@@ -368,7 +326,11 @@ NE PASSE JAMAIS au français dans ta réponse."""
 Si il mélange créole et français → réponds en créole haïtien."""
 
 
-def _build_compact_history(messages: list, keep: int = 8) -> tuple:
+# Ultra-strict sliding window: 6 messages max (≈3 échanges user/assistant)
+HISTORY_SLIDING_WINDOW = 6
+
+
+def _build_compact_history(messages: list, keep: int = HISTORY_SLIDING_WINDOW) -> tuple:
     """
     Token-efficient conversation memory.
 
@@ -437,17 +399,20 @@ def _build_compact_history(messages: list, keep: int = 8) -> tuple:
                 ai_topics.append(first_line)
 
     n_old = len(old_msgs)
-    parts = [f"✦ MÉMOIRE DE LA CONVERSATION ({n_old} échanges précédents) :"]
+    # Résumé compressé 2–3 phrases (pas de liste longue)
+    bits: list[str] = []
     if ai_topics:
-        parts.append("• Sujets abordés : " + " → ".join(ai_topics[-3:]))
+        bits.append(f"Sujets déjà vus : {' → '.join(ai_topics[-2:])}.")
     if student_questions:
-        parts.append("• Questions posées par l'élève : " + " | ".join(student_questions[-2:]))
+        bits.append(f"L'élève a demandé : {' | '.join(student_questions[-1:])}.")
     if student_errors:
-        parts.append("• Difficultés détectées : " + " | ".join(student_errors[-2:]))
-    if last_student_msg:
-        parts.append(f"• Dernier message élève : \"{last_student_msg[:80]}\"")
-
-    summary = '\n'.join(parts)
+        bits.append(f"Difficultés : {' | '.join(student_errors[-1:])}.")
+    if last_student_msg and not student_questions:
+        bits.append(f"Dernier message élève : « {last_student_msg[:70]} ».")
+    if not bits:
+        summary = f"({n_old} échanges précédents — contexte résumé.)"
+    else:
+        summary = ' '.join(bits)[:420]
     return summary, list(recent_msgs)
 
 
@@ -477,14 +442,44 @@ def _client() -> OpenAI:
     return OpenAI(api_key=settings.DEEPSEEK_API_KEY, base_url='https://api.deepseek.com')
 
 
+def _raw_create(**kwargs):
+    return _client().chat.completions.create(**kwargs)
+
+
+def _tracked_create(**kwargs):
+    """Appel DeepSeek : flash, thinking OFF, prompts capés, budget enregistré."""
+    from core.ai_usage import assert_api_budget, record_api_usage, log_ai_call_detail
+
+    allow_pro = bool(getattr(settings, 'AI_ALLOW_PRO', False))
+    model = kwargs.get('model') or FAST_MODEL
+    if (not allow_pro) and 'pro' in str(model).lower():
+        model = FAST_MODEL
+    kwargs['model'] = model
+
+    disable_thinking = bool(getattr(settings, 'AI_DISABLE_THINKING', True))
+    extra = dict(kwargs.get('extra_body') or {})
+    extra['thinking'] = {'type': 'disabled' if disable_thinking else 'enabled'}
+    kwargs['extra_body'] = extra
+
+    kwargs['messages'] = _cap_messages(list(kwargs.get('messages') or []))
+    hard_cap = int(getattr(settings, 'AI_MAX_OUTPUT_TOKENS', _MAX_OUTPUT_TOKENS_HARD) or _MAX_OUTPUT_TOKENS_HARD)
+    kwargs['max_tokens'] = min(int(kwargs.get('max_tokens') or 1200), hard_cap)
+
+    assert_api_budget(model)
+    resp = _raw_create(**kwargs)
+    record_api_usage(resp, model)
+    log_ai_call_detail(resp, model, messages=kwargs.get('messages'))
+    return resp
+
+
 def _call(prompt: str, system: str = '', max_tokens: int = 1500) -> str:
     """Appel DeepSeek Pro — pour les tâches complexes (cours, exercices, examens)."""
     messages: list = []
     if system:
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
-    resp = _client().chat.completions.create(
-        model=MODEL,
+    resp = _tracked_create(
+        model=FAST_MODEL,
         messages=messages,
         max_tokens=max_tokens,
     )
@@ -493,7 +488,7 @@ def _call(prompt: str, system: str = '', max_tokens: int = 1500) -> str:
 
 def _call_fast(prompt: str, max_tokens: int = 1000) -> str:
     """Appel léger (FAST_MODEL) pour les tâches de génération structurée — 6× moins cher."""
-    resp = _client().chat.completions.create(
+    resp = _tracked_create(
         model=FAST_MODEL,
         messages=[{"role": "user", "content": prompt}],
         max_tokens=max_tokens,
@@ -507,7 +502,7 @@ def _call_json_fast(prompt: str, system: str = '', max_tokens: int = 2000) -> st
     if system:
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
-    resp = _client().chat.completions.create(
+    resp = _tracked_create(
         model=FAST_MODEL,
         messages=messages,
         max_tokens=max_tokens,
@@ -523,8 +518,8 @@ def _call_json(prompt: str, system: str = '', max_tokens: int = 3000) -> str:
     if system:
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
-    resp = _client().chat.completions.create(
-        model=MODEL,
+    resp = _tracked_create(
+        model=FAST_MODEL,
         messages=messages,
         max_tokens=max_tokens,
     )
@@ -625,7 +620,7 @@ def quality_check_question(item: dict, subject: str, all_items: list | None = No
 
     try:
         # Utiliser le modèle puissant pour toutes les matières (fiabilité > vitesse pour le QC)
-        _qc_resp = _client().chat.completions.create(
+        _qc_resp = _tracked_create(
             model=CREOLE_MODEL,
             messages=[
                 {"role": "system", "content": (
@@ -679,22 +674,10 @@ def quality_check_question(item: dict, subject: str, all_items: list | None = No
 
 
 def quality_check_pool(items: list, subject: str, wanted: int = 10) -> list:
-    """
-    Passe tous les items d'un pool au contrôle qualité.
-    Saute (skip) les questions invalides et les remplace par la suivante du pool.
-    Retourne exactement `wanted` items (ou moins si le pool est trop petit).
-
-    items : liste d'items triés par priorité (les meilleurs en premier)
-    """
-    approved: list = []
-    for item in items:
-        if len(approved) >= wanted:
-            break
-        result = quality_check_question(item, subject, all_items=items)
-        if result['skip']:
-            continue  # Remplacé automatiquement par l'item suivant
-        approved.append(result['item'])
-    return approved
+    """Sans appel IA — les items viennent déjà des examens officiels."""
+    if not items:
+        return []
+    return list(items[:wanted])
 
 MATS = {
     'maths':       'Maths',
@@ -753,8 +736,7 @@ RÈGLES:
 - Si une information n'est pas détectable, mets une liste vide []"""
 
     try:
-        client = OpenAI(api_key=settings.DEEPSEEK_API_KEY, base_url='https://api.deepseek.com')
-        resp = client.chat.completions.create(
+        resp = _tracked_create(
             model=FAST_MODEL,
             messages=[{'role': 'user', 'content': prompt}],
             temperature=0.3,
@@ -1097,7 +1079,7 @@ def extract_and_save_memories(user, user_message: str, ai_response: str, subject
     """
     try:
         # ── Filtres rapides (sans appel IA) ─────────────────────────────────
-        if len(user_message.strip()) < 30:
+        if len(user_message.strip()) < 80:
             return
 
         # Mots-clés qui indiquent un message trop simple pour mémoriser
@@ -1106,14 +1088,17 @@ def extract_and_save_memories(user, user_message: str, ai_response: str, subject
         if user_message.strip().lower() in _TRIVIAL:
             return
 
-        # ── Throttle : 1 extraction toutes les 2 interactions ───────────────
+        # ── Throttle : 1 extraction toutes les 10 interactions ───────────────
         from .models import ChatMessage as _CM
         recent_count = _CM.objects.filter(user=user, role='user').order_by('-id')[:1].values_list('id', flat=True)
-        # Use message ID parity for a simple throttle
         if recent_count:
             last_id = list(recent_count)[0]
-            if last_id % 2 == 0:
+            if last_id % 10 != 0:
                 return
+
+        from core.ai_usage import set_ai_context, get_ai_context_user
+        if get_ai_context_user() is None and user is not None:
+            set_ai_context(user=user, feature='chat')
 
         from .models import AIMemory
 
@@ -1199,6 +1184,8 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
     on exécute la recherche DuckDuckGo et on refait l'appel avec les résultats.
     """
     import json as _json
+    if image_data:
+        image_data, image_mime = prepare_image_bytes(image_data, image_mime)
 
     subject_label = MATS.get(subject, subject) if subject and subject != 'general' else None
     subject_context = f"La question porte sur **{subject_label}** (BAC Terminale)." if subject_label else ''
@@ -1206,8 +1193,7 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
     lang_instruction = _lang_instruction(message, forced_lang=user_lang)
 
     # ── Contenu dynamique dans un 2e message system ──────────────────────────
-    # Le 1er message = _STATIC_CHAT_SYSTEM (identique → Groq prefix cache ~50% saving)
-    # Le 2e message  = contexte spécifique à cet appel
+    # Prefix cache : system statique d'abord, contexte dynamique ensuite, historique en dernier.
     dynamic_parts = []
     if subject_context:
         dynamic_parts.append(subject_context)
@@ -1223,11 +1209,11 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
 
     # Construction des messages
     def _build_messages() -> list:
-        msgs = [{"role": "system", "content": _STATIC_CHAT_SYSTEM}]
+        msgs = [{"role": "system", "content": _STATIC_CHAT_SYSTEM_COMPACT}]
         if dynamic_context:
             msgs.append({"role": "system", "content": dynamic_context})
         # Rolling summary: keep last 8 verbatim + compact summary of everything before
-        hist_summary, recent_history = _build_compact_history(history, keep=8)
+        hist_summary, recent_history = _build_compact_history(history, keep=HISTORY_SLIDING_WINDOW)
         if hist_summary:
             msgs.append({"role": "system", "content": hist_summary})
         for msg in recent_history:
@@ -1260,13 +1246,13 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
     _needs_heavy = any(kw in msg_lower for kw in _heavy_keywords)
 
     if _needs_heavy:
-        adaptive_tokens = 4000   # résumés / comparaisons / événements → tableaux + sections
+        adaptive_tokens = 2000
     elif msg_len < 60:
-        adaptive_tokens = 2500   # question courte simple
+        adaptive_tokens = 900
     elif msg_len < 200:
-        adaptive_tokens = 3000   # question normale
+        adaptive_tokens = 1400
     else:
-        adaptive_tokens = 3500   # question longue / exercice complexe
+        adaptive_tokens = 1800
 
     messages = _build_messages()
 
@@ -1276,10 +1262,10 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
         b64_str = _b64.b64encode(image_data).decode('utf-8')
         mime = image_mime or 'image/jpeg'
         # Build vision message manually (image_url format)
-        vis_msgs = [{"role": "system", "content": _STATIC_CHAT_SYSTEM}]
+        vis_msgs = [{"role": "system", "content": _STATIC_CHAT_SYSTEM_COMPACT}]
         if dynamic_context:
             vis_msgs.append({"role": "system", "content": dynamic_context})
-        vis_summary, vis_history = _build_compact_history(history, keep=8)
+        vis_summary, vis_history = _build_compact_history(history, keep=HISTORY_SLIDING_WINDOW)
         if vis_summary:
             vis_msgs.append({"role": "system", "content": vis_summary})
         for msg in vis_history:
@@ -1293,7 +1279,7 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
             {"type": "image_url", "image_url": {"url": f"data:{mime};base64,{b64_str}"}}
         ]})
         try:
-            resp_vis = _client().chat.completions.create(
+            resp_vis = _tracked_create(
                 model=VISION_MODEL,
                 messages=vis_msgs,
                 max_tokens=adaptive_tokens,
@@ -1306,7 +1292,7 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
             import sys; print(f'[Vision] VISION_MODEL failed ({_vis_err}), trying main MODEL with image…', file=sys.stderr)
             # Try main model with image_url (may work if model supports it)
             try:
-                resp_vis2 = _client().chat.completions.create(
+                resp_vis2 = _tracked_create(
                     model=FAST_MODEL,
                     messages=vis_msgs,
                     max_tokens=adaptive_tokens,
@@ -1319,10 +1305,10 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
             except Exception as _vis2_err:
                 import sys; print(f'[Vision] main MODEL also failed ({_vis2_err}), text fallback', file=sys.stderr)
             # Last resort: rebuild messages without image, answer text question normally
-            messages = [{"role": "system", "content": _STATIC_CHAT_SYSTEM}]
+            messages = [{"role": "system", "content": _STATIC_CHAT_SYSTEM_COMPACT}]
             if dynamic_context:
                 messages.append({"role": "system", "content": dynamic_context})
-            _fb_summary, _fb_history = _build_compact_history(history, keep=8)
+            _fb_summary, _fb_history = _build_compact_history(history, keep=HISTORY_SLIDING_WINDOW)
             if _fb_summary:
                 messages.append({"role": "system", "content": _fb_summary})
             for msg in _fb_history:
@@ -1336,7 +1322,7 @@ def get_chat_response(message: str, history: list, subject: str = 'general', db_
             messages.append({"role": "user", "content": text_content})
 
     # ── Appel direct Groq sans tool calling (plus stable) ──
-    resp = _client().chat.completions.create(
+    resp = _tracked_create(
         model=FAST_MODEL,
         messages=messages,
         max_tokens=adaptive_tokens,
@@ -1426,7 +1412,7 @@ def extract_quiz_from_exam_text(text: str, subject: str, count: int = 8) -> list
             '"reponse_correcte":0,"explication":"...","sujet":"..."}]\n\n'
             "reponse_correcte = INDEX entier (0=A, 1=B, 2=C, 3=D)."
         )
-    text_out = _call(prompt, max_tokens=3500)
+    text_out = _call_json_fast(prompt, max_tokens=2500)
     return _parse_quiz_json(text_out)
 
 
@@ -1875,7 +1861,7 @@ c) reponse 3
 d) reponse 4
 CORRECT: X"""
 
-        resp = _client().chat.completions.create(
+        resp = _tracked_create(
             model=FAST_MODEL,
             messages=[{'role': 'user', 'content': prompt}],
             temperature=0.8,
@@ -1998,7 +1984,12 @@ CORRECT: X"""
 # EXAM BLANC — génération haute qualité depuis la base de données
 # Pas de PDFs — IA génère du contenu ORIGINAL niveau Bac Haïti
 # ─────────────────────────────────────────────────────────────────────────────
-def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user_serie: str = '') -> dict:
+def generate_exam_from_db(
+    subject: str,
+    quiz_questions: list | None = None,
+    user_serie: str = '',
+    exclude_hashes: set | frozenset | None = None,
+) -> dict:
     """
     Génère un examen blanc BAC Haïti en lisant les fichiers database/json/exams_{subject}.json.
     Reproduit fidèlement la structure, les types et la disposition des vrais examens BAC.
@@ -2009,7 +2000,10 @@ def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user
     import os
     from django.conf import settings
 
+    from .exam_item_registry import ExamItemRegistry, hash_item_text
+
     subject_label = MATS.get(subject, subject)
+    _registry = ExamItemRegistry(exclude_hashes=exclude_hashes)
 
     _DURATIONS = {
         'maths': '3 heures', 'physique': '3h30', 'chimie': '3 heures',
@@ -2117,7 +2111,7 @@ def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user
     def _collect_items(types_wanted: list, min_len: int = 40) -> list:
         """Collecte tous les items du JSON selon les types demandés."""
         result = []
-        seen_texts = set()
+        seen_hashes = set()
         for exam in data.get('exams', []):
             yr = exam.get('year', '')
             src = f"Bac Haïti {yr}" if yr else "Bac Haïti"
@@ -2126,11 +2120,10 @@ def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user
                     txt = _text(item)
                     if not txt or len(txt.strip()) < min_len:
                         continue
-                    # Déduplication : ignorer si texte déjà vu (premiers 60 chars)
-                    key = txt.strip()[:60]
-                    if key in seen_texts:
+                    key = hash_item_text(txt)
+                    if key in seen_hashes:
                         continue
-                    seen_texts.add(key)
+                    seen_hashes.add(key)
                     reponse = (item.get('reponse') or '')
                     if isinstance(reponse, list):
                         reponse = ', '.join(str(r) for r in reponse)
@@ -2161,10 +2154,10 @@ def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user
                             txt = _normalize_blanks(_fix_latex(raw))
                             if not _is_clean_fillin(txt):
                                 continue
-                            key60 = txt[:60]
-                            if key60 in seen:
+                            key_h = hash_item_text(txt)
+                            if key_h in seen:
                                 continue
-                            seen.add(key60)
+                            seen.add(key_h)
                             ans = (q.get('answer') or q.get('reponse') or '').strip()
                             result.append({
                                 'text': txt,
@@ -2175,14 +2168,9 @@ def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user
                             })
         return result
 
-    def _pick(pool: list, n: int) -> list:
-        """Mélange et retourne n éléments. Si pool insuffisant, boucle."""
-        if not pool:
-            return []
-        _random.shuffle(pool)
-        if len(pool) >= n:
-            return pool[:n]
-        return (pool * ((n // len(pool)) + 1))[:n]
+    def _pick(pool: list, n: int, text_key: str = 'text') -> list:
+        """Tire n items uniques — jamais de duplication (pool * k interdit)."""
+        return _registry.pick(pool, n, text_key=text_key)
 
     def _distribute(total: int, n: int) -> list:
         if n == 0:
@@ -4354,24 +4342,8 @@ def generate_exam_from_db(subject: str, quiz_questions: list | None = None, user
         return {'title': title, 'duration': duration, 'annee': _annee, 'serie': _serie, 'coeff': _coeff, 'parts': parts}
 
     def _pick_by_keywords(pool: list, keywords: list[str], n: int) -> list:
-        """Pick items preferring texts that match requested keywords."""
-        if not pool:
-            return []
-        kws = [k.lower() for k in keywords if k]
-        scored = []
-        for it in pool:
-            txt = (it.get('text') or '').lower()
-            score = sum(1 for k in kws if k in txt)
-            scored.append((score, _random.random(), it))
-        scored.sort(key=lambda x: (-x[0], x[1]))  # Sort by score DESC, then by random for tie-breaking
-        picked = [it for _, _, it in scored[:n]]
-        if len(picked) < n:
-            for _, _, it in scored:
-                if it not in picked:
-                    picked.append(it)
-                if len(picked) >= n:
-                    break
-        return picked[:n]
+        """Pick items preferring texts that match requested keywords (sans duplication)."""
+        return _registry.pick_by_keywords(pool, keywords, n)
 
     # ════════════════════════════════════════════════════════════════════════
     # ÉCONOMIE — 4 parties (100 pts) selon structure_exam.json
@@ -5998,7 +5970,7 @@ def correct_exercise_answers(exercise: dict, student_answers: list, subject: str
     token_budget = min(500 + nb_q * 350, 3500)
     text = None
 
-    for _attempt in range(3):
+    for _attempt in range(2):
         raw = _call_fast(prompt, max_tokens=token_budget)
         raw = re.sub(r'```[a-z]*\s*', '', raw).strip()
         m = re.search(r'\{[\s\S]+\}', raw)
@@ -6063,191 +6035,144 @@ def correct_exercise_answers(exercise: dict, student_answers: list, subject: str
 
 def correct_exam_open_answers(subject: str, qa_pairs: list, user_lang: str = 'fr', mise_au_net: str = '') -> dict:
     """
-    Évalue les réponses ouvertes d'un élève pour un examen blanc complet.
-    qa_pairs: list of {question, student_answer, model_answer, pts, section}
-    mise_au_net: free text written by student on the blank answer sheet
-    Returns: {corrections:[{question,student_answer,scored_pts,max_pts,status,feedback}],
-              estimated_score, total_pts, global_feedback}
+    Évalue TOUTES les réponses ouvertes Partie B en UN SEUL appel API (batch).
+    qa_pairs: [{question, student_answer, model_answer, pts, section}]
+    Returns: {corrections, estimated_score, total_pts, global_feedback, recommendations, skills_breakdown}
     """
     import json as _json
+
     subject_label = MATS.get(subject, subject)
     if not qa_pairs:
-        return {'corrections': [], 'estimated_score': 0, 'total_pts': 0, 'global_feedback': 'Aucune réponse à corriger.'}
+        return {
+            'corrections': [], 'estimated_score': 0, 'total_pts': 0,
+            'global_feedback': 'Aucune réponse à corriger.',
+            'recommendations': [], 'skills_breakdown': {},
+        }
 
     total_pts = sum(float(q.get('pts', 0) or 0) for q in qa_pairs)
     nb_q = len(qa_pairs)
+    lang_note = 'Kreyòl.' if user_lang == 'kr' else 'Français.'
 
-    lang_note = 'Réponds en créole haïtien.' if user_lang == 'kr' else 'Réponds en français.'
+    # Payload compact JSON — 1 seul bloc structuré pour le batch
+    batch_items = []
+    for i, q in enumerate(qa_pairs, 1):
+        ans = str(q.get('student_answer', '') or '').strip()
+        if not ans and mise_au_net:
+            hint = str(q.get('section', '') or f'Exercice {i}').strip()
+            ans = f'[mise au net → "{hint}"]'
+        batch_items.append({
+            'id': i,
+            'section': str(q.get('section', '') or '')[:60],
+            'pts': float(q.get('pts', 0) or 0),
+            'q': str(q.get('question', ''))[:280],
+            'student': ans[:500] if ans else '',
+            'model': str(q.get('model_answer', '') or '')[:180],
+        })
 
-    # If student used the mise au net, inject it as the student_answer context
-    mau_block = ''
-    if mise_au_net and mise_au_net.strip():
-        mau_block = (
-            f"\n\n── MISE AU NET DE L'ÉLÈVE (développements Partie B) ──\n"
-            f"L'élève a rédigé ses développements sur sa feuille de mise au net.\n"
-            f"IMPORTANT : La mise au net peut aussi contenir des notes courtes pour la Partie A "
-            f"(complétions/QCM, ex: '1- rp:19', '8- rep: -4'). "
-            f"IGNORE ces notes courtes de Partie A — elles ne font PAS partie des exercices à corriger ici.\n"
-            f"Cherche uniquement les développements longs correspondant aux exercices numérotés de la Partie B.\n\n"
-            f"{mise_au_net[:6000]}\n"
-            f"── FIN MISE AU NET ──\n"
-        )
+    mau_snip = (mise_au_net or '').strip()[:3500]
+    mau_block = f'\nMISE_AU_NET:\n{mau_snip}\n' if mau_snip else ''
 
-    lang_note = 'Réponds en créole haïtien.' if user_lang == 'kr' else 'Réponds en français.'
-
-    # Build qa_block — if mise_au_net present, mark each answer as "voir mise au net"
+    philo_rule = ''
     if subject == 'philosophie':
-        def _philo_section_type(section_label: str) -> str:
-            sl = section_label.lower()
-            if 'sujet a' in sl or 'dissertation' in sl:
-                return 'dissertation philosophique'
-            if 'sujet b' in sl or 'texte' in sl or 'étude' in sl:
-                return 'étude de texte'
-            return 'question de cours'
+        philo_rule = 'Philo: évalue dissertation/étude de texte selon structure BAC.\n'
 
-        qa_lines = []
-        for i, q in enumerate(qa_pairs, 1):
-            ans = str(q.get('student_answer', '') or '').strip()
-            section_label = str(q.get('section', '') or '').strip()
-            if not ans and mau_block:
-                # Give the AI the real exercise label so it can find it in the mise au net
-                hint_label = section_label or f'Exercice {i}'
-                ans = f'[voir mise au net — cherche la réponse à "{hint_label}" ou "Exercice {i}" ou "{i}." ou "{i}-"]'
-            ex_type = _philo_section_type(section_label)
-            qa_lines.append(
-                f"Q{i} [{ex_type} — {q.get('pts', 0)} pts]: {q.get('question', '')}\n"
-                f"  Réponse élève: {ans if ans else '(pas de réponse)'}\n"
-                f"  Réponse attendue: {str(q.get('model_answer', '') or '').strip()[:300]}"
-            )
-        qa_block = '\n\n'.join(qa_lines)
-
-        subject_ctx = (
-            "Tu corriges un examen de PHILOSOPHIE BAC Haïti. Chaque question indique son type entre crochets.\n\n"
-            "Corrige exactement comme tu le ferais pour un vrai exercice de philo :\n"
-            "• Pour une **dissertation philosophique** : évalue l'introduction (problématisation + annonce du plan),"
-            " le développement (thèse + antithèse, arguments, exemples, références à des auteurs),"
-            " et la conclusion (bilan + ouverture). Donne un feedback précis sur chaque composante manquante.\n"
-            "• Pour une **étude de texte** : évalue si l'élève a bien répondu à CE que la question demande"
-            " (identifier la thèse, analyser l'argumentation, expliquer une phrase, donner un avis critique)."
-            " Indique ce qui était juste et ce qui manquait dans la réponse.\n"
-            "• Pour une **question de cours** : vérifie la précision de la définition, l'identification correcte"
-            " de l'auteur/courant/œuvre, la distinction entre les notions et la pertinence de l'exemple.\n"
-        )
-    else:
-        subject_ctx = ''
-
-    if subject != 'philosophie':
-        qa_lines_default = []
-        for i, q in enumerate(qa_pairs, 1):
-            ans = str(q.get('student_answer', '') or '').strip()
-            section_label = str(q.get('section', '') or '').strip()
-            if not ans and mau_block:
-                hint_label = section_label or f'Exercice {i}'
-                ans = f'[voir mise au net — cherche la réponse à "{hint_label}" ou "Exercice {i}" ou "{i}." ou "{i}-"]'
-            qa_lines_default.append(
-                f"Q{i} [{section_label or '...'} — {q.get('pts', 0)} pts]: {q.get('question', '')}\n"
-                f"  Réponse élève: {ans if ans else '(pas de réponse)'}\n"
-                f"  Réponse attendue: {str(q.get('model_answer', '') or '').strip()[:300]}"
-            )
-        qa_block = '\n\n'.join(qa_lines_default)
-
-    # Language enforcement for language exams
-    _LANG_SUBJECTS = {
-        'francais': ('kreyòl ayisyen', 'Kreyòl Ayisyen', 'kreyol|kreyòl|ayiti|mwen|ou|li|yo|nou|se|pa|ak|nan|pou|yon'),
-        'anglais':  ('english', 'English', 'the|is|are|was|were|have|has|do|does|this|that|which'),
-        'espagnol': ('español', 'Español', 'el|la|los|las|es|son|está|tienen|que|por|para|con'),
-    }
     lang_rule = ''
-    if subject in _LANG_SUBJECTS:
-        _exam_lang, _exam_lang_label, _lang_tokens = _LANG_SUBJECTS[subject]
-        lang_rule = (
-            f"\n⚠️ RÈGLE LANGUE OBLIGATOIRE — Cet examen est en {_exam_lang_label}.\n"
-            f"Si la réponse de l'élève n'est PAS dans cette langue (ou est dans une autre langue comme le français, l'anglais, etc.), "
-            f"la réponse ne compte pas : scored_pts = 0, status = 'wrong', "
-            f"feedback = 'Répons lan dwe ekri an {_exam_lang_label} sèlman. Fransè oswa lòt lang pa aksepte.'\n"
-            if subject == 'francais' else
-            f"\n⚠️ MANDATORY LANGUAGE RULE — This exam is in {_exam_lang_label}.\n"
-            f"If the student's answer is NOT written in {_exam_lang_label} (e.g. written in French or Creole instead), "
-            f"the answer does not count: scored_pts = 0, status = 'wrong', "
-            f"feedback = 'Your answer must be written in {_exam_lang_label}. Answers in other languages are not accepted.'\n"
-        )
+    _LANG = {'francais': 'Kreyòl', 'anglais': 'English', 'espagnol': 'Español'}
+    if subject in _LANG:
+        lang_rule = f'Langue obligatoire: {_LANG[subject]}. Autre langue → 0 pt.\n'
 
     prompt = (
-        f"Tu es un correcteur expert du Baccalauréat Haïti en {subject_label}. {lang_note}\n\n"
-        + lang_rule
-        + (f"{subject_ctx}\n" if subject_ctx else "")
-        + f"Un élève vient de passer un examen blanc. Voici les questions ({nb_q} questions):\n\n"
-        f"{qa_block}\n"
-        + mau_block
-        + "\nPour CHAQUE question, évalue la réponse de l'élève"
-        + (" en te basant sur sa mise au net ci-dessus" if mau_block else " (aucune réponse fournie)")
-        + ":\n"
-        "- scored_pts: points accordés (0 jusqu'au max — peut être fractionnaire comme 7.5)\n"
-        "- status: 'correct' | 'partial' | 'wrong' | 'empty'\n"
-        "- feedback: 2-3 phrases pédagogiques précises et bienveillantes.\n"
-        "  Si wrong/empty : explique l'erreur ET ce qui manquait.\n"
-        "  Si partial : dis ce qui était bon ET ce qui était incomplet.\n"
-        "  Si correct : félicite en nommant le point fort.\n\n"
-        "RÈGLES :\n"
-        "1. Ne jamais donner plein score à une réponse vide ou clairement fausse.\n"
-        "2. SOIS PÉDAGOGIQUE ET TOLÉRANT : La réponse attendue sert de référence, mais l'élève n'a pas à faire du mot-à-mot. S'il exprime la même idée scientifique/physique avec ses propres mots ou une formulation/notation équivalente (par exemple: s'il explique que l'accélération en chute libre vaut la pesanteur g et vaut -9.8 m/s² car l'axe est orienté vers le haut, c'est parfaitement correct, même si le corrigé est sous forme vectorielle ou rédigé différemment), accorde-lui l'INTEGRALITÉ des points.\n"
-        "3. global_feedback : 2-3 phrases motivantes + UN conseil de révision précis.\n\n"
-        "Réponds UNIQUEMENT en JSON valide (sans markdown, sans ```):\n"
-        '{"corrections":['
-        '{"question":"...","student_answer":"...","scored_pts":X,"max_pts":Y,"status":"correct","feedback":"..."}'
-        f'],"estimated_score":X,"total_pts":{total_pts},"global_feedback":"..."}}'
+        f"Correcteur BAC Haïti {subject_label}. {lang_note}\n"
+        f"{philo_rule}{lang_rule}"
+        f"Corrige les {nb_q} questions en 1 JSON. Tolérant si idée correcte (pas mot-à-mot).\n"
+        f"QUESTIONS_JSON:\n{_json.dumps(batch_items, ensure_ascii=False)}\n"
+        f"{mau_block}"
+        "Règles: scored_pts∈[0,max], status=correct|partial|wrong|empty, "
+        "feedback=1-2 phrases max, global_feedback=2 phrases motivantes, "
+        "recommendations=2-3 chapitres/notions à réviser (courts).\n"
+        "JSON seul:\n"
+        '{"corrections":[{"id":1,"scored_pts":0,"max_pts":0,"status":"empty",'
+        '"feedback":"...","student_answer":"..."}],'
+        f'"estimated_score":0,"total_pts":{total_pts},'
+        '"global_feedback":"...","recommendations":["..."]}'
     )
 
-    token_budget = min(800 + nb_q * 300 + (len(mau_block) // 10), 6000)
+    max_tokens = min(280 + nb_q * 55, 850)
 
-    for _attempt in range(3):
-        raw = _call_fast(prompt, max_tokens=token_budget)
+    for _attempt in range(2):
+        raw = _call_fast(prompt, max_tokens=max_tokens)
         raw = re.sub(r'```[a-z]*\s*', '', raw).strip()
         m = re.search(r'\{[\s\S]+\}', raw)
-        if m:
-            try:
-                result = _json.loads(m.group(0))
-                corrs = result.get('corrections', [])
-                # Patch missing fields
-                for j, corr in enumerate(corrs):
-                    corr.setdefault('question', qa_pairs[j]['question'] if j < nb_q else '')
-                    corr.setdefault('student_answer', qa_pairs[j].get('student_answer', '') if j < nb_q else '')
-                    corr.setdefault('max_pts', float(qa_pairs[j].get('pts', 0)) if j < nb_q else 0)
-                    corr.setdefault('scored_pts', 0)
-                    corr.setdefault('status', 'empty')
-                    corr.setdefault('feedback', 'Correction non disponible.')
-                    # Clamp scored_pts
-                    mp = float(corr['max_pts'])
-                    corr['scored_pts'] = max(0.0, min(float(corr.get('scored_pts', 0) or 0), mp))
-                # Fill if AI returned fewer corrections
-                while len(corrs) < nb_q:
-                    j = len(corrs)
-                    corrs.append({
-                        'question': qa_pairs[j]['question'],
-                        'student_answer': qa_pairs[j].get('student_answer', ''),
-                        'scored_pts': 0, 'max_pts': float(qa_pairs[j].get('pts', 0)),
-                        'status': 'empty', 'feedback': 'Non évalué.'
-                    })
-                est = sum(float(c.get('scored_pts', 0) or 0) for c in corrs)
-                result['corrections'] = corrs
-                result['estimated_score'] = round(est, 1)
-                result['total_pts'] = total_pts
-                result.setdefault('global_feedback', 'Bonne performance globale. Continue à réviser!')
-                return result
-            except (_json.JSONDecodeError, KeyError, IndexError):
-                pass
+        if not m:
+            continue
+        try:
+            result = _json.loads(m.group(0))
+            corrs = result.get('corrections', [])
+            normalized = []
+            for j, q in enumerate(qa_pairs):
+                src = corrs[j] if j < len(corrs) else {}
+                if isinstance(src, dict) and 'id' in src:
+                    match = next((c for c in corrs if c.get('id') == j + 1), src)
+                    if match:
+                        src = match
+                mp = float(q.get('pts', 0) or 0)
+                sp = max(0.0, min(float(src.get('scored_pts', 0) or 0), mp))
+                st = str(src.get('status', 'empty') or 'empty')
+                if st not in ('correct', 'partial', 'wrong', 'empty'):
+                    st = 'partial' if sp > 0 else 'empty'
+                normalized.append({
+                    'question': q.get('question', ''),
+                    'student_answer': str(src.get('student_answer', q.get('student_answer', '')))[:400],
+                    'scored_pts': round(sp, 1),
+                    'max_pts': mp,
+                    'status': st,
+                    'feedback': str(src.get('feedback', 'Non évalué.'))[:300],
+                })
+            est = round(sum(c['scored_pts'] for c in normalized), 1)
+            recs = result.get('recommendations', [])
+            if not isinstance(recs, list):
+                recs = []
+            recs = [str(r).strip()[:120] for r in recs if str(r).strip()][:4]
 
-    # Fallback
+            correct_n = sum(1 for c in normalized if c['status'] == 'correct')
+            partial_n = sum(1 for c in normalized if c['status'] == 'partial')
+            return {
+                'corrections': normalized,
+                'estimated_score': est,
+                'total_pts': total_pts,
+                'global_feedback': str(result.get('global_feedback', 'Bon travail. Continue !'))[:400],
+                'recommendations': recs,
+                'skills_breakdown': {
+                    'partie_b': {
+                        'earned': est,
+                        'max': total_pts,
+                        'correct': correct_n,
+                        'partial': partial_n,
+                        'wrong': sum(1 for c in normalized if c['status'] == 'wrong'),
+                        'empty': sum(1 for c in normalized if c['status'] == 'empty'),
+                    },
+                },
+            }
+        except (_json.JSONDecodeError, KeyError, TypeError, ValueError):
+            pass
+
     return {
         'corrections': [
-            {'question': q['question'], 'student_answer': q.get('student_answer', ''),
-             'scored_pts': 0, 'max_pts': float(q.get('pts', 0)),
-             'status': 'empty', 'feedback': 'Correction IA temporairement indisponible.'}
+            {
+                'question': q['question'],
+                'student_answer': q.get('student_answer', ''),
+                'scored_pts': 0,
+                'max_pts': float(q.get('pts', 0) or 0),
+                'status': 'empty',
+                'feedback': 'Correction IA temporairement indisponible.',
+            }
             for q in qa_pairs
         ],
         'estimated_score': 0,
         'total_pts': total_pts,
         'global_feedback': 'Correction IA temporairement indisponible. Réessaie dans quelques instants.',
+        'recommendations': [],
+        'skills_breakdown': {},
     }
 
 
@@ -6409,7 +6334,7 @@ def generate_chapter_task_list(subject: str, chapter_title: str, note_content: s
         '"Exercices types BAC"]\n\n'
         "Retourne UNIQUEMENT un JSON array de strings (5 à 15 éléments). Rien d'autre.\n\n"
         "CONTENU CHAPITRE (source locale):\n"
-        f"{note_content[:90000]}"
+        f"{note_content[:4000]}"
     )
 
     try:
@@ -7551,7 +7476,7 @@ RÈGLES IMPÉRATIVES :
     # Use fast model with json_object response_format — more reliable for structured output
     try:
         _msgs = [{"role": "user", "content": prompt}]
-        _resp = _client().chat.completions.create(
+        _resp = _tracked_create(
             model=FAST_MODEL,
             messages=_msgs,
             max_tokens=3000,
@@ -7838,7 +7763,7 @@ def generate_quiz_questions(subject: str, count: int, weak_topics: list = None, 
             '"reponse_correcte":0,"explication":"...","sujet":"..."}]\n\n'
             "reponse_correcte = integer index (0=first option, 1=second, 2=third, 3=fourth)."
         )
-        resp = _client().chat.completions.create(
+        resp = _tracked_create(
             model=FAST_MODEL,
             messages=[
                 {"role": "system", "content": anglais_system},
@@ -8017,7 +7942,7 @@ def generate_quiz_questions(subject: str, count: int, weak_topics: list = None, 
             '"reponse_correcte":0,"explication":"...","sujet":"..."}]\n\n'
             "reponse_correcte = índice entero (0=primera opción, 1=segunda, 2=tercera, 3=cuarta)."
         )
-        resp = _client().chat.completions.create(
+        resp = _tracked_create(
             model=FAST_MODEL,
             messages=[
                 {"role": "system", "content": espagnol_system},
@@ -8087,7 +8012,7 @@ def generate_quiz_questions(subject: str, count: int, weak_topics: list = None, 
 
     if subject == 'francais' and creole_system:
         # Utilise llama-3.3-70b avec system prompt dédié pour le créole
-        resp = _client().chat.completions.create(
+        resp = _tracked_create(
             model=CREOLE_MODEL,
             messages=[
                 {"role": "system", "content": creole_system},
@@ -9030,70 +8955,8 @@ def _classify_student_intent(user_message: str, messages: list | None = None) ->
     else:
         behavior = {'signal': None, 'confidence': 0, 'details': '', 'metrics': {}}
 
-    # ── LAYER 3: AI fallback for ambiguous messages ───────────────────────
-    # Build behavioral context for smarter AI classification
-    _behavior_context = ''
-    if behavior.get('metrics'):
-        m = behavior['metrics']
-        _behavior_context = (
-            f"\n\nBehavioral context from conversation history:\n"
-            f"- Average message length: {m.get('avg_length', '?')} chars (recent: {m.get('recent_avg_length', '?')})\n"
-            f"- Recent errors by student: {m.get('recent_errors', 0)}\n"
-            f"- Hesitation signals in recent messages: {m.get('hesitation_count', 0)}\n"
-            f"- Random guessing signals: {m.get('guess_count', 0)}\n"
-            f"- Message quality declining: {'yes' if m.get('declining') else 'no'}\n"
-            f"- Behavioral difficulty score: {m.get('score', 0)}/10\n"
-        )
-        if behavior.get('details'):
-            _behavior_context += f"- Detected patterns: {behavior['details']}\n"
-
-    prompt = (
-        "Classify the student's message below into exactly ONE category.\n"
-        "Categories:\n"
-        "  VALIDATED  = student confirms they understood (any language, emoji, slang, abbreviation)\n"
-        "  CONFUSED   = student signals they don't understand and needs a simpler/different explanation\n"
-        "  LAZY       = student wants the answer without effort (asks for solution, refuses to try)\n"
-        "  FRUSTRATED = student is emotionally overwhelmed, wants to give up, feels incapable\n"
-        "  CHEATING   = student wants answers for homework, exam, test, or graded assignment\n"
-        "  HESITANT   = student is uncertain, guessing, lacks confidence ('je pense', 'peut-être', '3 ?', 'pas sûr')\n"
-        "  OTHER      = answering a question, giving an attempt (right or wrong), asking a question, anything else\n\n"
-        "Rules:\n"
-        "- Reply with ONLY one word: VALIDATED, CONFUSED, LAZY, FRUSTRATED, CHEATING, HESITANT, or OTHER. No explanation.\n"
-        "- Examples of VALIDATED: 'ok compris', 'ah oui!', 'mwen konprann', 'got it', 'oui je vois', 'clair', '👍', 'wi'\n"
-        "- Examples of CONFUSED: 'je comprend pas', 'pa kompran', 'kisa sa vle di?', 'explique autrement', 'confused', 'toujours pas', '??', 'nah pas clair'\n"
-        "- Examples of LAZY: 'donne la réponse', 'fais l'exercice pour moi', 'résous', 'dis-moi la réponse', 'ban m repons'\n"
-        "- Examples of FRUSTRATED: 'j'abandonne', 'c'est trop dur', 'je suis nul', 'je vais rater le bac', 'ça sert à rien', 'mwen pa kapab'\n"
-        "- Examples of CHEATING: 'c'est pour un devoir', 'c'est noté', 'devoir maison', 'c'est un examen', 'mon dm', 'aide-moi pour mon contrôle'\n"
-        "- Examples of HESITANT: 'je pense que c'est 5', 'peut-être', '3 ?', 'je crois', 'je suis pas sûr', 'probablement x=2'\n"
-        "- Examples of OTHER: 'ca devrait etre [1,+infini]', 'x > 0', 'je sais pas', 'pourquoi?', 'donne un exemple'\n\n"
-        "IMPORTANT: Consider the behavioral context below (if provided). If the student shows\n"
-        "signs of difficulty (many errors, short messages, hesitation), lean towards HESITANT or CONFUSED\n"
-        "even if the message itself seems neutral.\n"
-        f"{_behavior_context}\n"
-        f"Student message: {user_message.strip()[:300]}"
-    )
-    try:
-        resp = _client().chat.completions.create(
-            model=FAST_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=5,
-        )
-        result = (resp.choices[0].message.content or '').strip().upper()
-        if result.startswith('VALIDATED'):
-            return 'validated'
-        if result.startswith('CONFUSED'):
-            return 'confused'
-        if result.startswith('LAZY'):
-            return 'lazy'
-        if result.startswith('FRUSTRATED'):
-            return 'frustrated'
-        if result.startswith('CHEATING'):
-            return 'cheating'
-        if result.startswith('HESITANT'):
-            return 'hesitant'
-        return 'other'
-    except Exception:
-        return 'other'
+    # Layer 3 (appel IA) retire : classer un message ne justifie pas un round-trip API.
+    return 'other'
 
 
 def _did_student_confirm_understanding(user_message: str) -> bool:
@@ -9403,7 +9266,7 @@ def _ai_quality_style_pass(
     contract += "\nRetourne UNIQUEMENT la version finale à afficher à l'élève."
 
     try:
-        resp = _client().chat.completions.create(
+        resp = _tracked_create(
             model=FAST_MODEL,
             messages=[
                 {"role": "system", "content": contract},
@@ -9742,7 +9605,9 @@ def course_chat(
         subject_label = subject_label.get('label', subject)
     lang_block = _lang_instruction(user_message, forced_lang='kr') if subject == 'francais' else _lang_instruction(user_message)
 
-    note_content = _sanitize_source_math_artifacts((exam_excerpts or '').strip())
+    if image_data:
+        image_data, image_mime = prepare_image_bytes(image_data, image_mime)
+    note_content = _sanitize_source_math_artifacts((exam_excerpts or '').strip())[:4000]
     has_notes = bool(note_content and len(note_content) > 100)
 
     # ── Notes block — PRIMARY source of truth ────────────────────────────────
@@ -9782,7 +9647,7 @@ def course_chat(
     student_cheating  = (_student_intent == 'cheating')
     student_hesitant  = (_student_intent == 'hesitant')
 
-    _course_model = MODEL  # page cours → deepseek-v4-pro
+    _course_model = FAST_MODEL  # page cours — flash par défaut (coût)
     is_first_message = not any(
         m.get('role') in ('ai', 'assistant') for m in (messages or [])
     )
@@ -10026,40 +9891,8 @@ def course_chat(
     }
     level_block = _level_instructions.get(detected_level, '')
 
-    # ── Chapter notes: focused window only (token-efficient) ─────────────────
-    if has_notes and concept_to_teach and teach_idx < total and len(note_content) > 2000:
-        focus_chars = 2200 if subject in ('maths', 'physique', 'chimie') else 1600
-        if _needs_ultra_simple:
-            focus_chars += 400
-        windowed_text, window_label = _extract_windowed_notes(
-            note_content,
-            concepts,
-            teach_idx,
-            total,
-            max_chars_per_concept=focus_chars,
-        )
-        notes_block = f"""╔══════════════════════════════════════════════════════════════╗
-  CONTENU OFFICIEL DU COURS — EXTRAIT DE note_*.json
-  Matière : {subject_label} | Chapitre : {chapter_title}
-    Fenêtre cible : {window_label}
-╚══════════════════════════════════════════════════════════════╝
-
-{windowed_text}
-
-╔══════════════════════════════════════════════════════════════╗
-  FIN DU CONTENU OFFICIEL
-╚══════════════════════════════════════════════════════════════╝"""
-    elif has_notes and teach_idx >= total and len(note_content) > 2000:
-        notes_block = f"""╔══════════════════════════════════════════════════════════════╗
-  CONTENU OFFICIEL DU COURS — EXTRAIT DE note_*.json
-  Matière : {subject_label} | Chapitre : {chapter_title}
-╚══════════════════════════════════════════════════════════════╝
-
-{note_content[:3200]}
-
-╔══════════════════════════════════════════════════════════════╗
-  FIN DU CONTENU OFFICIEL
-╚══════════════════════════════════════════════════════════════╝"""
+    # Notes figées (même octets pour tout le chapitre) → cache DeepSeek sur le préfixe.
+    # Ne PAS recouper selon le concept / le message : ça cassait le cache à chaque tour.
 
     # ── Extra directive for sciences ──────────────────────────────────────────
     science_extra = ''
@@ -10167,13 +10000,10 @@ Question hors matière → refuse poliment et recentre sur {subject_label}.
     all_chat_msgs = [m for m in (messages or [])
                      if not m.get('_cache_key') and not str(m.get('role', '')).startswith('__')]
 
-    hist_summary, recent_msgs = _build_compact_history(all_chat_msgs, keep=4)
+    hist_summary, recent_msgs = _build_compact_history(all_chat_msgs, keep=HISTORY_SLIDING_WINDOW)
 
-    # Layout optimisé pour le prefix caching Groq :
-    # [0] _STATIC_COURSE_SYSTEM → identique à tous les appels → cacheable permanent
-    # [1] notes_block           → fenêtre glissante (prev+current+next concept)
-    #                             reste identique tant qu'on enseigne le même concept → cacheable
-    # [2] system_prompt         → change à chaque message (plan, step, level)
+    # Ordre des messages = prefix stable en premier (DeepSeek prompt caching automatique).
+    # [system statique] → [contexte chapitre/notes] → [historique dynamique] → [user]
     api_messages = [{"role": "system", "content": _STATIC_COURSE_SYSTEM}]
     if notes_block:
         api_messages.append({"role": "system", "content": notes_block})
@@ -10208,20 +10038,20 @@ Question hors matière → refuse poliment et recentre sur {subject_label}.
     # The prompt's word-target guidance is the primary control.
     # max_tokens stays as a generous safety ceiling to avoid truncated math/style.
     if teach_idx >= total:
-        course_max_tokens = 2000
+        course_max_tokens = 900
     elif _needs_ultra_simple:
-        course_max_tokens = 2400
+        course_max_tokens = 700
     elif student_lazy or student_cheating or student_hesitant or detected_level == 'faible':
-        course_max_tokens = 2200
+        course_max_tokens = 800
     elif subject in ('maths', 'physique', 'chimie'):
-        course_max_tokens = 2800
+        course_max_tokens = 1100
     else:
-        course_max_tokens = 2400
+        course_max_tokens = 900
 
     # ── Call API ──────────────────────────────────────────────────────────────
     evidences: list[str] = []
     _call_model = VISION_MODEL if image_data else _course_model
-    resp = _client().chat.completions.create(
+    resp = _tracked_create(
         model=_call_model,
         messages=api_messages,
         max_tokens=course_max_tokens,
@@ -10395,14 +10225,14 @@ def course_chunk_clarification(
         "Historique récent :\n"
         f"{recent_block}\n\n"
         "Contexte exact du chunk :\n"
-        f"{_sanitize_source_math_artifacts((lesson_context or '').strip())[:2600]}\n\n"
+        f"{_sanitize_source_math_artifacts((lesson_context or '').strip())[:1400]}\n\n"
         "Question de l'élève :\n"
         f"{(user_question or '').strip()[:500]}"
     )
 
     profile_block = f"\nProfil élève :\n{user_profile[:300]}\n" if user_profile else ''
-    resp = _client().chat.completions.create(
-        model=MODEL,  # deepseek-v4-pro — page cours
+    resp = _tracked_create(
+        model=FAST_MODEL,  # clarification cours — flash
         messages=[
             {"role": "system", "content": (
                 "Tu es un professeur patient du Bac Haïti. "
@@ -10430,72 +10260,11 @@ def course_chunk_clarification(
 
 def format_exercise_display(subject: str, intro: str, questions: list) -> dict:
     """
-    Ask Groq to check a raw exercise and fix display issues:
-      1. Broken/unclear math expressions → proper $...$ inline LaTeX
-      2. Data that would be clearer as a Markdown pipe table
-         (stats, tuples list, effectifs, distribution tables, etc.)
-      3. Remove duplicate text, stray LaTeX artefacts
-
-    Returns a dict:
-      {
-        'intro':     str,   # cleaned intro text (may contain pipe table)
-        'questions': list,  # cleaned questions list
-      }
-    If Groq fails for any reason, returns the original unchanged.
+    Formatage local d'affichage exercice — zéro appel IA au runtime.
+    Délègue à core.exercise_display.format_exercise_display_local.
     """
-    full_text = intro
-    if questions:
-        full_text += '\n' + '\n'.join(f'{i+1}. {q}' for i, q in enumerate(questions))
-
-    # Hard limit — don't send huge exercises to the API
-    if len(full_text) > 3000:
-        return {'intro': intro, 'questions': questions}
-
-    prompt = (
-        f"Matière : {subject.upper()}\n\n"
-        "Tu reçois le texte BRUT d'un exercice de BAC Haïti tiré d'un fichier JSON.\n"
-        "Ton rôle est de corriger UNIQUEMENT les problèmes d'AFFICHAGE, sans changer le contenu mathématique.\n\n"
-        "RÈGLES STRICTES :\n"
-        "1. Si tu vois des données tabulaires (liste de valeurs x/y, tuples, effectifs, distribution de probabilité, données séparées par des virgules/tabulations/point-virgules correspondant à plusieurs variables), "
-        "convertis-les OBLIGATOIREMENT en tableau Markdown à pipe (| col | col |) avec ligne `|---|---|` séparatrice. "
-        "TOUTES les lignes du tableau doivent utiliser le format `| valeur | valeur |` — INTERDIT d'utiliser des tabulations ou espaces comme séparateurs dans le tableau.\n"
-        "Si tu vois déjà un tableau Markdown bien formaté (lignes commençant par |), GARDE-LE INTACT sans aucune modification de structure.\n"
-        "Exemple correct :\n"
-        "| x | y |\n| --- | --- |\n| 1 | 5 |\n| 2 | 10 |\n"
-        "2. Si une formule mathématique est écrite en texte plat (ex: \"E(X) et Var(X)\"), entoure-la avec $...$ pour KaTeX.\n"
-        "3. Supprime les répétitions ou artefacts de parsing évidents (ex: \"x=1,2,3 x=1,2,3\").\n"
-        "4. Ne modifie PAS le sens, les valeurs numériques, ni les questions.\n"
-        "5. Si aucune correction n'est nécessaire, retourne le texte inchangé.\n\n"
-        "EXERCICE BRUT :\n"
-        "---\n"
-        f"{full_text[:2500]}\n"
-        "---\n\n"
-        "Retourne UNIQUEMENT un JSON avec exactement ces clés (rien d'autre) :\n"
-        '{"intro": "texte amélioré (tableau pipe si applicable)", '
-        '"questions": ["question 1", "question 2", ...]}\n\n'
-        "CRITIQUE : dans le JSON, les sauts de ligne dans intro doivent être \\n (backslash-n). "
-        "Le tableau doit être au format pipe STRICT : chaque ligne commence et finit par |."
-    )
-
-    try:
-        raw = _call_fast(prompt, max_tokens=1200)
-        raw = re.sub(r'```[a-z]*\s*', '', raw).strip()
-        import json as _json
-        m = re.search(r'\{[\s\S]*\}', raw)
-        if not m:
-            return {'intro': intro, 'questions': questions}
-        data = _json.loads(m.group(0))
-        new_intro = str(data.get('intro') or intro).strip('\r').rstrip(' ')
-        # Preserve trailing newline so the last pipe row is not orphaned
-        new_qs = data.get('questions')
-        if not isinstance(new_qs, list) or len(new_qs) == 0:
-            new_qs = questions
-        # Sanity: if intro got way shorter something went wrong
-        if len(new_intro) < len(intro) * 0.4:
-            return {'intro': intro, 'questions': questions}
-        return {'intro': new_intro, 'questions': [str(q) for q in new_qs]}
-    except Exception:
-        return {'intro': intro, 'questions': questions}
+    from .exercise_display import format_exercise_display_local
+    return format_exercise_display_local(subject, intro, questions)
 
 
 # ─────────────────────────────────────────────────────────────────────────────

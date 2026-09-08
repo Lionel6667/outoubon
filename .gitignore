@@ -1,5 +1,7 @@
 .env
 db.sqlite3
+credentials/
+*firebase-adminsdk*.json
 __pycache__/
 *.pyc
 *.log
@@ -9,3 +11,4 @@ media/
 .venv-1/
 .vscode/
 datadump.json
+scratch/test_groq.py

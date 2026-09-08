@@ -1,0 +1,4508 @@
+{
+  "matiere": "informatique",
+  "level": "9e AF",
+  "total": 300,
+  "description": "Quiz Technologie — 9e AF : examens officiels + programme 9e (300 QCM, réponses vérifiées)",
+  "quiz": [
+    {
+      "id": "I9E1",
+      "category": "Énergie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "L'énergie de la biomasse provient de l'une des sources d'énergies suivantes. Laquelle ?",
+      "correct": "D",
+      "explanation": "La biomasse est l'énergie tirée de matières organiques (bois, déchets agricoles, déjections). Ce n'est ni le vent (éolien), ni la chaleur interne de la Terre (géothermie), ni l'eau (hydraulique).",
+      "options": [
+        "Vent",
+        "Chaleur interne de la Terre",
+        "Eau",
+        "Matières organiques"
+      ]
+    },
+    {
+      "id": "I9E2",
+      "category": "Secteurs d'activité",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'une des activités ci-dessous se trouve dans le secteur primaire. Laquelle ?",
+      "correct": "D",
+      "explanation": "Le secteur primaire exploite les ressources naturelles : agriculture, pêche, mines, forêt. L'industrie forestière en fait partie. L'artisanat est surtout secondaire, le transport et l'enseignement sont tertiaires.",
+      "options": [
+        "Artisanat",
+        "Enseignement",
+        "Transport",
+        "Industrie forestière"
+      ]
+    },
+    {
+      "id": "I9E3",
+      "category": "Informatique",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Le clavier d'un ordinateur est un périphérique de/d' :",
+      "correct": "D",
+      "explanation": "Le clavier sert à entrer des données dans l'ordinateur : c'est un périphérique d'entrée. L'écran est une sortie ; le disque dur ou la clé USB sont du stockage.",
+      "options": [
+        "sortie",
+        "stockage",
+        "sortie et d'entrée",
+        "entrée"
+      ]
+    },
+    {
+      "id": "I9E4",
+      "category": "Informatique",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "L'un des objets techniques suivants n'est pas un périphérique de stockage de données numériques. Lequel ?",
+      "correct": "C",
+      "explanation": "Clé USB, CD-ROM et carte mémoire stockent des fichiers. La souris est un périphérique de pointage (entrée), pas de stockage.",
+      "options": [
+        "clé USB",
+        "CD-ROM",
+        "Souris",
+        "Carte mémoire"
+      ]
+    },
+    {
+      "id": "I9E5",
+      "category": "Outils agricoles",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel de ces outils est utilisé pour récolter les céréales à grande échelle ?",
+      "correct": "B",
+      "explanation": "La moissonneuse-batteuse récolte les céréales à grande échelle. Pioche, fourche et binette sont des outils manuels pour le sol, pas pour une récolte mécanisée de céréales.",
+      "options": [
+        "Pioche",
+        "Moissonneuse-batteuse",
+        "Fourche",
+        "Binette"
+      ]
+    },
+    {
+      "question": "Quel sport a été conçu pour pratiquer à l'intérieur ct qui ne nécessiterait trop d'efforts physiques",
+      "options": [
+        "Kerly Téus",
+        "Volleyball",
+        "I point",
+        "Football"
+      ],
+      "correct": "B",
+      "explanation": "Le volleyball a été inventé en 1895 par William G. Morgan comme sport d'intérieur, moins intense que le basketball, accessible à un large public.",
+      "category": "Technologie",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "I9E6"
+    },
+    {
+      "question": "Projecteur affiche sur",
+      "options": [
+        "grand écran",
+        "odeur",
+        "taste",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "Projector.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E7"
+    },
+    {
+      "question": "En informatique, KB correspond a :",
+      "options": [
+        "0 ou 1",
+        "1024 bytes",
+        "8 bits",
+        "1024 KB"
+      ],
+      "correct": "B",
+      "explanation": "KB = 1024 bytes.",
+      "category": "Informatique",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "I9E8"
+    },
+    {
+      "question": "Fonction regroupe",
+      "options": [
+        "code réutilisable",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Function.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E9"
+    },
+    {
+      "question": "Technologie rural: pompe à eau",
+      "options": [
+        "solaire",
+        "lunaire",
+        "martienne",
+        "stellaire"
+      ],
+      "correct": "A",
+      "explanation": "Solar pump.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E10"
+    },
+    {
+      "question": "En informatique, MB correspond a :",
+      "options": [
+        "8 bits",
+        "0 ou 1",
+        "1024 bytes",
+        "1024 KB"
+      ],
+      "correct": "D",
+      "explanation": "MB = 1024 KB.",
+      "category": "Informatique",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "I9E11"
+    },
+    {
+      "question": "Convertir 14 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "14000",
+        "14336",
+        "7168",
+        "1038"
+      ],
+      "correct": "B",
+      "explanation": "14 GB × 1024 = 14336 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E12"
+    },
+    {
+      "question": "Entrepreneuriat tech crée",
+      "options": [
+        "start-up",
+        "dictature",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Tech startup.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E13"
+    },
+    {
+      "question": "Robot industriel automatise",
+      "options": [
+        "usine",
+        "théâtre",
+        "poésie",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Industrial robot.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E14"
+    },
+    {
+      "question": "Volt mesure",
+      "options": [
+        "voltage",
+        "courant",
+        "résistance",
+        "odeur"
+      ],
+      "correct": "A",
+      "explanation": "Volt.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E15"
+    },
+    {
+      "question": "En informatique, bit correspond a :",
+      "options": [
+        "8 bits",
+        "1024 KB",
+        "1024 bytes",
+        "0 ou 1"
+      ],
+      "correct": "D",
+      "explanation": "bit = 0 ou 1.",
+      "category": "Informatique",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "I9E16"
+    },
+    {
+      "question": "Éteindre outil avant",
+      "options": [
+        "maintenance",
+        "pendant",
+        "sans arrêt",
+        "en courant"
+      ],
+      "correct": "A",
+      "explanation": "Tool safety.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E17"
+    },
+    {
+      "question": "Convertir 3 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "1536",
+        "3072",
+        "3000",
+        "1027"
+      ],
+      "correct": "B",
+      "explanation": "3 GB × 1024 = 3072 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E18"
+    },
+    {
+      "question": "Convertir 6 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "3072",
+        "1030",
+        "6000",
+        "6144"
+      ],
+      "correct": "D",
+      "explanation": "6 GB × 1024 = 6144 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E19"
+    },
+    {
+      "question": "Application = logiciel pour",
+      "options": [
+        "tâche spécifique",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "App.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E20"
+    },
+    {
+      "question": "En informatique, byte correspond a :",
+      "options": [
+        "1024 KB",
+        "1024 bytes",
+        "8 bits",
+        "0 ou 1"
+      ],
+      "correct": "C",
+      "explanation": "byte = 8 bits.",
+      "category": "Informatique",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "I9E21"
+    },
+    {
+      "question": "Convertir 16 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "8192",
+        "16384",
+        "1040",
+        "16000"
+      ],
+      "correct": "B",
+      "explanation": "16 GB × 1024 = 16384 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E22"
+    },
+    {
+      "question": "Design thinking résout problèmes par",
+      "options": [
+        "empathie et test",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Design thinking.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E23"
+    },
+    {
+      "question": "Convertir 4 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "4000",
+        "2048",
+        "1028",
+        "4096"
+      ],
+      "correct": "D",
+      "explanation": "4 GB × 1024 = 4096 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E24"
+    },
+    {
+      "question": "Convertir 9 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "9000",
+        "4608",
+        "1033",
+        "9216"
+      ],
+      "correct": "D",
+      "explanation": "9 GB × 1024 = 9216 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E25"
+    },
+    {
+      "question": "Quiz en ligne nécessite",
+      "options": [
+        "internet",
+        "odeur",
+        "taste",
+        "son seul"
+      ],
+      "correct": "A",
+      "explanation": "Online quiz.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E26"
+    },
+    {
+      "question": "Linux est",
+      "options": [
+        "open source",
+        "fermé secret",
+        "interdit",
+        "payant seul"
+      ],
+      "correct": "A",
+      "explanation": "Linux.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E27"
+    },
+    {
+      "question": "Convertir 7 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "7000",
+        "3584",
+        "7168",
+        "1031"
+      ],
+      "correct": "C",
+      "explanation": "7 GB × 1024 = 7168 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E28"
+    },
+    {
+      "question": "Convertir 13 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "13312",
+        "1037",
+        "6656",
+        "13000"
+      ],
+      "correct": "A",
+      "explanation": "13 GB × 1024 = 13312 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E29"
+    },
+    {
+      "question": "STEAM ajoute",
+      "options": [
+        "Art",
+        "Sport",
+        "Guerre",
+        "Censure"
+      ],
+      "correct": "A",
+      "explanation": "STEAM.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E30"
+    },
+    {
+      "question": "RAM =",
+      "options": [
+        "mémoire volatile",
+        "stockage permanent",
+        "écran",
+        "clavier"
+      ],
+      "correct": "A",
+      "explanation": "Random Access Memory.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E31"
+    },
+    {
+      "question": "Authentification vérifie",
+      "options": [
+        "identité",
+        "odeur",
+        "taste",
+        "couleur"
+      ],
+      "correct": "A",
+      "explanation": "Authentication.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E32"
+    },
+    {
+      "question": "Convertir 10 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "5120",
+        "10240",
+        "10000",
+        "1034"
+      ],
+      "correct": "B",
+      "explanation": "10 GB × 1024 = 10240 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E33"
+    },
+    {
+      "question": "Robot programmé suit",
+      "options": [
+        "instructions",
+        "rêves",
+        "nuages",
+        "vents"
+      ],
+      "correct": "A",
+      "explanation": "Robot programming.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E34"
+    },
+    {
+      "question": "Convertir 8 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "1032",
+        "8192",
+        "4096",
+        "8000"
+      ],
+      "correct": "B",
+      "explanation": "8 GB × 1024 = 8192 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E35"
+    },
+    {
+      "question": "CSS style",
+      "options": [
+        "page web",
+        "database",
+        "kernel",
+        "driver"
+      ],
+      "correct": "A",
+      "explanation": "CSS.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E36"
+    },
+    {
+      "question": "Supply chain = chaîne",
+      "options": [
+        "d'approvisionnement",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Supply chain.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E37"
+    },
+    {
+      "question": "Firewall =",
+      "options": [
+        "pare-feu",
+        "porte ouverte",
+        "virus",
+        "spam"
+      ],
+      "correct": "A",
+      "explanation": "Firewall.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E38"
+    },
+    {
+      "question": "Éolienne utilise",
+      "options": [
+        "vent",
+        "odeur",
+        "taste",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "Wind turbine.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E39"
+    },
+    {
+      "question": "Technologie 9e examen teste",
+      "options": [
+        "compétences pratiques et théoriques",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "9e exam.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E40"
+    },
+    {
+      "question": "Blockchain enregistre transactions",
+      "options": [
+        "décentralisées",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Blockchain.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E41"
+    },
+    {
+      "question": "Multiprise protège avec",
+      "options": [
+        "fusible/parafoudre",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Power strip.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E42"
+    },
+    {
+      "question": "Convertir 5 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "2560",
+        "5000",
+        "5120",
+        "1029"
+      ],
+      "correct": "C",
+      "explanation": "5 GB × 1024 = 5120 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E43"
+    },
+    {
+      "question": "Recyclage transforme déchets en",
+      "options": [
+        "nouveaux produits",
+        "pollution",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Recycling.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E44"
+    },
+    {
+      "question": "Thermostat régule",
+      "options": [
+        "température",
+        "odeur",
+        "taste",
+        "couleur"
+      ],
+      "correct": "A",
+      "explanation": "Thermostat.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E45"
+    },
+    {
+      "question": "Convertir 11 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "11264",
+        "1035",
+        "11000",
+        "5632"
+      ],
+      "correct": "A",
+      "explanation": "11 GB × 1024 = 11264 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E46"
+    },
+    {
+      "question": "Convertir 12 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "6144",
+        "12000",
+        "12288",
+        "1036"
+      ],
+      "correct": "C",
+      "explanation": "12 GB × 1024 = 12288 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E47"
+    },
+    {
+      "question": "Domotique = maison",
+      "options": [
+        "connectée",
+        "odeur",
+        "taste",
+        "son seul"
+      ],
+      "correct": "A",
+      "explanation": "Smart home.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E48"
+    },
+    {
+      "question": "Périphérique d'entrée:",
+      "options": [
+        "clavier",
+        "écran",
+        "imprimante",
+        "enceinte"
+      ],
+      "correct": "A",
+      "explanation": "Input device.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E49"
+    },
+    {
+      "question": "ZIP archive",
+      "options": [
+        "fichiers",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "ZIP.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E50"
+    },
+    {
+      "question": "Qualité contrôle vérifie",
+      "options": [
+        "conformité",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "QC.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E51"
+    },
+    {
+      "question": "Convertir 2 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "2000",
+        "1024",
+        "1026",
+        "2048"
+      ],
+      "correct": "D",
+      "explanation": "2 GB × 1024 = 2048 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E52"
+    },
+    {
+      "question": "Telemedicine soins à",
+      "options": [
+        "distance",
+        "pierre",
+        "bois",
+        "sable"
+      ],
+      "correct": "A",
+      "explanation": "Telemedicine.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E53"
+    },
+    {
+      "question": "Navigateur web: Chrome, Firefox,",
+      "options": [
+        "Edge",
+        "Excel",
+        "Word",
+        "PowerPoint"
+      ],
+      "correct": "A",
+      "explanation": "Browser.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E54"
+    },
+    {
+      "question": "Schéma électrique montre",
+      "options": [
+        "circuits",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Circuit diagram.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E55"
+    },
+    {
+      "question": "Poulie change direction",
+      "options": [
+        "force",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Pulley.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E56"
+    },
+    {
+      "question": "5G = réseau mobile",
+      "options": [
+        "rapide",
+        "ancien",
+        "interdit",
+        "nul"
+      ],
+      "correct": "A",
+      "explanation": "5G.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E57"
+    },
+    {
+      "question": "Malware = logiciel",
+      "options": [
+        "malveillant",
+        "bénéfique",
+        "sportif",
+        "musical"
+      ],
+      "correct": "A",
+      "explanation": "Malware.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E58"
+    },
+    {
+      "question": "Pesticide combat",
+      "options": [
+        "insectes nuisibles",
+        "plantes",
+        "eau",
+        "air"
+      ],
+      "correct": "A",
+      "explanation": "Pesticide.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E59"
+    },
+    {
+      "question": "USB connecte",
+      "options": [
+        "périphériques",
+        "nuages",
+        "montagnes",
+        "rivières"
+      ],
+      "correct": "A",
+      "explanation": "Universal Serial Bus.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E60"
+    },
+    {
+      "question": "Métier futur: technicien",
+      "options": [
+        "réseau",
+        "poète",
+        "danseur",
+        "peintre seul"
+      ],
+      "correct": "A",
+      "explanation": "Network tech.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E61"
+    },
+    {
+      "question": "Ransomware =",
+      "options": [
+        "rançongiciel",
+        "cadeau",
+        "bonus",
+        "sport"
+      ],
+      "correct": "A",
+      "explanation": "Ransomware.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E62"
+    },
+    {
+      "question": "Mot de passe fort: long et",
+      "options": [
+        "complexe",
+        "court simple",
+        "123456",
+        "password"
+      ],
+      "correct": "A",
+      "explanation": "Strong password.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E63"
+    },
+    {
+      "question": "Accessibilité numérique aide",
+      "options": [
+        "tous utilisateurs",
+        "riches seuls",
+        "adultes seuls",
+        "hommes seuls"
+      ],
+      "correct": "A",
+      "explanation": "Digital a11y.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E64"
+    },
+    {
+      "question": "Convertir 15 GB en MB (1 GB = 1024 MB) :",
+      "options": [
+        "15360",
+        "7680",
+        "1039",
+        "15000"
+      ],
+      "correct": "A",
+      "explanation": "15 GB × 1024 = 15360 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E65"
+    },
+    {
+      "question": "HTTP = protocole",
+      "options": [
+        "web",
+        "email seul",
+        "radio",
+        "TV"
+      ],
+      "correct": "A",
+      "explanation": "HyperText Transfer Protocol.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E66"
+    },
+    {
+      "question": "Webcam capture",
+      "options": [
+        "vidéo",
+        "odeur",
+        "taste",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "Webcam.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E67"
+    },
+    {
+      "question": "Enceinte produit",
+      "options": [
+        "son",
+        "lumière",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Speaker.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E68"
+    },
+    {
+      "question": "Compression réduit",
+      "options": [
+        "taille fichier",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Compression.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E69"
+    },
+    {
+      "question": "SQL interroge",
+      "options": [
+        "base de données",
+        "image",
+        "vidéo",
+        "audio"
+      ],
+      "correct": "A",
+      "explanation": "SQL.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E70"
+    },
+    {
+      "question": "2FA = deux facteurs",
+      "options": [
+        "authentification",
+        "zéro facteur",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Two-factor.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E71"
+    },
+    {
+      "question": "Batterie stocke",
+      "options": [
+        "énergie chimique",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Battery.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E72"
+    },
+    {
+      "question": "Digicel/Natcom =",
+      "options": [
+        "télécommunications",
+        "agriculture",
+        "pêche",
+        "foresterie"
+      ],
+      "correct": "A",
+      "explanation": "Telecom Haiti.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E73"
+    },
+    {
+      "question": "Conservation aliments: réfrigération",
+      "options": [
+        "ralentit bactéries",
+        "accélère",
+        "ignore",
+        "célèbre"
+      ],
+      "correct": "A",
+      "explanation": "Refrigeration.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E74"
+    },
+    {
+      "question": "GPS localise via",
+      "options": [
+        "satellites",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "GPS.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E75"
+    },
+    {
+      "question": "Wi-Fi = réseau",
+      "options": [
+        "sans fil local",
+        "câble seul",
+        "satellite seul",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "Wireless.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E76"
+    },
+    {
+      "question": "Moissonneuse récolte",
+      "options": [
+        "céréales",
+        "eau",
+        "air",
+        "lumière"
+      ],
+      "correct": "A",
+      "explanation": "Harvester.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E77"
+    },
+    {
+      "question": "LED = diode",
+      "options": [
+        "électroluminescente",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "LED.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E78"
+    },
+    {
+      "question": "Six Sigma réduit",
+      "options": [
+        "défauts",
+        "qualité",
+        "excellence",
+        "perfection"
+      ],
+      "correct": "A",
+      "explanation": "Six Sigma.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E79"
+    },
+    {
+      "question": "STEM = Science Technology Engineering",
+      "options": [
+        "Math",
+        "Art seul",
+        "Sport seul",
+        "Musique seul"
+      ],
+      "correct": "A",
+      "explanation": "STEM.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E80"
+    },
+    {
+      "question": "Métrologie = science des",
+      "options": [
+        "mesures",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Metrology.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E81"
+    },
+    {
+      "question": "Android OS",
+      "options": [
+        "mobile Google",
+        "desktop seul",
+        "serveur seul",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "Android.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E82"
+    },
+    {
+      "question": "Prototypage teste",
+      "options": [
+        "concept",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Prototyping.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E83"
+    },
+    {
+      "question": "Pixel =",
+      "options": [
+        "point d'image",
+        "ligne",
+        "volume",
+        "odeur"
+      ],
+      "correct": "A",
+      "explanation": "Pixel.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E84"
+    },
+    {
+      "question": "OS = système",
+      "options": [
+        "d'exploitation",
+        "application seule",
+        "jeu seul",
+        "film"
+      ],
+      "correct": "A",
+      "explanation": "Operating System.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E85"
+    },
+    {
+      "question": "Ctrl+X =",
+      "options": [
+        "couper",
+        "copier",
+        "coller",
+        "fermer"
+      ],
+      "correct": "A",
+      "explanation": "Cut.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E86"
+    },
+    {
+      "question": "Versioning garde",
+      "options": [
+        "historique modifications",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Version control.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E87"
+    },
+    {
+      "question": "Green IT réduit",
+      "options": [
+        "empreinte carbone numérique",
+        "pollution",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Green IT.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E88"
+    },
+    {
+      "question": "PowerPoint =",
+      "options": [
+        "présentations",
+        "jeux seuls",
+        "films seuls",
+        "romans"
+      ],
+      "correct": "A",
+      "explanation": "Slides.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E89"
+    },
+    {
+      "question": "VR = réalité",
+      "options": [
+        "virtuelle",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "VR.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E90"
+    },
+    {
+      "question": "Technologie 9e: agriculture =",
+      "options": [
+        "techniques modernes",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Ag tech.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E91"
+    },
+    {
+      "question": "Email envoie",
+      "options": [
+        "messages numériques",
+        "odeurs",
+        "tastes",
+        "sons physiques"
+      ],
+      "correct": "A",
+      "explanation": "Email.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E92"
+    },
+    {
+      "question": "Panneau solaire convertit",
+      "options": [
+        "lumière en électricité",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Solar panel.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E93"
+    },
+    {
+      "question": "Encryption =",
+      "options": [
+        "chiffrement",
+        "déchiffrement public",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Encryption.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E94"
+    },
+    {
+      "question": "CPU =",
+      "options": [
+        "processeur",
+        "écran",
+        "clavier",
+        "souris"
+      ],
+      "correct": "A",
+      "explanation": "Central Processing Unit.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E95"
+    },
+    {
+      "question": "PDF partage",
+      "options": [
+        "documents",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "PDF.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E96"
+    },
+    {
+      "question": "Compost enrichit sol avec",
+      "options": [
+        "matière organique",
+        "métal",
+        "plastique",
+        "verre"
+      ],
+      "correct": "A",
+      "explanation": "Compost.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E97"
+    },
+    {
+      "question": "Circuit électrique besoin",
+      "options": [
+        "source, fil, charge",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Circuit.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E98"
+    },
+    {
+      "question": "Variable stocke",
+      "options": [
+        "valeur",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Variable.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E99"
+    },
+    {
+      "question": "Bit =",
+      "options": [
+        "0 ou 1",
+        "octet",
+        "kilobyte",
+        "megabyte"
+      ],
+      "correct": "A",
+      "explanation": "Bit.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E100"
+    },
+    {
+      "question": "Machine learning apprend de",
+      "options": [
+        "données",
+        "rien",
+        "rêves",
+        "nuages"
+      ],
+      "correct": "A",
+      "explanation": "ML.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E101"
+    },
+    {
+      "question": "E-commerce vend",
+      "options": [
+        "en ligne",
+        "pierre",
+        "bois",
+        "sable"
+      ],
+      "correct": "A",
+      "explanation": "E-commerce.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E102"
+    },
+    {
+      "question": "Boucle (loop) répète",
+      "options": [
+        "instructions",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Loop.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E103"
+    },
+    {
+      "question": "OU TOU BON = plateforme",
+      "options": [
+        "éducative numérique",
+        "restaurant",
+        "hôtel",
+        "banque"
+      ],
+      "correct": "A",
+      "explanation": "OU TOU BON.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E104"
+    },
+    {
+      "question": "Innovation = nouvelle",
+      "options": [
+        "solution",
+        "copie",
+        "censure",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Innovation.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E105"
+    },
+    {
+      "question": "Chariot élévateur déplace",
+      "options": [
+        "charges lourdes",
+        "nuages",
+        "montagnes",
+        "rivières"
+      ],
+      "correct": "A",
+      "explanation": "Forklift.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E106"
+    },
+    {
+      "question": "LED clignote avec",
+      "options": [
+        "programme",
+        "odeur",
+        "taste",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "Blink LED.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E107"
+    },
+    {
+      "question": "Hygiène alimentaire évite",
+      "options": [
+        "contamination",
+        "pollution volontaire",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Food hygiene.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E108"
+    },
+    {
+      "question": "Capteur température mesure",
+      "options": [
+        "chaleur",
+        "odeur",
+        "taste",
+        "couleur"
+      ],
+      "correct": "A",
+      "explanation": "Temp sensor.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E109"
+    },
+    {
+      "question": "Mobile money = paiement",
+      "options": [
+        "mobile",
+        "papier seul",
+        "pierre",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Mobile payment.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E110"
+    },
+    {
+      "question": "Technologie 9e: sécurité numérique =",
+      "options": [
+        "protéger identité",
+        "partager mots de passe",
+        "cliquer tout",
+        "ignorer"
+      ],
+      "correct": "A",
+      "explanation": "Digital safety.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E111"
+    },
+    {
+      "question": "Éclairage LED réduit",
+      "options": [
+        "consommation",
+        "augmente toujours",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "LED lighting.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E112"
+    },
+    {
+      "question": "Antivirus protège contre",
+      "options": [
+        "malware",
+        "gravité",
+        "magnétisme",
+        "lumière"
+      ],
+      "correct": "A",
+      "explanation": "Antivirus.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E113"
+    },
+    {
+      "question": "Capteur ultrason mesure",
+      "options": [
+        "distance",
+        "odeur",
+        "taste",
+        "couleur"
+      ],
+      "correct": "A",
+      "explanation": "Ultrasonic.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E114"
+    },
+    {
+      "question": "WAN = réseau",
+      "options": [
+        "étendu",
+        "local seul",
+        "personnel seul",
+        "odeur"
+      ],
+      "correct": "A",
+      "explanation": "WAN.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E115"
+    },
+    {
+      "question": "Ctrl+C =",
+      "options": [
+        "copier",
+        "coller",
+        "couper",
+        "fermer"
+      ],
+      "correct": "A",
+      "explanation": "Copy.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E116"
+    },
+    {
+      "question": "GPS agriculture =",
+      "options": [
+        "agriculture de précision",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Precision ag.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E117"
+    },
+    {
+      "question": "Port USB-C = connecteur",
+      "options": [
+        "réversible",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "USB-C.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E118"
+    },
+    {
+      "question": "HTML structure",
+      "options": [
+        "page web",
+        "database",
+        "kernel",
+        "driver"
+      ],
+      "correct": "A",
+      "explanation": "HTML.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E119"
+    },
+    {
+      "question": "Crypto-monnaie = actif",
+      "options": [
+        "numérique",
+        "physique",
+        "papier",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Crypto.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E120"
+    },
+    {
+      "question": "HACCP contrôle",
+      "options": [
+        "sécurité alimentaire",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "HACCP.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E121"
+    },
+    {
+      "question": "Exosquelette assiste",
+      "options": [
+        "mouvement humain",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Exoskeleton.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E122"
+    },
+    {
+      "question": "AR = réalité",
+      "options": [
+        "augmentée",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "AR.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E123"
+    },
+    {
+      "question": "GB =",
+      "options": [
+        "gigabyte",
+        "megabyte",
+        "kilobyte",
+        "bit"
+      ],
+      "correct": "A",
+      "explanation": "Gigabyte.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E124"
+    },
+    {
+      "question": "HDMI transmet",
+      "options": [
+        "vidéo/audio numérique",
+        "odeur",
+        "taste",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "HDMI.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E125"
+    },
+    {
+      "question": "Robot collaboratif (cobot) travaille avec",
+      "options": [
+        "humains",
+        "seul toujours",
+        "nuages",
+        "montagnes"
+      ],
+      "correct": "A",
+      "explanation": "Cobot.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E126"
+    },
+    {
+      "question": "Périphérique sortie:",
+      "options": [
+        "imprimante",
+        "clavier",
+        "souris",
+        "micro"
+      ],
+      "correct": "A",
+      "explanation": "Printer.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E127"
+    },
+    {
+      "question": "Transformation lait →",
+      "options": [
+        "fromage/yogurt",
+        "pierre",
+        "métal",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Dairy processing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E128"
+    },
+    {
+      "question": "Ctrl+S =",
+      "options": [
+        "sauvegarder",
+        "imprimer",
+        "fermer",
+        "supprimer"
+      ],
+      "correct": "A",
+      "explanation": "Save shortcut.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E129"
+    },
+    {
+      "question": "Data privacy = protection",
+      "options": [
+        "données personnelles",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Privacy.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E130"
+    },
+    {
+      "question": "Élevage = production",
+      "options": [
+        "animaux",
+        "rochers",
+        "nuages",
+        "montagnes"
+      ],
+      "correct": "A",
+      "explanation": "Livestock.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E131"
+    },
+    {
+      "question": "Agroforestry combine",
+      "options": [
+        "arbres et cultures",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Agroforestry.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E132"
+    },
+    {
+      "question": "GitHub héberge",
+      "options": [
+        "repositories",
+        "restaurants",
+        "hôtels",
+        "musées"
+      ],
+      "correct": "A",
+      "explanation": "GitHub.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E133"
+    },
+    {
+      "question": "Edge computing traite près de",
+      "options": [
+        "source données",
+        "lune",
+        "mars",
+        "soleil"
+      ],
+      "correct": "A",
+      "explanation": "Edge computing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E134"
+    },
+    {
+      "question": "Vétérinaire soigne",
+      "options": [
+        "animaux",
+        "plantes",
+        "rochers",
+        "nuages"
+      ],
+      "correct": "A",
+      "explanation": "Veterinarian.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E135"
+    },
+    {
+      "question": "Gants protègent",
+      "options": [
+        "mains",
+        "yeux",
+        "oreilles",
+        "pieds"
+      ],
+      "correct": "A",
+      "explanation": "Gloves.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E136"
+    },
+    {
+      "question": "Cloud = stockage",
+      "options": [
+        "distant",
+        "local seul",
+        "papier",
+        "pierre"
+      ],
+      "correct": "A",
+      "explanation": "Cloud.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E137"
+    },
+    {
+      "question": "Automatisation réduit travail",
+      "options": [
+        "manuel répétitif",
+        "créatif seul",
+        "artistique seul",
+        "poétique"
+      ],
+      "correct": "A",
+      "explanation": "Automation.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E138"
+    },
+    {
+      "question": "Séchage conserve par",
+      "options": [
+        "réduction eau",
+        "ajout eau",
+        "pollution",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Drying.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E139"
+    },
+    {
+      "question": "Business plan décrit",
+      "options": [
+        "modèle économique",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Business plan.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E140"
+    },
+    {
+      "question": "Wearable capteur sur",
+      "options": [
+        "corps",
+        "lune",
+        "mars",
+        "soleil"
+      ],
+      "correct": "A",
+      "explanation": "Wearable.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E141"
+    },
+    {
+      "question": "Filtre eau potable élimine",
+      "options": [
+        "pathogènes",
+        "odeurs seules",
+        "couleurs seules",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Water filter.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E142"
+    },
+    {
+      "question": "Haïti 9e techno: objectif =",
+      "options": [
+        "compétences numériques et techniques",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "9e tech goal.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E143"
+    },
+    {
+      "question": "Programme = code",
+      "options": [
+        "exécutable",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Program.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E144"
+    },
+    {
+      "question": "Signal danger: couleur",
+      "options": [
+        "jaune/noir",
+        "rose",
+        "bleu pastel",
+        "beige"
+      ],
+      "correct": "A",
+      "explanation": "Warning colors.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E145"
+    },
+    {
+      "question": "URL = adresse",
+      "options": [
+        "web",
+        "postale",
+        "rêve",
+        "nuage"
+      ],
+      "correct": "A",
+      "explanation": "Uniform Resource Locator.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E146"
+    },
+    {
+      "question": "Qualité ISO standards",
+      "options": [
+        "internationaux",
+        "locaux secrets",
+        "odeurs",
+        "tastes"
+      ],
+      "correct": "A",
+      "explanation": "ISO.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E147"
+    },
+    {
+      "question": "UX design améliore",
+      "options": [
+        "expérience utilisateur",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "UX.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E148"
+    },
+    {
+      "question": "Quantum computing utilise",
+      "options": [
+        "qubits",
+        "bits seuls",
+        "odeurs",
+        "tastes"
+      ],
+      "correct": "A",
+      "explanation": "Quantum.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E149"
+    },
+    {
+      "question": "E-waste = déchets",
+      "options": [
+        "électroniques",
+        "organiques seuls",
+        "odeurs",
+        "tastes"
+      ],
+      "correct": "A",
+      "explanation": "E-waste.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E150"
+    },
+    {
+      "question": "E-learning = apprentissage",
+      "options": [
+        "en ligne",
+        "papier seul",
+        "pierre",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "E-learning.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E151"
+    },
+    {
+      "question": "Ampère mesure",
+      "options": [
+        "courant",
+        "voltage",
+        "résistance",
+        "odeur"
+      ],
+      "correct": "A",
+      "explanation": "Ampere.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E152"
+    },
+    {
+      "question": "Langage Python utilisé pour",
+      "options": [
+        "programmation",
+        "cuisine",
+        "sport",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Python.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E153"
+    },
+    {
+      "question": "KB =",
+      "options": [
+        "kilobyte",
+        "kilobit seul",
+        "megabyte",
+        "gigabyte"
+      ],
+      "correct": "A",
+      "explanation": "Kilobyte.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E154"
+    },
+    {
+      "question": "Semence améliorée augmente",
+      "options": [
+        "rendement",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Improved seed.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E155"
+    },
+    {
+      "question": "QR code stocke",
+      "options": [
+        "info numérique",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "QR code.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E156"
+    },
+    {
+      "question": "Rotation cultures évite",
+      "options": [
+        "épuisement sol",
+        "pollution",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Crop rotation.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E157"
+    },
+    {
+      "question": "JavaScript rend page",
+      "options": [
+        "interactive",
+        "statique",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "JavaScript.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E158"
+    },
+    {
+      "question": "Capteur mesure",
+      "options": [
+        "données environnement",
+        "odeur humaine",
+        "taste",
+        "rêve"
+      ],
+      "correct": "A",
+      "explanation": "Sensor.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E159"
+    },
+    {
+      "question": "iOS sur",
+      "options": [
+        "iPhone/iPad",
+        "Android",
+        "Windows phone",
+        "Symbian"
+      ],
+      "correct": "A",
+      "explanation": "iOS.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E160"
+    },
+    {
+      "question": "Chargeur recharge",
+      "options": [
+        "batterie",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Charger.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E161"
+    },
+    {
+      "question": "Sécurité atelier: lunettes protègent",
+      "options": [
+        "yeux",
+        "oreilles",
+        "pieds",
+        "cheveux"
+      ],
+      "correct": "A",
+      "explanation": "Safety glasses.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E162"
+    },
+    {
+      "question": "Électronique: résistance limite",
+      "options": [
+        "courant",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Resistor.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E163"
+    },
+    {
+      "question": "Nanotechnologie manipule",
+      "options": [
+        "échelle nanométrique",
+        "kilométrique",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Nanotech.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E164"
+    },
+    {
+      "question": "ROM =",
+      "options": [
+        "mémoire permanente",
+        "volatile",
+        "écran",
+        "clavier"
+      ],
+      "correct": "A",
+      "explanation": "Read Only Memory.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E165"
+    },
+    {
+      "question": "Engrais enrichit",
+      "options": [
+        "sol",
+        "air",
+        "eau seule",
+        "lumière seule"
+      ],
+      "correct": "A",
+      "explanation": "Fertilizer.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E166"
+    },
+    {
+      "question": "Transformation manioc →",
+      "options": [
+        "cassave",
+        "pierre",
+        "métal",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Cassava.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E167"
+    },
+    {
+      "question": "Kaizen = amélioration",
+      "options": [
+        "continue",
+        "stagnation",
+        "régression",
+        "chaos"
+      ],
+      "correct": "A",
+      "explanation": "Kaizen.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E168"
+    },
+    {
+      "question": "Écran tactile détecte",
+      "options": [
+        "contact",
+        "odeur",
+        "taste",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "Touchscreen.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E169"
+    },
+    {
+      "question": "Smart contract exécute sur",
+      "options": [
+        "blockchain",
+        "papier",
+        "pierre",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Smart contract.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E170"
+    },
+    {
+      "question": "Microsoft Word = traitement de",
+      "options": [
+        "texte",
+        "image seule",
+        "vidéo seule",
+        "audio seule"
+      ],
+      "correct": "A",
+      "explanation": "Word.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E171"
+    },
+    {
+      "question": "Modem connecte à",
+      "options": [
+        "internet",
+        "lune",
+        "mars",
+        "soleil"
+      ],
+      "correct": "A",
+      "explanation": "Modem.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E172"
+    },
+    {
+      "question": "Google Drive stocke",
+      "options": [
+        "fichiers en ligne",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Drive.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E173"
+    },
+    {
+      "question": "Phishing = hameçonnage",
+      "options": [
+        "frauduleux",
+        "sport",
+        "musique",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Phishing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E174"
+    },
+    {
+      "question": "Database stocke",
+      "options": [
+        "données structurées",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Database.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E175"
+    },
+    {
+      "question": "Backup =",
+      "options": [
+        "sauvegarde",
+        "suppression",
+        "effacement",
+        "destruction"
+      ],
+      "correct": "A",
+      "explanation": "Backup.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E176"
+    },
+    {
+      "question": "Résolution 1920×1080 =",
+      "options": [
+        "Full HD",
+        "audio",
+        "texte",
+        "odeur"
+      ],
+      "correct": "A",
+      "explanation": "1080p.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E177"
+    },
+    {
+      "question": "Énergie renouvelable:",
+      "options": [
+        "solaire, éolien",
+        "charbon seul",
+        "pétrole seul",
+        "uranium seul"
+      ],
+      "correct": "A",
+      "explanation": "Renewable.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E178"
+    },
+    {
+      "question": "MB =",
+      "options": [
+        "mégabyte",
+        "kilobyte",
+        "gigabyte",
+        "terabyte"
+      ],
+      "correct": "A",
+      "explanation": "Megabyte.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E179"
+    },
+    {
+      "question": "Bioinformatics analyse",
+      "options": [
+        "données biologiques",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Bioinformatics.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E180"
+    },
+    {
+      "question": "Bluetooth = connexion",
+      "options": [
+        "courte distance",
+        "satellite",
+        "lune",
+        "mars"
+      ],
+      "correct": "A",
+      "explanation": "Bluetooth.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E181"
+    },
+    {
+      "question": "Calibrer outil =",
+      "options": [
+        "ajuster précision",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Calibrate.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E182"
+    },
+    {
+      "question": "Cloud computing = calcul",
+      "options": [
+        "distant",
+        "local seul",
+        "papier",
+        "pierre"
+      ],
+      "correct": "A",
+      "explanation": "Cloud computing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E183"
+    },
+    {
+      "question": "Mécanique: levier multiplie",
+      "options": [
+        "force",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Lever.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E184"
+    },
+    {
+      "question": "Aquaculture = élevage",
+      "options": [
+        "aquatique",
+        "terrestre seul",
+        "aérien seul",
+        "lunaire"
+      ],
+      "correct": "A",
+      "explanation": "Aquaculture.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E185"
+    },
+    {
+      "question": "Routeur dirige",
+      "options": [
+        "trafic réseau",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Router.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E186"
+    },
+    {
+      "question": "Engrenage transmet",
+      "options": [
+        "mouvement",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Gear.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E187"
+    },
+    {
+      "question": "Imprimante 3D crée objets en",
+      "options": [
+        "couches",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "3D printing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E188"
+    },
+    {
+      "question": "Open data = données",
+      "options": [
+        "ouvertes",
+        "secrètes",
+        "fermées",
+        "interdites"
+      ],
+      "correct": "A",
+      "explanation": "Open data.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E189"
+    },
+    {
+      "question": "Spam = email",
+      "options": [
+        "indésirable",
+        "utile",
+        "officiel",
+        "gouvernemental"
+      ],
+      "correct": "A",
+      "explanation": "Spam.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E190"
+    },
+    {
+      "question": "Métier futur: data",
+      "options": [
+        "scientist",
+        "pierre",
+        "bois",
+        "sable"
+      ],
+      "correct": "A",
+      "explanation": "Data science.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E191"
+    },
+    {
+      "question": "Irrigation apporte",
+      "options": [
+        "eau aux cultures",
+        "sable",
+        "roche",
+        "métal"
+      ],
+      "correct": "A",
+      "explanation": "Irrigation.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E192"
+    },
+    {
+      "question": "Cybersécurité protège",
+      "options": [
+        "données et systèmes",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Cybersecurity.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E193"
+    },
+    {
+      "question": "Tracteur = machine",
+      "options": [
+        "agricole",
+        "médicale",
+        "musicale",
+        "sportive"
+      ],
+      "correct": "A",
+      "explanation": "Tractor.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E194"
+    },
+    {
+      "question": "Logistique gère",
+      "options": [
+        "transport stock",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Logistics.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E195"
+    },
+    {
+      "question": "Durabilité = développement",
+      "options": [
+        "durable",
+        "pollution",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Sustainability.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E196"
+    },
+    {
+      "question": "Robot éducatif apprend",
+      "options": [
+        "programmation",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Educational robot.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E197"
+    },
+    {
+      "question": "Plomberie transporte",
+      "options": [
+        "eau",
+        "air seul",
+        "lumière",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Plumbing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E198"
+    },
+    {
+      "question": "Ctrl+V =",
+      "options": [
+        "coller",
+        "copier",
+        "couper",
+        "fermer"
+      ],
+      "correct": "A",
+      "explanation": "Paste.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E199"
+    },
+    {
+      "question": "Condition if/else =",
+      "options": [
+        "choix",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Conditional.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E200"
+    },
+    {
+      "question": "SSD plus rapide que",
+      "options": [
+        "HDD",
+        "papier",
+        "pierre",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Solid State Drive.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E201"
+    },
+    {
+      "question": "Octet (byte) =",
+      "options": [
+        "8 bits",
+        "1 bit",
+        "4 bits",
+        "16 bits"
+      ],
+      "correct": "A",
+      "explanation": "Byte.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E202"
+    },
+    {
+      "question": "Sécurité électrique: ne pas toucher",
+      "options": [
+        "fil exposé",
+        "livre",
+        "stylo",
+        "crayon"
+      ],
+      "correct": "A",
+      "explanation": "Electrical safety.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E203"
+    },
+    {
+      "question": "Technologie 9e AF: éducation à la",
+      "options": [
+        "technologie",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Tech ed.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E204"
+    },
+    {
+      "question": "Ctrl+Z =",
+      "options": [
+        "annuler",
+        "sauvegarder",
+        "imprimer",
+        "fermer"
+      ],
+      "correct": "A",
+      "explanation": "Undo.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E205"
+    },
+    {
+      "question": "Arduino = carte",
+      "options": [
+        "microcontrôleur",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Arduino.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E206"
+    },
+    {
+      "question": "Câble ethernet connecte",
+      "options": [
+        "réseau filaire",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Ethernet.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E207"
+    },
+    {
+      "question": "Debug =",
+      "options": [
+        "corriger erreurs",
+        "créer erreurs",
+        "ignorer",
+        "célébrer"
+      ],
+      "correct": "A",
+      "explanation": "Debug.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E208"
+    },
+    {
+      "question": "Client demande",
+      "options": [
+        "service serveur",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Client.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E209"
+    },
+    {
+      "question": "Pêche durable évite",
+      "options": [
+        "surpêche",
+        "pêche excessive",
+        "pollution",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Sustainable fishing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E210"
+    },
+    {
+      "question": "macOS OS d'",
+      "options": [
+        "Apple",
+        "Microsoft",
+        "Google",
+        "Linux seul"
+      ],
+      "correct": "A",
+      "explanation": "macOS.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E211"
+    },
+    {
+      "question": "Excel =",
+      "options": [
+        "tableur",
+        "peinture",
+        "musique",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Spreadsheet.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E212"
+    },
+    {
+      "question": "Big data analyse",
+      "options": [
+        "grandes données",
+        "zéro donnée",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Big data.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E213"
+    },
+    {
+      "question": "Agriculture: semis =",
+      "options": [
+        "planter graines",
+        "récolter",
+        "manger",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Sowing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E214"
+    },
+    {
+      "question": "Biotechnologie modifie",
+      "options": [
+        "organismes vivants",
+        "rochers",
+        "nuages",
+        "montagnes"
+      ],
+      "correct": "A",
+      "explanation": "Biotech.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E215"
+    },
+    {
+      "question": "Disque dur (HDD) stocke",
+      "options": [
+        "données long terme",
+        "temporaire seul",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Storage.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E216"
+    },
+    {
+      "question": "Métier futur: développeur",
+      "options": [
+        "web",
+        "charretier",
+        "torche",
+        "voilier"
+      ],
+      "correct": "A",
+      "explanation": "Web dev.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E217"
+    },
+    {
+      "question": "Serre protège cultures et",
+      "options": [
+        "contrôle climat",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Greenhouse.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E218"
+    },
+    {
+      "question": "Moteur convertit énergie en",
+      "options": [
+        "mouvement",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Engine.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E219"
+    },
+    {
+      "question": "API permet apps",
+      "options": [
+        "communiquer",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "API.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E220"
+    },
+    {
+      "question": "Bug = erreur",
+      "options": [
+        "logiciel",
+        "feature",
+        "cadeau",
+        "bonus"
+      ],
+      "correct": "A",
+      "explanation": "Bug.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E221"
+    },
+    {
+      "question": "Tableau interactif =",
+      "options": [
+        "écran tactile grand",
+        "papier",
+        "pierre",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Interactive board.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E222"
+    },
+    {
+      "question": "JSON format",
+      "options": [
+        "données texte",
+        "image seule",
+        "vidéo seule",
+        "audio seule"
+      ],
+      "correct": "A",
+      "explanation": "JSON.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E223"
+    },
+    {
+      "question": "Windows OS de",
+      "options": [
+        "Microsoft",
+        "Apple seul",
+        "Google seul",
+        "Amazon seul"
+      ],
+      "correct": "A",
+      "explanation": "Windows.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E224"
+    },
+    {
+      "question": "Smartwatch suit",
+      "options": [
+        "activité/santé",
+        "odeur",
+        "taste",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "Smartwatch.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E225"
+    },
+    {
+      "question": "Git versionne",
+      "options": [
+        "code",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Git.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E226"
+    },
+    {
+      "question": "Agriculture: récolte =",
+      "options": [
+        "cueillir production",
+        "planter",
+        "dormir",
+        "manger"
+      ],
+      "correct": "A",
+      "explanation": "Harvest.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E227"
+    },
+    {
+      "question": "Ethics tech évite",
+      "options": [
+        "biais et abus",
+        "tout usage",
+        "aucune règle",
+        "censure totale"
+      ],
+      "correct": "A",
+      "explanation": "Tech ethics.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E228"
+    },
+    {
+      "question": "Briquette écologique remplace",
+      "options": [
+        "charbon bois",
+        "pétrole seul",
+        "uranium",
+        "diamant"
+      ],
+      "correct": "A",
+      "explanation": "Eco briquette.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E229"
+    },
+    {
+      "question": "Technologie haïtienne: EDH fournit",
+      "options": [
+        "électricité",
+        "eau seule",
+        "internet seul",
+        "nourriture"
+      ],
+      "correct": "A",
+      "explanation": "EDH.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E230"
+    },
+    {
+      "question": "Test logiciel vérifie",
+      "options": [
+        "fonctionnement",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Software test.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E231"
+    },
+    {
+      "question": "IoT = internet des",
+      "options": [
+        "objets",
+        "rêves",
+        "nuages",
+        "montagnes"
+      ],
+      "correct": "A",
+      "explanation": "IoT.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E232"
+    },
+    {
+      "question": "Marketing digital utilise",
+      "options": [
+        "réseaux sociaux",
+        "pierre",
+        "bois",
+        "sable"
+      ],
+      "correct": "A",
+      "explanation": "Digital marketing.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E233"
+    },
+    {
+      "question": "Électricité: générateur produit",
+      "options": [
+        "courant",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Generator.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E234"
+    },
+    {
+      "question": "Manuel technique guide",
+      "options": [
+        "réparation/usage",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Technical manual.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E235"
+    },
+    {
+      "question": "Lean production réduit",
+      "options": [
+        "gaspillage",
+        "pollution volontaire",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Lean.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E236"
+    },
+    {
+      "question": "Serveur fournit",
+      "options": [
+        "services/données",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Server.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E237"
+    },
+    {
+      "question": "Technologie durable réduit",
+      "options": [
+        "impact environnement",
+        "pollution",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Sustainable tech.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E238"
+    },
+    {
+      "question": "IA = intelligence",
+      "options": [
+        "artificielle",
+        "naturelle humaine",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "AI.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E239"
+    },
+    {
+      "question": "Réseau LAN = réseau",
+      "options": [
+        "local",
+        "global seul",
+        "lunaire",
+        "martien"
+      ],
+      "correct": "A",
+      "explanation": "LAN.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E240"
+    },
+    {
+      "question": "Microphone capte",
+      "options": [
+        "son",
+        "lumière",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Microphone.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E241"
+    },
+    {
+      "question": "HTTPS = HTTP",
+      "options": [
+        "sécurisé",
+        "non sécurisé",
+        "fermé",
+        "secret"
+      ],
+      "correct": "A",
+      "explanation": "Secure HTTP.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E242"
+    },
+    {
+      "question": "Pitch présente",
+      "options": [
+        "idée projet",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Pitch.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E243"
+    },
+    {
+      "question": "OGM = organisme",
+      "options": [
+        "génétiquement modifié",
+        "naturel seul",
+        "roche",
+        "métal"
+      ],
+      "correct": "A",
+      "explanation": "GMO.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E244"
+    },
+    {
+      "question": "Algorithm = suite d'",
+      "options": [
+        "instructions",
+        "rêves",
+        "nuages",
+        "vents"
+      ],
+      "correct": "A",
+      "explanation": "Algorithm.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E245"
+    },
+    {
+      "question": "Drone agriculture surveille",
+      "options": [
+        "cultures",
+        "océan",
+        "lune",
+        "mars"
+      ],
+      "correct": "A",
+      "explanation": "Ag drone.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E246"
+    },
+    {
+      "question": "Binaire utilise",
+      "options": [
+        "0 et 1",
+        "2 et 3",
+        "A et B",
+        "X et Y"
+      ],
+      "correct": "A",
+      "explanation": "Binary.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E247"
+    },
+    {
+      "question": "Maintenance préventive évite",
+      "options": [
+        "pannes",
+        "casse",
+        "guerre",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Preventive maint.",
+      "category": "Technologie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E248"
+    },
+    {
+      "question": "Avec 5 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "7",
+        "10",
+        "25",
+        "32"
+      ],
+      "correct": "D",
+      "explanation": "2^5 = 32.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E249"
+    },
+    {
+      "question": "USB 2048 Mbps: vitesse theorique",
+      "options": [
+        "1024 Mbps",
+        "2148 Mbps",
+        "2048 Mbps",
+        "4096 Mbps"
+      ],
+      "correct": "C",
+      "explanation": "USB 2048 = 2048 Mbps.",
+      "category": "Hardware",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E250"
+    },
+    {
+      "question": "Convertir 10 MB en KB (x1024):",
+      "options": [
+        "10000",
+        "110",
+        "10240",
+        "5120"
+      ],
+      "correct": "C",
+      "explanation": "10 MB = 10240 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E251"
+    },
+    {
+      "question": "Convertir 24 GB en MB (x1024):",
+      "options": [
+        "24000",
+        "24576",
+        "12288",
+        "1048"
+      ],
+      "correct": "B",
+      "explanation": "24 GB = 24576 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E252"
+    },
+    {
+      "question": "Convertir 13 MB en KB (x1024):",
+      "options": [
+        "113",
+        "13000",
+        "6656",
+        "13312"
+      ],
+      "correct": "D",
+      "explanation": "13 MB = 13312 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E253"
+    },
+    {
+      "question": "Convertir 22 GB en MB (x1024):",
+      "options": [
+        "11264",
+        "1046",
+        "22528",
+        "22000"
+      ],
+      "correct": "C",
+      "explanation": "22 GB = 22528 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E254"
+    },
+    {
+      "question": "Convertir 23 GB en MB (x1024):",
+      "options": [
+        "11776",
+        "23000",
+        "1047",
+        "23552"
+      ],
+      "correct": "D",
+      "explanation": "23 GB = 23552 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E255"
+    },
+    {
+      "question": "Convertir 10 GB en MB (x1024):",
+      "options": [
+        "1034",
+        "10000",
+        "10240",
+        "5120"
+      ],
+      "correct": "C",
+      "explanation": "10 GB = 10240 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E256"
+    },
+    {
+      "question": "Convertir 28 GB en MB (x1024):",
+      "options": [
+        "14336",
+        "28000",
+        "28672",
+        "1052"
+      ],
+      "correct": "C",
+      "explanation": "28 GB = 28672 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E257"
+    },
+    {
+      "question": "Convertir 18 GB en MB (x1024):",
+      "options": [
+        "1042",
+        "18000",
+        "9216",
+        "18432"
+      ],
+      "correct": "D",
+      "explanation": "18 GB = 18432 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E258"
+    },
+    {
+      "question": "Convertir 5 GB en MB (x1024):",
+      "options": [
+        "1029",
+        "5000",
+        "5120",
+        "2560"
+      ],
+      "correct": "C",
+      "explanation": "5 GB = 5120 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E259"
+    },
+    {
+      "question": "Convertir 26 MB en KB (x1024):",
+      "options": [
+        "126",
+        "26624",
+        "13312",
+        "26000"
+      ],
+      "correct": "B",
+      "explanation": "26 MB = 26624 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E260"
+    },
+    {
+      "question": "Avec 1 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "3",
+        "1",
+        "2",
+        "2?"
+      ],
+      "correct": "C",
+      "explanation": "2^1 = 2.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E261"
+    },
+    {
+      "question": "Avec 15 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "32768",
+        "30",
+        "17",
+        "225"
+      ],
+      "correct": "A",
+      "explanation": "2^15 = 32768.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E262"
+    },
+    {
+      "question": "Convertir 7 GB en MB (x1024):",
+      "options": [
+        "3584",
+        "1031",
+        "7000",
+        "7168"
+      ],
+      "correct": "D",
+      "explanation": "7 GB = 7168 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E263"
+    },
+    {
+      "question": "Convertir 9 GB en MB (x1024):",
+      "options": [
+        "9000",
+        "1033",
+        "9216",
+        "4608"
+      ],
+      "correct": "C",
+      "explanation": "9 GB = 9216 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E264"
+    },
+    {
+      "question": "Convertir 26 GB en MB (x1024):",
+      "options": [
+        "13312",
+        "26624",
+        "26000",
+        "1050"
+      ],
+      "correct": "B",
+      "explanation": "26 GB = 26624 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E265"
+    },
+    {
+      "question": "Convertir 29 MB en KB (x1024):",
+      "options": [
+        "29000",
+        "129",
+        "14848",
+        "29696"
+      ],
+      "correct": "D",
+      "explanation": "29 MB = 29696 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E266"
+    },
+    {
+      "question": "Convertir 29 GB en MB (x1024):",
+      "options": [
+        "29000",
+        "14848",
+        "1053",
+        "29696"
+      ],
+      "correct": "D",
+      "explanation": "29 GB = 29696 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E267"
+    },
+    {
+      "question": "Convertir 14 GB en MB (x1024):",
+      "options": [
+        "1038",
+        "14000",
+        "14336",
+        "7168"
+      ],
+      "correct": "C",
+      "explanation": "14 GB = 14336 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E268"
+    },
+    {
+      "question": "Convertir 25 MB en KB (x1024):",
+      "options": [
+        "12800",
+        "25600",
+        "125",
+        "25000"
+      ],
+      "correct": "B",
+      "explanation": "25 MB = 25600 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E269"
+    },
+    {
+      "question": "Avec 6 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "8",
+        "12",
+        "36",
+        "64"
+      ],
+      "correct": "D",
+      "explanation": "2^6 = 64.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E270"
+    },
+    {
+      "question": "Convertir 17 GB en MB (x1024):",
+      "options": [
+        "8704",
+        "1041",
+        "17408",
+        "17000"
+      ],
+      "correct": "C",
+      "explanation": "17 GB = 17408 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E271"
+    },
+    {
+      "question": "Convertir 11 GB en MB (x1024):",
+      "options": [
+        "5632",
+        "11264",
+        "11000",
+        "1035"
+      ],
+      "correct": "B",
+      "explanation": "11 GB = 11264 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E272"
+    },
+    {
+      "question": "Convertir 25 GB en MB (x1024):",
+      "options": [
+        "25600",
+        "12800",
+        "1049",
+        "25000"
+      ],
+      "correct": "A",
+      "explanation": "25 GB = 25600 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E273"
+    },
+    {
+      "question": "Convertir 4 GB en MB (x1024):",
+      "options": [
+        "4096",
+        "4000",
+        "2048",
+        "1028"
+      ],
+      "correct": "A",
+      "explanation": "4 GB = 4096 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E274"
+    },
+    {
+      "question": "Avec 10 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "100",
+        "12",
+        "1024",
+        "20"
+      ],
+      "correct": "C",
+      "explanation": "2^10 = 1024.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E275"
+    },
+    {
+      "question": "Convertir 8 MB en KB (x1024):",
+      "options": [
+        "8000",
+        "4096",
+        "108",
+        "8192"
+      ],
+      "correct": "D",
+      "explanation": "8 MB = 8192 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E276"
+    },
+    {
+      "question": "Convertir 15 MB en KB (x1024):",
+      "options": [
+        "7680",
+        "115",
+        "15360",
+        "15000"
+      ],
+      "correct": "C",
+      "explanation": "15 MB = 15360 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E277"
+    },
+    {
+      "question": "Convertir 6 MB en KB (x1024):",
+      "options": [
+        "3072",
+        "6000",
+        "6144",
+        "106"
+      ],
+      "correct": "C",
+      "explanation": "6 MB = 6144 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E278"
+    },
+    {
+      "question": "Convertir 12 MB en KB (x1024):",
+      "options": [
+        "12000",
+        "112",
+        "6144",
+        "12288"
+      ],
+      "correct": "D",
+      "explanation": "12 MB = 12288 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E279"
+    },
+    {
+      "question": "Convertir 19 MB en KB (x1024):",
+      "options": [
+        "119",
+        "19000",
+        "19456",
+        "9728"
+      ],
+      "correct": "C",
+      "explanation": "19 MB = 19456 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E280"
+    },
+    {
+      "question": "Convertir 30 GB en MB (x1024):",
+      "options": [
+        "15360",
+        "1054",
+        "30720",
+        "30000"
+      ],
+      "correct": "C",
+      "explanation": "30 GB = 30720 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E281"
+    },
+    {
+      "question": "Avec 8 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "64",
+        "16",
+        "10",
+        "256"
+      ],
+      "correct": "D",
+      "explanation": "2^8 = 256.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E282"
+    },
+    {
+      "question": "Avec 11 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "13",
+        "2048",
+        "121",
+        "22"
+      ],
+      "correct": "B",
+      "explanation": "2^11 = 2048.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E283"
+    },
+    {
+      "question": "Convertir 2 MB en KB (x1024):",
+      "options": [
+        "2048",
+        "102",
+        "2000",
+        "1024"
+      ],
+      "correct": "A",
+      "explanation": "2 MB = 2048 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E284"
+    },
+    {
+      "question": "Convertir 20 GB en MB (x1024):",
+      "options": [
+        "20480",
+        "10240",
+        "1044",
+        "20000"
+      ],
+      "correct": "A",
+      "explanation": "20 GB = 20480 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E285"
+    },
+    {
+      "question": "Convertir 18 MB en KB (x1024):",
+      "options": [
+        "18000",
+        "118",
+        "18432",
+        "9216"
+      ],
+      "correct": "C",
+      "explanation": "18 MB = 18432 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E286"
+    },
+    {
+      "question": "Convertir 30 MB en KB (x1024):",
+      "options": [
+        "130",
+        "30720",
+        "15360",
+        "30000"
+      ],
+      "correct": "B",
+      "explanation": "30 MB = 30720 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E287"
+    },
+    {
+      "question": "Convertir 21 MB en KB (x1024):",
+      "options": [
+        "121",
+        "10752",
+        "21000",
+        "21504"
+      ],
+      "correct": "D",
+      "explanation": "21 MB = 21504 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E288"
+    },
+    {
+      "question": "Convertir 27 GB en MB (x1024):",
+      "options": [
+        "27648",
+        "27000",
+        "13824",
+        "1051"
+      ],
+      "correct": "A",
+      "explanation": "27 GB = 27648 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E289"
+    },
+    {
+      "question": "Convertir 27 MB en KB (x1024):",
+      "options": [
+        "13824",
+        "27000",
+        "27648",
+        "127"
+      ],
+      "correct": "C",
+      "explanation": "27 MB = 27648 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E290"
+    },
+    {
+      "question": "Convertir 31 GB en MB (x1024):",
+      "options": [
+        "31744",
+        "1055",
+        "31000",
+        "15872"
+      ],
+      "correct": "A",
+      "explanation": "31 GB = 31744 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E291"
+    },
+    {
+      "question": "Convertir 32 GB en MB (x1024):",
+      "options": [
+        "16384",
+        "1056",
+        "32000",
+        "32768"
+      ],
+      "correct": "D",
+      "explanation": "32 GB = 32768 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E292"
+    },
+    {
+      "question": "Convertir 2 GB en MB (x1024):",
+      "options": [
+        "1024",
+        "2000",
+        "1026",
+        "2048"
+      ],
+      "correct": "D",
+      "explanation": "2 GB = 2048 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E293"
+    },
+    {
+      "question": "Convertir 32 MB en KB (x1024):",
+      "options": [
+        "32768",
+        "32000",
+        "132",
+        "16384"
+      ],
+      "correct": "A",
+      "explanation": "32 MB = 32768 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E294"
+    },
+    {
+      "question": "Avec 7 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "9",
+        "14",
+        "49",
+        "128"
+      ],
+      "correct": "D",
+      "explanation": "2^7 = 128.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E295"
+    },
+    {
+      "question": "Avec 16 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "256",
+        "32",
+        "65536",
+        "18"
+      ],
+      "correct": "C",
+      "explanation": "2^16 = 65536.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E296"
+    },
+    {
+      "question": "Avec 14 bits, combien de valeurs distinctes (2^n)?",
+      "options": [
+        "16384",
+        "28",
+        "16",
+        "196"
+      ],
+      "correct": "A",
+      "explanation": "2^14 = 16384.",
+      "category": "Binaire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E297"
+    },
+    {
+      "question": "USB 8000 Mbps: vitesse theorique",
+      "options": [
+        "4000 Mbps",
+        "16000 Mbps",
+        "8000 Mbps",
+        "8100 Mbps"
+      ],
+      "correct": "C",
+      "explanation": "USB 8000 = 8000 Mbps.",
+      "category": "Hardware",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E298"
+    },
+    {
+      "question": "Convertir 8 GB en MB (x1024):",
+      "options": [
+        "8192",
+        "8000",
+        "1032",
+        "4096"
+      ],
+      "correct": "A",
+      "explanation": "8 GB = 8192 MB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E299"
+    },
+    {
+      "question": "Convertir 7 MB en KB (x1024):",
+      "options": [
+        "7168",
+        "7000",
+        "107",
+        "3584"
+      ],
+      "correct": "A",
+      "explanation": "7 MB = 7168 KB.",
+      "category": "Informatique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "I9E300"
+    }
+  ]
+}

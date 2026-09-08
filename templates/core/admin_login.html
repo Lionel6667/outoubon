@@ -13,7 +13,8 @@
     .sub{color:#94a3b8;font-size:.82rem;text-align:center;margin-bottom:1.5rem}
     label{font-size:.78rem;font-weight:600;color:#94a3b8;display:block;margin-bottom:.3rem;margin-top:1rem}
     input{width:100%;padding:.65rem .85rem;background:#0f172a;border:1px solid #2d3748;border-radius:10px;color:#f8fafc;font-size:.88rem;outline:none;transition:border .15s}
-    input:focus{border-color:#10B981}
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear { display:none !important; width:0; height:0; }
     .error{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);border-radius:8px;padding:.55rem .75rem;font-size:.78rem;color:#fca5a5;margin-bottom:1rem}
     button{width:100%;padding:.7rem;background:#10B981;border:none;border-radius:10px;color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:1.5rem;transition:opacity .15s}
     button:hover{opacity:.85}

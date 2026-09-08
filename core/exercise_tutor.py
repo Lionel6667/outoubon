@@ -47,10 +47,14 @@ def session_public_view(session: dict, exercise: dict) -> dict:
     qs = normalize_questions(exercise)
     idx = _clamp_index(session, int(session.get('current_index') or 0))
     total = int(session.get('total') or len(qs) or 1)
-    done = sum(1 for s in session.get('statuses', []) if s in ('correct', 'partial', 'skipped'))
+    statuses = list(session.get('statuses') or [])
+    done = sum(1 for s in statuses if s in ('correct', 'partial', 'skipped'))
     in_progress = (
-        0.35 if not session.get('completed') and statuses[idx] in ('in_progress', 'pending', 'wrong', 'partial')
-        else 0
+        0.35
+        if not session.get('completed')
+        and idx < len(statuses)
+        and statuses[idx] in ('in_progress', 'pending', 'wrong', 'partial', 'started')
+        else 0.0
     )
     return {
         'current_index': idx,
@@ -68,6 +72,8 @@ def session_public_view(session: dict, exercise: dict) -> dict:
 
 def detect_message_mode(message: str) -> str:
     m = (message or '').strip()
+    if m.startswith('[INTRO]'):
+        return 'intro'
     if m.startswith('[HINT]'):
         return 'hint'
     if m.startswith('[FINISH]'):
@@ -168,6 +174,19 @@ def build_exercise_context(exercise: dict, subject: str) -> str:
     sol = exercise.get('solution', '')
     if sol:
         parts.append(f"Solution (secrète): {sol[:600]}")
+    reponses = exercise.get('reponses')
+    if reponses:
+        if isinstance(reponses, dict):
+            rep_lines = [f"  {k}) {v}" for k, v in reponses.items() if v]
+        elif isinstance(reponses, list):
+            rep_lines = [f"  - {r}" for r in reponses if r]
+        else:
+            rep_lines = [str(reponses)]
+        if rep_lines:
+            parts.append(
+                "Réponses officielles (SECRET — ne jamais donner telles quelles, guider l'élève vers elles):\n"
+                + '\n'.join(rep_lines)[:1200]
+            )
     return '\n\n'.join(parts)
 
 
@@ -209,7 +228,8 @@ def build_system_prompt(
         f"Tu es Prof Bac — tuteur expert du BAC Haïti pour {student_name}.\n"
         f"{user_lang_rule}"
         f"{level_block}{profile_block}"
-        f"STYLE ASTRA : clair, encourageant, jamais condescendant. Phrases courtes. Une idée à la fois.\n"
+        f"STYLE : clair, encourageant, jamais condescendant. Phrases courtes. Une idée à la fois.\n"
+        f"Tu expliques l'exercice comme un bon prof : l'élève essaie de résoudre, tu l'accompagnes — ce n'est pas un QCM ni un test.\n"
         f"RÈGLE D'OR : ne donne JAMAIS la réponse finale directement — guide par questions.\n\n"
         f"--- EXERCICE ---\n{ctx}\n--- FIN ---\n\n"
         f"PROGRESSION : question {idx + 1}/{total}.\n"
@@ -288,14 +308,217 @@ def build_system_prompt(
     )
 
 
-def opening_message(exercise: dict, student_name: str) -> str:
+def compute_session_summary(session: dict, exercise: dict) -> dict:
+    """Bilan local : notions maîtrisées vs à revoir (sans appel IA)."""
+    qs = normalize_questions(exercise)
+    statuses = list(session.get('statuses') or [])
+    mastered, missed = [], []
+    for i, q in enumerate(qs):
+        st = statuses[i] if i < len(statuses) else 'pending'
+        label = (q[:80] + '…') if len(q) > 80 else q
+        if st in ('correct',):
+            mastered.append(label)
+        elif st in ('wrong', 'partial', 'skipped', 'pending'):
+            if st != 'pending' or session.get('completed'):
+                missed.append(label)
+    correct_n = sum(1 for s in statuses if s == 'correct')
+    total = max(1, len(qs))
+    local_score = round(correct_n / total * 10, 1)
+    note = session.get('score_estimate')
+    if note is None:
+        partial_n = sum(1 for s in statuses if s == 'partial')
+        note = round((correct_n + partial_n * 0.5) / total * 10, 1)
+    theme = exercise.get('theme') or exercise.get('chapter') or ''
+    return {
+        'note': float(note) if note is not None else local_score,
+        'mastered': mastered,
+        'missed': missed,
+        'correct_count': correct_n,
+        'total': total,
+        'theme': theme,
+    }
+
+
+def get_progressive_hint(exercise: dict, q_index: int, level: int) -> str | None:
+    """
+    Indices locaux (0 appel IA) depuis reponses[] officielles.
+    level 1-3 : de plus en plus explicite, sans donner la réponse complète.
+    """
+    reponses = exercise.get('reponses') or {}
+    if not reponses:
+        return None
+    keys = [chr(ord('a') + q_index), str(q_index + 1), f'q{q_index + 1}']
+    official = ''
+    for k in keys:
+        if k in reponses and reponses[k]:
+            official = str(reponses[k]).strip()
+            break
+    if not official and isinstance(reponses, list) and q_index < len(reponses):
+        official = str(reponses[q_index]).strip()
+    if not official:
+        return None
+    theme = exercise.get('theme') or exercise.get('chapter') or 'ce chapitre'
+    if level <= 1:
+        return f"💡 Niveau 1 — Quelle loi ou définition du thème « {theme[:40]} » s'applique ici ?"
+    if level == 2:
+        snippet = official.split('.')[0][:100]
+        return f"💡 Niveau 2 — {snippet}{'…' if len(official) > 100 else ''}"
+    snippet = official[:160]
+    return f"💡 Niveau 3 — Piste : {snippet}{'…' if len(official) > 160 else ''}"
+
+
+def should_offer_tutor(session: dict) -> bool:
+    """Propose le tuteur après 2 échecs sur la question courante."""
+    idx = _clamp_index(session, int(session.get('current_index') or 0))
+    attempts = list(session.get('attempts') or [])
+    if idx < len(attempts) and int(attempts[idx] or 0) >= 2:
+        statuses = list(session.get('statuses') or [])
+        if idx < len(statuses) and statuses[idx] == 'wrong':
+            return True
+    return False
+
+
+def build_tutor_prompt_short(
+    exercise: dict,
+    subject: str,
+    student_name: str,
+    session: dict,
+    user_lang_rule: str = '',
+) -> str:
+    """Prompt ultra-court pour le tiroir tuteur (2-3 phrases max, guide sans révéler)."""
+    questions = normalize_questions(exercise)
+    idx = _clamp_index(session, int(session.get('current_index') or 0))
+    current_q = questions[idx] if idx < len(questions) else ''
+    ctx = build_exercise_context(exercise, subject)
+    return (
+        f"Tuteur BAC Haïti — {student_name}. {user_lang_rule}"
+        f"Réponds en 2-3 phrases MAX. Guide sans donner la réponse finale.\n"
+        f"Utilise les réponses officielles secrètes pour orienter.\n\n"
+        f"{ctx}\n\n"
+        f"Question active ({idx + 1}/{len(questions)}) : {current_q}\n"
+        f"Pas de balises [EVAL] ni [ADVANCE]. Pas de [NOTE].\n"
+    )
+
+
+def try_local_tutor_response(
+    exercise: dict,
+    session: dict,
+    user_message: str,
+    mode: str,
+    student_name: str = '',
+) -> tuple[str, dict, dict]:
+    """
+    Tuteur local sans DeepSeek (dev ou clé absente).
+    Guide l'élève avec questions socratiques et indices progressifs.
+    """
+    session = dict(session or {})
+    questions = normalize_questions(exercise)
+    idx = _clamp_index(session, int(session.get('current_index') or 0))
+    current_q = questions[idx] if idx < len(questions) else ''
+    q_plain = re.sub(r'\\\((.+?)\\\)', r'\1', current_q)
+    q_plain = re.sub(r'\$([^$]+)\$', r'\1', q_plain).strip()
+    q_label = (q_plain[:70] + '…') if len(q_plain) > 70 else q_plain
+
+    attempts = list(session.get('attempts') or [0] * max(1, session.get('total', 1)))
+    while len(attempts) < session.get('total', 1):
+        attempts.append(0)
+    attempt_n = int(attempts[idx] or 0) if idx < len(attempts) else 0
+
+    meta: dict = {}
+
+    if mode == 'hint':
+        session = apply_hint(session)
+        level = int((session.get('hints_used') or [0])[idx] or 1)
+        hint = get_progressive_hint(exercise, idx, level)
+        text = hint or (
+            "💡 Relis l'énoncé et note les données utiles pour cette question. "
+            "Quelle formule ou loi pourrait s'appliquer ?"
+        )
+        return text, session, meta
+
+    if mode == 'skip':
+        session = advance_question(session, 'skipped')
+        meta['advance'] = True
+        next_idx = int(session.get('current_index') or 0)
+        if next_idx < len(questions) and not session.get('completed'):
+            nq = questions[next_idx]
+            nq_plain = re.sub(r'\\\((.+?)\\\)', r'\1', nq)
+            nq_plain = re.sub(r'\$([^$]+)\$', r'\1', nq_plain).strip()
+            return (
+                f"On passe à la question {next_idx + 1}. Lis : « {nq_plain[:90]} » — "
+                "quelle est ta première idée ?",
+                session,
+                meta,
+            )
+        return "Session terminée — tu peux cliquer sur Terminer pour le bilan.", session, meta
+
+    if mode == 'finish':
+        session['completed'] = True
+        session['phase'] = 'done'
+        summary = compute_session_summary(session, exercise)
+        note = summary.get('note', 7)
+        session['score_estimate'] = note
+        meta['note'] = note
+        return (
+            f"Bilan : note estimée {note}/10. "
+            f"Points forts : {len(summary.get('mastered', []))} notions. "
+            "Revois les parties où tu as hésité — tu progresses bien !",
+            session,
+            meta,
+        )
+
+    msg = (user_message or '').strip().lower()
+    uncertain = any(
+        phrase in msg
+        for phrase in (
+            'sais pas', 'pas trop', 'pas sure', 'pas sûr', 'aide', 'help',
+            'comment', 'je ne', "j'ai pas", 'inspire', 'piste', 'indice',
+        )
+    )
+
+    if idx < len(attempts):
+        attempts[idx] = attempt_n + 1
+        session['attempts'] = attempts
+    statuses = list(session.get('statuses') or ['pending'] * session.get('total', 1))
+    if idx < len(statuses) and statuses[idx] == 'pending':
+        statuses[idx] = 'in_progress'
+        session['statuses'] = statuses
+
+    if uncertain or attempt_n == 0:
+        text = (
+            f"Pas de souci, {student_name or 'on y va'} ! Pour « {q_label} », "
+            "commence par lister les données de l'énoncé et ce qu'on cherche exactement."
+        )
+    elif attempt_n == 1:
+        text = (
+            f"Bonne réflexion. Pour cette question, quelle loi ou formule du thème "
+            f"« {exercise.get('theme', 'ce chapitre')[:40]} » pourrait servir ?"
+        )
+    else:
+        hint = get_progressive_hint(exercise, idx, 2)
+        text = hint or (
+            "Essaie une démarche écrite : données → formule → calcul → conclusion. "
+            "Même un essai incomplet m'aide à te guider."
+        )
+
+    return text, session, meta
+
+
+def opening_message(exercise: dict, student_name: str, coach_name: str = '') -> str:
     qs = normalize_questions(exercise)
     theme = exercise.get('theme') or exercise.get('matiere') or 'Exercice'
     n = len(qs)
-    q1 = qs[0] if qs else "Quelle est ta première idée ?"
-    return (
-        f"Salut {student_name} ! On attaque **{theme}** — {n} question{'s' if n > 1 else ''} à traiter ensemble.\n\n"
-        f"Je ne te donnerai pas la réponse toute faite : on avance étape par étape, comme en cours particulier.\n\n"
-        f"**Question 1/{n}** — {q1}\n\n"
-        f"Quelle est ton approche pour commencer ?"
-    )
+    coach = (coach_name or '').strip()
+    coach_line = f"**{coach}**" if coach else "Ton tuteur"
+    parts = [
+        f"Salut {student_name} ! {coach_line} t'accompagne sur **{theme}**.",
+        "",
+        "L'énoncé est juste au-dessus — lis-le tranquillement. "
+        "On travaille **question par question**, sans donner la réponse toute faite.",
+    ]
+    if n > 1:
+        parts.append(f"\nIl y a **{n} questions** (a, b, c…). On commence par la **première**.")
+    elif n == 1:
+        parts.append("\nOn commence par la **première partie**.")
+    parts.append("\n**Quelle est ton approche ?**")
+    return "\n".join(parts)

@@ -12,106 +12,6 @@
       "text": "MINISTÈRE DE L’ÉDUCATION NATIONALE ET DE LA FORMATION PROFESSIONNELLE\n(MENFP)\nBACCALAURÉAT D’ENSEIGNEMENT GÉNÉRAL\nSÉRIES : (SVT, SES, LET/LA/ARTS, SMP)\nSESSION ORDINAIRE - JUILLET 2015\nFIN D’ÉTUDES SECONDAIRES\nConsignes :\n1. L’usage de la calculatrice programmable est interdit\n2. Le téléphone est interdit dans les salles\n3. Le silence est obligatoire\nDurée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1\n1- Identifier des éléments suivants ceux qui ne sont pas des types d’accès à Internet.\n Modem 56 K\n Réseau numérique à intégration de services (RNIS)\n Wi Max\n DVD\n Modem Câble\n Peta octet\n(15 pts)\n2- Un mégabit (symbole » Mb ou Mbit) est une unité de mesure en informatique qui vaut 220 bits).\nDéterminer la valeur de 1,13 ×1615 bits en mégabit.\n(15 pts)\n3- Un élève de secondaire IV propose les deux algorithmes suivants qui demande un nombre de\ndépart, et qui ensuite écrit la table de multiplication de ce nombre, présentée comme suit (cas où\nl’élève entre le nombre 7).\nTable de 7 :\n7 × 1 = 7\n7 × 2 = 14\n7 × 3 = 21\n-----------\n7 × 10 = 70\nRéponse I : variable N, i en Entier\nDébut\nEcrire « Entrez un nombre »\nLire N\nEcrire « la table de multiplication de ce nombre est : »\nPour i ? 1 à 10\nEcrire N, ʺ x ʺ, i, ʺ = ʺ, n + i\ni suivant\nFini\nRéponse II : variables N, i, Som en entier\nDébut\nEcrire « entrez un nombre i »\nLire N\nPour i ? 1 à 7\nEcrire N, i\nFin\n(35 pts)\nChoisir des deux réponses précédentes la bonne.\n4- Ecrire un algorithme qui demande un nombre à l’utilisateur, puis qui calcule et affiche le carré de\nce nombre.\n(35 pts)",
       "cleaned": true,
       "auto_clean": true,
-      "parts": [
-        {
-          "matiere": "GENERAL",
-          "points_total": 0,
-          "sections": [
-            {
-              "label": "SECTION",
-              "points": 0,
-              "themes": [
-                {
-                  "label": "",
-                  "title": "Questions",
-                  "context": "Consignes :",
-                  "questions": [
-                    {
-                      "num": 1,
-                      "text": "L’usage de la calculatrice programmable est interdit",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Le téléphone est interdit dans les salles",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Le silence est obligatoire Durée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1",
-                      "points": 0
-                    },
-                    {
-                      "num": 1,
-                      "text": "Identifier des éléments suivants ceux qui ne sont pas des types d’accès à Internet.",
-                      "points": 0
-                    },
-                    {
-                      "text": "Modem 56 K",
-                      "points": 0
-                    },
-                    {
-                      "text": "Réseau numérique à intégration de services (RNIS)",
-                      "points": 0
-                    },
-                    {
-                      "text": "Wi Max",
-                      "points": 0
-                    },
-                    {
-                      "text": "DVD",
-                      "points": 0
-                    },
-                    {
-                      "text": "Modem Câble",
-                      "points": 0
-                    },
-                    {
-                      "text": "Peta octet (15 pts)",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Un mégabit (symbole » Mb ou Mbit) est une unité de mesure en informatique qui vaut 220 bits). Déterminer la valeur de 1,13 ×1615 bits en mégabit. (15 pts)",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Un élève de secondaire IV propose les deux algorithmes suivants qui demande un nombre de départ, et qui ensuite écrit la table de multiplication de ce nombre, présentée comme suit (cas où l’élève entre le nombre 7). Table de 7 :",
-                      "points": 0
-                    },
-                    {
-                      "num": 7,
-                      "text": "× 1 = 7",
-                      "points": 0
-                    },
-                    {
-                      "num": 7,
-                      "text": "× 2 = 14",
-                      "points": 0
-                    },
-                    {
-                      "num": 7,
-                      "text": "× 3 = 21 -----------",
-                      "points": 0
-                    },
-                    {
-                      "num": 7,
-                      "text": "× 10 = 70 Réponse I : variable N, i en Entier Début Ecrire « Entrez un nombre » Lire N Ecrire « la table de multiplication de ce nombre est : » Pour i ? 1 à 10 Ecrire N, ʺ x ʺ, i, ʺ = ʺ, n + i i suivant Fini Réponse II : variables N, i, Som en entier Début Ecrire « entrez un nombre i » Lire N Pour i ? 1 à 7 Ecrire N, i Fin (35 pts) Choisir des deux réponses précédentes la bonne.",
-                      "points": 0
-                    },
-                    {
-                      "num": 4,
-                      "text": "Ecrire un algorithme qui demande un nombre à l’utilisateur, puis qui calcule et affiche le carré de ce nombre. (35 pts)",
-                      "points": 0
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
       "structured": true,
       "total_questions": 17,
       "items": [
@@ -161,7 +61,8 @@
         }
       ],
       "rebuilt": true,
-      "rebuild_error": null
+      "rebuild_error": null,
+      "parts_source": "removed_after_rebuild"
     },
     {
       "file": "exam_informatique_informatique_2016_exode.pdf",
@@ -171,72 +72,6 @@
       "text": "MINISTÈRE DE L’ÉDUCATION NATIONALE ET DE LA FORMATION PROFESSIONNELLE\n(MENFP)\nFILIÈRE D’ENSEIGNEMENT GÉNÉRAL\nSÉRIES : (SES, LET/LA/ARTS, SMP)\nBACCALAURÉAT SESSION ORDINARE - JUIN 2016\nFIN D’ÉTUDES SECONDAIRES\nINFORMATIQUE\nConsignes :\n1. L’usage de la calculatrice programmable est interdit\n2. Le téléphone est interdit dans les salles\n3. Le silence est obligatoire\nDurée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1\n1) Ecrire un algorithme qui demande un nombre à l’utilisateur puis affiche le carré de ce nombre à\nl’écran.\n2) Ecrire un algorithme qui calcule et affiche la valeur absolue d’un nombre X.\n3) Cocher la bonne réponse.\na) Laquelle de ces lignes crée un tableau de dix entiers ?\nTableau {10} en numérique\nTableau [10] en numérique\nTableau [9] en numérique\nTableau {9} en numérique\nb) Laquelle de ces balises est correctement écrite ?\n‹/title› ‹title›\n‹title› ‹title/›\n‹title› ‹/title›\nc) Pour se connecter à l’Internet il faut avoir :\nUn modem\nUn Webcam\nLe service",
       "cleaned": true,
       "auto_clean": true,
-      "parts": [
-        {
-          "matiere": "INFORMATIQUE",
-          "points_total": 0,
-          "sections": [
-            {
-              "label": "SECTION",
-              "points": 0,
-              "themes": [
-                {
-                  "label": "",
-                  "title": "Questions",
-                  "context": "Consignes :",
-                  "questions": [
-                    {
-                      "num": 1,
-                      "text": "L’usage de la calculatrice programmable est interdit",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Le téléphone est interdit dans les salles",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Le silence est obligatoire Durée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1",
-                      "points": 0
-                    },
-                    {
-                      "num": 1,
-                      "text": "Ecrire un algorithme qui demande un nombre à l’utilisateur puis affiche le carré de ce nombre à l’écran.",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Ecrire un algorithme qui calcule et affiche la valeur absolue d’un nombre X.",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Cocher la bonne réponse.",
-                      "points": 0
-                    },
-                    {
-                      "num": "a",
-                      "text": "Laquelle de ces lignes crée un tableau de dix entiers ? Tableau {10} en numérique Tableau [10] en numérique Tableau [9] en numérique Tableau {9} en numérique",
-                      "points": 0
-                    },
-                    {
-                      "num": "b",
-                      "text": "Laquelle de ces balises est correctement écrite ? ‹/title› ‹title› ‹title› ‹title/› ‹title› ‹/title›",
-                      "points": 0
-                    },
-                    {
-                      "num": "c",
-                      "text": "Pour se connecter à l’Internet il faut avoir : Un modem Un Webcam Le service",
-                      "points": 0
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
       "structured": true,
       "total_questions": 9,
       "items": [
@@ -300,7 +135,8 @@
         }
       ],
       "rebuilt": true,
-      "rebuild_error": null
+      "rebuild_error": null,
+      "parts_source": "removed_after_rebuild"
     },
     {
       "file": "exam_informatique_informatique_2016_isotron.pdf",
@@ -310,67 +146,6 @@
       "text": "MINISTÈRE DE L’ÉDUCATION NATIONALE ET DE LA FORMATION PROFESSIONNELLE\n(MENFP)\nFILIÈRE D’ENSEIGNEMENT GÉNÉRAL\nSÉRIES : (SES, LET/LA/ARTS, SMP)\nAOÛT 2016\nEXAMENS DE FIN D’ÉTUDES SECONDAIRES\nINFORMATIQUE\nConsignes :\n1. L’usage de la calculatrice programmable est interdit\n2. Le téléphone est interdit dans les salles\n3. Le silence est obligatoire\nDurée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1\n1) Ecrire un algorithme qui demande l’âge de l’utilisateur et qui affiche si cette personne est majeure ou\nmineure.\n2) Ecrire un algorithme permettant de multiplier les éléments d’un tableau (vecteur) par 2 et d’ajouter 10\nau résultat.\n3) Cocher la/les bonne (s) réponse (s).\na) Ensemble de pages liées entre elles par des liens particuliers appelés « hyperliens » et qui forment\nun tout cohérent est :\nUne page web\nUn serveur web\nUn site web\nb) IP décrit :\nUn réseau Ethernet\nUn transfert de fichiers\nUne messagerie électronique\nUn protocole de communication",
       "cleaned": true,
       "auto_clean": true,
-      "parts": [
-        {
-          "matiere": "INFORMATIQUE",
-          "points_total": 0,
-          "sections": [
-            {
-              "label": "SECTION",
-              "points": 0,
-              "themes": [
-                {
-                  "label": "",
-                  "title": "Questions",
-                  "context": "Consignes :",
-                  "questions": [
-                    {
-                      "num": 1,
-                      "text": "L’usage de la calculatrice programmable est interdit",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Le téléphone est interdit dans les salles",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Le silence est obligatoire Durée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1",
-                      "points": 0
-                    },
-                    {
-                      "num": 1,
-                      "text": "Ecrire un algorithme qui demande l’âge de l’utilisateur et qui affiche si cette personne est majeure ou mineure.",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Ecrire un algorithme permettant de multiplier les éléments d’un tableau (vecteur) par 2 et d’ajouter 10 au résultat.",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Cocher la/les bonne (s) réponse (s).",
-                      "points": 0
-                    },
-                    {
-                      "num": "a",
-                      "text": "Ensemble de pages liées entre elles par des liens particuliers appelés « hyperliens » et qui forment un tout cohérent est : Une page web Un serveur web Un site web",
-                      "points": 0
-                    },
-                    {
-                      "num": "b",
-                      "text": "IP décrit : Un réseau Ethernet Un transfert de fichiers Une messagerie électronique Un protocole de communication",
-                      "points": 0
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
       "structured": true,
       "total_questions": 8,
       "items": [
@@ -417,7 +192,8 @@
         }
       ],
       "rebuilt": true,
-      "rebuild_error": null
+      "rebuild_error": null,
+      "parts_source": "removed_after_rebuild"
     },
     {
       "file": "exam_informatique_informatique_2016_italique.pdf",
@@ -427,67 +203,6 @@
       "text": "MINISTÈRE DE L’ÉDUCATION NATIONALE ET DE LA FORMATION PROFESSIONNELLE\n(MENFP)\nFILIÈRE D’ENSEIGNEMENT GÉNÉRAL\nSÉRIES : (SES, LET/LA/ARTS, SMP)\nBACCALAURÉAT SESSION ORDINARE - JUIN 2016\nEXAMENS DE FIN D’ÉTUDES SECONDAIRES\nINFORMATIQUE\nConsignes :\n1. L’usage de la calculatrice programmable est interdit\n2. Le téléphone est interdit dans les salles\n3. Le silence est obligatoire\nDurée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1\n1) Ecrire un algorithme qui demande deux nombres à l’utilisateur (X et Y), et ensuite qui met dans X et\nY la plus grande et la plus petite valeur (entre X et Y) respectivement.\n2) Quel résultat produira cet algorithme ?\nTableau X(1,2) en entier\nVariables : i, j, val en entier\nDébut\nVal 1\nPour i 0 à 1\nPour j 0 à 2\nX(i, j) val\nVal val + 1\nj suivant\ni suivant\nPour j 0 à 2\nPour i 0 à 1\nEcrire X (i, j)\ni suivant\nj suivant\nFin\n3) Pour chaque question cocher (X) la bonne réponse.\na) Un petit paquet de données qui circule sur internet d’un ordinateur à un autre, plus précisément\nd’une boite aux lettres électroniques à une autre est :\nUne adresse électronique\nUn courrier électronique\nUn Forum de discussion\nb) Le programme Bios est enregistré dans :\nLe processeur\nLa ROM\nLa RAM\nLe processeur ROM",
       "cleaned": true,
       "auto_clean": true,
-      "parts": [
-        {
-          "matiere": "INFORMATIQUE",
-          "points_total": 0,
-          "sections": [
-            {
-              "label": "SECTION",
-              "points": 0,
-              "themes": [
-                {
-                  "label": "",
-                  "title": "Questions",
-                  "context": "Consignes :",
-                  "questions": [
-                    {
-                      "num": 1,
-                      "text": "L’usage de la calculatrice programmable est interdit",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Le téléphone est interdit dans les salles",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Le silence est obligatoire Durée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1",
-                      "points": 0
-                    },
-                    {
-                      "num": 1,
-                      "text": "Ecrire un algorithme qui demande deux nombres à l’utilisateur (X et Y), et ensuite qui met dans X et Y la plus grande et la plus petite valeur (entre X et Y) respectivement.",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Quel résultat produira cet algorithme ? Tableau X(1,2) en entier Variables : i, j, val en entier Début Val 1 Pour i 0 à 1 Pour j 0 à 2 X(i, j) val Val val + 1 j suivant i suivant Pour j 0 à 2 Pour i 0 à 1 Ecrire X (i, j) i suivant j suivant Fin",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Pour chaque question cocher (X) la bonne réponse.",
-                      "points": 0
-                    },
-                    {
-                      "num": "a",
-                      "text": "Un petit paquet de données qui circule sur internet d’un ordinateur à un autre, plus précisément d’une boite aux lettres électroniques à une autre est : Une adresse électronique Un courrier électronique Un Forum de discussion",
-                      "points": 0
-                    },
-                    {
-                      "num": "b",
-                      "text": "Le programme Bios est enregistré dans : Le processeur La ROM La RAM Le processeur ROM",
-                      "points": 0
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
       "structured": true,
       "total_questions": 8,
       "items": [
@@ -536,7 +251,8 @@
         }
       ],
       "rebuilt": true,
-      "rebuild_error": null
+      "rebuild_error": null,
+      "parts_source": "removed_after_rebuild"
     },
     {
       "file": "exam_informatique_informatique_2016_item.pdf",
@@ -546,67 +262,6 @@
       "text": "MINISTÈRE DE L’ÉDUCATION NATIONALE ET DE LA FORMATION PROFESSIONNELLE\n(MENFP)\nD’ENSEIGNEMENT GÉNÉRAL\nSÉRIES : (SES, LET/LA/ARTS, SMP)\nBACCALAURÉAT SESSION ORDINARE - JUIN 2016\nEXAMENS DE FIN D’ÉTUDES SECONDAIRES\nINFORMATIQUE\nConsignes :\n1. L’usage de la calculatrice programmable est interdit\n2. Le téléphone est interdit dans les salles\n3. Le silence est obligatoire\nDurée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1\n1) Que fait l’algorithme suivant ?\n/*\nVariables : t , t en numérique\n1 2\nDébut\nt 2\n1\nEcrire (« Entrez un nombre »)\nLire L\n2\nEcrire (t * t )\n1 2\nFin\n*/\n2) Ecrire un algorithme permettant de résoudre dans R l’équation : Ax2 + Bx + C = 0, A≠0.\n3) Cocher la bonne réponse.\na) Trouver parmi les logiciels suivants celui qui n’est pas un système d’exploitation :\nDos\nWindows\nMicrosoft office\nLinux\nb) Laquelle de ces balises est correctement écrite ?\n‹Title› ‹/Title›\n‹/title› ‹title›\n‹title› ‹/title›",
       "cleaned": true,
       "auto_clean": true,
-      "parts": [
-        {
-          "matiere": "INFORMATIQUE",
-          "points_total": 0,
-          "sections": [
-            {
-              "label": "SECTION",
-              "points": 0,
-              "themes": [
-                {
-                  "label": "",
-                  "title": "Questions",
-                  "context": "Consignes :",
-                  "questions": [
-                    {
-                      "num": 1,
-                      "text": "L’usage de la calculatrice programmable est interdit",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Le téléphone est interdit dans les salles",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Le silence est obligatoire Durée de l’épreuve : 1h 30 Coefficients : (SVT) : 1 (SES) : 1 (SMP) : 1 (LET/LA/ARTS) : 1",
-                      "points": 0
-                    },
-                    {
-                      "num": 1,
-                      "text": "Que fait l’algorithme suivant ? Variables : t , t en numérique 1 2 Début t 2 [2] Ecrire (« Entrez un nombre ») Lire L [2] Ecrire (t * t ) 1 2 Fin",
-                      "points": 0
-                    },
-                    {
-                      "num": 2,
-                      "text": "Ecrire un algorithme permettant de résoudre dans R l’équation : Ax2 + Bx + C = 0, A≠0.",
-                      "points": 0
-                    },
-                    {
-                      "num": 3,
-                      "text": "Cocher la bonne réponse.",
-                      "points": 0
-                    },
-                    {
-                      "num": "a",
-                      "text": "Trouver parmi les logiciels suivants celui qui n’est pas un système d’exploitation : Dos Windows Microsoft office Linux",
-                      "points": 0
-                    },
-                    {
-                      "num": "b",
-                      "text": "Laquelle de ces balises est correctement écrite ? ‹Title› ‹/Title› ‹/title› ‹title› ‹title› ‹/title›",
-                      "points": 0
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
       "structured": true,
       "total_questions": 8,
       "items": [
@@ -656,8 +311,11 @@
         }
       ],
       "rebuilt": true,
-      "rebuild_error": null
+      "rebuild_error": null,
+      "parts_source": "removed_after_rebuild"
     }
   ],
-  "rebuilt_count": 5
+  "rebuilt_count": 5,
+  "cleaned_at": "2026-08-12 03:17",
+  "clean_version": 1
 }

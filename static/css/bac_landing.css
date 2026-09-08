@@ -191,6 +191,10 @@ h1 span {
     flex-wrap: wrap;
 }
 
+.hero-buttons a.btn-cta {
+    text-decoration: none;
+}
+
 .social-proof {
     display: flex;
     align-items: center;
@@ -827,7 +831,16 @@ footer {
 
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        width: 100%;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons .btn-cta {
+        width: 100%;
+        justify-content: center;
     }
 
     /* Compact subject cards: 3 per row on mobile */

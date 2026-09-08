@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% block title %}Dashboard Agent – OU TOU BON{% endblock %}
+﻿{% extends "base.html" %}
+{% block title %}Dashboard Agent â€“ OU TOU BON{% endblock %}
 {% block body %}
 <style>
   
@@ -184,8 +184,8 @@
     </div>
 
     <div class="nav-section">Principal</div>
-    <a href="#" class="a-nav-item active" onclick="showTab('overview');return false;"><i class="fas fa-chart-pie"></i> Aperçu</a>
-    <a href="#" class="a-nav-item" onclick="showTab('referrals');return false;"><i class="fas fa-users"></i> Mes élèves</a>
+    <a href="#" class="a-nav-item active" onclick="showTab('overview');return false;"><i class="fas fa-chart-pie"></i> AperÃ§u</a>
+    <a href="#" class="a-nav-item" onclick="showTab('referrals');return false;"><i class="fas fa-users"></i> Mes Ã©lÃ¨ves</a>
     <a href="#" class="a-nav-item" onclick="showTab('withdraw');return false;"><i class="fas fa-wallet"></i> Retrait MonCash</a>
     <a href="#" class="a-nav-item" onclick="showTab('tips');return false;"><i class="fas fa-lightbulb"></i> Conseils Agent</a>
 
@@ -194,7 +194,7 @@
         <i class="fas fa-home"></i> Retour au site
       </a>
       <a href="{% url 'logout' %}" style="display:flex;align-items:center;gap:.75rem;color:var(--t3);font-size:.875rem;padding:.5rem;border-radius:8px;text-decoration:none;margin-top:.25rem;">
-        <i class="fas fa-sign-out-alt"></i> Déconnexion
+        <i class="fas fa-sign-out-alt"></i> DÃ©connexion
       </a>
     </div>
   </aside>
@@ -203,14 +203,14 @@
   <div class="agent-main">
     <div class="agent-topbar">
       <div class="agent-topbar-title"><i class="fas fa-user-tie" style="color:#fbbf24;margin-right:.5rem;"></i>Mon espace Agent</div>
-      <a href="{% url 'logout' %}" style="display:flex;align-items:center;gap:.4rem;color:var(--t3);font-size:.85rem;font-weight:600;text-decoration:none;padding:.45rem .85rem;border-radius:10px;border:1px solid var(--border2);transition:all .15s;" onmouseover="this.style.borderColor='#f87171';this.style.color='#f87171'" onmouseout="this.style.borderColor='';this.style.color=''"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+      <a href="{% url 'logout' %}" style="display:flex;align-items:center;gap:.4rem;color:var(--t3);font-size:.85rem;font-weight:600;text-decoration:none;padding:.45rem .85rem;border-radius:10px;border:1px solid var(--border2);transition:all .15s;" onmouseover="this.style.borderColor='#f87171';this.style.color='#f87171'" onmouseout="this.style.borderColor='';this.style.color=''"><i class="fas fa-sign-out-alt"></i> DÃ©connexion</a>
     </div>
     <div class="view-area">
 
       
       <div class="agent-tabs" style="overflow-x:auto;">
-        <button class="agent-tab-btn active" onclick="showTab('overview')">Aperçu</button>
-        <button class="agent-tab-btn" onclick="showTab('referrals')">Mes élèves</button>
+        <button class="agent-tab-btn active" onclick="showTab('overview')">AperÃ§u</button>
+        <button class="agent-tab-btn" onclick="showTab('referrals')">Mes Ã©lÃ¨ves</button>
         <button class="agent-tab-btn" onclick="showTab('withdraw')">Retrait</button>
         <button class="agent-tab-btn" onclick="showTab('tips')">Conseils</button>
       </div>
@@ -227,17 +227,17 @@
           <div class="a-stat" style="border-top:3px solid #10b981;">
             <div class="a-stat-icon" style="background:rgba(16,185,129,.12);color:#10b981;"><i class="fas fa-user-check"></i></div>
             <div class="a-stat-val">{{ agent.paid_referrals }}</div>
-            <div class="a-stat-label">Élèves payés</div>
+            <div class="a-stat-label">Ã‰lÃ¨ves payÃ©s</div>
           </div>
           <div class="a-stat" style="border-top:3px solid var(--blue2);">
             <div class="a-stat-icon" style="background:rgba(59,130,246,.12);color:var(--blue2);"><i class="fas fa-users"></i></div>
             <div class="a-stat-val">{{ agent.total_referrals }}</div>
-            <div class="a-stat-label">Total invités</div>
+            <div class="a-stat-label">Total invitÃ©s</div>
           </div>
           <div class="a-stat" style="border-top:3px solid var(--purple);">
             <div class="a-stat-icon" style="background:rgba(139,92,246,.12);color:var(--purple);"><i class="fas fa-trophy"></i></div>
             <div class="a-stat-val">{{ agent.total_earned }}G</div>
-            <div class="a-stat-label">Total gagné</div>
+            <div class="a-stat-label">Total gagnÃ©</div>
           </div>
         </div>
 
@@ -276,7 +276,7 @@
               <img src="{{ qr_data_uri }}" alt="QR Code" style="width:160px;height:160px;border-radius:10px;">
               <span style="font-size:.75rem;color:var(--t3);">Scanne pour s'inscrire via ton lien</span>
               <button onclick="downloadQR()" style="padding:.4rem .85rem;border-radius:8px;font-size:.75rem;font-weight:700;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.35);color:#fbbf24;cursor:pointer;">
-                <i class="fas fa-download"></i> Télécharger le QR
+                <i class="fas fa-download"></i> TÃ©lÃ©charger le QR
               </button>
             </div>
           </div>
@@ -290,22 +290,22 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.75rem;margin-top:.5rem;">
               <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
                 <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">750G</div>
-                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">5 élèves abonnés</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">5 Ã©lÃ¨ves abonnÃ©s</div>
               </div>
               <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
                 <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">1 500G</div>
-                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">10 élèves abonnés</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">10 Ã©lÃ¨ves abonnÃ©s</div>
               </div>
               <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
                 <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">3 000G</div>
-                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">20 élèves abonnés</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">20 Ã©lÃ¨ves abonnÃ©s</div>
               </div>
               <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:.75rem;text-align:center;">
                 <div style="font-size:1.3rem;font-weight:900;color:#fbbf24;">7 500G</div>
-                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">50 élèves abonnés</div>
+                <div style="font-size:.75rem;color:var(--t2);margin-top:.2rem;">50 Ã©lÃ¨ves abonnÃ©s</div>
               </div>
             </div>
-            <p style="font-size:.8rem;color:var(--t3);margin-top:.85rem;">Commission de 150G par élève payé · illimité · pas de plafond</p>
+            <p style="font-size:.8rem;color:var(--t3);margin-top:.85rem;">Commission de 150G par Ã©lÃ¨ve payÃ© Â· illimitÃ© Â· pas de plafond</p>
           </div>
         </div>
       </div>
@@ -313,14 +313,14 @@
       
       <div id="tab-referrals" class="agent-tab-pane">
         <div class="agent-section">
-          <div class="agent-section-title"><i class="fas fa-users" style="margin-right:.4rem;"></i>Élèves invités via ton lien</div>
+          <div class="agent-section-title"><i class="fas fa-users" style="margin-right:.4rem;"></i>Ã‰lÃ¨ves invitÃ©s via ton lien</div>
           <div class="ref-table-wrap">
             {% if referrals %}
             <table class="ref-table">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Numéro / Contact</th>
+                  <th>NumÃ©ro / Contact</th>
                   <th>Commission</th>
                   <th>Statut</th>
                   <th>Date</th>
@@ -330,11 +330,11 @@
                 {% for r in referrals %}
                 <tr>
                   <td style="color:var(--t3);">{{ forloop.counter }}</td>
-                  <td>{{ r.phone_hint|default:r.referred_user.username|default:"—" }}</td>
+                  <td>{{ r.phone_hint|default:r.referred_user.username|default:"â€”" }}</td>
                   <td style="font-weight:700;color:#fbbf24;">{{ r.amount }}G</td>
                   <td>
                     {% if r.paid %}
-                      <span class="ref-status-paid"><i class="fas fa-check-circle"></i> Payé</span>
+                      <span class="ref-status-paid"><i class="fas fa-check-circle"></i> PayÃ©</span>
                     {% else %}
                       <span class="ref-status-pending"><i class="fas fa-clock"></i> En attente</span>
                     {% endif %}
@@ -347,8 +347,8 @@
             {% else %}
             <div class="empty-state">
               <i class="fas fa-user-plus" style="color:var(--t3);"></i>
-              <p style="font-weight:600;color:var(--t2);">Aucun élève invité pour l'instant</p>
-              <p style="font-size:.82rem;">Partage ton lien d'affiliation pour commencer à inviter des élèves</p>
+              <p style="font-weight:600;color:var(--t2);">Aucun Ã©lÃ¨ve invitÃ© pour l'instant</p>
+              <p style="font-size:.82rem;">Partage ton lien d'affiliation pour commencer Ã  inviter des Ã©lÃ¨ves</p>
             </div>
             {% endif %}
           </div>
@@ -373,25 +373,25 @@
                 <div style="font-size:.75rem;color:var(--t2);font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Solde disponible</div>
                 <div style="font-size:2rem;font-weight:900;color:#fbbf24;">{{ agent.balance }}<span style="font-size:1rem;"> G</span></div>
               </div>
-              <div style="font-size:.78rem;color:var(--t3);text-align:right;">Min. retrait : 150G<br>Paiement par MonCash</div>
+              <div style="font-size:.78rem;color:var(--t3);text-align:right;">Min. retrait : 100G<br>Paiement par MonCash</div>
             </div>
 
-            {% if agent.balance >= 150 %}
+            {% if agent.balance >= 100 %}
             <form method="post" id="withdrawForm" onsubmit="return handleWithdraw(event)">
               {% csrf_token %}
               <input type="hidden" name="action" value="withdraw">
               <div class="w-form-row">
                 <div class="w-form-group">
-                  <label>Montant à retirer (G)</label>
-                  <input class="w-form-input" type="number" name="amount" min="150" max="{{ agent.balance }}" placeholder="ex: 300" required>
+                  <label>Montant Ã  retirer (G)</label>
+                  <input class="w-form-input" type="number" name="amount" min="100" max="{{ agent.balance }}" placeholder="ex: 300" required>
                 </div>
                 <div class="w-form-group">
-                  <label>Numéro MonCash</label>
+                  <label>NumÃ©ro MonCash</label>
                   <input class="w-form-input" type="tel" name="moncash" placeholder="ex: +509 3X XX XX XX" required>
                 </div>
               </div>
               <button type="submit" class="w-submit" id="withdrawBtn"><i class="fas fa-paper-plane"></i> Demander le retrait</button>
-              <p style="font-size:.75rem;color:var(--t3);margin-top:.75rem;">Les retraits sont traités sous 5 à 10 minutes. Le statut se met à jour automatiquement.</p>
+              <p style="font-size:.75rem;color:var(--t3);margin-top:.75rem;">Les retraits sont traitÃ©s sous 5 Ã  10 minutes. Le statut se met Ã  jour automatiquement.</p>
             </form>
 
             
@@ -405,13 +405,13 @@
                   <div class="astra-dot generating" style="background:#fbbf24;"></div>
                 </div>
               </div>
-              <div style="font-weight:700;color:#fbbf24;font-size:.9rem;">Traitement en cours…</div>
-              <div style="font-size:.78rem;color:var(--t3);margin-top:.3rem;">Confirmation MonCash sous 5–10 minutes</div>
+              <div style="font-weight:700;color:#fbbf24;font-size:.9rem;">Traitement en coursâ€¦</div>
+              <div style="font-size:.78rem;color:var(--t3);margin-top:.3rem;">Confirmation MonCash sous 5â€“10 minutes</div>
             </div>
             {% else %}
             <div class="withdraw-coming-soon">
               <div class="coming-badge"><i class="fas fa-lock"></i> Solde insuffisant</div>
-              <p style="color:var(--t2);font-size:.875rem;">Il te faut au moins <strong style="color:#fbbf24;">150G</strong> pour faire un retrait.<br>Invite un élève pour atteindre ce seuil !</p>
+              <p style="color:var(--t2);font-size:.875rem;">Il te faut au moins <strong style="color:#fbbf24;">100G</strong> pour faire un retrait.<br>Invite un Ã©lÃ¨ve pour atteindre ce seuil !</p>
             </div>
             {% endif %}
 
@@ -428,8 +428,8 @@
                       <td style="font-weight:700;color:#fbbf24;">{{ w.amount }}G</td>
                       <td>{{ w.moncash }}</td>
                       <td>
-                        {% if w.status == 'approved' %}<span class="ref-status-paid">Approuvé</span>
-                        {% elif w.status == 'rejected' %}<span style="display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.7rem;font-weight:700;background:rgba(239,68,68,.12);color:#f87171;">Refusé</span>
+                        {% if w.status == 'approved' %}<span class="ref-status-paid">ApprouvÃ©</span>
+                        {% elif w.status == 'rejected' %}<span style="display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.7rem;font-weight:700;background:rgba(239,68,68,.12);color:#f87171;">RefusÃ©</span>
                         {% else %}<span class="ref-status-pending">En attente</span>{% endif %}
                       </td>
                       <td style="color:var(--t3);font-size:.78rem;">{{ w.created_at|date:"d/m/Y" }}</td>
@@ -449,23 +449,23 @@
         <div class="agent-section">
           <div class="agent-section-title"><i class="fas fa-lightbulb" style="margin-right:.4rem;"></i>Conseils pour maximiser tes revenus</div>
           <div class="tips-card" style="margin-bottom:1.25rem;">
-            <h3>🏫 Va dans les écoles</h3>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Présente OU TOU BON directement dans les établissements. Les élèves de Terminale cherchent activement des outils pour préparer le BAC.</div>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Demande à parler pendant une pause ou une récréation — 5 minutes peuvent te donner 10 inscriptions.</div>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Montre une démonstration rapide de l'IA sur ton téléphone. L'effet "wow" suffit.</div>
+            <h3>ðŸ« Va dans les Ã©coles</h3>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>PrÃ©sente OU TOU BON directement dans les Ã©tablissements. Les Ã©lÃ¨ves de Terminale cherchent activement des outils pour prÃ©parer le BAC.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Demande Ã  parler pendant une pause ou une rÃ©crÃ©ation â€” 5 minutes peuvent te donner 10 inscriptions.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Montre une dÃ©monstration rapide de l'IA sur ton tÃ©lÃ©phone. L'effet "wow" suffit.</div>
           </div>
           <div class="tips-card" style="margin-bottom:1.25rem;">
-            <h3>📱 Utilise les réseaux sociaux</h3>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Crée un groupe WhatsApp "Prépare ton BAC" et partage ton lien régulièrement.</div>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Poste des témoignages et des captures de résultats sur TikTok et Facebook — les vidéos courtes convertissent bien.</div>
+            <h3>ðŸ“± Utilise les rÃ©seaux sociaux</h3>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>CrÃ©e un groupe WhatsApp "PrÃ©pare ton BAC" et partage ton lien rÃ©guliÃ¨rement.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Poste des tÃ©moignages et des captures de rÃ©sultats sur TikTok et Facebook â€” les vidÃ©os courtes convertissent bien.</div>
             <div class="tip-item"><i class="fas fa-check-circle"></i>Ajoute ton lien d'affiliation dans chaque caption et story pour maximiser les inscriptions.</div>
           </div>
           <div class="tips-card">
-            <h3>💡 Stratégie de croissance</h3>
-            <div class="tip-item"><i class="fas fa-check-circle"></i><strong style="color:#fbbf24;">10 élèves = 1 500G.</strong> C'est ton objectif de la première semaine.</div>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Chaque élève que tu invites peut à son tour parler de la plateforme — crée un effet de réseau.</div>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Il n'y a pas de limite. Certains agents peuvent facilement atteindre 50–100 filleuls en visitant plusieurs écoles.</div>
-            <div class="tip-item"><i class="fas fa-check-circle"></i>Le système de paiement automatique est en cours d'intégration — tes statistiques et ton solde sont déjà enregistrés.</div>
+            <h3>ðŸ’¡ StratÃ©gie de croissance</h3>
+            <div class="tip-item"><i class="fas fa-check-circle"></i><strong style="color:#fbbf24;">10 Ã©lÃ¨ves = 1 500G.</strong> C'est ton objectif de la premiÃ¨re semaine.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Chaque Ã©lÃ¨ve que tu invites peut Ã  son tour parler de la plateforme â€” crÃ©e un effet de rÃ©seau.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Il n'y a pas de limite. Certains agents peuvent facilement atteindre 50â€“100 filleuls en visitant plusieurs Ã©coles.</div>
+            <div class="tip-item"><i class="fas fa-check-circle"></i>Le systÃ¨me de paiement automatique est en cours d'intÃ©gration â€” tes statistiques et ton solde sont dÃ©jÃ  enregistrÃ©s.</div>
           </div>
         </div>
       </div>
@@ -492,7 +492,7 @@ function copyLink() {
   const link = document.getElementById('refLinkText').textContent.trim();
   navigator.clipboard.writeText(link).then(() => {
     const btn = document.querySelector('.copy-btn');
-    btn.innerHTML = '<i class="fas fa-check"></i> Copié !';
+    btn.innerHTML = '<i class="fas fa-check"></i> CopiÃ© !';
     btn.style.background = 'rgba(16,185,129,.2)';
     btn.style.borderColor = 'rgba(16,185,129,.4)';
     btn.style.color = '#10b981';
@@ -519,7 +519,7 @@ function downloadQR() {
 function handleWithdraw(e) {
   const btn = document.getElementById('withdrawBtn');
   btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi…';
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoiâ€¦';
   return true;
 }
 
@@ -550,3 +550,4 @@ function handleWithdraw(e) {
 })();
 </script>
 {% endblock %}
+

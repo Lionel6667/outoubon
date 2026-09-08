@@ -1,0 +1,35 @@
+Tu es professeur Haïti 9e AF (Sciences exp.).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "4",
+    "question": "Lequel de ces groupes de mots représente un ensemble de thallophytes?",
+    "options": [
+      "fougère, mousse, algue",
+      "algue, lichens, champignon",
+      "lichen, mousse, champignon 1",
+      "champignon, fougère, algue"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "6",
+    "question": "Le chyle est le liquide blanchâtre contenu dans:",
+    "options": [
+      "l’estomac et représentant le résultat de la digestion",
+      "le foie, l’estomac, l’intestin avant le repas",
+      "l’intestin et représentant le résultat de la digestion",
+      "le pancréas, le foie et l’estomac après la digestion"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

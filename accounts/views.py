@@ -83,15 +83,12 @@ def _safe_referer_next(request):
 
 
 def _store_referral_from_request(request):
-    referral_code = (request.GET.get('ref') or '').strip().upper()
-    if not referral_code:
-        return None
-    from .models import Agent
-    agent = Agent.objects.filter(referral_code=referral_code, is_active=True).first()
-    if agent:
-        request.session['agent_referral_code'] = agent.referral_code
-        return agent
-    request.session.pop('agent_referral_code', None)
+    from accounts.referrals import store_student_or_agent_ref
+    store_student_or_agent_ref(request)
+    code = (request.GET.get('ref') or '').strip().upper()
+    if code and not code.startswith('U'):
+        from .models import Agent
+        return Agent.objects.filter(referral_code=code, is_active=True).first()
     return None
 
 
@@ -124,20 +121,17 @@ def landing(request):
     # Fetch top user stats for league section on landing page (Optimized)
     try:
         from core.models import UserStats
-        from django.db.models import F
         
         base_stats = UserStats.objects.filter(
             user__is_staff=False, user__is_superuser=False, user__agent__isnull=True,
-        ).annotate(
-            xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
         )
         
         total_users = base_stats.count()
-        top_stat = base_stats.select_related('user', 'user__profile').order_by('-xp').first()
+        top_stat = base_stats.select_related('user', 'user__profile').order_by('-xp_total').first()
         
         if top_stat:
             top_user_name = getattr(top_stat.user, 'profile', None).first_name or top_stat.user.username
-            top_user_xp = top_stat.xp
+            top_user_xp = int(top_stat.xp_total or 0)
         else:
             top_user_name = '—'
             top_user_xp = 0
@@ -334,9 +328,25 @@ def school_search_view(request):
         return JsonResponse({'error': 'Nom vide'}, status=400)
 
     q = request.GET.get('q', '').strip()
-    results = list(
-        School.objects.filter(name__icontains=q).values_list('name', flat=True)[:10]
-    ) if q else []
+    results = []
+    if q:
+        seen = set()
+        # Préfixe (index-friendly) puis recherche large si peu de résultats
+        names = list(
+            School.objects.filter(name__istartswith=q).order_by('name').values_list('name', flat=True)[:12]
+        )
+        if len(names) < 8:
+            extra = School.objects.filter(name__icontains=q).exclude(
+                name__in=names,
+            ).order_by('name').values_list('name', flat=True)[:12]
+            names.extend(extra)
+        for name in names:
+            key = name.lower().strip()
+            if key in seen:
+                continue
+            seen.add(key)
+            results.append(name)
+        results = results[:12]
     return JsonResponse({'results': results})
 
 def logout_view(request):
@@ -384,15 +394,14 @@ def verify_auth_token_view(request):
 
     token = (data.get('token') or request.POST.get('token', '') or '').strip()
     if not token:
-        # Don't throw 401 here, just a 400 for missing parameter to avoid console noise on auto-login attempts
-        return JsonResponse({'error': 'no token'}, status=400)
+        return JsonResponse({'ok': False, 'error': 'no token'})
 
     from .models import PersistentAuthToken
     from django.contrib.auth import login as auth_login
     
     token_obj = PersistentAuthToken.objects.select_related('user').filter(token=token).first()
     if not token_obj or not token_obj.is_valid():
-        return JsonResponse({'error': 'invalid or expired token'}, status=401)
+        return JsonResponse({'ok': False, 'error': 'invalid or expired token'})
 
     # Token valide — logue l'utilisateur
     user = token_obj.user
@@ -552,6 +561,14 @@ def diagnostic_view(request):
                 from core.models import UserStats
                 UserStats.objects.get_or_create(user=user)
                 _attach_pending_referral(request, user, contact)
+                try:
+                    from accounts.referrals import attach_student_referral, ensure_invite_code
+                    attach_student_referral(request, user)
+                    prof = UserProfile.objects.filter(user=user).first()
+                    if prof:
+                        ensure_invite_code(prof)
+                except Exception:
+                    pass
 
             login(request, user)
             request.session.pop('signup_step1', None)
@@ -862,8 +879,8 @@ def agent_dashboard_view(request):
                 amount = int(amount)
             except ValueError:
                 amount = 0
-            if amount < 150:
-                withdrawal_error = 'Montant minimum de retrait : 150G.'
+            if amount < 100:
+                withdrawal_error = 'Montant minimum de retrait : 100G.'
             elif amount > agent.balance:
                 withdrawal_error = 'Solde insuffisant.'
             elif not moncash:
@@ -1056,6 +1073,8 @@ def api_device_check(request):
                 'pending_device_fingerprint', 'pending_device_session_key',
                 'pending_device_at',
             ])
+            from core.push_events import push_device_switch
+            push_device_switch(request.user)
             return JsonResponse({
                 'ok': True,
                 'device_changed': False,

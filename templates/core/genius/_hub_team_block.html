@@ -1,0 +1,78 @@
+{% with team=hub_initial.team role=hub_initial.my_role friends=hub_initial.friends %}
+<div class="v2-genius-team-header">
+  <div class="v2-genius-team-header__emblem">{{ team.emblem|default:"🧠" }}</div>
+  <div class="v2-genius-team-header__meta">
+    <h2>{{ team.name }}</h2>
+    <div class="v2-genius-code-badge">{{ team.invite_code }}</div>
+    <div class="v2-genius-slots">
+      {% for i in "0123" %}
+      <span class="v2-genius-slot {% if forloop.counter0 < team.member_count %}filled{% endif %}"></span>
+      {% endfor %}
+      <span>{{ team.member_count }}/4</span>
+    </div>
+  </div>
+</div>
+{% if team.stats %}
+<div class="v2-genius-team-stats-bar">
+  <span><i class="fas fa-trophy"></i> {{ team.stats.ranking_points }} pts</span>
+  <span><i class="fas fa-check"></i> {{ team.stats.wins }}V</span>
+  <span><i class="fas fa-fire"></i> {{ team.stats.team_streak|default:0 }} série</span>
+  <span><i class="fas fa-star"></i> {{ team.stats.team_xp|default:0 }} XP</span>
+</div>
+{% endif %}
+<a href="{% url 'genius_team' %}" class="v2-genius-btn v2-genius-btn--outline v2-genius-btn--sm" style="margin-bottom:.75rem">
+  <i class="fas fa-id-card"></i> Page équipe complète
+</a>
+<div class="v2-genius-members-list">
+  {% for m in team.members %}
+  <div class="v2-genius-member-row {% if m.is_captain %}is-captain{% endif %}">
+    <div class="v2-genius-member-row__avatar">{% if m.is_captain %}👑{% else %}👤{% endif %}</div>
+    <div class="v2-genius-member-row__info">
+      <strong>{{ m.display_name }}</strong>
+      <span>{% if m.is_captain %}Capitaine{% else %}Membre{% if not m.captain_eligible and not m.is_captain %} · ex-capitaine{% endif %}{% endif %}</span>
+    </div>
+    {% if role == 'captain' and not m.is_captain and m.removal_eligible %}
+    <button type="button" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--ghost" data-remove="{{ m.user_id }}">Retirer</button>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% if role == 'captain' %}
+<div class="v2-genius-captain-tools">
+  <label class="v2-genius-check">
+    <input type="checkbox" id="geniusOpenToggle"{% if team.is_open_for_requests %} checked{% endif %}>
+    <span>Équipe visible (demandes de rejoindre)</span>
+  </label>
+  {% if team.transfer_candidates %}
+  <div class="v2-genius-transfer">
+    <label>Transférer le rôle de capitaine</label>
+    <div class="v2-genius-inline-form">
+      <select class="v2-genius-input" id="geniusTransferSelect">
+        {% for cand in team.transfer_candidates %}
+        <option value="{{ cand.user_id }}">{{ cand.display_name }}</option>
+        {% endfor %}
+      </select>
+      <button type="button" class="v2-genius-btn v2-genius-btn--outline" id="btnTransferCaptain">
+        <i class="fas fa-crown"></i> Transférer
+      </button>
+    </div>
+    <p class="v2-genius-hint">Après transfert, tu ne pourras plus être capitaine dans cette équipe.</p>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% if role == 'captain' and not team.is_full %}
+<div class="v2-genius-invite-block">
+  <label>Inviter un ami</label>
+  <div class="v2-genius-inline-form">
+    <select class="v2-genius-input" id="geniusInviteSelect">
+      <option value="">— Choisir un ami —</option>
+      {% for f in friends %}
+      <option value="{{ f.id }}">{{ f.name }}</option>
+      {% endfor %}
+    </select>
+    <button type="button" class="v2-genius-btn v2-genius-btn--sm" id="btnInvite"><i class="fas fa-user-plus"></i> Inviter</button>
+  </div>
+</div>
+{% endif %}
+{% endwith %}

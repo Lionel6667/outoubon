@@ -30,6 +30,7 @@ _EXO_FILES: dict[str, tuple[str, str]] = {
     'physique': ('exo_physique.json', 'markdown_physique'),
     'maths':    ('exo_math.json',     'markdown_math'),
     'chimie':   ('exo_chimie.json',   'json_chapitres'),
+    'economie': ('exo_economie.json', 'json_economie'),
 }
 
 # In-memory cache (populated once at first request)
@@ -39,6 +40,29 @@ _cache: dict[str, list] = {}
 # ─────────────────────────────────────────────────────────────────────────────
 # HELPERS
 # ─────────────────────────────────────────────────────────────────────────────
+
+def _read_text_auto(path: Path) -> str:
+    raw = path.read_bytes()
+    for enc in ('utf-8', 'utf-8-sig', 'cp1252', 'latin-1'):
+        try:
+            return raw.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return raw.decode('utf-8', errors='replace')
+
+
+def normalize_chapter_key(chapter_str: str) -> str:
+    """Transforme 'Chapitre 1 - Probabilités' en 'probabilités'."""
+    if not chapter_str:
+        return ''
+    cleaned = re.sub(
+        r'^(chapitre|ch)\s*\d+\s*[:\-]\s*',
+        '',
+        chapter_str.strip(),
+        flags=re.IGNORECASE,
+    )
+    return cleaned.strip().lower()
+
 
 def _backtick_source(block: str) -> str:
     """Extract `exam_*.pdf` filename from the block."""
@@ -66,14 +90,17 @@ def _extract_sub_questions(text: str) -> tuple[str, list[str]]:
     Returns original intro (before first question) and question list.
     """
     q_re = re.compile(
-        r'^(?:[a-eA-E]\s*[\)\.]|[1-9]\s*[\)\.])\s+.+',
+        r'^(?:[a-zA-Z]\s*[\)\.]|[1-9]\d*\s*[\)\.]|Q\s*\d+\s*[:.)])\s+\S.+',
         re.MULTILINE,
     )
     matches = list(q_re.finditer(text))
-    if not matches:
+    if len(matches) < 2:
         return text.strip(), []
 
     first_pos = matches[0].start()
+    # Un "1." trop tôt est souvent un titre, pas une question
+    if first_pos < 12 and len(matches) < 3:
+        return text.strip(), []
     intro = text[:first_pos].strip()
     questions = [m.group().strip() for m in matches if len(m.group().strip()) > 5]
     return intro, questions
@@ -131,11 +158,11 @@ def _validate_exercise(exo: dict) -> bool:
     if len(min_len) < 20:  # too short, likely corrupted
         return False
     
+    blob = intro + '\n' + enonce
+    looks_like_table = bool(re.search(r'\|.+\|', blob) or 'effectif' in blob.lower() or 'fréquence' in blob.lower())
     # Check for corruption markers: too many special characters in a row
-    # (indicates stripped/malformed content)
-    if re.search(r'[|─=\-]{5,}', intro + enonce):
-        # This might be a table separator ok, but combined with other markers = bad
-        if re.search(r'[^\w\s\.\,\(\)\[\]\{\}\|\-─=:;\'\"@#$%&*+/\\À-ÿ]{3,}', intro + enonce):
+    if not looks_like_table and re.search(r'[|─=\-]{5,}', blob):
+        if re.search(r'[^\w\s\.\,\(\)\[\]\{\}\|\-─=:;\'\"@#$%&*+/\\À-ÿ]{3,}', blob):
             return False
     
     # Verify question count is reasonable
@@ -166,11 +193,26 @@ def _sanitize_exercise(exo: dict) -> dict:
     # Clean questions list
     if 'questions' in exo and isinstance(exo['questions'], list):
         exo['questions'] = [
-            _clean_text_corruptions(q).strip() 
-            for q in exo['questions'] 
-            if isinstance(q, str)
+            _clean_text_corruptions(q).strip()
+            for q in exo['questions']
+            if isinstance(q, str) and q.strip()
         ]
-    
+
+    intro = (exo.get('intro') or exo.get('enonce') or '').strip()
+    questions = list(exo.get('questions') or [])
+    intro_clean, extracted = _extract_sub_questions(intro)
+    if extracted:
+        if intro_clean:
+            exo['intro'] = intro_clean
+            if not exo.get('enonce') or exo.get('enonce') == intro:
+                exo['enonce'] = intro_clean
+        if not questions or len(extracted) > len(questions):
+            exo['questions'] = extracted
+    elif not questions:
+        # Keep a single working question rather than an empty list
+        if intro:
+            exo['questions'] = ['Résous cet exercice en expliquant ta démarche étape par étape.']
+
     return exo
 
 
@@ -338,7 +380,7 @@ def _series_to_md_table(text: str) -> str:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _load_json_list(path: Path, subject: str) -> list[dict]:
-    data = json.loads(path.read_text(encoding='utf-8'))
+    data = json.loads(_read_text_auto(path))
     result = []
     for item in data:
         if not isinstance(item, dict):
@@ -581,7 +623,7 @@ def _load_json_chapitres(path: Path, subject: str) -> list[dict]:
          objects individually, recovering chapter info from surrounding text.
       2. Parse chapters 11+ from the markdown tail.
     """
-    raw = path.read_text(encoding='utf-8')
+    raw = _read_text_auto(path)
     result = []
 
     # ── Part 1: JSON section (chapters 1-10) ─────────────────────────────
@@ -737,6 +779,63 @@ def _parse_chimie_markdown_tail(text: str, subject: str) -> list[dict]:
     return result
 
 
+def _load_json_economie(path: Path, subject: str) -> list[dict]:
+    """Charge exo_economie.json (structure variable, fichier parfois malformé)."""
+    raw = _read_text_auto(path)
+    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', raw)
+    result: list[dict] = []
+
+    def _append_exo(exo: dict, chapter: str = '') -> None:
+        enonce = (exo.get('enonce') or exo.get('intro') or '').strip()
+        if not enonce:
+            return
+        questions = [str(q).strip() for q in (exo.get('questions') or []) if str(q).strip()]
+        if not questions:
+            _, questions = _extract_sub_questions(enonce)
+        ch = (chapter or exo.get('chapitre') or exo.get('theme') or 'Économie').strip()
+        item = {
+            'source': exo.get('source', ''),
+            'source_display': _source_display(exo.get('source', '')),
+            'theme': ch,
+            'chapter': ch,
+            'subject': subject,
+            'intro': enonce,
+            'enonce': enonce,
+            'questions': questions or [enonce],
+            'reponses': exo.get('reponses', exo.get('reponse', {})),
+        }
+        item = _sanitize_exercise(item)
+        if _validate_exercise(item):
+            result.append(item)
+
+    try:
+        data = json.JSONDecoder(strict=False).decode(raw)
+        for exo in data.get('exercices', []) + data.get('exercises', []):
+            if isinstance(exo, dict):
+                _append_exo(exo)
+        for ch in data.get('chapitres', []):
+            if not isinstance(ch, dict):
+                continue
+            ch_title = ch.get('titre') or ch.get('title') or 'Économie'
+            for exo in ch.get('exercices', []):
+                if isinstance(exo, dict):
+                    _append_exo(exo, ch_title)
+        if result:
+            return result
+    except Exception:
+        pass
+
+    decoder = json.JSONDecoder(strict=False)
+    for m in re.finditer(r'\{\s*"(?:enonce|intro)"\s*:', raw):
+        try:
+            obj, _ = decoder.raw_decode(raw, m.start())
+            if isinstance(obj, dict) and (obj.get('enonce') or obj.get('intro')):
+                _append_exo(obj)
+        except json.JSONDecodeError:
+            continue
+    return result
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # MARKDOWN LOADER (shared by physique + math)
 # ─────────────────────────────────────────────────────────────────────────────
@@ -788,6 +887,8 @@ def get_all_exercises(subject: str) -> list[dict]:
             result = _load_markdown(path, subject, _parse_math_block)
         elif fmt == 'json_chapitres':
             result = _load_json_chapitres(path, subject)
+        elif fmt == 'json_economie':
+            result = _load_json_economie(path, subject)
         else:
             result = []
     except Exception as e:
@@ -809,7 +910,7 @@ def get_exercises(subject: str, chapter: str = '', n: int = 10) -> list[dict]:
         return []
 
     if chapter and chapter.lower().strip() not in ('aléatoire', 'random', ''):
-        ch_lower = chapter.lower().strip()
+        ch_lower = normalize_chapter_key(chapter) or chapter.lower().strip()
 
         # Generic words that appear in every chapter title → useless for discrimination
         _STOP = {'chapitre', 'chapter', 'exercice', 'exercices', 'sujet', 'partie',

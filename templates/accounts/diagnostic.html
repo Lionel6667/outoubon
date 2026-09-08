@@ -1,24 +1,28 @@
 ﻿{% extends "base.html" %}
+{% load static %}
 {% block title %}Test Diagnostique – OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/auth.css' %}">
+{% endblock %}
 {% block body %}
-<div class="auth-page" style="align-items:flex-start;padding:2rem 1rem;min-height:100vh;overflow-y:auto;">
-  <div class="auth-card" style="max-width:720px;width:100%;padding:2rem;">
+<div class="auth-page v2-auth" style="align-items:flex-start;padding:2rem 1rem;min-height:100vh;overflow-y:auto;">
+  <div class="auth-card v2-auth-card v2-auth-wide" style="padding:2rem;">
 
     
-    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.75rem;">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;opacity:.5;">✓</div>
-        <span style="font-size:.7rem;color:var(--t3);">Infos</span>
+    <div class="v2-steps">
+      <div class="v2-step v2-step--done">
+        <div class="v2-step__dot">✓</div>
+        <span class="v2-step__label">Infos</span>
       </div>
-      <div style="flex:1;height:2px;background:var(--green);max-width:60px;opacity:.5;"></div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;opacity:.5;">✓</div>
-        <span style="font-size:.7rem;color:var(--t3);">École</span>
+      <div class="v2-step__line v2-step__line--done"></div>
+      <div class="v2-step v2-step--done">
+        <div class="v2-step__dot">✓</div>
+        <span class="v2-step__label">École</span>
       </div>
-      <div style="flex:1;height:2px;background:var(--green);max-width:60px;opacity:.5;"></div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">3</div>
-        <span style="font-size:.7rem;color:var(--green);font-weight:600;">Diagnostic</span>
+      <div class="v2-step__line v2-step__line--done"></div>
+      <div class="v2-step v2-step--active">
+        <div class="v2-step__dot">3</div>
+        <span class="v2-step__label">Diagnostic</span>
       </div>
     </div>
 
@@ -61,7 +65,7 @@
       <div style="color:var(--t2);font-size:.875rem;">Même système que le quiz OU TOU BON, mais en version diagnostic complète: 10 questions par matière.</div>
     </div>
 
-    <div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.4);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start;">
+    <div class="v2-diag-warning">
       <span style="font-size:1.2rem;flex-shrink:0;">🚫</span>
       <div>
         <div style="font-weight:700;color:#f59e0b;font-size:.9rem;margin-bottom:.3rem;">Ne triche pas — c'est dans ton intérêt !</div>
@@ -111,8 +115,11 @@
       </div>
       {% endfor %}
 
-      <div style="display:flex;gap:.75rem;margin-top:1.25rem;">
+      <div style="display:flex;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap;">
         <button type="button" id="backBtn" onclick="diagBack()" class="btn-outline" style="padding:.75rem 1.5rem;display:none;">← Retour</button>
+        <button type="button" id="pauseDiagBtn" onclick="diagPause()" class="btn-outline" style="padding:.75rem 1rem;font-size:.82rem;" title="Sauvegarde ta progression">
+          <i class="fas fa-pause"></i> Pause
+        </button>
         <button type="button" id="nextDiagBtn" onclick="diagNext()" class="btn-primary" style="padding:.75rem 1.5rem;flex:1;">Suivant →</button>
         <button type="submit" id="submitDiagBtn" style="display:none;flex:1;padding:.75rem 1.5rem;" class="btn-primary">Terminer le test 🎯</button>
       </div>
@@ -122,8 +129,8 @@
   </div>
 </div>
 
-<div id="savingOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,26,.92);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;">
-  <div style="width:56px;height:56px;border:4px solid rgba(16,185,129,.2);border-top-color:var(--green);border-radius:50%;animation:spinLoad 1s linear infinite;"></div>
+<div id="savingOverlay" class="v2-overlay">
+  <div class="v2-overlay-spinner"></div>
   <div style="text-align:center;">
     <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.4rem;">Analyse de tes résultats…</div>
     <div style="font-size:.85rem;color:var(--t2);">OU TOU BON calcule tes points forts et points faibles.</div>
@@ -266,11 +273,59 @@ function _syncUI() {
   document.getElementById('submitDiagBtn').style.display = isLast ? 'block' : 'none';
 }
 
+
+const DIAG_STORAGE_KEY = 'otb_diag_progress_v1';
+
+function saveDiagProgress() {
+  const answers = {};
+  document.querySelectorAll('#diagForm input[type=radio]:checked').forEach(function(inp) {
+    answers[inp.name] = inp.value;
+  });
+  try {
+    localStorage.setItem(DIAG_STORAGE_KEY, JSON.stringify({
+      currentBlock: currentBlock,
+      answers: answers,
+      savedAt: Date.now(),
+    }));
+  } catch (e) {}
+}
+
+function restoreDiagProgress() {
+  try {
+    const raw = localStorage.getItem(DIAG_STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (!data || !data.answers) return;
+    Object.keys(data.answers).forEach(function(name) {
+      const inp = document.querySelector('#diagForm input[name="' + name + '"][value="' + data.answers[name] + '"]');
+      if (inp) {
+        inp.checked = true;
+        const label = inp.closest('.diag-option');
+        if (label) selectOpt(label, name);
+      }
+    });
+    const block = parseInt(data.currentBlock, 10);
+    if (block > 1 && block <= totalBlocks) {
+      document.getElementById('dq-' + currentBlock).style.display = 'none';
+      currentBlock = block;
+      document.getElementById('dq-' + currentBlock).style.display = 'block';
+      _syncUI();
+    }
+  } catch (e) {}
+}
+
+function diagPause() {
+  saveDiagProgress();
+  window.location.href = '/dashboard/';
+}
+
 function diagNext() {
+
   if (currentBlock < totalBlocks) {
     document.getElementById('dq-' + currentBlock).style.display = 'none';
     currentBlock++;
     document.getElementById('dq-' + currentBlock).style.display = 'block';
+    saveDiagProgress();
     _syncUI();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -280,14 +335,17 @@ function diagBack() {
     document.getElementById('dq-' + currentBlock).style.display = 'none';
     currentBlock--;
     document.getElementById('dq-' + currentBlock).style.display = 'block';
+    saveDiagProgress();
     _syncUI();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 
 _syncUI();
+restoreDiagProgress();
 
 document.getElementById('diagForm').addEventListener('submit', function() {
+  try { localStorage.removeItem(DIAG_STORAGE_KEY); } catch (e) {}
   document.getElementById('savingOverlay').style.display = 'flex';
 });
 

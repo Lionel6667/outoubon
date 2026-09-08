@@ -1,44 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Extra bèt · OU TOU BON{% endblock %}
 
-{% block extra_css %}
-#ebOverlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:900;display:none;align-items:center;justify-content:center;padding:.75rem;}
-#ebModal{background:var(--card);border:1px solid rgba(16,185,129,.4);border-radius:14px;padding:1rem 1.1rem;width:100%;max-width:420px;max-height:88vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative;}
-@media(max-width:480px){#ebModal{max-width:100%;border-radius:12px;padding:.85rem;}}
-.eb-form-label{font-size:.78rem;color:var(--t2);font-weight:700;margin-bottom:.18rem;}
-.eb-input{width:100%;box-sizing:border-box;background:var(--card2,var(--card));border:1px solid var(--border2);border-radius:10px;padding:.62rem .7rem;color:var(--t1);font-size:.86rem;}
-.eb-input:focus{outline:none;border-color:var(--green);}
-.eb-opt-row{display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:center;}
-.eb-opt-label{font-size:.78rem;font-weight:700;color:var(--green);width:22px;text-align:center;}
-.eb-post-card{padding:.75rem .8rem;border:1px solid var(--border2);background:var(--card2);border-radius:12px;transition:border-color .2s;}
-.eb-post-card:hover{border-color:rgba(16,185,129,.35);}
-.eb-badge{font-size:.65rem;padding:.15rem .4rem;border-radius:999px;font-weight:700;white-space:nowrap;border:1px solid;}
-.eb-like-btn{background:none;border:1px solid var(--border2);border-radius:8px;padding:.3rem .55rem;font-size:.78rem;color:var(--t2);cursor:pointer;display:inline-flex;align-items:center;gap:.3rem;transition:all .2s;}
-.eb-like-btn:hover,.eb-like-btn.liked{border-color:var(--green);color:var(--green);}
-.eb-like-btn.liked{background:rgba(16,185,129,.1);}
-.eb-delete-btn{background:none;border:none;color:var(--t3);cursor:pointer;font-size:.78rem;padding:.2rem .4rem;border-radius:6px;transition:color .2s;}
-.eb-delete-btn:hover{color:#ef4444;}
-.eb-stat{font-size:.68rem;color:var(--t3);display:inline-flex;align-items:center;gap:.2rem;}
-.eb-qcm-options{display:grid;gap:.3rem;margin-top:.5rem;}
-.eb-qcm-opt{background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.4rem .6rem;font-size:.82rem;color:var(--t1);cursor:pointer;text-align:left;transition:all .15s;display:flex;align-items:center;gap:.5rem;}
-.eb-qcm-opt:hover{border-color:var(--green);background:rgba(16,185,129,.06);}
-.eb-qcm-opt.selected{border-color:var(--green);background:rgba(16,185,129,.12);color:var(--green);font-weight:600;}
-.eb-qcm-opt.correct{border-color:#22c55e;background:rgba(34,197,94,.15);color:#22c55e;}
-.eb-qcm-opt.wrong{border-color:#ef4444;background:rgba(239,68,68,.12);color:#ef4444;}
-.eb-leaderboard-item{display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;border-radius:8px;font-size:.8rem;}
-.eb-leaderboard-item:nth-child(1){background:rgba(234,179,8,.1);}
-.eb-leaderboard-item:nth-child(2){background:rgba(148,163,184,.08);}
-.eb-leaderboard-item:nth-child(3){background:rgba(180,83,9,.08);}
-.eb-sort-btn{padding:.35rem .55rem;border-radius:8px;font-size:.74rem;border:1px solid var(--border2);background:var(--card);color:var(--t2);cursor:pointer;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;}
-.eb-sort-btn:hover,.eb-sort-btn.active{border-color:var(--green);color:var(--green);background:rgba(16,185,129,.08);}
-.eb-time-ago{font-size:.68rem;color:var(--t3);}
-@keyframes ebPulse{0%,100%{opacity:1;}50%{opacity:.5;}}
-.eb-loading{animation:ebPulse 1.2s infinite;}
-#openEbModal{width:auto;flex-shrink:0;}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/extra_bet.css' %}">
 {% endblock %}
 
+{% block extra_css %}{% endblock %}
+
 {% block body %}
-<div class="app has-topbar">
+<div class="app has-topbar eb-page">
   {% include "core/_sidebar.html" with active_page="extra_bet" %}
   <div class="main">
     <div class="topbar">
@@ -55,8 +26,8 @@
 
         <div style="display:flex;align-items:center;justify-content:space-between;gap:.7rem;margin-bottom:1rem;">
           <div>
-            <div style="font-weight:800;font-size:1rem;color:var(--green)">Creer une publication</div>
-            <div style="font-size:.78rem;color:var(--t2)">L IA verifie avant publication pour eviter les fausses infos.</div>
+            <div style="font-weight:800;font-size:1rem;color:var(--green)">Créer une publication</div>
+            <div style="font-size:.78rem;color:var(--t2)">Contrôle automatique · synonymes avec <strong>|</strong></div>
           </div>
           <span class="eb-badge" style="background:rgba(16,185,129,.15);color:var(--green);border-color:rgba(16,185,129,.35);">Prioritaire</span>
         </div>
@@ -75,28 +46,22 @@
           <div>
             <div class="eb-form-label">Type de question</div>
             <select id="ebType" class="eb-input" onchange="ebToggleType()">
-              <option value="direct">Reponse directe</option>
-              <option value="fill">Phrase a completer (blancs)</option>
+              <option value="word">Un mot (réponse courte)</option>
               <option value="qcm">QCM</option>
+              <option value="match">Relier par des flèches</option>
+              <option value="parts">Exercice a) b) c)…</option>
             </select>
           </div>
 
           <div>
-            <div class="eb-form-label">Question / Enonce</div>
-            <textarea id="ebPrompt" class="eb-input" rows="4" style="resize:vertical;font-family:monospace;" oninput="ebUpdatePreview()"></textarea>
-            
-            <div id="ebFillHint" style="display:none;margin-top:.3rem;display:none;">
-              <button type="button" id="ebBlankBtn" onclick="insertAtCursor('ebPrompt','___');ebUpdatePreview()" style="display:inline-flex;align-items:center;gap:.3rem;padding:.28rem .55rem;font-size:.75rem;border-radius:7px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.4);color:var(--green);cursor:pointer;"><i class="fas fa-plus"></i> Inserer un blanc ___</button>
-              <span style="font-size:.7rem;color:var(--t3);margin-left:.4rem;">La cellule ___ est l unite de base de la vie.</span>
-            </div>
-            
+            <div class="eb-form-label">Question / Énoncé</div>
+            <textarea id="ebPrompt" class="eb-input" rows="3" style="resize:vertical;font-family:monospace;" oninput="ebUpdatePreview()"></textarea>
             <div style="margin-top:.4rem;">
               <div style="font-size:.7rem;color:var(--t3);margin-bottom:.25rem;font-weight:600;">Symboles</div>
               <div id="ebToolbar" style="display:flex;flex-wrap:wrap;gap:.25rem;"></div>
             </div>
-            
             <div id="ebPreviewWrap" style="display:none;margin-top:.35rem;background:var(--card2,var(--card));border:1px solid var(--border2);border-radius:8px;padding:.4rem .6rem;">
-              <div style="font-size:.68rem;color:var(--t3);margin-bottom:.2rem;">Apercu rendu</div>
+              <div style="font-size:.68rem;color:var(--t3);margin-bottom:.2rem;">Aperçu</div>
               <div id="ebPreview" style="font-size:.85rem;line-height:1.6;"></div>
             </div>
           </div>
@@ -111,8 +76,23 @@
             </div>
           </div>
 
+          <div id="ebMatchBlock" style="display:none;">
+            <div class="eb-form-label">Colonnes à relier</div>
+            <p class="eb-type-hint">Gauche → droite. Définis les bonnes liaisons ci-dessous.</p>
+            <div id="ebMatchRows" class="eb-match-editor"></div>
+            <button type="button" class="eb-mini-btn" onclick="ebAddMatchRow()"><i class="fas fa-plus"></i> Ajouter une paire</button>
+          </div>
+
+          <div id="ebPartsBlock" style="display:none;">
+            <div class="eb-form-label">Sous-questions (valeurs exactes)</div>
+            <p class="eb-type-hint">Ex: a) = 4 · b) = -2 · une valeur exacte par ligne.</p>
+            <div id="ebPartsRows" class="eb-parts-editor"></div>
+            <button type="button" class="eb-mini-btn" onclick="ebAddPartRow()"><i class="fas fa-plus"></i> Ajouter a) b) c)</button>
+          </div>
+
           <div id="ebAnswerBlock">
-            <div class="eb-form-label" id="ebAnswerLabel">Bonne reponse</div>
+            <div class="eb-form-label" id="ebAnswerLabel">Bonne réponse</div>
+            <p id="ebAnswerHint" class="eb-type-hint">Un seul mot. Synonymes avec <strong>|</strong> (ex: <em>ATP|adenosine</em>).</p>
             <div id="ebQcmAnswerWrap" style="display:none;">
               <select id="ebAnswerQcm" class="eb-input">
                 <option value="A">A</option>
@@ -121,8 +101,8 @@
                 <option value="D">D</option>
               </select>
             </div>
-            <div id="ebDirectAnswerWrap">
-              <textarea id="ebAnswer" class="eb-input" rows="2" style="resize:vertical;"></textarea>
+            <div id="ebWordAnswerWrap">
+              <input type="text" id="ebAnswer" class="eb-input" placeholder="Ex: noyau" autocomplete="off">
             </div>
           </div>
 
@@ -135,12 +115,13 @@
     </div>
     
 
-    <div class="view-area" style="padding:1.1rem;overflow-y:auto;">
+    <div class="view-area">
 
       
       {% if top_creators %}
-      <section class="card" style="padding:.8rem 1rem;margin-bottom:.8rem;">
-        <div style="font-size:.88rem;font-weight:800;margin-bottom:.5rem;"><i class="fas fa-trophy" style="color:#eab308;"></i> Top createurs</div>
+      <section class="card eb-leaderboard-card">
+        <div class="eb-leaderboard-title"><i class="fas fa-trophy" style="color:#eab308;"></i> Top 3 créateurs</div>
+        <div class="eb-leaderboard-sub">{{ week_label|default:"Cette semaine" }} · reset chaque lundi</div>
         <div style="display:grid;gap:.25rem;">
           {% for c in top_creators %}
           <div class="eb-leaderboard-item">
@@ -155,11 +136,11 @@
       {% endif %}
 
       
-      <section class="card" style="padding:1rem;">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;margin-bottom:.8rem;">
+      <section class="card eb-feed-section">
+        <div class="eb-feed-header">
           <div>
-            <div style="font-size:1.02rem;font-weight:800;">A etudier par matiere</div>
-            <div style="font-size:.8rem;color:var(--t2);">Filtrage matiere + reponses corrigees instantanement</div>
+            <h2 class="eb-feed-title">À étudier par matière</h2>
+            <p class="eb-feed-sub">Filtrage matière · correction instantanée (sans IA)</p>
           </div>
           <form method="get" action="{% url 'extra_bet' %}" id="ebFilterForm" style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;">
             <select name="subject" onchange="this.form.submit()" style="background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:.45rem .6rem;color:var(--t1)">
@@ -182,7 +163,7 @@
         
         <div id="ebFeed" style="display:grid;gap:.7rem;">
           {% for p in posts %}
-          <article class="eb-post-card" data-post-id="{{ p.id }}">
+          <article class="eb-post-card" data-post-id="{{ p.id }}" data-question-type="{{ p.question_type }}">
             
             <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem;">
               <div style="display:flex;gap:.55rem;align-items:center;">
@@ -194,7 +175,7 @@
                   {% endif %}
                 </div>
                 <div>
-                  <div style="font-weight:700;font-size:.86rem;">{{ p.user.profile.get_display_name|default:p.user.username }}</div>
+                  <div style="font-weight:700;font-size:.86rem;" data-otb-user-id="{{ p.user_id }}">{{ p.author_display|default:p.user.profile.get_display_name|default:p.user.username }}</div>
                   <span class="eb-time-ago" data-ts="{{ p.created_at|date:'c' }}">{{ p.created_at|date:"d/m/Y H:i" }}</span>
                 </div>
               </div>
@@ -210,28 +191,54 @@
             </div>
 
             
-            <div class="eb-question-text" style="margin-top:.55rem;font-size:.86rem;line-height:1.55;">{{ p.prompt }}</div>
+            <div class="eb-question-text">{{ p.prompt }}</div>
 
             
             {% if p.question_type == 'qcm' and p.options %}
             <div class="eb-qcm-options" data-answer="{{ p.answer }}">
               {% for opt in p.options %}
-              <button class="eb-qcm-opt" data-letter="{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% endif %}" onclick="ebSelectQcm(this)">
+              <button type="button" class="eb-qcm-opt" data-letter="{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% endif %}" onclick="ebSelectQcm(this)">
                 <span style="font-weight:700;min-width:18px;">{% if forloop.counter == 1 %}A{% elif forloop.counter == 2 %}B{% elif forloop.counter == 3 %}C{% elif forloop.counter == 4 %}D{% endif %}.</span>
                 <span>{{ opt }}</span>
               </button>
               {% endfor %}
             </div>
+            {% elif p.question_type == 'match' and p.options.left %}
+            <div class="eb-match-play">
+              {% for item in p.options.left %}
+              <div class="eb-match-row">
+                <span class="eb-match-left">{{ item }}</span>
+                <span class="eb-match-arrow" aria-hidden="true">→</span>
+                <select class="eb-match-select" data-left-index="{{ forloop.counter0 }}">
+                  <option value="">Choisir…</option>
+                  {% for r in p.options.right %}
+                  <option value="{{ forloop.counter0 }}">{{ forloop.counter }}. {{ r }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              {% endfor %}
+            </div>
+            {% elif p.question_type == 'parts' and p.options.parts %}
+            <div class="eb-parts-play">
+              {% for part in p.options.parts %}
+              <div class="eb-part-row">
+                <label class="eb-part-label">{{ part.label|default:part.id }}</label>
+                <input type="text" class="eb-part-input eb-input" data-part-id="{{ part.id }}" placeholder="Valeur exacte">
+              </div>
+              {% endfor %}
+            </div>
+            {% else %}
+            <div class="eb-word-play">
+              <input type="text" class="eb-answer-input eb-input" placeholder="Un seul mot" autocomplete="off">
+            </div>
             {% endif %}
 
-            
-            <div style="display:flex;gap:.4rem;align-items:center;margin-top:.55rem;flex-wrap:wrap;">
-              {% if p.question_type != 'qcm' %}
-              <input type="text" placeholder="Ta reponse" class="eb-answer-input" style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.48rem .6rem;color:var(--t1);font-size:.84rem;">
-              {% else %}
+            <div class="eb-action-row">
+              {% if p.question_type == 'qcm' %}
               <input type="hidden" class="eb-answer-input" value="">
               {% endif %}
-              <button class="btn-primary eb-action-btn" data-action="answer" data-post-id="{{ p.id }}" style="padding:.45rem .7rem;font-size:.78rem;"><i class="fas fa-check"></i> Verifier</button>
+              <button class="btn-primary eb-action-btn" data-action="answer" data-post-id="{{ p.id }}" style="padding:.45rem .7rem;font-size:.78rem;"><i class="fas fa-check"></i> Vérifier</button>
+              <button type="button" class="eb-hint-btn eb-action-btn" data-action="hint" data-post-id="{{ p.id }}"><i class="fas fa-lightbulb"></i> Indice</button>
               <button class="eb-like-btn {% if p.user_liked %}liked{% endif %}" data-post-id="{{ p.id }}" onclick="ebLike({{ p.id }},this)">
                 <i class="fas fa-heart"></i> <span class="eb-like-count">{{ p.likes_count|default:"0" }}</span>
               </button>
@@ -310,17 +317,24 @@ document.querySelectorAll('.eb-time-ago[data-ts]').forEach(el => {
 });
 
 document.getElementById('openEbModal').addEventListener('click', () => {
-  document.getElementById('ebOverlay').style.display = 'flex';
+  const overlay = document.getElementById('ebOverlay');
+  overlay.style.display = 'flex';
+  overlay.classList.add('is-open');
   document.getElementById('ebPublishStatus').style.display = 'none';
   document.getElementById('ebPrompt').value = '';
   document.getElementById('ebAnswer').value = '';
+  document.getElementById('ebMatchRows').innerHTML = '';
+  document.getElementById('ebPartsRows').innerHTML = '';
+  ebToggleType();
 });
 document.getElementById('closeEbModal').addEventListener('click', closeModal);
 document.getElementById('ebOverlay').addEventListener('click', (e) => {
   if (e.target === document.getElementById('ebOverlay')) closeModal();
 });
 function closeModal() {
-  document.getElementById('ebOverlay').style.display = 'none';
+  const overlay = document.getElementById('ebOverlay');
+  overlay.style.display = 'none';
+  overlay.classList.remove('is-open');
 }
 
 function ebSort(val) {
@@ -513,15 +527,23 @@ const EB_PH = {
   },
 };
 const EB_PH_DEFAULT = {
-  direct: {q:'Posez votre question ici.', a:'Bonne reponse'},
+  word:   {q:'Posez votre question ici.', a:'un mot'},
+  direct: {q:'Posez votre question ici.', a:'un mot'},
   fill:   {q:'Completez la phrase avec ___.', a:'le mot manquant'},
   qcm:    {q:'Enoncez la question a choix multiple.', a:'A'},
+  match:  {q:'Reliez chaque element de gauche a sa correspondance.', a:''},
+  parts:  {q:'Exercice : a) calculer… b) simplifier…', a:''},
 };
+
+const EB_PART_IDS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
 function ebGetPH() {
   const subj = document.getElementById('ebSubject').value;
   const type = document.getElementById('ebType').value;
-  return (EB_PH[subj] && EB_PH[subj][type]) || EB_PH_DEFAULT[type] || EB_PH_DEFAULT.direct;
+  const subjPh = EB_PH[subj];
+  if (subjPh && subjPh[type]) return subjPh[type];
+  if (subjPh && type === 'word' && subjPh.direct) return subjPh.direct;
+  return EB_PH_DEFAULT[type] || EB_PH_DEFAULT.word;
 }
 
 function ebUpdateToolbar() {
@@ -557,26 +579,63 @@ function ebUpdatePreview() {
 
 function ebUpdatePlaceholders() {
   const ph = ebGetPH();
-  document.getElementById('ebPrompt').placeholder = ph.q;
-  document.getElementById('ebAnswer').placeholder = ph.a;
+  const type = document.getElementById('ebType').value;
+  document.getElementById('ebPrompt').placeholder = ph.q || '';
+  const ans = document.getElementById('ebAnswer');
+  if (ans) ans.placeholder = ph.a || 'Ex: noyau';
+}
+
+function ebAddMatchRow(leftVal, rightVal) {
+  const container = document.getElementById('ebMatchRows');
+  const row = document.createElement('div');
+  row.className = 'eb-match-editor-row';
+  row.innerHTML =
+    '<input type="text" class="eb-input eb-match-left-in" placeholder="Gauche" value="' + (leftVal || '') + '">' +
+    '<span class="eb-match-arrow" aria-hidden="true">→</span>' +
+    '<input type="text" class="eb-input eb-match-right-in" placeholder="Droite (bonne liaison)" value="' + (rightVal || '') + '">' +
+    '<button type="button" class="eb-mini-btn eb-mini-btn-danger" title="Supprimer"><i class="fas fa-times"></i></button>';
+  row.querySelector('button').addEventListener('click', () => row.remove());
+  container.appendChild(row);
+}
+
+function ebAddPartRow(value) {
+  const container = document.getElementById('ebPartsRows');
+  const idx = container.children.length;
+  const id = EB_PART_IDS[idx] || String(idx + 1);
+  const row = document.createElement('div');
+  row.className = 'eb-part-editor-row';
+  row.innerHTML =
+    '<span class="eb-part-editor-label">' + id + ')</span>' +
+    '<input type="text" class="eb-input eb-part-val-in" data-part-id="' + id + '" placeholder="Valeur exacte" value="' + (value || '') + '">' +
+    '<button type="button" class="eb-mini-btn eb-mini-btn-danger" title="Supprimer"><i class="fas fa-times"></i></button>';
+  row.querySelector('button').addEventListener('click', () => row.remove());
+  container.appendChild(row);
 }
 
 function ebToggleType() {
   const t = document.getElementById('ebType').value;
-  const isQcm  = t === 'qcm';
-  const isFill = t === 'fill';
+  const isQcm   = t === 'qcm';
+  const isMatch = t === 'match';
+  const isParts = t === 'parts';
+  const isWord  = t === 'word';
 
-  document.getElementById('ebQcmBlock').style.display      = isQcm  ? 'block' : 'none';
-  document.getElementById('ebFillHint').style.display      = isFill ? 'block' : 'none';
-  document.getElementById('ebQcmAnswerWrap').style.display  = isQcm  ? 'block' : 'none';
-  document.getElementById('ebDirectAnswerWrap').style.display = isQcm  ? 'none'  : 'block';
+  document.getElementById('ebQcmBlock').style.display   = isQcm   ? 'block' : 'none';
+  document.getElementById('ebMatchBlock').style.display   = isMatch ? 'block' : 'none';
+  document.getElementById('ebPartsBlock').style.display   = isParts ? 'block' : 'none';
+  document.getElementById('ebAnswerBlock').style.display  = (isMatch || isParts) ? 'none' : 'block';
+  document.getElementById('ebQcmAnswerWrap').style.display = isQcm ? 'block' : 'none';
+  document.getElementById('ebWordAnswerWrap').style.display = isQcm ? 'none' : 'block';
+  document.getElementById('ebAnswerHint').style.display   = isWord ? 'block' : 'none';
 
-  const labels = {
-    direct: 'Bonne reponse',
-    fill:   'Mot(s) qui completent le(s) blanc(s)',
-    qcm:    'Bonne reponse (choix)'
-  };
-  document.getElementById('ebAnswerLabel').textContent = labels[t] || 'Bonne reponse';
+  if (isMatch && document.getElementById('ebMatchRows').children.length === 0) {
+    ebAddMatchRow(); ebAddMatchRow();
+  }
+  if (isParts && document.getElementById('ebPartsRows').children.length === 0) {
+    ebAddPartRow(); ebAddPartRow();
+  }
+
+  const labels = { word: 'Bonne réponse', qcm: 'Bonne réponse (choix)' };
+  document.getElementById('ebAnswerLabel').textContent = labels[t] || 'Bonne réponse';
   ebUpdatePlaceholders();
 }
 
@@ -586,6 +645,7 @@ document.getElementById('ebSubject').addEventListener('change', () => {
 });
 ebUpdateToolbar();
 ebUpdatePlaceholders();
+ebToggleType();
 
 document.getElementById('ebToolbar').addEventListener('click', e => {
   const b = e.target.closest('[data-insert]');
@@ -614,6 +674,84 @@ function ebSelectQcm(btn) {
   if (input) input.value = btn.dataset.letter;
 }
 
+function ebBuildMatchPayload() {
+  const rows = document.querySelectorAll('#ebMatchRows .eb-match-editor-row');
+  const left = [];
+  const rightAnswers = [];
+  rows.forEach(row => {
+    const l = (row.querySelector('.eb-match-left-in').value || '').trim();
+    const r = (row.querySelector('.eb-match-right-in').value || '').trim();
+    if (l && r) {
+      left.push(l);
+      rightAnswers.push(r);
+    }
+  });
+  if (left.length < 2) return { error: 'Au moins 2 paires gauche → droite.' };
+
+  const indices = left.map((_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = indices[i];
+    indices[i] = indices[j];
+    indices[j] = tmp;
+  }
+  const right = indices.map(i => rightAnswers[i]);
+  const answer = {};
+  left.forEach((_, i) => {
+    answer[String(i)] = String(indices.indexOf(i));
+  });
+  return { options: { left, right }, answer };
+}
+
+function ebBuildPartsPayload() {
+  const parts = [];
+  const answer = {};
+  document.querySelectorAll('#ebPartsRows .eb-part-editor-row').forEach(row => {
+    const inp = row.querySelector('.eb-part-val-in');
+    if (!inp) return;
+    const id = inp.dataset.partId;
+    const val = (inp.value || '').trim();
+    const label = (row.querySelector('.eb-part-editor-label').textContent || id).trim();
+    if (id && val) {
+      parts.push({ id, label });
+      answer[id] = val;
+    }
+  });
+  if (parts.length < 1) return { error: 'Ajoute au moins une sous-question (a, b, …).' };
+  return { options: { parts }, answer };
+}
+
+function ebCollectAnswer(card) {
+  const type = (card.dataset.questionType || 'word').toLowerCase();
+  if (type === 'qcm') {
+    const input = card.querySelector('.eb-answer-input');
+    return (input && input.value || '').trim();
+  }
+  if (type === 'match') {
+    const map = {};
+    const selects = card.querySelectorAll('.eb-match-select');
+    selects.forEach(sel => {
+      const idx = sel.dataset.leftIndex;
+      const val = sel.value;
+      if (idx !== undefined && val !== '') map[idx] = val;
+    });
+    return selects.length && Object.keys(map).length === selects.length ? map : null;
+  }
+  if (type === 'parts') {
+    const map = {};
+    const inputs = card.querySelectorAll('.eb-part-input');
+    inputs.forEach(inp => {
+      const pid = inp.dataset.partId;
+      const val = (inp.value || '').trim();
+      if (pid && val) map[pid] = val;
+    });
+    return inputs.length && Object.keys(map).length === inputs.length ? map : null;
+  }
+  const input = card.querySelector('.eb-word-play .eb-answer-input') || card.querySelector('.eb-answer-input');
+  const val = (input && input.value || '').trim();
+  return val || null;
+}
+
 async function publishExtraBet() {
   if (IS_GUEST) {
     showGuestSignupModal('Crée un compte gratuit pour publier tes questions et défier la communauté !');
@@ -624,28 +762,50 @@ async function publishExtraBet() {
   const subject = document.getElementById('ebSubject').value;
   const type     = document.getElementById('ebType').value;
   const prompt   = document.getElementById('ebPrompt').value.trim();
-  const answer   = type === 'qcm'
-    ? document.getElementById('ebAnswerQcm').value.trim()
-    : document.getElementById('ebAnswer').value.trim();
-  const options  = type === 'qcm'
-    ? [document.getElementById('ebOptA').value.trim(),
-       document.getElementById('ebOptB').value.trim(),
-       document.getElementById('ebOptC').value.trim(),
-       document.getElementById('ebOptD').value.trim()].filter(Boolean)
-    : [];
+  let answer;
+  let options;
+
+  if (type === 'qcm') {
+    answer = document.getElementById('ebAnswerQcm').value.trim();
+    options = [
+      document.getElementById('ebOptA').value.trim(),
+      document.getElementById('ebOptB').value.trim(),
+      document.getElementById('ebOptC').value.trim(),
+      document.getElementById('ebOptD').value.trim(),
+    ].filter(Boolean);
+  } else if (type === 'match') {
+    const built = ebBuildMatchPayload();
+    if (built.error) {
+      showStatus(box, 'error', built.error);
+      return;
+    }
+    options = built.options;
+    answer = built.answer;
+  } else if (type === 'parts') {
+    const built = ebBuildPartsPayload();
+    if (built.error) {
+      showStatus(box, 'error', built.error);
+      return;
+    }
+    options = built.options;
+    answer = built.answer;
+  } else {
+    answer = document.getElementById('ebAnswer').value.trim();
+    options = [];
+  }
 
   if (!prompt || prompt.length < 12) {
     showStatus(box, 'error', 'La question doit faire au moins 12 caracteres.');
     return;
   }
-  if (!answer) {
+  if (!answer || (typeof answer === 'object' && !Object.keys(answer).length)) {
     showStatus(box, 'error', 'Veuillez fournir la bonne reponse.');
     return;
   }
 
-  showStatus(box, 'info', 'Analyse IA en cours... merci de patienter.');
+  showStatus(box, 'info', 'Verification en cours...');
   btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verification IA...';
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Publication...';
 
   try {
     const r = await fetch('{% url "api_extra_bet_create" %}', {
@@ -686,11 +846,10 @@ function showStatus(box, type, msg) {
 
 async function submitAnswer(postId, btn) {
   const card = btn.closest('.eb-post-card');
-  const input = card.querySelector('.eb-answer-input');
   const fb = card.querySelector('.eb-feedback');
-  const answer = (input.value || '').trim();
+  const answer = ebCollectAnswer(card);
   if (!answer) {
-    fb.innerHTML = '<span style="color:#fbbf24">Ecris ta reponse d abord.</span>';
+    fb.innerHTML = '<span style="color:#fbbf24">Complete ta reponse avant de verifier.</span>';
     return;
   }
 
@@ -707,7 +866,8 @@ async function submitAnswer(postId, btn) {
     });
     const d = await r.json();
     if (!d.ok) {
-      fb.innerHTML = '<span style="color:#fca5a5">' + (d.error || 'Erreur') + '</span>';
+      const msg = d.message || d.error || 'Erreur';
+      fb.innerHTML = '<span style="color:#fca5a5">' + msg + '</span>';
       return;
     }
     if (d.is_correct) {
@@ -728,37 +888,33 @@ async function submitAnswer(postId, btn) {
       + (d.is_correct ? '' : ' Bonne reponse: <strong>' + d.correct_answer + '</strong>')
       + '<br><small style="color:var(--t3)">' + d.responders_count + ' eleve(s) ont repondu · ' + d.creators_count + ' createur(s) sur cette matiere</small>';
   } catch (e) {
-    fb.innerHTML = '<span style="color:#fca5a5">Erreur reseau.</span>';
+    fb.innerHTML = '<span style="color:#fca5a5">Erreur réseau — recharge la page.</span>';
+    console.error('[extra-bet answer]', e);
   } finally {
     btn.disabled = false;
     btn.innerHTML = origText;
   }
 }
 
-async function askAIHelp(postId, btn) {
+async function askHint(postId, btn) {
   const card = btn.closest('.eb-post-card');
-  const input = card.querySelector('.eb-answer-input');
   const out = card.querySelector('.eb-ai-reply');
-  const message = (input.value || '').trim() || 'Je n ai pas compris, explique-moi.';
-
   const origText = btn.innerHTML;
   btn.disabled = true;
   btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-  out.innerHTML = '<div class="eb-loading" style="color:var(--t3);padding:.4rem 0;"><i class="fas fa-robot"></i> IA en train de repondre...</div>';
-
+  out.innerHTML = '<div class="eb-loading" style="color:var(--t3);padding:.4rem 0;"><i class="fas fa-lightbulb"></i> Indice...</div>';
   try {
     const r = await fetch('{% url "api_extra_bet_ai_help" %}', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
-      body: JSON.stringify({ post_id: postId, message })
+      body: JSON.stringify({ post_id: postId })
     });
     const d = await r.json();
     if (!d.ok) {
-      out.innerHTML = '<span style="color:#fca5a5">' + (d.error || 'Erreur IA') + '</span>';
+      out.innerHTML = '<span style="color:#fca5a5">' + (d.error || 'Erreur') + '</span>';
       return;
     }
-    out.innerHTML = '<div style="background:var(--card);border:1px solid rgba(16,185,129,.25);padding:.55rem .65rem;border-radius:8px;margin-top:.3rem;"><div style="font-size:.72rem;color:var(--green);font-weight:700;margin-bottom:.3rem;"><i class="fas fa-robot"></i> Explication IA</div><div style="font-size:.82rem;line-height:1.5;">' + d.reply + '</div></div>';
-    if (typeof renderKatexAll === 'function') renderKatexAll();
+    out.innerHTML = '<div style="background:var(--card);border:1px solid rgba(245,158,11,.25);padding:.55rem .65rem;border-radius:8px;margin-top:.3rem;"><div style="font-size:.72rem;color:#f59e0b;font-weight:700;margin-bottom:.3rem;"><i class="fas fa-lightbulb"></i> Indice</div><div style="font-size:.82rem;line-height:1.5;">' + d.reply + '</div></div>';
   } catch (e) {
     out.innerHTML = '<span style="color:#fca5a5">Erreur reseau.</span>';
   } finally {
@@ -815,7 +971,7 @@ document.addEventListener('click', (e) => {
   if (!postId) return;
   const action = btn.dataset.action;
   if (action === 'answer') submitAnswer(postId, btn);
-  else if (action === 'ai-help') askAIHelp(postId, btn);
+  else if (action === 'hint') askHint(postId, btn);
 });
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -175,7 +175,7 @@
       "chapter": "Le condensateur",
       "subchapter": "Les quatre formules fondamentales",
       "type": "examples",
-      "content": "Exemple 1 : C = 10 µF, U = 12 V → Q = 10×10⁻⁶×12 = 1,2×10⁻⁴ C.\nExemple 2 : C = 20 µF, U = 12 V → W = 0,5×20×10⁻⁶×144 = 1,44×10⁻³ J = 1,44 mJ.\nExemple 3 : U = 100 V, d = 4 mm = 4×10⁻³ m → E = 100 / 0,004 = 25 000 V/m.\nExemple 4 : ε₀=8,85×10⁻¹², εᵣ=5, S=3 cm²=3×10⁻⁴ m², C=0,1 µF=10⁻⁷ F → d = ε₀εᵣS/C = 8,85×10⁻¹²×5×3×10⁻⁴ / 10⁻⁷ = 1,33×10⁻⁷ m = 133 nm.",
+      "content": "Exemple 1 : C = 10 µF, U = 12 V → Q = 10×10⁻⁶×12 = 1,2×10⁻⁴ C.\n\nExemple 2 : C = 20 µF, U = 12 V → W = 0,5×20×10⁻⁶×144 = 1,44×10⁻³ J = 1,44 mJ.\n\nExemple 3 : U = 100 V, d = 4 mm = 4×10⁻³ m → E = 100 / 0,004 = 25 000 V/m.\n\nExemple 4 : ε₀=8,85×10⁻¹², εᵣ=5, S=3 cm²=3×10⁻⁴ m², C=0,1 µF=10⁻⁷ F → d = ε₀εᵣS/C = 8,85×10⁻¹²×5×3×10⁻⁴ / 10⁻⁷ = 1,33×10⁻⁷ m = 133 nm.",
       "level": 3,
       "tags": [
         "physique",
@@ -413,7 +413,7 @@
       "chapter": "Le condensateur",
       "subchapter": "Partage de charge",
       "type": "detailed_examples",
-      "content": "Exemple détaillé (Bac 2022) : Un condensateur C₁=12 µF, initialement chargé sous une tension U₁, possède une charge Q₁=0,5 mC. On le connecte à un condensateur C₂ non chargé. Après connexion (plaques de même signe), la tension d'équilibre est U_f=100 V. Trouver la tension initiale U₁ et la capacité C₂.\n\nTrouvons U₁ : Q₁ = C₁ U₁ ⇒ U₁ = Q₁/C₁ = 0,5×10⁻³ / (12×10⁻⁶) = 41,67 V.\n\nEnsuite, U_f = C₁U₁/(C₁+C₂) ⇒ 100 = (12×10⁻⁶×41,67)/(12×10⁻⁶+C₂). Le numérateur vaut 0,5×10⁻³. Donc 100 = 0,5×10⁻³ / (12×10⁻⁶+C₂) ⇒ 12×10⁻⁶+C₂ = 0,5×10⁻³/100 = 5×10⁻⁶ ⇒ C₂ = 5×10⁻⁶ - 12×10⁻⁶ = -7×10⁻⁶ F, impossible. Cela signifie que l'hypothèse 'plaques de même signe' est fausse. En réalité, il s'agit probablement de plaques de signes contraires. Dans ce cas, U_f = (C₁U₁ - 0)/(C₁+C₂) = C₁U₁/(C₁+C₂) mais avec U_f=100 V et U₁=41,67 V, U_f > U₁, ce qui est impossible car en signes contraires U_f est plus petit. L'exemple montre qu'il faut lire attentivement l'énoncé. En pratique, si on obtient C₂ négatif, c'est que l'hypothèse de branchement est inverse.",
+      "content": "Exemple détaillé (Bac 2022) : Un condensateur C₁=12 µF, initialement chargé sous une tension U₁, possède une charge Q₁=0,5 mC. On le connecte à un condensateur C₂ non chargé. Après connexion (plaques de même signe), la tension d'équilibre est U_f=100 V. Trouver la tension initiale U₁ et la capacité C₂.\n\nTrouvons U₁ : Q₁ = C₁ U₁ ⇒ U₁ = Q₁/C₁ = 0,5×10⁻³ / (12×10⁻⁶) = 41,67 V.\n\nEnsuite, U_f = C₁U₁/(C₁+C₂) ⇒ 100 = (12×10⁻⁶×41,67)/(12×10⁻⁶+C₂). Le numérateur vaut 0,5×10⁻³. Donc 100 = 0,5×10⁻³ / (12×10⁻⁶+C₂) ⇒ 12×10⁻⁶+C₂ = 5×10⁻⁶ ⇒ C₂ = -7×10⁻⁶ F (impossible).\n\nConclusion : avec plaques de même signe, U_f ne peut pas dépasser U₁. L'énoncé doit préciser une connexion avec plaques de signes opposés (faces homologues). Dans ce cas : Q_total = C₁U₁, U_f = Q_total/(C₁+C₂), donc C₂ = Q₁/U_f − C₁ = 0,5×10⁻³/100 − 12×10⁻⁶ = 5×10⁻⁶ − 12×10⁻⁶ = -7×10⁻⁶ F — encore incohérent avec les données. À l'examen : toujours vérifier la cohérence des données et le type de connexion avant de calculer C₂.",
       "level": 3,
       "tags": [
         "physique",

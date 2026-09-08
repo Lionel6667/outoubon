@@ -25,7 +25,6 @@
           <div style="text-align:center;margin-bottom:1.5rem;">
             <div style="font-size:2rem;margin-bottom:.5rem;"><i class="fas fa-bolt" style="color:var(--green)"></i></div>
             <div style="font-weight:700;font-size:1.25rem;margin-bottom:.3rem;" data-i18n="quiz_choisir_mat">Choisis une matière</div>
-            <div style="color:var(--t2);font-size:.875rem;" data-i18n="quiz_desc">10 questions tirées des vrais sujets BAC Haïti — évalue-toi comme à l'examen</div>
           </div>
           <div id="svtMatGrid" class="quiz-mat-grid">
             {% for key, mat in mats.items %}
@@ -58,6 +57,8 @@
             </div>
           </div>
         </div>
+
+        {% include "partials/v2/_page_info.html" with info_key="quiz" info_title="Quiz" info_body="10 questions tirées des vrais sujets BAC Haïti — évalue-toi comme à l'examen" info_i18n="quiz_desc" %}
 
         
         <div id="panelDuel" style="display:none;">
@@ -251,6 +252,7 @@
 {% block extra_js %}
 <script>
 let questions = [], currentQ = 0, score = 0, details = [], currentSubject = '';
+let quizAttemptId = null;
 let lastSessionId = null;
 let timerInterval = null, timeLeft = 30, totalTime = 30;
 let bookmarkedThisQ = false;
@@ -404,6 +406,7 @@ async function startQuiz(subject, chapter = '') {
     if (data.error) throw new Error(data.error);
     if (!data.questions || !data.questions.length) throw new Error(data.error || 'Aucune question disponible');
     questions = data.questions;
+    quizAttemptId = data.attempt_id || null;
     currentQ = 0; score = 0; details = [];
     document.getElementById('qTotal').textContent = questions.length;
     if (typeof hideLoader === 'function') hideLoader();
@@ -562,7 +565,7 @@ async function showScore() {
   try {
     const res = await fetch("{% url 'api_quiz_save' %}", {
       method: 'POST', headers:{'X-CSRFToken': CSRF, 'Content-Type':'application/json'},
-      body: JSON.stringify({ subject: currentSubject, score, total: questions.length, details })
+      body: JSON.stringify({ subject: currentSubject, score, total: questions.length, details, attempt_id: quizAttemptId })
     });
     const data = await res.json();
     if (data.session_id) lastSessionId = data.session_id;

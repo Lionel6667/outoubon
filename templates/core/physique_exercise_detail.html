@@ -1,6 +1,8 @@
 ﻿{% extends 'base.html' %}
 {% block title %}Exercice Physique - OU TOU BON{% endblock %}
 
+{% block extra_head_links %}{% include "partials/v2/_v2_exercises_css.html" %}{% endblock %}
+
 {% block extra_css %}
 .physique-exo-detail-page {
   --shell: linear-gradient(180deg, rgba(9, 15, 33, 0.98) 0%, rgba(3, 9, 23, 1) 45%, rgba(10, 18, 34, 1) 100%);
@@ -284,7 +286,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="physique-exo-detail-page">
+<div class="physique-exo-detail-page v2-physique-exo">
   <div class="main">
     <div class="view-area">
       <div class="physique-exo-detail-shell">

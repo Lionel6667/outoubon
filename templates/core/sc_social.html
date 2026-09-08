@@ -1,6 +1,8 @@
 ﻿{% extends 'base.html' %}
 {% block title %}Sciences Sociales — OU TOU BON{% endblock %}
 
+{% block extra_head_links %}{% include "partials/v2/_v2_course_css.html" %}{% endblock %}
+
 {% block extra_css %}
 <style>
 
@@ -272,7 +274,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="view-area cours-page">
+<div class="view-area cours-page v2-course-subject">
   <div class="cours-shell">
     
     <div class="cours-hero" id="hero-section">
@@ -674,7 +676,8 @@ aiChatBtn.addEventListener('click', () => {
   aiChatWindow.classList.toggle('active');
   if (aiChatWindow.classList.contains('active') && chatMessages.children.length === 0) {
     const w = document.createElement('div'); w.className = 'chat-message ai';
-    w.textContent = `👋 Salut ! Je suis ton assistant IA pour Sciences Sociales. Pose-moi ta question !`;
+    const _coach = (window.OTB_COACH_NAME || 'Chat IA').trim() || 'Chat IA';
+    w.textContent = `👋 Salut ! Je suis ${_coach} pour Sciences Sociales. Pose-moi ta question !`;
     chatMessages.appendChild(w);
   }
   if (aiChatWindow.classList.contains('active')) setTimeout(() => chatInput.focus(), 300);

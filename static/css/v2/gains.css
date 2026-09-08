@@ -1,0 +1,230 @@
+.v2-gains {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1.15rem 1.2rem 2rem;
+}
+.v2-gains-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 1.5rem 1.4rem 1.35rem;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.7));
+  margin-bottom: 1.1rem;
+}
+.v2-gains-hero__glow {
+  position: absolute;
+  top: -50px;
+  right: -30px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.22), transparent 70%);
+  pointer-events: none;
+}
+.v2-gains-hero__kicker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.45rem;
+}
+.v2-gains-hero h1 {
+  position: relative;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--t1);
+  margin: 0;
+}
+.v2-gains-hero > p {
+  position: relative;
+  font-size: 0.86rem;
+  color: var(--t2);
+  line-height: 1.5;
+  margin: 0.45rem 0 1rem;
+  max-width: 36rem;
+}
+.v2-gains-hero__stats {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+.v2-gains-hero__stats div {
+  background: rgba(2, 6, 23, 0.35);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  padding: 0.7rem 0.8rem;
+}
+.v2-gains-hero__stats strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--t1);
+}
+.v2-gains-hero__stats span {
+  font-size: 0.68rem;
+  color: var(--t3);
+  font-weight: 600;
+}
+.v2-gains-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+.v2-gains-card {
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  background: var(--card);
+  padding: 1.15rem 1.15rem 1.25rem;
+}
+.v2-gains-card--cash {
+  border-color: rgba(6, 182, 212, 0.28);
+}
+.v2-gains-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--green);
+  margin-bottom: 0.75rem;
+}
+.v2-gains-card__icon--cash {
+  background: rgba(6, 182, 212, 0.14);
+  color: #22d3ee;
+}
+.v2-gains-card h2 {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--t1);
+  margin: 0 0 0.35rem;
+}
+.v2-gains-card > p {
+  font-size: 0.8rem;
+  color: var(--t2);
+  line-height: 1.5;
+  margin: 0 0 0.95rem;
+}
+.v2-gains-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid var(--border2);
+}
+.v2-gains-link code {
+  font-size: 0.72rem;
+  color: var(--t1);
+  word-break: break-all;
+  line-height: 1.4;
+}
+.v2-gains-copy {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;
+  background: var(--green);
+  color: #042f24;
+}
+.v2-gains-copy:hover { filter: brightness(1.08); }
+.v2-gains-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+.v2-gains-chips span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--t2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+}
+.v2-gains-form {
+  display: grid;
+  gap: 0.7rem;
+}
+.v2-gains-form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--t3);
+}
+.v2-gains-form input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border2);
+  background: rgba(2, 6, 23, 0.4);
+  color: var(--t1);
+  font-size: 0.9rem;
+}
+.v2-gains-form input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+.v2-gains-submit {
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: #042f24;
+  background: linear-gradient(135deg, var(--green), #0e7490);
+}
+.v2-gains-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.v2-gains-pending {
+  padding: 0.85rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #fde68a;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.v2-gains-msg {
+  font-size: 0.75rem;
+  color: var(--t3);
+  min-height: 1em;
+}
+.v2-gains-list {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+}
+.v2-gains-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border2);
+  font-size: 0.78rem;
+  color: var(--t2);
+}
+.v2-gains-list em {
+  font-style: normal;
+  color: var(--t3);
+  font-weight: 700;
+}
+.v2-gains-list em.is-ok { color: var(--green); }
+@media (max-width: 720px) {
+  .v2-gains-grid { grid-template-columns: 1fr; }
+  .v2-gains-hero__stats { grid-template-columns: 1fr; }
+}

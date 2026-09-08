@@ -13,7 +13,7 @@ SUBJECTS = [
     ('physique', 'Physique'),
     ('chimie', 'Chimie'),
     ('svt', 'SVT'),
-    ('francais', 'Français'),
+    ('francais', 'Kreyòl'),
     ('philosophie', 'Philosophie'),
     ('histoire', 'Histoire & Géo'),
     ('anglais', 'Anglais'),
@@ -49,10 +49,13 @@ class UserProfile(models.Model):
     avatar        = CloudinaryField('avatar', folder='bacia/avatars', blank=True, null=True)
     streak        = models.PositiveIntegerField(default=0)
     last_activity = models.DateField(null=True, blank=True)
+    last_seen_at  = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at    = models.DateTimeField(auto_now_add=True)
     preferred_lang    = models.CharField(max_length=5, default='fr', choices=[('fr', 'Français'), ('kr', 'Kreyòl')])
     langue_etrangere  = models.CharField(max_length=20, default='anglais', choices=[('anglais', 'Anglais'), ('espagnol', 'Espagnol')])
     bac_target        = models.PositiveSmallIntegerField(null=True, blank=True, help_text='Note cible sur 1900 définie à l\'inscription')
+    coach_name        = models.CharField(max_length=40, blank=True, default='', help_text='Nom personnel choisi pour l\'assistant IA')
+    invite_code       = models.CharField(max_length=16, unique=True, null=True, blank=True, db_index=True)
 
     # ── Abonnement ──
     plan_expiration = models.DateField(null=True, blank=True, help_text='Date d\'expiration de l\'abonnement actif')
@@ -118,8 +121,70 @@ class Friendship(models.Model):
         return f"{self.from_user.username} → {self.to_user.username} ({self.status})"
 
 
+class FriendAlias(models.Model):
+    """Nom privé qu'un utilisateur donne à un ami — visible uniquement pour lui."""
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='friend_aliases')
+    friend = models.ForeignKey(User, on_delete=models.CASCADE, related_name='aliased_by')
+    alias = models.CharField(max_length=40)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('owner', 'friend')
+        indexes = [models.Index(fields=['owner', 'friend'])]
+
+    def __str__(self):
+        return f"{self.owner.username} appelle {self.friend.username} « {self.alias} »"
+
+
+class PushDevice(models.Model):
+    """Jeton FCM d'un appareil (navigateur / PWA)."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='push_devices')
+    token = models.CharField(max_length=4096, unique=True)
+    user_agent = models.CharField(max_length=300, blank=True, default='')
+    enabled = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_seen = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        indexes = [models.Index(fields=['user', 'enabled'])]
+
+    def __str__(self):
+        return f"push {self.user_id} {self.token[:18]}…"
+
+
+class PushReceipt(models.Model):
+    """Anti-doublon pour les rappels planifiés (1 notif / type / jour)."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='push_receipts')
+    kind = models.CharField(max_length=40)
+    day = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'kind', 'day')
+        indexes = [models.Index(fields=['kind', 'day'])]
+
+
 def _gen_referral_code():
     return uuid.uuid4().hex[:8].upper()
+
+
+class StudentReferral(models.Model):
+    """Parrainage élève → élève. Récompense HTG (150) convertible en XP au taux unique."""
+    referrer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_referrals_made')
+    referred_user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='student_referral_record',
+    )
+    reward_htg = models.PositiveIntegerField(default=150)
+    paid = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    paid_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"StudentRef {self.referrer_id} → {self.referred_user_id} paid={self.paid}"
 
 
 class Agent(models.Model):
@@ -175,6 +240,29 @@ class AgentWithdrawal(models.Model):
 
     def __str__(self):
         return f"Retrait {self.amount}G — {self.agent.phone} ({self.status})"
+
+
+class XpWithdrawal(models.Model):
+    """Retrait XP → HTG (MonCash) pour un élève."""
+    STATUS = [
+        ('pending', 'En attente'),
+        ('approved', 'Approuvé'),
+        ('rejected', 'Refusé'),
+    ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='xp_withdrawals')
+    amount_htg = models.PositiveIntegerField()
+    xp_amount = models.PositiveIntegerField()
+    moncash = models.CharField(max_length=20)
+    status = models.CharField(max_length=10, choices=STATUS, default='pending')
+    note = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"XP retrait {self.amount_htg}G — {self.user_id} ({self.status})"
 
 
 def _generate_auth_token():
@@ -287,8 +375,55 @@ class FriendMessage(models.Model):
         return f"{self.sender.username} → {self.receiver.username}: {self.content[:40]}"
 
 
+class StudyChatGroup(models.Model):
+    """Groupe de discussion: officiel OU TOU BON, équipe Génies, ou groupe créé."""
+    KIND_OFFICIAL = 'official'
+    KIND_GENIUS = 'genius'
+    KIND_CUSTOM = 'custom'
+    KIND_CHOICES = [
+        (KIND_OFFICIAL, 'OU TOU BON'),
+        (KIND_GENIUS, 'Génies'),
+        (KIND_CUSTOM, 'Groupe'),
+    ]
+    name = models.CharField(max_length=80)
+    slug = models.SlugField(max_length=80, unique=True)
+    kind = models.CharField(max_length=16, choices=KIND_CHOICES, db_index=True)
+    genius_team_id = models.IntegerField(null=True, blank=True, db_index=True)
+    created_by = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.SET_NULL, related_name='created_study_groups'
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['kind', 'created_at']
+
+    def __str__(self):
+        return f"{self.get_kind_display()}: {self.name}"
+
+
+class StudyChatGroupMember(models.Model):
+    ROLE_OWNER = 'owner'
+    ROLE_MEMBER = 'member'
+    group = models.ForeignKey(StudyChatGroup, on_delete=models.CASCADE, related_name='memberships')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='study_group_memberships')
+    role = models.CharField(max_length=16, default=ROLE_MEMBER)
+    last_read_id = models.PositiveIntegerField(default=0)
+    joined_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('group', 'user')
+        indexes = [models.Index(fields=['user', 'group'])]
+
+    def __str__(self):
+        return f"{self.user.username} @ {self.group.slug}"
+
+
 class GroupMessage(models.Model):
     """Message de discussion de groupe pour tous les utilisateurs."""
+    group       = models.ForeignKey(
+        StudyChatGroup, on_delete=models.CASCADE, null=True, blank=True,
+        related_name='messages', db_index=True,
+    )
     sender      = models.ForeignKey(User, on_delete=models.CASCADE, related_name='group_messages')
     content     = models.TextField(blank=True)
     image       = CloudinaryField('group_image', folder='bacia/group_chat/images', blank=True, null=True)
@@ -302,6 +437,7 @@ class GroupMessage(models.Model):
 
     class Meta:
         ordering = ['created_at']
+        indexes = [models.Index(fields=['group', 'id'])]
 
     def __str__(self):
         return f"Groupe: {self.sender.username}: {self.content[:40]}"
@@ -417,14 +553,22 @@ class AdminPanelConfig(models.Model):
 
 class SiteVisit(models.Model):
     """Track site visits for admin dashboard analytics."""
-    ip_hash    = models.CharField(max_length=64, db_index=True)
-    path       = models.CharField(max_length=500, default='/')
-    user_agent = models.TextField(blank=True, default='')
-    user       = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    visited_at = models.DateTimeField(auto_now_add=True)
+    ip_hash      = models.CharField(max_length=64, db_index=True)
+    country_code = models.CharField(max_length=2, blank=True, default='', db_index=True)
+    visit_date   = models.DateField(null=True, blank=True, db_index=True)
+    path         = models.CharField(max_length=500, default='/')
+    user_agent   = models.TextField(blank=True, default='')
+    user         = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    visited_at   = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-visited_at']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['ip_hash', 'visit_date'],
+                name='unique_sitevisit_ip_per_day',
+            ),
+        ]
 
     def __str__(self):
         return f"Visit {self.ip_hash[:8]}… @ {self.visited_at.strftime('%d/%m %H:%M')}"

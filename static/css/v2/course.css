@@ -1,0 +1,213 @@
+/**
+ * OU TOU BON V2 — Cours interactif (Phase 5)
+ * Overrides visuels : hub, matières, chapter reader. Logique JS inchangée.
+ */
+
+/* ── Hub matières ─────────────────────────────────────────────── */
+.v2-course-hub .cours-wrap {
+  padding-top: 0.5rem;
+}
+
+.v2-course-hub .topbar-title {
+  font-weight: 800;
+}
+
+.v2-course-hub .cours-section-title {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--t3);
+  border-bottom-color: rgba(148, 163, 184, 0.1);
+}
+
+.v2-course-hub .cours-launch-card {
+  border-radius: var(--v2-radius-lg, 16px);
+  backdrop-filter: blur(8px);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s;
+}
+
+.v2-course-hub .cours-launch-card:hover {
+  transform: translateY(-4px);
+}
+
+.v2-course-hub .cours-launch-cta {
+  border-radius: 12px;
+  font-size: 0.84rem;
+}
+
+.v2-course-hub .cours-launch-cta-ai {
+  border-radius: 12px;
+}
+
+/* ── Pages matière (generic / sc-social) ──────────────────────── */
+.v2-course-subject .cours-hero,
+.v2-course-subject .physique-hero {
+  border-radius: var(--v2-radius-lg, 16px);
+}
+
+.v2-course-subject .chapter-card-btn {
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.v2-course-subject .chapter-card-btn:hover {
+  transform: translateY(-3px);
+}
+
+.v2-course-subject .chapter-full {
+  border-radius: 20px;
+}
+
+/* ── Chapter reader (chat cours) ──────────────────────────────── */
+.v2-course-reader.app {
+  min-height: 100dvh;
+}
+
+.v2-course-reader .cours-topbar {
+  background: rgba(2, 6, 23, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(148, 163, 184, 0.08);
+}
+
+.v2-course-reader .prog-track {
+  height: 4px;
+}
+
+.v2-course-reader .prog-fill {
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
+}
+
+.v2-course-reader .step-chip.active {
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.25);
+}
+
+.v2-course-reader .msg.ai .msg-bubble {
+  border-radius: 4px 16px 16px 16px;
+  background: rgba(30, 41, 59, 0.85);
+}
+
+.v2-course-reader .msg.user .msg-bubble {
+  border-radius: 16px 4px 16px 16px;
+}
+
+.v2-course-reader .chip-btn {
+  border-radius: 999px;
+  font-size: 0.72rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.v2-course-reader .chip-btn:hover {
+  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.v2-course-reader .input-inner {
+  border-radius: 16px;
+  border: 1px solid var(--border2);
+  background: var(--card);
+  transition: border-color 0.15s;
+}
+
+.v2-course-reader .input-inner:focus-within {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.v2-course-reader .send-btn {
+  border-radius: 10px;
+  background: var(--green);
+}
+
+/* Gate « Commencer » — lazy IA (0 token au load) */
+.v2-course-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2.5rem 1.25rem 3rem;
+  max-width: 420px;
+  margin: 0 auto;
+  animation: v2CourseFadeIn 0.35s ease;
+}
+
+@keyframes v2CourseFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.v2-course-start__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(37, 99, 235, 0.15));
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: var(--green);
+}
+
+.v2-course-start__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--t1);
+  line-height: 1.35;
+}
+
+.v2-course-start__desc {
+  font-size: 0.82rem;
+  color: var(--t2);
+  line-height: 1.55;
+}
+
+.v2-course-start__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.35rem;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green), var(--green2));
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(16, 185, 129, 0.35);
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.v2-course-start__btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.v2-course-start__hint {
+  font-size: 0.72rem;
+  color: var(--t3);
+}
+
+/* ── Mobile + bottom nav ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .v2-course-hub .cours-wrap {
+    padding: 0 1rem 2rem;
+  }
+
+  .v2-course-reader .input-wrap {
+    padding-bottom: calc(0.75rem + var(--v2-bottom-nav-h, 56px) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .v2-course-reader .chips-row {
+    padding-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .v2-course-hub .cours-launch-card {
+    padding: 1.15rem;
+  }
+
+  .v2-course-start {
+    padding: 2rem 1rem 2.5rem;
+  }
+}

@@ -108,33 +108,16 @@ EXAM_FILES: dict[str, str] = {
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _load_quiz_questions(subject: str) -> list[dict]:
-    """Charge et retourne toutes les questions quiz d'une matière (avec cache)."""
+    """Charge et retourne toutes les questions quiz d'une matière (NS4 + 9e AF)."""
     if subject in _quiz_cache:
         return _quiz_cache[subject]
-
-    fname = QUIZ_FILES.get(subject)
-    if not fname:
-        return []
-
-    fpath = DB_DIR / fname
-    if not fpath.exists():
-        return []
-
     try:
-        with open(fpath, encoding='utf-8') as f:
-            data = json.load(f)
-
-        if isinstance(data, list):
-            questions = [q for q in data if isinstance(q, dict) and 'question' in q]
-        elif isinstance(data, dict) and 'quiz' in data:
-            questions = [q for q in data['quiz'] if isinstance(q, dict) and 'question' in q]
-        else:
-            questions = []
-
-        _quiz_cache[subject] = questions
-        return questions
+        from core.quiz_catalog import load_quiz_questions as _load
+        questions = _load(subject, include_9e=False)
     except Exception:
-        return []
+        questions = []
+    _quiz_cache[subject] = questions
+    return questions
 
 
 def get_quiz_categories(subject: str) -> list[str]:

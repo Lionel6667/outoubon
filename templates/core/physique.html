@@ -1,6 +1,8 @@
 ﻿{% extends 'base.html' %}
 {% block title %}Physique - OU TOU BON{% endblock %}
 
+{% block extra_head_links %}{% include "partials/v2/_v2_course_css.html" %}{% endblock %}
+
 {% block extra_css %}
 <style>
 .physique-page {
@@ -1745,7 +1747,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="view-area physique-page">
+<div class="view-area physique-page v2-course-subject">
   <div class="physique-shell">
     
     <div class="physique-hero" id="hero-section">
@@ -3209,7 +3211,8 @@
       if (chatMessages.children.length === 0) {
         const welcomeDiv = document.createElement('div');
         welcomeDiv.className = 'chat-message ai';
-        welcomeDiv.textContent = "👋 Salut ! Je suis ton assistant IA. Si tu n'as pas bien compris quelque chose dans ce chapitre, pose-moi ta question — je suis là pour t'aider à comprendre !";
+        const _coach = (window.OTB_COACH_NAME || 'Chat IA').trim() || 'Chat IA';
+        welcomeDiv.textContent = `👋 Salut ! Je suis ${_coach}. Si tu n'as pas bien compris quelque chose dans ce chapitre, pose-moi ta question — je suis là pour t'aider à comprendre !`;
         chatMessages.appendChild(welcomeDiv);
       }
       setTimeout(() => chatInput.focus(), 300);

@@ -1,0 +1,4508 @@
+{
+  "matiere": "art",
+  "level": "9e AF",
+  "total": 300,
+  "description": "Quiz Art — 9e AF : examens officiels + programme 9e (300 QCM, réponses vérifiées)",
+  "quiz": [
+    {
+      "id": "A9E1",
+      "category": "Arts plastiques",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Un point est :",
+      "correct": "C",
+      "explanation": "En arts plastiques, le point est l'élément graphique le plus simple : une marque sans dimension (ni longueur, ni largeur). Ce n'est ni une couleur, ni une surface, ni une forme à proprement parler.",
+      "options": [
+        "Une couleur",
+        "Une surface",
+        "Une marque sans dimension",
+        "Une forme"
+      ]
+    },
+    {
+      "id": "A9E2",
+      "category": "Arts plastiques",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Une ligne est créée par :",
+      "correct": "B",
+      "explanation": "Une ligne est le déplacement d'un point dans le plan. Ce n'est pas une gamme (vocabulaire musical), ni le support (feuille) ni l'outil (règle).",
+      "options": [
+        "Une gamme",
+        "Le déplacement d'un point",
+        "Une feuille",
+        "Une règle"
+      ]
+    },
+    {
+      "id": "A9E3",
+      "category": "Dessin",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Le dessin technique est souvent utilisé en :",
+      "correct": "B",
+      "explanation": "Le dessin technique (plans, cotes, vues) sert surtout en architecture et en ingénierie pour représenter des objets avec précision. Cuisine, théâtre et musique n'en font pas un usage central.",
+      "options": [
+        "Cuisine",
+        "Architecture",
+        "Théâtre",
+        "Musique"
+      ]
+    },
+    {
+      "id": "A9E4",
+      "category": "Arts plastiques",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Une forme organique est souvent :",
+      "correct": "B",
+      "explanation": "Une forme organique imite le vivant : elle est irrégulière et naturelle, contrairement aux formes géométriques (carré, cercle). Elle n'est définie ni par une couleur (peinte et bleu) ni par le son (bruyante).",
+      "options": [
+        "Carrée",
+        "Irrégulière et naturelle",
+        "Peinte et bleu",
+        "Bruyante"
+      ]
+    },
+    {
+      "question": "Le dessin technique est souvent utilisé en",
+      "options": [
+        "Cuisine",
+        "Architecture",
+        "Théâtre",
+        "Musique"
+      ],
+      "correct": "B",
+      "explanation": "Le dessin technique sert à représenter avec précision des plans, des coupes et des mesures. Il est indispensable en architecture, en ingénierie et dans l'industrie pour construire des ouvrages.",
+      "category": "Arts plastiques",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E5"
+    },
+    {
+      "question": "Art roman arcs",
+      "options": [
+        "en plein cintre",
+        "brisés seuls",
+        "triangulaires",
+        "carrés"
+      ],
+      "correct": "A",
+      "explanation": "Rounded arches.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E6"
+    },
+    {
+      "question": "Mise en page (layout) organise",
+      "options": [
+        "éléments visuels",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Layout.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E7"
+    },
+    {
+      "question": "Mélange des couleurs noir + orange donne principalement :",
+      "options": [
+        "violet",
+        "blanc",
+        "orange",
+        "noir"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, noir + orange → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E8"
+    },
+    {
+      "question": "Mélange des couleurs violet + blanc donne principalement :",
+      "options": [
+        "rouge",
+        "vert",
+        "jaune",
+        "orange"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, violet + blanc → jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E9"
+    },
+    {
+      "question": "Mélange des couleurs rouge + blanc donne principalement :",
+      "options": [
+        "noir",
+        "blanc",
+        "vert",
+        "orange"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, rouge + blanc → noir.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E10"
+    },
+    {
+      "question": "Mélange des couleurs noir + vert donne principalement :",
+      "options": [
+        "noir",
+        "rouge",
+        "bleu",
+        "vert"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, noir + vert → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E11"
+    },
+    {
+      "question": "Perspective: point de",
+      "options": [
+        "fuite",
+        "départ",
+        "milieu",
+        "fin"
+      ],
+      "correct": "A",
+      "explanation": "Vanishing point.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E12"
+    },
+    {
+      "question": "Mélange des couleurs rouge + bleu donne principalement :",
+      "options": [
+        "blanc",
+        "jaune",
+        "violet",
+        "orange"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, rouge + bleu → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E13"
+    },
+    {
+      "question": "Toile peinte =",
+      "options": [
+        "support textile",
+        "métal",
+        "verre",
+        "air"
+      ],
+      "correct": "A",
+      "explanation": "Canvas.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E14"
+    },
+    {
+      "question": "Sculpture 3D vs peinture",
+      "options": [
+        "2D",
+        "1D",
+        "4D",
+        "0D"
+      ],
+      "correct": "A",
+      "explanation": "Dimensions.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E15"
+    },
+    {
+      "question": "Contraste fort =",
+      "options": [
+        "opposition marquée",
+        "uniformité",
+        "monotone",
+        "identique"
+      ],
+      "correct": "A",
+      "explanation": "Contrast.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E16"
+    },
+    {
+      "question": "Graffiti sans permission peut être",
+      "options": [
+        "illégal",
+        "toujours légal",
+        "obligatoire",
+        "interdit partout"
+      ],
+      "correct": "A",
+      "explanation": "Graffiti law.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E17"
+    },
+    {
+      "question": "Mélange des couleurs rouge + noir donne principalement :",
+      "options": [
+        "noir",
+        "orange",
+        "jaune",
+        "bleu"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, rouge + noir → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E18"
+    },
+    {
+      "question": "Restauration d'œuvre:",
+      "options": [
+        "réparer/conservér",
+        "détruire",
+        "vendre",
+        "brûler"
+      ],
+      "correct": "A",
+      "explanation": "Restoration.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E19"
+    },
+    {
+      "question": "Caricature exagère pour",
+      "options": [
+        "critiquer / humoriser",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Caricature.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E20"
+    },
+    {
+      "question": "Cadrage serré =",
+      "options": [
+        "gros plan",
+        "panorama",
+        "vue satellite",
+        "vue galaxie"
+      ],
+      "correct": "A",
+      "explanation": "Close-up.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E21"
+    },
+    {
+      "question": "Couleur web hex #FF0000 =",
+      "options": [
+        "rouge",
+        "bleu",
+        "vert",
+        "jaune"
+      ],
+      "correct": "A",
+      "explanation": "Red hex.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E22"
+    },
+    {
+      "question": "Design: ergonomie =",
+      "options": [
+        "confort d'usage",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Ergonomics.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E23"
+    },
+    {
+      "question": "Art haïtien: fer découpé à",
+      "options": [
+        "Croix-des-Bouquets",
+        "Tokyo",
+        "Paris",
+        "Londres"
+      ],
+      "correct": "A",
+      "explanation": "Metal village.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E24"
+    },
+    {
+      "question": "Affiche santé publique =",
+      "options": [
+        "communication visuelle",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Public health poster.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E25"
+    },
+    {
+      "question": "Préhistoire art: Venus de",
+      "options": [
+        "Willendorf",
+        "Paris",
+        "Tokyo",
+        "Miami"
+      ],
+      "correct": "A",
+      "explanation": "Prehistoric.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E26"
+    },
+    {
+      "question": "Pointillisme: Seurat utilise",
+      "options": [
+        "points",
+        "lignes seules",
+        "carrés seuls",
+        "triangles seuls"
+      ],
+      "correct": "A",
+      "explanation": "Pointillism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E27"
+    },
+    {
+      "question": "Galerie expose",
+      "options": [
+        "œuvres",
+        "nourriture",
+        "voitures",
+        "bateaux"
+      ],
+      "correct": "A",
+      "explanation": "Gallery.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E28"
+    },
+    {
+      "question": "Encre sepia couleur",
+      "options": [
+        "brune",
+        "bleue",
+        "verte",
+        "violette"
+      ],
+      "correct": "A",
+      "explanation": "Sepia.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E29"
+    },
+    {
+      "question": "Mélange des couleurs vert + orange donne principalement :",
+      "options": [
+        "jaune",
+        "violet",
+        "blanc",
+        "orange"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, vert + orange → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E30"
+    },
+    {
+      "question": "Mélange des couleurs blanc + bleu donne principalement :",
+      "options": [
+        "violet",
+        "bleu",
+        "blanc",
+        "rouge"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, blanc + bleu → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E31"
+    },
+    {
+      "question": "Focal point =",
+      "options": [
+        "point d'attention",
+        "bord",
+        "coin",
+        "arrière"
+      ],
+      "correct": "A",
+      "explanation": "Focus.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E32"
+    },
+    {
+      "question": "Affiche politique persuade par",
+      "options": [
+        "image et texte",
+        "odeur",
+        "taste",
+        "son seul"
+      ],
+      "correct": "A",
+      "explanation": "Political poster.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E33"
+    },
+    {
+      "question": "Mélange des couleurs blanc + orange donne principalement :",
+      "options": [
+        "rouge",
+        "bleu",
+        "jaune",
+        "noir"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, blanc + orange → rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E34"
+    },
+    {
+      "question": "Mélange des couleurs noir + violet donne principalement :",
+      "options": [
+        "vert",
+        "rouge",
+        "orange",
+        "bleu"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, noir + violet → vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E35"
+    },
+    {
+      "question": "Exposition temporaire dure",
+      "options": [
+        "période limitée",
+        "éternité",
+        "jamais",
+        "0 seconde"
+      ],
+      "correct": "A",
+      "explanation": "Temporary exhibit.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E36"
+    },
+    {
+      "question": "Poterie haïtienne:",
+      "options": [
+        "terre cuite",
+        "verre",
+        "métal",
+        "plastique"
+      ],
+      "correct": "A",
+      "explanation": "Haitian pottery.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E37"
+    },
+    {
+      "question": "Art therapy utilise",
+      "options": [
+        "création pour bien-être",
+        "destruction",
+        "censure",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Art therapy.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E38"
+    },
+    {
+      "question": "Mélange des couleurs orange + jaune donne principalement :",
+      "options": [
+        "violet",
+        "rouge",
+        "vert",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, orange + jaune → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E39"
+    },
+    {
+      "question": "Curateur organise",
+      "options": [
+        "exposition",
+        "cuisine",
+        "sport",
+        "médecine"
+      ],
+      "correct": "A",
+      "explanation": "Curator.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E40"
+    },
+    {
+      "question": "Mélange des couleurs noir + jaune donne principalement :",
+      "options": [
+        "orange",
+        "bleu",
+        "jaune",
+        "noir"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, noir + jaune → jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E41"
+    },
+    {
+      "question": "Saturation =",
+      "options": [
+        "intensité couleur",
+        "taille",
+        "forme",
+        "texture"
+      ],
+      "correct": "A",
+      "explanation": "Saturation.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E42"
+    },
+    {
+      "question": "Proportion =",
+      "options": [
+        "rapport des tailles",
+        "couleur seule",
+        "odeur",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Proportion.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E43"
+    },
+    {
+      "question": "Acrylique sèche",
+      "options": [
+        "rapidement",
+        "jamais",
+        "en 10 ans",
+        "en 100 ans"
+      ],
+      "correct": "A",
+      "explanation": "Acrylic.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E44"
+    },
+    {
+      "question": "Art optique (Op art) joue sur",
+      "options": [
+        "illusion",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Op art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E45"
+    },
+    {
+      "question": "Mélange des couleurs blanc + violet donne principalement :",
+      "options": [
+        "blanc",
+        "vert",
+        "rouge",
+        "violet"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, blanc + violet → rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E46"
+    },
+    {
+      "question": "Mélange des couleurs bleu + violet donne principalement :",
+      "options": [
+        "blanc",
+        "bleu",
+        "jaune",
+        "rouge"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, bleu + violet → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E47"
+    },
+    {
+      "question": "Complémentaires: rouge /",
+      "options": [
+        "vert",
+        "bleu",
+        "jaune",
+        "orange"
+      ],
+      "correct": "A",
+      "explanation": "Opposés cercle.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E48"
+    },
+    {
+      "question": "Critère esthétique:",
+      "options": [
+        "beauté / harmonie",
+        "odeur",
+        "taste",
+        "poids"
+      ],
+      "correct": "A",
+      "explanation": "Aesthetic.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E49"
+    },
+    {
+      "question": "Art civique éduque à",
+      "options": [
+        "citoyenneté",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Civic art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E50"
+    },
+    {
+      "question": "Matériau recyclé en art =",
+      "options": [
+        "art écologique",
+        "pollution",
+        "déchets toxiques",
+        "brûlage"
+      ],
+      "correct": "A",
+      "explanation": "Eco art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E51"
+    },
+    {
+      "question": "Bleu symbolise souvent",
+      "options": [
+        "calme / mer",
+        "feu",
+        "guerre",
+        "chaos"
+      ],
+      "correct": "A",
+      "explanation": "Blue symbolism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E52"
+    },
+    {
+      "question": "Statue Liberté symbole",
+      "options": [
+        "liberté (USA)",
+        "guerre",
+        "dictature",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Liberty.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E53"
+    },
+    {
+      "question": "Mélange des couleurs jaune + bleu donne principalement :",
+      "options": [
+        "rouge",
+        "vert",
+        "orange",
+        "noir"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, jaune + bleu → vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E54"
+    },
+    {
+      "question": "Mélange des couleurs vert + bleu donne principalement :",
+      "options": [
+        "orange",
+        "bleu",
+        "violet",
+        "jaune"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, vert + bleu → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E55"
+    },
+    {
+      "question": "Mélange des couleurs violet + rouge donne principalement :",
+      "options": [
+        "noir",
+        "blanc",
+        "orange",
+        "vert"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, violet + rouge → noir.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E56"
+    },
+    {
+      "question": "Mélange des couleurs noir + blanc donne principalement :",
+      "options": [
+        "blanc",
+        "bleu",
+        "vert",
+        "noir"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, noir + blanc → noir.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E57"
+    },
+    {
+      "question": "Art abstrait ne représente pas",
+      "options": [
+        "réel identifiable",
+        "toujours réel",
+        "photo",
+        "copie"
+      ],
+      "correct": "A",
+      "explanation": "Abstract.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E58"
+    },
+    {
+      "question": "Taille directe: pierre,",
+      "options": [
+        "bois",
+        "papier seul",
+        "digital seul",
+        "air"
+      ],
+      "correct": "A",
+      "explanation": "Carving.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E59"
+    },
+    {
+      "question": "Vectoriel (SVG) vs",
+      "options": [
+        "bitmap",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Vector vs raster.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E60"
+    },
+    {
+      "question": "Mélange des couleurs blanc + noir donne principalement :",
+      "options": [
+        "vert",
+        "jaune",
+        "bleu",
+        "blanc"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, blanc + noir → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E61"
+    },
+    {
+      "question": "Carnet de croquis pour",
+      "options": [
+        "esquisses rapides",
+        "roman",
+        "poème long",
+        "thèse"
+      ],
+      "correct": "A",
+      "explanation": "Sketchbook.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E62"
+    },
+    {
+      "question": "Modelage: argile,",
+      "options": [
+        "plâtre",
+        "eau seule",
+        "air seul",
+        "feu seul"
+      ],
+      "correct": "A",
+      "explanation": "Modeling.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E63"
+    },
+    {
+      "question": "Gris neutre =",
+      "options": [
+        "mélange complémentaires",
+        "eau pure",
+        "air pur",
+        "vide"
+      ],
+      "correct": "A",
+      "explanation": "Neutral gray.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E64"
+    },
+    {
+      "question": "Mélange des couleurs orange + bleu donne principalement :",
+      "options": [
+        "bleu",
+        "blanc",
+        "rouge",
+        "noir"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, orange + bleu → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E65"
+    },
+    {
+      "question": "Noir symbolise souvent",
+      "options": [
+        "mystère / deuil",
+        "joie seule",
+        "fête seule",
+        "sport"
+      ],
+      "correct": "A",
+      "explanation": "Black symbolism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E66"
+    },
+    {
+      "question": "Icon set = ensemble d'",
+      "options": [
+        "icônes",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Icons.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E67"
+    },
+    {
+      "question": "Mélange des couleurs orange + rouge donne principalement :",
+      "options": [
+        "orange",
+        "vert",
+        "rouge",
+        "jaune"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, orange + rouge → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E68"
+    },
+    {
+      "question": "Palette pour",
+      "options": [
+        "mélanger couleurs",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Palette.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E69"
+    },
+    {
+      "question": "Patrimoine UNESCO Haïti:",
+      "options": [
+        "Citadelle, Sans-Souci",
+        "Tour Eiffel",
+        "Big Ben",
+        "Colisée"
+      ],
+      "correct": "A",
+      "explanation": "UNESCO Haiti.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E70"
+    },
+    {
+      "question": "Mélange des couleurs vert + rouge donne principalement :",
+      "options": [
+        "jaune",
+        "blanc",
+        "violet",
+        "vert"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, vert + rouge → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E71"
+    },
+    {
+      "question": "Négatif (espace) =",
+      "options": [
+        "zone vide autour sujet",
+        "couleur",
+        "odeur",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Negative space.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E72"
+    },
+    {
+      "question": "Vert malachite pigment",
+      "options": [
+        "minéral",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Malachite.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E73"
+    },
+    {
+      "question": "Musée conserve et",
+      "options": [
+        "expose patrimoine",
+        "détruit",
+        "vend",
+        "brûle"
+      ],
+      "correct": "A",
+      "explanation": "Museum.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E74"
+    },
+    {
+      "question": "Renaissance =",
+      "options": [
+        "rebirth arts Europe",
+        "chute",
+        "fin",
+        "destruction"
+      ],
+      "correct": "A",
+      "explanation": "Renaissance.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E75"
+    },
+    {
+      "question": "Teinte =",
+      "options": [
+        "couleur pure",
+        "noir",
+        "blanc",
+        "gris"
+      ],
+      "correct": "A",
+      "explanation": "Hue.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E76"
+    },
+    {
+      "question": "Mélange des couleurs jaune + vert donne principalement :",
+      "options": [
+        "jaune",
+        "vert",
+        "blanc",
+        "orange"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, jaune + vert → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E77"
+    },
+    {
+      "question": "Musée d'Art haïtien:",
+      "options": [
+        "Port-au-Prince",
+        "Tokyo",
+        "Paris",
+        "Londres"
+      ],
+      "correct": "A",
+      "explanation": "Haiti museum.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E78"
+    },
+    {
+      "question": "Surréalisme: Salvador",
+      "options": [
+        "Dalí",
+        "Monet",
+        "Warhol",
+        "Michel-Ange seul"
+      ],
+      "correct": "A",
+      "explanation": "Surrealism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E79"
+    },
+    {
+      "question": "Mélange des couleurs blanc + vert donne principalement :",
+      "options": [
+        "rouge",
+        "violet",
+        "noir",
+        "bleu"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, blanc + vert → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E80"
+    },
+    {
+      "question": "Harmonie =",
+      "options": [
+        "accord des éléments",
+        "chaos",
+        "désordre",
+        "rupture"
+      ],
+      "correct": "A",
+      "explanation": "Harmony.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E81"
+    },
+    {
+      "question": "Haïti art: peinture",
+      "options": [
+        "naïve / paysanne",
+        "inexistante",
+        "interdite",
+        "nulle"
+      ],
+      "correct": "A",
+      "explanation": "Haitian art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E82"
+    },
+    {
+      "question": "Poto-Poto: style peinture",
+      "options": [
+        "haïtien",
+        "japonais",
+        "scandinave",
+        "arctique"
+      ],
+      "correct": "A",
+      "explanation": "Haitian style.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E83"
+    },
+    {
+      "question": "Logiciel dessin: Adobe",
+      "options": [
+        "Illustrator",
+        "Excel",
+        "Word seul",
+        "PowerPoint seul"
+      ],
+      "correct": "A",
+      "explanation": "Illustrator.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E84"
+    },
+    {
+      "question": "Rome copie et diffuse art",
+      "options": [
+        "grec",
+        "inuit",
+        "arctique",
+        "lunaire"
+      ],
+      "correct": "A",
+      "explanation": "Roman art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E85"
+    },
+    {
+      "question": "Mélange des couleurs violet + orange donne principalement :",
+      "options": [
+        "vert",
+        "orange",
+        "rouge",
+        "noir"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, violet + orange → rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E86"
+    },
+    {
+      "question": "Mélange des couleurs vert + blanc donne principalement :",
+      "options": [
+        "orange",
+        "blanc",
+        "violet",
+        "bleu"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, vert + blanc → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E87"
+    },
+    {
+      "question": "Installation art occupe",
+      "options": [
+        "espace",
+        "odeur",
+        "taste",
+        "son seul"
+      ],
+      "correct": "A",
+      "explanation": "Installation.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E88"
+    },
+    {
+      "question": "Mélange des couleurs jaune + orange donne principalement :",
+      "options": [
+        "vert",
+        "rouge",
+        "noir",
+        "bleu"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, jaune + orange → rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E89"
+    },
+    {
+      "question": "Mélange des couleurs jaune + rouge donne principalement :",
+      "options": [
+        "orange",
+        "rouge",
+        "jaune",
+        "violet"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, jaune + rouge → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E90"
+    },
+    {
+      "question": "Pastel:",
+      "options": [
+        "pigment + liant",
+        "eau pure",
+        "air pur",
+        "métal pur"
+      ],
+      "correct": "A",
+      "explanation": "Pastel.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E91"
+    },
+    {
+      "question": "Céramique =",
+      "options": [
+        "argile cuite",
+        "papier",
+        "plastique",
+        "air"
+      ],
+      "correct": "A",
+      "explanation": "Ceramics.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E92"
+    },
+    {
+      "question": "Ligne diagonale suggère:",
+      "options": [
+        "mouvement, dynamisme",
+        "calme",
+        "stabilité",
+        "immobilité"
+      ],
+      "correct": "A",
+      "explanation": "Diagonal.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E93"
+    },
+    {
+      "question": "Pixar révolutionne",
+      "options": [
+        "animation 3D",
+        "radio",
+        "journal",
+        "livre seul"
+      ],
+      "correct": "A",
+      "explanation": "Pixar.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E94"
+    },
+    {
+      "question": "Respect matériaux =",
+      "options": [
+        "propreté et sécurité",
+        "désordre",
+        "danger",
+        "pollution"
+      ],
+      "correct": "A",
+      "explanation": "Material safety.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E95"
+    },
+    {
+      "question": "Education artistique 9e AF inclut",
+      "options": [
+        "arts plastiques",
+        "pétrole",
+        "charbon",
+        "uranium"
+      ],
+      "correct": "A",
+      "explanation": "Plastic arts.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E96"
+    },
+    {
+      "question": "Totem amérindien =",
+      "options": [
+        "symbole clan",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Totem.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E97"
+    },
+    {
+      "question": "Teinture batik utilise",
+      "options": [
+        "cire et colorant",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Batik.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E98"
+    },
+    {
+      "question": "Projet art: moodboard rassemble",
+      "options": [
+        "inspirations visuelles",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Moodboard.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E99"
+    },
+    {
+      "question": "Balance asymétrique:",
+      "options": [
+        "équilibre dynamique",
+        "miroir exact",
+        "identique",
+        "copie"
+      ],
+      "correct": "A",
+      "explanation": "Asymmetry.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E100"
+    },
+    {
+      "question": "Bleu ultramar vient historiquement de",
+      "options": [
+        "lapis lazuli",
+        "plastique",
+        "papier",
+        "air"
+      ],
+      "correct": "A",
+      "explanation": "Ultramarine.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E101"
+    },
+    {
+      "question": "Noir et blanc =",
+      "options": [
+        "monochrome",
+        "polychrome",
+        "arc-en-ciel",
+        "néon"
+      ],
+      "correct": "A",
+      "explanation": "B&W.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E102"
+    },
+    {
+      "question": "Critique d'art analyse",
+      "options": [
+        "œuvre et contexte",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Art criticism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E103"
+    },
+    {
+      "question": "Couleurs froides:",
+      "options": [
+        "bleu, vert, violet",
+        "rouge, orange",
+        "noir seul",
+        "blanc seul"
+      ],
+      "correct": "A",
+      "explanation": "Froides.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E104"
+    },
+    {
+      "question": "Colle art: utiliser dans",
+      "options": [
+        "zone ventilée",
+        "fermée sans air",
+        "sous eau",
+        "sous terre"
+      ],
+      "correct": "A",
+      "explanation": "Glue safety.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E105"
+    },
+    {
+      "question": "Bleu + jaune =",
+      "options": [
+        "vert",
+        "orange",
+        "violet",
+        "marron"
+      ],
+      "correct": "A",
+      "explanation": "Secondaire.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E106"
+    },
+    {
+      "question": "Art inclusif accessible à",
+      "options": [
+        "tous",
+        "riches seuls",
+        "adultes seuls",
+        "hommes seuls"
+      ],
+      "correct": "A",
+      "explanation": "Inclusive art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E107"
+    },
+    {
+      "question": "Storyboard planifie",
+      "options": [
+        "film/animation",
+        "cuisine",
+        "sport",
+        "médecine"
+      ],
+      "correct": "A",
+      "explanation": "Storyboard.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E108"
+    },
+    {
+      "question": "Échelle =",
+      "options": [
+        "taille relative",
+        "couleur",
+        "odeur",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Scale.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E109"
+    },
+    {
+      "question": "Caméra obscura précède",
+      "options": [
+        "appareil photo",
+        "téléphone",
+        "radio",
+        "TV"
+      ],
+      "correct": "A",
+      "explanation": "Camera obscura.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E110"
+    },
+    {
+      "question": "Leonardo da Vinci peint",
+      "options": [
+        "Mona Lisa",
+        "Guernica seule",
+        "Nuit étoilée seule",
+        "Impression soleil"
+      ],
+      "correct": "A",
+      "explanation": "Da Vinci.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E111"
+    },
+    {
+      "question": "Mélange des couleurs violet + bleu donne principalement :",
+      "options": [
+        "rouge",
+        "jaune",
+        "orange",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, violet + bleu → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E112"
+    },
+    {
+      "question": "Égypte ancienne art pour",
+      "options": [
+        "au-delà / pharaons",
+        "sport",
+        "jeu",
+        "musique seule"
+      ],
+      "correct": "A",
+      "explanation": "Egyptian art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E113"
+    },
+    {
+      "question": "Guernica: Picasso proteste",
+      "options": [
+        "guerre",
+        "sport",
+        "musique",
+        "cuisine"
+      ],
+      "correct": "A",
+      "explanation": "Guernica.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E114"
+    },
+    {
+      "question": "Photoshop édite",
+      "options": [
+        "images",
+        "vidéo seule",
+        "audio seul",
+        "texte seul"
+      ],
+      "correct": "A",
+      "explanation": "Photoshop.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E115"
+    },
+    {
+      "question": "Fusain =",
+      "options": [
+        "crayon charbon",
+        "aquarelle",
+        "huile",
+        "acrylique"
+      ],
+      "correct": "A",
+      "explanation": "Charcoal.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E116"
+    },
+    {
+      "question": "Masque africain utilisé en",
+      "options": [
+        "rituel / cérémonie",
+        "supermarché",
+        "banque",
+        "usine"
+      ],
+      "correct": "A",
+      "explanation": "African mask.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E117"
+    },
+    {
+      "question": "Banksy: art",
+      "options": [
+        "urbain",
+        "classique",
+        "romain",
+        "grec seul"
+      ],
+      "correct": "A",
+      "explanation": "Street artist.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E118"
+    },
+    {
+      "question": "Couleur primaire (tradition peinture):",
+      "options": [
+        "rouge",
+        "vert",
+        "orange",
+        "violet"
+      ],
+      "correct": "A",
+      "explanation": "Primaires: R, J, B.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E119"
+    },
+    {
+      "question": "Mélange des couleurs vert + jaune donne principalement :",
+      "options": [
+        "rouge",
+        "jaune",
+        "violet",
+        "noir"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, vert + jaune → rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E120"
+    },
+    {
+      "question": "Street art / graffiti souvent en",
+      "options": [
+        "ville",
+        "océan",
+        "espace",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "Urban art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E121"
+    },
+    {
+      "question": "Ciseaux art: ne pas couper vers",
+      "options": [
+        "soi",
+        "autre",
+        "ciel",
+        "sol"
+      ],
+      "correct": "A",
+      "explanation": "Scissors safety.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E122"
+    },
+    {
+      "question": "Collage =",
+      "options": [
+        "assemblage matériaux",
+        "destruction",
+        "effacement",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Collage.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E123"
+    },
+    {
+      "question": "Blanc symbolise souvent",
+      "options": [
+        "pureté / lumière",
+        "guerre",
+        "chaos",
+        "destruction"
+      ],
+      "correct": "A",
+      "explanation": "White symbolism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E124"
+    },
+    {
+      "question": "Art haïtien: perles sur",
+      "options": [
+        "bouteilles (vodou)",
+        "voitures",
+        "avions",
+        "bateaux"
+      ],
+      "correct": "A",
+      "explanation": "Bottle art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E125"
+    },
+    {
+      "question": "Art game design combine",
+      "options": [
+        "art et interactivité",
+        "odeur",
+        "taste",
+        "son seul"
+      ],
+      "correct": "A",
+      "explanation": "Game art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E126"
+    },
+    {
+      "question": "Dôme: couvre espace",
+      "options": [
+        "circulaire",
+        "carré seul",
+        "triangulaire seul",
+        "linéaire"
+      ],
+      "correct": "A",
+      "explanation": "Dome.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E127"
+    },
+    {
+      "question": "Mélange des couleurs noir + bleu donne principalement :",
+      "options": [
+        "rouge",
+        "violet",
+        "blanc",
+        "noir"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, noir + bleu → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E128"
+    },
+    {
+      "question": "Performance art =",
+      "options": [
+        "action live",
+        "peinture seule",
+        "sculpture seule",
+        "photo seule"
+      ],
+      "correct": "A",
+      "explanation": "Performance.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E129"
+    },
+    {
+      "question": "Palette limitée =",
+      "options": [
+        "peu de couleurs",
+        "toutes couleurs",
+        "aucune",
+        "infinies"
+      ],
+      "correct": "A",
+      "explanation": "Limited palette.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E130"
+    },
+    {
+      "question": "Mélange des couleurs bleu + orange donne principalement :",
+      "options": [
+        "jaune",
+        "vert",
+        "rouge",
+        "violet"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, bleu + orange → jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E131"
+    },
+    {
+      "question": "Michel-Ange sculpte",
+      "options": [
+        "David",
+        "Tour Eiffel",
+        "Big Ben",
+        "Colisée"
+      ],
+      "correct": "A",
+      "explanation": "Michelangelo.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E132"
+    },
+    {
+      "question": "Broderie =",
+      "options": [
+        "décorer avec fil",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Embroidery.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E133"
+    },
+    {
+      "question": "Signalétique guide dans",
+      "options": [
+        "espace public",
+        "rêve",
+        "nuage",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "Signage.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E134"
+    },
+    {
+      "question": "Impressionnisme: Monet,",
+      "options": [
+        "Renoir",
+        "Picasso cubiste",
+        "Warhol",
+        "Banksy"
+      ],
+      "correct": "A",
+      "explanation": "Impressionism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E135"
+    },
+    {
+      "question": "Couleur sécurité sécurité/info:",
+      "options": [
+        "vert ou bleu",
+        "noir",
+        "marron",
+        "beige"
+      ],
+      "correct": "A",
+      "explanation": "Safety colors.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E136"
+    },
+    {
+      "question": "Ligne verticale suggère:",
+      "options": [
+        "force, hauteur",
+        "calme seul",
+        "horizontal",
+        "cercle"
+      ],
+      "correct": "A",
+      "explanation": "Vertical.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E137"
+    },
+    {
+      "question": "Art éducatif en 9e AF vise",
+      "options": [
+        "expression et culture",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "9e art ed.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E138"
+    },
+    {
+      "question": "Encre de Chine:",
+      "options": [
+        "noir intense",
+        "blanc",
+        "transparent",
+        "invisible"
+      ],
+      "correct": "A",
+      "explanation": "India ink.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E139"
+    },
+    {
+      "question": "Critère technique:",
+      "options": [
+        "maîtrise matériau",
+        "odeur",
+        "taste",
+        "poids"
+      ],
+      "correct": "A",
+      "explanation": "Technical.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E140"
+    },
+    {
+      "question": "Fête du drapeau Haïti 18",
+      "options": [
+        "mai",
+        "janvier",
+        "juillet",
+        "décembre"
+      ],
+      "correct": "A",
+      "explanation": "Flag day.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E141"
+    },
+    {
+      "question": "Architecture: fonction et",
+      "options": [
+        "forme",
+        "odeur",
+        "taste",
+        "son seul"
+      ],
+      "correct": "A",
+      "explanation": "Form follows function.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E142"
+    },
+    {
+      "question": "NFT peut certifier",
+      "options": [
+        "œuvre numérique",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "NFT art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E143"
+    },
+    {
+      "question": "Mélange des couleurs noir + rouge donne principalement :",
+      "options": [
+        "jaune",
+        "violet",
+        "noir",
+        "blanc"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, noir + rouge → jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E144"
+    },
+    {
+      "question": "Art 9e: finalité = expression",
+      "options": [
+        "personnelle et culturelle",
+        "guerre",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "9e purpose.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E145"
+    },
+    {
+      "question": "Balance symétrique:",
+      "options": [
+        "miroir",
+        "chaos",
+        "désordre",
+        "aléatoire"
+      ],
+      "correct": "A",
+      "explanation": "Symmetry.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E146"
+    },
+    {
+      "question": "Rouge + bleu =",
+      "options": [
+        "violet",
+        "vert",
+        "orange",
+        "marron"
+      ],
+      "correct": "A",
+      "explanation": "Secondaire.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E147"
+    },
+    {
+      "question": "Colonne grecque: Dorique,",
+      "options": [
+        "Ionique, Corinthien",
+        "Roman seul",
+        "Aztec",
+        "Inca"
+      ],
+      "correct": "A",
+      "explanation": "Orders.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E148"
+    },
+    {
+      "question": "Art haïtien: scène",
+      "options": [
+        "quotidienne",
+        "lunaire",
+        "martienne",
+        "solaire"
+      ],
+      "correct": "A",
+      "explanation": "Daily life.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E149"
+    },
+    {
+      "question": "Fresque peint sur",
+      "options": [
+        "mur humide",
+        "papier sec",
+        "toile sèche",
+        "bois sec"
+      ],
+      "correct": "A",
+      "explanation": "Fresco.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E150"
+    },
+    {
+      "question": "Art 9e AF: évaluer création selon",
+      "options": [
+        "critères donnés",
+        "hasard",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "9e evaluation.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E151"
+    },
+    {
+      "question": "Mélange des couleurs bleu + rouge donne principalement :",
+      "options": [
+        "orange",
+        "jaune",
+        "bleu",
+        "violet"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, bleu + rouge → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E152"
+    },
+    {
+      "question": "Origami =",
+      "options": [
+        "papier plié",
+        "pierre",
+        "métal",
+        "bois"
+      ],
+      "correct": "A",
+      "explanation": "Origami.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E153"
+    },
+    {
+      "question": "CMYK pour",
+      "options": [
+        "impression",
+        "web seul",
+        "radio",
+        "TV"
+      ],
+      "correct": "A",
+      "explanation": "Print colors.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E154"
+    },
+    {
+      "question": "Mélange des couleurs rouge + jaune donne principalement :",
+      "options": [
+        "noir",
+        "violet",
+        "bleu",
+        "orange"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, rouge + jaune → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E155"
+    },
+    {
+      "question": "Résolution =",
+      "options": [
+        "densité pixels",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Resolution.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E156"
+    },
+    {
+      "question": "Couleur terre (ocre) vient de",
+      "options": [
+        "minéraux/pigments naturels",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Earth pigments.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E157"
+    },
+    {
+      "question": "Couleur primaire:",
+      "options": [
+        "bleu",
+        "vert",
+        "orange",
+        "marron"
+      ],
+      "correct": "A",
+      "explanation": "Bleu primaire.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E158"
+    },
+    {
+      "question": "Typographie: choix de",
+      "options": [
+        "police",
+        "couleur seule",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Typography.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E159"
+    },
+    {
+      "question": "Contraste luminosité =",
+      "options": [
+        "clair vs foncé",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Tonal contrast.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E160"
+    },
+    {
+      "question": "Rythme visuel =",
+      "options": [
+        "répétition motif",
+        "silence",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Rhythm.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E161"
+    },
+    {
+      "question": "Mélange des couleurs rouge + orange donne principalement :",
+      "options": [
+        "noir",
+        "rouge",
+        "orange",
+        "vert"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, rouge + orange → vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E162"
+    },
+    {
+      "question": "Papier grainé pour",
+      "options": [
+        "pastel/charbon",
+        "eau",
+        "huile seule",
+        "acrylique seule"
+      ],
+      "correct": "A",
+      "explanation": "Textured paper.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E163"
+    },
+    {
+      "question": "Art abstrait géométrique: Mondrian utilise",
+      "options": [
+        "lignes et couleurs pures",
+        "photos",
+        "odeurs",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Mondrian.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E164"
+    },
+    {
+      "question": "Mélange des couleurs blanc + jaune donne principalement :",
+      "options": [
+        "jaune",
+        "noir",
+        "violet",
+        "rouge"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, blanc + jaune → jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E165"
+    },
+    {
+      "question": "Contemporain = art",
+      "options": [
+        "récent / actuel",
+        "ancien seul",
+        "préhistorique",
+        "interdit"
+      ],
+      "correct": "A",
+      "explanation": "Contemporary.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E166"
+    },
+    {
+      "question": "Vodou art inclut",
+      "options": [
+        "drapo (flags)",
+        "voitures",
+        "avions",
+        "bateaux"
+      ],
+      "correct": "A",
+      "explanation": "Vodou flags.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E167"
+    },
+    {
+      "question": "Mélange des couleurs violet + jaune donne principalement :",
+      "options": [
+        "blanc",
+        "orange",
+        "rouge",
+        "noir"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, violet + jaune → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E168"
+    },
+    {
+      "question": "Couleurs drapeau Haïti:",
+      "options": [
+        "bleu et rouge",
+        "vert jaune",
+        "noir seul",
+        "blanc seul"
+      ],
+      "correct": "A",
+      "explanation": "Flag colors.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E169"
+    },
+    {
+      "question": "Couleur UI: contraste améliore",
+      "options": [
+        "lisibilité",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "UI contrast.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E170"
+    },
+    {
+      "question": "Art haïtien contemporain exposé",
+      "options": [
+        "internationalement",
+        "jamais",
+        "interdit",
+        "nul"
+      ],
+      "correct": "A",
+      "explanation": "Global Haiti art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E171"
+    },
+    {
+      "question": "Mélange des couleurs orange + vert donne principalement :",
+      "options": [
+        "violet",
+        "orange",
+        "rouge",
+        "bleu"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, orange + vert → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E172"
+    },
+    {
+      "question": "RGB pour",
+      "options": [
+        "écran numérique",
+        "impression seule",
+        "sculpture",
+        "taille"
+      ],
+      "correct": "A",
+      "explanation": "Screen colors.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E173"
+    },
+    {
+      "question": "Jaune symbolise souvent",
+      "options": [
+        "lumière / joie",
+        "deuil",
+        "nuit",
+        "silence"
+      ],
+      "correct": "A",
+      "explanation": "Yellow symbolism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E174"
+    },
+    {
+      "question": "Nettoyer pinceaux à l'",
+      "options": [
+        "eau ou solvant adapté",
+        "sable",
+        "terre",
+        "roche"
+      ],
+      "correct": "A",
+      "explanation": "Brush cleaning.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E175"
+    },
+    {
+      "question": "Animation Disney débute avec",
+      "options": [
+        "Mickey Mouse",
+        "Batman",
+        "Superman",
+        "Spiderman"
+      ],
+      "correct": "A",
+      "explanation": "Disney.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E176"
+    },
+    {
+      "question": "Pop art: Andy",
+      "options": [
+        "Warhol",
+        "Picasso seul",
+        "Van Gogh seul",
+        "Monet seul"
+      ],
+      "correct": "A",
+      "explanation": "Warhol.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E177"
+    },
+    {
+      "question": "Huile sèche",
+      "options": [
+        "lentement",
+        "instant",
+        "1 seconde",
+        "0 seconde"
+      ],
+      "correct": "A",
+      "explanation": "Oil paint.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E178"
+    },
+    {
+      "question": "Art haïtien métal: fer",
+      "options": [
+        "battu",
+        "plastique",
+        "papier",
+        "verre seul"
+      ],
+      "correct": "A",
+      "explanation": "Metal art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E179"
+    },
+    {
+      "question": "Sérigraphie =",
+      "options": [
+        "impression à pochoir",
+        "sculpture",
+        "danse",
+        "musique"
+      ],
+      "correct": "A",
+      "explanation": "Screen print.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E180"
+    },
+    {
+      "question": "Mélange des couleurs violet + vert donne principalement :",
+      "options": [
+        "vert",
+        "rouge",
+        "bleu",
+        "violet"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, violet + vert → vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E181"
+    },
+    {
+      "question": "Couleur sécurité urgence:",
+      "options": [
+        "rouge",
+        "vert pastel",
+        "rose",
+        "beige"
+      ],
+      "correct": "A",
+      "explanation": "Emergency red.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E182"
+    },
+    {
+      "question": "Portfolio rassemble",
+      "options": [
+        "œuvres artiste",
+        "odeurs",
+        "tastes",
+        "sons"
+      ],
+      "correct": "A",
+      "explanation": "Portfolio.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E183"
+    },
+    {
+      "question": "Critère expressif:",
+      "options": [
+        "émotion transmise",
+        "odeur",
+        "taste",
+        "poids"
+      ],
+      "correct": "A",
+      "explanation": "Expressive.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E184"
+    },
+    {
+      "question": "Jacmel: ville connue pour",
+      "options": [
+        "carnaval et artisanat",
+        "pétrole",
+        "charbon",
+        "uranium"
+      ],
+      "correct": "A",
+      "explanation": "Jacmel culture.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E185"
+    },
+    {
+      "question": "Roman roman (Romanesque) =",
+      "options": [
+        "époque médiévale",
+        "futur",
+        "préhistoire",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "Romanesque.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E186"
+    },
+    {
+      "question": "Mélange des couleurs rouge + vert donne principalement :",
+      "options": [
+        "orange",
+        "rouge",
+        "violet",
+        "blanc"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, rouge + vert → violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E187"
+    },
+    {
+      "question": "Logo identifie une",
+      "options": [
+        "marque",
+        "montagne",
+        "rivière",
+        "nuage"
+      ],
+      "correct": "A",
+      "explanation": "Logo.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E188"
+    },
+    {
+      "question": "Peinture: protéger surface avec",
+      "options": [
+        "journal / couverture",
+        "rien",
+        "eau",
+        "sable"
+      ],
+      "correct": "A",
+      "explanation": "Paint protection.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E189"
+    },
+    {
+      "question": "Art participatif invite",
+      "options": [
+        "public à créer",
+        "interdit",
+        "censure",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Participatory art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E190"
+    },
+    {
+      "question": "Mélange des couleurs jaune + blanc donne principalement :",
+      "options": [
+        "rouge",
+        "vert",
+        "noir",
+        "violet"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, jaune + blanc → vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E191"
+    },
+    {
+      "question": "Ligne horizontale suggère:",
+      "options": [
+        "calme, stabilité",
+        "mouvement rapide",
+        "danger",
+        "chaos"
+      ],
+      "correct": "A",
+      "explanation": "Horizontal.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E192"
+    },
+    {
+      "question": "Gouache =",
+      "options": [
+        "peinture opaque à l'eau",
+        "huile",
+        "acrylique",
+        "cire"
+      ],
+      "correct": "A",
+      "explanation": "Gouache.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E193"
+    },
+    {
+      "question": "Affiche (poster) informe ou",
+      "options": [
+        "persuade",
+        "dort",
+        "mange",
+        "nage"
+      ],
+      "correct": "A",
+      "explanation": "Poster.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E194"
+    },
+    {
+      "question": "Artisan =",
+      "options": [
+        "créateur manuel",
+        "robot",
+        "machine seule",
+        "IA seule"
+      ],
+      "correct": "A",
+      "explanation": "Artisan.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E195"
+    },
+    {
+      "question": "Symbole amour:",
+      "options": [
+        "cœur",
+        "carré",
+        "triangle",
+        "hexagone"
+      ],
+      "correct": "A",
+      "explanation": "Heart.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E196"
+    },
+    {
+      "question": "Mélange des couleurs orange + noir donne principalement :",
+      "options": [
+        "violet",
+        "bleu",
+        "blanc",
+        "rouge"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, orange + noir → rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E197"
+    },
+    {
+      "question": "Monument commémore",
+      "options": [
+        "personne/événement",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Monument.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E198"
+    },
+    {
+      "question": "Mélange des couleurs bleu + jaune donne principalement :",
+      "options": [
+        "orange",
+        "jaune",
+        "vert",
+        "blanc"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, bleu + jaune → vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E199"
+    },
+    {
+      "question": "Photographie inventée",
+      "options": [
+        "XIXe siècle",
+        "XIe",
+        "XXIe",
+        "VIIIe"
+      ],
+      "correct": "A",
+      "explanation": "Photography history.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E200"
+    },
+    {
+      "question": "Art haïtien: marché peint par",
+      "options": [
+        "artistes populaires",
+        "robots",
+        "machines",
+        "nuages"
+      ],
+      "correct": "A",
+      "explanation": "Market scenes.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E201"
+    },
+    {
+      "question": "Chevalet supporte",
+      "options": [
+        "toile",
+        "voiture",
+        "bateau",
+        "avion"
+      ],
+      "correct": "A",
+      "explanation": "Easel.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E202"
+    },
+    {
+      "question": "Rouge + jaune =",
+      "options": [
+        "orange",
+        "vert",
+        "violet",
+        "marron"
+      ],
+      "correct": "A",
+      "explanation": "Secondaire.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E203"
+    },
+    {
+      "question": "Symbole paix:",
+      "options": [
+        "colombe / olive",
+        "épée",
+        "bombe",
+        "fusil"
+      ],
+      "correct": "A",
+      "explanation": "Peace symbol.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E204"
+    },
+    {
+      "question": "Baroque =",
+      "options": [
+        "riche et dramatique",
+        "simple",
+        "minimal",
+        "vide"
+      ],
+      "correct": "A",
+      "explanation": "Baroque.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E205"
+    },
+    {
+      "question": "Aquarelle: peinture à l'",
+      "options": [
+        "eau",
+        "huile seule",
+        "acrylique seule",
+        "encre seule"
+      ],
+      "correct": "A",
+      "explanation": "Watercolor.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E206"
+    },
+    {
+      "question": "Pictogramme =",
+      "options": [
+        "symbole universel",
+        "texte long",
+        "roman",
+        "poème"
+      ],
+      "correct": "A",
+      "explanation": "Pictogram.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E207"
+    },
+    {
+      "question": "Mélange des couleurs blanc + rouge donne principalement :",
+      "options": [
+        "orange",
+        "rouge",
+        "noir",
+        "blanc"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, blanc + rouge → rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E208"
+    },
+    {
+      "question": "Mélange des couleurs bleu + blanc donne principalement :",
+      "options": [
+        "blanc",
+        "noir",
+        "violet",
+        "vert"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, bleu + blanc → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E209"
+    },
+    {
+      "question": "Animation =",
+      "options": [
+        "images en séquence",
+        "image fixe seule",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Animation.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E210"
+    },
+    {
+      "question": "Van Gogh: Nuit",
+      "options": [
+        "étoilée",
+        "Jour clair",
+        "Midi",
+        "Aube"
+      ],
+      "correct": "A",
+      "explanation": "Starry Night.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E211"
+    },
+    {
+      "question": "Collection permanente reste",
+      "options": [
+        "longtemps",
+        "1 seconde",
+        "0 jour",
+        "jamais change"
+      ],
+      "correct": "A",
+      "explanation": "Permanent collection.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E212"
+    },
+    {
+      "question": "Mélange des couleurs vert + violet donne principalement :",
+      "options": [
+        "vert",
+        "noir",
+        "rouge",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, vert + violet → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E213"
+    },
+    {
+      "question": "Bande dessinée combine",
+      "options": [
+        "images et texte",
+        "odeur",
+        "taste",
+        "son seul"
+      ],
+      "correct": "A",
+      "explanation": "Comics.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E214"
+    },
+    {
+      "question": "Mélange des couleurs jaune + violet donne principalement :",
+      "options": [
+        "blanc",
+        "orange",
+        "bleu",
+        "noir"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, jaune + violet → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E215"
+    },
+    {
+      "question": "Gothique: arcs",
+      "options": [
+        "brisés",
+        "plats",
+        "carrés",
+        "triangles"
+      ],
+      "correct": "A",
+      "explanation": "Gothic arches.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E216"
+    },
+    {
+      "question": "Composition: règle des",
+      "options": [
+        "tiers",
+        "cinquièmes",
+        "dixièmes",
+        "centièmes"
+      ],
+      "correct": "A",
+      "explanation": "Rule of thirds.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E217"
+    },
+    {
+      "question": "Art révolutionnaire Haïti 1804 inspire",
+      "options": [
+        "liberté",
+        "colonialisme",
+        "esclavage",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Revolution art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E218"
+    },
+    {
+      "question": "Byzance: mosaïques en",
+      "options": [
+        "or et couleur",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Byzantine.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E219"
+    },
+    {
+      "question": "Tissage =",
+      "options": [
+        "entrelacer fils",
+        "couper",
+        "brûler",
+        "dissoudre"
+      ],
+      "correct": "A",
+      "explanation": "Weaving.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E220"
+    },
+    {
+      "question": "Couleur non-locale =",
+      "options": [
+        "couleur expressive",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Non-local color.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E221"
+    },
+    {
+      "question": "UI design = interface",
+      "options": [
+        "utilisateur",
+        "backend",
+        "database",
+        "kernel"
+      ],
+      "correct": "A",
+      "explanation": "UI design.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E222"
+    },
+    {
+      "question": "Métier d'art =",
+      "options": [
+        "savoir-faire traditionnel",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Craft.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E223"
+    },
+    {
+      "question": "Gravure imprime depuis",
+      "options": [
+        "plaque",
+        "toile",
+        "mur",
+        "sol"
+      ],
+      "correct": "A",
+      "explanation": "Printmaking.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E224"
+    },
+    {
+      "question": "Mélange des couleurs rouge + violet donne principalement :",
+      "options": [
+        "bleu",
+        "orange",
+        "blanc",
+        "noir"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, rouge + violet → noir.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E225"
+    },
+    {
+      "question": "Complémentaires: bleu /",
+      "options": [
+        "orange",
+        "vert",
+        "rouge",
+        "violet"
+      ],
+      "correct": "A",
+      "explanation": "Opposés.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E226"
+    },
+    {
+      "question": "Mélange des couleurs bleu + vert donne principalement :",
+      "options": [
+        "jaune",
+        "vert",
+        "rouge",
+        "blanc"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, bleu + vert → vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E227"
+    },
+    {
+      "question": "Texture visuelle:",
+      "options": [
+        "apparence surface",
+        "odeur",
+        "son",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Texture.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E228"
+    },
+    {
+      "question": "Couleur locale =",
+      "options": [
+        "couleur propre objet",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Local color.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E229"
+    },
+    {
+      "question": "Ombrage crée illusion de",
+      "options": [
+        "volume",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Shading.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E230"
+    },
+    {
+      "question": "Art public enrichit",
+      "options": [
+        "espace commun",
+        "pollue seul",
+        "détruit seul",
+        "cache"
+      ],
+      "correct": "A",
+      "explanation": "Public art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E231"
+    },
+    {
+      "question": "Calligraphie =",
+      "options": [
+        "art de l'écriture",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Calligraphy.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E232"
+    },
+    {
+      "question": "Art mural = peinture sur",
+      "options": [
+        "mur",
+        "sol seul",
+        "ciel",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "Mural.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E233"
+    },
+    {
+      "question": "Art islamique évite souvent",
+      "options": [
+        "figures humaines",
+        "couleurs",
+        "formes",
+        "lignes"
+      ],
+      "correct": "A",
+      "explanation": "Islamic art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E234"
+    },
+    {
+      "question": "Festival art Jacmel:",
+      "options": [
+        "Festival arts",
+        "Festival pétrole",
+        "Festival charbon",
+        "Festival uranium"
+      ],
+      "correct": "A",
+      "explanation": "Jacmel festival.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E235"
+    },
+    {
+      "question": "Valeur =",
+      "options": [
+        "clair ou foncé",
+        "longueur",
+        "largeur",
+        "poids"
+      ],
+      "correct": "A",
+      "explanation": "Value.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E236"
+    },
+    {
+      "question": "Land art utilise",
+      "options": [
+        "nature/environnement",
+        "bureau",
+        "classe",
+        "voiture"
+      ],
+      "correct": "A",
+      "explanation": "Land art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E237"
+    },
+    {
+      "question": "Forme organique:",
+      "options": [
+        "naturelle, irrégulière",
+        "géométrique",
+        "carrée",
+        "triangulaire"
+      ],
+      "correct": "A",
+      "explanation": "Organic.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E238"
+    },
+    {
+      "question": "Dessin observé =",
+      "options": [
+        "représenter réel",
+        "ignorer réel",
+        "cacher",
+        "effacer"
+      ],
+      "correct": "A",
+      "explanation": "Observational drawing.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E239"
+    },
+    {
+      "question": "Mélange des couleurs bleu + noir donne principalement :",
+      "options": [
+        "rouge",
+        "violet",
+        "orange",
+        "blanc"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, bleu + noir → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E240"
+    },
+    {
+      "question": "Art numérique créé avec",
+      "options": [
+        "ordinateur",
+        "pierre seule",
+        "bois seul",
+        "air"
+      ],
+      "correct": "A",
+      "explanation": "Digital art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E241"
+    },
+    {
+      "question": "Pixel =",
+      "options": [
+        "point image numérique",
+        "ligne",
+        "surface",
+        "volume"
+      ],
+      "correct": "A",
+      "explanation": "Pixel.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E242"
+    },
+    {
+      "question": "Mandala =",
+      "options": [
+        "forme circulaire symbolique",
+        "carré",
+        "triangle",
+        "ligne"
+      ],
+      "correct": "A",
+      "explanation": "Mandala.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E243"
+    },
+    {
+      "question": "Kandinsky associe couleur et",
+      "options": [
+        "musique",
+        "odeur",
+        "taste",
+        "poids"
+      ],
+      "correct": "A",
+      "explanation": "Kandinsky.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E244"
+    },
+    {
+      "question": "Rouge symbolise souvent",
+      "options": [
+        "passion / danger",
+        "calme seul",
+        "silence",
+        "neige"
+      ],
+      "correct": "A",
+      "explanation": "Red symbolism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E245"
+    },
+    {
+      "question": "Cubisme: Picasso,",
+      "options": [
+        "Braque",
+        "Warhol",
+        "Monet",
+        "Raphael"
+      ],
+      "correct": "A",
+      "explanation": "Cubism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E246"
+    },
+    {
+      "question": "Art figuratif représente",
+      "options": [
+        "monde visible",
+        "rien",
+        "vide",
+        "chaos seul"
+      ],
+      "correct": "A",
+      "explanation": "Figurative.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E247"
+    },
+    {
+      "question": "Art collaboratif = plusieurs",
+      "options": [
+        "artistes ensemble",
+        "un seul toujours",
+        "aucun",
+        "robot seul"
+      ],
+      "correct": "A",
+      "explanation": "Collaborative.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E248"
+    },
+    {
+      "question": "Vert symbolise souvent",
+      "options": [
+        "nature / vie",
+        "pollution",
+        "désert",
+        "glace"
+      ],
+      "correct": "A",
+      "explanation": "Green symbolism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E249"
+    },
+    {
+      "question": "Couleurs chaudes:",
+      "options": [
+        "rouge, orange, jaune",
+        "bleu, vert",
+        "noir, blanc",
+        "gris seul"
+      ],
+      "correct": "A",
+      "explanation": "Chaudes.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E250"
+    },
+    {
+      "question": "Contraste de taille guide",
+      "options": [
+        "attention",
+        "odeur",
+        "taste",
+        "son"
+      ],
+      "correct": "A",
+      "explanation": "Size contrast.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E251"
+    },
+    {
+      "question": "Grèce: statue Discobole =",
+      "options": [
+        "lanceur de disque",
+        "coureur",
+        "nageur",
+        "skieur"
+      ],
+      "correct": "A",
+      "explanation": "Discobolus.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E252"
+    },
+    {
+      "question": "Manga = BD",
+      "options": [
+        "japonaise",
+        "française",
+        "haïtienne seule",
+        "arctique"
+      ],
+      "correct": "A",
+      "explanation": "Manga.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E253"
+    },
+    {
+      "question": "Education esthétique =",
+      "options": [
+        "sensibilité artistique",
+        "calcul seul",
+        "sport seul",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Aesthetic ed.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E254"
+    },
+    {
+      "question": "Minimalisme =",
+      "options": [
+        "simplicité extrême",
+        "complexité max",
+        "chaos",
+        "désordre"
+      ],
+      "correct": "A",
+      "explanation": "Minimalism.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E255"
+    },
+    {
+      "question": "Art africain influence",
+      "options": [
+        "modernité occidentale",
+        "rien",
+        "océan",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "African art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E256"
+    },
+    {
+      "question": "Pyramide Égypte:",
+      "options": [
+        "tombe pharaon",
+        "stade",
+        "école",
+        "hôpital"
+      ],
+      "correct": "A",
+      "explanation": "Pyramids.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E257"
+    },
+    {
+      "question": "Forme géométrique: cercle =",
+      "options": [
+        "continuité",
+        "chaos",
+        "rupture",
+        "angle"
+      ],
+      "correct": "A",
+      "explanation": "Circle.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E258"
+    },
+    {
+      "question": "Art rupestre = peintures sur",
+      "options": [
+        "roche / grottes",
+        "papier",
+        "écran",
+        "nuage"
+      ],
+      "correct": "A",
+      "explanation": "Rock art.",
+      "category": "Art plastique",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E259"
+    },
+    {
+      "question": "Mélange des couleurs orange + blanc donne principalement :",
+      "options": [
+        "blanc",
+        "orange",
+        "bleu",
+        "noir"
+      ],
+      "correct": "C",
+      "explanation": "En peinture, orange + blanc → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E260"
+    },
+    {
+      "question": "Mélange des couleurs jaune + noir donne principalement :",
+      "options": [
+        "vert",
+        "bleu",
+        "blanc",
+        "noir"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, jaune + noir → bleu.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E261"
+    },
+    {
+      "question": "Mélange des couleurs violet + noir donne principalement :",
+      "options": [
+        "rouge",
+        "jaune",
+        "noir",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "En peinture, violet + noir → blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E262"
+    },
+    {
+      "question": "Mélange des couleurs orange + violet donne principalement :",
+      "options": [
+        "blanc",
+        "orange",
+        "rouge",
+        "violet"
+      ],
+      "correct": "B",
+      "explanation": "En peinture, orange + violet → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E263"
+    },
+    {
+      "question": "Mélange des couleurs vert + noir donne principalement :",
+      "options": [
+        "orange",
+        "noir",
+        "blanc",
+        "rouge"
+      ],
+      "correct": "A",
+      "explanation": "En peinture, vert + noir → orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E264"
+    },
+    {
+      "question": "Mélange peinture: noir + orange donne",
+      "options": [
+        "rouge",
+        "blanc",
+        "bleu",
+        "violet"
+      ],
+      "correct": "B",
+      "explanation": "noir+orange -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E265"
+    },
+    {
+      "question": "Art: un carre de cote 9 cm a une aire de",
+      "options": [
+        "81 cm2",
+        "18 cm2",
+        "27 cm2",
+        "18 cm2"
+      ],
+      "correct": "A",
+      "explanation": "Aire = 9×9 = 81 cm2.",
+      "category": "Geometrie art",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E266"
+    },
+    {
+      "question": "Mélange peinture: vert + rouge donne",
+      "options": [
+        "bleu",
+        "orange",
+        "violet",
+        "rouge"
+      ],
+      "correct": "B",
+      "explanation": "vert+rouge -> orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E267"
+    },
+    {
+      "question": "Art: un carre de cote 8 cm a une aire de",
+      "options": [
+        "16 cm2",
+        "64 cm2",
+        "16 cm2",
+        "24 cm2"
+      ],
+      "correct": "B",
+      "explanation": "Aire = 8×8 = 64 cm2.",
+      "category": "Geometrie art",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E268"
+    },
+    {
+      "question": "Artiste celebre: Warhol est associe a",
+      "options": [
+        "post-impressionnisme",
+        "pop art",
+        "Renaissance",
+        "impressionnisme"
+      ],
+      "correct": "B",
+      "explanation": "Warhol: pop art.",
+      "category": "Histoire art",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E269"
+    },
+    {
+      "question": "Mélange peinture: jaune + orange donne",
+      "options": [
+        "bleu",
+        "jaune",
+        "noir",
+        "orange"
+      ],
+      "correct": "B",
+      "explanation": "jaune+orange -> jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E270"
+    },
+    {
+      "question": "Art: un carre de cote 6 cm a une aire de",
+      "options": [
+        "36 cm2",
+        "12 cm2",
+        "18 cm2",
+        "12 cm2"
+      ],
+      "correct": "A",
+      "explanation": "Aire = 6×6 = 36 cm2.",
+      "category": "Geometrie art",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E271"
+    },
+    {
+      "question": "Mélange peinture: orange + blanc donne",
+      "options": [
+        "vert",
+        "noir",
+        "bleu",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "orange+blanc -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E272"
+    },
+    {
+      "question": "Mélange peinture: orange + noir donne",
+      "options": [
+        "orange",
+        "jaune",
+        "bleu",
+        "blanc"
+      ],
+      "correct": "A",
+      "explanation": "orange+noir -> orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E273"
+    },
+    {
+      "question": "Quelle forme a 4 cotes egaux et 4 angles droits?",
+      "options": [
+        "carre",
+        "triangle",
+        "cercle",
+        "rectangle"
+      ],
+      "correct": "A",
+      "explanation": "Reponse: carre.",
+      "category": "Formes",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E274"
+    },
+    {
+      "question": "Mélange peinture: noir + rouge donne",
+      "options": [
+        "bleu",
+        "violet",
+        "vert",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "noir+rouge -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E275"
+    },
+    {
+      "question": "Mélange peinture: blanc + jaune donne",
+      "options": [
+        "rouge",
+        "blanc",
+        "orange",
+        "violet"
+      ],
+      "correct": "A",
+      "explanation": "blanc+jaune -> rouge.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E276"
+    },
+    {
+      "question": "Mélange peinture: jaune + noir donne",
+      "options": [
+        "bleu",
+        "noir",
+        "vert",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "jaune+noir -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E277"
+    },
+    {
+      "question": "Art: un carre de cote 10 cm a une aire de",
+      "options": [
+        "20 cm2",
+        "100 cm2",
+        "20 cm2",
+        "30 cm2"
+      ],
+      "correct": "B",
+      "explanation": "Aire = 10×10 = 100 cm2.",
+      "category": "Geometrie art",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E278"
+    },
+    {
+      "question": "Art: un carre de cote 2 cm a une aire de",
+      "options": [
+        "4 cm2?",
+        "6 cm2",
+        "4 cm2",
+        "4 cm2?"
+      ],
+      "correct": "C",
+      "explanation": "Aire = 2×2 = 4 cm2.",
+      "category": "Geometrie art",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E279"
+    },
+    {
+      "question": "Mélange peinture: noir + jaune donne",
+      "options": [
+        "rouge",
+        "noir",
+        "orange",
+        "jaune"
+      ],
+      "correct": "D",
+      "explanation": "noir+jaune -> jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E280"
+    },
+    {
+      "question": "Mélange peinture: rouge + jaune donne",
+      "options": [
+        "orange",
+        "rouge",
+        "vert",
+        "violet"
+      ],
+      "correct": "A",
+      "explanation": "rouge+jaune -> orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E281"
+    },
+    {
+      "question": "Mélange peinture: violet + jaune donne",
+      "options": [
+        "orange",
+        "bleu",
+        "blanc",
+        "rouge"
+      ],
+      "correct": "A",
+      "explanation": "violet+jaune -> orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E282"
+    },
+    {
+      "question": "Mélange peinture: blanc + noir donne",
+      "options": [
+        "jaune",
+        "blanc",
+        "vert",
+        "violet"
+      ],
+      "correct": "C",
+      "explanation": "blanc+noir -> vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E283"
+    },
+    {
+      "question": "Mélange peinture: violet + noir donne",
+      "options": [
+        "rouge",
+        "vert",
+        "blanc",
+        "jaune"
+      ],
+      "correct": "C",
+      "explanation": "violet+noir -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E284"
+    },
+    {
+      "question": "Art: un carre de cote 3 cm a une aire de",
+      "options": [
+        "9 cm2?",
+        "6 cm2",
+        "6 cm2",
+        "9 cm2"
+      ],
+      "correct": "D",
+      "explanation": "Aire = 3×3 = 9 cm2.",
+      "category": "Geometrie art",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E285"
+    },
+    {
+      "question": "Mélange peinture: orange + violet donne",
+      "options": [
+        "orange",
+        "bleu",
+        "rouge",
+        "violet"
+      ],
+      "correct": "D",
+      "explanation": "orange+violet -> violet.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E286"
+    },
+    {
+      "question": "Mélange peinture: violet + bleu donne",
+      "options": [
+        "orange",
+        "blanc",
+        "vert",
+        "jaune"
+      ],
+      "correct": "B",
+      "explanation": "violet+bleu -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E287"
+    },
+    {
+      "question": "Mélange peinture: vert + bleu donne",
+      "options": [
+        "jaune",
+        "orange",
+        "vert",
+        "blanc"
+      ],
+      "correct": "A",
+      "explanation": "vert+bleu -> jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E288"
+    },
+    {
+      "question": "Mélange peinture: blanc + violet donne",
+      "options": [
+        "noir",
+        "rouge",
+        "vert",
+        "bleu"
+      ],
+      "correct": "C",
+      "explanation": "blanc+violet -> vert.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E289"
+    },
+    {
+      "question": "Mélange peinture: bleu + noir donne",
+      "options": [
+        "bleu",
+        "jaune",
+        "violet",
+        "blanc"
+      ],
+      "correct": "B",
+      "explanation": "bleu+noir -> jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E290"
+    },
+    {
+      "question": "Artiste celebre: Monet est associe a",
+      "options": [
+        "surrealisme",
+        "impressionnisme",
+        "post-impressionnisme",
+        "Renaissance"
+      ],
+      "correct": "B",
+      "explanation": "Monet: impressionnisme.",
+      "category": "Histoire art",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E291"
+    },
+    {
+      "question": "Forme geometrique avec 4 cotes egaux: quel candidat?",
+      "options": [
+        "carre",
+        "cercle",
+        "triangle",
+        "losange"
+      ],
+      "correct": "D",
+      "explanation": "Reponse: losange.",
+      "category": "Formes",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E292"
+    },
+    {
+      "question": "Art: un carre de cote 7 cm a une aire de",
+      "options": [
+        "14 cm2",
+        "21 cm2",
+        "14 cm2",
+        "49 cm2"
+      ],
+      "correct": "D",
+      "explanation": "Aire = 7×7 = 49 cm2.",
+      "category": "Geometrie art",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E293"
+    },
+    {
+      "question": "Mélange peinture: jaune + violet donne",
+      "options": [
+        "jaune",
+        "rouge",
+        "orange",
+        "blanc"
+      ],
+      "correct": "D",
+      "explanation": "jaune+violet -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E294"
+    },
+    {
+      "question": "Mélange peinture: violet + orange donne",
+      "options": [
+        "jaune",
+        "noir",
+        "rouge",
+        "blanc"
+      ],
+      "correct": "B",
+      "explanation": "violet+orange -> noir.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E295"
+    },
+    {
+      "question": "Artiste celebre: Picasso est associe a",
+      "options": [
+        "impressionnisme",
+        "post-impressionnisme",
+        "Renaissance",
+        "cubisme"
+      ],
+      "correct": "D",
+      "explanation": "Picasso: cubisme.",
+      "category": "Histoire art",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "A9E296"
+    },
+    {
+      "question": "Mélange peinture: blanc + rouge donne",
+      "options": [
+        "orange",
+        "jaune",
+        "vert",
+        "noir"
+      ],
+      "correct": "A",
+      "explanation": "blanc+rouge -> orange.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E297"
+    },
+    {
+      "question": "Mélange peinture: jaune + vert donne",
+      "options": [
+        "bleu",
+        "blanc",
+        "vert",
+        "orange"
+      ],
+      "correct": "B",
+      "explanation": "jaune+vert -> blanc.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E298"
+    },
+    {
+      "question": "Mélange peinture: noir + vert donne",
+      "options": [
+        "violet",
+        "jaune",
+        "noir",
+        "bleu"
+      ],
+      "correct": "C",
+      "explanation": "noir+vert -> noir.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E299"
+    },
+    {
+      "question": "Mélange peinture: bleu + vert donne",
+      "options": [
+        "orange",
+        "rouge",
+        "vert",
+        "jaune"
+      ],
+      "correct": "D",
+      "explanation": "bleu+vert -> jaune.",
+      "category": "Couleurs",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "A9E300"
+    }
+  ]
+}

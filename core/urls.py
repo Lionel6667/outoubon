@@ -1,10 +1,13 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from .admin_panel import (
     admin_login_view, admin_panel_view, admin_logout_view,
     api_admin_withdrawal, api_admin_send_message, api_admin_users,
     api_admin_stats_chart, api_admin_subscription, api_admin_user_detail,
     api_admin_users_by_type,
+    api_admin_ai_usage,
+    api_admin_xp_withdrawal,
+    api_admin_spotlight,
 )
 
 urlpatterns = [
@@ -19,17 +22,23 @@ urlpatterns = [
     path('otb-ctrl-9x7k/api/subscription/',  api_admin_subscription,   name='admin_api_subscription'),
     path('otb-ctrl-9x7k/api/user-detail/',   api_admin_user_detail,    name='admin_api_user_detail'),
     path('otb-ctrl-9x7k/api/users-by-type/', api_admin_users_by_type,  name='admin_api_users_by_type'),
+    path('otb-ctrl-9x7k/api/ai-usage/',      api_admin_ai_usage,       name='admin_api_ai_usage'),
+    path('otb-ctrl-9x7k/api/xp-withdrawal/', api_admin_xp_withdrawal,  name='admin_api_xp_withdrawal'),
+    path('otb-ctrl-9x7k/api/spotlight/',     api_admin_spotlight,      name='admin_api_spotlight'),
 
     path('',              views.dashboard,          name='dashboard'),
     path('guest/start/',  views.start_guest_view,   name='guest_start'),
     path('guest/stop/',   views.stop_guest_view,    name='guest_stop'),
     path('chat/',         views.chat_view,           name='chat'),
+    path('match/',        views.match_view,          name='match'),
     path('quiz/',         views.quiz_view,           name='quiz'),
     path('extra-bet/',    views.extra_bet_view,      name='extra_bet'),
     path('exercices/',    views.exercices_view,      name='exercices'),
     path('progression/',  views.progression_view,    name='progression'),
     path('profil/',       views.profil_view,         name='profil'),
+    path('gains/',        views.gains_view,          name='gains'),
     path('api/avatar/upload/', views.api_avatar_upload, name='api_avatar_upload'),
+    path('api/xp/withdraw/', views.api_xp_withdraw, name='api_xp_withdraw'),
 
     # Nouvelles pages
     path('historique/',   views.historique_view,       name='historique'),
@@ -40,7 +49,9 @@ urlpatterns = [
 
     # API endpoints (AJAX)
     path('api/chat/',              views.chat_api,              name='api_chat'),
+    path('api/ai/usage/',          views.api_ai_usage_snapshot, name='api_ai_usage'),
     path('api/chat/session/',      views.api_load_session,      name='api_load_session'),
+    path('api/chat/conversations/', views.api_chat_conversations, name='api_chat_conversations'),
     path('api/quiz/questions/',    views.quiz_questions_api,    name='api_quiz_questions'),
     path('api/extra-bet/create/',  views.api_extra_bet_create,  name='api_extra_bet_create'),
     path('api/extra-bet/answer/',  views.api_extra_bet_answer,  name='api_extra_bet_answer'),
@@ -73,6 +84,7 @@ urlpatterns = [
     path('api/smart-coach/',       views.api_smart_coach,       name='api_smart_coach'),
     path('api/mistakes/summary/',  views.api_mistakes_summary,  name='api_mistakes_summary'),
     path('api/save-school/',       views.api_save_school,       name='api_save_school'),
+    path('api/coach-name/',        views.api_set_coach_name,    name='api_set_coach_name'),
 
     # Examen blanc
     path('examen-blanc/',               views.examen_blanc_view,           name='examen_blanc'),
@@ -101,6 +113,12 @@ urlpatterns = [
     path('api/amis/send/',       views.api_friend_send_message, name='api_friend_send_message'),
     path('api/amis/delete/',     views.api_friend_delete_message, name='api_friend_delete_message'),
     path('api/amis/unread/',     views.api_friend_unread_count, name='api_friend_unread_count'),
+    path('api/amis/alias/',      views.api_friend_alias,        name='api_friend_alias'),
+    path('api/push/register/',   views.api_push_register,       name='api_push_register'),
+    path('api/push/disable/',    views.api_push_disable,        name='api_push_disable'),
+    path('api/study-groups/',    views.api_study_groups,        name='api_study_groups'),
+    path('api/study-groups/create/', views.api_study_group_create, name='api_study_group_create'),
+    path('api/study-groups/invite/', views.api_study_group_invite, name='api_study_group_invite'),
     path('api/group-chat/history/', views.api_group_chat_history, name='api_group_chat_history'),
     path('api/group-chat/send/', views.api_group_chat_send, name='api_group_chat_send'),
     path('api/group-chat/delete/', views.api_group_delete_message, name='api_group_delete_message'),
@@ -111,11 +129,19 @@ urlpatterns = [
 
 
     # Duel en ligne
+    path('api/match/quick/',       views.api_match_quick,  name='api_match_quick'),
+    path('api/match/poll/',        views.api_match_poll,   name='api_match_poll'),
+    path('api/match/cancel/',      views.api_match_cancel, name='api_match_cancel'),
+    path('api/match/live/state/',  views.api_match_live_state, name='api_match_live_state'),
+    path('api/match/live/answer/', views.api_match_live_answer, name='api_match_live_answer'),
     path('duel/',                  views.duel_view,        name='duel'),
     path('api/duel/create/',       views.api_duel_create,  name='api_duel_create'),
     path('api/duel/join/',         views.api_duel_join,    name='api_duel_join'),
     path('api/duel/state/',        views.api_duel_state,   name='api_duel_state'),
     path('api/duel/finish/',       views.api_duel_finish,  name='api_duel_finish'),
+
+    # Groupe de Génies
+    path('genius/', include('core.genius.urls')),
     path('cours/physique/exercices/<str:section_id>/', views.physique_exercises_view, name='physique_exercises_page'),
     path('cours/physique/exercices/<str:section_id>/<int:exercise_index>/', views.physique_exercise_detail_view, name='physique_exercise_detail_page'),
     path('cours/physique/exercices/<str:section_id>/<int:exercise_index>/similar/', views.physique_exercise_similar_view, name='physique_exercise_similar_page'),

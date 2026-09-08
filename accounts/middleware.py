@@ -1,10 +1,43 @@
 import hashlib
-import uuid
 from datetime import timedelta
 from django.contrib.auth import logout
 from django.utils import timezone
 from django.contrib.auth import login as auth_login
-from accounts.models import SiteVisit, PersistentAuthToken
+from accounts.models import SiteVisit, PersistentAuthToken, UserProfile
+from accounts.visit_tracking import (
+    get_client_ip, hash_client_ip, get_country_code, should_track_visit,
+)
+
+
+class UserActivityMiddleware:
+    """Met à jour last_seen_at pour les élèves (précision admin : en ligne / dernière connexion)."""
+
+    SKIP_PREFIXES = ('/static/', '/media/', '/dashboard/otb-ctrl-9x7k/')
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        if getattr(request, 'spa_mode', False):
+            return response
+        if any(request.path.startswith(p) for p in self.SKIP_PREFIXES):
+            return response
+        if not request.user.is_authenticated:
+            return response
+        if request.user.is_staff or request.user.is_superuser:
+            return response
+        from accounts.models import Agent
+        if Agent.objects.filter(user_id=request.user.id).exists():
+            return response
+        profile = getattr(request.user, 'profile', None)
+        if not profile:
+            return response
+        now = timezone.now()
+        if profile.last_seen_at and (now - profile.last_seen_at).total_seconds() < 60:
+            return response
+        UserProfile.objects.filter(pk=profile.pk).update(last_seen_at=now)
+        return response
 
 
 class SingleDeviceMiddleware:
@@ -61,12 +94,7 @@ class SingleDeviceMiddleware:
 
 
 class VisitorTrackingMiddleware:
-    """Track page visits for admin analytics. Only tracks page loads, not API calls.
-    Rules:
-    - 1 visit per IP per day (deduplication)
-    - Admin panel users (session _otb_admin_ok) are never tracked
-    - Authenticated admin/staff users are never tracked
-    """
+    """Visiteurs uniques Haïti : 1 IP hashée / jour (pas chaque session)."""
 
     def __init__(self, get_response):
         self.get_response = get_response
@@ -74,37 +102,42 @@ class VisitorTrackingMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
 
-        # Only track GET requests for pages (not API/static)
-        if (request.method == 'GET'
-                and not request.path.startswith('/api/')
-                and not request.path.startswith('/static/')
-                and not request.path.startswith('/media/')
-                and not request.path.startswith('/dashboard/otb-ctrl-9x7k/')
-                and 'text/html' in response.get('Content-Type', '')):
-            
-            # Skip admin panel sessions and staff/superusers
-            if request.session.get('_otb_admin_ok'):
-                return response
-            if request.user.is_authenticated and (request.user.is_staff or request.user.is_superuser):
-                return response
-                
-            try:
-                today_str = timezone.now().date().isoformat()
-                visited_today = request.get_signed_cookie('otb_visitor', default=None)
+        if getattr(request, 'spa_mode', False):
+            return response
+        if request.method != 'GET':
+            return response
+        if request.path.startswith('/api/'):
+            return response
+        if request.path.startswith('/static/'):
+            return response
+        if request.path.startswith('/media/'):
+            return response
+        if request.path.startswith('/dashboard/otb-ctrl-9x7k/'):
+            return response
+        if 'text/html' not in response.get('Content-Type', ''):
+            return response
+        if not should_track_visit(request):
+            return response
 
-                # 1 visit per device per day — skip if already recorded today (cookie exists)
-                if visited_today != today_str:
-                    # Generate a unique dummy hash
-                    dummy_hash = str(uuid.uuid4()).replace('-', '')[:32]
-                    SiteVisit.objects.create(
-                        ip_hash=dummy_hash,
-                        path=request.path[:500],
-                        user_agent=request.META.get('HTTP_USER_AGENT', '')[:500],
-                        user=request.user if request.user.is_authenticated else None,
-                    )
-                    response.set_signed_cookie('otb_visitor', today_str, max_age=86400)
-            except Exception:
-                pass  # Never break the response for tracking
+        try:
+            ip = get_client_ip(request)
+            if not ip:
+                return response
+            ip_hash = hash_client_ip(ip)
+            visit_date = timezone.localdate()
+            country_code = get_country_code(request) or 'HT'
+
+            if not SiteVisit.objects.filter(ip_hash=ip_hash, visit_date=visit_date).exists():
+                SiteVisit.objects.create(
+                    ip_hash=ip_hash,
+                    country_code=country_code,
+                    visit_date=visit_date,
+                    path=request.path[:500],
+                    user_agent=(request.META.get('HTTP_USER_AGENT', '') or '')[:500],
+                    user=request.user if request.user.is_authenticated else None,
+                )
+        except Exception:
+            pass
 
         return response
 

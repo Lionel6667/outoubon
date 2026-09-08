@@ -1,0 +1,529 @@
+/**
+ * OU TOU BON V2 — Landing overrides & enhancements (Phase 2)
+ * Loaded after bac_landing.css; preserves class names & structure.
+ */
+
+.v2-landing {
+  --v2-landing-pad: clamp(1rem, 4vw, 2rem);
+}
+
+/* ── Navbar glass ───────────────────────────────────────────── */
+.v2-landing .navbar {
+  position: sticky;
+  top: 0;
+  padding: 0.85rem 8%;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.v2-landing .logo {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.v2-landing .logo::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: 6px;
+  background: url('/static/img/logo.png') center/contain no-repeat;
+  vertical-align: middle;
+}
+
+/* Green CTA — align with product */
+.v2-landing .btn-primary,
+.v2-landing a.btn-primary {
+  background: linear-gradient(135deg, var(--green), var(--green2));
+  box-shadow: 0 8px 28px rgba(16, 185, 129, 0.28);
+  border-radius: 12px;
+  font-weight: 800;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.v2-landing .btn-primary:hover,
+.v2-landing a.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(16, 185, 129, 0.38);
+}
+
+.v2-landing .btn-demo,
+.v2-landing a.btn-demo {
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px dashed rgba(16, 185, 129, 0.5);
+  cursor: pointer;
+}
+
+.v2-landing .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  line-height: 1.2;
+  min-height: 48px;
+  padding: 0.75rem 1.35rem;
+  font-size: 0.92rem;
+  width: auto;
+  max-width: 100%;
+}
+
+.v2-landing .btn-cta span {
+  flex: 0 1 auto;
+}
+
+.v2-landing .btn-cta i {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+}
+
+.v2-hero-cta-note {
+  margin: -0.35rem 0 1.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.01em;
+}
+
+/* Agent nav button — desktop */
+.nav-agent-btn__label--short {
+  display: none;
+}
+
+.nav-agent-btn__label--full {
+  display: inline;
+}
+
+.v2-landing .nav-agent-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.v2-landing .navbar {
+  gap: 0.75rem;
+}
+
+.v2-landing .logo {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.v2-landing .hero {
+  padding: clamp(3rem, 8vw, 6rem) 8%;
+  min-height: auto;
+  position: relative;
+}
+
+.v2-landing .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 30%, rgba(16, 185, 129, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 20%, rgba(37, 99, 235, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.v2-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  margin-bottom: 1.25rem;
+  animation: v2FadeUp 0.5s ease both;
+}
+
+.v2-landing h1 {
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  animation: v2FadeUp 0.55s ease 0.05s both;
+}
+
+.v2-landing .subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  max-width: 540px;
+  animation: v2FadeUp 0.55s ease 0.1s both;
+}
+
+.v2-landing .hero-buttons {
+  animation: v2FadeUp 0.55s ease 0.15s both;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.v2-hero-cta-note {
+  animation: v2FadeUp 0.55s ease 0.17s both;
+}
+
+.v2-hero-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  animation: v2FadeUp 0.55s ease 0.12s both;
+}
+
+.v2-hero-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--t2);
+  background: rgba(30, 41, 59, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.v2-hero-value i {
+  color: var(--green);
+  font-size: 0.7rem;
+}
+
+.v2-landing .social-proof {
+  animation: v2FadeUp 0.55s ease 0.2s both;
+}
+
+.v2-landing .hero-card {
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.55);
+  animation: v2FloatCard 5s ease-in-out infinite;
+}
+
+@keyframes v2FloatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes v2FadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Daily habit teaser ─────────────────────────────────────── */
+.v2-daily-section {
+  padding: clamp(3rem, 6vw, 4.5rem) 8%;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.06), transparent);
+}
+
+.v2-daily-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.v2-daily-copy h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.v2-daily-copy p {
+  color: #94a3b8;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.v2-daily-cards {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.v2-daily-mission {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: rgba(30, 41, 59, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.v2-daily-mission:hover {
+  border-color: rgba(16, 185, 129, 0.35);
+  transform: translateX(4px);
+}
+
+.v2-daily-mission__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.95rem;
+}
+
+.v2-daily-mission__icon--quiz { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+.v2-daily-mission__icon--exo { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+.v2-daily-mission__icon--chat { background: rgba(37, 99, 235, 0.15); color: #60a5fa; }
+
+.v2-daily-mission__title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 0.1rem;
+}
+
+.v2-daily-mission__sub {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.v2-daily-mission__xp {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+/* ── League section ─────────────────────────────────────────── */
+.v2-league-section {
+  padding: clamp(3rem, 6vw, 4.5rem) 8%;
+  background: linear-gradient(135deg, #0f172a 0%, #0a1628 100%);
+}
+
+.v2-league-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.v2-league-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 99px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1rem;
+  color: #fbbf24;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.v2-league-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.v2-league-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s;
+}
+
+.v2-league-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+/* ── Sections polish ────────────────────────────────────────── */
+.v2-landing .stat-card,
+.v2-landing .dream-card,
+.v2-landing .subject-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s;
+}
+
+.v2-landing .stat-card:hover,
+.v2-landing .dream-card:hover {
+  transform: translateY(-4px);
+}
+
+.v2-landing .subject-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.v2-landing footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .v2-landing .navbar {
+    padding: 0.65rem 4%;
+    gap: 0.5rem;
+  }
+
+  .v2-landing .logo {
+    font-size: clamp(0.88rem, 3.8vw, 1.05rem);
+  }
+
+  .v2-landing .logo::before {
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+  }
+
+  .v2-landing nav {
+    flex-shrink: 0;
+  }
+
+  .nav-agent-btn__label--full {
+    display: none;
+  }
+
+  .nav-agent-btn__label--short {
+    display: inline;
+  }
+
+  .v2-landing .nav-agent-btn {
+    padding: 0.42rem 0.62rem;
+    font-size: 0.68rem;
+    gap: 0.3rem;
+    max-width: min(44vw, 9.5rem);
+  }
+
+  .v2-landing .nav-agent-btn i {
+    font-size: 0.72rem;
+  }
+
+  .v2-landing .hero {
+    padding: 2.5rem 4% 3rem;
+    gap: 2rem;
+  }
+
+  .v2-landing .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .v2-landing .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .v2-landing .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0.65rem;
+  }
+
+  .v2-landing .hero-buttons .btn-cta {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0.7rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  .v2-hero-cta-note {
+    text-align: center;
+    margin: 0 0 1.25rem;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .v2-landing .hero-right {
+    flex: 1 1 100%;
+  }
+
+  .v2-landing .hero-card {
+    animation: none;
+  }
+
+  .v2-hero-values {
+    justify-content: center;
+  }
+
+  .v2-landing .social-proof {
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .v2-daily-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .v2-league-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .v2-hero-values {
+    gap: 0.4rem;
+  }
+
+  .v2-hero-value {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .v2-landing .nav-agent-btn {
+    padding: 0.38rem 0.5rem;
+    font-size: 0.64rem;
+    max-width: min(40vw, 8.5rem);
+  }
+
+  .v2-landing .hero-buttons {
+    max-width: 100%;
+  }
+
+  .v2-daily-mission {
+    padding: 0.7rem 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-landing .hero-card,
+  .v2-hero-eyebrow,
+  .v2-landing h1,
+  .v2-landing .subtitle,
+  .v2-landing .hero-buttons,
+  .v2-hero-values,
+  .v2-landing .social-proof,
+  .v2-hero-cta-note {
+    animation: none;
+  }
+}

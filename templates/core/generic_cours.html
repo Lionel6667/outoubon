@@ -1,6 +1,8 @@
 ﻿{% extends 'base.html' %}
 {% block title %}{{ course_name }} — OU TOU BON{% endblock %}
 
+{% block extra_head_links %}{% include "partials/v2/_v2_course_css.html" %}{% endblock %}
+
 {% block extra_css %}
 <style>
 
@@ -352,7 +354,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="view-area cours-page">
+<div class="view-area cours-page v2-course-subject">
   <div class="cours-shell">
     
     <div class="cours-hero" id="hero-section">
@@ -1611,7 +1613,7 @@ window.askForHint = async function(btn) {
     loadChatMessages();
     if (chatMessages.children.length === 0) {
       const w = document.createElement('div'); w.className = 'chat-message ai';
-      w.textContent = `Salut ! Je suis ton assistant IA pour le cours de ${COURSE_NAME}. Pose-moi ta question !`;
+      w.textContent = `Salut ! Je suis ${(window.OTB_COACH_NAME || 'Chat IA').trim() || 'Chat IA'}. Pose-moi ta question sur ${COURSE_NAME} !`;
       chatMessages.appendChild(w);
     }
   }
@@ -1888,7 +1890,7 @@ aiChatBtn.addEventListener('click', () => {
       loadChatMessages();
       if (chatMessages.children.length === 0) {
         const w = document.createElement('div'); w.className = 'chat-message ai';
-        w.textContent = `Salut ! Je suis ton assistant IA pour le cours de ${COURSE_NAME}. Pose-moi ta question !`;
+        w.textContent = `Salut ! Je suis ${(window.OTB_COACH_NAME || 'Chat IA').trim() || 'Chat IA'}. Pose-moi ta question sur ${COURSE_NAME} !`;
         chatMessages.appendChild(w);
       }
     }

@@ -1,0 +1,42 @@
+/**
+ * OU TOU BON V2 — Design tokens & base resets (Phase 1)
+ * Loaded before inline legacy styles in base.html; legacy rules remain as fallback.
+ */
+:root {
+  --bg: #020617;
+  --bg2: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --border: #1e293b;
+  --border2: #2d3748;
+  --t1: #f8fafc;
+  --t2: #94a3b8;
+  --t3: #64748b;
+  --green: #10B981;
+  --green2: #059669;
+  --blue: #2563eb;
+  --blue2: #3b82f6;
+  --purple: #8b5cf6;
+  --orange: #f97316;
+  --red: #ef4444;
+  --yellow: #eab308;
+  --sidebar-w: 240px;
+
+  /* V2 shell */
+  --v2-bottom-nav-h: 56px;
+  --v2-radius-sm: 8px;
+  --v2-radius-md: 12px;
+  --v2-radius-lg: 16px;
+  --v2-shadow-nav: 0 -4px 24px rgba(0, 0, 0, 0.35);
+  --v2-transition: 0.18s ease;
+}
+
+/* Token bridge — legacy aliases used in some pages */
+:root {
+  --v2-bg: var(--bg);
+  --v2-surface: var(--bg2);
+  --v2-card: var(--card);
+  --v2-text: var(--t1);
+  --v2-muted: var(--t2);
+  --v2-accent: var(--green);
+}

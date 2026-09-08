@@ -1,25 +1,27 @@
 ﻿{% extends "base.html" %}
+{% load static %}
 {% block title %}Inscription – OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/auth.css' %}">
+{% endblock %}
 {% block body %}
-<div class="auth-page">
-  <div class="auth-card" style="max-width:460px;">
-    <div class="auth-logo"><div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div></div>
+<div class="auth-page v2-auth">
+  <div class="auth-card v2-auth-card" style="max-width:460px;">
 
-    
-    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.5rem;">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">1</div>
-        <span style="font-size:.7rem;color:var(--green);font-weight:600;">Infos</span>
+    <div class="v2-steps">
+      <div class="v2-step v2-step--active">
+        <div class="v2-step__dot">1</div>
+        <span class="v2-step__label">Infos</span>
       </div>
-      <div style="flex:1;height:2px;background:var(--border);max-width:60px;"></div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--t3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">2</div>
-        <span style="font-size:.7rem;color:var(--t3);">École</span>
+      <div class="v2-step__line"></div>
+      <div class="v2-step">
+        <div class="v2-step__dot">2</div>
+        <span class="v2-step__label">École</span>
       </div>
-      <div style="flex:1;height:2px;background:var(--border);max-width:60px;"></div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--t3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">3</div>
-        <span style="font-size:.7rem;color:var(--t3);">Diagnostic</span>
+      <div class="v2-step__line"></div>
+      <div class="v2-step">
+        <div class="v2-step__dot">3</div>
+        <span class="v2-step__label">Diagnostic</span>
       </div>
     </div>
 
@@ -43,27 +45,23 @@
         </div>
       </div>
 
-      
       <div class="form-group">
-        <div style="display:flex;gap:.5rem;margin-bottom:.5rem;">
-          <button type="button" id="btnEmail" onclick="switchContact('email')"
-                  style="flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;">
+        <div class="v2-contact-toggle">
+          <button type="button" id="btnEmail" class="is-active" onclick="switchContact('email')">
             <i class="fas fa-envelope"></i> Email
           </button>
-          <button type="button" id="btnPhone" onclick="switchContact('phone')"
-                  style="flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);">
+          <button type="button" id="btnPhone" onclick="switchContact('phone')">
             <i class="fas fa-phone"></i> Téléphone
           </button>
         </div>
-        
-        <div id="contactFlex" style="display:flex;align-items:stretch;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);transition:border-color .2s;">
-          <span id="phonePfxBox" style="display:none;padding:.65rem .75rem;background:rgba(255,255,255,.04);border-right:1px solid var(--border);color:var(--t2);font-weight:600;font-size:.9rem;white-space:nowrap;align-items:center;">🇭🇹 +509</span>
+
+        <div id="contactFlex" class="v2-contact-field">
+          <span id="phonePfxBox" class="v2-contact-prefix">+509</span>
           <input type="email" name="contact" id="contactInput"
                  placeholder="ton@email.com"
-                 value="{{ form_data.contact|default:'' }}" required
-                 style="flex:1;background:transparent;border:none;padding:.65rem .75rem;color:var(--t1);outline:none;font-size:.9rem;">
+                 value="{{ form_data.contact|default:'' }}" required autocomplete="username">
         </div>
-        <span id="contactHint" style="font-size:.75rem;color:var(--t3);margin-top:.25rem;display:block;">
+        <span id="contactHint" class="v2-contact-hint">
           Tu pourras te connecter avec cet email.
         </span>
         <input type="hidden" id="contactMode" value="email">
@@ -101,6 +99,8 @@
 {% endblock %}
 {% block extra_js %}
 <script>
+var _contactDraft = { email: '', phone: '' };
+
 function togglePwd(id, eyeId) {
   const inp = document.getElementById(id);
   const btn = document.getElementById(eyeId);
@@ -108,7 +108,13 @@ function togglePwd(id, eyeId) {
   btn.innerHTML = inp.type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
 }
 
+function _saveContactDraft() {
+  const mode = document.getElementById('contactMode').value;
+  _contactDraft[mode] = document.getElementById('contactInput').value;
+}
+
 function switchContact(type) {
+  _saveContactDraft();
   const inp    = document.getElementById('contactInput');
   const pfx    = document.getElementById('phonePfxBox');
   const hint   = document.getElementById('contactHint');
@@ -119,26 +125,33 @@ function switchContact(type) {
   if (type === 'email') {
     inp.placeholder = 'ton@email.com';
     inp.type        = 'email';
-    pfx.style.display = 'none';
-    if (inp.value.startsWith('+509')) inp.value = inp.value.slice(4).trim();
+    inp.value       = _contactDraft.email || '';
+    pfx.classList.remove('is-visible');
     hint.textContent = 'Tu pourras te connecter avec cet email.';
-    bEmail.style.cssText = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;';
-    bPhone.style.cssText  = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);';
+    bEmail.classList.add('is-active');
+    bPhone.classList.remove('is-active');
   } else {
     inp.placeholder = 'xxxx xxxx';
     inp.type        = 'tel';
-    pfx.style.display = 'flex';
-    hint.textContent = 'Entre ton numéro local — le +509 est ajouté automatiquement.';
-    bPhone.style.cssText = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--green);background:var(--green);color:#fff;';
-    bEmail.style.cssText  = 'flex:1;padding:.4rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--t2);';
+    inp.value       = _contactDraft.phone || '';
+    pfx.classList.add('is-visible');
+    hint.textContent = 'Ce numéro servira à te connecter à ton compte — le +509 est ajouté automatiquement.';
+    bPhone.classList.add('is-active');
+    bEmail.classList.remove('is-active');
   }
 }
 
 document.querySelector('form.auth-form').addEventListener('submit', function() {
+  _saveContactDraft();
   const mode = document.getElementById('contactMode').value;
   const inp  = document.getElementById('contactInput');
-  if (mode === 'phone' && inp.value && !inp.value.startsWith('+509')) {
-    inp.value = '+509' + inp.value.replace(/\s+/g, '');
+  if (mode === 'phone') {
+    inp.value = _contactDraft.phone || inp.value;
+    if (inp.value && !inp.value.startsWith('+509')) {
+      inp.value = '+509' + inp.value.replace(/\s+/g, '');
+    }
+  } else {
+    inp.value = _contactDraft.email || inp.value;
   }
 });
 
@@ -151,16 +164,20 @@ document.getElementById('pwd2').addEventListener('input', function() {
 });
 
 document.getElementById('contactInput').addEventListener('focus', () => {
-  document.getElementById('contactFlex').style.borderColor = 'var(--green)';
+  document.getElementById('contactFlex').classList.add('is-focused');
 });
 document.getElementById('contactInput').addEventListener('blur', () => {
-  document.getElementById('contactFlex').style.borderColor = 'var(--border)';
+  document.getElementById('contactFlex').classList.remove('is-focused');
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const val = document.getElementById('contactInput').value;
-  if (val && !val.includes('@')) switchContact('phone');
+  const val = (document.getElementById('contactInput').value || '').trim();
+  if (val && !val.includes('@')) {
+    _contactDraft.phone = val.startsWith('+509') ? val.slice(4).trim() : val;
+    switchContact('phone');
+  } else if (val) {
+    _contactDraft.email = val;
+  }
 });
 </script>
 {% endblock %}
-

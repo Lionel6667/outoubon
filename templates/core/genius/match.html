@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Match Génies · OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/genius.css' %}">
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="genius" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Match en direct</div>
+      <a href="{% url 'genius_hub' %}" style="font-size:.82rem;color:var(--green)">← Hub</a>
+    </div>
+    <div class="view-area" style="overflow-y:auto">
+      <div class="v2-genius-shell" id="geniusMatchApp"
+           data-match-id="{{ match_id }}"
+           data-my-team-id="{{ my_team_id }}"
+           data-is-captain="{{ is_captain|yesno:'1,0' }}">
+
+        <div class="v2-genius-match-score" id="geniusScoreboard">
+          <div class="v2-genius-match-team">
+            <div class="name" id="teamAName">—</div>
+            <div class="score" id="teamAScore">0</div>
+          </div>
+          <div class="v2-genius-match-vs">VS</div>
+          <div class="v2-genius-match-team">
+            <div class="name" id="teamBName">—</div>
+            <div class="score" id="teamBScore">0</div>
+          </div>
+        </div>
+
+        <div id="geniusLobby" class="v2-genius-card" style="margin-bottom:1rem">
+          <h3 style="font-size:.9rem;font-weight:800;margin:0 0 .65rem">Lobby — confirme ta présence</h3>
+          <div id="geniusScheduled" class="v2-genius-scheduled-banner" style="display:none"></div>
+          <div id="geniusLobbyTeams" class="v2-genius-lobby-teams"></div>
+          <div class="v2-genius-presence" id="geniusPresence"></div>
+          <button class="v2-genius-btn" id="btnPresent"><i class="fas fa-check"></i> Je suis prêt</button>
+          {% if is_captain %}
+          <div id="geniusScheduleBox" class="v2-genius-schedule-box" style="margin-top:.75rem">
+            <label style="font-size:.75rem;color:var(--t3)">Programmer le match</label>
+            <div class="v2-genius-inline-form">
+              <input type="datetime-local" class="v2-genius-input" id="geniusScheduleAt">
+              <button type="button" class="v2-genius-btn v2-genius-btn--outline" id="btnSchedule"><i class="fas fa-calendar"></i> Planifier</button>
+            </div>
+          </div>
+          {% endif %}
+          <button class="v2-genius-btn v2-genius-btn--outline" id="btnStart" style="margin-left:.35rem;display:none">
+            <i class="fas fa-play"></i> Lancer le match
+          </button>
+        </div>
+
+        <div id="geniusPlay" style="display:none">
+          <div class="v2-genius-timer" id="geniusTimer">—</div>
+          <div class="v2-genius-q-card">
+            <div style="font-size:.75rem;color:var(--t3);margin-bottom:.5rem" id="geniusQMeta"></div>
+            <div class="v2-genius-q-text" id="geniusQText">—</div>
+            <div id="geniusOptions"></div>
+            <div id="geniusVotes" class="v2-genius-votes"></div>
+            <div id="geniusLockHint" class="v2-genius-lock-hint" style="display:none"></div>
+            <div id="geniusExplanation" style="margin-top:.75rem;font-size:.85rem;color:var(--t2)"></div>
+            <button class="v2-genius-btn" id="btnLock" style="margin-top:.75rem;display:none">
+              <i class="fas fa-lock"></i> Verrouiller (capitaine)
+            </button>
+          </div>
+        </div>
+
+        <div id="geniusResult" class="v2-genius-card" style="display:none;text-align:center;margin-top:1rem">
+          <h3 id="geniusResultTitle" style="font-size:1.2rem;font-weight:900"></h3>
+          <p id="geniusResultSub" style="color:var(--t2);font-size:.88rem"></p>
+          <div id="geniusStudyTips" class="v2-genius-study-tips" style="display:none"></div>
+        </div>
+
+        <div id="geniusMatchError" class="v2-genius-error" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const root = document.getElementById('geniusMatchApp');
+  const matchId = parseInt(root.dataset.matchId, 10);
+  const myTeamId = parseInt(root.dataset.myTeamId, 10);
+  const isCaptain = root.dataset.isCaptain === '1';
+  let selectedChoice = '';
+  let pollTimer = null;
+  let myVote = '';
+
+  const urls = {
+    state: '{% url "api_genius_match_state" %}',
+    presence: '{% url "api_genius_match_presence" %}',
+    start: '{% url "api_genius_match_start" %}',
+    vote: '{% url "api_genius_match_vote" %}',
+    lock: '{% url "api_genius_match_lock" %}',
+    schedule: '{% url "api_genius_match_schedule" %}',
+  };
+
+  function showError(msg) {
+    const el = document.getElementById('geniusMatchError');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  async function post(url, body) {
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': (typeof window.CSRF === 'string' ? window.CSRF : '') },
+      body: JSON.stringify(body || {}),
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || 'Erreur');
+    return data;
+  }
+
+  function updateTimer(deadlineMs, serverNowMs) {
+    const el = document.getElementById('geniusTimer');
+    if (!deadlineMs) { el.textContent = '—'; return; }
+    const drift = Date.now() - serverNowMs;
+    function tick() {
+      const left = Math.max(0, Math.floor((deadlineMs + drift - Date.now()) / 1000));
+      el.textContent = left + 's';
+      el.className = 'v2-genius-timer' + (left <= 10 ? ' danger' : left <= 20 ? ' warn' : '');
+    }
+    tick();
+    if (window._geniusTimerIv) clearInterval(window._geniusTimerIv);
+    window._geniusTimerIv = setInterval(tick, 250);
+  }
+
+  function renderState(s) {
+    document.getElementById('teamAName').textContent = s.team_a.name;
+    document.getElementById('teamBName').textContent = s.team_b.name;
+    document.getElementById('teamAScore').textContent = s.team_a.score;
+    document.getElementById('teamBScore').textContent = s.team_b.score;
+
+    const presence = document.getElementById('geniusPresence');
+    presence.innerHTML = (s.players || []).map(p => `
+      <span class="${p.present ? 'present' : ''}">${p.name} ${p.present ? '✓ Prêt' : '…'}</span>
+    `).join('');
+
+    const schedEl = document.getElementById('geniusScheduled');
+    if (s.scheduled_at) {
+      schedEl.style.display = 'block';
+      schedEl.innerHTML = '<i class="fas fa-calendar-alt"></i> Programmé : ' + new Date(s.scheduled_at).toLocaleString('fr-FR');
+    } else {
+      schedEl.style.display = 'none';
+    }
+
+    if (s.lobby_summary) {
+      const lobbyTeams = document.getElementById('geniusLobbyTeams');
+      const blocks = [s.lobby_summary.team_a, s.lobby_summary.team_b].map(t => `
+        <div class="v2-genius-lobby-team">
+          <strong>${t.name}</strong>
+          <span class="meta">${t.present_count}/${t.total} prêts</span>
+          <div class="v2-genius-lobby-ready">${(t.ready || []).map(r => `<span>${r.name} ✓</span>`).join('')}</div>
+        </div>
+      `).join('');
+      lobbyTeams.innerHTML = blocks;
+    }
+
+    const lobby = document.getElementById('geniusLobby');
+    const play = document.getElementById('geniusPlay');
+    const result = document.getElementById('geniusResult');
+
+    if (s.status === 'scheduled' || s.status === 'lobby') {
+      lobby.style.display = 'block';
+      play.style.display = 'none';
+      result.style.display = 'none';
+      document.getElementById('btnStart').style.display = isCaptain ? 'inline-flex' : 'none';
+      return;
+    }
+
+    lobby.style.display = 'none';
+
+    if (s.status === 'finished' || s.status === 'forfeit') {
+      play.style.display = 'none';
+      result.style.display = 'block';
+      const won = s.winner_team_id === myTeamId;
+      document.getElementById('geniusResultTitle').textContent = won ? 'Victoire !' : (s.winner_team_id ? 'Défaite' : 'Match terminé');
+      document.getElementById('geniusResultSub').textContent = s.forfeit_reason ? 'Forfait : ' + s.forfeit_reason : `Score final ${s.team_a.score} - ${s.team_b.score}`;
+      const tipsEl = document.getElementById('geniusStudyTips');
+      if (s.study_tips && s.study_tips.length) {
+        tipsEl.style.display = 'block';
+        tipsEl.innerHTML = '<h4 style="font-size:.85rem;margin:.75rem 0 .5rem">À revoir</h4>' +
+          s.study_tips.map(t => `<a href="${t.quiz_url}" class="v2-genius-study-link">${t.label || t.subject}</a>`).join('');
+      } else {
+        tipsEl.style.display = 'none';
+      }
+      if (pollTimer) clearInterval(pollTimer);
+      return;
+    }
+
+    play.style.display = 'block';
+    result.style.display = 'none';
+    updateTimer(s.deadline_ms, s.server_now_ms);
+
+    const q = s.question;
+    if (!q) return;
+
+    const myTurn = q.responding_team_id === myTeamId;
+    document.getElementById('geniusQMeta').textContent =
+      `Question ${q.index + 1}/${q.total} · ${q.subject || ''} · Tour : ${q.responding_team_name}`;
+    document.getElementById('geniusQText').textContent = q.question;
+
+    const letters = ['A', 'B', 'C', 'D'];
+    const optsEl = document.getElementById('geniusOptions');
+    optsEl.innerHTML = (q.options || []).map((opt, i) => {
+      const letter = letters[i] || String(i);
+      const voteCount = (q.votes && q.votes[letter]) ? q.votes[letter].length : 0;
+      let cls = 'v2-genius-opt';
+      if (!myTurn || s.phase !== 'answering') cls += ' disabled';
+      if (myVote === letter) cls += ' selected';
+      if (q.final_choice && s.phase !== 'answering') {
+        if (letter === q.correct_choice) cls += ' correct';
+        else if (letter === q.final_choice) cls += ' wrong';
+      }
+      return `<div class="${cls}" data-choice="${letter}"><span class="v2-genius-opt-letter">${letter}</span><span>${opt}</span><span style="margin-left:auto;font-size:.72rem;color:var(--t3)">${voteCount} vote(s)</span></div>`;
+    }).join('');
+
+    optsEl.querySelectorAll('[data-choice]').forEach(el => {
+      el.onclick = async () => {
+        if (!myTurn || s.phase !== 'answering') return;
+        const ch = el.dataset.choice;
+        try {
+          await post(urls.vote, { match_id: matchId, choice: ch });
+          myVote = ch;
+          selectedChoice = ch;
+          poll();
+        } catch (e) { showError(e.message); }
+      };
+    });
+
+    const votesEl = document.getElementById('geniusVotes');
+    if (q.votes) {
+      const parts = [];
+      letters.forEach(l => {
+        if (q.votes[l] && q.votes[l].length) {
+          parts.push(`${l}: ${q.votes[l].map(v => v.name).join(', ')}`);
+        }
+      });
+      votesEl.textContent = parts.join(' · ');
+    }
+
+    const lockHint = document.getElementById('geniusLockHint');
+    if (s.captain_lock_hint) {
+      lockHint.style.display = 'block';
+      lockHint.textContent = '👑 ' + s.captain_lock_hint;
+    } else {
+      lockHint.style.display = 'none';
+    }
+
+    const exp = document.getElementById('geniusExplanation');
+    exp.textContent = (s.phase === 'explanation' || q.final_choice) ? (q.explanation || '') : '';
+
+    const btnLock = document.getElementById('btnLock');
+    btnLock.style.display = (isCaptain && myTurn && s.phase === 'answering') ? 'inline-flex' : 'none';
+    btnLock.onclick = async () => {
+      const ch = selectedChoice || myVote;
+      if (!ch) { showError('Vote ou choisis une option avant de verrouiller.'); return; }
+      try {
+        await post(urls.lock, { match_id: matchId, choice: ch });
+        poll();
+      } catch (e) { showError(e.message); }
+    };
+  }
+
+  async function poll() {
+    try {
+      const r = await fetch(urls.state + '?match_id=' + matchId);
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error || 'Erreur');
+      renderState(data);
+    } catch (e) {
+      showError(e.message);
+    }
+  }
+
+  document.getElementById('btnPresent').onclick = async () => {
+    try {
+      await post(urls.presence, { match_id: matchId, present: true });
+      poll();
+    } catch (e) { showError(e.message); }
+  };
+
+  document.getElementById('btnStart').onclick = async () => {
+    try {
+      await post(urls.start, { match_id: matchId });
+      poll();
+    } catch (e) { showError(e.message); }
+  };
+
+  const btnSchedule = document.getElementById('btnSchedule');
+  if (btnSchedule) {
+    btnSchedule.onclick = async () => {
+      const raw = document.getElementById('geniusScheduleAt').value;
+      if (!raw) { showError('Choisis une date et heure.'); return; }
+      try {
+        await post(urls.schedule, { match_id: matchId, scheduled_at: new Date(raw).toISOString() });
+        poll();
+      } catch (e) { showError(e.message); }
+    };
+  }
+
+  poll();
+  pollTimer = setInterval(poll, 2500);
+})();
+</script>
+{% endblock %}

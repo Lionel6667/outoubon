@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-import json, hashlib
+import json, hashlib, uuid
+from cloudinary.models import CloudinaryField
+
+from .r2_storage import R2MediaStorage
 
 SUBJECTS = [
     ('maths', 'Maths'),
@@ -83,9 +86,53 @@ class UserStats(models.Model):
     messages_envoyes  = models.PositiveIntegerField(default=0)
     total_points      = models.PositiveIntegerField(default=0)
     minutes_etude     = models.PositiveIntegerField(default=0)  # temps total étudié
+    xp_total          = models.PositiveIntegerField(default=0, db_index=True)
 
     def __str__(self):
         return f"{self.user.username} stats"
+
+
+class XpEvent(models.Model):
+    """Ledger des gains XP. Un XP a la même valeur HTG future quelle que soit la source."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='xp_events')
+    amount = models.IntegerField(default=0)
+    source = models.CharField(max_length=32, db_index=True)
+    reference = models.CharField(max_length=180, db_index=True)
+    extra = models.JSONField(default=dict, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'source', 'reference'], name='uniq_xp_event_user_source_ref'),
+        ]
+
+    def __str__(self):
+        return f"{self.user_id} {self.source} +{self.amount} ({self.reference})"
+
+
+class XpActivity(models.Model):
+    """Session serveur (quiz / examen / exo) requise avant toute récompense XP."""
+    KIND_QUIZ = 'quiz'
+    KIND_EXAM = 'exam'
+    KIND_EXERCISE = 'exercise'
+
+    token = models.UUIDField(default=uuid.uuid4, unique=True, db_index=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='xp_activities')
+    kind = models.CharField(max_length=16, db_index=True)
+    subject = models.CharField(max_length=50, blank=True, default='')
+    payload = models.JSONField(default=dict, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    consumed_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['user', 'kind', 'created_at']),
+        ]
+
+    def __str__(self):
+        return f"{self.kind} {self.token} user={self.user_id}"
 
 
 # ── Fiches Mémo (Flashcards) ──────────────────────────────────────────────────
@@ -499,6 +546,21 @@ class QuizDuel(models.Model):
     creator_finished    = models.BooleanField(default=False)
     challenger_finished = models.BooleanField(default=False)
     status              = models.CharField(max_length=10, choices=STATUS_CHOICES, default='waiting')
+    is_ghost_opponent   = models.BooleanField(default=False)
+    ghost_display_name  = models.CharField(max_length=80, blank=True, default='')
+    ghost_avatar_emoji  = models.CharField(max_length=8, blank=True, default='🎓')
+    ghost_answer_plan   = models.JSONField(default=list, blank=True)
+    match_mode          = models.CharField(max_length=12, default='private')  # quick, private, ranked
+    is_live_race        = models.BooleanField(default=False)
+    is_mixed_subjects   = models.BooleanField(default=False)
+    current_q_index     = models.PositiveSmallIntegerField(default=0)
+    live_phase          = models.CharField(max_length=12, blank=True, default='')
+    question_deadline   = models.DateTimeField(null=True, blank=True)
+    reveal_deadline     = models.DateTimeField(null=True, blank=True)
+    question_winner     = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='duel_question_wins',
+    )
     created_at          = models.DateTimeField(auto_now_add=True)
     expires_at          = models.DateTimeField()
 
@@ -522,7 +584,25 @@ class QuizDuel(models.Model):
                 return code
 
 
-# ─── Maîtrise par matière (adaptive learning) ────────────────────────────────
+class MatchQueueEntry(models.Model):
+    """File d'attente match rapide 1v1."""
+    STATUS_CHOICES = [
+        ('waiting', 'En attente'),
+        ('matched', 'Matché'),
+        ('cancelled', 'Annulé'),
+        ('expired', 'Expiré'),
+    ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='match_queue_entries')
+    subject = models.CharField(max_length=50, db_index=True)
+    status = models.CharField(max_length=12, choices=STATUS_CHOICES, default='waiting', db_index=True)
+    duel = models.ForeignKey(QuizDuel, on_delete=models.SET_NULL, null=True, blank=True, related_name='queue_entries')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['status', 'subject', 'created_at']),
+        ]
 class SubjectMastery(models.Model):
     """
     Suivi détaillé de la maîtrise de chaque matière par élève.
@@ -659,14 +739,17 @@ class AIProgressCache(models.Model):
 # ─── Extra bèt (quiz communautaire avancé) ──────────────────────────────────
 class ExtraBetPost(models.Model):
     QUESTION_TYPES = [
-        ('direct', 'Réponse directe'),
-        ('fill', 'Texte à compléter'),
-        ('qcm', 'Choix multiple'),
+        ('word', 'Un mot'),
+        ('qcm', 'QCM'),
+        ('match', 'Relier (flèches)'),
+        ('parts', 'Exercice a) b) c)'),
+        ('direct', 'Réponse directe (ancien)'),
+        ('fill', 'Texte à compléter (ancien)'),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='extra_bet_posts')
     subject = models.CharField(max_length=50, db_index=True)
-    question_type = models.CharField(max_length=10, choices=QUESTION_TYPES, default='direct')
+    question_type = models.CharField(max_length=12, choices=QUESTION_TYPES, default='word')
     prompt = models.TextField()
     answer = models.TextField()
     options = models.JSONField(default=list, blank=True)
@@ -745,3 +828,304 @@ class GeneratedExam(models.Model):
 
     def __str__(self):
         return f"GeneratedExam [{self.subject}/{self.serie or 'all'}] {self.created_at.date()}"
+
+
+class UserSeenExamItem(models.Model):
+    """
+    Historique des items d'examen déjà servis à un utilisateur connecté.
+    Clé : sha256(text[:200]) — voir core.exam_item_registry.hash_item_text.
+    """
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='seen_exam_items',
+    )
+    subject = models.CharField(max_length=50, db_index=True)
+    item_hash = models.CharField(max_length=64, db_index=True)
+    seen_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-seen_at']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'subject', 'item_hash'],
+                name='unique_user_subject_exam_item',
+            ),
+        ]
+        indexes = [
+            models.Index(fields=['user', 'subject']),
+        ]
+
+    def __str__(self):
+        return f"SeenExamItem [{self.subject}] {self.item_hash[:12]}…"
+
+
+class AiUsageDaily(models.Model):
+    """
+    Agrégat journalier tokens / coût estimé par utilisateur (ou invité) et feature.
+    Permet de suivre la marge brute IA en temps quasi-réel.
+    """
+    FEATURE_CHOICES = [
+        ('chat', 'Chat tuteur'),
+        ('exercise', 'Exercices'),
+        ('exam', 'Examen blanc'),
+        ('fiches', 'Fiches mémo'),
+        ('course', 'Cours interactif'),
+        ('quiz', 'Quiz'),
+        ('other', 'Autre'),
+    ]
+
+    user = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.CASCADE,
+        related_name='ai_usage_daily',
+    )
+    guest_key = models.CharField(max_length=64, blank=True, default='', db_index=True)
+    date = models.DateField(db_index=True)
+    feature = models.CharField(max_length=32, choices=FEATURE_CHOICES, default='other', db_index=True)
+    api_calls = models.PositiveIntegerField(default=0)
+    prompt_tokens = models.PositiveIntegerField(default=0)
+    completion_tokens = models.PositiveIntegerField(default=0)
+    cache_hit_tokens = models.PositiveIntegerField(default=0)
+    cost_usd_micro = models.PositiveIntegerField(
+        default=0,
+        help_text='Coût estimé en millionièmes de USD (1 = 0.000001 $)',
+    )
+
+    class Meta:
+        ordering = ['-date', '-prompt_tokens']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'guest_key', 'date', 'feature'],
+                name='unique_ai_usage_daily_actor',
+            ),
+        ]
+        indexes = [
+            models.Index(fields=['date', 'feature']),
+            models.Index(fields=['user', 'date']),
+        ]
+
+    def __str__(self):
+        who = f'user:{self.user_id}' if self.user_id else f'guest:{self.guest_key[:8]}'
+        return f'AiUsage [{self.date}] {who} {self.feature} {self.prompt_tokens}+{self.completion_tokens}tok'
+
+    @property
+    def cost_usd(self) -> float:
+        return self.cost_usd_micro / 1_000_000
+
+
+class UserFollow(models.Model):
+    """Abonnement unidirectionnel entre deux élèves."""
+    follower  = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following_set')
+    following = models.ForeignKey(User, on_delete=models.CASCADE, related_name='followers_set')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['follower', 'following'], name='unique_user_follow'),
+        ]
+        indexes = [
+            models.Index(fields=['follower']),
+            models.Index(fields=['following']),
+        ]
+
+    def __str__(self):
+        return f'{self.follower_id} → {self.following_id}'
+
+
+class Friendship(models.Model):
+    """Demande d'amitié bidirectionnelle."""
+    STATUS_PENDING  = 'PENDING'
+    STATUS_ACCEPTED = 'ACCEPTED'
+    STATUS_REJECTED = 'REJECTED'
+    STATUS_CHOICES  = [
+        (STATUS_PENDING,  'En attente'),
+        (STATUS_ACCEPTED, 'Acceptée'),
+        (STATUS_REJECTED, 'Rejetée'),
+    ]
+
+    sender   = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_friend_requests')
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_friend_requests')
+    status   = models.CharField(max_length=12, choices=STATUS_CHOICES, default=STATUS_PENDING, db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['sender', 'receiver'], name='unique_friendship_pair'),
+        ]
+        indexes = [
+            models.Index(fields=['receiver', 'status']),
+        ]
+
+    def __str__(self):
+        return f'Friendship {self.sender_id}→{self.receiver_id} [{self.status}]'
+
+
+class Post(models.Model):
+    """
+    Feed "Scroll & Learn" — médias TikTok/Reels + quiz flash.
+    """
+
+    POST_TYPE_VIDEO = 'VIDEO'
+    POST_TYPE_IMAGE = 'IMAGE'
+    POST_TYPE_QUIZ = 'QUIZ'
+
+    POST_TYPE_CHOICES = [
+        (POST_TYPE_VIDEO, 'VIDEO'),
+        (POST_TYPE_IMAGE, 'IMAGE'),
+        (POST_TYPE_QUIZ, 'QUIZ'),
+    ]
+
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    post_type = models.CharField(max_length=8, choices=POST_TYPE_CHOICES, db_index=True)
+
+    # Pour VIDEO/IMAGE : upload sur R2
+    media_file = models.FileField(
+        upload_to='feed/',
+        storage=R2MediaStorage(),
+        blank=True,
+        null=True,
+    )
+
+    caption = models.TextField(blank=True, default='')
+
+    # Pour post_type == QUIZ : hash stable de la question/quiz.
+    quiz_item_hash = models.CharField(max_length=64, blank=True, default='', db_index=True)
+
+    subject = models.CharField(max_length=50, blank=True, default='')
+
+    likes = models.ManyToManyField(User, related_name='liked_posts', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['post_type', 'created_at']),
+        ]
+
+    def __str__(self):
+        return f"Post[{self.post_type}] by {self.author_id} @{self.created_at.isoformat()}"
+
+
+class PostComment(models.Model):
+    """Commentaires associés aux posts du feed (texte + sticker + voice + images)."""
+
+    ATTACH_IMAGE = "IMAGE"
+    ATTACH_VOICE = "VOICE"
+
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post_comments")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+
+    text = models.TextField(blank=True, default="")
+    # "Sticker" = emoji (on peut évoluer vers un système d'images/stickers plus tard)
+    sticker = models.CharField(max_length=32, blank=True, default="")
+
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ["created_at"]
+        indexes = [
+            models.Index(fields=["post", "created_at"]),
+        ]
+
+    def __str__(self):
+        return f"Comment #{self.id} by @{self.author_id} on Post#{self.post_id}"
+
+
+class PostCommentAttachment(models.Model):
+    """Pièces jointes d'un commentaire (images ou voice)."""
+
+    ATTACH_IMAGE = "IMAGE"
+    ATTACH_VOICE = "VOICE"
+    ATTACH_CHOICES = [
+        (ATTACH_IMAGE, "IMAGE"),
+        (ATTACH_VOICE, "VOICE"),
+    ]
+
+    comment = models.ForeignKey(PostComment, on_delete=models.CASCADE, related_name="attachments")
+    attach_type = models.CharField(max_length=8, choices=ATTACH_CHOICES, db_index=True)
+
+    file = models.FileField(
+        upload_to="comments/",
+        storage=R2MediaStorage(location_override="comment_media"),
+        blank=True,
+        null=True,
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["comment", "attach_type", "created_at"]),
+        ]
+
+    def __str__(self):
+        return f"Attachment #{self.id} ({self.attach_type}) for Comment#{self.comment_id}"
+
+
+class SiteSpotlight(models.Model):
+    """Vitrine accueil : lauréat du site, équipe / élève de la semaine (publié depuis l'admin)."""
+    KIND_LAUREATE = 'laureate'
+    KIND_TEAM_WEEK = 'team_week'
+    KIND_STUDENT_WEEK = 'student_week'
+    KIND_CHOICES = [
+        (KIND_LAUREATE, 'Lauréat du site (1 an)'),
+        (KIND_TEAM_WEEK, 'Équipe championne de la semaine'),
+        (KIND_STUDENT_WEEK, 'Meilleur élève de la semaine'),
+    ]
+
+    kind = models.CharField(max_length=24, choices=KIND_CHOICES, db_index=True)
+    title = models.CharField(max_length=140)
+    subtitle = models.CharField(max_length=180, blank=True)
+    school = models.CharField(max_length=180, blank=True)
+    serie = models.CharField(max_length=40, blank=True)
+    score = models.CharField(max_length=40, blank=True)
+    body = models.TextField(blank=True)
+    academic_year = models.CharField(max_length=16, blank=True, default='2025-2026')
+    week_label = models.CharField(max_length=80, blank=True)
+    photo = CloudinaryField('spotlight', folder='bacia/spotlights', blank=True, null=True)
+    is_published = models.BooleanField(default=True, db_index=True)
+    pin_order = models.PositiveSmallIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['pin_order', '-created_at']
+
+    def __str__(self):
+        return f"{self.get_kind_display()} — {self.title}"
+
+    @property
+    def meta_line(self):
+        bits = [self.school, self.serie, self.score, self.subtitle]
+        return ' · '.join(part for part in bits if part)
+
+
+class ExerciseSession(models.Model):
+    """Session d'exercice (historique + favoris) — reprendre plus tard comme un chat."""
+    STATUS = [('active', 'En cours'), ('completed', 'Terminé')]
+
+    user = models.ForeignKey(User, on_date=models.CASCADE, related_name='exercise_sessions')
+    subject = models.CharField(max_length=50, db_index=True)
+    chapter = models.CharField(max_length=200, blank=True, default='')
+    chapter_id = models.CharField(max_length=40, blank=True, default='')
+    title = models.CharField(max_length=220, blank=True, default='')
+    preview = models.CharField(max_length=280, blank=True, default='')
+    exercise_hash = models.CharField(max_length=32, db_index=True)
+    exercise = models.JSONField(default=dict)
+    messages = models.JSONField(default=list)
+    session_state = models.JSONField(default=dict)
+    is_favorite = models.BooleanField(default=False, db_index=True)
+    status = models.CharField(max_length=20, choices=STATUS, default='active')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True, db_index=True)
+
+    class Meta:
+        ordering = ['-updated_at']
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'exercise_hash'], name='uniq_user_exercise_hash'),
+        ]
+        indexes = [
+            models.Index(fields=['user', 'updated_at']),
+            models.Index(fields=['user', 'is_favorite', 'updated_at']),
+            models.Index(fields=['user', 'subject', 'updated_at']),
+        ]
+
+    def __str__(self):
+        return f"{self.user_id} {self.subject} {self.title[:40]}"

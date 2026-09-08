@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Kreyòl).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "18",
+    "question": "Écris correctement les adjectifs entre parenthèses. 10p",
+    "options": [
+      "Entretenir de bonnes relations (social)",
+      "Un accueil et des sentiments (cordial)",
+      "Des connaissances (acquis)",
+      "Des critiques (constructif)"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Dans le texte l’auteur",
+    "options": [
+      "décrit une grande forêt",
+      "présente une ville de France",
+      "raconte l’histoire d’un enfant",
+      "fait le portrait d’une femme"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "10",
+    "question": "Remplace les espaces vides par des pronoms relatifs de cette liste: qui, que, dont, où",
+    "options": [
+      "Celui-ci est l’enfant ..................….. je te parlais",
+      "Cet arbre ..….......... pousse dans mon jardin est un moringa",
+      "La maison ..…..... j’habite est peinte en blanc",
+      "C’est la voiture .…....... je voulais"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "12",
+    "question": "Dis si leur est pronom personnel ou adjectif L possessif",
+    "options": [
+      "Ils ont ramassé leur affaire",
+      "Ils leur ont dit de partir",
+      "Le professeur leur a donné la note",
+      "Luc et Lucien font leurs devoirs"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "16",
+    "question": "Donne le féminin des noms suivants",
+    "options": [
+      "Le bélier:",
+      "Le gendre:",
+      "Le compagnon:",
+      "L'écrivain:"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "17",
+    "question": "Pour chacun des verbes ci-dessous forme un adjectif en utilisant le préfixe én",
+    "options": [
+      "Tolérer :",
+      "Désirer :",
+      "Tenir:",
+      "Détruire : IV- ORTHOGRAPHE"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "13",
+    "question": "Entoure la bonne réponse pour chacune de ces phrases",
+    "options": [
+      "Je l’ai entendu de mes propres oreilles. (Périphrase / pléonasme)",
+      "Une douleur infinie pour une grande douleur. (Exclamation / hyperbole)",
+      "Cet homme est un renard. (Métaphore /Ellipse)",
+      "Ce n’est pas très bon. (Ellipse / Litote) Y ITI- VOCABULAIRE 2!"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "18",
+    "question": "Complète avec des consonnes convenables",
+    "options": [
+      "Le bou de la rue",
+      "Ilest caché sou l’armoire. 22",
+      "C’est un garçon très dou",
+      "Cette voiture est à nou"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Indique l’idée qui n’appartient pas au texte",
+    "options": [
+      "Le pharmacien ne peut pas livrer un médicament ll sans l’ordonnance du médecin",
+      "Les remèdes miracle ne nécessitent pas d’ordonnance du médecin",
+      "L’emploi des antibiotiques ne doit être abusif",
+      "Il ne faut pas se fier à la prescription d’un voisin"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Dans le texte ci-dessus, Roubert Boudet",
+    "options": [
+      "raconte une histoire d’un petit rongeur",
+      "décrit un animal domestique",
+      "informe sur la vie d’une tisseuse. 9. 25",
+      "donne une opinion sur un animal"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Dans le texte ci-dessus, l’auteur fait",
+    "options": [
+      "l’éloge des messages sur internet",
+      "la plaidoirie pour s’exprimer verbalement",
+      "l'éloge de la correspondance écrite. l",
+      "la défense des appels téléphoniques"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "L'idée qui est en rapport avec le texte est",
+    "options": [
+      "le téléphone est utilisé seulement au bureau. 27",
+      "le téléphone doit être utilisé en cas de besoin",
+      "la parole nait de l’échec de l'écriture",
+      "le téléphone dépasse les difficultés relatives à la distance"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "12",
+    "question": "Donne le contraire des mots soulignés",
+    "options": [
+      "Une explication claire:",
+      "Un lieu bruyant:",
+      "Une couleur claire:",
+      "Un homme droit: IV- ORTHOGRAPHE"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Dans le texte, on",
+    "options": [
+      "décrit les bienfaits de la télévision",
+      "explique l’influence de la télévision sur les enfants. | 9",
+      "argumente su l’importance de la publicité",
+      "raconte l’histoire de la télévision"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Le premier quotidien des temps modernes a été lancé au cours de",
+    "options": [
+      "la première moitié du XIX* siècle",
+      "la seconde moitié du XIX® siècle. 9",
+      "la seconde moitié du XX® siècle",
+      "la fin du XXI° du siècle"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

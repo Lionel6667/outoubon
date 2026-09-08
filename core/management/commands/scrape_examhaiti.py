@@ -1,11 +1,14 @@
 """
 Management command: scrape_examhaiti
 Télécharge tous les examens disponibles sur examhaiti.com et les enregistre
-en PDF dans le dossier database/ pour enrichir la base de données IA.
+en PDF dans database/examens_{matiere}/ — même convention que NS4 :
+    exam_{matiere}_{slug}.pdf
 
 Usage:
     python manage.py scrape_examhaiti
     python manage.py scrape_examhaiti --subject physique
+    python manage.py scrape_examhaiti --niveau 9e
+    python manage.py scrape_examhaiti --niveau 9e --subject maths
     python manage.py scrape_examhaiti --subject all --limit 20
 """
 
@@ -21,6 +24,7 @@ from django.conf import settings
 
 
 # ─── Configuration des catégories ────────────────────────────────────────────
+# (url, dossier) — dossier = database/examens_{dossier}/ + préfixe exam_{dossier}_
 CATEGORIES = {
     'physique':     ('https://www.examhaiti.com/physique-ns4/',           'physique'),
     'maths':        ('https://www.examhaiti.com/math-ns4/',               'maths'),
@@ -34,6 +38,29 @@ CATEGORIES = {
     'economie':     ('https://www.examhaiti.com/economie-ns4/',           'economie'),
     'espagnol':     ('https://www.examhaiti.com/espagnol-ns4/',           'espagnol'),
     'art':          ('https://www.examhaiti.com/art-musique-ns4/',        'art'),
+}
+
+# 9e AF — mêmes dossiers NS4 (Kreyòl → francais, Sc. sociales → histoire, Sc. exp. → svt)
+CATEGORIES_9E = {
+    'anglais':      ('https://www.examhaiti.com/anglais-2011-2023-9e-af/',          'anglais'),
+    'francais':     ('https://www.examhaiti.com/creole-9e-af/',                     'francais'),
+    'espagnol':     ('https://www.examhaiti.com/espagnol-9e-af/',                   'espagnol'),
+    'francais_lg':  ('https://www.examhaiti.com/francais-9e-af/',                   'francais'),
+    'maths':        ('https://www.examhaiti.com/math-9e-af/',                      'maths'),
+    'histoire':     ('https://www.examhaiti.com/sciences-sociales-9e-af/',         'histoire'),
+    'svt':          ('https://www.examhaiti.com/sciences-experimentales-9e-af/',  'svt'),
+    'autres':       ('https://www.examhaiti.com/autres/',                           'autres'),
+}
+
+SKIP_PATH_MARKERS = (
+    '/wp-json/', '/category/', '/author/', '/sponsors/', '/a-propos/',
+    '/examen-9e-annee', '/examen-baccalaureat', '/concours-admission',
+)
+
+LANDING_URLS = {
+    'https://www.examhaiti.com',
+    'https://www.examhaiti.com/examen-9e-annee-fondamentale-haiti',
+    'https://www.examhaiti.com/examen-baccalaureat-haiti',
 }
 
 HEADERS = {
@@ -80,7 +107,7 @@ def fetch_page(url: str, session: requests.Session, retries: int = 3, page_timeo
                     if chunk:
                         chunks.append(chunk)
                         total += len(chunk)
-                        if total > 25 * 1024 * 1024:  # 25 MB max en mémoire
+                        if total > 40 * 1024 * 1024:  # 40 MB max en mémoire
                             break
                 result[0] = b''.join(chunks)
                 result[1] = ct
@@ -117,28 +144,67 @@ def fetch_html(url: str, session: requests.Session, retries: int = 3) -> str | N
         return None
 
 
+def _soup(html: str):
+    from bs4 import BeautifulSoup
+    return BeautifulSoup(html, 'html.parser')
+
+
+def _all_category_urls() -> set[str]:
+    urls = set()
+    for mapping in (CATEGORIES, CATEGORIES_9E):
+        for url, _folder in mapping.values():
+            urls.add(url.rstrip('/'))
+    urls.update(LANDING_URLS)
+    return urls
+
+
+def resolve_folder_key(folder_key: str, url_slug: str) -> str:
+    """Classe un examen 9e « Autres » comme NS4 (techno → informatique, art → art)."""
+    if folder_key != 'autres':
+        return folder_key
+    slug = url_slug.lower()
+    if any(w in slug for w in ('techno', 'informatique', 'computer')):
+        return 'informatique'
+    if any(w in slug for w in ('esthet', 'artistique', 'art', 'musique')):
+        return 'art'
+    return 'art'
+
+
 def extract_exam_links(html: str, base_url: str) -> list[str]:
     """Extrait tous les liens vers des pages d'examens individuels."""
     try:
-        from bs4 import BeautifulSoup
+        soup = _soup(html)
     except ImportError:
-        raise RuntimeError("beautifulsoup4 non installé. Lance: pip install beautifulsoup4 lxml")
+        raise RuntimeError("beautifulsoup4 non installé. Lance: pip install beautifulsoup4")
 
-    soup  = BeautifulSoup(html, 'lxml')
     links = set()
     base_domain = urlparse(base_url).netloc
+    cat_path = urlparse(base_url).path.rstrip('/')
+    skip_urls = _all_category_urls()
 
     for a in soup.find_all('a', href=True):
         href = a['href'].strip()
-        full = urljoin(base_url, href)
+        if not href or href.startswith('#') or href.startswith('mailto:'):
+            continue
+        full = urljoin(base_url, href).split('#')[0].rstrip('/')
         parsed = urlparse(full)
-        # Doit être sur le même domaine, chemin différent de la page catégorie
-        if (parsed.netloc == base_domain
-                and parsed.path not in ('/', urlparse(base_url).path)
-                and not href.startswith('#')
-                and base_url.rstrip('/') in full  # sous-page de la catégorie
-                and full != base_url):
-            links.add(full.rstrip('/'))
+        if parsed.netloc != base_domain or parsed.query:
+            continue
+        path = parsed.path
+        if any(marker in path.lower() for marker in SKIP_PATH_MARKERS):
+            continue
+        if full in skip_urls:
+            continue
+        slug = path.strip('/').split('/')[-1] if path.strip('/') else ''
+        if not slug:
+            continue
+        is_child = bool(cat_path) and path.rstrip('/') != cat_path and path.startswith(cat_path + '/')
+        text = (a.get_text() or '')
+        looks_like_exam = bool(re.search(
+            r'9e[-_]?a[nf]|9eme|ns4|20\d{2}', slug + ' ' + text, re.I
+        ))
+        if is_child or looks_like_exam:
+            links.add(full)
 
     return sorted(links)
 
@@ -174,14 +240,16 @@ def find_pdf_urls(html: str, page_url: str) -> list[str]:
     for match in re.finditer(r'(https?://[^\s"\'<>]*wp-content/uploads/[^\s"\'<>]*\.pdf)', html, re.IGNORECASE):
         pdfs.add(match.group(1))
 
+    for match in re.finditer(r'(https?://[^\s"\'<>]*my_exam/uploads/[^\s"\'<>]*\.pdf)', html, re.IGNORECASE):
+        pdfs.add(match.group(1))
+
     return list(pdfs)
 
 
 def extract_page_text(html: str) -> str:
     """Extrait le texte principal de la page (fallback si pas de PDF)."""
     try:
-        from bs4 import BeautifulSoup
-        soup = BeautifulSoup(html, 'lxml')
+        soup = _soup(html)
         # Supprimer nav, footer, sidebar
         for tag in soup(['nav', 'footer', 'header', 'script', 'style', 'aside']):
             tag.decompose()
@@ -217,11 +285,11 @@ def download_pdf(url: str, dest_path: Path, session: requests.Session, pdf_timeo
 
     def _do_download():
         try:
-            r = session.get(url, headers=HEADERS, timeout=(15, 20), stream=True)
+            r = session.get(url, headers=HEADERS, timeout=(15, 60), stream=True, allow_redirects=True)
             if r.status_code != 200:
                 return
             content_type = r.headers.get('content-type', '')
-            max_bytes = 20 * 1024 * 1024  # 20 MB max par fichier
+            max_bytes = 40 * 1024 * 1024  # 40 MB max par fichier
             downloaded = 0
             first_bytes_buf = b''
             with open(dest_path, 'wb') as f:
@@ -269,12 +337,16 @@ def save_as_text(content: str, dest_path: Path) -> bool:
 
 
 class Command(BaseCommand):
-    help = 'Télécharge les examens depuis examhaiti.com vers le dossier database/'
+    help = 'Télécharge les examens depuis examhaiti.com vers database/examens_{matiere}/'
 
     def add_arguments(self, parser):
         parser.add_argument(
             '--subject', default='all',
-            help='Matière à scraper (physique/maths/chimie/svt/philosophie/anglais/histoire/all)'
+            help='Matière à scraper (maths/anglais/francais/... ou all)'
+        )
+        parser.add_argument(
+            '--niveau', default='ns4', choices=['ns4', '9e', 'all'],
+            help='Niveau : ns4 (bac), 9e (9e AF), ou all'
         )
         parser.add_argument(
             '--limit', type=int, default=0,
@@ -288,6 +360,20 @@ class Command(BaseCommand):
             '--pdf-timeout', type=int, default=90,
             help='Timeout total (s) par téléchargement PDF (défaut: 90s)'
         )
+        parser.add_argument(
+            '--dry-run', action='store_true',
+            help='Liste les examens trouvés sans télécharger'
+        )
+
+    def _source_categories(self, niveau: str) -> dict:
+        if niveau == '9e':
+            return dict(CATEGORIES_9E)
+        if niveau == 'all':
+            merged = dict(CATEGORIES)
+            for key, val in CATEGORIES_9E.items():
+                merged[f'9e_{key}'] = val
+            return merged
+        return dict(CATEGORIES)
 
     def handle(self, *args, **options):
         # Vérifier beautifulsoup4
@@ -296,53 +382,60 @@ class Command(BaseCommand):
         except ImportError:
             self.stdout.write(self.style.ERROR(
                 "beautifulsoup4 non installé. Lance:\n"
-                "  pip install beautifulsoup4 lxml\n"
+                "  pip install beautifulsoup4\n"
             ))
             return
 
         subject_filter = options['subject'].lower()
+        niveau         = options['niveau']
         limit          = options['limit']
         delay          = options['delay']
         pdf_timeout    = options['pdf_timeout']
+        dry_run        = options['dry_run']
         db_path        = get_db_path()
+
+        source = self._source_categories(niveau)
+        cats_to_scrape = source
+        if subject_filter != 'all':
+            cats_to_scrape = {
+                k: v for k, v in source.items()
+                if k == subject_filter
+                or k.replace('9e_', '') == subject_filter
+                or v[1] == subject_filter
+            }
+            if subject_filter in ('informatique', 'art') and niveau in ('9e', 'all'):
+                for key, val in source.items():
+                    if val[1] == 'autres':
+                        cats_to_scrape[key] = val
+
+        if not cats_to_scrape:
+            self.stdout.write(self.style.ERROR(f"Matière inconnue : {subject_filter}"))
+            keys = sorted({v[1] for v in source.values()} | set(source.keys()))
+            self.stdout.write(f"Choisir parmi : {', '.join(keys)} ou all")
+            return
 
         self.stdout.write(self.style.SUCCESS(f"\n{'='*60}"))
         self.stdout.write(self.style.SUCCESS("  BacIA - Scraper ExamHaiti"))
+        self.stdout.write(self.style.SUCCESS(f"  Niveau      : {niveau}"))
         self.stdout.write(self.style.SUCCESS(f"  Destination : {db_path}"))
+        if dry_run:
+            self.stdout.write(self.style.WARNING("  Mode        : dry-run (pas de téléchargement)"))
         self.stdout.write(self.style.SUCCESS(f"{'='*60}\n"))
-
-        cats_to_scrape = (
-            {k: v for k, v in CATEGORIES.items() if k == subject_filter}
-            if subject_filter != 'all'
-            else CATEGORIES
-        )
-        if not cats_to_scrape:
-            self.stdout.write(self.style.ERROR(f"Matière inconnue : {subject_filter}"))
-            self.stdout.write(f"Choisir parmi : {', '.join(CATEGORIES.keys())} ou all")
-            return
 
         session = requests.Session()
         session.headers.update(HEADERS)
 
         total_saved = 0
 
-        for subj_key, (cat_url, subj_label) in cats_to_scrape.items():
-            self.stdout.write(self.style.WARNING(f"\n[{subj_label.upper()}] -- {cat_url}"))
+        for cat_key, (cat_url, folder_key) in cats_to_scrape.items():
+            label = folder_key if folder_key != 'autres' else 'autres (-> info/art)'
+            self.stdout.write(self.style.WARNING(f"\n[{label.upper()}] -- {cat_url}"))
 
-            # Sous-dossier par matière
-            subj_dir = db_path / f"examens_{subj_key}"
-            subj_dir.mkdir(exist_ok=True)
-
-            # Liste les examens déjà téléchargés
-            existing = {f.stem.lower() for f in subj_dir.iterdir()}
-
-            # Fetch la page catégorie
             cat_html = fetch_html(cat_url, session)
             if not cat_html:
                 self.stdout.write(self.style.ERROR(f"  Impossible de récupérer {cat_url}"))
                 continue
 
-            # Extraire les liens
             exam_links = extract_exam_links(cat_html, cat_url)
             if limit:
                 exam_links = exam_links[:limit]
@@ -351,19 +444,38 @@ class Command(BaseCommand):
 
             saved_count = 0
             for i, exam_url in enumerate(exam_links, 1):
-                # Nom du fichier basé sur l'URL
-                url_slug  = urlparse(exam_url).path.strip('/').split('/')[-1]
-                file_stem = f"exam_{subj_key}_{url_slug}"
+                url_slug = urlparse(exam_url).path.strip('/').split('/')[-1]
+                dest_folder = resolve_folder_key(folder_key, url_slug)
+                file_stem = f"exam_{dest_folder}_{url_slug}"
+                subj_dir = db_path / f"examens_{dest_folder}"
+                subj_dir.mkdir(exist_ok=True)
+                existing = {f.stem.lower() for f in subj_dir.iterdir()}
+
+                if dry_run:
+                    self.stdout.write(
+                        f"  [{i:02d}/{len(exam_links)}] {url_slug}  ->  {subj_dir.name}/{file_stem}.pdf"
+                    )
+                    continue
 
                 if file_stem.lower() in existing:
                     self.stdout.write(f"  [{i:02d}/{len(exam_links)}] [SKIP] Deja telecharge : {url_slug}")
                     continue
 
-                self.stdout.write(f"  [{i:02d}/{len(exam_links)}] >> {url_slug}")
+                self.stdout.write(f"  [{i:02d}/{len(exam_links)}] >> {url_slug} -> examens_{dest_folder}/")
                 time.sleep(delay)
 
-                # Fetch la page — peut être HTML ou PDF direct
-                raw_content, content_type = fetch_page(exam_url, session)
+                pdf_path = subj_dir / f"{file_stem}.pdf"
+                saved = False
+                if download_pdf(exam_url, pdf_path, session, pdf_timeout):
+                    size_kb = pdf_path.stat().st_size // 1024
+                    self.stdout.write(
+                        self.style.SUCCESS(f"       [OK] PDF ({size_kb} KB) : {pdf_path.name}")
+                    )
+                    saved_count += 1
+                    total_saved += 1
+                    continue
+
+                raw_content, content_type = fetch_page(exam_url, session, page_timeout=min(pdf_timeout, 45))
                 if raw_content is None:
                     continue
 
@@ -427,7 +539,7 @@ class Command(BaseCommand):
                         self.stdout.write(f"       [VIDE] Contenu vide (images seulement ?)")
 
             self.stdout.write(
-                self.style.SUCCESS(f"\n  [DONE] {subj_label} : {saved_count} fichiers sauvegardes dans {subj_dir}")
+                self.style.SUCCESS(f"\n  [DONE] {label} : {saved_count} fichiers sauvegardes")
             )
 
         self.stdout.write(self.style.SUCCESS(
@@ -439,5 +551,6 @@ class Command(BaseCommand):
 
         if total_saved > 0:
             self.stdout.write(self.style.SUCCESS(
-                "  INFO: Redemarre le serveur pour charger les nouveaux fichiers.\n"
+                "  INFO: Relance `python manage.py rebuild_pdf_index --force` "
+                "puis `python manage.py build_subject_json --force` pour indexer.\n"
             ))

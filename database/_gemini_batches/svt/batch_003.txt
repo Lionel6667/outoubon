@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Sciences exp.).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "4",
+    "question": "On parle de foulure ou d’enrtorse dans l’un des cas suivants, lequel?",
+    "options": [
+      "Inflammation de tendons",
+      "Déchirure de ligaments",
+      "Sortie de l’os de sa cavité articulaire",
+      "Écoulement du liquide synovial"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Le manguier est classé parmi les angiospermes parce qu’il",
+    "options": [
+      "possède des fleurs",
+      "produit des graines à deux cotylédons",
+      "produit des graines enfermées dans un fruit",
+      "possède racine, tige, feuilles, fleurs"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Les éléments caractéristiques d’une force sont :",
+    "options": [
+      "origine, hauteur, sens, intensité",
+      "intensité, direction, origine, sens",
+      "sens, direction, distance, origine",
+      "hauteur, sens, origine, direction"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "La production du son dépend de trois facteurs appartenant à l’un des groupes suivants. Lequel ?",
+    "options": [
+      "Source lumineuse — milieu élastique — source sonore",
+      "récepteur — source sonore — source de courant",
+      "milieu élastique — solide — métal",
+      "source sonore — milieu élastique — récepteur"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Le timbre est la qualité qui différencie les sons : !",
+    "options": [
+      "aigus des sons graves",
+      "de même hauteur et de même intensité",
+      "proches de sons éloignés",
+      "produits dans l’eau de ceux produits dans l’air"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Les artères sont des vaisseaux qui conduisent le sang:",
+    "options": [
+      "des organes au cœur",
+      "des organes aux poumons",
+      "du cœur aux organes",
+      "de l’estomac aux poumons"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "La blennorragie se caractérise par l’apparition l",
+    "options": [
+      "d’un chancre et de douleurs à la tête",
+      "de fatigue, de diarrhée et de tâches cutanées",
+      "d’un écoulement accompagné de maux urinaires",
+      "de fortes douleurs au niveau de l’abdomen"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "Les lichens résultent de l’association :",
+    "options": [
+      "d’une algue et d’un champignon",
+      "d’une fougère et d’une algue",
+      "d’une algue et d’une prêle",
+      "de deux champignons"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "8",
+    "question": "Un être vivant autotrophe",
+    "options": [
+      "doit faire appel à un autre être vivant pour se nourrir. | 1,",
+      "dépend totalement d’autres êtres vivants",
+      "est capable de préparer ses propres substances organiques",
+      "tire sa nourriture des substances organiques en décomposition"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "L'une des trois principales membranes de l’œil se 5 nomme :",
+    "options": [
+      "des glandes gastriques et intestinales 1",
+      "des parotides et des glandes gastriques",
+      "du foie et du pancréas",
+      "du pancréas et de parotides"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "11",
+    "question": "Utilise les mots de cette liste pour compléter ces phrases: Liste: urée, rein, urine, vessie, uretère, urètre, urémie",
+    "options": [
+      "Réservoir dans lequel s’accumule l’urine",
+      "Substance azotée de l’urine",
+      "Orifice de sortie de l’urine",
+      "Organe en forme de haricot"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "9",
+    "question": "La poussée exercée par un liquide sur un solide immergé est 2",
+    "options": [
+      "inférieure au poids du liquide déplacé",
+      "supérieure au poids du liquide déplacé",
+      "égale au poids du liquide déplacé",
+      "inférieur ou égale au poids du liquide déplacé"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "13",
+    "question": "Un pied de malanga ne peut pas se reproduire par le semis parce que:",
+    "options": [
+      "ses racines sont peu développées",
+      "Ses feuilles renferment trop d chlorophylle",
+      "Il ne renferme pas de pièces florales. 265",
+      "Il est une plante alimentaire"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "La salive est secrétée par trois parties de glandes. Ce 8. sont les glandes:",
+    "options": [
+      "Pancréatiques, gastriques, parotides",
+      "Péristaltiques, sublinguales, sous maxillaires",
+      "Parotides, sous maxillaires, sublinguales",
+      "Lactiques, intestinales, salivaires"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Le sol se forme par:",
+    "options": [
+      "La désagrégation des roches sous l’effet de la chaleur. 9",
+      "L’action du vent qui effrite les roches",
+      "La décomposition de la matière organique",
+      "La dégradation de la roche sous l’action de la pluie"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Parrainage & retraits · OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/gains.css' %}">
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="gains" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Parrainage &amp; retraits</div>
+    </div>
+    <div class="view-area">
+      <div class="v2-gains">
+
+        <header class="v2-gains-hero">
+          <div class="v2-gains-hero__glow" aria-hidden="true"></div>
+          <div class="v2-gains-hero__kicker"><i class="fas fa-gift"></i> Tes gains</div>
+          <h1>Invite, gagne, retire</h1>
+          <div class="v2-gains-hero__stats">
+            <div>
+              <strong>{{ my_xp|default:0 }}</strong>
+              <span>XP disponibles</span>
+            </div>
+            <div>
+              <strong>{% if xp_htg_value is not None %}{{ xp_htg_value|floatformat:0 }}{% else %}0{% endif %} G</strong>
+              <span>valeur actuelle</span>
+            </div>
+            <div>
+              <strong>{{ referrals|length }}</strong>
+              <span>filleul{{ referrals|length|pluralize }}</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="v2-gains-grid">
+          <section class="v2-gains-card">
+            <div class="v2-gains-card__icon"><i class="fas fa-user-plus"></i></div>
+            <h2>Parrainage</h2>
+            <p>Partage ton lien. Dès que ton ami paie Premium pour la première fois, tu reçois <strong>{{ referral_reward_xp }} XP</strong> ({{ referral_reward_htg }} G).</p>
+            <div class="v2-gains-link">
+              <code id="inviteLinkText">{{ invite_link }}</code>
+              <button type="button" class="v2-gains-copy" id="copyInviteBtn">Copier le lien</button>
+            </div>
+            <div class="v2-gains-chips">
+              <span>Code {{ invite_code }}</span>
+              <span>{{ paid_referrals }} payé{{ paid_referrals|pluralize }}</span>
+            </div>
+            {% if referrals %}
+            <ul class="v2-gains-list">
+              {% for r in referrals %}
+              <li>
+                <span>{{ r.referred_user.get_full_name|default:r.referred_user.username }}</span>
+                {% if r.paid %}<em class="is-ok">{{ r.reward_htg }} G</em>{% else %}<em>En attente</em>{% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </section>
+
+          <section class="v2-gains-card v2-gains-card--cash" id="retrait">
+            <div class="v2-gains-card__icon v2-gains-card__icon--cash"><i class="fas fa-wallet"></i></div>
+            <h2>Retrait MonCash</h2>
+            <p>Minimum {{ min_withdraw_htg }} G ({{ min_withdraw_xp }} XP). Taux : 100 XP = 1 G.</p>
+            {% if pending_withdrawal %}
+            <div class="v2-gains-pending">
+              Demande de <strong>{{ pending_withdrawal.amount_htg }} G</strong> en attente vers {{ pending_withdrawal.moncash }}.
+            </div>
+            {% else %}
+            <form class="v2-gains-form" onsubmit="submitWithdraw(event)">
+              <label>
+                Montant en gourdes
+                <input id="wdHtg" type="number" min="{{ min_withdraw_htg }}" step="50" placeholder="min {{ min_withdraw_htg }}" required>
+              </label>
+              <label>
+                Numéro MonCash
+                <input id="wdPhone" type="tel" value="{{ default_moncash }}" placeholder="37 xx xxxx" required>
+              </label>
+              <button type="submit" class="v2-gains-submit" id="wdBtn">Demander le retrait</button>
+              <div id="wdMsg" class="v2-gains-msg"></div>
+            </form>
+            {% endif %}
+            {% if withdrawals %}
+            <ul class="v2-gains-list">
+              {% for w in withdrawals %}
+              <li>
+                <span>{{ w.amount_htg }} G · {{ w.created_at|date:"d/m" }}</span>
+                <em>{% if w.status == 'pending' %}En attente{% elif w.status == 'approved' %}Versé{% else %}Refusé{% endif %}</em>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </section>
+        </div>
+
+        {% include "partials/v2/_page_info.html" with info_key="gains" info_title="Parrainage & retraits" info_body="150 G quand un ami s’abonne Premium. Tes XP se transforment en gourdes, versées sur MonCash." %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.getElementById('copyInviteBtn') && document.getElementById('copyInviteBtn').addEventListener('click', function() {
+  var t = document.getElementById('inviteLinkText');
+  var btn = this;
+  if (!t) return;
+  navigator.clipboard.writeText(t.textContent.trim()).then(function() {
+    btn.textContent = 'Copié';
+    setTimeout(function(){ btn.textContent = 'Copier le lien'; }, 1600);
+  });
+});
+async function submitWithdraw(ev) {
+  if (ev) ev.preventDefault();
+  var btn = document.getElementById('wdBtn');
+  var msg = document.getElementById('wdMsg');
+  var htg = document.getElementById('wdHtg');
+  var phone = document.getElementById('wdPhone');
+  if (btn) btn.disabled = true;
+  try {
+    var r = await fetch('{% url "api_xp_withdraw" %}', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': (window.CSRF || '') },
+      credentials: 'same-origin',
+      body: JSON.stringify({ htg: htg && htg.value, moncash: phone && phone.value })
+    });
+    var d = await r.json();
+    if (d.ok) {
+      if (msg) msg.textContent = 'Demande envoyée. On te verse sur MonCash après validation.';
+      setTimeout(function(){ location.reload(); }, 900);
+    } else {
+      if (msg) msg.textContent = d.error || 'Erreur';
+      if (btn) btn.disabled = false;
+    }
+  } catch (e) {
+    if (msg) msg.textContent = 'Erreur réseau';
+    if (btn) btn.disabled = false;
+  }
+}
+</script>
+{% endblock %}

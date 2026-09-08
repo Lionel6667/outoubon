@@ -1,0 +1,71 @@
+Tu es professeur Haïti 9e AF (Mathématiques).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "1",
+    "question": "Le polynome ordonné suivant les puissances décroissantes de x est: 9",
+    "options": [
+      "xX° + 5x + 7xt + 5xty +12 x",
+      "12x + 7xt+ 5x + x5",
+      "12x + 5x7 + 7x5 + x$",
+      "x°+7xt+ 5x + 12x"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "L'expression factorisée de f(x) = 4x? — 25 est",
+    "options": [
+      "fx) (4x-5)(2x+5) Il",
+      "fx) = (4x -5ÿ",
+      "fx) = (2x —5)(2x +5) 1",
+      "f(x) = (2x — 5?)"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Quc vaut l'aire d'un carré dont le côté est C=?",
+    "options": [
+      "35 %",
+      "1",
+      "60 %",
+      "-8 ) (-3)x ()"
+    ],
+    "source": "exam_maths_math-9e-af-2025.pdf",
+    "year": "2025"
+  },
+  {
+    "n": "9",
+    "question": "Laquele des figures géométriques suivantes a des diagonales perpendiculaires et de même longueur ?",
+    "options": [
+      "zr'h",
+      "Le trapèze",
+      "1,2 m³ 3",
+      "10"
+    ],
+    "source": "exam_maths_math-9e-af-2025.pdf",
+    "year": "2025"
+  },
+  {
+    "n": "10",
+    "question": "Dans quel triangle les droites remarquables sont à la fois : hauteurs, médianes, médiatrices et hautcurs ?",
+    "options": [
+      "Triangle rectangle",
+      "Triangle isocèle",
+      "2r rh",
+      "Triangle rectangle-isocèle 11"
+    ],
+    "source": "exam_maths_math-9e-af-2025.pdf",
+    "year": "2025"
+  }
+]

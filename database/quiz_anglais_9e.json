@@ -1,0 +1,4596 @@
+[
+  {
+    "question": "Pepita ___ her sister from the US last week.",
+    "options": [
+      "call",
+      "called",
+      "will call",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Le marqueur « last week » exige le past simple. On dit donc « Pepita called her sister ».",
+    "category": "Past simple",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E1"
+  },
+  {
+    "question": "Could you tell us ___?",
+    "options": [
+      "where is the office",
+      "where does the office",
+      "where the office is",
+      "when is the office"
+    ],
+    "correct": "C",
+    "explanation": "Après « tell us », la proposition complétive doit garder l'ordre sujet-verbe. La forme correcte est « where the office is ».",
+    "category": "Indirect questions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E2"
+  },
+  {
+    "question": "My mother ___ her hair in the bathroom now.",
+    "options": [
+      "washes",
+      "is washing",
+      "washed",
+      "washing"
+    ],
+    "correct": "B",
+    "explanation": "Avec « now », l'action est en cours au moment présent : on utilise le present continuous « is washing ».",
+    "category": "Present continuous",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E3"
+  },
+  {
+    "question": "If you walked faster, you ___ on time.",
+    "options": [
+      "will be",
+      "would be",
+      "are",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "C'est une conditionnelle de type 2 (If + past simple, would + base verbale). La réponse correcte est « would be ».",
+    "category": "Second conditional",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E4"
+  },
+  {
+    "question": "Simon speaks English fluently, ___",
+    "options": [
+      "so does Peter",
+      "so did Peter",
+      "nor Peter",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Pour accorder une réponse positive au présent simple, on emploie « so + auxiliaire + sujet » : « so does Peter ».",
+    "category": "Agreement",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E5"
+  },
+  {
+    "question": "I don't have ___ to say about it.",
+    "options": [
+      "Something",
+      "Nothing",
+      "Anything",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Dans une phrase négative, on utilise « anything » et non « something ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E6"
+  },
+  {
+    "question": "Billy has lived here ___ 3 years.",
+    "options": [
+      "ago",
+      "for",
+      "since",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Avec le present perfect, une durée se exprime avec « for » : « has lived here for 3 years ».",
+    "category": "For / since",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E7"
+  },
+  {
+    "question": "Do you have ___ to eat?",
+    "options": [
+      "something",
+      "anything",
+      "nothing",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Dans une question ouverte, on demande « anything » : « Do you have anything to eat? ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E8"
+  },
+  {
+    "question": "Nothing ___ replace someone you truly love.",
+    "options": [
+      "can't",
+      "can",
+      "none of these",
+      "not sure"
+    ],
+    "correct": "A",
+    "explanation": "La phrase signifie « Rien ne peut remplacer... ». Avec « Nothing », on emploie « can », pas « can't ».",
+    "category": "Modals",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E9"
+  },
+  {
+    "question": "Marc is ___ than Peter.",
+    "options": [
+      "lot",
+      "hotter",
+      "hottest",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "La présence de « than » indique un comparatif. La forme correcte est « hotter ».",
+    "category": "Comparatives",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E10"
+  },
+  {
+    "question": "My parents have ___ me a wonderful gift for my birthday.",
+    "options": [
+      "give",
+      "gave",
+      "given",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Avec « have », on forme le present perfect avec le participe passé : « have given ».",
+    "category": "Present perfect",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E11"
+  },
+  {
+    "question": "He ___ get a better grade if he studied.",
+    "options": [
+      "can",
+      "could",
+      "cans",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "La conditionnelle de type 2 exige « could » après « if + past simple ».",
+    "category": "Second conditional",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E12"
+  },
+  {
+    "question": "My friend and I ___ 15 years old?",
+    "options": [
+      "have",
+      "are",
+      "am",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Le sujet « My friend and I » vaut « we » ; le verbe « to be » au présent est « are ».",
+    "category": "Subject-verb agreement",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E13"
+  },
+  {
+    "question": "I can't say ___ about that.",
+    "options": [
+      "nothing",
+      "anything",
+      "something",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Après « can't », on utilise « anything » : « I can't say anything about that ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E14"
+  },
+  {
+    "question": "The man ___ wrote the book was rewarded.",
+    "options": [
+      "who",
+      "whom",
+      "what",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "« Who » est le pronom relatif sujet qui remplace « the man » devant le verbe « wrote ».",
+    "category": "Relative pronouns",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E15"
+  },
+  {
+    "question": "___ water do you put in the container?",
+    "options": [
+      "How much",
+      "How many",
+      "none of these",
+      "not sure"
+    ],
+    "correct": "A",
+    "explanation": "« Water » est un nom indénombrable ; on emploie donc « How much » et non « How many ».",
+    "category": "Quantifiers",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E16"
+  },
+  {
+    "question": "Dad hasn't called me ___ three years.",
+    "options": [
+      "since",
+      "for",
+      "ago",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Avec le present perfect négatif, une durée s'exprime avec « for » : « for three years ».",
+    "category": "For / since",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E17"
+  },
+  {
+    "question": "You can't be successful without ___.",
+    "options": [
+      "working",
+      "to work",
+      "worked",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Après « without », le verbe se met en forme -ing : « without working ».",
+    "category": "Gerund",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E18"
+  },
+  {
+    "question": "You don't like turnips, ___ you?",
+    "options": [
+      "did",
+      "don't",
+      "do",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "La phrase principale est négative au présent simple ; la question tag est positive : « do you? ».",
+    "category": "Question tags",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E19"
+  },
+  {
+    "question": "If I saw him I ___ with him.",
+    "options": [
+      "would go",
+      "will go",
+      "went",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Dans une conditionnelle de type 2, la principale prend « would + base verbale » : « would go ».",
+    "category": "Second conditional",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E20"
+  },
+  {
+    "question": "Do you have ___ to declare?",
+    "options": [
+      "something",
+      "nothing",
+      "anything",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Dans ce type de question en douane, on emploie « anything » : « anything to declare? ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E21"
+  },
+  {
+    "question": "Peter went to the beach, ___?",
+    "options": [
+      "didn't he",
+      "Did he",
+      "Doesn't he",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "La phrase est au past simple affirmatif ; la question tag négative est « didn't he? ».",
+    "category": "Question tags",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E22"
+  },
+  {
+    "question": "Your English ___ perfect if you listened to the tapes.",
+    "options": [
+      "is",
+      "Will be",
+      "Would be",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Avec « if you listened » (type 2), le résultat s'exprime avec « would be ».",
+    "category": "Second conditional",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E23"
+  },
+  {
+    "question": "Timmy's work is ___ than Paul's.",
+    "options": [
+      "worse",
+      "bad",
+      "worst",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Devant « than », on emploie le comparatif de « bad », soit « worse ».",
+    "category": "Comparatives",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E24"
+  },
+  {
+    "question": "Bob and Billy are your neighbors, ___?",
+    "options": [
+      "Are they",
+      "aren't they",
+      "Will they",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "La phrase principale est affirmative ; la question tag négative est « aren't they? ».",
+    "category": "Question tags",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E25"
+  },
+  {
+    "question": "Jerry went to the beach, ___",
+    "options": [
+      "I do too",
+      "so did I",
+      "so do I",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "La première action est au passé (« went ») ; l'accord se fait avec « so did I ».",
+    "category": "Agreement",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E26"
+  },
+  {
+    "question": "I bring my umbrella, it ___ rain.",
+    "options": [
+      "might",
+      "must",
+      "is",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "« Might rain » exprime une possibilité future. « Must » serait trop fort et « is rain » est incorrect.",
+    "category": "Modals",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E27"
+  },
+  {
+    "question": "Mrs. Diane sees a nice cat on the roof, ___ she?",
+    "options": [
+      "did",
+      "hasn't",
+      "doesn't",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "La phrase principale est au présent simple affirmatif ; la tag question est « doesn't she? ».",
+    "category": "Question tags",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E28"
+  },
+  {
+    "question": "No one ___ do it? It wasn't easy.",
+    "options": [
+      "can",
+      "could",
+      "can't",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Le contexte passif « It wasn't easy » indique le passé ; on emploie donc « could ».",
+    "category": "Modals",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E29"
+  },
+  {
+    "question": "Have you already ___ the book?",
+    "options": [
+      "seen",
+      "see",
+      "saw",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Après « Have you already », on utilise le participe passé : « seen ».",
+    "category": "Present perfect",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E30"
+  },
+  {
+    "question": "If you walked faster you ___ the train.",
+    "options": [
+      "will catch",
+      "would catch",
+      "catching",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Avec « If you walked » (type 2), le résultat est « would catch ».",
+    "category": "Second conditional",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E31"
+  },
+  {
+    "question": "Last year, we ___ the garden.",
+    "options": [
+      "are visiting",
+      "visit",
+      "visited",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "« Last year » impose le past simple : « visited ».",
+    "category": "Past simple",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E32"
+  },
+  {
+    "question": "The box is light. There is ___ in it.",
+    "options": [
+      "something",
+      "nothing",
+      "anything",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Si la boîte est légère, elle est vide : « There is nothing in it ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E33"
+  },
+  {
+    "question": "Jeff has been sick ___ three weeks.",
+    "options": [
+      "since",
+      "for",
+      "ago",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Avec « has been sick », une durée se marque avec « for three weeks ».",
+    "category": "For / since",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E34"
+  },
+  {
+    "question": "The box is so heavy. There must be ___ in it.",
+    "options": [
+      "anything",
+      "nothing",
+      "something",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Une boîte lourde contient probablement quelque chose : « something ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E35"
+  },
+  {
+    "question": "___ here likes English.",
+    "options": [
+      "Nobody",
+      "everybody",
+      "anybody",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Le sens positif « aime l'anglais » correspond à « everybody here likes English ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E36"
+  },
+  {
+    "question": "___ can live without water.",
+    "options": [
+      "Some one",
+      "no one",
+      "everyone",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Personne ne peut vivre sans eau : la forme correcte est « No one can live without water ».",
+    "category": "Indefinite pronouns",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E37"
+  },
+  {
+    "question": "Dave speaks English fluently, ___",
+    "options": [
+      "so does Garry",
+      "so did Garry",
+      "nor Garry",
+      "none of these"
+    ],
+    "correct": "A",
+    "explanation": "Au présent simple, l'accord positif s'exprime par « so does + sujet ».",
+    "category": "Agreement",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E38"
+  },
+  {
+    "question": "Vocabulary: Doctor works in a ___.",
+    "options": [
+      "hospital",
+      "school",
+      "factory",
+      "farm"
+    ],
+    "correct": "A",
+    "explanation": "Hospital.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E39"
+  },
+  {
+    "question": "Preposition: Birthday is ___ Monday.",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "by"
+    ],
+    "correct": "A",
+    "explanation": "On + day.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E40"
+  },
+  {
+    "question": "Negative imperative: ___ smoke here.",
+    "options": [
+      "Don't",
+      "Not",
+      "Doesn't",
+      "Isn't"
+    ],
+    "correct": "A",
+    "explanation": "Don't + base.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E41"
+  },
+  {
+    "question": "Question word: ___ is your name?",
+    "options": [
+      "What",
+      "Where",
+      "When",
+      "Who"
+    ],
+    "correct": "A",
+    "explanation": "What for name.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E42"
+  },
+  {
+    "question": "Phrasal: Turn ___ the light.",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "by"
+    ],
+    "correct": "A",
+    "explanation": "Turn on.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E43"
+  },
+  {
+    "question": "Punctuation: question",
+    "options": [
+      "?",
+      ".",
+      ",",
+      ";"
+    ],
+    "correct": "A",
+    "explanation": "Question mark.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E44"
+  },
+  {
+    "question": "'The' is a:",
+    "options": [
+      "article",
+      "verb",
+      "noun",
+      "adverb"
+    ],
+    "correct": "A",
+    "explanation": "Definite article.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E45"
+  },
+  {
+    "question": "I have never ___ Paris.",
+    "options": [
+      "visited",
+      "visit",
+      "visits",
+      "visiting"
+    ],
+    "correct": "A",
+    "explanation": "Present perfect + past participle.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E46"
+  },
+  {
+    "question": "Despite: ___ the rain, we played.",
+    "options": [
+      "Despite",
+      "Although",
+      "However",
+      "Because"
+    ],
+    "correct": "A",
+    "explanation": "Despite + noun.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E47"
+  },
+  {
+    "question": "Does she ___ English?",
+    "options": [
+      "speak",
+      "speaks",
+      "speaking",
+      "spoke"
+    ],
+    "correct": "A",
+    "explanation": "Question with does.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E48"
+  },
+  {
+    "question": "So / such: It was ___ hot.",
+    "options": [
+      "so",
+      "such",
+      "very much",
+      "too much"
+    ],
+    "correct": "A",
+    "explanation": "So + adjective.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E49"
+  },
+  {
+    "question": "Tense: I eat every day =",
+    "options": [
+      "simple present",
+      "past",
+      "future",
+      "perfect"
+    ],
+    "correct": "A",
+    "explanation": "Habit.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E50"
+  },
+  {
+    "question": "Too / enough: too ___ to eat.",
+    "options": [
+      "tired",
+      "tiring",
+      "tire",
+      "tires"
+    ],
+    "correct": "A",
+    "explanation": "Too + adjective.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E51"
+  },
+  {
+    "question": "Grammar: adjective describes",
+    "options": [
+      "noun",
+      "verb",
+      "adverb",
+      "pronoun"
+    ],
+    "correct": "A",
+    "explanation": "Adjective.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E52"
+  },
+  {
+    "question": "Tag question: You are tired, ___?",
+    "options": [
+      "aren't you",
+      "are you",
+      "don't you",
+      "won't you"
+    ],
+    "correct": "A",
+    "explanation": "Tag matches.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E53"
+  },
+  {
+    "question": "We ___ yesterday.",
+    "options": [
+      "studied",
+      "study",
+      "studies",
+      "studying"
+    ],
+    "correct": "A",
+    "explanation": "Past simple.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E54"
+  },
+  {
+    "question": "Possessive: This is ___ pen.",
+    "options": [
+      "my",
+      "me",
+      "I",
+      "mine"
+    ],
+    "correct": "A",
+    "explanation": "My + noun.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E55"
+  },
+  {
+    "question": "Synonym of 'happy':",
+    "options": [
+      "glad",
+      "sad",
+      "angry",
+      "tired"
+    ],
+    "correct": "A",
+    "explanation": "Glad ≈ happy.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E56"
+  },
+  {
+    "question": "She is ___ than me.",
+    "options": [
+      "taller",
+      "tall",
+      "tallest",
+      "more tall"
+    ],
+    "correct": "A",
+    "explanation": "Comparative with than.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E57"
+  },
+  {
+    "question": "Question word: ___ is that man?",
+    "options": [
+      "Who",
+      "What",
+      "Where",
+      "When"
+    ],
+    "correct": "A",
+    "explanation": "Who for person.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E58"
+  },
+  {
+    "question": "Either: You can take ___ road.",
+    "options": [
+      "either",
+      "neither",
+      "both",
+      "all"
+    ],
+    "correct": "A",
+    "explanation": "Either = one of two.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E59"
+  },
+  {
+    "question": "Conjunction: tired ___ happy.",
+    "options": [
+      "but",
+      "and",
+      "or",
+      "so"
+    ],
+    "correct": "A",
+    "explanation": "But = contrast.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E60"
+  },
+  {
+    "question": "I have ___ apple.",
+    "options": [
+      "an",
+      "a",
+      "the",
+      "many"
+    ],
+    "correct": "A",
+    "explanation": "Apple starts with vowel sound.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E61"
+  },
+  {
+    "question": "Choose the correct form: She ___ to school every day.",
+    "options": [
+      "goes",
+      "go",
+      "going",
+      "gone"
+    ],
+    "correct": "A",
+    "explanation": "3rd person singular: goes.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E62"
+  },
+  {
+    "question": "He is ___ doctor.",
+    "options": [
+      "a",
+      "an",
+      "the",
+      "some"
+    ],
+    "correct": "A",
+    "explanation": "Consonant sound: a.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E63"
+  },
+  {
+    "question": "Vocabulary: Bakery sells ___.",
+    "options": [
+      "bread",
+      "medicine",
+      "shoes",
+      "tools"
+    ],
+    "correct": "A",
+    "explanation": "Bread.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E64"
+  },
+  {
+    "question": "Grammar: verb shows",
+    "options": [
+      "action or state",
+      "only color",
+      "only place",
+      "only number"
+    ],
+    "correct": "A",
+    "explanation": "Verb.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E65"
+  },
+  {
+    "question": "Adverb of frequency: I ___ go to church.",
+    "options": [
+      "often",
+      "oftenly",
+      "many",
+      "much"
+    ],
+    "correct": "A",
+    "explanation": "Often.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E66"
+  },
+  {
+    "question": "Question word: ___ do you live?",
+    "options": [
+      "Where",
+      "What",
+      "Who",
+      "Which"
+    ],
+    "correct": "A",
+    "explanation": "Where for place.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E67"
+  },
+  {
+    "question": "Modal: You ___ wear a uniform.",
+    "options": [
+      "must",
+      "musts",
+      "musting",
+      "musted"
+    ],
+    "correct": "A",
+    "explanation": "Must = obligation.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E68"
+  },
+  {
+    "question": "Countable: How ___ apples?",
+    "options": [
+      "many",
+      "much",
+      "lot",
+      "few"
+    ],
+    "correct": "A",
+    "explanation": "Many for countables.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E69"
+  },
+  {
+    "question": "Each / every: ___ student has a book.",
+    "options": [
+      "Each",
+      "All",
+      "Both",
+      "Either"
+    ],
+    "correct": "A",
+    "explanation": "Each = individually.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E70"
+  },
+  {
+    "question": "Tense: I will eat =",
+    "options": [
+      "simple future",
+      "present",
+      "past",
+      "perfect"
+    ],
+    "correct": "A",
+    "explanation": "Will.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E71"
+  },
+  {
+    "question": "Vocabulary: Opposite seasons: summer / ___",
+    "options": [
+      "winter",
+      "spring",
+      "autumn",
+      "fall"
+    ],
+    "correct": "A",
+    "explanation": "Winter.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E72"
+  },
+  {
+    "question": "British vs US: colour (UK) = ___ (US)",
+    "options": [
+      "color",
+      "coler",
+      "coulor",
+      "colur"
+    ],
+    "correct": "A",
+    "explanation": "US spelling.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E73"
+  },
+  {
+    "question": "Proverb: Honesty is the best ___.",
+    "options": [
+      "policy",
+      "police",
+      "politic",
+      "politics"
+    ],
+    "correct": "A",
+    "explanation": "Policy.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E74"
+  },
+  {
+    "question": "Antonym of 'begin':",
+    "options": [
+      "end",
+      "start",
+      "open",
+      "continue"
+    ],
+    "correct": "A",
+    "explanation": "End vs begin.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E75"
+  },
+  {
+    "question": "Gerund: I enjoy ___.",
+    "options": [
+      "reading",
+      "read",
+      "reads",
+      "to read"
+    ],
+    "correct": "A",
+    "explanation": "Enjoy + gerund.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E76"
+  },
+  {
+    "question": "Vocabulary: Library is for ___.",
+    "options": [
+      "books",
+      "food",
+      "cars",
+      "shoes"
+    ],
+    "correct": "A",
+    "explanation": "Books.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E77"
+  },
+  {
+    "question": "Preposition: She lives ___ Haiti.",
+    "options": [
+      "in",
+      "on",
+      "at",
+      "to"
+    ],
+    "correct": "A",
+    "explanation": "In + country.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E78"
+  },
+  {
+    "question": "Some / any: I don't have ___ money.",
+    "options": [
+      "any",
+      "some",
+      "many",
+      "few"
+    ],
+    "correct": "A",
+    "explanation": "Negative: any.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E79"
+  },
+  {
+    "question": "Because: Late ___ traffic.",
+    "options": [
+      "because of",
+      "because",
+      "of because",
+      "because to"
+    ],
+    "correct": "A",
+    "explanation": "Because of + noun.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E80"
+  },
+  {
+    "question": "Modal: Can I ___ help?",
+    "options": [
+      "have",
+      "has",
+      "having",
+      "had"
+    ],
+    "correct": "A",
+    "explanation": "Can I have...?",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E81"
+  },
+  {
+    "question": "Idiom: Break a ___!",
+    "options": [
+      "leg",
+      "arm",
+      "hand",
+      "foot"
+    ],
+    "correct": "A",
+    "explanation": "Good luck.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E82"
+  },
+  {
+    "question": "Both: ___ of them are here.",
+    "options": [
+      "Both",
+      "All",
+      "Every",
+      "Each"
+    ],
+    "correct": "A",
+    "explanation": "Both = two.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E83"
+  },
+  {
+    "question": "Tense: I am eating =",
+    "options": [
+      "present continuous",
+      "simple past",
+      "future",
+      "perfect"
+    ],
+    "correct": "A",
+    "explanation": "Now.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E84"
+  },
+  {
+    "question": "Comparative of 'big':",
+    "options": [
+      "bigger",
+      "biggest",
+      "more big",
+      "bigly"
+    ],
+    "correct": "A",
+    "explanation": "Comparative: -er.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E85"
+  },
+  {
+    "question": "Superlative of 'good':",
+    "options": [
+      "best",
+      "better",
+      "goodest",
+      "most good"
+    ],
+    "correct": "A",
+    "explanation": "Irregular: best.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E86"
+  },
+  {
+    "question": "Reading: main idea =",
+    "options": [
+      "central message",
+      "random detail",
+      "page number",
+      "font size"
+    ],
+    "correct": "A",
+    "explanation": "Main idea.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E87"
+  },
+  {
+    "question": "There is / are: ___ many students.",
+    "options": [
+      "There are",
+      "There is",
+      "It is",
+      "They are"
+    ],
+    "correct": "A",
+    "explanation": "Plural: there are.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E88"
+  },
+  {
+    "question": "Synonym of 'big':",
+    "options": [
+      "large",
+      "small",
+      "tiny",
+      "little"
+    ],
+    "correct": "A",
+    "explanation": "Large ≈ big.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E89"
+  },
+  {
+    "question": "Neither: ___ answer is correct.",
+    "options": [
+      "Neither",
+      "Either",
+      "Both",
+      "All"
+    ],
+    "correct": "A",
+    "explanation": "Neither = not either.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E90"
+  },
+  {
+    "question": "Infinitive: I want ___ learn.",
+    "options": [
+      "to",
+      "for",
+      "at",
+      "by"
+    ],
+    "correct": "A",
+    "explanation": "Want to + verb.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E91"
+  },
+  {
+    "question": "Phrasal: Give ___ my book.",
+    "options": [
+      "back",
+      "up",
+      "off",
+      "away"
+    ],
+    "correct": "A",
+    "explanation": "Give back.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E92"
+  },
+  {
+    "question": "Preposition: Meet me ___ 3 pm.",
+    "options": [
+      "at",
+      "in",
+      "on",
+      "by"
+    ],
+    "correct": "A",
+    "explanation": "At + time.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E93"
+  },
+  {
+    "question": "Capitalize: days of week?",
+    "options": [
+      "Yes",
+      "No",
+      "Sometimes never",
+      "Only Sunday"
+    ],
+    "correct": "A",
+    "explanation": "Capitalize days.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E94"
+  },
+  {
+    "question": "Plural of 'child':",
+    "options": [
+      "children",
+      "childs",
+      "childes",
+      "child"
+    ],
+    "correct": "A",
+    "explanation": "Irregular plural.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E95"
+  },
+  {
+    "question": "This is the ___ book.",
+    "options": [
+      "best",
+      "better",
+      "good",
+      "bestest"
+    ],
+    "correct": "A",
+    "explanation": "Superlative.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E96"
+  },
+  {
+    "question": "Reading: inference =",
+    "options": [
+      "logical guess",
+      "copy exact words",
+      "ignore text",
+      "random"
+    ],
+    "correct": "A",
+    "explanation": "Inference.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E97"
+  },
+  {
+    "question": "Adverb: She speaks ___.",
+    "options": [
+      "quickly",
+      "quick",
+      "quicker",
+      "quickness"
+    ],
+    "correct": "A",
+    "explanation": "Adverb: -ly.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E98"
+  },
+  {
+    "question": "She is ___ honest person.",
+    "options": [
+      "an",
+      "a",
+      "the",
+      "some"
+    ],
+    "correct": "A",
+    "explanation": "Vowel sound: an.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E99"
+  },
+  {
+    "question": "American: truck = British ___",
+    "options": [
+      "lorry",
+      "car",
+      "bus",
+      "van"
+    ],
+    "correct": "A",
+    "explanation": "Lorry.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E100"
+  },
+  {
+    "question": "Phrasal: She woke ___ early.",
+    "options": [
+      "up",
+      "on",
+      "in",
+      "at"
+    ],
+    "correct": "A",
+    "explanation": "Wake up.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E101"
+  },
+  {
+    "question": "Question word: ___ does the lesson start?",
+    "options": [
+      "When",
+      "Where",
+      "Who",
+      "What"
+    ],
+    "correct": "A",
+    "explanation": "When for time.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E102"
+  },
+  {
+    "question": "Grammar: noun",
+    "options": [
+      "person, place or thing",
+      "only action",
+      "only color",
+      "only number"
+    ],
+    "correct": "A",
+    "explanation": "Noun definition.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E103"
+  },
+  {
+    "question": "They ___ playing now.",
+    "options": [
+      "are",
+      "is",
+      "am",
+      "be"
+    ],
+    "correct": "A",
+    "explanation": "Present continuous: are.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E104"
+  },
+  {
+    "question": "Vocabulary: Elephant is ___.",
+    "options": [
+      "big",
+      "small",
+      "tiny",
+      "short"
+    ],
+    "correct": "A",
+    "explanation": "Big animal.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E105"
+  },
+  {
+    "question": "Grammar: adverb modifies",
+    "options": [
+      "verb/adjective",
+      "only noun",
+      "only number",
+      "only article"
+    ],
+    "correct": "A",
+    "explanation": "Adverb.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E106"
+  },
+  {
+    "question": "Vocabulary: Knife is used to ___.",
+    "options": [
+      "cut",
+      "write",
+      "read",
+      "sleep"
+    ],
+    "correct": "A",
+    "explanation": "Cut.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E107"
+  },
+  {
+    "question": "Possessive pronoun: That book is ___.",
+    "options": [
+      "mine",
+      "my",
+      "me",
+      "I"
+    ],
+    "correct": "A",
+    "explanation": "Mine = my book.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E108"
+  },
+  {
+    "question": "Conjunction: Study hard ___ you will pass.",
+    "options": [
+      "and",
+      "but",
+      "or",
+      "because"
+    ],
+    "correct": "A",
+    "explanation": "Result.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E109"
+  },
+  {
+    "question": "I ___ not like coffee.",
+    "options": [
+      "do",
+      "does",
+      "am",
+      "is"
+    ],
+    "correct": "A",
+    "explanation": "Negative: do not.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E110"
+  },
+  {
+    "question": "Although: ___ it was cold, we went out.",
+    "options": [
+      "Although",
+      "Despite",
+      "However",
+      "Therefore"
+    ],
+    "correct": "A",
+    "explanation": "Although + clause.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E111"
+  },
+  {
+    "question": "Conjunction: I like tea ___ coffee.",
+    "options": [
+      "and",
+      "but",
+      "or",
+      "so"
+    ],
+    "correct": "A",
+    "explanation": "And joins similar.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E112"
+  },
+  {
+    "question": "Used to: I ___ play football.",
+    "options": [
+      "used to",
+      "use to",
+      "using to",
+      "uses to"
+    ],
+    "correct": "A",
+    "explanation": "Used to + base.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E113"
+  },
+  {
+    "question": "Word order: SVO means",
+    "options": [
+      "Subject Verb Object",
+      "Verb Subject Object",
+      "Object Verb Subject",
+      "Verb Object Subject"
+    ],
+    "correct": "A",
+    "explanation": "English SVO.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E114"
+  },
+  {
+    "question": "Reflexive: He hurt ___.",
+    "options": [
+      "himself",
+      "him",
+      "his",
+      "he"
+    ],
+    "correct": "A",
+    "explanation": "Reflexive pronoun.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E115"
+  },
+  {
+    "question": "Spelling: correct word",
+    "options": [
+      "receive",
+      "recieve",
+      "receeve",
+      "receve"
+    ],
+    "correct": "A",
+    "explanation": "I before E except after C.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E116"
+  },
+  {
+    "question": "Uncountable: How ___ water?",
+    "options": [
+      "much",
+      "many",
+      "few",
+      "number"
+    ],
+    "correct": "A",
+    "explanation": "Much for uncountables.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E117"
+  },
+  {
+    "question": "She has ___ finished.",
+    "options": [
+      "already",
+      "yet",
+      "never",
+      "ever"
+    ],
+    "correct": "A",
+    "explanation": "Already with present perfect.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E118"
+  },
+  {
+    "question": "Past tense of 'go':",
+    "options": [
+      "went",
+      "goed",
+      "gone",
+      "going"
+    ],
+    "correct": "A",
+    "explanation": "Irregular: went.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E119"
+  },
+  {
+    "question": "Vocabulary: A person who flies a plane:",
+    "options": [
+      "pilot",
+      "driver",
+      "sailor",
+      "chef"
+    ],
+    "correct": "A",
+    "explanation": "Pilot.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E120"
+  },
+  {
+    "question": "Punctuation: list items",
+    "options": [
+      ",",
+      ".",
+      "?",
+      "!"
+    ],
+    "correct": "A",
+    "explanation": "Comma.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E121"
+  },
+  {
+    "question": "Tense: I have eaten =",
+    "options": [
+      "present perfect",
+      "simple past",
+      "future",
+      "continuous"
+    ],
+    "correct": "A",
+    "explanation": "Have + past participle.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E122"
+  },
+  {
+    "question": "Opposite of 'hot':",
+    "options": [
+      "cold",
+      "warm",
+      "heat",
+      "boil"
+    ],
+    "correct": "A",
+    "explanation": "Antonym.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E123"
+  },
+  {
+    "question": "Object pronoun: She called ___.",
+    "options": [
+      "me",
+      "I",
+      "my",
+      "mine"
+    ],
+    "correct": "A",
+    "explanation": "Call + object.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E124"
+  },
+  {
+    "question": "Passive: The house was ___.",
+    "options": [
+      "built",
+      "build",
+      "building",
+      "builded"
+    ],
+    "correct": "A",
+    "explanation": "Past passive.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E125"
+  },
+  {
+    "question": "Imperative: ___ the door!",
+    "options": [
+      "Close",
+      "Closes",
+      "Closing",
+      "Closed"
+    ],
+    "correct": "A",
+    "explanation": "Base form.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E126"
+  },
+  {
+    "question": "Preposition: The book is ___ the table.",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "by"
+    ],
+    "correct": "A",
+    "explanation": "On = surface.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E127"
+  },
+  {
+    "question": "If it rains, we ___ stay home.",
+    "options": [
+      "will",
+      "would",
+      "stayed",
+      "staying"
+    ],
+    "correct": "A",
+    "explanation": "First conditional.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E128"
+  },
+  {
+    "question": "Punctuation: end of sentence",
+    "options": [
+      ".",
+      ",",
+      ";",
+      ":"
+    ],
+    "correct": "A",
+    "explanation": "Period.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E129"
+  },
+  {
+    "question": "Idiom: It's raining cats and ___.",
+    "options": [
+      "dogs",
+      "birds",
+      "fish",
+      "mice"
+    ],
+    "correct": "A",
+    "explanation": "Heavy rain.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E130"
+  },
+  {
+    "question": "Homophone: I / eye / ___.",
+    "options": [
+      "aye",
+      "hay",
+      "hey",
+      "high"
+    ],
+    "correct": "A",
+    "explanation": "Sound alike.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E131"
+  },
+  {
+    "question": "Would rather: I'd rather ___ home.",
+    "options": [
+      "stay",
+      "to stay",
+      "staying",
+      "stayed"
+    ],
+    "correct": "A",
+    "explanation": "Rather + base.",
+    "category": "Anglais",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "AN9E132"
+  },
+  {
+    "question": "Spell the number 17 in English:",
+    "options": [
+      "27",
+      "seventeen",
+      "16",
+      "18"
+    ],
+    "correct": "B",
+    "explanation": "Number 17.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E133"
+  },
+  {
+    "question": "Spell the number 13 in English:",
+    "options": [
+      "12",
+      "14",
+      "23",
+      "thirteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 13.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E134"
+  },
+  {
+    "question": "Spell the number 51 in English:",
+    "options": [
+      "fifty-eleven",
+      "52",
+      "61",
+      "50"
+    ],
+    "correct": "A",
+    "explanation": "Number 51.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E135"
+  },
+  {
+    "question": "Synonym of 'sad':",
+    "options": [
+      "small",
+      "big",
+      "happy",
+      "unhappy"
+    ],
+    "correct": "D",
+    "explanation": "unhappy is similar to sad.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E136"
+  },
+  {
+    "question": "Spell the number 98 in English:",
+    "options": [
+      "ninety-eighteen",
+      "97",
+      "99",
+      "108"
+    ],
+    "correct": "A",
+    "explanation": "Number 98.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E137"
+  },
+  {
+    "question": "Spell the number 84 in English:",
+    "options": [
+      "83",
+      "eighty-fourteen",
+      "94",
+      "85"
+    ],
+    "correct": "B",
+    "explanation": "Number 84.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E138"
+  },
+  {
+    "question": "She ___ to school every day. (verb: choose)",
+    "options": [
+      "chose",
+      "chooseing",
+      "chooses",
+      "chosen"
+    ],
+    "correct": "C",
+    "explanation": "3rd person: chooses.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E139"
+  },
+  {
+    "question": "Spell the number 16 in English:",
+    "options": [
+      "15",
+      "17",
+      "sixteen",
+      "26"
+    ],
+    "correct": "C",
+    "explanation": "Number 16.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E140"
+  },
+  {
+    "question": "Past tense of 'eat':",
+    "options": [
+      "eats",
+      "eated",
+      "eaten",
+      "ate"
+    ],
+    "correct": "D",
+    "explanation": "Past of eat is ate.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E141"
+  },
+  {
+    "question": "Spell the number 19 in English:",
+    "options": [
+      "29",
+      "nineteen",
+      "20",
+      "18"
+    ],
+    "correct": "B",
+    "explanation": "Number 19.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E142"
+  },
+  {
+    "question": "Spell the number 25 in English:",
+    "options": [
+      "26",
+      "24",
+      "35",
+      "twenty-fifteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 25.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E143"
+  },
+  {
+    "question": "Spell the number 57 in English:",
+    "options": [
+      "67",
+      "56",
+      "58",
+      "fifty-seventeen"
+    ],
+    "correct": "D",
+    "explanation": "Number 57.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E144"
+  },
+  {
+    "question": "Spell the number 28 in English:",
+    "options": [
+      "twenty-eighteen",
+      "27",
+      "29",
+      "38"
+    ],
+    "correct": "A",
+    "explanation": "Number 28.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E145"
+  },
+  {
+    "question": "Spell the number 24 in English:",
+    "options": [
+      "34",
+      "23",
+      "twenty-fourteen",
+      "25"
+    ],
+    "correct": "C",
+    "explanation": "Number 24.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E146"
+  },
+  {
+    "question": "Spell the number 63 in English:",
+    "options": [
+      "64",
+      "sixty-thirteen",
+      "62",
+      "73"
+    ],
+    "correct": "B",
+    "explanation": "Number 63.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E147"
+  },
+  {
+    "question": "Spell the number 45 in English:",
+    "options": [
+      "46",
+      "55",
+      "forty-fifteen",
+      "44"
+    ],
+    "correct": "C",
+    "explanation": "Number 45.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E148"
+  },
+  {
+    "question": "She ___ to school every day. (verb: swim)",
+    "options": [
+      "swum",
+      "swam",
+      "swiming",
+      "swims"
+    ],
+    "correct": "D",
+    "explanation": "3rd person: swims.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E149"
+  },
+  {
+    "question": "Synonym of 'end':",
+    "options": [
+      "finish",
+      "happy",
+      "small",
+      "big"
+    ],
+    "correct": "A",
+    "explanation": "finish is similar to end.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E150"
+  },
+  {
+    "question": "Spell the number 50 in English:",
+    "options": [
+      "60",
+      "fifty",
+      "51",
+      "49"
+    ],
+    "correct": "B",
+    "explanation": "Number 50.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E151"
+  },
+  {
+    "question": "She ___ to school every day. (verb: see)",
+    "options": [
+      "saw",
+      "seeing",
+      "seen",
+      "sees"
+    ],
+    "correct": "D",
+    "explanation": "3rd person: sees.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E152"
+  },
+  {
+    "question": "Synonym of 'mother':",
+    "options": [
+      "small",
+      "big",
+      "mom",
+      "happy"
+    ],
+    "correct": "C",
+    "explanation": "mom is similar to mother.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E153"
+  },
+  {
+    "question": "Past tense of 'take':",
+    "options": [
+      "taken",
+      "takes",
+      "takeed",
+      "took"
+    ],
+    "correct": "D",
+    "explanation": "Past of take is took.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E154"
+  },
+  {
+    "question": "Synonym of 'begin':",
+    "options": [
+      "start",
+      "small",
+      "happy",
+      "big"
+    ],
+    "correct": "A",
+    "explanation": "start is similar to begin.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E155"
+  },
+  {
+    "question": "Spell the number 81 in English:",
+    "options": [
+      "91",
+      "80",
+      "82",
+      "eighty-eleven"
+    ],
+    "correct": "D",
+    "explanation": "Number 81.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E156"
+  },
+  {
+    "question": "Spell the number 14 in English:",
+    "options": [
+      "15",
+      "fourteen",
+      "24",
+      "13"
+    ],
+    "correct": "B",
+    "explanation": "Number 14.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E157"
+  },
+  {
+    "question": "She ___ to school every day. (verb: run)",
+    "options": [
+      "runing",
+      "run",
+      "runs",
+      "ran"
+    ],
+    "correct": "C",
+    "explanation": "3rd person: runs.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E158"
+  },
+  {
+    "question": "Past tense of 'speak':",
+    "options": [
+      "speaks",
+      "speaked",
+      "spoke",
+      "spoken"
+    ],
+    "correct": "C",
+    "explanation": "Past of speak is spoke.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E159"
+  },
+  {
+    "question": "Past tense of 'choose':",
+    "options": [
+      "chooses",
+      "chose",
+      "chooseed",
+      "chosen"
+    ],
+    "correct": "B",
+    "explanation": "Past of choose is chose.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E160"
+  },
+  {
+    "question": "She ___ to school every day. (verb: eat)",
+    "options": [
+      "eating",
+      "eaten",
+      "ate",
+      "eats"
+    ],
+    "correct": "D",
+    "explanation": "3rd person: eats.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E161"
+  },
+  {
+    "question": "Spell the number 99 in English:",
+    "options": [
+      "ninety-nineteen",
+      "109",
+      "98",
+      "100"
+    ],
+    "correct": "A",
+    "explanation": "Number 99.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E162"
+  },
+  {
+    "question": "Spell the number 46 in English:",
+    "options": [
+      "56",
+      "47",
+      "45",
+      "forty-sixteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 46.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E163"
+  },
+  {
+    "question": "Synonym of 'fast':",
+    "options": [
+      "quick",
+      "happy",
+      "small",
+      "big"
+    ],
+    "correct": "A",
+    "explanation": "quick is similar to fast.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E164"
+  },
+  {
+    "question": "Spell the number 41 in English:",
+    "options": [
+      "51",
+      "42",
+      "forty-eleven",
+      "40"
+    ],
+    "correct": "C",
+    "explanation": "Number 41.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E165"
+  },
+  {
+    "question": "Spell the number 59 in English:",
+    "options": [
+      "58",
+      "60",
+      "69",
+      "fifty-nineteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 59.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E166"
+  },
+  {
+    "question": "Spell the number 30 in English:",
+    "options": [
+      "40",
+      "29",
+      "31",
+      "thirty"
+    ],
+    "correct": "D",
+    "explanation": "Number 30.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E167"
+  },
+  {
+    "question": "Synonym of 'child':",
+    "options": [
+      "small",
+      "big",
+      "happy",
+      "kid"
+    ],
+    "correct": "D",
+    "explanation": "kid is similar to child.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E168"
+  },
+  {
+    "question": "Spell the number 67 in English:",
+    "options": [
+      "68",
+      "77",
+      "sixty-seventeen",
+      "66"
+    ],
+    "correct": "C",
+    "explanation": "Number 67.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E169"
+  },
+  {
+    "question": "Spell the number 71 in English:",
+    "options": [
+      "70",
+      "72",
+      "seventy-eleven",
+      "81"
+    ],
+    "correct": "C",
+    "explanation": "Number 71.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E170"
+  },
+  {
+    "question": "Synonym of 'small':",
+    "options": [
+      "big",
+      "tiny",
+      "happy",
+      "fast"
+    ],
+    "correct": "B",
+    "explanation": "tiny is similar to small.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E171"
+  },
+  {
+    "question": "She ___ to school every day. (verb: buy)",
+    "options": [
+      "bought",
+      "bought",
+      "buys",
+      "buying"
+    ],
+    "correct": "C",
+    "explanation": "3rd person: buys.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E172"
+  },
+  {
+    "question": "Synonym of 'father':",
+    "options": [
+      "small",
+      "big",
+      "happy",
+      "dad"
+    ],
+    "correct": "D",
+    "explanation": "dad is similar to father.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E173"
+  },
+  {
+    "question": "Spell the number 40 in English:",
+    "options": [
+      "41",
+      "forty",
+      "50",
+      "39"
+    ],
+    "correct": "B",
+    "explanation": "Number 40.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E174"
+  },
+  {
+    "question": "Spell the number 22 in English:",
+    "options": [
+      "23",
+      "twenty-twelve",
+      "21",
+      "32"
+    ],
+    "correct": "B",
+    "explanation": "Number 22.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E175"
+  },
+  {
+    "question": "Spell the number 79 in English:",
+    "options": [
+      "80",
+      "78",
+      "89",
+      "seventy-nineteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 79.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E176"
+  },
+  {
+    "question": "Spell the number 87 in English:",
+    "options": [
+      "97",
+      "86",
+      "eighty-seventeen",
+      "88"
+    ],
+    "correct": "C",
+    "explanation": "Number 87.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E177"
+  },
+  {
+    "question": "Past tense of 'see':",
+    "options": [
+      "sees",
+      "seeed",
+      "saw",
+      "seen"
+    ],
+    "correct": "C",
+    "explanation": "Past of see is saw.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E178"
+  },
+  {
+    "question": "Synonym of 'beautiful':",
+    "options": [
+      "happy",
+      "pretty",
+      "small",
+      "big"
+    ],
+    "correct": "B",
+    "explanation": "pretty is similar to beautiful.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E179"
+  },
+  {
+    "question": "Spell the number 78 in English:",
+    "options": [
+      "79",
+      "77",
+      "seventy-eighteen",
+      "88"
+    ],
+    "correct": "C",
+    "explanation": "Number 78.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E180"
+  },
+  {
+    "question": "Spell the number 85 in English:",
+    "options": [
+      "84",
+      "95",
+      "eighty-fifteen",
+      "86"
+    ],
+    "correct": "C",
+    "explanation": "Number 85.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E181"
+  },
+  {
+    "question": "Spell the number 91 in English:",
+    "options": [
+      "101",
+      "ninety-eleven",
+      "92",
+      "90"
+    ],
+    "correct": "B",
+    "explanation": "Number 91.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E182"
+  },
+  {
+    "question": "She ___ to school every day. (verb: think)",
+    "options": [
+      "thought",
+      "thought",
+      "thinking",
+      "thinks"
+    ],
+    "correct": "D",
+    "explanation": "3rd person: thinks.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E183"
+  },
+  {
+    "question": "Spell the number 65 in English:",
+    "options": [
+      "sixty-fifteen",
+      "64",
+      "66",
+      "75"
+    ],
+    "correct": "A",
+    "explanation": "Number 65.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E184"
+  },
+  {
+    "question": "Spell the number 72 in English:",
+    "options": [
+      "seventy-twelve",
+      "73",
+      "82",
+      "71"
+    ],
+    "correct": "A",
+    "explanation": "Number 72.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E185"
+  },
+  {
+    "question": "Spell the number 75 in English:",
+    "options": [
+      "76",
+      "85",
+      "74",
+      "seventy-fifteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 75.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E186"
+  },
+  {
+    "question": "Spell the number 43 in English:",
+    "options": [
+      "forty-thirteen",
+      "44",
+      "42",
+      "53"
+    ],
+    "correct": "A",
+    "explanation": "Number 43.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E187"
+  },
+  {
+    "question": "She ___ to school every day. (verb: take)",
+    "options": [
+      "takes",
+      "took",
+      "taken",
+      "takeing"
+    ],
+    "correct": "A",
+    "explanation": "3rd person: takes.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E188"
+  },
+  {
+    "question": "Spell the number 52 in English:",
+    "options": [
+      "53",
+      "62",
+      "fifty-twelve",
+      "51"
+    ],
+    "correct": "C",
+    "explanation": "Number 52.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E189"
+  },
+  {
+    "question": "Past tense of 'know':",
+    "options": [
+      "known",
+      "knowed",
+      "knew",
+      "knows"
+    ],
+    "correct": "C",
+    "explanation": "Past of know is knew.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E190"
+  },
+  {
+    "question": "Spell the number 66 in English:",
+    "options": [
+      "67",
+      "65",
+      "sixty-sixteen",
+      "76"
+    ],
+    "correct": "C",
+    "explanation": "Number 66.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E191"
+  },
+  {
+    "question": "She ___ to school every day. (verb: break)",
+    "options": [
+      "breaking",
+      "breaks",
+      "broken",
+      "broke"
+    ],
+    "correct": "B",
+    "explanation": "3rd person: breaks.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E192"
+  },
+  {
+    "question": "Past tense of 'think':",
+    "options": [
+      "thinked",
+      "thought?",
+      "thinks",
+      "thought"
+    ],
+    "correct": "D",
+    "explanation": "Past of think is thought.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E193"
+  },
+  {
+    "question": "Spell the number 26 in English:",
+    "options": [
+      "25",
+      "twenty-sixteen",
+      "36",
+      "27"
+    ],
+    "correct": "B",
+    "explanation": "Number 26.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E194"
+  },
+  {
+    "question": "Spell the number 42 in English:",
+    "options": [
+      "52",
+      "forty-twelve",
+      "43",
+      "41"
+    ],
+    "correct": "B",
+    "explanation": "Number 42.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E195"
+  },
+  {
+    "question": "Spell the number 34 in English:",
+    "options": [
+      "35",
+      "33",
+      "44",
+      "thirty-fourteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 34.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E196"
+  },
+  {
+    "question": "Spell the number 76 in English:",
+    "options": [
+      "seventy-sixteen",
+      "75",
+      "77",
+      "86"
+    ],
+    "correct": "A",
+    "explanation": "Number 76.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E197"
+  },
+  {
+    "question": "Past tense of 'buy':",
+    "options": [
+      "bought?",
+      "bought",
+      "buys",
+      "buyed"
+    ],
+    "correct": "B",
+    "explanation": "Past of buy is bought.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E198"
+  },
+  {
+    "question": "Spell the number 11 in English:",
+    "options": [
+      "12",
+      "10",
+      "eleven",
+      "21"
+    ],
+    "correct": "C",
+    "explanation": "Number 11.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E199"
+  },
+  {
+    "question": "She ___ to school every day. (verb: drink)",
+    "options": [
+      "drinking",
+      "drunk",
+      "drank",
+      "drinks"
+    ],
+    "correct": "D",
+    "explanation": "3rd person: drinks.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E200"
+  },
+  {
+    "question": "Spell the number 12 in English:",
+    "options": [
+      "twelve",
+      "13",
+      "22",
+      "11"
+    ],
+    "correct": "A",
+    "explanation": "Number 12.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E201"
+  },
+  {
+    "question": "Past tense of 'break':",
+    "options": [
+      "breaks",
+      "broken",
+      "broke",
+      "breaked"
+    ],
+    "correct": "C",
+    "explanation": "Past of break is broke.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E202"
+  },
+  {
+    "question": "Spell the number 62 in English:",
+    "options": [
+      "61",
+      "72",
+      "sixty-twelve",
+      "63"
+    ],
+    "correct": "C",
+    "explanation": "Number 62.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E203"
+  },
+  {
+    "question": "Spell the number 58 in English:",
+    "options": [
+      "59",
+      "fifty-eighteen",
+      "57",
+      "68"
+    ],
+    "correct": "B",
+    "explanation": "Number 58.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E204"
+  },
+  {
+    "question": "She ___ to school every day. (verb: write)",
+    "options": [
+      "writeing",
+      "writes",
+      "wrote",
+      "written"
+    ],
+    "correct": "B",
+    "explanation": "3rd person: writes.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E205"
+  },
+  {
+    "question": "Spell the number 68 in English:",
+    "options": [
+      "69",
+      "78",
+      "67",
+      "sixty-eighteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 68.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E206"
+  },
+  {
+    "question": "Spell the number 56 in English:",
+    "options": [
+      "fifty-sixteen",
+      "55",
+      "66",
+      "57"
+    ],
+    "correct": "A",
+    "explanation": "Number 56.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E207"
+  },
+  {
+    "question": "Synonym of 'friend':",
+    "options": [
+      "small",
+      "pal",
+      "happy",
+      "big"
+    ],
+    "correct": "B",
+    "explanation": "pal is similar to friend.",
+    "category": "Vocabulaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E208"
+  },
+  {
+    "question": "Spell the number 95 in English:",
+    "options": [
+      "105",
+      "96",
+      "94",
+      "ninety-fifteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 95.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E209"
+  },
+  {
+    "question": "Spell the number 77 in English:",
+    "options": [
+      "76",
+      "87",
+      "78",
+      "seventy-seventeen"
+    ],
+    "correct": "D",
+    "explanation": "Number 77.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E210"
+  },
+  {
+    "question": "Spell the number 54 in English:",
+    "options": [
+      "53",
+      "64",
+      "fifty-fourteen",
+      "55"
+    ],
+    "correct": "C",
+    "explanation": "Number 54.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E211"
+  },
+  {
+    "question": "Spell the number 49 in English:",
+    "options": [
+      "59",
+      "48",
+      "50",
+      "forty-nineteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 49.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E212"
+  },
+  {
+    "question": "Spell the number 32 in English:",
+    "options": [
+      "31",
+      "33",
+      "42",
+      "thirty-twelve"
+    ],
+    "correct": "D",
+    "explanation": "Number 32.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E213"
+  },
+  {
+    "question": "Past tense of 'swim':",
+    "options": [
+      "swims",
+      "swam",
+      "swimed",
+      "swum"
+    ],
+    "correct": "B",
+    "explanation": "Past of swim is swam.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E214"
+  },
+  {
+    "question": "Spell the number 86 in English:",
+    "options": [
+      "96",
+      "85",
+      "87",
+      "eighty-sixteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 86.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E215"
+  },
+  {
+    "question": "Spell the number 61 in English:",
+    "options": [
+      "60",
+      "71",
+      "sixty-eleven",
+      "62"
+    ],
+    "correct": "C",
+    "explanation": "Number 61.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E216"
+  },
+  {
+    "question": "She ___ to school every day. (verb: go)",
+    "options": [
+      "gone",
+      "goes",
+      "going",
+      "went"
+    ],
+    "correct": "B",
+    "explanation": "3rd person: goes.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E217"
+  },
+  {
+    "question": "Spell the number 10 in English:",
+    "options": [
+      "ten",
+      "20",
+      "11",
+      "9"
+    ],
+    "correct": "A",
+    "explanation": "Number 10.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E218"
+  },
+  {
+    "question": "Spell the number 64 in English:",
+    "options": [
+      "sixty-fourteen",
+      "74",
+      "65",
+      "63"
+    ],
+    "correct": "A",
+    "explanation": "Number 64.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E219"
+  },
+  {
+    "question": "Past tense of 'write':",
+    "options": [
+      "writeed",
+      "wrote",
+      "writes",
+      "written"
+    ],
+    "correct": "B",
+    "explanation": "Past of write is wrote.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E220"
+  },
+  {
+    "question": "She ___ to school every day. (verb: give)",
+    "options": [
+      "gives",
+      "giveing",
+      "gave",
+      "given"
+    ],
+    "correct": "A",
+    "explanation": "3rd person: gives.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E221"
+  },
+  {
+    "question": "Past tense of 'drink':",
+    "options": [
+      "drinked",
+      "drinks",
+      "drunk",
+      "drank"
+    ],
+    "correct": "D",
+    "explanation": "Past of drink is drank.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E222"
+  },
+  {
+    "question": "Past tense of 'give':",
+    "options": [
+      "giveed",
+      "gives",
+      "given",
+      "gave"
+    ],
+    "correct": "D",
+    "explanation": "Past of give is gave.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E223"
+  },
+  {
+    "question": "Spell the number 47 in English:",
+    "options": [
+      "57",
+      "forty-seventeen",
+      "46",
+      "48"
+    ],
+    "correct": "B",
+    "explanation": "Number 47.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E224"
+  },
+  {
+    "question": "Spell the number 82 in English:",
+    "options": [
+      "83",
+      "eighty-twelve",
+      "92",
+      "81"
+    ],
+    "correct": "B",
+    "explanation": "Number 82.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E225"
+  },
+  {
+    "question": "She ___ to school every day. (verb: speak)",
+    "options": [
+      "spoken",
+      "speaking",
+      "spoke",
+      "speaks"
+    ],
+    "correct": "D",
+    "explanation": "3rd person: speaks.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E226"
+  },
+  {
+    "question": "Spell the number 15 in English:",
+    "options": [
+      "fifteen",
+      "14",
+      "16",
+      "25"
+    ],
+    "correct": "A",
+    "explanation": "Number 15.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E227"
+  },
+  {
+    "question": "Spell the number 90 in English:",
+    "options": [
+      "100",
+      "91",
+      "ninety",
+      "89"
+    ],
+    "correct": "C",
+    "explanation": "Number 90.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E228"
+  },
+  {
+    "question": "She ___ to school every day. (verb: know)",
+    "options": [
+      "knows",
+      "knew",
+      "known",
+      "knowing"
+    ],
+    "correct": "A",
+    "explanation": "3rd person: knows.",
+    "category": "Grammaire",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E229"
+  },
+  {
+    "question": "Past tense of 'run':",
+    "options": [
+      "runed",
+      "run",
+      "runs",
+      "ran"
+    ],
+    "correct": "D",
+    "explanation": "Past of run is ran.",
+    "category": "Verbes",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E230"
+  },
+  {
+    "question": "Spell the number 55 in English:",
+    "options": [
+      "56",
+      "54",
+      "65",
+      "fifty-fifteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 55.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E231"
+  },
+  {
+    "question": "Spell the number 38 in English:",
+    "options": [
+      "48",
+      "thirty-eighteen",
+      "37",
+      "39"
+    ],
+    "correct": "B",
+    "explanation": "Number 38.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E232"
+  },
+  {
+    "question": "Spell the number 80 in English:",
+    "options": [
+      "90",
+      "81",
+      "eighty",
+      "79"
+    ],
+    "correct": "C",
+    "explanation": "Number 80.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E233"
+  },
+  {
+    "question": "Spell the number 37 in English:",
+    "options": [
+      "36",
+      "47",
+      "thirty-seventeen",
+      "38"
+    ],
+    "correct": "C",
+    "explanation": "Number 37.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E234"
+  },
+  {
+    "question": "Spell the number 48 in English:",
+    "options": [
+      "47",
+      "58",
+      "49",
+      "forty-eighteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 48.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E235"
+  },
+  {
+    "question": "Spell the number 70 in English:",
+    "options": [
+      "71",
+      "69",
+      "seventy",
+      "80"
+    ],
+    "correct": "C",
+    "explanation": "Number 70.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E236"
+  },
+  {
+    "question": "Spell the number 88 in English:",
+    "options": [
+      "87",
+      "98",
+      "89",
+      "eighty-eighteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 88.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E237"
+  },
+  {
+    "question": "Spell the number 44 in English:",
+    "options": [
+      "forty-fourteen",
+      "45",
+      "43",
+      "54"
+    ],
+    "correct": "A",
+    "explanation": "Number 44.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E238"
+  },
+  {
+    "question": "Spell the number 89 in English:",
+    "options": [
+      "eighty-nineteen",
+      "99",
+      "88",
+      "90"
+    ],
+    "correct": "A",
+    "explanation": "Number 89.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E239"
+  },
+  {
+    "question": "Spell the number 18 in English:",
+    "options": [
+      "28",
+      "17",
+      "eighteen",
+      "19"
+    ],
+    "correct": "C",
+    "explanation": "Number 18.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E240"
+  },
+  {
+    "question": "Spell the number 83 in English:",
+    "options": [
+      "93",
+      "82",
+      "eighty-thirteen",
+      "84"
+    ],
+    "correct": "C",
+    "explanation": "Number 83.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E241"
+  },
+  {
+    "question": "Spell the number 35 in English:",
+    "options": [
+      "34",
+      "45",
+      "thirty-fifteen",
+      "36"
+    ],
+    "correct": "C",
+    "explanation": "Number 35.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E242"
+  },
+  {
+    "question": "Spell the number 60 in English:",
+    "options": [
+      "sixty",
+      "61",
+      "70",
+      "59"
+    ],
+    "correct": "A",
+    "explanation": "Number 60.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E243"
+  },
+  {
+    "question": "Spell the number 29 in English:",
+    "options": [
+      "30",
+      "twenty-nineteen",
+      "28",
+      "39"
+    ],
+    "correct": "B",
+    "explanation": "Number 29.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E244"
+  },
+  {
+    "question": "Spell the number 20 in English:",
+    "options": [
+      "twenty",
+      "21",
+      "30",
+      "19"
+    ],
+    "correct": "A",
+    "explanation": "Number 20.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E245"
+  },
+  {
+    "question": "Spell the number 23 in English:",
+    "options": [
+      "22",
+      "24",
+      "33",
+      "twenty-thirteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 23.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E246"
+  },
+  {
+    "question": "Spell the number 21 in English:",
+    "options": [
+      "twenty-eleven",
+      "31",
+      "20",
+      "22"
+    ],
+    "correct": "A",
+    "explanation": "Number 21.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E247"
+  },
+  {
+    "question": "Spell the number 73 in English:",
+    "options": [
+      "83",
+      "seventy-thirteen",
+      "74",
+      "72"
+    ],
+    "correct": "B",
+    "explanation": "Number 73.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E248"
+  },
+  {
+    "question": "Spell the number 94 in English:",
+    "options": [
+      "ninety-fourteen",
+      "95",
+      "93",
+      "104"
+    ],
+    "correct": "A",
+    "explanation": "Number 94.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E249"
+  },
+  {
+    "question": "Spell the number 96 in English:",
+    "options": [
+      "ninety-sixteen",
+      "95",
+      "97",
+      "106"
+    ],
+    "correct": "A",
+    "explanation": "Number 96.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E250"
+  },
+  {
+    "question": "Spell the number 53 in English:",
+    "options": [
+      "52",
+      "fifty-thirteen",
+      "54",
+      "63"
+    ],
+    "correct": "B",
+    "explanation": "Number 53.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E251"
+  },
+  {
+    "question": "Spell the number 36 in English:",
+    "options": [
+      "46",
+      "thirty-sixteen",
+      "35",
+      "37"
+    ],
+    "correct": "B",
+    "explanation": "Number 36.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E252"
+  },
+  {
+    "question": "Spell the number 27 in English:",
+    "options": [
+      "37",
+      "28",
+      "26",
+      "twenty-seventeen"
+    ],
+    "correct": "D",
+    "explanation": "Number 27.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E253"
+  },
+  {
+    "question": "Spell the number 33 in English:",
+    "options": [
+      "thirty-thirteen",
+      "43",
+      "34",
+      "32"
+    ],
+    "correct": "A",
+    "explanation": "Number 33.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E254"
+  },
+  {
+    "question": "Spell the number 74 in English:",
+    "options": [
+      "73",
+      "75",
+      "84",
+      "seventy-fourteen"
+    ],
+    "correct": "D",
+    "explanation": "Number 74.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E255"
+  },
+  {
+    "question": "Spell the number 69 in English:",
+    "options": [
+      "70",
+      "sixty-nineteen",
+      "68",
+      "79"
+    ],
+    "correct": "B",
+    "explanation": "Number 69.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E256"
+  },
+  {
+    "question": "Spell the number 31 in English:",
+    "options": [
+      "thirty-eleven",
+      "30",
+      "32",
+      "41"
+    ],
+    "correct": "A",
+    "explanation": "Number 31.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E257"
+  },
+  {
+    "question": "Spell the number 97 in English:",
+    "options": [
+      "107",
+      "ninety-seventeen",
+      "98",
+      "96"
+    ],
+    "correct": "B",
+    "explanation": "Number 97.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E258"
+  },
+  {
+    "question": "Spell the number 93 in English:",
+    "options": [
+      "92",
+      "94",
+      "ninety-thirteen",
+      "103"
+    ],
+    "correct": "C",
+    "explanation": "Number 93.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E259"
+  },
+  {
+    "question": "Spell the number 39 in English:",
+    "options": [
+      "40",
+      "49",
+      "thirty-nineteen",
+      "38"
+    ],
+    "correct": "C",
+    "explanation": "Number 39.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E260"
+  },
+  {
+    "question": "Spell the number 92 in English:",
+    "options": [
+      "93",
+      "ninety-twelve",
+      "91",
+      "102"
+    ],
+    "correct": "B",
+    "explanation": "Number 92.",
+    "category": "Nombres",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "AN9E261"
+  },
+  {
+    "question": "What is 10 x 11?",
+    "options": [
+      "109",
+      "110",
+      "112",
+      "21"
+    ],
+    "correct": "B",
+    "explanation": "10×11=110.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E262"
+  },
+  {
+    "question": "What is 11 x 7?",
+    "options": [
+      "77",
+      "79",
+      "76",
+      "18"
+    ],
+    "correct": "A",
+    "explanation": "11×7=77.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E263"
+  },
+  {
+    "question": "What is 2 x 3?",
+    "options": [
+      "6",
+      "5",
+      "8",
+      "5"
+    ],
+    "correct": "A",
+    "explanation": "2×3=6.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E264"
+  },
+  {
+    "question": "What is 16 + 40?",
+    "options": [
+      "57",
+      "56",
+      "640",
+      "55"
+    ],
+    "correct": "B",
+    "explanation": "16+40=56.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E265"
+  },
+  {
+    "question": "What is 33 + 28?",
+    "options": [
+      "60",
+      "924",
+      "62",
+      "61"
+    ],
+    "correct": "D",
+    "explanation": "33+28=61.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E266"
+  },
+  {
+    "question": "What is 12 x 5?",
+    "options": [
+      "59",
+      "62",
+      "60",
+      "17"
+    ],
+    "correct": "C",
+    "explanation": "12×5=60.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E267"
+  },
+  {
+    "question": "What is 12 + 22?",
+    "options": [
+      "264",
+      "35",
+      "33",
+      "34"
+    ],
+    "correct": "D",
+    "explanation": "12+22=34.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E268"
+  },
+  {
+    "question": "What is 24 + 12?",
+    "options": [
+      "288",
+      "37",
+      "35",
+      "36"
+    ],
+    "correct": "D",
+    "explanation": "24+12=36.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E269"
+  },
+  {
+    "question": "What is 4 + 27?",
+    "options": [
+      "108",
+      "32",
+      "30",
+      "31"
+    ],
+    "correct": "D",
+    "explanation": "4+27=31.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E270"
+  },
+  {
+    "question": "What is 18 + 27?",
+    "options": [
+      "486",
+      "45",
+      "44",
+      "46"
+    ],
+    "correct": "B",
+    "explanation": "18+27=45.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E271"
+  },
+  {
+    "question": "What is 26 + 32?",
+    "options": [
+      "57",
+      "832",
+      "58",
+      "59"
+    ],
+    "correct": "C",
+    "explanation": "26+32=58.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E272"
+  },
+  {
+    "question": "What is 4 x 8?",
+    "options": [
+      "34",
+      "32",
+      "31",
+      "12"
+    ],
+    "correct": "B",
+    "explanation": "4×8=32.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E273"
+  },
+  {
+    "question": "What is 14 x 9?",
+    "options": [
+      "128",
+      "23",
+      "125",
+      "126"
+    ],
+    "correct": "D",
+    "explanation": "14×9=126.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E274"
+  },
+  {
+    "question": "What is 8 x 7?",
+    "options": [
+      "15",
+      "56",
+      "55",
+      "58"
+    ],
+    "correct": "B",
+    "explanation": "8×7=56.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E275"
+  },
+  {
+    "question": "What is 25 + 26?",
+    "options": [
+      "50",
+      "52",
+      "650",
+      "51"
+    ],
+    "correct": "D",
+    "explanation": "25+26=51.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E276"
+  },
+  {
+    "question": "What is 13 + 31?",
+    "options": [
+      "403",
+      "45",
+      "43",
+      "44"
+    ],
+    "correct": "D",
+    "explanation": "13+31=44.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E277"
+  },
+  {
+    "question": "What is 11 x 8?",
+    "options": [
+      "19",
+      "90",
+      "87",
+      "88"
+    ],
+    "correct": "D",
+    "explanation": "11×8=88.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E278"
+  },
+  {
+    "question": "What is 28 + 23?",
+    "options": [
+      "644",
+      "50",
+      "52",
+      "51"
+    ],
+    "correct": "D",
+    "explanation": "28+23=51.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E279"
+  },
+  {
+    "question": "What is 10 x 7?",
+    "options": [
+      "70",
+      "17",
+      "69",
+      "72"
+    ],
+    "correct": "A",
+    "explanation": "10×7=70.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E280"
+  },
+  {
+    "question": "What is 23 + 19?",
+    "options": [
+      "43",
+      "41",
+      "437",
+      "42"
+    ],
+    "correct": "D",
+    "explanation": "23+19=42.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E281"
+  },
+  {
+    "question": "What is 9 x 10?",
+    "options": [
+      "19",
+      "90",
+      "89",
+      "92"
+    ],
+    "correct": "B",
+    "explanation": "9×10=90.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E282"
+  },
+  {
+    "question": "What is 12 + 15?",
+    "options": [
+      "28",
+      "180",
+      "27",
+      "26"
+    ],
+    "correct": "C",
+    "explanation": "12+15=27.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E283"
+  },
+  {
+    "question": "What is 9 x 2?",
+    "options": [
+      "18",
+      "20",
+      "11",
+      "17"
+    ],
+    "correct": "A",
+    "explanation": "9×2=18.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E284"
+  },
+  {
+    "question": "What is 7 x 12?",
+    "options": [
+      "86",
+      "19",
+      "83",
+      "84"
+    ],
+    "correct": "D",
+    "explanation": "7×12=84.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E285"
+  },
+  {
+    "question": "What is 35 + 32?",
+    "options": [
+      "67",
+      "68",
+      "1120",
+      "66"
+    ],
+    "correct": "A",
+    "explanation": "35+32=67.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E286"
+  },
+  {
+    "question": "What is 6 x 2?",
+    "options": [
+      "11",
+      "14",
+      "12",
+      "8"
+    ],
+    "correct": "C",
+    "explanation": "6×2=12.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E287"
+  },
+  {
+    "question": "What is 16 + 10?",
+    "options": [
+      "160",
+      "27",
+      "25",
+      "26"
+    ],
+    "correct": "D",
+    "explanation": "16+10=26.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E288"
+  },
+  {
+    "question": "What is 12 + 29?",
+    "options": [
+      "41",
+      "348",
+      "42",
+      "40"
+    ],
+    "correct": "A",
+    "explanation": "12+29=41.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E289"
+  },
+  {
+    "question": "What is 19 + 25?",
+    "options": [
+      "44",
+      "43",
+      "45",
+      "475"
+    ],
+    "correct": "A",
+    "explanation": "19+25=44.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E290"
+  },
+  {
+    "question": "What is 38 + 40?",
+    "options": [
+      "77",
+      "78",
+      "1520",
+      "79"
+    ],
+    "correct": "B",
+    "explanation": "38+40=78.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E291"
+  },
+  {
+    "question": "What is 12 + 4?",
+    "options": [
+      "15",
+      "16",
+      "17",
+      "48"
+    ],
+    "correct": "B",
+    "explanation": "12+4=16.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E292"
+  },
+  {
+    "question": "What is 16 + 38?",
+    "options": [
+      "55",
+      "54",
+      "608",
+      "53"
+    ],
+    "correct": "B",
+    "explanation": "16+38=54.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E293"
+  },
+  {
+    "question": "What is 5 + 6?",
+    "options": [
+      "30",
+      "11",
+      "12",
+      "10"
+    ],
+    "correct": "B",
+    "explanation": "5+6=11.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E294"
+  },
+  {
+    "question": "What is 4 + 34?",
+    "options": [
+      "136",
+      "37",
+      "39",
+      "38"
+    ],
+    "correct": "D",
+    "explanation": "4+34=38.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E295"
+  },
+  {
+    "question": "What is 2 + 28?",
+    "options": [
+      "30",
+      "29",
+      "31",
+      "56"
+    ],
+    "correct": "A",
+    "explanation": "2+28=30.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E296"
+  },
+  {
+    "question": "What is 2 + 13?",
+    "options": [
+      "26",
+      "16",
+      "14",
+      "15"
+    ],
+    "correct": "D",
+    "explanation": "2+13=15.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E297"
+  },
+  {
+    "question": "What is 11 x 11?",
+    "options": [
+      "120",
+      "22",
+      "121",
+      "123"
+    ],
+    "correct": "C",
+    "explanation": "11×11=121.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E298"
+  },
+  {
+    "question": "What is 9 + 36?",
+    "options": [
+      "324",
+      "45",
+      "46",
+      "44"
+    ],
+    "correct": "B",
+    "explanation": "9+36=45.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E299"
+  },
+  {
+    "question": "What is 6 x 4?",
+    "options": [
+      "10",
+      "24",
+      "26",
+      "23"
+    ],
+    "correct": "B",
+    "explanation": "6×4=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "AN9E300"
+  }
+]

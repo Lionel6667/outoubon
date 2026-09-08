@@ -61,7 +61,10 @@ CHAPTER_SUBJECT_MAP = {
     'sciences_sociales': 'histoire',
 }
 
-SERIES_KEYWORDS = {'lla': 'LLA', 'ses': 'SES', 'svt': 'SVT', 'smp': 'SMP', 'philo': 'Philo', 'ns4': 'NS4'}
+SERIES_KEYWORDS = {
+    'lla': 'LLA', 'ses': 'SES', 'svt': 'SVT', 'smp': 'SMP',
+    'philo': 'Philo', 'ns4': 'NS4', '9e-af': '9e AF', '9e_af': '9e AF', '9eme': '9e AF',
+}
 
 # Synonymes OCR (typos frequents dans les noms de fichiers)
 FILENAME_TYPOS = {

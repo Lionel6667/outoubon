@@ -1,0 +1,616 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Match · OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/v2/match.css' %}">
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="match" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Match</div>
+    </div>
+    <div class="view-area">
+      <div class="home-wrap v2-match-wrap">
+
+        <div id="matchHub">
+          <div class="v2-match-lobby">
+            <section class="v2-match-hero card">
+              <div class="v2-match-hero__aura" aria-hidden="true"></div>
+              <header class="v2-dash-panel-header v2-match-hero__head">
+                <div class="v2-dash-panel-icon" style="background:rgba(251,191,36,.14);color:#fbbf24">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="v2-dash-panel-titles">
+                  <h3 class="v2-dash-panel-title">Match rapide</h3>
+                </div>
+              </header>
+
+              <div class="v2-match-mats" id="quickSubjects">
+                {% for s in subject_choices %}
+                <button type="button"
+                  class="v2-match-mat-chip {% if s.key == 'aleatoire' %}active{% endif %}"
+                  data-subject="{{ s.key }}"
+                  style="--mat-color: {{ s.color }}">
+                  <span class="v2-match-mat-dot"></span>
+                  <span class="v2-match-mat-label">{{ s.label }}</span>
+                </button>
+                {% endfor %}
+              </div>
+
+              <button type="button" class="v2-match-cta" id="btnQuickMatch">
+                <span class="v2-match-cta__glow" aria-hidden="true"></span>
+                <i class="fas fa-bolt"></i>
+                <span>Trouver un adversaire</span>
+              </button>
+            </section>
+
+            <section class="v2-match-auth card" id="matchAuthCard">
+              <div class="v2-match-auth__head">
+                <span class="v2-match-auth__badge"><i class="fas fa-user-friends"></i></span>
+                <div>
+                  <h3 class="v2-match-auth__title">Match privé</h3>
+                  <p class="v2-match-auth__sub">Crée un salon ou rejoins un ami</p>
+                </div>
+              </div>
+
+              <div class="v2-match-auth__tabs" role="tablist">
+                <button type="button" class="v2-match-auth__tab active" data-auth-tab="create" role="tab" aria-selected="true">
+                  <i class="fas fa-plus-circle"></i> Créer
+                </button>
+                <button type="button" class="v2-match-auth__tab" data-auth-tab="join" role="tab" aria-selected="false">
+                  <i class="fas fa-sign-in-alt"></i> Rejoindre
+                </button>
+                <span class="v2-match-auth__tab-glider" id="authTabGlider" aria-hidden="true"></span>
+              </div>
+
+              <div class="v2-match-auth__body">
+                <div class="v2-match-auth__panel active" data-auth-panel="create" role="tabpanel">
+                  <p class="v2-match-auth__panel-desc">Génère un code unique et partage-le à ton adversaire.</p>
+                  <button type="button" class="v2-match-auth__cta v2-match-auth__cta--create" id="btnCreatePrivate">
+                    <i class="fas fa-key"></i> Générer un code
+                  </button>
+                </div>
+                <div class="v2-match-auth__panel" data-auth-panel="join" role="tabpanel">
+                  <p class="v2-match-auth__panel-desc">Entre le code partagé par ton adversaire.</p>
+                  <div class="v2-match-auth__join">
+                    <input type="text" class="v2-match-code-input" id="privateCode" placeholder="CODE" maxlength="8" autocomplete="off" aria-label="Code du match">
+                    <button type="button" class="v2-match-auth__cta v2-match-auth__cta--join" id="btnJoinPrivate">
+                      Rejoindre <i class="fas fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {% if recent_duels %}
+          <div class="v2-match-history card" style="padding:1.15rem 1.1rem;margin-bottom:1.5rem">
+            <header class="v2-dash-panel-header" style="margin-bottom:0.75rem">
+              <div class="v2-dash-panel-icon v2-dash-panel-icon--subjects">
+                <i class="fas fa-history"></i>
+              </div>
+              <div class="v2-dash-panel-titles">
+                <h3 class="v2-dash-panel-title" style="font-size:.95rem">Derniers matchs</h3>
+              </div>
+            </header>
+            {% for d in recent_duels %}
+            <div class="v2-match-recent-row">
+              <span>{{ d.opponent }}</span>
+              <span style="color:var(--t3)">{{ d.my_score }}-{{ d.opp_score }}</span>
+              <span class="{% if d.won %}won{% else %}lost{% endif %}">{% if d.won %}V{% else %}D{% endif %}</span>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="v2-match-section-label">Tournois · Groupe de Génies</div>
+
+          {% if not has_genius_team %}
+          <div class="v2-match-team-banner">
+            <i class="fas fa-users" style="color:#fbbf24;font-size:1.1rem"></i>
+            <span>Forme une équipe de 4 pour les tournois type Ligue des Champions.
+              <a href="{% url 'genius_hub' %}">Créer mon équipe →</a>
+            </span>
+          </div>
+          {% else %}
+          <div class="v2-match-team-banner" style="border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.06)">
+            <i class="fas fa-shield-alt" style="color:var(--green)"></i>
+            <span>Équipe <strong style="color:var(--t1)">{{ genius_team_name }}</strong> —
+              <a href="{% url 'genius_hub' %}">Gérer →</a>
+            </span>
+          </div>
+          {% endif %}
+
+          {% for comp in competitions %}
+          <div class="v2-match-tourney-card">
+            <div class="v2-match-tourney-card__head">
+              <div class="v2-match-tourney-card__title">{{ comp.name }}</div>
+              <span class="v2-match-status-pill">{{ comp.status_label|default:comp.status }}</span>
+            </div>
+            <p class="v2-match-private-card__sub">
+              {{ comp.registered_count }} équipe(s)
+              {% if comp.my_registration %} · <strong style="color:var(--t2)">{{ comp.my_registration }}</strong>{% endif %}
+            </p>
+            {% if comp.mini_bracket %}
+            <div class="v2-match-bracket-row">
+              {% for round in comp.mini_bracket %}
+              <div class="v2-match-bracket-col">
+                <div class="v2-match-bracket-col-label">{{ round.nodes.0.phase_label|default:"Phase" }}</div>
+                {% for node in round.nodes %}
+                <div class="v2-match-bracket-node">
+                  <span class="team {% if node.winner == node.team_a %}winner{% endif %}">{{ node.team_a|default:"—" }}</span>
+                  <span class="team {% if node.winner == node.team_b %}winner{% endif %}">{{ node.team_b|default:"—" }}</span>
+                </div>
+                {% endfor %}
+              </div>
+              {% endfor %}
+            </div>
+            {% endif %}
+            <a href="{% url 'genius_competition' competition_id=comp.id %}" class="v2-match-link">
+              Tableau complet <i class="fas fa-arrow-right" style="font-size:.65rem"></i>
+            </a>
+          </div>
+          {% empty %}
+          <div class="card" style="padding:1.15rem;font-size:.8rem;color:var(--t3)">
+            Aucun tournoi ouvert pour le moment.
+          </div>
+          {% endfor %}
+
+          {% include "partials/v2/_page_info.html" with info_key="match" info_title="Match" info_body="Duel en direct · la première bonne réponse gagne la manche." %}
+        </div>
+
+        <div id="matchWait" class="v2-match-hidden">
+          <div class="v2-match-wait-card">
+            <div class="v2-match-wait-ring"></div>
+            <div class="v2-match-wait-title">Recherche…</div>
+            <p class="v2-match-wait-sub" id="waitMsg">On cherche un adversaire disponible</p>
+            <button type="button" class="v2-match-btn-secondary" id="btnCancelQueue" style="margin-top:1rem;width:auto;display:inline-flex">
+              Annuler
+            </button>
+          </div>
+        </div>
+
+        <div id="matchPlay" class="v2-match-hidden">
+          <div class="v2-match-arena-board">
+            <div class="v2-match-arena-player">
+              <div class="v2-match-arena-avatar v2-match-arena-avatar--me" id="myAvatar">
+                {% if profile and profile.avatar %}
+                  <img src="{{ profile.avatar.url }}" alt="">
+                {% else %}
+                  {{ profile.get_display_name|default:request.user.username|slice:":1"|upper }}
+                {% endif %}
+              </div>
+              <div class="v2-match-arena-meta">
+                <span class="v2-match-arena-name">Toi</span>
+                <span class="v2-match-arena-score" id="myScore">0</span>
+              </div>
+            </div>
+            <div class="v2-match-arena-vs" aria-hidden="true"><span>VS</span></div>
+            <div class="v2-match-arena-player v2-match-arena-player--opp">
+              <div class="v2-match-arena-meta v2-match-arena-meta--opp">
+                <span class="v2-match-arena-name" id="oppName">Adversaire</span>
+                <span class="v2-match-arena-score v2-match-arena-score--opp" id="oppScore">0</span>
+              </div>
+              <div class="v2-match-arena-avatar v2-match-arena-avatar--opp" id="oppAvatar">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="v2-match-play-meta">
+            <div class="v2-match-timer-pill" id="timerDisplay">
+              <i class="fas fa-clock"></i>
+              <span id="timerVal">22</span><span id="timerTotal" class="v2-match-timer-total">s</span>
+            </div>
+            <span class="v2-match-q-label" id="qLabel">Question 1</span>
+          </div>
+          <div class="v2-match-q-progress">
+            <div class="v2-match-q-progress__fill" id="qProgress"></div>
+          </div>
+          <div class="v2-match-q-card">
+            <div id="qReveal" class="v2-match-reveal v2-match-hidden">
+              <div class="v2-match-reveal__pulse"></div>
+              <div class="v2-match-reveal__icon" id="revealIcon">✓</div>
+              <div class="v2-match-reveal__text" id="revealText"></div>
+            </div>
+            <div class="v2-match-q-text" id="qText"></div>
+            <div id="qOptions"></div>
+          </div>
+        </div>
+
+        <div id="matchResult" class="v2-match-hidden">
+          <div class="v2-match-result-card">
+            <div class="v2-match-result-emoji" id="resultEmoji">🏆</div>
+            <div class="v2-match-result-title" id="resultTitle">Victoire !</div>
+            <p class="v2-match-result-sub" id="resultSub"></p>
+            <div class="v2-match-result-actions">
+              <button type="button" class="v2-match-btn-play" id="btnRematch">Rejouer</button>
+              <button type="button" class="v2-match-btn-secondary" id="btnBackHub">Retour</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+(function() {
+  document.querySelectorAll('a.v2-match-link').forEach(function (a) {
+    if (window.OTB_warmSpaPage && a.href) window.OTB_warmSpaPage(a.href);
+  });
+  const urls = {
+    quick: '{% url "api_match_quick" %}',
+    poll: '{% url "api_match_poll" %}',
+    cancel: '{% url "api_match_cancel" %}',
+    liveState: '{% url "api_match_live_state" %}',
+    liveAnswer: '{% url "api_match_live_answer" %}',
+    duelCreate: '{% url "api_duel_create" %}',
+    duelJoin: '{% url "api_duel_join" %}',
+  };
+
+  let selectedSubject = document.querySelector('.v2-match-mat-chip.active')?.dataset.subject || 'aleatoire';
+  let queueId = null, pollTimer = null, liveTimer = null, timerTick = null;
+  let duelCode = null, localQIndex = -1, inputLocked = false, questionTimeSec = 22;
+  let deadlineMs = null, revealShownFor = -1;
+
+  function csrf() { return window.CSRF || ''; }
+  function show(id) {
+    ['matchHub','matchWait','matchPlay','matchResult'].forEach(x => {
+      document.getElementById(x).classList.toggle('v2-match-hidden', x !== id);
+    });
+  }
+
+  function stopAllTimers() {
+    clearInterval(pollTimer);
+    clearInterval(liveTimer);
+    clearInterval(timerTick);
+    pollTimer = null;
+    liveTimer = null;
+    timerTick = null;
+  }
+
+  function setAuthTab(name) {
+    const card = document.getElementById('matchAuthCard');
+    document.querySelectorAll('.v2-match-auth__tab').forEach(t => {
+      const on = t.dataset.authTab === name;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('.v2-match-auth__panel').forEach(p => {
+      p.classList.toggle('active', p.dataset.authPanel === name);
+    });
+    card.classList.toggle('v2-match-auth--join', name === 'join');
+  }
+
+  document.querySelectorAll('.v2-match-auth__tab').forEach(tab => {
+    tab.onclick = () => setAuthTab(tab.dataset.authTab);
+  });
+
+  document.querySelectorAll('.v2-match-mat-chip').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.v2-match-mat-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSubject = btn.dataset.subject;
+    };
+  });
+
+  function setOpponentDisplay(name) {
+    const oppNameEl = document.getElementById('oppName');
+    const oppAvatar = document.getElementById('oppAvatar');
+    const label = (name || '').trim();
+    const waiting = !label || label === '—' || label === 'Adversaire' ||
+      label.toLowerCase().indexOf('attente') !== -1;
+    oppNameEl.textContent = waiting ? 'Adversaire' : label;
+    if (waiting) {
+      oppAvatar.innerHTML = '<i class="fas fa-user" aria-hidden="true"></i>';
+      oppAvatar.classList.add('v2-match-arena-avatar--wait');
+    } else {
+      oppAvatar.textContent = label.charAt(0).toUpperCase();
+      oppAvatar.classList.remove('v2-match-arena-avatar--wait');
+    }
+  }
+
+  async function startQuick() {
+    show('matchWait');
+    document.getElementById('waitMsg').textContent = 'On cherche un adversaire disponible';
+    try {
+      const r = await fetch(urls.quick, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+        body: JSON.stringify({ subject: selectedSubject }),
+      });
+      const data = await r.json();
+      if (data.error) {
+        alert(data.error);
+        show('matchHub');
+        return;
+      }
+      if (data.matched) return beginDuel(data);
+      queueId = data.queue_id;
+      pollQueue();
+    } catch (e) {
+      show('matchHub');
+    }
+  }
+
+  function pollQueue() {
+    if (!queueId) return;
+    pollTimer = setInterval(async () => {
+      try {
+        const r = await fetch(urls.poll + '?queue_id=' + queueId);
+        const data = await r.json();
+        if (data.wait_seconds != null) {
+          document.getElementById('waitMsg').textContent =
+            'Recherche… ' + Math.round(data.wait_seconds) + 's';
+        }
+        if (data.matched) {
+          clearInterval(pollTimer);
+          pollTimer = null;
+          beginDuel(data);
+        } else if (data.error) {
+          clearInterval(pollTimer);
+          pollTimer = null;
+          alert(data.error);
+          show('matchHub');
+        }
+      } catch (e) {}
+    }, 500);
+  }
+
+  document.getElementById('btnQuickMatch').onclick = startQuick;
+  document.getElementById('btnCancelQueue').onclick = async () => {
+    stopAllTimers();
+    await fetch(urls.cancel, { method: 'POST', headers: { 'X-CSRFToken': csrf() } });
+    queueId = null;
+    show('matchHub');
+  };
+
+  document.getElementById('btnCreatePrivate').onclick = async () => {
+    const r = await fetch(urls.duelCreate, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+      body: JSON.stringify({ subject: selectedSubject, count: 10 }),
+    });
+    const data = await r.json();
+    if (data.error) { alert(data.error); return; }
+    alert('Code : ' + data.code);
+    beginDuel({ code: data.code, opponent_name: 'En attente…', total: data.total });
+  };
+
+  document.getElementById('btnJoinPrivate').onclick = async () => {
+    const code = document.getElementById('privateCode').value.trim().toUpperCase();
+    if (!code) return;
+    const r = await fetch(urls.duelJoin, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+      body: JSON.stringify({ code }),
+    });
+    const data = await r.json();
+    if (data.error) { alert(data.error); return; }
+    beginDuel({ code: data.code, opponent_name: data.creator, total: data.total });
+  };
+
+  function beginDuel(data) {
+    stopAllTimers();
+    duelCode = data.code;
+    localQIndex = -1;
+    inputLocked = false;
+    revealShownFor = -1;
+    document.getElementById('myScore').textContent = '0';
+    document.getElementById('oppScore').textContent = '0';
+    setOpponentDisplay(data.opponent_name || 'Adversaire');
+    hideReveal();
+    show('matchPlay');
+    pollLive();
+    liveTimer = setInterval(pollLive, 450);
+  }
+
+  async function pollLive() {
+    if (!duelCode) return;
+    try {
+      const r = await fetch(urls.liveState + '?code=' + encodeURIComponent(duelCode));
+      const data = await r.json();
+      if (data.error) return;
+      applyLiveState(data);
+    } catch (e) {}
+  }
+
+  function applyLiveState(data) {
+    if (data.opponent_name) setOpponentDisplay(data.opponent_name);
+    document.getElementById('myScore').textContent = data.my_score ?? 0;
+    document.getElementById('oppScore').textContent = data.opp_score ?? 0;
+
+    const total = data.total || 1;
+    const prog = ((data.q_index + (data.live_phase === 'reveal' ? 1 : 0)) / total) * 100;
+    document.getElementById('qProgress').style.width = prog + '%';
+    document.getElementById('qLabel').textContent =
+      'Question ' + Math.min(data.q_index + 1, total) + ' / ' + total;
+
+    if (data.status === 'finished' || data.live_phase === 'finished') {
+      stopAllTimers();
+      showResult(data.my_score ?? 0, data.opp_score ?? 0);
+      return;
+    }
+
+    if (data.status === 'waiting' || data.live_phase === 'waiting') {
+      hideReveal();
+      document.getElementById('qText').textContent = 'En attente d’un adversaire…';
+      document.getElementById('qOptions').innerHTML = '';
+      stopQuestionTimer();
+      return;
+    }
+
+    questionTimeSec = data.question_time_sec || 22;
+
+    if (data.live_phase === 'reveal') {
+      inputLocked = true;
+      disableOptions();
+      stopQuestionTimer();
+      if (revealShownFor !== data.q_index) {
+        revealShownFor = data.q_index;
+        showReveal(data);
+      }
+      return;
+    }
+
+    hideReveal();
+    revealShownFor = -1;
+
+    if (data.live_phase === 'active') {
+      deadlineMs = data.deadline_ms;
+      if (data.q_index !== localQIndex) {
+        localQIndex = data.q_index;
+        inputLocked = false;
+        renderQuestion(data.question);
+        startQuestionTimer();
+      } else if (deadlineMs) {
+        syncQuestionTimer();
+      }
+    }
+  }
+
+  function renderQuestion(q) {
+    const optsEl = document.getElementById('qOptions');
+    optsEl.innerHTML = '';
+    if (!q) {
+      document.getElementById('qText').textContent = '…';
+      return;
+    }
+    document.getElementById('qText').textContent = q.enonce || '';
+    (q.options || []).forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'v2-match-opt';
+      btn.innerHTML =
+        '<span class="v2-match-opt-letter">' + String.fromCharCode(65 + i) + '</span><span>' + opt + '</span>';
+      btn.onclick = () => submitAnswer(i, btn);
+      optsEl.appendChild(btn);
+    });
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(document.getElementById('qText'), {
+        delimiters: [{ left: '$', right: '$', display: false }],
+      });
+      renderMathInElement(optsEl, {
+        delimiters: [{ left: '$', right: '$', display: false }],
+      });
+    }
+  }
+
+  function disableOptions() {
+    document.querySelectorAll('.v2-match-opt').forEach(b => b.classList.add('disabled'));
+  }
+
+  async function submitAnswer(idx, btn) {
+    if (inputLocked || !duelCode) return;
+    btn.classList.add('picked');
+    try {
+      const r = await fetch(urls.liveAnswer, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+        body: JSON.stringify({ code: duelCode, choice: idx }),
+      });
+      const data = await r.json();
+      const ans = data.answer || {};
+      if (ans.correct === false) {
+        btn.classList.add('wrong');
+      } else if (ans.won_round || ans.correct) {
+        btn.classList.add('correct');
+        inputLocked = true;
+        disableOptions();
+      }
+      applyLiveState(data);
+    } catch (e) {}
+  }
+
+  function showReveal(data) {
+    const el = document.getElementById('qReveal');
+    const icon = document.getElementById('revealIcon');
+    const text = document.getElementById('revealText');
+    el.classList.remove('v2-match-hidden');
+    if (data.last_round_won && data.last_winner_name) {
+      if (data.last_winner_is_me) {
+        icon.textContent = '✓';
+        el.classList.remove('v2-match-reveal--lost');
+        el.classList.add('v2-match-reveal--won');
+        text.textContent = 'Bonne réponse — point pour toi !';
+      } else {
+        icon.textContent = '⚡';
+        el.classList.remove('v2-match-reveal--won');
+        el.classList.add('v2-match-reveal--lost');
+        text.innerHTML = '<strong>' + escapeHtml(data.last_winner_name) + '</strong> a répondu correctement';
+      }
+    } else {
+      icon.textContent = '—';
+      el.classList.remove('v2-match-reveal--won', 'v2-match-reveal--lost');
+      text.textContent = 'Temps écoulé — personne a marqué';
+    }
+  }
+
+  function hideReveal() {
+    document.getElementById('qReveal').classList.add('v2-match-hidden');
+  }
+
+  function escapeHtml(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function startQuestionTimer() {
+    clearInterval(timerTick);
+    syncQuestionTimer();
+    timerTick = setInterval(syncQuestionTimer, 80);
+  }
+
+  function stopQuestionTimer() {
+    clearInterval(timerTick);
+    timerTick = null;
+  }
+
+  function syncQuestionTimer() {
+    if (!deadlineMs) return;
+    const left = Math.max(0, (deadlineMs - Date.now()) / 1000);
+    updateTimerDisplay(left, questionTimeSec);
+    if (left <= 0) stopQuestionTimer();
+  }
+
+  function updateTimerDisplay(left, total) {
+    const val = document.getElementById('timerVal');
+    const disp = document.getElementById('timerDisplay');
+    const totalEl = document.getElementById('timerTotal');
+    const secs = Math.ceil(left);
+    val.textContent = secs;
+    totalEl.textContent = 's';
+    disp.classList.toggle('v2-match-timer-pill--urgent', left <= 5 && left > 0);
+    disp.classList.toggle('v2-match-timer-pill--done', left <= 0);
+  }
+
+  function showResult(me, opp) {
+    show('matchResult');
+    const won = me > opp;
+    document.getElementById('resultEmoji').textContent = won ? '🏆' : (me === opp ? '🤝' : '💪');
+    document.getElementById('resultTitle').textContent =
+      won ? 'Victoire !' : (me === opp ? 'Égalité' : 'Défaite');
+    document.getElementById('resultSub').textContent = me + ' – ' + opp + ' points';
+  }
+
+  document.getElementById('btnRematch').onclick = () => {
+    duelCode = null;
+    localQIndex = -1;
+    stopAllTimers();
+    startQuick();
+  };
+  document.getElementById('btnBackHub').onclick = () => {
+    duelCode = null;
+    stopAllTimers();
+    show('matchHub');
+    location.reload();
+  };
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Sciences sociales).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "3",
+    "question": "Lequel de ces groupes de pays fait partie des Antilles de langue française?",
+    "options": [
+      "Haïti — Porto-Rico — Martinique",
+      "Haïti — Cuba — Jamaïque",
+      "Martinique — Guadeloupe — Haïti",
+      "Trinidad — Haïti — Guadeloupe"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Le 09 août 1945 rappelle l’un des faits historiques suivants. Lequel ?",
+    "options": [
+      "Bombardement américain sur Hiroshima 1",
+      "Conférence de Postdam",
+      "Conférence de Yalta",
+      "Bombardement américain sur Nagasaki"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Lequel de ces groupes de pays constitue uniquement des dragons de l’Asie du Sud’Est ?",
+    "options": [
+      "Taiwan / Iran / Hong Kong",
+      "Singapour / Corée du Sud / Turquie",
+      "Hong Kong / Taiwan / Corée du Sud",
+      "Corée du Sud / Irak / Singapour 1"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "L’un des événements majeurs suivants a marqué le monde à partir de 1960. Lequel?",
+    "options": [
+      "La création de l'ONU. Il",
+      "La décolonisation de l’Afrique",
+      "L’hégémonisme américain",
+      "L’extermination des Juifs. 9"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Lequel des groupes de pays suivants constituait la Triple ! Alliance apparue lors de la 1° guerre mondiale ?",
+    "options": [
+      "France — Allemagne — Italie",
+      "Allemagne — Angleterre -Russie",
+      "Italie — Allemagne — Hongrie",
+      "France — Angleterre — Russie 1"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Parmi les groupes de pays suivants, lequel est formé [e uniquement des pays de la Triple Entente ? à",
+    "options": [
+      "Russie / Italie / France €",
+      "Allemagne / Angleterre / Autriche — Hongrie g",
+      "Italie/ Allemagne / Autriche — Hongrie l",
+      "Russie / France /Angleterre n"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "La date du 13 mars 1843 se réfère à l’un des événements suivants. Lequel ? 1",
+    "options": [
+      "La proclamation de l’indépendance de la République Dominicaine. 1",
+      "Le départ de Jean Pierre Boyer pour l’exil",
+      "L’entrée triomphale de Toussaint Louverture à 1 Santo Domingo",
+      "Le suicide du Roi Henry Christophe"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Lequel des chefs d’Etats suivants dirigeait la Russie lors de l’effondrement du bloc socialiste en 1989 ?",
+    "options": [
+      "Vladimir Poutine",
+      "Vladimir Ilitch Oulianov dit Lénine",
+      "Mikhaïl Gorbatchev",
+      "Joseph Staline"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Lequel des groupes de personnages suivants a résisté à l’occupation américaine d'Haïti?",
+    "options": [
+      "Antoine Simon / Benoit Batraville",
+      "Benoit Batraville / Charlemange Péralte",
+      "Charlemagne Péralte / Faustin Soulouque. L",
+      "Rosalvo Bobo / Vilbrun Guillaume Sam"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "L'un des faits suivants prouve la détermination de 9 Toussaint Louverture à rendre autonome Saint Domingue. Lequel?",
+    "options": [
+      "L’élimination de Rigaud dans le Sud. 1",
+      "La signature d’un traité commercial avec les Etats- Unis",
+      "La promulgation de la constitution de 1801",
+      "La conquête de l’Est pour éliminer Roume. I"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Les deux principaux vainqueurs de la Deuxième guerre mondiale étaient",
+    "options": [
+      "Le Japon et l’Italie",
+      "L’Angleterre et la Chine",
+      "L'URSS et le Canada",
+      "Les États-Unis d’Amérique et l'URSS"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Lequel des chefs d’État américains suivants a dirigé les États-Unis à la fin de la 1° guerre Mondiale ?",
+    "options": [
+      "James Monroe",
+      "John Fritzgéral Kennedy",
+      "Thomas Woodrow Wilson",
+      "Franklin D. Roosevelt 1"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "8",
+    "question": "Le gouvernement de Jean Pierre Boyer a sucédé à celui de: Il",
+    "options": [
+      "Jean Jacques Dessalines",
+      "Rivière Boyer",
+      "Alexandre Pétion",
+      "Toussaint Louverture I"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "De tous ces artistes dignes de la culture haïtienne, lequel 1 est représentatif uniquement du théâtre?",
+    "options": [
+      "Nemours Jean Baptiste",
+      "Théodore Beaubrun (Languichatte)",
+      "Maurice Sxto l",
+      "Jean Belony Murat (Belot)"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "Tous ces facteurs constituent des obstacles au développe- ment économique d'Haïti sauf un, lequel?",
+    "options": [
+      "La fuite des capitaux",
+      "Le mépris du travail manuel",
+      "Le grapillage agricole",
+      "L’essor de la musique compas"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

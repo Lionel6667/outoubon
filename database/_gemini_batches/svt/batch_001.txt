@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Sciences exp.).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "1",
+    "question": "Au cours d’un accident, le fémur gauche d’un enfant est légèrement fissuré, il s’agit d’une : 8",
+    "options": [
+      "Entorse",
+      "Fêlure",
+      "Fracture",
+      "Luxation"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Une roche dans laquelle on extrait une substance métallique, à grande valeur économique, est :",
+    "options": [
+      "Un minéral 9",
+      "Une pierre précieuse",
+      "Un minerai",
+      "Une mine"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Le maïs est une plainte à fleurs qui est classée parmi les :",
+    "options": [
+      "Ptéridophytes",
+      "Thallophytes",
+      "Spermatophytes",
+      "Bryophytes"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "L’inflammation de la membrane qui enveloppe les poumons est connue sous le nom de :",
+    "options": [
+      "Tendinite 1",
+      "Cystite",
+      "Pleurésie _",
+      "Pneumonie _"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Les cellules sanguines qui nous protègent en | 1 obstruant les extrémités des vaisseaux sanguins, après une légère blessure, portent le nom : —",
+    "options": [
+      "D’enthrocytes _",
+      "De plaquettes L",
+      "D’hématies",
+      "De leucocytes :"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "6",
+    "question": "L’une des actions suivantes est constatée lors de | — l'inspiration. Laquelle ? 1",
+    "options": [
+      "La cage thoracique augmente de volume",
+      "Les côtes s’abaissent 223 PÉRIMENTALES",
+      "Le diaphragme se relâche",
+      "L'air sort des poumons Complète les phrases suivantes pour les questions 7 et"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "L’une des unités ci-dessous est celle de la poussée d’Archimède. Laquelle ?",
+    "options": [
+      "Watt",
+      "Joule",
+      "Newton _",
+      "Pascal _"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Quelle est la force nécessaire pour soulever un objet 7 pesant 600 N à l’aide d’un système de six (6) poulies dont trois (3) fixes et trois (3) mobiles ?",
+    "options": [
+      "600N",
+      "300N",
+      "ISON",
+      "I00N"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "L’une des mesures ci-dessous permet de diminuer | _ la pression. Laquelle ? _",
+    "options": [
+      "Vitesse —",
+      "Temps",
+      "Surface",
+      "Température"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "L’un des appareils ci-dessous permet de transformer l’énergie chimique en énergie électrique. Lequel ?",
+    "options": [
+      "Rasoir électrique",
+      "Four micro-onde",
+      "Ventilateur",
+      "Batterie Réponds à la question 5"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Le conduit qui amène l’urine des reins vers la vessie s’appelle :",
+    "options": [
+      "Epididyme",
+      "Veine cave",
+      "Uretère",
+      "Urètre"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "La contraction de l’un de ses muscles fait augmenter le volume de la cage thoracique. Lequel ?",
+    "options": [
+      "Le biceps",
+      "Le deltoïde",
+      "Le fessier",
+      "Le diaphragme LL"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Chez la femme, après la fécondation, la cellule-œuf ya se développer dans :",
+    "options": [
+      "Le vagin —",
+      "L'’utérus —",
+      "La trompe 1",
+      "L’ovaire"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Les impuretés qui accompagnent un minerai | _ s’appellent : _",
+    "options": [
+      "Filons 1",
+      "Gangues",
+      "Terre",
+      "Mine"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "6",
+    "question": "La germination d’une spore de fougère donne | _ naissance premièrement :",
+    "options": [
+      "À la fronde L",
+      "Aux hyphes",
+      "Au rhizome —",
+      "Au prothalle — Complète les phrases suivantes pour les questions 7 et S"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

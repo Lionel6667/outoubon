@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Sciences sociales).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "4",
+    "question": "Le système d’intégration centre-américain regroupe les pays suivants:8 p",
+    "options": [
+      "Panama — Costa Rica — Nicaragua",
+      "Haiti — Cuba — Jamaique",
+      "Colombie — Équateur — Bolivie",
+      "Canada — États-Unis - Mexique"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "La guerre mondiale a produit toutes ces conséquences sauf une. Laquelle?",
+    "options": [
+      "La création d’une organisation de paix",
+      "La fin du colonialisme en Afrique",
+      "La montée du Fascisme et du Nazisme",
+      "La bipolarisation de l’Europe"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "Tous ces faits ont provoqué l’émancipation des peuples latino-américains au 19° siècle, sauf un. Lequel?",
+    "options": [
+      "Le texte de la déclaration des droits de l’homme",
+      "La doctrine de Monroe",
+      "Les idées révolutionnaires françaises et haïtiennes",
+      "L’indépendance américaine de 1776"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Tous ces facteurs caractérisent les pays développés, excepté un, lequel ? 1",
+    "options": [
+      "Indice démographique humain",
+      "Indice de développement humain",
+      "Indicateur démocratique humain",
+      "Indicateur de diminution humaine"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Après l’indépendance, Haïti fait face à tous ces problèmes, sauf un, lequel?",
+    "options": [
+      "Les esclavages ployant sous le joug de la servitude",
+      "L’isolement du pays par les grandes puissances",
+      "La ruine économique des plantations",
+      "Les rivalités entre anciens et nouveaux libres pour 1 le pouvoir"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "6",
+    "question": "Le secteur industriel haïtien est actuellement confronté h|! toutes les difficultés suivantes, sauf une, laquelle? \\",
+    "options": [
+      "Pouvoir d’achat élevé",
+      "Rejet des produits locaux par les haïtiens",
+      "Manque d’approvisionnement en matières premières",
+      "Pénurie de capitaux en circulation 1"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Le dialogue Nord-Sud est une expression utilisée couramment pour désigner les rapports entre",
+    "options": [
+      "les pays en voie de développement",
+      "les pays du Tiers-monde",
+      "les pays capitalistes et les pays socialistes. 9",
+      "les pays développés et les pays sous-développés"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "La Caraïbe insulaire, désigne les îles baignées par la mer des Antilles. Elle est située:",
+    "options": [
+      "en Amérique du Nord",
+      "en Amérique du Sud 1",
+      "à l’Est de l’ Amérique centrale",
+      "à l'Ouest de l’ Amérique centrale"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Laquelle de ces mesures peut être considérée comme une cause de l’assassinat de l'Empereur Jacques 1°?",
+    "options": [
+      "La vérification des titres de propriété",
+      "Le contrôle strict du commerce d’exportation",
+      "La militarisation du pays",
+      "L’érection des forts à travers le pays"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Identifie le groupe de héros de l’indépendance d’Haiti",
+    "options": [
+      "Bolivar — Pétion — Dessalines",
+      "Dessalines — Pétion — Christophe",
+      "San Martin — Dessalines — Capois",
+      "Tousssaint — Christophe — Rigaud 1"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "6",
+    "question": "Lequel des critères suivants n’identifie pas les pays pauvres?",
+    "options": [
+      "Taux d’analphabétisme très élevés",
+      "Sous-alimentation avancée",
+      "Faiblesse d’industrialisation",
+      "Beaucoup d’infrastucture (routes, électricié, I télécommunication) l"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "La métropole française avait, sur le plan économique exploité la colonie de Saint-Dominguq au cours du 18° siècle par l’application",
+    "options": [
+      "Le procès de la consolidation relatif à la malversation des fonctionnaires publics",
+      "La célébrationn du 150° anniversaire de r l'indépendance d'Haïti",
+      "La désoccupation et le retrait d’Haiti des Marines e Américains",
+      "La nomination du premier Archevêque haitien de Port-au-Prince"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Le groupe de pays faisant partie de la Caraïbe dans la liste ci- dessous est : 9",
+    "options": [
+      "Équateur — Canada — anamä",
+      "Colombie — Canada — Panama",
+      "Panama — Colombie — Venezuela",
+      "Venezuela — Haïti — Uruguay"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Après son indépendance en 1825, l’Amérique espagnole devait faire face à tous ces problèmes sauf un. Lequel ?",
+    "options": [
+      "La crise économique et financière",
+      "Une situation d’instabilité sociale et politique",
+      "L'arrivée en grand nombre des noirs. 1",
+      "La dictature féroce des caudillos"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Lequel des faits suivants est une cause occasionnelle de la première guerre mondiale ?",
+    "options": [
+      "L’agression à Sarajevo contre François Ferdinand",
+      "La destruction des navires américains par l’Allemagne",
+      "Le système des alliances",
+      "Les rivalités entre les puissances européennes !"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

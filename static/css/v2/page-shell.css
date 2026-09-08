@@ -1,0 +1,36 @@
+/* Shared page shell — full width inside view-area, safe on mobile + bottom nav */
+.v2-page-shell,
+.lib-wrap,
+.v2-plan-shell {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.85rem 1rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.app .view-area {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 0%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .v2-page-shell,
+  .lib-wrap,
+  .v2-plan-shell {
+    padding: 0.75rem 0.85rem 0.35rem;
+  }
+
+  .app .view-area > .v2-page-shell,
+  .app .view-area > .lib-wrap,
+  .app .view-area > .v2-plan-shell,
+  .app .view-area > .home-wrap {
+    padding-bottom: 0.5rem;
+  }
+}

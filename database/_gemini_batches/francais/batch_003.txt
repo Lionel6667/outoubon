@@ -1,0 +1,167 @@
+Tu es professeur Haïti 9e AF (Kreyòl).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "12",
+    "question": "Donne l’antonyme des mots suivants",
+    "options": [
+      "Supériorité :",
+      "Jeunesse :",
+      "Agité :",
+      "Emmêler : IV- ORTHOGRAPHE"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Dans le texte ci-dessus, l’auteur",
+    "options": [
+      "raconte une histoire sur la musique",
+      "décrit le comportement des jeunes face à la musique. 10",
+      "défend une opinion sur les musiciens",
+      "donne des conseils aux jeunes"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Les jeunes sont les plus grands consommateurs de musique signifie qu’ils",
+    "options": [
+      "se nourrissent de la musique",
+      "interprètent les musiciens",
+      "créent des genres musicaux",
+      "font de la musique leur passe-temps favori"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Dans ce texte, l’auteur 9",
+    "options": [
+      "raconte l’histoire de la ville",
+      "explique le fonctionnement de la ville",
+      "donne une opinion sur la ville",
+      "dialogue avec les gens de la ville"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "D’après le texte, la concentration humaine favorise",
+    "options": [
+      "l’enrichissement des contacts",
+      "le rapprochement des élèves avec leur famille",
+      "le rejet du gaz carbonique. H 35",
+      "l’insécurité alimentaire"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "17",
+    "question": "Forme un nom avec chacun des adjectifs ci-dessous en utilisant l’un des suffixes suivants: ard, aud, esse, eur",
+    "options": [
+      "Vieux:",
+      "Fin: 36",
+      "Faible:",
+      "Rouge: IV- ORTHOGRAPHE"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Lequel de ces groupes de facteurs climatiques favorise le passage de l’eau d’un état à un autre? 1",
+    "options": [
+      "Vent, courants marins, ensoleillement",
+      "Pollution, voisinage de la mer, environnement",
+      "Agriculture, industrie, engrais",
+      "Alliage, déchets, azote"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "D’après le texte on parle des 1",
+    "options": [
+      "intérêts de circuler à pied",
+      "méfaits de l’équitation",
+      "avantages de circuler en voiture",
+      "inconvénients de la course à pied"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "L’expression ‘Partir à son moment’? signifie",
+    "options": [
+      "partir au son des avertisseurs sonores",
+      "partir à son gré",
+      "partir quand il fit mauvais temps",
+      "partir quand la santé s’affermit"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "16",
+    "question": "Recherche pour chacun des mots donnés ci-dessous, un nom de la même famille dont la classe grammaticale est précisée entre parenthèses. 20p 42",
+    "options": [
+      "Énorme (nom)",
+      "Immense (adverbe)",
+      "Développer (nom)",
+      "Réduction (verbe)"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Dans le texte, Pierre vient d’être nommé",
+    "options": [
+      "directeur de la maternité. 43",
+      "chef de Service à l'hôpital",
+      "directeur de la pédiatrie",
+      "coordonnateur général de la santé publique"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "11",
+    "question": "Remplace les groupes nominaux utilisés dans les phrases suivantes par les pronoms démonstratifs: cela, ceux, celui-ci, celle-là, ceux-ci",
+    "options": [
+      "Je te pardonne cette erreur-là",
+      "Je voudrais cet article-ci",
+      "Ces enfants qui sortent de l’école sont en 9AF",
+      "Cette chose m'étonne"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "14",
+    "question": "Chaque mot entre parenthèses est mal orthographié. Rétablis l’orthographe juste",
+    "options": [
+      "Son témoignage me laisse (septique … )",
+      "Ces (thermes ) sont familiers",
+      "Observons une (pose ) de six minutes",
+      "Ce médicament s’administre par (voix ) orale. e) Il y a de l’eau qui (goûte ) du plafond"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

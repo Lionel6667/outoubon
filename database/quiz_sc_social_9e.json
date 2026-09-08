@@ -1,0 +1,4694 @@
+{
+  "matiere": "sc_social",
+  "level": "9e AF",
+  "total": 300,
+  "description": "Quiz Sciences sociales — 9e AF : examens officiels + programme 9e (300 QCM, réponses vérifiées)",
+  "quiz": [
+    {
+      "id": "H9E1",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Dans l'une des villes suivantes a eu lieu un krach boursier qui a donné naissance à la crise de 1929. Laquelle ?",
+      "correct": "C",
+      "explanation": "Le krach de Wall Street à New York, le 24 octobre 1929, déclenche la Grande Dépression.",
+      "options": [
+        "Berlin",
+        "Londres",
+        "New York",
+        "Paris"
+      ]
+    },
+    {
+      "id": "H9E2",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Tirésias Simon Sam a succédé à l'un des chefs d'État suivants. Lequel ?",
+      "correct": "A",
+      "explanation": "Florvil Hyppolite meurt en 1896 ; Tirésias Simon Sam lui succède (1896–1902). Nord Alexis vient après.",
+      "options": [
+        "Florvil Hyppolite",
+        "François Denys Légitime",
+        "Nord Alexis",
+        "Lysius Salomon"
+      ]
+    },
+    {
+      "id": "H9E3",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "L'un des pays membres de la CARICOM est situé en Amérique centrale. Lequel ?",
+      "correct": "C",
+      "explanation": "Le Belize est en Amérique centrale et membre de la CARICOM. Barbade et Saint-Kitts sont des îles ; la Guyane n'est pas membre de la même façon.",
+      "options": [
+        "Barbade",
+        "Guyane",
+        "Belize",
+        "Saint-Kitts-et-Nevis"
+      ]
+    },
+    {
+      "id": "H9E4",
+      "category": "Économie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Tous les éléments ci-dessous sont des causes du sous-développement d'Haïti, sauf un. Lequel ?",
+      "correct": "D",
+      "explanation": "L'entraide sociale n'est pas une cause de sous-développement ; insécurité, instabilité et corruption le sont.",
+      "options": [
+        "L'insécurité sociale",
+        "L'instabilité politique",
+        "La corruption",
+        "L'entraide sociale"
+      ]
+    },
+    {
+      "id": "H9E5",
+      "category": "Culture",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "L'une des religions suivantes a pour prophète Mahomet et pour livre sacré le Coran. Laquelle ?",
+      "correct": "B",
+      "explanation": "L'islam a pour prophète Mahomet (Muhammad) et pour livre sacré le Coran.",
+      "options": [
+        "Le catholicisme",
+        "L'islam",
+        "Le judaïsme",
+        "Le bouddhisme"
+      ]
+    },
+    {
+      "id": "H9E6",
+      "category": "Économie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Le secteur tertiaire en Haïti correspond à l'un des groupes d'activités suivants. Lequel ?",
+      "correct": "B",
+      "explanation": "Le tertiaire = services : banques, écoles, cabinets d'avocat. Usines = secondaire ; canne à sucre / mines = primaire.",
+      "options": [
+        "Banques — usines — églises",
+        "Banques — écoles — cabinets d'avocat",
+        "Banques — écoles — culture de la canne à sucre",
+        "Écoles — mines — magasins"
+      ]
+    },
+    {
+      "id": "H9E7",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Au nom des Piquets, Jean-Jacques Acaau a formulé l'une des revendications suivantes. Laquelle ?",
+      "correct": "C",
+      "explanation": "Le mouvement des Piquets (Acaau) réclamait « un noir au pouvoir » / un noir à la présidence.",
+      "options": [
+        "Une égalité sans ambiguïté",
+        "Une justice sociale pour tous",
+        "Un noir à la présidence",
+        "Un partage équitable des terres"
+      ]
+    },
+    {
+      "id": "H9E8",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel de ces événements a contribué à mettre fin à la Deuxième Guerre mondiale ?",
+      "correct": "B",
+      "explanation": "Les bombardements d'Hiroshima (6 août 1945) puis Nagasaki précipitent la capitulation du Japon. Sarajevo (1914) déclenche la Première Guerre ; 1929 et Che Guevara sont hors sujet.",
+      "options": [
+        "L'assassinat d'Ernesto Che Guevara",
+        "Le bombardement d'Hiroshima le 6 août 1945",
+        "La crise économique de 1929",
+        "L'assassinat de François-Ferdinand à Sarajevo"
+      ]
+    },
+    {
+      "id": "H9E9",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "L'une des affirmations suivantes correspond à l'objectif de la révolution bolchevique d'octobre 1917. Laquelle ?",
+      "correct": "C",
+      "explanation": "Les bolcheviks visaient un régime socialiste en Russie, pas le libéralisme, ni le renforcement du tsar ou du capitalisme.",
+      "options": [
+        "Instaurer le libéralisme économique en Russie",
+        "Étendre le pouvoir du tsar Nicolas II sur toute l'Europe",
+        "Instaurer un régime socialiste en Russie",
+        "Renforcer le système capitaliste"
+      ]
+    },
+    {
+      "id": "H9E10",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Tous les faits suivants relèvent de l'occupation américaine d'Haïti de 1915 à 1934, sauf un. Lequel ?",
+      "correct": "D",
+      "explanation": "Dumarsais Estimé est élu en 1946, après l'occupation. Gendarmerie, gouvernements fantoches et saisie de l'or datent de l'occupation.",
+      "options": [
+        "La mise en place de gouvernements fantoches",
+        "La création de la Gendarmerie d'Haïti",
+        "La séquestration de la réserve d'or du pays",
+        "L'élection de Dumarsais Estimé à la présidence"
+      ]
+    },
+    {
+      "id": "H9E11",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Tous les faits énumérés ci-dessous sont vrais, sauf un. Lequel ?",
+      "correct": "B",
+      "explanation": "Mussolini fonde le fascisme italien, pas le parti nazi (Hitler). Les autres affirmations sont exactes.",
+      "options": [
+        "C'est à New York que la crise économique de 1929 a débuté",
+        "Benito Mussolini a été le principal fondateur du parti nazi",
+        "Une crise est dite de surproduction si l'offre est supérieure à la demande",
+        "Durant la 2e Guerre mondiale, six millions de Juifs ont été exterminés"
+      ]
+    },
+    {
+      "id": "H9E12",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Toutes les actions suivantes peuvent faire partie d'un programme d'aménagement du territoire en Haïti, sauf une. Laquelle ?",
+      "correct": "D",
+      "explanation": "Utiliser le bois comme combustible aggrave la déforestation ; protection des sources, ramassage et recyclage relèvent de l'aménagement.",
+      "options": [
+        "La protection des sources et des forêts",
+        "Le ramassage d'ordures",
+        "Le recyclage des déchets",
+        "L'utilisation du bois comme combustible"
+      ]
+    },
+    {
+      "id": "H9E13",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Toutes les définitions suivantes sont liées à l'agriculture commerciale, sauf une. Laquelle ?",
+      "correct": "A",
+      "explanation": "L'agriculture de subsistance vise l'autoconsommation, pas le marché. L'agriculture commerciale est souvent spécialisée, mécanisée et tournée vers l'exportation.",
+      "options": [
+        "Une agriculture de subsistance",
+        "Une agriculture spécialisée dans la monoculture",
+        "Une agriculture mécanisée",
+        "Une agriculture ouverte à l'exportation"
+      ]
+    },
+    {
+      "id": "H9E14",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Lequel des commissaires civils français suivants fut à la base de l'affranchissement général des esclaves de Saint-Domingue ?",
+      "correct": "A",
+      "explanation": "Léger-Félicité Sonthonax proclame l'abolition de l'esclavage à Saint-Domingue en 1793.",
+      "options": [
+        "Léger-Félicité Sonthonax",
+        "Étienne Polverel",
+        "Roume de Saint-Laurent",
+        "Ignace-Frédéric de Mirbeck"
+      ]
+    },
+    {
+      "id": "H9E15",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'un des groupes de personnages suivants est constitué uniquement de fondateurs de la République d'Argentine. Lequel ?",
+      "correct": "B",
+      "explanation": "José de San Martín et Manuel Belgrano sont des pères de l'indépendance argentine. Bolívar agit surtout au nord ; O'Higgins au Chili.",
+      "options": [
+        "Simón Bolívar — Bernardo O'Higgins",
+        "José de San Martín — Manuel Belgrano",
+        "José Gabriel Túpac Amaru — José María Morelos",
+        "Antonio Mariño — Juan José Flores"
+      ]
+    },
+    {
+      "id": "H9E16",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel des groupes de pays suivants constitua les forces de l'Axe ?",
+      "correct": "C",
+      "explanation": "L'Axe : Allemagne, Italie, Japon. États-Unis, Angleterre et France sont Alliés.",
+      "options": [
+        "Italie — Albanie — Japon",
+        "France — Allemagne — Russie",
+        "Italie — Japon — Allemagne",
+        "États-Unis — Angleterre — France"
+      ]
+    },
+    {
+      "id": "H9E17",
+      "category": "Histoire d'Haïti",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lors de la bataille de Vertières le 18 novembre 1803, l'un des généraux indigènes suivants a été félicité pour sa bravoure par le général Rochambeau. Lequel ?",
+      "correct": "C",
+      "explanation": "François Capois (Capois-La-Mort) est félicité par Rochambeau pour sa charge à Vertières.",
+      "options": [
+        "Général Antoine Clerveaux",
+        "Général André Vernet",
+        "Général François Capois",
+        "Général Henry Christophe"
+      ]
+    },
+    {
+      "id": "H9E18",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Parmi les événements suivants, lequel est connu dans l'histoire d'Haïti sous l'appellation « Drame du Pont-Rouge » ?",
+      "correct": "A",
+      "explanation": "Le Pont-Rouge désigne l'assassinat de Dessalines le 17 octobre 1806.",
+      "options": [
+        "L'assassinat de Dessalines le 17 octobre 1806",
+        "Le suicide du roi Henry Christophe le 8 octobre 1820",
+        "Le retour au pays du général André Rigaud en 1810",
+        "Le massacre général des Français en 1804"
+      ]
+    },
+    {
+      "id": "H9E19",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Tous les facteurs suivants caractérisent les pays sous-développés, sauf un. Lequel ?",
+      "correct": "B",
+      "explanation": "Les pays sous-développés ont en général un fort (pas un faible) taux de chômage.",
+      "options": [
+        "Fort taux d'analphabétisme",
+        "Faible taux de chômage",
+        "Agriculture vivrière",
+        "Balance commerciale déficitaire"
+      ]
+    },
+    {
+      "id": "H9E20",
+      "category": "Géographie d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'une des chaînes de montagnes suivantes se trouve dans les limites des départements du Sud, de la Grand'Anse et des Nippes. Laquelle ?",
+      "correct": "C",
+      "explanation": "Le massif de la Hotte occupe le sud-ouest (Sud, Grand'Anse, Nippes).",
+      "options": [
+        "Les Montagnes Noires",
+        "Les montagnes du Trou d'Eau",
+        "Le massif de la Hotte",
+        "Le massif de Terre-Neuve"
+      ]
+    },
+    {
+      "id": "H9E21",
+      "category": "Histoire d'Haïti",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel des généraux suivants commandait l'armée expéditionnaire française lors de la bataille de Vertières du 18 novembre 1803 ?",
+      "correct": "B",
+      "explanation": "Leclerc meurt en 1802 ; c'est Rochambeau qui commande à Vertières en 1803.",
+      "options": [
+        "Charles Emmanuel Leclerc",
+        "Donatien Rochambeau",
+        "Jean Humbert",
+        "Jean-François Debelle"
+      ]
+    },
+    {
+      "id": "H9E22",
+      "category": "Civisme",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Le conseil municipal relève de l'un des ministères suivants. Lequel ?",
+      "correct": "C",
+      "explanation": "Les collectivités territoriales (communes, conseils municipaux) relèvent du ministère de l'Intérieur et des Collectivités territoriales.",
+      "options": [
+        "Affaires étrangères",
+        "Défense nationale",
+        "Intérieur et collectivités territoriales",
+        "Travaux publics, transports et communication"
+      ]
+    },
+    {
+      "id": "H9E23",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel des événements suivants s'est déroulé pendant la Seconde Guerre mondiale ?",
+      "correct": "C",
+      "explanation": "Le génocide des Juifs a lieu pendant la Seconde Guerre mondiale. La révolution russe (1917) et le krach (1929) sont antérieurs ; la décolonisation de l'Afrique est surtout après 1945.",
+      "options": [
+        "La révolution en Russie",
+        "Le krach boursier de New York",
+        "Le génocide des Juifs",
+        "La décolonisation de l'Afrique"
+      ]
+    },
+    {
+      "id": "H9E24",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'un des chefs d'État haïtiens a maté la révolte de Goman dans la Grand'Anse. Lequel ?",
+      "correct": "A",
+      "explanation": "Jean-Pierre Boyer réprime la révolte de Goman (Jean-Baptiste Perrier) dans la Grand'Anse.",
+      "options": [
+        "Jean-Pierre Boyer",
+        "Jean-Jacques Dessalines",
+        "Alexandre Pétion",
+        "Henry Christophe"
+      ]
+    },
+    {
+      "id": "H9E25",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "La faim peut être provoquée par l'un des facteurs suivants. Lequel ?",
+      "correct": "B",
+      "explanation": "L'insuffisance de la production agricole provoque la faim. Reboisement, machines et surfaces cultivables tendent plutôt à l'atténuer.",
+      "options": [
+        "Reboisement des mornes",
+        "Insuffisance de la production agricole",
+        "Utilisation de machines agricoles",
+        "Augmentation de la surface cultivable"
+      ]
+    },
+    {
+      "id": "H9E26",
+      "category": "Histoire d'Haïti",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "L'une des conséquences politiques de l'assassinat de Dessalines, le 17 octobre 1806, est :",
+      "correct": "A",
+      "explanation": "Après 1806, le pays se scinde : Christophe au Nord, Pétion au Sud/Ouest.",
+      "options": [
+        "La scission du pays en 2 États",
+        "La révolte des cacos",
+        "Le soulèvement des piquets",
+        "L'explosion du palais national"
+      ]
+    },
+    {
+      "id": "H9E27",
+      "category": "Géographie d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'un de ces groupes comporte uniquement des denrées cultivées dans les montagnes. Lequel ?",
+      "correct": "C",
+      "explanation": "Café, cacao et produits maraîchers sont typiques des mornes. Canne à sucre et riz sont plutôt des cultures de plaine.",
+      "options": [
+        "Canne à sucre — riz — maïs",
+        "Canne à sucre — café — cacao",
+        "Café — cacao — produits maraîchers",
+        "Café — coton — riz"
+      ]
+    },
+    {
+      "id": "H9E28",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Tous les indicateurs suivants caractérisent les pays du Tiers-monde, sauf un. Lequel ?",
+      "correct": "C",
+      "explanation": "Un PIB par habitant élevé caractérise les pays riches, pas le Tiers-monde.",
+      "options": [
+        "Fort taux d'analphabètes",
+        "Espérance de vie faible",
+        "PIB par habitant élevé",
+        "Infrastructures sanitaires déficientes"
+      ]
+    },
+    {
+      "id": "H9E29",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Le processus de l'effondrement du système colonial et esclavagiste à Saint-Domingue est marqué par tous les faits suivants, sauf un. Lequel ?",
+      "correct": "D",
+      "explanation": "Le retour de Rigaud en 1810 est postérieur à l'indépendance (1804).",
+      "options": [
+        "La cérémonie du Bois-Caïman",
+        "La bataille de Vertières",
+        "L'affranchissement général des esclaves",
+        "Le retour du général André Rigaud au pays en 1810"
+      ]
+    },
+    {
+      "id": "H9E30",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel de ces groupes de pays fait partie des Antilles de langue française ?",
+      "correct": "C",
+      "explanation": "Martinique, Guadeloupe et Haïti sont francophones. Porto Rico (espagnol), Cuba (espagnol), Jamaïque et Trinidad (anglais) ne le sont pas.",
+      "options": [
+        "Haïti — Porto Rico — Martinique",
+        "Haïti — Cuba — Jamaïque",
+        "Martinique — Guadeloupe — Haïti",
+        "Trinidad — Haïti — Guadeloupe"
+      ]
+    },
+    {
+      "id": "H9E31",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Le 9 août 1945 rappelle l'un des faits historiques suivants. Lequel ?",
+      "correct": "D",
+      "explanation": "Hiroshima : 6 août 1945. Nagasaki : 9 août 1945.",
+      "options": [
+        "Bombardement américain sur Hiroshima",
+        "Conférence de Potsdam",
+        "Conférence de Yalta",
+        "Bombardement américain sur Nagasaki"
+      ]
+    },
+    {
+      "id": "H9E32",
+      "category": "Géographie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Lequel de ces groupes de pays constitue uniquement des dragons de l'Asie de l'Est ?",
+      "correct": "C",
+      "explanation": "Les quatre dragons : Corée du Sud, Taïwan, Hong Kong, Singapour. L'Iran, la Turquie et l'Irak n'en font pas partie.",
+      "options": [
+        "Taïwan / Iran / Hong Kong",
+        "Singapour / Corée du Sud / Turquie",
+        "Hong Kong / Taïwan / Corée du Sud",
+        "Corée du Sud / Irak / Singapour"
+      ]
+    },
+    {
+      "id": "H9E33",
+      "category": "Géographie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Lequel des groupes de pays suivants fait partie du CARICOM ?",
+      "correct": "B",
+      "explanation": "Bahamas, Belize et Haïti sont membres du CARICOM. Cuba, Aruba, Martinique ne le sont pas (ou pas de la même façon).",
+      "options": [
+        "Suriname / Martinique / Sainte-Lucie",
+        "Bahamas / Belize / Haïti",
+        "Montserrat / Cuba / Anguilla",
+        "Jamaïque / Aruba / Guyane"
+      ]
+    },
+    {
+      "id": "H9E34",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "L'un des événements majeurs suivants a marqué le monde à partir de 1960. Lequel ?",
+      "correct": "B",
+      "explanation": "1960 est l'« année de l'Afrique » : vague de décolonisations. L'ONU date de 1945 ; le génocide juif de 1939–1945.",
+      "options": [
+        "La création de l'ONU",
+        "La décolonisation de l'Afrique",
+        "L'hégémonisme américain",
+        "L'extermination des Juifs"
+      ]
+    },
+    {
+      "id": "H9E35",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "Parmi les groupes de pays suivants, lequel est formé uniquement des pays de la Triple Entente ?",
+      "correct": "D",
+      "explanation": "La Triple Entente : France, Royaume-Uni, Russie. L'Italie et l'Allemagne relèvent plutôt de la Triple Alliance.",
+      "options": [
+        "Russie / Italie / France",
+        "Allemagne / Angleterre / Autriche-Hongrie",
+        "Italie / Allemagne / Autriche-Hongrie",
+        "Russie / France / Angleterre"
+      ]
+    },
+    {
+      "id": "H9E36",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "La date du 13 mars 1843 se réfère à l'un des événements suivants. Lequel ?",
+      "correct": "B",
+      "explanation": "La révolution de 1843 aboutit au départ de Jean-Pierre Boyer pour l'exil (13 mars 1843).",
+      "options": [
+        "La proclamation de l'indépendance de la République Dominicaine",
+        "Le départ de Jean-Pierre Boyer pour l'exil",
+        "L'entrée triomphale de Toussaint Louverture à Santo Domingo",
+        "Le suicide du roi Henry Christophe"
+      ]
+    },
+    {
+      "id": "H9E37",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Lequel des chefs d'État suivants dirigeait la Russie lors de l'effondrement du bloc socialiste en 1989 ?",
+      "correct": "C",
+      "explanation": "Mikhaïl Gorbatchev est à la tête de l'URSS à la fin des années 1980.",
+      "options": [
+        "Vladimir Poutine",
+        "Lénine",
+        "Mikhaïl Gorbatchev",
+        "Joseph Staline"
+      ]
+    },
+    {
+      "id": "H9E38",
+      "category": "Histoire d'Haïti",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel des groupes de personnages suivants a résisté à l'occupation américaine d'Haïti ?",
+      "correct": "B",
+      "explanation": "Charlemagne Péralte et Benoît Batraville dirigent la résistance caco contre l'occupation américaine.",
+      "options": [
+        "Antoine Simon / Benoît Batraville",
+        "Benoît Batraville / Charlemagne Péralte",
+        "Charlemagne Péralte / Faustin Soulouque",
+        "Rosalvo Bobo / Vilbrun Guillaume Sam"
+      ]
+    },
+    {
+      "id": "H9E39",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Les deux principaux vainqueurs de la Deuxième Guerre mondiale étaient :",
+      "correct": "D",
+      "explanation": "Les États-Unis et l'URSS émergent comme superpuissances victorieuses. Japon et Italie sont de l'Axe vaincu.",
+      "options": [
+        "Le Japon et l'Italie",
+        "L'Angleterre et la Chine",
+        "L'URSS et le Canada",
+        "Les États-Unis d'Amérique et l'URSS"
+      ]
+    },
+    {
+      "id": "H9E40",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Lequel des chefs d'État américains suivants a dirigé les États-Unis à la fin de la Première Guerre mondiale ?",
+      "correct": "C",
+      "explanation": "Woodrow Wilson est président des États-Unis de 1913 à 1921 (fin de la Grande Guerre, traité de Versailles).",
+      "options": [
+        "James Monroe",
+        "John Fitzgerald Kennedy",
+        "Thomas Woodrow Wilson",
+        "Franklin D. Roosevelt"
+      ]
+    },
+    {
+      "id": "H9E41",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Laquelle des périodes suivantes correspond à la tenue de la conférence de Bandung ?",
+      "correct": "D",
+      "explanation": "La conférence de Bandung (Indonésie) se tient du 18 au 24 avril 1955.",
+      "options": [
+        "6 août 1945 — 9 août 1945",
+        "1er septembre 1939 — 3 septembre 1939",
+        "18 juin 1945 — 23 juin 1945",
+        "18 avril 1955 — 24 avril 1955"
+      ]
+    },
+    {
+      "id": "H9E42",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 20,
+      "question": "Parmi les pays suivants, lequel a pour capitale Bangui ?",
+      "correct": "B",
+      "explanation": "Bangui est la capitale de la République centrafricaine.",
+      "options": [
+        "République démocratique du Congo",
+        "République centrafricaine",
+        "Afrique du Sud",
+        "République de Guinée"
+      ]
+    },
+    {
+      "id": "H9E43",
+      "category": "Histoire d'Haïti",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Le gouvernement de Jean-Pierre Boyer a succédé à celui de :",
+      "correct": "C",
+      "explanation": "Boyer succède à Alexandre Pétion à la tête de la République du Sud (1818), puis unifie l'île.",
+      "options": [
+        "Jean-Jacques Dessalines",
+        "Rivière Boyer",
+        "Alexandre Pétion",
+        "Toussaint Louverture"
+      ]
+    },
+    {
+      "id": "H9E44",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "L'un des faits suivants prouve la détermination de Toussaint Louverture à rendre autonome Saint-Domingue. Lequel ?",
+      "correct": "C",
+      "explanation": "La Constitution de 1801, proclamée par Toussaint, affirme l'autonomie de la colonie (Toussaint gouverneur à vie).",
+      "options": [
+        "L'élimination de Rigaud dans le Sud",
+        "La signature d'un traité commercial avec les États-Unis",
+        "La promulgation de la constitution de 1801",
+        "La conquête de l'Est pour éliminer Roume"
+      ]
+    },
+    {
+      "question": "Au cours de la Première Guerre Mondiale, le Traité de Versailles avait lié l'un des groupes de pays suivants. Lequel?",
+      "options": [
+        "Autriche-Hongrie — Italie",
+        "Autriche-Hongrie — Allemagne",
+        "Autriche-Hongrie — France",
+        "Autriche-Hongrie — Angleterre"
+      ],
+      "correct": "B",
+      "explanation": "Le Traité de Versailles de 1919 a surtout lié l'Allemagne aux puissances alliées vainqueures. L'Allemagne faisait partie de la coalition des Empires centraux avec l'Autriche-Hongrie.",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E45"
+    },
+    {
+      "question": "Le secteur tertiaire en Haïti correspond à l'un des F groupes d'activités suivants. Lequel ? L",
+      "options": [
+        "Banques — Usines — églises",
+        "Banques — Ecoles — Cabinets d'avocat ü",
+        "Banques — Ecoles — Culture de la canne à sucre",
+        "Ecoles — Mines — Magasins"
+      ],
+      "correct": "B",
+      "explanation": "Le secteur tertiaire regroupe les services : banques, écoles, cabinets d'avocats, commerce et administration. Il ne comprend ni l'agriculture ni l'industrie lourde.",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E46"
+    },
+    {
+      "question": "Au nom des Piquets, Jean Jacques Acaau a formulé l’une des revendications suivantes. Laquelle ?",
+      "options": [
+        "Une égalité sans ambiguité",
+        "Une justice sociale pour tous",
+        "Un noir à la présidence",
+        "Un partage équitable des terres"
+      ],
+      "correct": "C",
+      "explanation": "Le mouvement des Piquets, mené par Jean-Jacques Acaau, revendiquait notamment qu'un Noir accède à la présidence pour corriger les inégalités après l'indépendance.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E47"
+    },
+    {
+      "question": "Lequel de ces événements a contribueé à mettre fin",
+      "options": [
+        "L’aasinat d’Ernesto Che Guevara",
+        "Le bombardement d’Hiroshima le 6 août",
+        "La crise économique de",
+        "L'’assissinat de François Ferdinand à Sarajevo"
+      ],
+      "correct": "B",
+      "explanation": "Le bombardement atomique d'Hiroshima le 6 août 1945 a accéléré la capitulation du Japon et marqué la fin de la Seconde Guerre mondiale en Asie.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E48"
+    },
+    {
+      "question": "Tous les faits énumérés ci-dessous sont vrais, sauf un; lequel?",
+      "options": [
+        "C’est à New York que la crise économique de 1929 a débuté",
+        "Benito Mussolini a été le principal fondateur du parti Nazi",
+        "Une crise est dite « surproduction » si l’offre est supérieure à la demande",
+        "Durant la 2° Guerre Mondiale, six millions de Juifs ont été exterminés"
+      ],
+      "correct": "B",
+      "explanation": "Benito Mussolini a fondé le fascisme italien, mais ce n'est pas lui qui a créé le parti nazi. Adolf Hitler est le fondateur du NSDAP (parti nazi) en Allemagne.",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E49"
+    },
+    {
+      "question": "Toutes les conséquences suivantes découlent de la crise économique de 1929, sauf une, laquelle?",
+      "options": [
+        "L’inflation monétaire",
+        "L'arrêt de toute production.",
+        "Le développement bancaire",
+        "Le chômage et la misère"
+      ],
+      "correct": "C",
+      "explanation": "La crise de 1929 a provoqué faillites bancaires et chômage massif, pas un développement bancaire. L'inflation, l'arrêt de production et la misère en furent au contraire des conséquences directes.",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E50"
+    },
+    {
+      "question": "Lors de la bataille de Vertières le 18 novembre 1803, l’un des généraux indigènes suivants a été félicité pour sa bravoure par le Général Donatien Rochambeau, lequel?",
+      "options": [
+        "Général Antoine Clerveau",
+        "Général André Vernet",
+        "Général François Capois",
+        "Général Henry Christophe"
+      ],
+      "correct": "C",
+      "explanation": "Lors de la bataille de Vertières, le général François Capois, dit Capois-la-Mort, continua l'assaut malgré les tirs français et fut salué par Rochambeau pour sa bravoure.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E51"
+    },
+    {
+      "question": "Tous les facteurs suivants caractérisent les pays sous- développés, sauf, lequel?",
+      "options": [
+        "Fort taux d’analphabétisme",
+        "Faible taux de chômage",
+        "Agriculture vivrière",
+        "Balance commerciale déficitaire"
+      ],
+      "correct": "B",
+      "explanation": "Les pays sous-développés présentent généralement un chômage élevé, pas faible. L'analphabétisme, l'agriculture vivrière et le déficit commercial sont des traits typiques du sous-développement.",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E52"
+    },
+    {
+      "question": "L'une des chaines de montagnes suivantes se trouvent dans les limites des départements du Sud, de la Grand- Anse et des Nippes, laquelle ?",
+      "options": [
+        "Les montagnes noires",
+        "Les montagnes du Trou d’eau",
+        "Le massif de la Hotte",
+        "Le massif de Terre-Neuve"
+      ],
+      "correct": "C",
+      "explanation": "Le massif de la Hotte s'étend dans le Sud, la Grand'Anse et les Nippes. Les montagnes Noires et le massif de Terre-Neuve se situent plutôt dans d'autres régions du pays.",
+      "category": "Géographie d'Haïti",
+      "difficulty": "difficile",
+      "timer_seconds": 30,
+      "id": "H9E53"
+    },
+    {
+      "question": "Toutes les caractéristiues suivantes correspondent Porto- rico, sauf une, laquelle",
+      "options": [
+        "Le seul État es grandes Antilles producteur de pétrole",
+        "Le plus petit territoire des grandes Antilles",
+        "Le seul État des grandes Antilles associé aux États- Unis d'Amérique",
+        "Le seul PMA des grandes Antilles"
+      ],
+      "correct": "A",
+      "explanation": "Porto Rico n'est pas producteur de pétrole. C'est le plus petit des grands États des Antilles et un territoire associé aux États-Unis depuis 1952.",
+      "category": "Géographie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E54"
+    },
+    {
+      "question": "Lequel de ces groupes de pays fait partie des Antilles de langue française?",
+      "options": [
+        "Haïti — Porto-Rico — Martinique",
+        "Haïti — Cuba — Jamaïque",
+        "Martinique — Guadeloupe — Haïti",
+        "Trinidad — Haïti — Guadeloupe"
+      ],
+      "correct": "C",
+      "explanation": "Haïti, la Martinique et la Guadeloupe sont des territoires de langue française dans les Antilles. Porto Rico est hispanophone, Cuba et la Jamaïque ne sont pas francophones.",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E55"
+    },
+    {
+      "question": "Lequel des groupes de pays suivants constituait la Triple ! Alliance apparue lors de la 1° guerre mondiale ?",
+      "options": [
+        "France — Allemagne — Italie",
+        "Allemagne — Angleterre -Russie",
+        "Italie — Allemagne — Hongrie",
+        "France — Angleterre — Russie"
+      ],
+      "correct": "C",
+      "explanation": "La Triple Alliance avant 1914 réunissait l'Allemagne, l'Autriche-Hongrie et l'Italie. La France, l'Angleterre et la Russie formaient la Triple Entente.",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E56"
+    },
+    {
+      "question": "Parmi les groupes de pays suivants, lequel est formé [e uniquement des pays de la Triple Entente ? à",
+      "options": [
+        "Russie / Italie / France €",
+        "Allemagne / Angleterre / Autriche — Hongrie",
+        "Italie/ Allemagne / Autriche — Hongrie",
+        "Russie / France /Angleterre"
+      ],
+      "correct": "D",
+      "explanation": "La Triple Entente regroupait la Russie, la France et l'Angleterre (Royaume-Uni). L'Allemagne, l'Autriche-Hongrie et l'Italie appartenaient au camp adverse.",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E57"
+    },
+    {
+      "question": "L'un des faits suivants prouve la détermination de 9 Toussaint Louverture à rendre autonome Saint Domingue. Lequel?",
+      "options": [
+        "L’élimination de Rigaud dans le Sud.",
+        "La signature d’un traité commercial avec les Etats- Unis",
+        "La promulgation de la constitution de",
+        "La conquête de l’Est pour éliminer Roume."
+      ],
+      "correct": "C",
+      "explanation": "La Constitution de 1801, promulguée par Toussaint Louverture, affirmait l'autonomie de Saint-Domingue tout en maintenant un lien nominal avec la France, révélant son projet d'autonomie politique.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E58"
+    },
+    {
+      "question": "Les deux principaux vainqueurs de la Deuxième guerre mondiale étaient",
+      "options": [
+        "Le Japon et l’Italie",
+        "L’Angleterre et la Chine",
+        "L'URSS et le Canada",
+        "Les États-Unis d’Amérique et l'URSS"
+      ],
+      "correct": "D",
+      "explanation": "Les États-Unis et l'URSS furent les deux grandes puissances victorieuses de 1945. Leur rivalité a ensuite structuré la guerre froide et la bipolarisation mondiale.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E59"
+    },
+    {
+      "question": "Le gouvernement de Jean Pierre Boyer a sucédé à celui de: Il",
+      "options": [
+        "Jean Jacques Dessalines",
+        "Rivière Boyer",
+        "Alexandre Pétion",
+        "Toussaint Louverture"
+      ],
+      "correct": "C",
+      "explanation": "Jean-Pierre Boyer a succédé à Alexandre Pétion après sa mort en 1818 et a unifié les deux parties du pays en 1820.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E60"
+    },
+    {
+      "question": "De tous ces artistes dignes de la culture haïtienne, lequel 1 est représentatif uniquement du théâtre?",
+      "options": [
+        "Nemours Jean Baptiste",
+        "Théodore Beaubrun (Languichatte)",
+        "Maurice Sxto",
+        "Jean Belony Murat (Belot)"
+      ],
+      "correct": "B",
+      "explanation": "Théodore Beaubrun, connu sous le nom de Languichatte, est une figure emblématique du théâtre haïtien comique. Nemours Jean-Baptiste est plutôt lié à la musique compas.",
+      "category": "Culture haïtienne",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E61"
+    },
+    {
+      "question": "Tous ces facteurs constituent des obstacles au développe- ment économique d'Haïti sauf un, lequel?",
+      "options": [
+        "La fuite des capitaux",
+        "Le mépris du travail manuel",
+        "Le grapillage agricole",
+        "L’essor de la musique compas"
+      ],
+      "correct": "D",
+      "explanation": "L'essor du compas est un phénomène culturel et musical, pas un obstacle économique. La fuite des capitaux, le mépris du travail manuel et le brigandage agricole freinent le développement.",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E62"
+    },
+    {
+      "question": "La guerre mondiale a produit toutes ces conséquences sauf une. Laquelle?",
+      "options": [
+        "La création d’une organisation de paix",
+        "La fin du colonialisme en Afrique",
+        "La montée du Fascisme et du Nazisme",
+        "La bipolarisation de l’Europe"
+      ],
+      "correct": "B",
+      "explanation": "La fin du colonialisme en Afrique s'accélère surtout dans les années 1950-1960, pas comme conséquence directe immédiate des guerres mondiales. L'ONU, le fascisme et la bipolarisation en sont des effets plus directs.",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E63"
+    },
+    {
+      "question": "Tous ces facteurs caractérisent les pays développés, excepté un, lequel ?",
+      "options": [
+        "Indice démographique humain",
+        "Indice de développement humain",
+        "Indicateur démocratique humain",
+        "Indicateur de diminution humaine"
+      ],
+      "correct": "D",
+      "explanation": "« Indicateur de diminution humaine » n'existe pas comme critère de développement. L'IDH (Indice de développement humain) est en revanche un indicateur reconnu.",
+      "category": "Économie",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E64"
+    },
+    {
+      "question": "Le secteur industriel haïtien est actuellement confronté h|! toutes les difficultés suivantes, sauf une, laquelle? \\",
+      "options": [
+        "Pouvoir d’achat élevé",
+        "Rejet des produits locaux par les haïtiens",
+        "Manque d’approvisionnement en matières premières",
+        "Pénurie de capitaux en circulation"
+      ],
+      "correct": "A",
+      "explanation": "Haïti connaît un faible pouvoir d'achat, pas élevé. Le rejet des produits locaux, le manque de matières premières et la pénurie de capitaux sont des difficultés réelles de l'industrie.",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E65"
+    },
+    {
+      "question": "Le dialogue Nord-Sud est une expression utilisée couramment pour désigner les rapports entre",
+      "options": [
+        "les pays en voie de développement",
+        "les pays du Tiers-monde",
+        "les pays capitalistes et les pays socialistes.",
+        "les pays développés et les pays sous-développés"
+      ],
+      "correct": "D",
+      "explanation": "Le dialogue Nord-Sud désigne les relations entre pays développés (Nord) et pays en voie de développement (Sud), notamment sur le plan économique et commercial.",
+      "category": "Économie",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E66"
+    },
+    {
+      "question": "La Caraïbe insulaire, désigne les îles baignées par la mer des Antilles. Elle est située:",
+      "options": [
+        "en Amérique du Nord",
+        "en Amérique du Sud",
+        "à l’Est de l’ Amérique centrale",
+        "à l'Ouest de l’ Amérique centrale"
+      ],
+      "correct": "A",
+      "explanation": "La Caraïbe insulaire appartient géographiquement à l'Amérique du Nord, bien qu'on la situe culturellement dans la région caribéenne tropicale.",
+      "category": "Géographie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E67"
+    },
+    {
+      "question": "Le groupe de pays faisant partie de la Caraïbe dans la liste ci- dessous est :",
+      "options": [
+        "Équateur — Canada — anamä",
+        "Colombie — Canada — Panama",
+        "Panama — Colombie — Venezuela",
+        "Venezuela — Haïti — Uruguay"
+      ],
+      "correct": "C",
+      "explanation": "Le Panama, la Colombie et le Venezuela bordent la mer des Caraïbes et font partie de la région caribéenne. Le Canada et l'Uruguay n'appartiennent pas à la Caraïbe.",
+      "category": "Géographie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E68"
+    },
+    {
+      "question": "Lequel des faits suivants est une cause occasionnelle de la première guerre mondiale ?",
+      "options": [
+        "L’agression à Sarajevo contre François Ferdinand",
+        "La destruction des navires américains par l’Allemagne",
+        "Le système des alliances",
+        "Les rivalités entre les puissances européennes !"
+      ],
+      "correct": "A",
+      "explanation": "L'attentat de Sarajevo contre l'archiduc François-Ferdinand le 28 juin 1914 fut le déclencheur immédiat (cause occasionnelle) de la Première Guerre mondiale.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E69"
+    },
+    {
+      "question": "Lequel des faits ci-dessous ne contribuent pas au triomphe de la révolution anti-esclavagiste à Saint-Domingue ?",
+      "options": [
+        "La coalition entre les puissances coloniales",
+        "L'exploitation brutale et féroce des esclaves par les maîtres",
+        "La situation créée à Saint-Domingue par la révolution française de",
+        "L’assassinat d’Ogé et de Chavannes"
+      ],
+      "correct": "A",
+      "explanation": "La coalition entre les puissances coloniales (France, Espagne, Grande-Bretagne) combattit la révolution haïtienne ; elle ne contribua pas à son triomphe.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E70"
+    },
+    {
+      "question": "Laquelle de ces actions a traduit la politique du «Big Stick» I des États-Unis dans la Caraïbes au début du XXe siècle ?",
+      "options": [
+        "aide massive au développement",
+        "intervention en République Dominicaine en",
+        "appui à la professionnalisation des cadres",
+        "renforcement de la sécurité régionale."
+      ],
+      "correct": "B",
+      "explanation": "La politique du « gros bâton » de Theodore Roosevelt se traduisit par des interventions militaires américaines dans la Caraïbe, dont l'occupation de la République dominicaine en 1916.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E71"
+    },
+    {
+      "question": "Lè Ameriken yo te okipe Ayiti nan lane 1915, yon evénman te pouse yo kite peyi a. Ki evénman®?",
+      "options": [
+        "Jounalis yo ki te pran pozisyon kont Okipasyon an",
+        "Gwo rezistans Chalmay Peral te ede peyizan yo fè",
+        "Gwo pwoblèm politik pati yo te bay",
+        "Masak Machatè"
+      ],
+      "correct": "B",
+      "explanation": "La résistance menée par Charlemagne Péralte et les Cacos a galvanisé l'opposition populaire à l'occupation américaine et a contribué à la pression pour le retrait des troupes en 1934.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E72"
+    },
+    {
+      "question": "Kilès nan sitiyasyon politik ak ekonomik sa yo ki te konsekans Okipasyon amerikèn an Ayiti nan lane 1915?",
+      "options": [
+        "Klas sosyal ki gen pi plis moun ladan 1 nan peyi a viv pi byen",
+        "Leve kanpe nasyonalis avèk valè afrifèn",
+        "Chirepit ant pati politik yo nan tout peyi",
+        "Yon bon plan devlopman ekonomik e sosyal"
+      ],
+      "correct": "B",
+      "explanation": "L'occupation de 1915 a provoqué un réveil nationaliste et renforcé les valeurs africaines dans la résistance populaire haïtienne.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E73"
+    },
+    {
+      "question": "Ant fen 19° ak kômansman 20° syèk, kilès nan evénman 1 sa yo ki te febli enperyalis ewopeyen?",
+      "options": [
+        "Enfliyans mache lemond antye te genyen gras ak komès e endistri.",
+        "Batay ant peyi yo ki te lakoz te gen anpil lôt ti chirepit anndan tèritwa yo",
+        "Dap-piyanp ki te fèt sou Lafrik ak Lazi",
+        "Alyans politik ki te fèt ant gwo peyi"
+      ],
+      "correct": "C",
+      "explanation": "Le partage de l'Afrique et de l'Asie entre puissances européennes (impérialisme) a renforcé puis fragilisé les empires coloniaux, contribuant aux tensions qui ont mené à la Première Guerre mondiale.",
+      "category": "Histoire mondiale",
+      "difficulty": "difficile",
+      "timer_seconds": 30,
+      "id": "H9E74"
+    },
+    {
+      "question": "Tout eleman sa yo reskonsab tansyon sosyal nan Karayib la, sof youn. Kilès?",
+      "options": [
+        "Konsomasyon anpil pwoteyin (valè manje ou dwe pran pou ekilib kô ou)",
+        "Gaspiyay byen /pa gen ase lajan pou moun yo achte e sa yo bezwen",
+        "Revni chak abitan pa ane ki wo",
+        "Bon rannman tè yo. n 221 ----- PAGE"
+      ],
+      "correct": "A",
+      "explanation": "Une consommation élevée de protéines n'est pas une cause de tension sociale. Le gaspillage, les faibles revenus et la mauvaise productivité agricole créent au contraire des tensions.",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E75"
+    },
+    {
+      "question": "Pou limanite chape anba lanm6, li dwe adopte youn nan konpôtman sa yo. Kilès?",
+      "options": [
+        "Esplwatasyon anpil richès minyè",
+        "Destwiksyon espès ki nwi agrikilti",
+        "Konsève byen natirèl ki deja la",
+        "Bon separasyon resous yo"
+      ],
+      "correct": "C",
+      "explanation": "La conservation des ressources naturelles est indispensable pour assurer la durabilité de l'humanité. L'exploitation excessive des minéraux et la destruction des espèces nuisent à l'équilibre écologique.",
+      "category": "Environnement",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E76"
+    },
+    {
+      "question": "Dans l’une des villes suivantes à eu lieu un krach boursier qui a donné naissance à la crise de 1929. Laquelle ?",
+      "options": [
+        "Berlin",
+        "Londres",
+        "New York",
+        "Paris"
+      ],
+      "correct": "C",
+      "explanation": "La crise économique de 1929 a commencé avec l'effondrement de la Bourse de New York le 24 octobre 1929 (Jeudi noir). Cet événement a déclenché une récession mondiale.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E77"
+    },
+    {
+      "question": "L’un des personnages suivants fut le secrétaire particulier de Jean Jacques Dessalines. Lequel ?",
+      "options": [
+        "Charlotin Marcadieu",
+        "Boisrond Tonnerre",
+        "Juste chanlatte",
+        "André Vernet"
+      ],
+      "correct": "B",
+      "explanation": "Boisrond-Tonnerre fut le secrétaire particulier de Jean-Jacques Dessalines et rédigea la proclamation de l'indépendance d'Haïti le 1er janvier 1804.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E78"
+    },
+    {
+      "question": "Tirésias Simon Sam a succédé à l’un des chefs d’État suivants. Lequel ?",
+      "options": [
+        "Florvil Hyppolite",
+        "François Denys Légitime",
+        "Nord Alexis",
+        "Lysius Salomon"
+      ],
+      "correct": "C",
+      "explanation": "Tirésias Simon Sam devint président d'Haïti en 1896 après la mort du président Nord Alexis, qu'il avait servi comme ministre.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E79"
+    },
+    {
+      "question": "L’un des pays membres de la CARICOM est situé en Amérique centrale. Lequel ? I",
+      "options": [
+        "Barbade",
+        "Guyane",
+        "Belize",
+        "StKitts et Nevis !"
+      ],
+      "correct": "C",
+      "explanation": "Belize, membre de la CARICOM, se situe en Amérique centrale, sur la côte caraïbe. Les autres options sont des îles des Antilles.",
+      "category": "Géographie",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E80"
+    },
+    {
+      "question": "L’une des affirmations suivantes correspond l’objectif de la révolution bolchévique en octobre 1917. Laquelle?",
+      "options": [
+        "Elle avait pour but d’instaurer le libéralisme économique en Russie",
+        "Elle avait pour objectif d’étendre le pouvoir du Tsar Nicolas IT sur toute l’Europe.",
+        "Elle avait pour objectif d’instaurer un régime s socialiste en Russie. ©",
+        "Elle avait pour but de renforcer le système capitaliste."
+      ],
+      "correct": "C",
+      "explanation": "La révolution d'Octobre 1917 visait à renverser le régime tsariste et à instaurer un pouvoir socialiste en Russie, fondé sur les soviets ouvriers et paysans.",
+      "category": "Histoire mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E81"
+    },
+    {
+      "question": "Tous les faits suivants relèvent de l’occupation américaine d’Haiti de 1915 à 1934, saufun. Lequel?",
+      "options": [
+        "La mise en place de gouvernements fantôches",
+        "La création de la Gendarmerie d'Haïti",
+        "La séquestration de la réserve d’or du pays",
+        "L’élection de Dumarsais Estimé à la Présidence."
+      ],
+      "correct": "D",
+      "explanation": "Dumarsais Estimé a été élu président en 1946, soit après le retrait des Marines américains en 1934. Les autres faits appartiennent bien à la période d'occupation.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E82"
+    },
+    {
+      "question": "Toutes les actions suivantes peuvent faire partie d’un programme d’aménagement du territoir en Haiti, saus une, laquelle?",
+      "options": [
+        "La protection des sources et des forêts",
+        "Le ramassage d’ordure",
+        "Le recyclage des déchets",
+        "L’Utilisation du bois comme combustible ,"
+      ],
+      "correct": "D",
+      "explanation": "L'utilisation du bois comme combustible accentue la déforestation et va à l'encontre de l'aménagement durable. Protéger les forêts, ramasser les ordures et recycler sont au contraire des actions d'aménagement.",
+      "category": "Géographie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E83"
+    },
+    {
+      "question": "Toutes les définitions suivantes sont liées à l’agriculture commerciale, sauf une, laquelle?",
+      "options": [
+        "Une agriculture de subsistance",
+        "Une agriculture spécialisée dans la monoculture",
+        "Une agriculture mécanisée",
+        "Une agriculture ouverte à l’explortation"
+      ],
+      "correct": "A",
+      "explanation": "L'agriculture de subsistance vise la consommation familiale locale, pas la vente ni l'exportation. L'agriculture commerciale est spécialisée, mécanisée et orientée vers le marché.",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E84"
+    },
+    {
+      "question": "Lequel des commissaires civils français suivants fut à la base de l’affranchissement général des esclaves de St Domingue?",
+      "options": [
+        "Léger Félicité Sonthonax",
+        "Étienne de Polvérel",
+        "Roume de Saint-Laurent",
+        "Ignace Frédéric de Mirbeck"
+      ],
+      "correct": "A",
+      "explanation": "Léger-Félicité Sonthonax proclama l'abolition de l'esclavage à Saint-Domingue en 1793, avant l'abolition générale de 1794, ce qui en fit une figure centrale de l'affranchissement.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E85"
+    },
+    {
+      "question": "L’un des groupes de personnages suivants dest constitué uniquement de fondateurs de la République d’Argentine, lequel?",
+      "options": [
+        "Simon Bolivar — Bernado O’Higgins",
+        "José de San Martin — Manuel Belgrano",
+        "José Gabriel Tupac Amaru — José Maria Morelos",
+        "Antonio Mariño — Juan José FLorès"
+      ],
+      "correct": "B",
+      "explanation": "José de San Martín et Manuel Belgrano sont deux héros fondateurs de l'indépendance argentine. Bolívar et O'Higgins sont plutôt liés à d'autres pays sud-américains.",
+      "category": "Histoire latino-américaine",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E86"
+    },
+    {
+      "question": "Lequel des groupes de pays suivants constitua les forces de l’ Axe?",
+      "options": [
+        "Italie — Albanie — Japon",
+        "France — Allemagne — Russie",
+        "Italie — Japon — Allemagne",
+        "États-Unis — Angleterre — France"
+      ],
+      "correct": "C",
+      "explanation": "Les forces de l'Axe durant la Seconde Guerre mondiale étaient l'Allemagne, l'Italie et le Japon. La France, l'Angleterre et les États-Unis appartenaient au camp allié.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E87"
+    },
+    {
+      "question": "Parmi les évènements suivants lequel est connu dans l’histoire d'Haïti sous l’appellation ‘Drame du Pont- Route’°?",
+      "options": [
+        "L’assassinat de Dessalines le 17 octobre",
+        "Le suicide du Roi Henry Christophe le 8 octobre",
+        "Le retour au pays du Général André Rigaud en",
+        "Le massacre général des français en"
+      ],
+      "correct": "A",
+      "explanation": "Le « drame du Pont-Rouge » désigne l'assassinat de Jean-Jacques Dessalines le 17 octobre 1806 près du Pont-Rouge, au sud de Port-au-Prince.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E88"
+    },
+    {
+      "question": "Lequel des généraux suivants commandait l’armée expéditionnaire française lors de la bataille de Vertières du 18 novembre 1803 ?",
+      "options": [
+        "Charles Emmanuel Leclerc",
+        "Donatien Rochambeau",
+        "Jean Humbert",
+        "Jean François Debelle"
+      ],
+      "correct": "B",
+      "explanation": "Donatien-Marie-Joseph de Vimeur, vicomte de Rochambeau, commandait les forces françaises lors de la bataille de Vertières en novembre 1803.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E89"
+    },
+    {
+      "question": "Le conseil municipal relève de l’un desa ministè ères suivants, lequel ?",
+      "options": [
+        "affaires étrangères",
+        "Défense nationale",
+        "Intérieur et collectivités territoriales",
+        "Travaux publics transports et communication"
+      ],
+      "correct": "C",
+      "explanation": "En Haïti, les collectivités territoriales et les conseils municipaux relèvent du ministère de l'Intérieur et des Collectivités territoriales, qui supervise l'administration locale.",
+      "category": "Institutions",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E90"
+    },
+    {
+      "question": "Lequel des événements suivants s’est déroulé pendant la Seconde Guerre Mondiale?",
+      "options": [
+        "La révolution en Russie.",
+        "Le Krach boursier de New York",
+        "Le génocide des juifs",
+        "La décolonisation de l’Afrique"
+      ],
+      "correct": "C",
+      "explanation": "Le génocide des Juifs (Shoah) s'est déroulé pendant la Seconde Guerre mondiale. La révolution russe date de 1917, le krach de 1929 est antérieur, et la décolonisation africaine s'accélère surtout après 1960.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E91"
+    },
+    {
+      "question": "L'un des chefs d’état haïtiens a maté la révolte de ! Goman dans la Grand” Anse. Lequel?",
+      "options": [
+        "Jean Pierre Boyer",
+        "Jean Jacques Dessalines",
+        "Alexandre Pétion",
+        "Henry Christophe"
+      ],
+      "correct": "A",
+      "explanation": "Jean-Pierre Boyer, président d'Haïti, a écrasé la révolte de Goman dans la Grand'Anse au début des années 1820, consolidant ainsi l'autorité de l'État.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E92"
+    },
+    {
+      "question": "La faim peut être provoquée par l’un des facteurs suivants. Lequel?",
+      "options": [
+        "Reboisement des mornes.",
+        "Insuffisance de la production agricole",
+        "Utilisation de machines agricoles",
+        "Augmentation de la surface cultivable"
+      ],
+      "correct": "B",
+      "explanation": "La faim résulte souvent d'une production agricole insuffisante ou mal répartie. Le reboisement, l'utilisation de machines et l'augmentation des surfaces cultivables tendent au contraire à améliorer la sécurité alimentaire.",
+      "category": "Économie",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E93"
+    },
+    {
+      "question": "L’une des conséquences politiques de l’assassinat de Dessalines, le 17 octobre 1806 est",
+      "options": [
+        "La scission du pays en 2 états",
+        "La révolte des cacos",
+        "Le soulèvement des piquets",
+        "L’explosion du palais national."
+      ],
+      "correct": "A",
+      "explanation": "Après l'assassinat de Dessalines en 1806, le pays s'est scindé en deux États : le royaume d'Henri Christophe au nord et la république d'Alexandre Pétion au sud.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E94"
+    },
+    {
+      "question": "Le processus de l’effondrement du système colonial et esclavagiste à St Domingue est marqué par tous les faits suivants, sauf un. Lequel?",
+      "options": [
+        "La cérémonie du Bois-Caïman",
+        "La bataille de Vertières",
+        "L’affranchissement général des esclaves",
+        "Le retour du général André Rigaud au pays en"
+      ],
+      "correct": "D",
+      "explanation": "Le retour de Rigaud en 1810 intervient après l'indépendance, lors de la guerre civile entre Pétion et Christophe. Il ne fait pas partie du processus d'effondrement du système colonial esclavagiste.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E95"
+    },
+    {
+      "question": "La date du 8 mai 1945 rappelle l’un des faits historiques suivants. Lequel?",
+      "options": [
+        "Armistice de l’Allemagne",
+        "Attaque de la Serbie contre le Macédoine",
+        "Invasion de la Pologne par l’ Allemagne",
+        "Capitulation de l’Allemagne"
+      ],
+      "correct": "D",
+      "explanation": "Le 8 mai 1945 marque la capitulation de l'Allemagne nazie et la fin de la guerre en Europe (VE Day). Hiroshima et Nagasaki ont été bombardés en août 1945.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E96"
+    },
+    {
+      "question": "Le 09 août 1945 rappelle l’un des faits historiques suivants. Lequel ?",
+      "options": [
+        "Bombardement américain sur Hiroshima",
+        "Conférence de Postdam",
+        "Conférence de Yalta",
+        "Bombardement américain sur Nagasaki"
+      ],
+      "correct": "D",
+      "explanation": "Le 9 août 1945, les États-Unis ont largué une bombe atomique sur Nagasaki. Hiroshima avait été bombardée le 6 août 1945.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E97"
+    },
+    {
+      "question": "Lequel de ces groupes de pays constitue uniquement des dragons de l’Asie du Sud’Est ?",
+      "options": [
+        "Taiwan / Iran / Hong Kong",
+        "Singapour / Corée du Sud / Turquie",
+        "Hong Kong / Taiwan / Corée du Sud",
+        "Corée du Sud / Irak / Singapour"
+      ],
+      "correct": "C",
+      "explanation": "Les « dragons asiatiques » désignent Hong Kong, Taïwan, Singapour et la Corée du Sud, économies à forte croissance. L'Iran, la Turquie et l'Irak n'appartiennent pas à ce groupe.",
+      "category": "Économie",
+      "difficulty": "difficile",
+      "timer_seconds": 30,
+      "id": "H9E98"
+    },
+    {
+      "question": "L’un des événements majeurs suivants a marqué le monde à partir de 1960. Lequel?",
+      "options": [
+        "La création de l'ONU. Il",
+        "La décolonisation de l’Afrique",
+        "L’hégémonisme américain",
+        "L’extermination des Juifs."
+      ],
+      "correct": "B",
+      "explanation": "À partir des années 1960, la décolonisation de l'Afrique a transformé la carte politique mondiale avec l'indépendance de dizaines de pays africains.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E99"
+    },
+    {
+      "question": "La date du 13 mars 1843 se réfère à l’un des événements suivants. Lequel ?",
+      "options": [
+        "La proclamation de l’indépendance de la République Dominicaine.",
+        "Le départ de Jean Pierre Boyer pour l’exil",
+        "L’entrée triomphale de Toussaint Louverture à 1 Santo Domingo",
+        "Le suicide du Roi Henry Christophe"
+      ],
+      "correct": "B",
+      "explanation": "Le 13 mars 1843, Jean-Pierre Boyer quitta le pouvoir et partit en exil après des révoltes contre son gouvernement autoritaire.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E100"
+    },
+    {
+      "question": "Lequel des chefs d’Etats suivants dirigeait la Russie lors de l’effondrement du bloc socialiste en 1989 ?",
+      "options": [
+        "Vladimir Poutine",
+        "Vladimir Ilitch Oulianov dit Lénine",
+        "Mikhaïl Gorbatchev",
+        "Joseph Staline"
+      ],
+      "correct": "C",
+      "explanation": "Mikhaïl Gorbatchev dirigeait l'URSS lors des réformes de glasnost et perestroïka et de l'effondrement du bloc socialiste en 1989-1991.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E101"
+    },
+    {
+      "question": "Lequel des groupes de personnages suivants a résisté à l’occupation américaine d'Haïti?",
+      "options": [
+        "Antoine Simon / Benoit Batraville",
+        "Benoit Batraville / Charlemange Péralte",
+        "Charlemagne Péralte / Faustin Soulouque.",
+        "Rosalvo Bobo / Vilbrun Guillaume Sam"
+      ],
+      "correct": "B",
+      "explanation": "Charlemagne Péralte et Benoît Batraville ont mené la résistance armée contre l'occupation américaine (1915-1934), notamment via les Cacos.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E102"
+    },
+    {
+      "question": "Lequel des chefs d’État américains suivants a dirigé les États-Unis à la fin de la 1° guerre Mondiale ?",
+      "options": [
+        "James Monroe",
+        "John Fritzgéral Kennedy",
+        "Thomas Woodrow Wilson",
+        "Franklin D. Roosevelt"
+      ],
+      "correct": "C",
+      "explanation": "Woodrow Wilson était président des États-Unis de 1913 à 1921 et a représenté son pays à la conférence de paix de Versailles en 1919.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E103"
+    },
+    {
+      "question": "Le système d’intégration centre-américain regroupe les pays suivants:8 p",
+      "options": [
+        "Panama — Costa Rica — Nicaragua",
+        "Haiti — Cuba — Jamaique",
+        "Colombie — Équateur — Bolivie",
+        "Canada — États-Unis - Mexique"
+      ],
+      "correct": "A",
+      "explanation": "Le SICA (Système d'intégration centreaméricain) regroupe des pays comme le Panama, le Costa Rica et le Nicaragua. Haïti et Cuba ne font pas partie de cette intégration régionale.",
+      "category": "Géographie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E104"
+    },
+    {
+      "question": "Tous ces faits ont provoqué l’émancipation des peuples latino-américains au 19° siècle, sauf un. Lequel?",
+      "options": [
+        "Le texte de la déclaration des droits de l’homme",
+        "La doctrine de Monroe",
+        "Les idées révolutionnaires françaises et haïtiennes",
+        "L’indépendance américaine de"
+      ],
+      "correct": "B",
+      "explanation": "La doctrine Monroe (1823) visait à limiter l'intervention européenne dans les Amériques au profit des États-Unis, sans provoquer directement les indépendances latino-américaines.",
+      "category": "Histoire latino-américaine",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E105"
+    },
+    {
+      "question": "Après l’indépendance, Haïti fait face à tous ces problèmes, sauf un, lequel?",
+      "options": [
+        "Les esclavages ployant sous le joug de la servitude",
+        "L’isolement du pays par les grandes puissances",
+        "La ruine économique des plantations",
+        "Les rivalités entre anciens et nouveaux libres pour 1 le pouvoir"
+      ],
+      "correct": "A",
+      "explanation": "Après 1804, l'esclavage était aboli en Haïti : il ne s'agit donc pas d'un problème post-indépendance. L'isolement diplomatique, la ruine économique et les rivalités politiques étaient au contraire réels.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E106"
+    },
+    {
+      "question": "Laquelle de ces mesures peut être considérée comme une cause de l’assassinat de l'Empereur Jacques 1°?",
+      "options": [
+        "La vérification des titres de propriété",
+        "Le contrôle strict du commerce d’exportation",
+        "La militarisation du pays",
+        "L’érection des forts à travers le pays"
+      ],
+      "correct": "A",
+      "explanation": "La vérification des titres de propriété voulue par Dessalines mécontenta les grands propriétaires et l'oligarchie mulâtre, contribuant à sa chute en 1806.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E107"
+    },
+    {
+      "question": "Identifie le groupe de héros de l’indépendance d’Haiti",
+      "options": [
+        "Bolivar — Pétion — Dessalines",
+        "Dessalines — Pétion — Christophe",
+        "San Martin — Dessalines — Capois",
+        "Tousssaint — Christophe — Rigaud"
+      ],
+      "correct": "B",
+      "explanation": "Dessalines, Pétion et Christophe sont trois figures majeures de l'indépendance haïtienne. Bolívar et San Martín appartiennent à l'Amérique latino-américaine.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E108"
+    },
+    {
+      "question": "Lequel des critères suivants n’identifie pas les pays pauvres?",
+      "options": [
+        "Taux d’analphabétisme très élevés",
+        "Sous-alimentation avancée",
+        "Faiblesse d’industrialisation",
+        "Beaucoup d’infrastucture (routes, électricié, I télécommunication)"
+      ],
+      "correct": "D",
+      "explanation": "Les pays pauvres manquent d'infrastructures (routes, électricité, télécommunications). Un fort taux d'analphabétisme et une faible industrialisation les caractérisent au contraire.",
+      "category": "Économie",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E109"
+    },
+    {
+      "question": "Après son indépendance en 1825, l’Amérique espagnole devait faire face à tous ces problèmes sauf un. Lequel ?",
+      "options": [
+        "La crise économique et financière",
+        "Une situation d’instabilité sociale et politique",
+        "L'arrivée en grand nombre des noirs.",
+        "La dictature féroce des caudillos"
+      ],
+      "correct": "C",
+      "explanation": "L'arrivée massive de Noirs n'était pas un problème général des républiques hispaniques après leurs indépendances. Instabilité politique, crise économique et caudillos dominèrent cette période.",
+      "category": "Histoire latino-américaine",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E110"
+    },
+    {
+      "question": "L’un des faits ci-dessous marque l’histoire de I l’humanité après 1960. Lequel ?",
+      "options": [
+        "La décolonisation de l’Afrique",
+        "L'indépendance d'Haïti",
+        "Le triomphe de la révolution chinoise",
+        "L’effondrement de l’Empire russe"
+      ],
+      "correct": "A",
+      "explanation": "La décolonisation de l'Afrique est un fait majeur après 1960. L'indépendance d'Haïti (1804), la révolution chinoise (1949) et l'effondrement de l'Empire russe (1917) sont antérieurs.",
+      "category": "Histoire mondiale",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "H9E111"
+    },
+    {
+      "question": "Le Néocolonialisme constitue un frein au développement | à des pays pauvres par le fait qu’il favorise:",
+      "options": [
+        "l’unité culturelle",
+        "la persistance de la domination étrangère",
+        "l’harmonie entre les groupes sociaux",
+        "le développement du commerce"
+      ],
+      "correct": "B",
+      "explanation": "Le néocolonialisme maintient une domination économique et politique des pays riches sur les pays pauvres, même après l'indépendance formelle.",
+      "category": "Économie",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E112"
+    },
+    {
+      "question": "Laquelle des revendications suivantes formules par le Leader paysan Acaau a été d’ordre politique ?",
+      "options": [
+        "une justice sociale pour tous",
+        "une égalité sans ambiguïté",
+        "un partage équitable des terres",
+        "un noir à la présidence"
+      ],
+      "correct": "D",
+      "explanation": "La revendication « un noir à la présidence » était explicitement politique. Les autres revendications des Piquets concernaient surtout la justice sociale et le partage des terres.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E113"
+    },
+    {
+      "question": "Fen 19° ak kômansman 20° syèk, lè Ameriken t’ap mache anvayi peyi nan Karayib la, yo te vle",
+      "options": [
+        "mete demokrasi sou pye nan Karayib la",
+        "kontwole tout sa ki gen rapô ak lajan e ak komès nan 221 Karayib la",
+        "ede devlopman endistriyèl pran jarèt nan Karayib la",
+        "pèmèt moun ki nan Karayib la vwayaje"
+      ],
+      "correct": "B",
+      "explanation": "Au début du XXe siècle, les États-Unis cherchaient surtout à contrôler les routes commerciales, les investissements et les ressources économiques dans la Caraïbe.",
+      "category": "Histoire d'Haïti",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "id": "H9E114"
+    },
+    {
+      "question": "Carte physique montre",
+      "options": [
+        "relief et cours d'eau",
+        "votes",
+        "prix",
+        "lois"
+      ],
+      "correct": "A",
+      "explanation": "Relief naturel.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E115"
+    },
+    {
+      "question": "Droits humains : universels et",
+      "options": [
+        "indivisibles",
+        "optionnels",
+        "seulement riches",
+        "seulement hommes"
+      ],
+      "correct": "A",
+      "explanation": "DUDH 1948.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E116"
+    },
+    {
+      "question": "OPEP contrôle part de",
+      "options": [
+        "pétrole mondial",
+        "eau",
+        "air",
+        "nuages"
+      ],
+      "correct": "A",
+      "explanation": "Cartel pétrolier.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E117"
+    },
+    {
+      "question": "Passeport : document de",
+      "options": [
+        "identité et voyage",
+        "musique",
+        "cuisine",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Voyage international.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E118"
+    },
+    {
+      "question": "Opposition : parti qui n'est pas",
+      "options": [
+        "au pouvoir",
+        "toujours au pouvoir",
+        "juge",
+        "maire"
+      ],
+      "correct": "A",
+      "explanation": "Contrepouvoir.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E119"
+    },
+    {
+      "question": "Dumping : vendre à prix",
+      "options": [
+        "inférieur au marché",
+        "double",
+        "triple",
+        "quadruple"
+      ],
+      "correct": "A",
+      "explanation": "Pratique commerciale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E120"
+    },
+    {
+      "question": "Qui fut le premier chef d'État noir indépendant d'Haïti ?",
+      "options": [
+        "Jean-Jacques Dessalines",
+        "Toussaint Louverture",
+        "Henri Christophe",
+        "Alexandre Pétion"
+      ],
+      "correct": "A",
+      "explanation": "Dessalines proclame l'indépendance en 1804.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E121"
+    },
+    {
+      "question": "Guerre d'Espagne (1936-1939) précède :",
+      "options": [
+        "WWII",
+        "WWI",
+        "Guerre froide",
+        "Révolution française"
+      ],
+      "correct": "A",
+      "explanation": "Conflit avant WWII.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E122"
+    },
+    {
+      "question": "Ransomware : rançongiciel",
+      "options": [
+        "malveillant",
+        "bénéfique",
+        "sportif",
+        "musical"
+      ],
+      "correct": "A",
+      "explanation": "Cyberattaque.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E123"
+    },
+    {
+      "question": "Firewall : pare-feu",
+      "options": [
+        "réseau",
+        "porte ouverte",
+        "virus",
+        "spam"
+      ],
+      "correct": "A",
+      "explanation": "Sécurité.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E124"
+    },
+    {
+      "question": "Déflation : baisse générale des",
+      "options": [
+        "prix",
+        "nuages",
+        "sables",
+        "glaces"
+      ],
+      "correct": "A",
+      "explanation": "Rare mais possible.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E125"
+    },
+    {
+      "question": "Drone : véhicule",
+      "options": [
+        "aérien sans pilote",
+        "sous-marin",
+        "souterrain",
+        "lunaire"
+      ],
+      "correct": "A",
+      "explanation": "UAV.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E126"
+    },
+    {
+      "question": "Charte des Nations unies signée en",
+      "options": [
+        "1945",
+        "1789",
+        "1804",
+        "2001"
+      ],
+      "correct": "A",
+      "explanation": "Fondation ONU.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E127"
+    },
+    {
+      "question": "Quelle ville est le chef-lieu du département Sud-Est ?",
+      "options": [
+        "Jacmel",
+        "Cap-Haïtien",
+        "Port-de-Paix",
+        "Hinche"
+      ],
+      "correct": "A",
+      "explanation": "Jacmel est le chef-lieu du Sud-Est.",
+      "category": "Géographie haïtienne",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E128"
+    },
+    {
+      "question": "Suez en",
+      "options": [
+        "Égypte",
+        "Haïti",
+        "Jamaïque",
+        "Cuba"
+      ],
+      "correct": "A",
+      "explanation": "Mer Rouge.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E129"
+    },
+    {
+      "question": "Président haïtien élu pour",
+      "options": [
+        "5 ans",
+        "10 ans",
+        "vie",
+        "1 mois"
+      ],
+      "correct": "A",
+      "explanation": "Mandat constitutionnel.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E130"
+    },
+    {
+      "question": "Le panafricanisme promeut :",
+      "options": [
+        "l'unité et la dignité africaine",
+        "la colonisation",
+        "l'isolationnisme",
+        "la monarchie absolue"
+      ],
+      "correct": "A",
+      "explanation": "Idée d'unité africaine.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E131"
+    },
+    {
+      "question": "Urbanisation : croissance des",
+      "options": [
+        "villes",
+        "forêts",
+        "déserts",
+        "océans"
+      ],
+      "correct": "A",
+      "explanation": "Concentration urbaine.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E132"
+    },
+    {
+      "question": "Smuggling =",
+      "options": [
+        "contrebande",
+        "commerce légal",
+        "don",
+        "aide"
+      ],
+      "correct": "A",
+      "explanation": "Passage illicite.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E133"
+    },
+    {
+      "question": "Le mur de Berlin est construit en :",
+      "options": [
+        "1961",
+        "1945",
+        "1989",
+        "1956"
+      ],
+      "correct": "A",
+      "explanation": "Le mur divise Berlin de 1961 à 1989.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E134"
+    },
+    {
+      "question": "Transparency International combat",
+      "options": [
+        "corruption",
+        "transparence",
+        "honnêteté",
+        "équité"
+      ],
+      "correct": "A",
+      "explanation": "Indice corruption.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E135"
+    },
+    {
+      "question": "Golfe de la Gonâve borde l'ouest de :",
+      "options": [
+        "Haïti",
+        "Cuba",
+        "Jamaïque",
+        "Bahamas"
+      ],
+      "correct": "A",
+      "explanation": "Entre Haïti et île de la Gonâve.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E136"
+    },
+    {
+      "question": "Fake news :",
+      "options": [
+        "fausses informations",
+        "vérité",
+        "science",
+        "stats"
+      ],
+      "correct": "A",
+      "explanation": "Désinformation.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E137"
+    },
+    {
+      "question": "IPO : introduction en",
+      "options": [
+        "bourse",
+        "prison",
+        "école",
+        "hôpital"
+      ],
+      "correct": "A",
+      "explanation": "Marché actions.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E138"
+    },
+    {
+      "question": "Start-up : jeune entreprise",
+      "options": [
+        "innovante",
+        "centenaire",
+        "étatique",
+        "coloniale"
+      ],
+      "correct": "A",
+      "explanation": "Innovation.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E139"
+    },
+    {
+      "question": "Le siège de l'ONU est à :",
+      "options": [
+        "New York",
+        "Genève",
+        "Paris",
+        "Washington"
+      ],
+      "correct": "A",
+      "explanation": "Siège principal à New York.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E140"
+    },
+    {
+      "question": "L'URSS est l'acronyme de :",
+      "options": [
+        "Union des Républiques socialistes soviétiques",
+        "Union des États scandinaves",
+        "Union sud-américaine",
+        "Unité soviétique du Sud"
+      ],
+      "correct": "A",
+      "explanation": "URSS = Union soviétique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E141"
+    },
+    {
+      "question": "La déclaration des droits de l'homme et du citoyen date de :",
+      "options": [
+        "1789",
+        "1776",
+        "1804",
+        "1848"
+      ],
+      "correct": "A",
+      "explanation": "Révolution française — 1789.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E142"
+    },
+    {
+      "question": "La guerre du Vietnam se termine en :",
+      "options": [
+        "1975",
+        "1945",
+        "1962",
+        "1991"
+      ],
+      "correct": "A",
+      "explanation": "Chute de Saigon — 1975.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E143"
+    },
+    {
+      "question": "Coalition : alliance de",
+      "options": [
+        "partis",
+        "montagnes",
+        "océans",
+        "volcans"
+      ],
+      "correct": "A",
+      "explanation": "Gouvernement multipartite.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E144"
+    },
+    {
+      "question": "DevOps : dev +",
+      "options": [
+        "opérations",
+        "marketing",
+        "danse",
+        "sport"
+      ],
+      "correct": "A",
+      "explanation": "CI/CD.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E145"
+    },
+    {
+      "question": "Immigration : déménager vers",
+      "options": [
+        "un autre pays",
+        "une autre maison",
+        "un autre quartier",
+        "un autre lit"
+      ],
+      "correct": "A",
+      "explanation": "Changement de nationalité/résidence.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E146"
+    },
+    {
+      "question": "Transparence gouvernementale favorise",
+      "options": [
+        "confiance citoyenne",
+        "secret total",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Gouvernance ouverte.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E147"
+    },
+    {
+      "question": "Climat tropical haïtien :",
+      "options": [
+        "chaud et humide",
+        "polaire",
+        "désertique sec",
+        "glacial"
+      ],
+      "correct": "A",
+      "explanation": "Climat tropical.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E148"
+    },
+    {
+      "question": "Nationalisme : valorisation de la",
+      "options": [
+        "nation",
+        "colonie",
+        "empire étranger",
+        "invasion"
+      ],
+      "correct": "A",
+      "explanation": "Identité nationale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E149"
+    },
+    {
+      "question": "Globalisation : intensification des échanges",
+      "options": [
+        "mondiaux",
+        "locaux seuls",
+        "familiaux",
+        "inexistants"
+      ],
+      "correct": "A",
+      "explanation": "Interconnexion planétaire.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E150"
+    },
+    {
+      "question": "Streaming : diffusion",
+      "options": [
+        "continue en ligne",
+        "cassette",
+        "vinyle seul",
+        "pierre"
+      ],
+      "correct": "A",
+      "explanation": "Netflix etc.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E151"
+    },
+    {
+      "question": "Quarantaine : isolement",
+      "options": [
+        "14-21 jours typique",
+        "1 seconde",
+        "0 jour",
+        "100 ans"
+      ],
+      "correct": "A",
+      "explanation": "Santé.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E152"
+    },
+    {
+      "question": "Chute de l'URSS :",
+      "options": [
+        "1991",
+        "1961",
+        "1945",
+        "2005"
+      ],
+      "correct": "A",
+      "explanation": "Dissolution soviétique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E153"
+    },
+    {
+      "question": "Apartheid commence officiellement vers :",
+      "options": [
+        "1948",
+        "1804",
+        "1914",
+        "1994"
+      ],
+      "correct": "A",
+      "explanation": "Régime institutionnel.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E154"
+    },
+    {
+      "question": "Enfant soldat : violation des",
+      "options": [
+        "droits de l'enfant",
+        "droits du foot",
+        "droits du cinéma",
+        "droits du jeu"
+      ],
+      "correct": "A",
+      "explanation": "Interdiction internationale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E155"
+    },
+    {
+      "question": "App store distribue",
+      "options": [
+        "applications",
+        "nourriture",
+        "vêtements",
+        "meubles"
+      ],
+      "correct": "A",
+      "explanation": "Marketplace.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E156"
+    },
+    {
+      "question": "Quelle ville est le chef-lieu du département Ouest ?",
+      "options": [
+        "Les Cayes",
+        "Cap-Haïtien",
+        "Jacmel",
+        "Port-au-Prince"
+      ],
+      "correct": "D",
+      "explanation": "Port-au-Prince est le chef-lieu du Ouest.",
+      "category": "Géographie haïtienne",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E157"
+    },
+    {
+      "question": "Android : OS",
+      "options": [
+        "mobile Google",
+        "desktop seul",
+        "serveur seul",
+        "lune"
+      ],
+      "correct": "A",
+      "explanation": "Smartphones.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E158"
+    },
+    {
+      "question": "Journalisme vérifie les",
+      "options": [
+        "sources",
+        "rêves",
+        "mensonges",
+        "secrets"
+      ],
+      "correct": "A",
+      "explanation": "Démarche pro.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E159"
+    },
+    {
+      "question": "Fascisme : idéologie",
+      "options": [
+        "autoritaire nationale",
+        "démocratique",
+        "libertaire",
+        "pacifique"
+      ],
+      "correct": "A",
+      "explanation": "Extrême droite.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E160"
+    },
+    {
+      "question": "UNICEF aide les",
+      "options": [
+        "enfants",
+        "entreprises",
+        "dictateurs",
+        "armées"
+      ],
+      "correct": "A",
+      "explanation": "Fonds ONU enfance.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E161"
+    },
+    {
+      "question": "Strait of Hormuz : pétrole",
+      "options": [
+        "moyen-oriental",
+        "arctique",
+        "antarctique",
+        "lunaire"
+      ],
+      "correct": "A",
+      "explanation": "Géopolitique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E162"
+    },
+    {
+      "question": "Coupe du monde FIFA tous les",
+      "options": [
+        "4 ans",
+        "1 an",
+        "10 ans",
+        "20 ans"
+      ],
+      "correct": "A",
+      "explanation": "Tournoi football.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E163"
+    },
+    {
+      "question": "Carte politique montre",
+      "options": [
+        "frontières et États",
+        "températures",
+        "nuages",
+        "rêves"
+      ],
+      "correct": "A",
+      "explanation": "Divisions politiques.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E164"
+    },
+    {
+      "question": "Brésil : capitale",
+      "options": [
+        "Brasília",
+        "Rio",
+        "São Paulo",
+        "Salvador"
+      ],
+      "correct": "A",
+      "explanation": "Capitale fédérale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E165"
+    },
+    {
+      "question": "Abraham Lincoln associe à :",
+      "options": [
+        "abolition de l'esclavage (USA)",
+        "WWI",
+        "WWII",
+        "Révolution française"
+      ],
+      "correct": "A",
+      "explanation": "Proclamation d'émancipation.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E166"
+    },
+    {
+      "question": "Violence domestique : crime à",
+      "options": [
+        "condamner",
+        "encourager",
+        "ignorer",
+        "célébrer"
+      ],
+      "correct": "A",
+      "explanation": "Protection victimes.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E167"
+    },
+    {
+      "question": "Droit international : tribunal à",
+      "options": [
+        "La Haye",
+        "Miami",
+        "Tokyo",
+        "Sydney"
+      ],
+      "correct": "A",
+      "explanation": "Cour internationale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E168"
+    },
+    {
+      "question": "Le Brexit concerne le retrait du :",
+      "options": [
+        "Royaume-Uni de l'UE",
+        "France de l'OTAN",
+        "USA de l'ONU",
+        "Canada de la CARICOM"
+      ],
+      "correct": "A",
+      "explanation": "Référendum 2016, sortie 2020.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E169"
+    },
+    {
+      "question": "Lobby : groupe de",
+      "options": [
+        "pression",
+        "danse",
+        "sport",
+        "cuisine"
+      ],
+      "correct": "A",
+      "explanation": "Influence politique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E170"
+    },
+    {
+      "question": "Citoyenneté : droit de vote =",
+      "options": [
+        "suffrage",
+        "taxe",
+        "douane",
+        "monopole"
+      ],
+      "correct": "A",
+      "explanation": "Participation politique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E171"
+    },
+    {
+      "question": "Printemps arabe : vague de",
+      "options": [
+        "protests et révolutions",
+        "neige",
+        "sécheresse",
+        "volcan"
+      ],
+      "correct": "A",
+      "explanation": "Début 2011 région MENA.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E172"
+    },
+    {
+      "question": "Développement durable : équilibre",
+      "options": [
+        "économie, social, environnement",
+        "guerre, pollution, pauvreté",
+        "dictature",
+        "colonialisme"
+      ],
+      "correct": "A",
+      "explanation": "Trois piliers.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E173"
+    },
+    {
+      "question": "Khrushchev dirigeait :",
+      "options": [
+        "URSS",
+        "USA",
+        "France",
+        "UK"
+      ],
+      "correct": "A",
+      "explanation": "Dirigeant soviétique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E174"
+    },
+    {
+      "question": "NASDAQ : marché",
+      "options": [
+        "technologique (USA)",
+        "agricole",
+        "forestier",
+        "pêche"
+      ],
+      "correct": "A",
+      "explanation": "Bourse tech.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E175"
+    },
+    {
+      "question": "Relativité : Einstein — espace et",
+      "options": [
+        "temps",
+        "couleur",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Physique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E176"
+    },
+    {
+      "question": "Rara : tradition musicale",
+      "options": [
+        "haïtienne",
+        "japonaise",
+        "scandinave",
+        "arctique"
+      ],
+      "correct": "A",
+      "explanation": "Période pascale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E177"
+    },
+    {
+      "question": "Afrique : plus grand pays en superficie",
+      "options": [
+        "Algérie",
+        "Rwanda",
+        "Lesotho",
+        "Swaziland"
+      ],
+      "correct": "A",
+      "explanation": "2,38M km².",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E178"
+    },
+    {
+      "question": "Ambassade représente un pays",
+      "options": [
+        "à l'étranger",
+        "dans l'espace",
+        "sous l'eau",
+        "sur la lune"
+      ],
+      "correct": "A",
+      "explanation": "Mission diplomatique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E179"
+    },
+    {
+      "question": "Gig economy : petits jobs via",
+      "options": [
+        "plateformes",
+        "couronne",
+        "trône",
+        "château"
+      ],
+      "correct": "A",
+      "explanation": "Uber, etc.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E180"
+    },
+    {
+      "question": "Chômage : personnes sans",
+      "options": [
+        "emploi cherchant travail",
+        "vacances",
+        "loisirs",
+        "rêves"
+      ],
+      "correct": "A",
+      "explanation": "Indicateur économique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E181"
+    },
+    {
+      "question": "Web3 : internet",
+      "options": [
+        "décentralisé",
+        "centralisé seul",
+        "fermé",
+        "secret"
+      ],
+      "correct": "A",
+      "explanation": "Blockchain web.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E182"
+    },
+    {
+      "question": "Neural network : réseau de",
+      "options": [
+        "neurones artificiels",
+        "pierre",
+        "bois",
+        "sable"
+      ],
+      "correct": "A",
+      "explanation": "Deep learning.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E183"
+    },
+    {
+      "question": "Secteur tertiaire :",
+      "options": [
+        "services",
+        "mines",
+        "pêche",
+        "foresterie"
+      ],
+      "correct": "A",
+      "explanation": "Commerce, santé, éducation.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E184"
+    },
+    {
+      "question": "PAM : programme alimentaire",
+      "options": [
+        "mondial",
+        "lunaire",
+        "martien",
+        "solaire"
+      ],
+      "correct": "A",
+      "explanation": "WFP.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E185"
+    },
+    {
+      "question": "Quel océan borde Haïti au nord ?",
+      "options": [
+        "l'Atlantique",
+        "le Pacifique",
+        "l'Indien",
+        "l'Arctique"
+      ],
+      "correct": "A",
+      "explanation": "Haïti est dans l'Atlantique nord.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E186"
+    },
+    {
+      "question": "Méta données : données sur",
+      "options": [
+        "données",
+        "rien",
+        "rêves",
+        "nuages"
+      ],
+      "correct": "A",
+      "explanation": "Metadata.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E187"
+    },
+    {
+      "question": "Internet commercialise dans les",
+      "options": [
+        "1990s",
+        "1750s",
+        "1850s",
+        "1650s"
+      ],
+      "correct": "A",
+      "explanation": "Réseau mondial.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E188"
+    },
+    {
+      "question": "Démographie : natalité élevée =",
+      "options": [
+        "taux de natalité haut",
+        "mortalité haute",
+        "émigration nulle",
+        "zéro enfants"
+      ],
+      "correct": "A",
+      "explanation": "Nombre de naissances.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E189"
+    },
+    {
+      "question": "Stalin dirige :",
+      "options": [
+        "URSS",
+        "USA",
+        "UK",
+        "France"
+      ],
+      "correct": "A",
+      "explanation": "Leader soviétique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E190"
+    },
+    {
+      "question": "Émigration : quitter son pays pour",
+      "options": [
+        "vivre ailleurs",
+        "rester",
+        "ne jamais bouger",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Sortie du territoire.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E191"
+    },
+    {
+      "question": "Palais Sans-Souci situé à :",
+      "options": [
+        "Milot (Nord)",
+        "Port-au-Prince",
+        "Jacmel",
+        "Les Cayes"
+      ],
+      "correct": "A",
+      "explanation": "Résidence de Christophe.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E192"
+    },
+    {
+      "question": "Lune : satellite de la",
+      "options": [
+        "Terre",
+        "Mars",
+        "Jupiter",
+        "Soleil"
+      ],
+      "correct": "A",
+      "explanation": "Satellite.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E193"
+    },
+    {
+      "question": "Marathon : course de",
+      "options": [
+        "42,195 km",
+        "1 km",
+        "100 m",
+        "10 m"
+      ],
+      "correct": "A",
+      "explanation": "Distance officielle.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E194"
+    },
+    {
+      "question": "COVID-19 déclarée pandémie en",
+      "options": [
+        "2020",
+        "1804",
+        "1914",
+        "1991"
+      ],
+      "correct": "A",
+      "explanation": "Coronavirus.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E195"
+    },
+    {
+      "question": "Influenceur : marketing",
+      "options": [
+        "social",
+        "politique seul",
+        "militaire",
+        "judiciaire"
+      ],
+      "correct": "A",
+      "explanation": "Creator.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E196"
+    },
+    {
+      "question": "Électricité révolutionne",
+      "options": [
+        "industrie et vie quotidienne",
+        "rien",
+        "seulement foot",
+        "seulement art"
+      ],
+      "correct": "A",
+      "explanation": "Second industrial.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E197"
+    },
+    {
+      "question": "Quelle ville est le chef-lieu du département Nord ?",
+      "options": [
+        "Hinche",
+        "Port-au-Prince",
+        "Jacmel",
+        "Cap-Haïtien"
+      ],
+      "correct": "D",
+      "explanation": "Cap-Haïtien est le chef-lieu du Nord.",
+      "category": "Géographie haïtienne",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E198"
+    },
+    {
+      "question": "Patriotisme : amour du",
+      "options": [
+        "pays",
+        "étranger",
+        "rival",
+        "ennemi"
+      ],
+      "correct": "A",
+      "explanation": "Loyauté nationale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E199"
+    },
+    {
+      "question": "Intelligence artificielle : apprentissage",
+      "options": [
+        "automatique",
+        "manuel seul",
+        "aucun",
+        "interdit"
+      ],
+      "correct": "A",
+      "explanation": "IA/ML.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E200"
+    },
+    {
+      "question": "Banque mondiale aide au",
+      "options": [
+        "développement",
+        "conflit armé",
+        "censure",
+        "dictature"
+      ],
+      "correct": "A",
+      "explanation": "Projets de développement.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E201"
+    },
+    {
+      "question": "Machine learning apprend depuis",
+      "options": [
+        "données",
+        "rien",
+        "rêves",
+        "nuages"
+      ],
+      "correct": "A",
+      "explanation": "ML.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E202"
+    },
+    {
+      "question": "Santé publique : vaccination prévient",
+      "options": [
+        "maladies",
+        "routes",
+        "volcans",
+        "tides"
+      ],
+      "correct": "A",
+      "explanation": "Immunisation.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E203"
+    },
+    {
+      "question": "Quel traité reconnaît l'indépendance d'Haïti en 1825 ?",
+      "options": [
+        "Accord avec France (indemnité)",
+        "Traité de Versailles",
+        "Traité de Ghent",
+        "Traité de Paris 1783"
+      ],
+      "correct": "A",
+      "explanation": "France exige une indemnité en 1825.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E204"
+    },
+    {
+      "question": "Big data : analyse de",
+      "options": [
+        "grandes données",
+        "zéro donnée",
+        "une donnée",
+        "rêves"
+      ],
+      "correct": "A",
+      "explanation": "Analytics.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E205"
+    },
+    {
+      "question": "Code postal haïtien : format",
+      "options": [
+        "4 chiffres",
+        "2 lettres",
+        "6 chiffres",
+        "8 chiffres"
+      ],
+      "correct": "A",
+      "explanation": "Système postal national.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E206"
+    },
+    {
+      "question": "Néocolonialisme : contrôle",
+      "options": [
+        "économique indirect",
+        "direct militaire seul",
+        "aucun",
+        "musical"
+      ],
+      "correct": "A",
+      "explanation": "Dépendance.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E207"
+    },
+    {
+      "question": "Bug :",
+      "options": [
+        "erreur logicielle",
+        "feature",
+        "cadeau",
+        "bonus"
+      ],
+      "correct": "A",
+      "explanation": "Défaut code.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E208"
+    },
+    {
+      "question": "La Révolution haïtienne débute en :",
+      "options": [
+        "1791",
+        "1776",
+        "1804",
+        "1843"
+      ],
+      "correct": "A",
+      "explanation": "Le soulèvement des esclaves commence en 1791 à Saint-Domingue.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E209"
+    },
+    {
+      "question": "Sur une carte, l'échelle 1/50 000 signifie",
+      "options": [
+        "1 cm = 500 m",
+        "1 cm = 5 m",
+        "1 cm = 50 km",
+        "1 cm = 5 km"
+      ],
+      "correct": "A",
+      "explanation": "1/50000 × 100m = 500m.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E210"
+    },
+    {
+      "question": "Haïti — fête nationale indépendance :",
+      "options": [
+        "1er janvier",
+        "14 juillet",
+        "4 juillet",
+        "25 décembre"
+      ],
+      "correct": "A",
+      "explanation": "1804 — Nouvel An.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E211"
+    },
+    {
+      "question": "Démocratie : pouvoir vient du",
+      "options": [
+        "peuple",
+        "roi",
+        "armée",
+        "église seule"
+      ],
+      "correct": "A",
+      "explanation": "Souveraineté populaire.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E212"
+    },
+    {
+      "question": "IoT : objets",
+      "options": [
+        "connectés",
+        "déconnectés",
+        "interdits",
+        "cassés"
+      ],
+      "correct": "A",
+      "explanation": "Internet des objets.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E213"
+    },
+    {
+      "question": "Fusion nucléaire : énergie des",
+      "options": [
+        "étoiles",
+        "nuages",
+        "rochers",
+        "sables"
+      ],
+      "correct": "A",
+      "explanation": "Réaction stellaire.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E214"
+    },
+    {
+      "question": "Monopole : un seul vendeur contrôle",
+      "options": [
+        "le marché",
+        "rien",
+        "tout le monde",
+        "aucun produit"
+      ],
+      "correct": "A",
+      "explanation": "Absence concurrence.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E215"
+    },
+    {
+      "question": "Pollution : CO₂ contribue au",
+      "options": [
+        "changement climatique",
+        "ralentissement Terre",
+        "augmentation gravité",
+        "plus de lunes"
+      ],
+      "correct": "A",
+      "explanation": "Gaz à effet de serre.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E216"
+    },
+    {
+      "question": "Union européenne fondée (traité de Rome) :",
+      "options": [
+        "1957",
+        "1789",
+        "1919",
+        "2001"
+      ],
+      "correct": "A",
+      "explanation": "CEE — Rome 1957.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E217"
+    },
+    {
+      "question": "Adolf Hitler dirige :",
+      "options": [
+        "l'Allemagne nazie",
+        "l'Italie fasciste",
+        "la France",
+        "l'URSS"
+      ],
+      "correct": "A",
+      "explanation": "Troisième Reich — 1933-1945.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E218"
+    },
+    {
+      "question": "Énergie renouvelable :",
+      "options": [
+        "solaire, éolien",
+        "charbon seul",
+        "pétrole seul",
+        "bois seul"
+      ],
+      "correct": "A",
+      "explanation": "Alternatives fossiles.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E219"
+    },
+    {
+      "question": "Chine : politique « une seule »",
+      "options": [
+        "Chine",
+        "deux Chines",
+        "trois Chines",
+        "zéro"
+      ],
+      "correct": "A",
+      "explanation": "Taiwan question.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E220"
+    },
+    {
+      "question": "Napoléon Bonaparte devient empereur en :",
+      "options": [
+        "1804",
+        "1789",
+        "1815",
+        "1792"
+      ],
+      "correct": "A",
+      "explanation": "Empire français — 1804.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E221"
+    },
+    {
+      "question": "Windows : OS de",
+      "options": [
+        "Microsoft",
+        "Apple seul",
+        "lune",
+        "mars"
+      ],
+      "correct": "A",
+      "explanation": "PC dominant.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E222"
+    },
+    {
+      "question": "La carte : légende indique",
+      "options": [
+        "les symboles utilisés",
+        "le prix des produits",
+        "les noms des enfants",
+        "les recettes"
+      ],
+      "correct": "A",
+      "explanation": "Lecture cartographique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E223"
+    },
+    {
+      "question": "La monnaie de l'Union européenne est :",
+      "options": [
+        "l'euro",
+        "le dollar",
+        "la livre",
+        "le yen"
+      ],
+      "correct": "A",
+      "explanation": "Euro depuis 1999/2002.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E224"
+    },
+    {
+      "question": "Excel : tableur",
+      "options": [
+        "Microsoft",
+        "peinture",
+        "musique",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Feuille calcul.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E225"
+    },
+    {
+      "question": "Décolonisation : accès à",
+      "options": [
+        "l'indépendance",
+        "nouvelle colonisation",
+        "guerre",
+        "silence"
+      ],
+      "correct": "A",
+      "explanation": "Libération.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E226"
+    },
+    {
+      "question": "Saison des pluies en Haïti :",
+      "options": [
+        "printemps-été",
+        "décembre seul",
+        "aucune pluie",
+        "neige"
+      ],
+      "correct": "A",
+      "explanation": "Saison pluvieuse.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E227"
+    },
+    {
+      "question": "Canal de Panama en",
+      "options": [
+        "Panama",
+        "Haïti",
+        "France",
+        "Kenya"
+      ],
+      "correct": "A",
+      "explanation": "Amérique centrale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E228"
+    },
+    {
+      "question": "Open source : code",
+      "options": [
+        "ouvert",
+        "secret",
+        "interdit",
+        "payant seul"
+      ],
+      "correct": "A",
+      "explanation": "Logiciel libre.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E229"
+    },
+    {
+      "question": "Balance commerciale : exportations −",
+      "options": [
+        "importations",
+        "population",
+        "température",
+        "nuages"
+      ],
+      "correct": "A",
+      "explanation": "Solde commercial.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E230"
+    },
+    {
+      "question": "Domaine internet Haïti :",
+      "options": [
+        ".ht",
+        ".us",
+        ".fr",
+        ".uk"
+      ],
+      "correct": "A",
+      "explanation": "ccTLD.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E231"
+    },
+    {
+      "question": "Citadelle Laferrière construite par :",
+      "options": [
+        "Henri Christophe",
+        "Dessalines",
+        "Boyer",
+        "Pétion"
+      ],
+      "correct": "A",
+      "explanation": "Forteresse du Nord — XIXe.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E232"
+    },
+    {
+      "question": "Masque protège contre",
+      "options": [
+        "gouttelettes",
+        "gravité",
+        "magnétisme",
+        "lumière"
+      ],
+      "correct": "A",
+      "explanation": "COVID.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E233"
+    },
+    {
+      "question": "Fair play :",
+      "options": [
+        "jeu loyal",
+        "triche",
+        "violence",
+        "corruption"
+      ],
+      "correct": "A",
+      "explanation": "Éthique sportive.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E234"
+    },
+    {
+      "question": "Électricité EDH :",
+      "options": [
+        "Électricité d'Haïti",
+        "EDF",
+        "Con Edison",
+        "National Grid"
+      ],
+      "correct": "A",
+      "explanation": "Service public.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E235"
+    },
+    {
+      "question": "Haïti — ministère éducation :",
+      "options": [
+        "MENFP",
+        "NBA",
+        "FIFA",
+        "NATO"
+      ],
+      "correct": "A",
+      "explanation": "Éducation nationale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E236"
+    },
+    {
+      "question": "Quelle ville est le chef-lieu du département Sud ?",
+      "options": [
+        "Fort-Liberté",
+        "Miragoâne",
+        "Hinche",
+        "Les Cayes"
+      ],
+      "correct": "D",
+      "explanation": "Les Cayes est le chef-lieu du Sud.",
+      "category": "Géographie haïtienne",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E237"
+    },
+    {
+      "question": "Stem cells : cellules",
+      "options": [
+        "souches",
+        "pierre",
+        "bois",
+        "sable"
+      ],
+      "correct": "A",
+      "explanation": "Médecine.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E238"
+    },
+    {
+      "question": "Phishing : hameçonnage par",
+      "options": [
+        "faux emails",
+        "sport",
+        "danse",
+        "peinture"
+      ],
+      "correct": "A",
+      "explanation": "Fraude en ligne.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E239"
+    },
+    {
+      "question": "Sondage mesure",
+      "options": [
+        "opinion",
+        "température",
+        "altitude",
+        "gravité"
+      ],
+      "correct": "A",
+      "explanation": "Opinion publique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E240"
+    },
+    {
+      "question": "Métavers : espace",
+      "options": [
+        "virtuel immersif",
+        "réel seul",
+        "interdit",
+        "ancien"
+      ],
+      "correct": "A",
+      "explanation": "VR/AR social.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E241"
+    },
+    {
+      "question": "Inde : capitale",
+      "options": [
+        "New Delhi",
+        "Mumbai",
+        "Calcutta",
+        "Chennai"
+      ],
+      "correct": "A",
+      "explanation": "Capitale administrative.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E242"
+    },
+    {
+      "question": "Méridien de Greenwich : longitude",
+      "options": [
+        "0°",
+        "90°",
+        "180°",
+        "45°"
+      ],
+      "correct": "A",
+      "explanation": "Référence longitude.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E243"
+    },
+    {
+      "question": "Sanctions Russie liées à",
+      "options": [
+        "guerre",
+        "sport",
+        "art",
+        "cuisine"
+      ],
+      "correct": "A",
+      "explanation": "Mesures occidentales.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E244"
+    },
+    {
+      "question": "Amendement : modification de la",
+      "options": [
+        "constitution",
+        "couleur drapeau",
+        "musique",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Révision constitutionnelle.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E245"
+    },
+    {
+      "question": "Dopage : substances",
+      "options": [
+        "interdites",
+        "obligatoires",
+        "salutaires",
+        "neutres"
+      ],
+      "correct": "A",
+      "explanation": "Anti-dopage.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E246"
+    },
+    {
+      "question": "Blockchain enregistre des",
+      "options": [
+        "transactions décentralisées",
+        "rêves",
+        "nuages",
+        "vents"
+      ],
+      "correct": "A",
+      "explanation": "Chaîne de blocs.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E247"
+    },
+    {
+      "question": "Nelson Mandela est emprisonné puis devient :",
+      "options": [
+        "président de l'Afrique du Sud",
+        "premier ministre du Kenya",
+        "roi du Ghana",
+        "général en Égypte"
+      ],
+      "correct": "A",
+      "explanation": "Premier président noir post-apartheid.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E248"
+    },
+    {
+      "question": "Paix : traité signé après",
+      "options": [
+        "guerre ou conflit",
+        "avant tout",
+        "jamais",
+        "seulement sport"
+      ],
+      "correct": "A",
+      "explanation": "Accord de paix.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E249"
+    },
+    {
+      "question": "Quelle ville est le chef-lieu du département Nord-Ouest ?",
+      "options": [
+        "Port-de-Paix",
+        "Port-au-Prince",
+        "Hinche",
+        "Gonaïves"
+      ],
+      "correct": "A",
+      "explanation": "Port-de-Paix est le chef-lieu du Nord-Ouest.",
+      "category": "Géographie haïtienne",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E250"
+    },
+    {
+      "question": "Smartphone combine",
+      "options": [
+        "téléphone et ordinateur",
+        "voiture et bateau",
+        "maison et route",
+        "mer et montagne"
+      ],
+      "correct": "A",
+      "explanation": "Technologie mobile.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E251"
+    },
+    {
+      "question": "Le Morne à l'UNESCO en Haïti commémore :",
+      "options": [
+        "le combat pour la liberté",
+        "la colonisation française",
+        "la WWI",
+        "la WW2"
+      ],
+      "correct": "A",
+      "explanation": "Site du Morne — patrimoine.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E252"
+    },
+    {
+      "question": "CSS : style",
+      "options": [
+        "visuel web",
+        "son",
+        "odeur",
+        "taste"
+      ],
+      "correct": "A",
+      "explanation": "Design.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E253"
+    },
+    {
+      "question": "Haïti — bicaméral : Chambre des députés et",
+      "options": [
+        "Sénat",
+        "Cour suprême seule",
+        "Mairie",
+        "Église"
+      ],
+      "correct": "A",
+      "explanation": "Parlement.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E254"
+    },
+    {
+      "question": "Guerre froide : course aux",
+      "options": [
+        "armements nucléaires",
+        "poèmes",
+        "tableaux",
+        "fromages"
+      ],
+      "correct": "A",
+      "explanation": "Dissuasion nucléaire.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E255"
+    },
+    {
+      "question": "ONU — objectif développement :",
+      "options": [
+        "ODD 2030",
+        "ODD 1804",
+        "ODD 1492",
+        "ODD 0000"
+      ],
+      "correct": "A",
+      "explanation": "17 objectifs 2030.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E256"
+    },
+    {
+      "question": "Nucléaire utilise",
+      "options": [
+        "uranium",
+        "bois",
+        "papier",
+        "plastique"
+      ],
+      "correct": "A",
+      "explanation": "Fission.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E257"
+    },
+    {
+      "question": "Abolition de la traite (UK) :",
+      "options": [
+        "1807",
+        "1492",
+        "1900",
+        "2000"
+      ],
+      "correct": "A",
+      "explanation": "Loi britannique 1807.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E258"
+    },
+    {
+      "question": "Quand commence la Seconde Guerre mondiale ?",
+      "options": [
+        "1939",
+        "1960",
+        "1945",
+        "1914"
+      ],
+      "correct": "A",
+      "explanation": "Réponse : 1939.",
+      "category": "Seconde Guerre mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E259"
+    },
+    {
+      "question": "Révolution industrielle : machine à",
+      "options": [
+        "vapeur",
+        "papier",
+        "plume",
+        "crayon"
+      ],
+      "correct": "A",
+      "explanation": "Moteur industriel.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E260"
+    },
+    {
+      "question": "Hashtag # organise",
+      "options": [
+        "contenu social",
+        "papier",
+        "bois",
+        "pierre"
+      ],
+      "correct": "A",
+      "explanation": "Tag.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E261"
+    },
+    {
+      "question": "UI : interface",
+      "options": [
+        "utilisateur",
+        "backend",
+        "database",
+        "kernel"
+      ],
+      "correct": "A",
+      "explanation": "Frontend.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E262"
+    },
+    {
+      "question": "L'indépendance de la RD (partie est) date de :",
+      "options": [
+        "1844",
+        "1804",
+        "1821",
+        "1865"
+      ],
+      "correct": "A",
+      "explanation": "Séparation de la partie espagnole.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E263"
+    },
+    {
+      "question": "Irrigation : apport d'",
+      "options": [
+        "eau aux cultures",
+        "sable",
+        "roche",
+        "métal"
+      ],
+      "correct": "A",
+      "explanation": "Agriculture.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E264"
+    },
+    {
+      "question": "Municipalité : élu local =",
+      "options": [
+        "maire",
+        "président monde",
+        "roi",
+        "empereur"
+      ],
+      "correct": "A",
+      "explanation": "Administration locale.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E265"
+    },
+    {
+      "question": "Dark mode : thème",
+      "options": [
+        "sombre",
+        "clair seul",
+        "invisible",
+        "cassé"
+      ],
+      "correct": "A",
+      "explanation": "UI.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E266"
+    },
+    {
+      "question": "Henri Christophe se proclame",
+      "options": [
+        "roi",
+        "empereur",
+        "président à vie",
+        "maire"
+      ],
+      "correct": "A",
+      "explanation": "Royaume du Nord.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E267"
+    },
+    {
+      "question": "Capitalisme : économie de",
+      "options": [
+        "marché",
+        "plan central",
+        "barter seul",
+        "aucun échange"
+      ],
+      "correct": "A",
+      "explanation": "Libre entreprise.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E268"
+    },
+    {
+      "question": "Pluripartisme : plusieurs",
+      "options": [
+        "partis politiques",
+        "un seul parti",
+        "zéro parti",
+        "armée"
+      ],
+      "correct": "A",
+      "explanation": "Démocratie.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E269"
+    },
+    {
+      "question": "USA entre en guerre après",
+      "options": [
+        "Pearl Harbor 1941",
+        "Révolution 1789",
+        "Guerre froide",
+        "WWI 1914"
+      ],
+      "correct": "A",
+      "explanation": "Réponse : Pearl Harbor 1941.",
+      "category": "Seconde Guerre mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E270"
+    },
+    {
+      "question": "Agile : méthode",
+      "options": [
+        "itérative projet",
+        "waterfall seule",
+        "chaos",
+        "rien"
+      ],
+      "correct": "A",
+      "explanation": "Scrum/Kanban.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E271"
+    },
+    {
+      "question": "Pic le plus élevé d'Haïti :",
+      "options": [
+        "Pic la Selle",
+        "Pic Macaya",
+        "Pic du Canigou",
+        "Mont Blanc"
+      ],
+      "correct": "A",
+      "explanation": "2680 m approx.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E272"
+    },
+    {
+      "question": "Algorithme : suite d'",
+      "options": [
+        "instructions",
+        "rêves",
+        "nuages",
+        "vents"
+      ],
+      "correct": "A",
+      "explanation": "Procédure.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E273"
+    },
+    {
+      "question": "Taxe collectée par l'État =",
+      "options": [
+        "impôt",
+        "cadeau",
+        "don anonyme",
+        "loterie forcée"
+      ],
+      "correct": "A",
+      "explanation": "Financement public.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E274"
+    },
+    {
+      "question": "Python : langage",
+      "options": [
+        "programmation populaire",
+        "danse",
+        "sport",
+        "cuisine"
+      ],
+      "correct": "A",
+      "explanation": "Langage.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E275"
+    },
+    {
+      "question": "ONU — siège en Europe (agences) :",
+      "options": [
+        "Genève, Vienne…",
+        "Port-au-Prince",
+        "Jacmel",
+        "Les Cayes"
+      ],
+      "correct": "A",
+      "explanation": "Agences multilatérales.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E276"
+    },
+    {
+      "question": "La Ligue des Nations précède :",
+      "options": [
+        "l'ONU",
+        "l'OTAN",
+        "la CARICOM",
+        "l'Union européenne"
+      ],
+      "correct": "A",
+      "explanation": "Créée en 1919, inefficace.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E277"
+    },
+    {
+      "question": "Printemps des peuples (1848) en Europe :",
+      "options": [
+        "révolutions nationales",
+        "guerre mondiale",
+        "traité de paix",
+        "découverte Amérique"
+      ],
+      "correct": "A",
+      "explanation": "Vague révolutionnaire.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E278"
+    },
+    {
+      "question": "Échelle grande (1/10 000) = zone",
+      "options": [
+        "détaillée petite",
+        "planète entière",
+        "galaxie",
+        "univers"
+      ],
+      "correct": "A",
+      "explanation": "Grand détail local.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E279"
+    },
+    {
+      "question": "Catholicisme en Haïti : religion",
+      "options": [
+        "majoritaire historique",
+        "inexistante",
+        "interdite",
+        "unique légale"
+      ],
+      "correct": "A",
+      "explanation": "Héritage colonial.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E280"
+    },
+    {
+      "question": "Andes : chaîne",
+      "options": [
+        "sud-américaine",
+        "européenne",
+        "africaine",
+        "asiatique"
+      ],
+      "correct": "A",
+      "explanation": "Montagnes.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E281"
+    },
+    {
+      "question": "Earthquake majeur Port-au-Prince :",
+      "options": [
+        "2010",
+        "2004",
+        "2016",
+        "1991"
+      ],
+      "correct": "A",
+      "explanation": "12 janvier 2010.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E282"
+    },
+    {
+      "question": "Tesla : voitures",
+      "options": [
+        "électriques",
+        "charrettes",
+        "chevaux",
+        "voiliers"
+      ],
+      "correct": "A",
+      "explanation": "EV.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E283"
+    },
+    {
+      "question": "Monnaie officielle d'Haïti :",
+      "options": [
+        "gourde haïtienne",
+        "peso",
+        "dollar US",
+        "euro"
+      ],
+      "correct": "A",
+      "explanation": "Code ISO : HTG.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E284"
+    },
+    {
+      "question": "OMS : Organisation mondiale de la",
+      "options": [
+        "Santé",
+        "Guerre",
+        "Foot",
+        "Musique"
+      ],
+      "correct": "A",
+      "explanation": "WHO.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E285"
+    },
+    {
+      "question": "PDF : document",
+      "options": [
+        "portable",
+        "audio",
+        "vidéo seule",
+        "odeur"
+      ],
+      "correct": "A",
+      "explanation": "Format Adobe.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E286"
+    },
+    {
+      "question": "Quelle ville est le chef-lieu du département Artibonite ?",
+      "options": [
+        "Cap-Haïtien",
+        "Fort-Liberté",
+        "Gonaïves",
+        "Port-au-Prince"
+      ],
+      "correct": "C",
+      "explanation": "Gonaïves est le chef-lieu du Artibonite.",
+      "category": "Géographie haïtienne",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E287"
+    },
+    {
+      "question": "Propagande diffuse des",
+      "options": [
+        "idées biaisées",
+        "faits neutres",
+        "silence",
+        "rien"
+      ],
+      "correct": "A",
+      "explanation": "Manipulation opinion.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E288"
+    },
+    {
+      "question": "Quelle ville est le chef-lieu du département Nord-Est ?",
+      "options": [
+        "Jérémie",
+        "Port-de-Paix",
+        "Fort-Liberté",
+        "Cap-Haïtien"
+      ],
+      "correct": "C",
+      "explanation": "Fort-Liberté est le chef-lieu du Nord-Est.",
+      "category": "Géographie haïtienne",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E289"
+    },
+    {
+      "question": "Emoji : pictogramme",
+      "options": [
+        "unicode",
+        "mot",
+        "nombre",
+        "équation"
+      ],
+      "correct": "A",
+      "explanation": "😀.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E290"
+    },
+    {
+      "question": "Basket NBA aux",
+      "options": [
+        "États-Unis",
+        "Haïti seul",
+        "lune",
+        "mars"
+      ],
+      "correct": "A",
+      "explanation": "Ligue US.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E291"
+    },
+    {
+      "question": "La Shoah cible principalement :",
+      "options": [
+        "les Juifs",
+        "les catholiques",
+        "les bouddhistes",
+        "les hindous"
+      ],
+      "correct": "A",
+      "explanation": "Génocide des Juifs par le nazisme.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E292"
+    },
+    {
+      "question": "1492 : quel explorateur atteint les Amériques pour l'Espagne ?",
+      "options": [
+        "Christophe Colomb",
+        "Vasco de Gama",
+        "Magellan",
+        "Marco Polo"
+      ],
+      "correct": "A",
+      "explanation": "Arrivée dans les Caraïbes en 1492.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E293"
+    },
+    {
+      "question": "Importation : acheter depuis",
+      "options": [
+        "l'étranger",
+        "le sous-sol",
+        "la lune",
+        "Mars"
+      ],
+      "correct": "A",
+      "explanation": "Commerce entrant.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E294"
+    },
+    {
+      "question": "Régime nazi dirigé par",
+      "options": [
+        "Hitler",
+        "Stalin",
+        "Churchill",
+        "Roosevelt"
+      ],
+      "correct": "A",
+      "explanation": "Réponse : Hitler.",
+      "category": "Seconde Guerre mondiale",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E295"
+    },
+    {
+      "question": "Obésité : excès de",
+      "options": [
+        "masse grasse",
+        "muscles",
+        "os",
+        "cheveux"
+      ],
+      "correct": "A",
+      "explanation": "Santé publique.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E296"
+    },
+    {
+      "question": "HIPAA protège données",
+      "options": [
+        "santé (USA)",
+        "sport",
+        "musique",
+        "danse"
+      ],
+      "correct": "A",
+      "explanation": "Privacy.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E297"
+    },
+    {
+      "question": "La Grande Dépression commence en :",
+      "options": [
+        "1929",
+        "1914",
+        "1945",
+        "1960"
+      ],
+      "correct": "A",
+      "explanation": "Krach boursier — 1929.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E298"
+    },
+    {
+      "question": "Police : maintien de",
+      "options": [
+        "l'ordre",
+        "chaos",
+        "guerre civile",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Force de l'ordre.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E299"
+    },
+    {
+      "question": "Sécurité alimentaire : accès à",
+      "options": [
+        "nourriture suffisante",
+        "aucune",
+        "interdit",
+        "censure"
+      ],
+      "correct": "A",
+      "explanation": "Faim zéro.",
+      "category": "Histoire",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "H9E300"
+    }
+  ]
+}

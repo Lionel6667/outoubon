@@ -1,0 +1,689 @@
+{
+  "maths": {
+    "1": [
+      "Domaine de définition",
+      "Limites",
+      "Dérivées",
+      "Tableau de variation",
+      "Asymptotes",
+      "Équation de la tangente",
+      "Fonctions paires, impaires et symétrie"
+    ],
+    "2": [
+      "Suites arithmétiques",
+      "Suites géométriques",
+      "Suites affines (U_{n+1}=aU_n+b)"
+    ],
+    "3": [
+      "Les trois formes d'un nombre complexe",
+      "Polynômes et équations dans ℂ",
+      "Géométrie dans le plan complexe"
+    ],
+    "4": [
+      "Fondamentaux et combinatoire",
+      "Probabilités conditionnelles et totales",
+      "Variables aléatoires discrètes",
+      "Fonction de répartition"
+    ],
+    "5": [
+      "Régression linéaire et corrélation"
+    ],
+    "6": [
+      "Primitives usuelles",
+      "Intégrale définie et valeur moyenne"
+    ],
+    "7": [
+      "Barycentre de points pondérés"
+    ]
+  },
+  "physique": {
+    "1": [
+      "Ce qu'est vraiment un condensateur",
+      "Les quatre formules fondamentales",
+      "Associations de condensateurs",
+      "Partage de charge"
+    ],
+    "2": [
+      "Comprendre le courant alternatif",
+      "Comportement des dipôles : R, L, C",
+      "Circuits RL, RC et RLC série",
+      "La résonance dans un circuit RLC série"
+    ],
+    "3": [
+      "Le champ magnétique dans un solénoïde",
+      "Flux magnétique et inductance",
+      "Aspects géométriques et résistance du bobinage"
+    ],
+    "4": [
+      "Énoncer la loi de Faraday : e = -N dΦ/dt",
+      "Calculer la f.é.m. induite à partir de la variation de flux",
+      "Distinguer les trois types de situations : aimant en mouvement, bobine qui tourne, variation de courant",
+      "Utiliser la formule de la quantité d'électricité induite : q = N ΔΦ / R"
+    ],
+    "5": [
+      "Connaître la formule de la force de Laplace : F = B I L sin θ",
+      "Déterminer la direction par la règle des trois doigts",
+      "Calculer le travail de cette force",
+      "Comprendre le fonctionnement du galvanomètre : couple moteur = NBIS, couple de rappel = Dα, équilibre → α = NBIS/D"
+    ],
+    "6": [
+      "Chute libre",
+      "Mouvement de projectile",
+      "Pendule simple",
+      "Système masse-ressort"
+    ],
+    "7": [
+      "Connaître la relation λ = v T = v/f",
+      "Comprendre la double périodicité temporelle et spatiale",
+      "Savoir que la vitesse du son dans l'air est ≈340 m/s, celle de la lumière 3×10⁸ m/s",
+      "Expliquer la diffraction"
+    ],
+    "8": [
+      "Démonstrations clés",
+      "Constantes physiques et valeurs utiles",
+      "Stratégie d'examen"
+    ]
+  },
+  "chimie": {
+    "1": [
+      "Structure et formule générale",
+      "Classes de carbone et isomérie",
+      "Réactions de destruction et de substitution",
+      "Préparations du méthane et opérations pétrolières",
+      "Calculs stœchiométriques (rendement, impuretés, volumes)"
+    ],
+    "2": [
+      "Structure et formule générale",
+      "Préparations de l'éthylène",
+      "Réactions d'addition des alcènes",
+      "Calculs stœchiométriques avec les alcènes"
+    ],
+    "3": [
+      "Structure et formule générale",
+      "Préparations de l'acétylène",
+      "Réactions d'addition et trimérisation",
+      "Tests chimiques de l'acétylène"
+    ],
+    "4": [
+      "Structure et double comportement",
+      "Réactions d'addition et de destruction",
+      "Réactions de substitution"
+    ],
+    "5": [
+      "Classes et nomenclature",
+      "Déshydratation et déshydrogénation",
+      "Oxydation ménagée",
+      "Degré alcoolique des boissons"
+    ],
+    "6": [
+      "Différencier aldéhydes (R-CHO) et cétones (R-CO-R')",
+      "Connaître les tests : 2,4-DNPH (jaune pour tous les carbonylés), Fehling (rouge brique pour aldéhydes), Tollens (miroir d'argent pour aldéhydes), Schiff (rose pour aldéhydes)",
+      "Savoir que les cétones ne réagissent pas avec Fehling, Tollens, Schiff",
+      "Écrire les réactions de réduction des aldéhydes (→ alcool primaire) et des cétones (→ alcool secondaire)",
+      "Écrire l'oxydation des aldéhydes en acides carboxyliques",
+      "Connaître la dimérisation des aldéhydes (aldolisation)"
+    ],
+    "7": [
+      "Reconnaître la fonction acide carboxylique -COOH",
+      "Connaître l'acide acétique (CH3COOH) et l'acide benzoïque",
+      "Maîtriser les réactions : neutralisation (avec bases), action sur les métaux (dégagement de H2), fermentation acétique (éthanol → acide acétique), décarboxylation (→ méthane), estérification (avec alcool)",
+      "Savoir calculer la concentration d'un acide par dosage acide-base",
+      "Connaître la formule de dosage NA×VA = NB×VB et l'application aux diacides et dibases"
+    ],
+    "8": [
+      "Écrire l'équation de la fermentation alcoolique : C6H12O6 → 2C2H5OH + 2CO2",
+      "Savoir que le glucose (M=180) donne 2 éthanol (M=46) et 2 CO2 (M=44)",
+      "Relier la masse d'éthanol dans une boisson au glucose initial, en tenant compte du rendement",
+      "Connaître l'hydrolyse du saccharose et de l'amidon",
+      "Effectuer des calculs de volumes d'alcool et de CO2"
+    ],
+    "9": [
+      "Définir monomère, polymère, indice de polymérisation n",
+      "Connaître la relation M(polymère) = n × M(monomère)",
+      "Déterminer la formule brute d'un monomère à partir de la composition centésimale et de la masse molaire du polymère",
+      "Écrire les équations de polymérisation de l'éthylène (PE), du propène (PP), du chlorure de vinyle (PVC), du tétrafluoroéthylène (PTFE)",
+      "Savoir que le monomère est un alcène (ou dérivé) avec une double liaison"
+    ],
+    "10": [
+      "Définir pH = -log[H3O+] et [H3O+] = 10^{-pH}",
+      "Savoir que pH + pOH = 14, Ke = 10^{-14} à 25°C",
+      "Distinguer acide fort/base forte, acide faible/base faible",
+      "Utiliser la formule de dosage NA×VA = NB×VB",
+      "Calculer la normalité à partir de la molarité (pour diacides, dibases)"
+    ],
+    "11": [
+      "Définitions et demi-équations",
+      "Piles électrochimiques",
+      "Électrolyse"
+    ],
+    "12": [
+      "Savoir construire un tableau d'avancement",
+      "Déterminer le réactif limitant par le calcul du quotient n_i / coefficient",
+      "Calculer l'avancement maximal",
+      "En déduire les quantités finales de chaque espèce"
+    ],
+    "13": [
+      "Écrire l'équation générale de l'estérification : R-COOH + R'-OH ⇌ R-COO-R' + H2O",
+      "Nommer les esters (ex : éthanoate d'éthyle)",
+      "Savoir que l'estérification est catalysée par H2SO4, lente et limitée",
+      "Connaître la saponification (hydrolyse basique, totale)",
+      "Identifier l'aspirine comme acide acétylsalicylique (fonctions acide et ester)"
+    ],
+    "14": [
+      "Reconnaître la structure générale NH2-CHR-COOH",
+      "Identifier les groupes fonctionnels dans un acide aminé",
+      "Savoir qu'un acide aminé (sauf la glycine) possède un carbone asymétrique → chiralité",
+      "Comprendre que les protéines sont des polymères d'acides aminés (liaison peptidique)",
+      "Connaître quelques exemples : alanine, sérine, thréonine"
+    ],
+    "15": [
+      "Définir le craquage : transformation d'hydrocarbures lourds en légers",
+      "Définir le reformage : transformation d'hydrocarbures linéaires en ramifiés (amélioration de l'indice d'octane)",
+      "Connaître l'indice d'octane : 0 pour l'heptane, 100 pour l'isooctane (2,2,4-triméthylpentane)",
+      "Savoir que le vapocraquage utilise la vapeur d'eau"
+    ]
+  },
+  "svt": {
+    "1": [
+      "Vocabulaire fondamental de la génétique",
+      "Construction d'un échiquier de Punnett",
+      "Monohybridisme avec dominance totale",
+      "Monohybridisme : dominance partielle et codominance",
+      "Dihybridisme et loi de l'indépendance",
+      "Test‑cross et backcross",
+      "Liaison génétique et crossing‑over"
+    ],
+    "2": [
+      "Hérédité autosomale vs liée au sexe",
+      "Daltonisme et hémophilie (maladies liées à l'X récessif)",
+      "Maladies autosomales récessives et dominantes",
+      "Lecture d'un arbre généalogique"
+    ],
+    "3": [
+      "Types de mutations",
+      "Drépanocytose : une mutation ponctuelle classique",
+      "Anomalies du nombre de chromosomes (aneuploïdies)",
+      "Syndrome de Down (trisomie 21)",
+      "Syndromes de Turner et Klinefelter"
+    ],
+    "4": [
+      "Classification : liposolubles et hydrosolubles",
+      "Vitamines liposolubles : A, D, E, K",
+      "Vitamines hydrosolubles : B et C"
+    ],
+    "5": [
+      "Définitions et classification des glandes",
+      "La thyroïde",
+      "Pancréas endocrine et régulation de la glycémie",
+      "Hypophyse et autres glandes endocrines"
+    ],
+    "6": [
+      "Immunité innée et adaptative",
+      "Immunité humorale et cellulaire",
+      "Vaccination et mémoire immunologique",
+      "VIH et SIDA",
+      "Groupes sanguins : système ABO et rhésus"
+    ],
+    "7": [
+      "Structure de l'ADN et de l'ARN",
+      "Réplication de l'ADN",
+      "Transcription : de l'ADN à l'ARNm",
+      "Traduction : de l'ARNm à la protéine",
+      "Transgénèse (OGM)"
+    ],
+    "8": [
+      "Les micro-organismes : classification",
+      "Bactéries : morphologie et coloration de Gram",
+      "Virus : structure et cycle de réplication",
+      "Antibiotiques et antiviraux"
+    ],
+    "9": [
+      "Big Bang et formation du système solaire",
+      "Le système solaire",
+      "Atmosphère primitive et évolution"
+    ],
+    "10": [
+      "Les enveloppes terrestres",
+      "Discontinuités sismiques",
+      "Tectonique des plaques"
+    ],
+    "11": [
+      "Principes fondamentaux de la stratigraphie",
+      "Fossiles stratigraphiques et fossiles de faciès",
+      "Datation relative et absolue",
+      "Lecture d'une colonne stratigraphique"
+    ],
+    "12": [
+      "Paléontologie et fossilisation",
+      "Ères géologiques",
+      "Fossiles caractéristiques de chaque ère"
+    ],
+    "13": [
+      "Les cinq grandes extinctions",
+      "La crise Crétacé-Tertiaire (K-Pg)",
+      "Le repère haïtien : la formation de Béloc"
+    ],
+    "14": [
+      "Position systématique et critères de la lignée humaine",
+      "Les principaux hominines",
+      "Évolution du crâne et berceau de l'humanité"
+    ],
+    "15": [
+      "L'effet de serre naturel",
+      "Gaz à effet de serre et réchauffement anthropique",
+      "Conséquences et solutions"
+    ],
+    "16": [
+      "Définir minerai, minéral, gisement, teneur, tonnage",
+      "Connaître les formules des principaux minerais (bauxite, galène, blende, chalcopyrite, etc.)",
+      "Distinguer les types de gisements (magmatiques, hydrothermaux, sédimentaires, placers)",
+      "Décrire les étapes de l'exploitation minière et ses impacts"
+    ]
+  },
+  "economie": {
+    "1": [
+      "Comprendre la consommation et la fonction de consommation",
+      "Propension marginale à épargner et multiplicateur",
+      "Revenu d'équilibre et modèles",
+      "Exercices résolus et pièges à éviter"
+    ],
+    "2": [
+      "Définir le monopole et ses types (pur, naturel, public, bilatéral)",
+      "Calculer la recette totale et la recette marginale à partir de la demande inverse",
+      "Calculer le coût marginal à partir du coût total",
+      "Appliquer la condition de maximisation Rm = Cm pour trouver la quantité et le prix optimaux",
+      "Calculer le profit maximal",
+      "Utiliser la méthode accélérée : si P = A - BQ, alors Rm = A - 2BQ"
+    ],
+    "3": [
+      "Définition et calcul du PIB",
+      "Taux de croissance et PIB par habitant",
+      "Limites du PIB"
+    ],
+    "4": [
+      "Calculer l'indice de longévité A = (EV - 25)/60",
+      "Calculer l'indice d'éducation Ind_éduc = (2/3)TA + (1/3)TBS",
+      "Calculer l'indice de niveau de vie E = [log(PIB/hab) - 2] / 2,602",
+      "Calculer l'IDH = (A + Ind_éduc + E)/3",
+      "Classer un pays selon son IDH"
+    ],
+    "5": [
+      "Identifier les trois fonctions de la monnaie à partir de situations",
+      "Distinguer monnaie fiduciaire, scripturale, centrale",
+      "Connaître les trois motifs de détention de monnaie (transaction, précaution, spéculation)",
+      "Comprendre le taux directeur, les réserves obligatoires et les opérations d'open market",
+      "Calculer le taux d'intérêt réel à partir du nominal et de l'inflation",
+      "Expliquer les effets d'une politique monétaire expansionniste ou restrictive"
+    ],
+    "6": [
+      "Croissance vs développement",
+      "Développement durable",
+      "Facteurs de croissance et sous-développement"
+    ],
+    "7": [
+      "Calculer le revenu disponible Yd = Yb - T",
+      "Calculer l'épargne S = Yd - C",
+      "Calculer les propensions moyennes à consommer et à épargner (PMC et PmS)",
+      "Distinguer autofinancement et financement externe"
+    ],
+    "8": [
+      "Définir la concurrence pure et parfaite (atomicité, homogénéité, libre entrée, transparence, mobilité)",
+      "Définir l'oligopole et le cartel",
+      "Distinguer monopsone et oligopsone",
+      "Connaître les caractéristiques de chaque structure"
+    ]
+  },
+  "philosophie": {
+    "1": [
+      "Qu'est-ce qu'une dissertation philosophique ?",
+      "Analyser le sujet et problématiser",
+      "Construire le plan dialectique",
+      "Rédiger l'introduction et la conclusion",
+      "Pièges récurrents et astuces pour réussir"
+    ],
+    "2": [
+      "Présentation et questions types",
+      "Dégager la thèse (question 1)",
+      "Identifier les articulations (question 2)",
+      "Expliquer une phrase (question 3)",
+      "Dégager l'intérêt philosophique (question 4)"
+    ],
+    "3": [
+      "Définition et conceptions de la liberté",
+      "Liberté et déterminisme",
+      "Kant et la liberté comme autonomie",
+      "Sartre et la liberté absolue"
+    ],
+    "4": [
+      "Qu'est-ce que la morale ?",
+      "Kant et la morale du devoir",
+      "Aristote et la morale du bonheur"
+    ],
+    "5": [
+      "Définir la nature et la culture",
+      "Comprendre le débat : l'homme est-il naturellement bon (Rousseau) ou mauvais (Hobbes) ?",
+      "Connaître la thèse de Rousseau sur l'inégalité : les inégalités sont culturelles, non naturelles",
+      "Savoir que la culture est ce qui permet à l'homme de dépasser sa nature"
+    ],
+    "6": [
+      "Platon (427-347 av. J.-C.)",
+      "Aristote (384-322 av. J.-C.)",
+      "Descartes (1596-1650)",
+      "Kant (1724-1804)",
+      "Rousseau (1712-1778)",
+      "Spinoza (1632-1677)",
+      "Freud (1856-1939)"
+    ]
+  },
+  "francais": {
+    "1": [
+      "Konprann òganizasyon egzamen an (Pati A, Pati B, Pwodiksyon)",
+      "Idantifye valè chak pati",
+      "Planifye tan ou selon pati yo"
+    ],
+    "2": [
+      "Tip Tèks yo (Jan Literè)",
+      "Lide Prensipal ak Rezime",
+      "Sekans nan yon Tèks",
+      "Analiz Tèks Pwetik",
+      "Analiz Resi Fantastik"
+    ],
+    "3": [
+      "Tip Predika ak Aspè",
+      "Vèb Seryèl",
+      "Reprezantasyon Grafik (Pyebwa Fraz)",
+      "Pwopozisyon Sibòdone",
+      "Diskou Dirèk ak Diskou Endirèk"
+    ],
+    "4": [
+      "Chan Leksikal ak Rezo Leksikal",
+      "Pwovèb Ayisyen yo",
+      "Sinonim, Antonim, Mo Derive"
+    ],
+    "5": [
+      "Tradui yon tèks kreyòl an fransè (pa lide, pa mo pou mo)",
+      "Tradui yon tèks fransè an kreyòl (itilize vèb seryèl ak makè tan)",
+      "Konnen mo ak ekspresyon difisil yo",
+      "Respekte gramè fransè (akò, genre, tan) lè w ap tradui kreyòl→fransè",
+      "Itilize estrikti kreyòl natirèl (vèb seryèl, fòk, makè ap/te/pral) lè w ap tradui fransè→kreyòl"
+    ],
+    "6": [
+      "Ekri yon tèks agimantatif ak tèz, agiman, egzanp, konklizyon",
+      "Ekri yon tèks naratif ak sekans (sitiyasyon inisyal, eleman perturbateur, peripeti, rezolisyon, sitiyasyon final)",
+      "Ekri yon lèt fòmèl ak estrikti apwopriye (kote, dat, adrès, ojbè, apèl, kò, salitasyon)",
+      "Ekri yon lèt motivasyon ak yon CV",
+      "Ekri yon kontrandi (report) reyinyon",
+      "Kreye yon pwezi ak rim (kwaze, swivi, anbrase)"
+    ],
+    "7": [
+      "Metafò ak Konparezon",
+      "Metonimi, Sinekdòk, Antonomaz",
+      "Pèsonifikasyon, Ipèbòl, Antitèz/Oksimò",
+      "Anafò (Leksikal ak Gramatikal)",
+      "Lòt Figè Estil (Perifraz, Kyas, Antifraz, Paralelis, Akimilasyon, Litòt)"
+    ],
+    "8": [
+      "Konnen zèv ak otè fondamantal literati ayisyen (Frankétienne, Morisseau-Leroy, Oswald Durand, Georges Sylvain, Pauris Jean-Baptiste, Pierre Michel Chéry, Frantz Wainright)",
+      "Idantifye jan literè yon zèv (woman, teyat, pwezi, fab, lodyans, nouvèl, kwonik)",
+      "Konnen tèm prensipal yo (liberasyon, vodou, sosyete, jistis, migrasyon, pòv, sipèstisyon)",
+      "Konprann lodyans, apològ, fab, kwonik",
+      "Konnen terminoloji literè (metatèks, entètèks, otobiyografi, epilòg)"
+    ],
+    "9": [
+      "Eksplike sa konbit ye ak enpòtans li",
+      "Idantifye kwayans popilè (vodou, lwa, wanga)",
+      "Konprann debat sou lang nan lekòl (kreyòl vs fransè)",
+      "Analize pwoblèm sosyal (blakawout, ensekirite, lamizè)"
+    ],
+    "10": [
+      "Jere tan ou pandan egzamen an",
+      "Konnen konsey pou chak seksyon",
+      "Itilize mo koneksyon pou byen estriktire repons ou"
+    ]
+  },
+  "anglais": {
+    "1": [
+      "Utiliser une méthode de lecture efficace (survoler, lire les questions avant le texte)",
+      "Identifier les informations clés dans un texte (dates, noms, actions, causes/conséquences)",
+      "Répondre aux questions de compréhension en phrases complètes et avec vos propres mots",
+      "Rédiger un résumé de 3 à 5 phrases structuré (introduction, développement, conclusion)",
+      "Reconnaître les types de questions fréquentes (main idea, true/false, inference, vocabulary)"
+    ],
+    "2": [
+      "Simple Present et Present Continuous",
+      "Simple Past et Past Continuous",
+      "Present Perfect et Past Perfect",
+      "Futur (will) et Conditionnels (If Clauses)"
+    ],
+    "3": [
+      "Former des tag questions correctement (affirmatif → négatif, négatif → positif)",
+      "Utiliser le bon auxiliaire et le bon pronom",
+      "Reconnaître les cas particuliers (I am → aren't I, Let's → shall we, Everyone → they)",
+      "Éviter les erreurs courantes (oublier l'auxiliaire, mauvais pronom)"
+    ],
+    "4": [
+      "Transformer une phrase active en passive (et inversement) à tous les temps",
+      "Savoir quand utiliser la voix passive (sujet inconnu, peu important, ou pour mettre en avant l'objet)",
+      "Maîtriser la formation : to be (conjugué) + participe passé",
+      "Éviter les erreurs courantes (oublier le participe passé, mauvais auxiliaire)"
+    ],
+    "5": [
+      "Transformer le discours direct en indirect (déclarations, questions, ordres)",
+      "Maîtriser le recul des temps (backshift) : present → past, past → past perfect, etc.",
+      "Changer les pronoms (I → he/she, we → they, etc.) et les adverbes (now → then, today → that day)",
+      "Utiliser 'said that', 'asked if', 'told to' correctement"
+    ],
+    "6": [
+      "Former le comparatif de supériorité (adj+er / more adj) et d'infériorité (less adj)",
+      "Former le superlatif (the + adj+est / the most adj)",
+      "Connaître les irréguliers (good → better → best, bad → worse → worst, etc.)",
+      "Utiliser les structures d'égalité (as...as) et d'infériorité (less...than)"
+    ],
+    "7": [
+      "Reconnaître les verbes suivis du gérondif (enjoy, avoid, mind, etc.)",
+      "Reconnaître les verbes suivis de l'infinitif (want, decide, hope, etc.)",
+      "Distinguer les verbes à double sens (stop, remember, try)",
+      "Utiliser les expressions comme 'look forward to', 'be used to', 'be afraid of' suivies du gérondif"
+    ],
+    "8": [
+      "Distinguer les adjectifs en -ed (sentiment) de ceux en -ing (cause)",
+      "Utiliser correctement les paires comme interested/interesting, bored/boring, etc.",
+      "Reconnaître le sujet : si le sujet est une personne qui ressent → -ed ; si le sujet est une chose qui provoque → -ing"
+    ],
+    "9": [
+      "Utiliser for (durée) et since (point de départ) correctement avec le present perfect",
+      "Utiliser ago (il y a) avec le simple past",
+      "Choisir entre in, on, at pour les moments de la journée, les jours, les mois, les années"
+    ],
+    "10": [
+      "Connaître les combinaisons verbe + préposition les plus courantes (insist on, blame for, look into, etc.)",
+      "Utiliser correctement les prépositions après les adjectifs (interested in, afraid of, fond of)",
+      "Éviter les erreurs de traduction littérale"
+    ],
+    "11": [
+      "Choisir le bon pronom relatif (who, whose, whom, which, when, where)",
+      "Distinguer les relatives déterminatives (sans virgule) et explicatives (avec virgule)",
+      "Former des phrases complexes en reliant deux phrases simples"
+    ],
+    "12": [
+      "Comprendre la signification de under- (trop peu) et over- (trop)",
+      "Former des adjectifs et verbes avec ces préfixes",
+      "Reconnaître ces mots dans les textes"
+    ],
+    "13": [
+      "Maîtriser le vocabulaire de la santé (parasite, vaccine, immune system, psychiatrist vs psychologist)",
+      "Connaître le vocabulaire de l'environnement (renewable energy, carbon neutral, ecosystem)",
+      "Utiliser des mots forts pour remplacer 'very + adjectif' (freezing, exhausted, tiny, crucial)",
+      "Acquérir le vocabulaire des voyages (passport, customs, itinerary, destination)"
+    ],
+    "14": [
+      "Pronoms Indéfinis — Whoever, Whatever, Wherever, However, Whichever",
+      "Pronoms en -ever",
+      "Exemples",
+      "whichever"
+    ],
+    "15": [
+      "Comprendre le type de situation proposée (moral dilemma, practical choice)",
+      "Structurer sa réponse : introduction, arguments, conclusion",
+      "Utiliser des expressions utiles (In my opinion, I would rather, The right thing to do is, etc.)",
+      "Justifier ses choix avec des raisons logiques ou éthiques"
+    ],
+    "16": [
+      "Structurer un essai : introduction, développement (2-3 arguments), conclusion",
+      "Utiliser des connecteurs logiques (First, Furthermore, However, In conclusion)",
+      "Donner des exemples concrets",
+      "Gérer son temps : 30 minutes maximum pour cette partie"
+    ]
+  },
+  "espagnol": {
+    "1": [
+      "Les verbes de consigne",
+      "Comment résumer un paragraphe (Resumir)",
+      "Trouver des expressions équivalentes"
+    ],
+    "2": [
+      "Le prétérit indéfini (Pretérito indefinido)",
+      "L'imparfait (Pretérito imperfecto)",
+      "Le présent du subjonctif (Presente de subjuntivo)",
+      "L'impératif (Imperativo)",
+      "Les questions d'information (Hacer preguntas)",
+      "SER vs ESTAR",
+      "Le futur simple (Futuro simple)",
+      "Les pronoms personnels compléments (COD y COI)",
+      "Vocabulaire par champs sémantiques"
+    ],
+    "3": [
+      "Rédiger un texte argumentatif",
+      "Écrire une lettre formelle",
+      "Dialogues en situation (Ponerse en situación)"
+    ]
+  },
+  "informatique": {
+    "1": [
+      "Structure de base d'un algorithme",
+      "Calculs mathématiques simples",
+      "Algorithmes conditionnels (Si/Alors/Sinon)",
+      "Algorithmes avec boucles (Pour)",
+      "Algorithmes sur les tableaux (vecteurs et matrices)"
+    ],
+    "2": [
+      "Types d'accès à Internet",
+      "Site web, page web et hyperliens",
+      "Protocole IP et courrier électronique"
+    ],
+    "3": [
+      "Reconnaître une balise HTML correctement écrite",
+      "Savoir qu'une balise ouvrante est <title> et une balise fermante </title>",
+      "Comprendre que l'ordre est : ouverture, contenu, fermeture",
+      "Éviter les erreurs courantes (balise fermante sans /, ordre inversé)"
+    ],
+    "4": [
+      "Différencier ROM (mémoire morte, non volatile) et RAM (mémoire vive, volatile)",
+      "Savoir que le BIOS est stocké en ROM",
+      "Reconnaître les systèmes d'exploitation (DOS, Windows, Linux, macOS) et les distinguer des applications (Microsoft Office)"
+    ],
+    "5": [
+      "Connaître la hiérarchie des unités (bit, octet, Ko, Mo, Go, To, Po)",
+      "Savoir que 1 Mégabit = 2^20 bits (selon le programme haïtien)",
+      "Effectuer des conversions simples de bits en Mégabits",
+      "Ne pas confondre Mégabit (unité de mesure) avec type d'accès Internet"
+    ]
+  },
+  "art": {
+    "1": [
+      "Les origines de la peinture haïtienne",
+      "Le Centre d'Art – Institution clé",
+      "Les grands artistes haïtiens – Fiches biographiques",
+      "Les institutions culturelles haïtiennes",
+      "Le patrimoine haïtien – Types et exemples",
+      "Les statues emblématiques au Champ de Mars",
+      "Les mouvements artistiques – Art Naïf vs Art Moderne",
+      "Les grands mouvements artistiques mondiaux",
+      "L'analyse d'une œuvre d'art – Méthode complète",
+      "L'Architecture haïtienne",
+      "Les théories philosophiques de l'art"
+    ],
+    "2": [
+      "Les outils et matériaux en arts plastiques",
+      "Les crayons – classification H et B",
+      "Les couleurs – théorie complète",
+      "Géométrie appliquée aux arts plastiques",
+      "Les techniques artistiques"
+    ],
+    "3": [
+      "Les bases de la théorie musicale",
+      "Les gammes majeures – armatures",
+      "Les intervalles musicaux",
+      "Les accords musicaux",
+      "Les périodes de l'histoire de la musique",
+      "La musique haïtienne – Genres et compositeurs"
+    ],
+    "4": [
+      "Le Vaudou haïtien dans les arts",
+      "Sites historiques par département",
+      "Manifestations et lieux culturels",
+      "Billets de monnaie et emblème national"
+    ]
+  },
+  "histoire": {
+    "1": [
+      "Les causes profondes de l'occupation",
+      "L'étincelle : l'assassinat de Vilbrun Guillaume Sam",
+      "La mise en place du régime (1915-1917)",
+      "L'impact de l'occupation : politique, économique et social",
+      "La fin de l'occupation (1929-1934)"
+    ],
+    "2": [
+      "L'accession au pouvoir – le nationaliste porté par la vague",
+      "Le grand œuvre – la négociation du départ américain (1930-1934)",
+      "La dérive autoritaire – le virage de 1935",
+      "Le massacre du persil (octobre 1937) – l'épreuve de vérité",
+      "La fin du règne – le départ de Vincent (1941)"
+    ],
+    "3": [
+      "L'accession au pouvoir – une passation tranquille",
+      "La nature du régime – une dictature décomplexée",
+      "La politique économique – deux erreurs fatales",
+      "La chute – la Révolution de 1946"
+    ],
+    "4": [
+      "L'accession au pouvoir – l'élection d'un Noir",
+      "Les réalisations – le grand œuvre d'Estimé",
+      "Les oppositions et la chute (1950)"
+    ],
+    "5": [
+      "L'accession au pouvoir – un militaire élu",
+      "Les premières années – l'âge d'or (1950-1954)",
+      "La face cachée – autoritarisme et répression",
+      "La chute (1956) – la fin du rêve"
+    ],
+    "6": [
+      "L'accession au pouvoir – le chaos de 1956-1957",
+      "La mise en place de la dictature (1957-1964)",
+      "L'apogée du régime – la présidence à vie (1964)",
+      "La terreur quotidienne – vivre sous Duvalier",
+      "La fin de règne et la transition à Jean-Claude (1971)"
+    ],
+    "7": [
+      "Les causes de la guerre",
+      "Les forces en présence et le déroulement",
+      "Les traités de paix et les conséquences"
+    ],
+    "8": [
+      "Les années 1920 – l'illusion de la paix",
+      "La crise de 1929 – le krach qui a tout changé",
+      "La montée des totalitarismes",
+      "L'échec de la SDN et la marche vers la guerre"
+    ],
+    "9": [
+      "Les causes de la crise",
+      "La propagation et les conséquences",
+      "Les solutions – le New Deal"
+    ],
+    "10": [
+      "Le contexte et les principes",
+      "Le corollaire Roosevelt (1904) – la politique du 'big stick'",
+      "Les conséquences et l'héritage"
+    ]
+  }
+}

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}{{ chapter.title }} — OU TOU BON{% endblock %}
 
+{% block extra_head_links %}{% include "partials/v2/_v2_course_css.html" %}{% endblock %}
+
 {% block extra_css %}
 <style>
 
@@ -631,7 +633,7 @@ html, body {
 {% endblock %}
 
 {% block body %}
-<div class="app">
+<div class="app v2-course-reader">
   {% include "core/_sidebar.html" with active_page="cours" %}
   <div class="main">
 
@@ -674,6 +676,13 @@ html, body {
     
     <div class="chat-shell">
       <div class="msgs-area" id="msgsArea">
+        <div id="courseStartGate" class="v2-course-start" style="display:none;">
+          <div class="v2-course-start__icon"><i class="fas fa-book-reader"></i></div>
+          <div class="v2-course-start__title">{{ chapter.title }}</div>
+          <p class="v2-course-start__desc">Le chapitre est prêt. Lance le tuteur IA quand tu veux — aucun appel automatique à l'ouverture.</p>
+          <button type="button" class="v2-course-start__btn" id="courseStartBtn"><i class="fas fa-play"></i> Commencer le cours</button>
+          <span class="v2-course-start__hint">L'IA s'active uniquement après ce clic.</span>
+        </div>
         <div class="msgs-inner" id="msgsInner">
           
         </div>
@@ -795,7 +804,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollBot();
     }, 400);
   } else if (SESSION_ID) {
-    setTimeout(() => sendAuto("Commence le cours"), 600);
+    showCourseStartGate();
   }
 
   if (['maths', 'physique', 'chimie', 'economie'].includes(SUBJECT)) {
@@ -1625,6 +1634,24 @@ function removeCoursImg() {
   document.getElementById('coursImgPreview').style.display = 'none';
 }
 
+function showCourseStartGate() {
+  const gate = document.getElementById('courseStartGate');
+  const inputWrap = document.getElementById('inputWrap');
+  const chipsRow = document.getElementById('chipsRow');
+  if (gate) gate.style.display = 'flex';
+  if (inputWrap && !HYBRID_MODE) inputWrap.style.display = 'none';
+  if (chipsRow && !HYBRID_MODE) chipsRow.style.display = 'none';
+  const btn = document.getElementById('courseStartBtn');
+  if (!btn) return;
+  btn.onclick = () => {
+    if (gate) gate.style.display = 'none';
+    if (inputWrap && !HYBRID_MODE) inputWrap.style.display = '';
+    if (chipsRow && !HYBRID_MODE) chipsRow.style.display = '';
+    courseStarted = true;
+    sendAuto('Commence le cours');
+  };
+}
+
 function sendAuto(text) {
   sendFromInput(text, true);
 }
@@ -1741,7 +1768,7 @@ async function sendFromInput(text, silent = false, targetStep = null) {
           }
         }, 100);
       } else if (!HYBRID_MODE && isMessageIncomplete(data.reply) && !IS_GUEST && SESSION_ID) {
-        setTimeout(() => sendAuto('[REGEN_TRUNCATED]'), 1400);
+        // Auto-regen désactivé — doublait les coûts API
       }
       courseStarted = true;
       if (data.total_steps !== undefined) totalSteps = data.total_steps;

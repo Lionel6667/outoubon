@@ -1,0 +1,920 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Groupe de Génies · OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/genius.css' %}">
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="genius" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title">Groupe de Génies</div></div>
+    <div class="view-area v2-genius-view">
+      <div class="v2-genius-page">
+
+        <header class="v2-genius-banner v2-genius-banner--solo" id="geniusBannerSolo"{% if has_genius_team %} hidden{% endif %}>
+          <div class="v2-genius-banner__glow"></div>
+          <div class="v2-genius-banner__inner">
+            <div class="v2-genius-banner__title">
+              <span class="v2-genius-banner__icon"><i class="fas fa-users"></i></span>
+              <div>
+                <h1>Trouve ton équipe</h1>
+              </div>
+            </div>
+          </div>
+        </header>
+        {% if is_guest %}
+        <div class="v2-genius-alert-card" style="display:block;margin:.75rem 0 1rem;">
+          <h3><i class="fas fa-eye"></i> Mode visiteur</h3>
+          <p style="color:var(--t2);font-size:.85rem;margin:.4rem 0 .75rem;line-height:1.5;">
+            Concours et classements ci-dessous sont <strong>réels</strong>. Pour créer une équipe ou t’inscrire, crée un compte.
+          </p>
+          <a href="/signup/" class="v2-genius-btn"><i class="fas fa-user-plus"></i> Créer mon compte</a>
+        </div>
+        {% endif %}
+
+        <header class="v2-genius-banner v2-genius-banner--team" id="geniusBannerTeam"{% if not has_genius_team %} hidden{% endif %}>
+          <div class="v2-genius-banner__glow v2-genius-banner__glow--team"></div>
+          <div class="v2-genius-banner__inner">
+            <div class="v2-genius-banner__title">
+              <span class="v2-genius-banner__icon v2-genius-banner__icon--team"><i class="fas fa-shield-alt"></i></span>
+              <div>
+                <h1 id="geniusBannerTeamName">{% if hub_initial.team %}{{ hub_initial.team.name }}{% else %}Mon équipe{% endif %}</h1>
+                <p id="geniusBannerTeamSub">{% if hub_initial.team %}{% if hub_initial.my_role == 'captain' %}Capitaine{% else %}Membre{% endif %} · {{ hub_initial.team.member_count }}/4 joueurs{% else %}Capitaine · matchs et concours{% endif %}</p>
+              </div>
+            </div>
+            <div class="v2-genius-banner__stats" id="geniusBannerStats">
+              <div class="v2-genius-stat-pill"><i class="fas fa-bell"></i> <span id="geniusNotifCount">{{ hub_initial.unread_notifications|default:0 }}</span></div>
+              <div class="v2-genius-stat-pill"><i class="fas fa-gamepad"></i> <span id="geniusMatchCount">{{ hub_initial.active_matches|length|default:0 }}</span> matchs</div>
+            </div>
+          </div>
+        </header>
+
+        <div id="geniusInvites" class="v2-genius-alert-card" style="display:none">
+          <h3><i class="fas fa-envelope-open-text"></i> Invitations reçues</h3>
+          <div id="geniusInvitesList"></div>
+        </div>
+
+        <div id="geniusJoinRequestsPanel" class="v2-genius-alert-card v2-genius-alert-card--gold" style="display:none">
+          <h3><i class="fas fa-user-clock"></i> Demandes de rejoindre</h3>
+          <div id="geniusJoinRequestsList"></div>
+        </div>
+
+        <div id="geniusToastHost" class="v2-genius-toast-host"></div>
+
+        <!-- Sans équipe -->
+        <div id="geniusStateNoTeam" class="v2-genius-state"{% if has_genius_team %} hidden{% endif %}>
+          <nav class="v2-genius-tabs" id="geniusTabsNoTeam">
+            <button type="button" class="v2-genius-tab active" data-tab="start"><i class="fas fa-rocket"></i> Commencer</button>
+            <button type="button" class="v2-genius-tab" data-tab="explore"><i class="fas fa-search"></i> Explorer</button>
+            <button type="button" class="v2-genius-tab" data-tab="compete"><i class="fas fa-trophy"></i> Concours</button>
+          </nav>
+
+          <section class="v2-genius-tab-panel active" data-panel="start" data-state="no-team">
+            <div id="geniusNoTeamHome">
+              {% if not has_genius_team %}
+              <div class="v2-genius-onboarding">
+                <div class="v2-genius-onboarding__hero">
+                  <div class="v2-genius-onboarding__emoji">🧠</div>
+                  <h2>Crée ou rejoins une équipe</h2>
+                  <p>4 joueurs max · le capitaine verrouille les réponses en match.</p>
+                </div>
+                <div class="v2-genius-onboarding__grid">
+                  <div class="v2-genius-onboarding__card v2-genius-onboarding__card--create">
+                    <h3><i class="fas fa-plus-circle"></i> Nouvelle équipe</h3>
+                    <input class="v2-genius-input" id="geniusTeamName" placeholder="Nom de l'équipe" maxlength="80">
+                    <label class="v2-genius-check">
+                      <input type="checkbox" id="geniusTeamOpen" checked>
+                      <span>Visible dans Explorer</span>
+                    </label>
+                    <button type="button" class="v2-genius-btn v2-genius-btn--block" id="btnCreateTeam">
+                      <i class="fas fa-rocket"></i> Créer mon équipe
+                    </button>
+                  </div>
+                  <div class="v2-genius-onboarding__card v2-genius-onboarding__card--hint">
+                    <h3><i class="fas fa-compass"></i> Explorer les équipes</h3>
+                    <p>Parcours les équipes ouvertes et envoie une demande au capitaine.</p>
+                    <button type="button" class="v2-genius-btn v2-genius-btn--outline v2-genius-btn--block" id="btnGoExplore">
+                      Voir les équipes libres
+                    </button>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </section>
+
+          <section class="v2-genius-tab-panel" data-panel="explore" data-state="no-team">
+            <div class="v2-genius-panel-card">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-door-open"></i> Équipes ouvertes</h3>
+              <p class="v2-genius-panel-desc">Envoie une demande au capitaine — pas besoin de code.</p>
+              <div id="geniusDiscoverGrid" class="v2-genius-discover-grid">
+                {% for t in hub_initial.discoverable_teams %}
+                <article class="v2-genius-discover-card">
+                  <div class="v2-genius-discover-card__head">
+                    <span class="v2-genius-discover-card__emoji">{{ t.emblem|default:"🧠" }}</span>
+                    <div>
+                      <strong>{{ t.name }}</strong>
+                      <span>Capitaine : {{ t.captain_name }}</span>
+                    </div>
+                  </div>
+                  <div class="v2-genius-slots">
+                    {% for i in "0123" %}
+                    <span class="v2-genius-slot {% if forloop.counter0 < t.member_count %}filled{% endif %}"></span>
+                    {% endfor %}
+                  </div>
+                  {% if t.description %}<p class="v2-genius-discover-card__desc">{{ t.description }}</p>{% endif %}
+                  {% if t.pending_request %}
+                  <span class="v2-genius-pill v2-genius-pill--pending">Demande envoyée</span>
+                  {% else %}
+                  <button type="button" class="v2-genius-btn v2-genius-btn--block" data-request="{{ t.id }}"><i class="fas fa-paper-plane"></i> Demander à rejoindre</button>
+                  {% endif %}
+                </article>
+                {% empty %}
+                {% if not has_genius_team %}<p class="v2-genius-empty">Aucune équipe ouverte. Crée la tienne !</p>{% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="v2-genius-panel-card v2-genius-panel-card--muted">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-key"></i> Code d'équipe</h3>
+              <p class="v2-genius-panel-desc">Si un ami t'a partagé son code OTB-XXXX.</p>
+              <div class="v2-genius-inline-form">
+                <input class="v2-genius-input" id="geniusJoinCode" placeholder="OTB-XXXX" maxlength="12" style="text-transform:uppercase">
+                <button type="button" class="v2-genius-btn" id="btnJoinTeam"><i class="fas fa-sign-in-alt"></i> Rejoindre</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="v2-genius-tab-panel" data-panel="compete" data-state="no-team">
+            <div class="v2-genius-panel-card">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-trophy"></i> Concours</h3>
+              <p class="v2-genius-panel-desc">Inscris ton équipe dès que tu es dans un groupe.</p>
+              <div id="geniusCompListNoTeam" class="v2-genius-list">
+                {% for c in hub_initial.competitions %}
+                <div class="v2-genius-list-item">
+                  <div>
+                    <strong>{{ c.name }}</strong>
+                    <div class="meta">{{ c.status_label|default:c.status }} · {{ c.registered_count }} équipes</div>
+                  </div>
+                  <div class="v2-genius-list-item__actions">
+                    <a href="{% url 'genius_competition' competition_id=c.id %}" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">Voir</a>
+                  </div>
+                </div>
+                {% empty %}
+                <p class="v2-genius-empty">Aucun concours ouvert pour le moment.</p>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="v2-genius-panel-card">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-medal"></i> Classement</h3>
+              <div id="geniusLeaderboardNoTeam" class="v2-genius-leaderboard">
+                {% for r in hub_initial.leaderboard %}
+                <div class="v2-genius-lb-row">
+                  <span class="v2-genius-lb-rank">#{{ r.rank }}</span>
+                  <span>{{ r.emblem|default:"🧠" }} {{ r.name }}</span>
+                  <span class="meta">{{ r.points }} pts · {{ r.wins }}V-{{ r.losses }}D</span>
+                </div>
+                {% empty %}
+                <p class="v2-genius-empty">Joue des matchs pour apparaître au classement.</p>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Avec équipe -->
+        <div id="geniusStateTeam" class="v2-genius-state"{% if not has_genius_team %} hidden{% endif %}>
+          <nav class="v2-genius-tabs" id="geniusTabsTeam">
+            <button type="button" class="v2-genius-tab active" data-tab="team"><i class="fas fa-shield-alt"></i> Équipe</button>
+            <button type="button" class="v2-genius-tab" data-tab="compete"><i class="fas fa-trophy"></i> Concours</button>
+            <button type="button" class="v2-genius-tab" data-tab="activity"><i class="fas fa-stream"></i> Activité</button>
+            <button type="button" class="v2-genius-tab v2-genius-tab--captain-only" data-tab="defier" id="geniusTabDefier"{% if not hub_initial.team or hub_initial.my_role != 'captain' %} hidden{% endif %}><i class="fas fa-fist-raised"></i> Défier</button>
+          </nav>
+
+          <section class="v2-genius-tab-panel active" data-panel="team" data-state="team">
+            <div class="v2-genius-panel-card" id="geniusTeamPanel">
+              <div id="geniusTeamContent">
+                {% if hub_initial.team %}{% include "core/genius/_hub_team_block.html" %}{% endif %}
+              </div>
+            </div>
+            <div class="v2-genius-panel-card" id="geniusMatchesPanel" style="display:none">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-gamepad"></i> Matchs en cours</h3>
+              <div id="geniusMatchesList" class="v2-genius-list"></div>
+            </div>
+          </section>
+
+          <section class="v2-genius-tab-panel" data-panel="compete" data-state="team">
+            <div class="v2-genius-panel-card">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-trophy"></i> Concours ouverts</h3>
+              <div id="geniusCompList" class="v2-genius-list">
+                {% for c in hub_initial.competitions %}
+                <div class="v2-genius-list-item">
+                  <div>
+                    <strong>{{ c.name }}</strong>
+                    <div class="meta">{{ c.status_label|default:c.status }} · {{ c.registered_count }} équipes</div>
+                  </div>
+                  <div class="v2-genius-list-item__actions">
+                    {% if hub_initial.my_role == 'captain' and hub_initial.team %}
+                      {% if not c.registration or not c.registration.status %}
+                      <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-reg="{{ c.id }}">S'inscrire</button>
+                      {% elif c.registration.status == 'registered' and hub_initial.team.is_full and not c.registration.roster_locked %}
+                      <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-lock="{{ c.id }}">Verrouiller l'équipe</button>
+                      {% elif c.registration.roster_locked %}
+                      <span class="v2-genius-pill">Équipe verrouillée</span>
+                      {% endif %}
+                    {% endif %}
+                    <a href="{% url 'genius_competition' competition_id=c.id %}" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">Voir</a>
+                  </div>
+                </div>
+                {% empty %}
+                <p class="v2-genius-empty">Aucun concours ouvert pour le moment.</p>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="v2-genius-panel-card">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-medal"></i> Classement global</h3>
+              <div id="geniusLeaderboard" class="v2-genius-leaderboard">
+                {% for r in hub_initial.leaderboard %}
+                <div class="v2-genius-lb-row">
+                  <span class="v2-genius-lb-rank">#{{ r.rank }}</span>
+                  <span>{{ r.emblem|default:"🧠" }} {{ r.name }}</span>
+                  <span class="meta">{{ r.points }} pts · {{ r.wins }}V-{{ r.losses }}D</span>
+                </div>
+                {% empty %}
+                <p class="v2-genius-empty">Joue des matchs pour apparaître au classement.</p>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+
+          <section class="v2-genius-tab-panel" data-panel="activity" data-state="team">
+            <div class="v2-genius-panel-card" id="geniusUpcomingPanel" style="display:none">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-clock"></i> Matchs à venir</h3>
+              <div id="geniusUpcomingList" class="v2-genius-list"></div>
+            </div>
+            <div class="v2-genius-panel-card">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-bell"></i> Notifications</h3>
+              <div id="geniusNotifList" class="v2-genius-list">
+                {% for n in hub_initial.notifications %}
+                <div class="v2-genius-notif-item {% if n.read %}read{% endif %}" data-link="{{ n.link_path|default:'' }}" data-id="{{ n.id }}">
+                  <strong>{{ n.title }}</strong>
+                  <div class="meta">{{ n.body }}</div>
+                </div>
+                {% empty %}
+                <p class="v2-genius-empty">Aucune notification.</p>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+
+          <section class="v2-genius-tab-panel" data-panel="defier" data-state="team">
+            <div class="v2-genius-panel-card" id="geniusChallengePanel">
+              <h3 class="v2-genius-panel-title"><i class="fas fa-fist-raised"></i> Défier une équipe</h3>
+              <p class="v2-genius-panel-desc">Match amical — capitaine uniquement.</p>
+              <div class="v2-genius-inline-form">
+                <input class="v2-genius-input" id="geniusChallengeCode" placeholder="Code adversaire" style="text-transform:uppercase">
+                <button type="button" class="v2-genius-btn v2-genius-btn--outline" id="btnChallengeCode"><i class="fas fa-bolt"></i> Défier</button>
+              </div>
+              <div id="geniusChallengeList" class="v2-genius-list" style="margin-top:.85rem"></div>
+            </div>
+          </section>
+        </div>
+
+        {{ hub_initial|json_script:"genius-hub-data" }}
+
+        {% include "partials/v2/_page_info.html" with info_key="genius-hub" info_title="Groupe de Génies" info_body="4 joueurs, un capitaine, des quiz en équipe — crée ou rejoins un Groupe de Génies. Inscriptions au concours le dimanche uniquement. Matchs entre 19h et 20h." %}
+
+      </div>
+    </div>
+    <script>
+(function() {
+  const IS_GUEST_GENIUS = {{ is_guest|yesno:"true,false" }};
+  const hubUrl = '{% url "api_genius_hub" %}';
+  const urls = {
+    create: '{% url "api_genius_team_create" %}',
+    join: '{% url "api_genius_team_join" %}',
+    joinRequest: '{% url "api_genius_join_request" %}',
+    joinRespond: '{% url "api_genius_join_respond" %}',
+    transfer: '{% url "api_genius_transfer_captain" %}',
+    teamOpen: '{% url "api_genius_team_open" %}',
+    invite: '{% url "api_genius_team_invite" %}',
+    respond: '{% url "api_genius_invitation_respond" %}',
+    remove: '{% url "api_genius_team_remove" %}',
+    register: '{% url "api_genius_competition_register" %}',
+    lock: '{% url "api_genius_competition_lock" %}',
+    match: '{% url "genius_match" match_id=0 %}'.replace('/0/', '/'),
+    competition: '{% url "genius_competition" competition_id=0 %}'.replace('/0/', '/'),
+    matchCreate: '{% url "api_genius_match_create" %}',
+    notifRead: '{% url "api_genius_notifications_read" %}',
+  };
+
+  let hubData = null;
+
+  function csrf() {
+    return (typeof window.CSRF === 'string' ? window.CSRF : '') || '';
+  }
+
+  function toast(msg, type) {
+    const host = document.getElementById('geniusToastHost');
+    const el = document.createElement('div');
+    el.className = 'v2-genius-toast v2-genius-toast--' + (type || 'info');
+    el.textContent = msg;
+    host.appendChild(el);
+    setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 300); }, 3200);
+  }
+
+  async function post(url, body) {
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+      body: JSON.stringify(body || {}),
+      credentials: 'same-origin',
+    });
+    const text = await r.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (_) {
+      throw new Error(r.status === 403 ? 'Session expirée — recharge la page.' : 'Réponse serveur invalide.');
+    }
+    if (!r.ok) throw new Error(data.error || 'Erreur');
+    return data;
+  }
+
+  function switchTab(name, state) {
+    const rootId = state === 'team' ? 'geniusStateTeam' : 'geniusStateNoTeam';
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    root.querySelectorAll('.v2-genius-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    root.querySelectorAll('.v2-genius-tab-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === name));
+  }
+
+  function applyHubMode(data) {
+    const hasTeam = !!data.team;
+    const soloBanner = document.getElementById('geniusBannerSolo');
+    const teamBanner = document.getElementById('geniusBannerTeam');
+    const stateNoTeam = document.getElementById('geniusStateNoTeam');
+    const stateTeam = document.getElementById('geniusStateTeam');
+
+    if (soloBanner) soloBanner.hidden = hasTeam;
+    if (teamBanner) teamBanner.hidden = !hasTeam;
+    if (stateNoTeam) stateNoTeam.hidden = hasTeam;
+    if (stateTeam) stateTeam.hidden = !hasTeam;
+
+    if (hasTeam && data.team) {
+      document.getElementById('geniusBannerTeamName').textContent = data.team.name;
+      const roleLabel = data.my_role === 'captain' ? 'Capitaine' : 'Membre';
+      document.getElementById('geniusBannerTeamSub').textContent =
+        roleLabel + ' · ' + data.team.member_count + '/4 joueurs';
+      const defierTab = document.getElementById('geniusTabDefier');
+      if (defierTab) {
+        defierTab.hidden = data.my_role !== 'captain';
+      }
+    }
+  }
+
+  document.getElementById('geniusTabsNoTeam').addEventListener('click', e => {
+    const btn = e.target.closest('.v2-genius-tab');
+    if (btn) switchTab(btn.dataset.tab, 'no-team');
+  });
+  document.getElementById('geniusTabsTeam').addEventListener('click', e => {
+    const btn = e.target.closest('.v2-genius-tab');
+    if (btn) switchTab(btn.dataset.tab, 'team');
+  });
+
+  function slotDots(count, max) {
+    return Array.from({ length: max }, (_, i) =>
+      `<span class="v2-genius-slot ${i < count ? 'filled' : ''}"></span>`
+    ).join('');
+  }
+
+  function bindNoTeamHandlers() {
+    const btnExplore = document.getElementById('btnGoExplore');
+    if (btnExplore) btnExplore.onclick = () => switchTab('explore', 'no-team');
+    const btnCreate = document.getElementById('btnCreateTeam');
+    if (!btnCreate || btnCreate.dataset.bound) return;
+    btnCreate.dataset.bound = '1';
+    btnCreate.onclick = async () => {
+      const name = (document.getElementById('geniusTeamName').value || '').trim();
+      if (name.length < 2) { toast('Nom d\'équipe requis (2 caractères min).', 'error'); return; }
+      try {
+        await post(urls.create, {
+          name,
+          is_open_for_requests: document.getElementById('geniusTeamOpen').checked,
+        });
+        toast('Équipe créée !', 'success');
+        clearGeniusSpaCache();
+        loadHub();
+      } catch (e) { toast(e.message, 'error'); }
+    };
+  }
+
+  function renderNoTeam() {
+    const home = document.getElementById('geniusNoTeamHome');
+    if (!home) return;
+    if (document.getElementById('btnCreateTeam')) {
+      bindNoTeamHandlers();
+      return;
+    }
+    home.innerHTML = `
+      <div class="v2-genius-onboarding">
+        <div class="v2-genius-onboarding__hero">
+          <div class="v2-genius-onboarding__emoji">🧠</div>
+          <h2>Crée ou rejoins une équipe</h2>
+          <p>4 joueurs max · le capitaine verrouille les réponses en match.</p>
+        </div>
+        <div class="v2-genius-onboarding__grid">
+          <div class="v2-genius-onboarding__card v2-genius-onboarding__card--create">
+            <h3><i class="fas fa-plus-circle"></i> Nouvelle équipe</h3>
+            <input class="v2-genius-input" id="geniusTeamName" placeholder="Nom de l'équipe" maxlength="80">
+            <label class="v2-genius-check">
+              <input type="checkbox" id="geniusTeamOpen" checked>
+              <span>Visible dans Explorer</span>
+            </label>
+            <button type="button" class="v2-genius-btn v2-genius-btn--block" id="btnCreateTeam">
+              <i class="fas fa-rocket"></i> Créer mon équipe
+            </button>
+          </div>
+          <div class="v2-genius-onboarding__card v2-genius-onboarding__card--hint">
+            <h3><i class="fas fa-compass"></i> Explorer les équipes</h3>
+            <p>Parcours les équipes ouvertes et envoie une demande au capitaine.</p>
+            <button type="button" class="v2-genius-btn v2-genius-btn--outline v2-genius-btn--block" id="btnGoExplore">
+              Voir les équipes libres
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    bindNoTeamHandlers();
+  }
+
+  function renderTeam(team, myRole, friends) {
+    const transferCandidates = team.transfer_candidates || team.members.filter(m => !m.is_captain && m.captain_eligible);
+    let captainTools = '';
+    if (myRole === 'captain') {
+      captainTools = `
+        <div class="v2-genius-captain-tools">
+          <label class="v2-genius-check">
+            <input type="checkbox" id="geniusOpenToggle" ${team.is_open_for_requests ? 'checked' : ''}>
+            <span>Équipe visible (demandes de rejoindre)</span>
+          </label>
+          ${transferCandidates.length ? `
+            <div class="v2-genius-transfer">
+              <label>Transférer le rôle de capitaine</label>
+              <div class="v2-genius-inline-form">
+                <select class="v2-genius-input" id="geniusTransferSelect">
+                  ${transferCandidates.map(m => `<option value="${m.user_id}">${m.display_name}</option>`).join('')}
+                </select>
+                <button type="button" class="v2-genius-btn v2-genius-btn--outline" id="btnTransferCaptain">
+                  <i class="fas fa-crown"></i> Transférer
+                </button>
+              </div>
+              <p class="v2-genius-hint">Après transfert, tu ne pourras plus être capitaine dans cette équipe.</p>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    let inviteHtml = '';
+    if (myRole === 'captain' && !team.is_full) {
+      inviteHtml = `
+        <div class="v2-genius-invite-block">
+          <label>Inviter un ami</label>
+          <div class="v2-genius-inline-form">
+            <select class="v2-genius-input" id="geniusInviteSelect">
+              <option value="">— Choisir un ami —</option>
+              ${friends.map(f => `<option value="${f.id}">${f.name}</option>`).join('')}
+            </select>
+            <button type="button" class="v2-genius-btn v2-genius-btn--sm" id="btnInvite"><i class="fas fa-user-plus"></i> Inviter</button>
+          </div>
+        </div>
+      `;
+    }
+
+    const membersHtml = team.members.map(m => `
+      <div class="v2-genius-member-row ${m.is_captain ? 'is-captain' : ''}">
+        <div class="v2-genius-member-row__avatar">${m.is_captain ? '👑' : '👤'}</div>
+        <div class="v2-genius-member-row__info">
+          <strong>${m.display_name}</strong>
+          <span>${m.is_captain ? 'Capitaine' : 'Membre'}${!m.captain_eligible && !m.is_captain ? ' · ex-capitaine' : ''}</span>
+        </div>
+        ${myRole === 'captain' && !m.is_captain && m.removal_eligible ?
+          `<button type="button" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--ghost" data-remove="${m.user_id}">Retirer</button>` : ''}
+      </div>
+    `).join('');
+
+    document.getElementById('geniusTeamContent').innerHTML = `
+      <div class="v2-genius-team-header">
+        <div class="v2-genius-team-header__emblem">${team.emblem || '🧠'}</div>
+        <div class="v2-genius-team-header__meta">
+          <h2>${team.name}</h2>
+          <div class="v2-genius-code-badge">${team.invite_code}</div>
+          <div class="v2-genius-slots">${slotDots(team.member_count, 4)}<span>${team.member_count}/4</span></div>
+        </div>
+      </div>
+      ${team.stats ? `
+        <div class="v2-genius-team-stats-bar">
+          <span><i class="fas fa-trophy"></i> ${team.stats.ranking_points} pts</span>
+          <span><i class="fas fa-check"></i> ${team.stats.wins}V</span>
+          <span><i class="fas fa-fire"></i> ${team.stats.team_streak || 0} série</span>
+          <span><i class="fas fa-star"></i> ${team.stats.team_xp || 0} XP</span>
+        </div>
+      ` : ''}
+      <a href="{% url 'genius_team' %}" class="v2-genius-btn v2-genius-btn--outline v2-genius-btn--sm" style="margin-bottom:.75rem">
+        <i class="fas fa-id-card"></i> Page équipe complète
+      </a>
+      <div class="v2-genius-members-list">${membersHtml}</div>
+      ${captainTools}
+      ${inviteHtml}
+    `;
+
+    const openToggle = document.getElementById('geniusOpenToggle');
+    if (openToggle) {
+      openToggle.onchange = async () => {
+        try {
+          await post(urls.teamOpen, { team_id: team.id, open: openToggle.checked });
+          toast(openToggle.checked ? 'Équipe visible dans Explorer.' : 'Équipe masquée.', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); openToggle.checked = !openToggle.checked; }
+      };
+    }
+
+    const btnTransfer = document.getElementById('btnTransferCaptain');
+    if (btnTransfer) {
+      btnTransfer.onclick = async () => {
+        const uid = parseInt(document.getElementById('geniusTransferSelect').value, 10);
+        if (!uid) return;
+        if (!confirm('Transférer le rôle de capitaine ? Tu ne pourras plus être capitaine dans cette équipe.')) return;
+        try {
+          await post(urls.transfer, { team_id: team.id, user_id: uid });
+          toast('Capitaine transféré.', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    }
+
+    const btnInvite = document.getElementById('btnInvite');
+    if (btnInvite) {
+      btnInvite.onclick = async () => {
+        const uid = document.getElementById('geniusInviteSelect').value;
+        if (!uid) return;
+        try {
+          await post(urls.invite, { team_id: team.id, user_id: parseInt(uid, 10) });
+          toast('Invitation envoyée !', 'success');
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    }
+
+    document.querySelectorAll('[data-remove]').forEach(btn => {
+      btn.onclick = async () => {
+        if (!confirm('Retirer ce membre ?')) return;
+        try {
+          await post(urls.remove, { team_id: team.id, user_id: parseInt(btn.dataset.remove, 10) });
+          toast('Membre retiré.', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+  }
+
+  function renderDiscover(teams) {
+    const grid = document.getElementById('geniusDiscoverGrid');
+    if (!teams.length) {
+      grid.innerHTML = '<p class="v2-genius-empty">Aucune équipe ouverte. Crée la tienne !</p>';
+      return;
+    }
+    grid.innerHTML = teams.map(t => `
+      <article class="v2-genius-discover-card">
+        <div class="v2-genius-discover-card__head">
+          <span class="v2-genius-discover-card__emoji">${t.emblem || '🧠'}</span>
+          <div>
+            <strong>${t.name}</strong>
+            <span>Capitaine : ${t.captain_name}</span>
+          </div>
+        </div>
+        <div class="v2-genius-slots">${slotDots(t.member_count, t.max_size || 4)}</div>
+        ${t.description ? `<p class="v2-genius-discover-card__desc">${t.description}</p>` : ''}
+        ${t.pending_request
+          ? '<span class="v2-genius-pill v2-genius-pill--pending">Demande envoyée</span>'
+          : `<button type="button" class="v2-genius-btn v2-genius-btn--block" data-request="${t.id}"><i class="fas fa-paper-plane"></i> Demander à rejoindre</button>`
+        }
+      </article>
+    `).join('');
+    grid.querySelectorAll('[data-request]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          await post(urls.joinRequest, { team_id: parseInt(btn.dataset.request, 10) });
+          toast('Demande envoyée au capitaine.', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+  }
+
+  function renderJoinRequests(rows) {
+    const panel = document.getElementById('geniusJoinRequestsPanel');
+    const list = document.getElementById('geniusJoinRequestsList');
+    if (!rows.length) { panel.style.display = 'none'; return; }
+    panel.style.display = 'block';
+    list.innerHTML = rows.map(r => `
+      <div class="v2-genius-request-row">
+        <div>
+          <strong>${r.from_name}</strong>
+          ${r.message ? `<div class="meta">${r.message}</div>` : ''}
+        </div>
+        <div class="v2-genius-request-row__actions">
+          <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-jaccept="${r.id}">Accepter</button>
+          <button type="button" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--ghost" data-jreject="${r.id}">Refuser</button>
+        </div>
+      </div>
+    `).join('');
+    list.querySelectorAll('[data-jaccept]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          await post(urls.joinRespond, { request_id: parseInt(btn.dataset.jaccept, 10), accept: true });
+          toast('Joueur ajouté à l\'équipe.', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+    list.querySelectorAll('[data-jreject]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          await post(urls.joinRespond, { request_id: parseInt(btn.dataset.jreject, 10), accept: false });
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+  }
+
+  function renderInvites(invites) {
+    const wrap = document.getElementById('geniusInvites');
+    const list = document.getElementById('geniusInvitesList');
+    if (!invites.length) { wrap.style.display = 'none'; return; }
+    wrap.style.display = 'block';
+    list.innerHTML = invites.map(inv => `
+      <div class="v2-genius-request-row">
+        <div><strong>${inv.team_name}</strong> <span class="meta">de ${inv.from_name}</span></div>
+        <div class="v2-genius-request-row__actions">
+          <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-accept="${inv.id}">Accepter</button>
+          <button type="button" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--ghost" data-reject="${inv.id}">Refuser</button>
+        </div>
+      </div>
+    `).join('');
+    list.querySelectorAll('[data-accept]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          await post(urls.respond, { invitation_id: parseInt(btn.dataset.accept, 10), accept: true });
+          toast('Tu es dans l\'équipe !', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+    list.querySelectorAll('[data-reject]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          await post(urls.respond, { invitation_id: parseInt(btn.dataset.reject, 10), accept: false });
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+  }
+
+  function renderCompetitions(comps, team, myRole, listId) {
+    const el = document.getElementById(listId);
+    if (!el) return;
+    if (!comps.length) {
+      el.innerHTML = '<p class="v2-genius-empty">Aucun concours ouvert pour le moment.</p>';
+      return;
+    }
+    const canManage = team && myRole === 'captain' && listId === 'geniusCompList';
+    el.innerHTML = comps.map(c => {
+      let actions = '';
+      if (canManage) {
+        const reg = c.registration;
+        if (!reg || !reg.status) {
+          actions = `<button type="button" class="v2-genius-btn v2-genius-btn--sm" data-reg="${c.id}">S'inscrire</button>`;
+        } else if (reg.status === 'registered' && team.is_full && !reg.roster_locked) {
+          actions = `<button type="button" class="v2-genius-btn v2-genius-btn--sm" data-lock="${c.id}">Verrouiller l'équipe</button>`;
+        } else if (reg.roster_locked) {
+          actions = '<span class="v2-genius-pill">Équipe verrouillée</span>';
+        }
+      }
+      return `
+        <div class="v2-genius-list-item">
+          <div>
+            <strong>${c.name}</strong>
+            <div class="meta">${c.status_label || c.status} · ${c.registered_count} équipes</div>
+          </div>
+          <div class="v2-genius-list-item__actions">
+            ${actions}
+            <a href="${urls.competition}${c.id}/" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">Voir</a>
+          </div>
+        </div>
+      `;
+    }).join('');
+    el.querySelectorAll('[data-reg]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          await post(urls.register, { competition_id: parseInt(btn.dataset.reg, 10), team_id: team.id });
+          toast('Inscription confirmée.', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+    el.querySelectorAll('[data-lock]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          await post(urls.lock, { competition_id: parseInt(btn.dataset.lock, 10), team_id: team.id });
+          toast('Équipe verrouillée.', 'success');
+          loadHub();
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+  }
+
+  function renderChallenge(teams, myRole) {
+    const list = document.getElementById('geniusChallengeList');
+    if (!myRole || myRole !== 'captain') {
+      list.innerHTML = '<p class="v2-genius-empty">Seul le capitaine peut lancer un défi amical.</p>';
+      return;
+    }
+    if (!teams.length) {
+      list.innerHTML = '<p class="v2-genius-empty">Aucune autre équipe disponible.</p>';
+      return;
+    }
+    list.innerHTML = teams.slice(0, 8).map(t => `
+      <div class="v2-genius-list-item">
+        <span>${t.emblem || '🧠'} <strong>${t.name}</strong> <span class="meta">${t.member_count} joueurs</span></span>
+        <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-challenge="${t.id}">Défier</button>
+      </div>
+    `).join('');
+    list.querySelectorAll('[data-challenge]').forEach(btn => {
+      btn.onclick = async () => {
+        try {
+          const r = await post(urls.matchCreate, { opponent_team_id: parseInt(btn.dataset.challenge, 10) });
+          window.location.href = urls.match + r.match_id + '/';
+        } catch (e) { toast(e.message, 'error'); }
+      };
+    });
+    document.getElementById('btnChallengeCode').onclick = async () => {
+      const code = (document.getElementById('geniusChallengeCode').value || '').trim();
+      if (!code) { toast('Code adversaire requis.', 'error'); return; }
+      try {
+        const r = await post(urls.matchCreate, { invite_code: code });
+        window.location.href = urls.match + r.match_id + '/';
+      } catch (e) { toast(e.message, 'error'); }
+    };
+  }
+
+  function renderNotifications(notifs, unread) {
+    document.getElementById('geniusNotifCount').textContent = unread;
+    const el = document.getElementById('geniusNotifList');
+    if (!notifs.length) {
+      el.innerHTML = '<p class="v2-genius-empty">Aucune notification.</p>';
+      return;
+    }
+    el.innerHTML = notifs.map(n => `
+      <div class="v2-genius-notif-item ${n.read ? 'read' : ''}" data-link="${n.link_path || ''}" data-id="${n.id}">
+        <strong>${n.title}</strong>
+        <div class="meta">${n.body}</div>
+      </div>
+    `).join('');
+    el.querySelectorAll('.v2-genius-notif-item').forEach(item => {
+      item.onclick = async () => {
+        const id = parseInt(item.dataset.id, 10);
+        try { await post(urls.notifRead, { ids: [id] }); } catch (_) {}
+        if (item.dataset.link) window.location.href = item.dataset.link;
+      };
+    });
+  }
+
+  function renderLeaderboard(rows, listId) {
+    const el = document.getElementById(listId);
+    if (!el) return;
+    if (!rows.length) {
+      el.innerHTML = '<p class="v2-genius-empty">Joue des matchs pour apparaître au classement.</p>';
+      return;
+    }
+    el.innerHTML = rows.map(r => `
+      <div class="v2-genius-lb-row">
+        <span class="v2-genius-lb-rank">#${r.rank}</span>
+        <span>${r.emblem || '🧠'} ${r.name}</span>
+        <span class="meta">${r.points} pts · ${r.wins}V-${r.losses}D</span>
+      </div>
+    `).join('');
+  }
+
+  function renderUpcoming(rows) {
+    const panel = document.getElementById('geniusUpcomingPanel');
+    const list = document.getElementById('geniusUpcomingList');
+    if (!rows.length) { panel.style.display = 'none'; return; }
+    panel.style.display = 'block';
+    list.innerHTML = rows.map(u => `
+      <div class="v2-genius-list-item">
+        <span><strong>${u.team_a}</strong> vs <strong>${u.team_b}</strong> <span class="meta">${u.competition}</span></span>
+        <a href="${u.link_path}" class="v2-genius-btn v2-genius-btn--sm">Entrer</a>
+      </div>
+    `).join('');
+  }
+
+  function renderMatches(matches) {
+    const panel = document.getElementById('geniusMatchesPanel');
+    const list = document.getElementById('geniusMatchesList');
+    document.getElementById('geniusMatchCount').textContent = matches.length;
+    if (!matches.length) { panel.style.display = 'none'; return; }
+    panel.style.display = 'block';
+    list.innerHTML = matches.map(m => `
+      <div class="v2-genius-list-item">
+        <span>${m.team_a} vs ${m.team_b} <span class="meta">${m.status}</span></span>
+        <a href="${urls.match}${m.id}/" class="v2-genius-btn v2-genius-btn--sm">Entrer</a>
+      </div>
+    `).join('');
+  }
+
+  function hydrateHub(data) {
+    if (!data) return;
+    hubData = data;
+    applyHubMode(data);
+    renderInvites(data.pending_invitations || []);
+    renderJoinRequests(data.pending_join_requests || []);
+    if (data.team) {
+      renderTeam(data.team, data.my_role, data.friends || []);
+    } else {
+      renderNoTeam();
+    }
+    if (!data.team) {
+      renderDiscover(data.discoverable_teams || []);
+    }
+    renderCompetitions(data.competitions || [], data.team, data.my_role, 'geniusCompList');
+    renderCompetitions(data.competitions || [], null, null, 'geniusCompListNoTeam');
+    renderChallenge(data.challengeable_teams || [], data.my_role);
+    renderNotifications(data.notifications || [], data.unread_notifications || 0);
+    renderLeaderboard(data.leaderboard || [], 'geniusLeaderboard');
+    renderLeaderboard(data.leaderboard || [], 'geniusLeaderboardNoTeam');
+    renderUpcoming(data.upcoming_matches || []);
+    renderMatches(data.active_matches || []);
+  }
+
+  function clearGeniusSpaCache() {
+    if (window.OTB_clearSpaPageCache) window.OTB_clearSpaPageCache('/dashboard/genius/');
+  }
+
+  async function loadHub() {
+    try {
+      const r = await fetch(hubUrl, { credentials: 'same-origin' });
+      const text = await r.text();
+      let data;
+      try { data = JSON.parse(text); } catch (_) {
+        if (!hubData) toast('Impossible de charger le hub.', 'error');
+        return;
+      }
+      hydrateHub(data);
+    } catch (_) {
+      toast('Impossible de charger le hub.', 'error');
+    }
+  }
+
+  document.getElementById('btnJoinTeam').onclick = async () => {
+    const code = (document.getElementById('geniusJoinCode').value || '').trim();
+    if (!code) { toast('Entre un code d\'équipe (OTB-XXXX).', 'error'); return; }
+    try {
+      await post(urls.join, { code });
+      toast('Bienvenue dans l\'équipe !', 'success');
+      clearGeniusSpaCache();
+      loadHub();
+    } catch (e) { toast(e.message, 'error'); }
+  };
+
+  window.switchTab = (name) => switchTab(name, hubData?.team ? 'team' : 'no-team');
+
+  const hubDataEl = document.getElementById('genius-hub-data');
+  if (hubDataEl) {
+    try { hydrateHub(JSON.parse(hubDataEl.textContent)); } catch (_) {}
+  } else if (!IS_GUEST_GENIUS) {
+    loadHub();
+  }
+  bindNoTeamHandlers();
+  if (!IS_GUEST_GENIUS) {
+    setTimeout(() => loadHub(), 8000);
+    setInterval(() => { if (!document.hidden) loadHub(); }, 10000);
+  } else {
+    // Guest : actions → signup
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('#btnCreateTeam, #btnJoinTeam, #btnGoExplore, [data-guest-lock]');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof showGuestBlockedToast === 'function') {
+        showGuestBlockedToast('Crée un compte pour rejoindre un Groupe de Génies');
+      } else {
+        window.location.href = '/signup/';
+      }
+    }, true);
+  }
+})();
+    </script>
+  </div>
+</div>
+{% endblock %}

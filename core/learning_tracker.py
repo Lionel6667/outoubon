@@ -201,15 +201,8 @@ def generate_and_save_chat_summary(user, session_key: str) -> None:
             ).order_by('created_at')
         )
 
-        if len(messages) < 2:
-            return  # Pas assez de messages pour un résumé utile
-
-        # Vérifier si un résumé existe déjà pour cette session
-        existing = ChatSessionSummary.objects.filter(user=user, session_key=session_key).first()
-        if existing and existing.message_count >= len(messages):
-            return  # Déjà à jour
-        if existing and len(messages) - existing.message_count < 3:
-            return  # Pas assez de nouveaux messages pour re-résumer
+        if len(messages) < 8:
+            return  # Session trop courte pour un résumé (économie API)
 
         # Construire le texte de la conversation
         conv_lines = []
@@ -229,9 +222,16 @@ def generate_and_save_chat_summary(user, session_key: str) -> None:
         if not summary_json:
             return
 
+        existing = ChatSessionSummary.objects.filter(user=user, session_key=session_key).first()
+        prev_title = ''
+        if existing and isinstance(existing.summary, dict):
+            prev_title = (existing.summary.get('title') or '').strip()
+
         # Ajouter les matières détectées dans les messages
         if subjects_in_session:
             summary_json['subjects'] = list(subjects_in_session)
+        if prev_title and not (summary_json.get('title') or '').strip():
+            summary_json['title'] = prev_title
 
         # Sauvegarder ou mettre à jour le résumé
         if existing:
@@ -497,11 +497,15 @@ def schedule_chat_learning_updates(user, session_key: str, user_message: str, ai
     from . import gemini as _gemini
 
     def _run():
+        from core.ai_usage import set_ai_context, clear_ai_context
         try:
+            set_ai_context(user=user, feature='chat')
             _gemini.extract_and_save_memories(user, user_message, ai_response, subject or '')
             invalidate_ai_caches(user)
         except Exception:
             pass
+        finally:
+            clear_ai_context()
         try:
             generate_and_save_chat_summary(user, session_key)
         except Exception:

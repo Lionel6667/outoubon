@@ -16,6 +16,7 @@ from datetime import date, timedelta
 import requests
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.utils import timezone
@@ -38,22 +39,28 @@ NATCASH_NUMBER   = '40615883'
 
 
 # ── Helper: activer abonnement + payer commission agent (1er mois) ──────────
-def _activate_subscription_and_pay_commission(user, days: int):
+def _activate_subscription_and_pay_commission(user, days: int, is_first_paid_subscription=None):
     """
-    Active ou prolonge l'abonnement d'un utilisateur et verse automatiquement
-    la commission à l'agent parrain si c'est le PREMIER abonnement de l'élève.
-    Appelé depuis webhook MonCash ET depuis l'activation manuelle admin.
+    Active ou prolonge l'abonnement. Commission agent + parrainage élève
+    uniquement sur le premier paiement completed.
     """
     from accounts.models import AgentReferral
     profile, _ = UserProfile.objects.get_or_create(user=user)
     today = date.today()
 
-    # Vérifier si c'est le premier abonnement (pas encore eu de plan actif avant)
-    is_first_subscription = (profile.plan_expiration is None or profile.plan_expiration < today)
+    if is_first_paid_subscription is None:
+        is_first_subscription = not Payment.objects.filter(user=user, status='completed').exists()
+    else:
+        is_first_subscription = bool(is_first_paid_subscription)
 
     start = profile.plan_expiration if (profile.plan_expiration and profile.plan_expiration > today) else today
     profile.plan_expiration = start + timedelta(days=days)
     profile.save(update_fields=['plan_expiration'])
+    try:
+        from core.push_events import push_premium_activated
+        push_premium_activated(user, profile.plan_expiration.strftime('%d/%m/%Y'))
+    except Exception:
+        pass
 
     # Commission agent uniquement sur le PREMIER mois
     if is_first_subscription:
@@ -66,6 +73,11 @@ def _activate_subscription_and_pay_commission(user, days: int):
             agent.total_earned += referral.amount
             agent.save(update_fields=['balance', 'total_earned'])
             logger.info('Commission %dG versée à agent %s pour parrainage de %s', referral.amount, agent.user.username, user.username)
+        try:
+            from accounts.referrals import mark_student_referral_paid
+            mark_student_referral_paid(user)
+        except Exception:
+            logger.exception('Student referral XP settlement failed for %s', user.username)
 
 
 # ─────────────────────── PAGE TARIFS ───────────────────────
@@ -188,28 +200,31 @@ def peyem_webhook(request):
     if status != 'completed':
         return JsonResponse({'ok': True, 'info': 'Status noted'})
 
-    try:
-        payment = Payment.objects.get(reference_id=ref_id)
-    except Payment.DoesNotExist:
-        logger.warning('Webhook for unknown ref: %s', ref_id)
-        return JsonResponse({'error': 'Unknown reference'}, status=404)
+    with transaction.atomic():
+        try:
+            payment = Payment.objects.select_for_update().get(reference_id=ref_id)
+        except Payment.DoesNotExist:
+            logger.warning('Webhook for unknown ref: %s', ref_id)
+            return JsonResponse({'error': 'Unknown reference'}, status=404)
 
-    if payment.status == 'completed':
-        return JsonResponse({'ok': True, 'info': 'Already processed'})
+        if payment.status == 'completed':
+            return JsonResponse({'ok': True, 'info': 'Already processed'})
 
-    # Marquer payé
-    payment.status = 'completed'
-    payment.paid_at = timezone.now()
-    payment.save(update_fields=['status', 'paid_at'])
+        had_prior_paid = Payment.objects.filter(
+            user=payment.user, status='completed',
+        ).exclude(pk=payment.pk).exists()
+        payment.status = 'completed'
+        payment.paid_at = timezone.now()
+        payment.save(update_fields=['status', 'paid_at'])
+        plan = PLANS.get(payment.plan, PLANS['monthly'])
+        _activate_subscription_and_pay_commission(
+            payment.user, plan['days'],
+            is_first_paid_subscription=not had_prior_paid,
+        )
 
-    # Activer abonnement + commission agent
-    plan = PLANS.get(payment.plan, PLANS['monthly'])
-    _activate_subscription_and_pay_commission(payment.user, plan['days'])
-
-    # Si c'est un paiement cadeau, marquer le lien comme utilisé
-    if payment.gift_link and not payment.gift_link.is_used:
-        payment.gift_link.is_used = True
-        payment.gift_link.save(update_fields=['is_used'])
+        if payment.gift_link and not payment.gift_link.is_used:
+            payment.gift_link.is_used = True
+            payment.gift_link.save(update_fields=['is_used'])
 
     logger.info('Payment %s completed — plan until %s', ref_id, UserProfile.objects.get(user=payment.user).plan_expiration)
     return JsonResponse({'ok': True})
@@ -240,12 +255,17 @@ def check_payment_status(request):
             )
             data = resp.json()
             if data.get('status') == 'completed' and payment.status != 'completed':
+                had_prior_paid = Payment.objects.filter(
+                    user=payment.user, status='completed',
+                ).exclude(pk=payment.pk).exists()
                 payment.status = 'completed'
                 payment.paid_at = timezone.now()
                 payment.save(update_fields=['status', 'paid_at'])
-                # Activer plan + commission
                 plan = PLANS.get(payment.plan, PLANS['monthly'])
-                _activate_subscription_and_pay_commission(payment.user, plan['days'])
+                _activate_subscription_and_pay_commission(
+                    payment.user, plan['days'],
+                    is_first_paid_subscription=not had_prior_paid,
+                )
         except requests.RequestException:
             pass
 
@@ -452,6 +472,11 @@ def check_gift_payment_status(request):
                 start = profile.plan_expiration if (profile.plan_expiration and profile.plan_expiration > today) else today
                 profile.plan_expiration = start + timedelta(days=plan['days'])
                 profile.save(update_fields=['plan_expiration'])
+                try:
+                    from core.push_events import push_premium_activated
+                    push_premium_activated(payment.user, profile.plan_expiration.strftime('%d/%m/%Y'))
+                except Exception:
+                    pass
                 # Marquer le gift link comme utilisé
                 if payment.gift_link:
                     payment.gift_link.is_used = True

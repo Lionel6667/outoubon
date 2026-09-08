@@ -3,8 +3,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
+from core.push_sw import firebase_messaging_sw
 
 urlpatterns = [
+    path('firebase-messaging-sw.js', firebase_messaging_sw),
     path('admin/', admin.site.urls),
     path('favicon.ico', RedirectView.as_view(url='/static/img/logo.png', permanent=True)),
     path('', include('accounts.urls')),

@@ -63,7 +63,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Domaine de définition",
       "type": "examples",
-      "content": "f(x) = √(x-3) → x-3 ≥ 0 → D_f = [3 ; +∞[\nf(x) = ln(2x-6) → 2x-6 > 0 → D_f = ]3 ; +∞[\nf(x) = (x+2)/(x-5) → x-5 ≠ 0 → D_f = ℝ \\ {5}",
+      "content": "f(x) = √(x-3) → x-3 ≥ 0 → D_f = [3 ; +∞[\n\nf(x) = ln(2x-6) → 2x-6 > 0 → D_f = ]3 ; +∞[\n\nf(x) = (x+2)/(x-5) → x-5 ≠ 0 → D_f = ℝ \\ {5}",
       "level": 3,
       "tags": [
         "maths",
@@ -77,7 +77,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Domaine de définition",
       "type": "detailed_examples",
-      "content": "f(x) = ln(2x/(x+1)) → conditions : 2x/(x+1) > 0 → D_f = ]-∞ ; -1[ ∪ ]0 ; +∞[\nf(x) = ln((x+3)/(x-1)) + √(x-2) → (x+3)/(x-1) > 0 et x-2 ≥ 0 → D_f = [2 ; +∞[",
+      "content": "f(x) = ln(2x/(x+1)) → conditions : 2x/(x+1) > 0 → D_f = ]-∞ ; -1[ ∪ ]0 ; +∞[\n\nf(x) = ln((x+3)/(x-1)) + √(x-2) → (x+3)/(x-1) > 0 et x-2 ≥ 0 → D_f = [2 ; +∞[",
       "level": 3,
       "tags": [
         "maths",
@@ -175,7 +175,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Limites",
       "type": "examples",
-      "content": "lim_{x→2} (x²-4)/(x-2) = lim (x-2)(x+2)/(x-2) = 4\nlim_{x→+∞} (3x²+5x-1)/(2x²-7) = 3/2 (diviser par x²)\nlim_{x→-∞} x² e^x = 0 (croissance comparée)",
+      "content": "lim_{x→2} (x²-4)/(x-2) = lim (x-2)(x+2)/(x-2) = 4\n$\\lim_{x \\to +\\infty}$ (3x²+5x-1)/(2x²-7) = 3/2 (diviser par x²)\n$\\lim_{x \\to -\\infty}$ x² e^x = 0 (croissance comparée)",
       "level": 3,
       "tags": [
         "maths",
@@ -189,7 +189,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Limites",
       "type": "detailed_examples",
-      "content": "lim_{x→+∞} (4e^x+3)/(e^x+2) = 4 (diviser par e^x)\nlim_{x→+∞} ln(2x/(x+1)) = ln 2\nlim_{x→0⁺} (x+ln x) = -∞",
+      "content": "$\\lim_{x \\to +\\infty}$ (4e^x+3)/(e^x+2) = 4 (diviser par e^x)\n$\\lim_{x \\to +\\infty}$ ln(2x/(x+1)) = ln 2\n$\\lim_{x \\to 0^+}$ (x+ln x) = -∞",
       "level": 3,
       "tags": [
         "maths",
@@ -287,7 +287,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Dérivées",
       "type": "examples",
-      "content": "f(x) = 3x⁴ - 2x² + 5x - 1 → f'(x) = 12x³ - 4x + 5\nf(x) = e^{2x} → f'(x) = 2e^{2x}\nf(x) = ln(2x-5) → f'(x) = 2/(2x-5)\nf(x) = x e^x → f'(x) = e^x(1+x)",
+      "content": "f(x) = 3x⁴ - 2x² + 5x - 1 → f'(x) = 12x³ - 4x + 5\nf(x) = $e^{2x}$ → f'(x) = 2$e^{2x}$\nf(x) = ln(2x-5) → f'(x) = 2/(2x-5)\nf(x) = x e^x → f'(x) = e^x(1+x)",
       "level": 3,
       "tags": [
         "maths",
@@ -301,7 +301,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Dérivées",
       "type": "detailed_examples",
-      "content": "f(x) = e^{2x} - 4e^x + 3 → f'(x) = 2e^{2x} - 4e^x = 2e^x(e^x-2)\nf(x) = ln(3x/(x+2)) → f'(x) = 2/(x(x+2))\nf(x) = (2e^x+1)/(e^x-3) → f'(x) = -7e^x/(e^x-3)²",
+      "content": "f(x) = $e^{2x}$ - 4e^x + 3 → f'(x) = 2$e^{2x}$ - 4e^x = 2e^x(e^x-2)\n\nf(x) = ln(3x/(x+2)) → f'(x) = 2/(x(x+2))\n\nf(x) = (2e^x+1)/(e^x-3) → f'(x) = -7e^x/(e^x-3)²",
       "level": 3,
       "tags": [
         "maths",
@@ -413,7 +413,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Tableau de variation",
       "type": "detailed_examples",
-      "content": "f(x) = e^{2x} - 4e^x + 3 : f'(x)=2e^x(e^x-2) → décroissante sur ]-∞, ln2[, croissante sur ]ln2,+∞[ ; minimum f(ln2)=-1.\nf(x) = x - 1 - ln x sur ]0,+∞[ : f'(x)=(x-1)/x → décroissante sur ]0,1[, croissante sur ]1,+∞[ ; minimum f(1)=0.",
+      "content": "f(x) = $e^{2x}$ - 4e^x + 3 : f'(x)=2e^x(e^x-2) → décroissante sur ]-∞, ln2[, croissante sur ]ln2,+∞[ ; minimum f(ln2)=-1.\n\nf(x) = x - 1 - ln x sur ]0,+∞[ : f'(x)=(x-1)/x → décroissante sur ]0,1[, croissante sur ]1,+∞[ ; minimum f(1)=0.",
       "level": 3,
       "tags": [
         "maths",
@@ -511,7 +511,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Asymptotes",
       "type": "examples",
-      "content": "f(x)=1/(x-3) → AV x=3\nf(x)=(2x+1)/(x-1) → AH y=2 en +∞ et -∞\nf(x)=x+2-e^x sur ]-∞,0] → AO y=x+2 en -∞ car lim (f(x)-(x+2))=0",
+      "content": "f(x)=1/(x-3) → AV x=3\n\nf(x)=(2x+1)/(x-1) → AH y=2 en +∞ et -∞\n\nf(x)=x+2-e^x sur ]-∞,0] → AO y=x+2 en -∞ car lim (f(x)-(x+2))=0",
       "level": 3,
       "tags": [
         "maths",
@@ -525,7 +525,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Asymptotes",
       "type": "detailed_examples",
-      "content": "f(x)=2e^x/(e^x+1) → AH y=2 en +∞, AH y=0 en -∞\nf(x)=ln(2x/(x+1)) → AV x=0 et x=-1, AH y=ln2 en ±∞",
+      "content": "f(x)=2e^x/(e^x+1) → AH y=2 en +∞, AH y=0 en -∞\n\nf(x)=ln(2x/(x+1)) → AV x=0 et x=-1, AH y=ln2 en ±∞",
       "level": 3,
       "tags": [
         "maths",
@@ -623,7 +623,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Équation de la tangente",
       "type": "examples",
-      "content": "f(x)=x²+2x-1, x₀=1 : f(1)=2, f'(1)=4 → tangente y=4(x-1)+2 = 4x-2\nf(x)=e^x, x₀=0 : f(0)=1, f'(0)=1 → y=x+1",
+      "content": "f(x)=x²+2x-1, x₀=1 : f(1)=2, f'(1)=4 → tangente y=4(x-1)+2 = 4x-2\n\nf(x)=e^x, x₀=0 : f(0)=1, f'(0)=1 → y=x+1",
       "level": 3,
       "tags": [
         "maths",
@@ -637,7 +637,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Équation de la tangente",
       "type": "detailed_examples",
-      "content": "f(x)=ln(2x/(x+1)), x₀=3 : f(3)=ln(3/2), f'(3)=1/12 → y = (1/12)(x-3)+ln(3/2)\nf(x)=e^{2x}-4e^x+3, x₀=0 : f(0)=0, f'(0)=-2 → y = -2x",
+      "content": "f(x)=ln(2x/(x+1)), x₀=3 : f(3)=ln(3/2), f'(3)=1/12 → y = (1/12)(x-3)+ln(3/2)\n\nf(x)=$e^{2x}$-4e^x+3, x₀=0 : f(0)=0, f'(0)=-2 → y = -2x",
       "level": 3,
       "tags": [
         "maths",
@@ -735,7 +735,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Fonctions paires, impaires et symétrie",
       "type": "examples",
-      "content": "f(x)=x² est paire, f(x)=x³ est impaire.\nf(x)=ln((1+x)/(1-x)) est impaire car f(-x) = -f(x).",
+      "content": "f(x)=x² est paire,\n\nf(x)=x³ est impaire.\n\nf(x)=ln((1+x)/(1-x)) est impaire car f(-x) = -f(x).",
       "level": 3,
       "tags": [
         "maths",
@@ -820,7 +820,7 @@
       "chapter": "Fonctions numériques",
       "subchapter": "Exercice 2",
       "type": "exercise",
-      "content": "Question : Calculer lim_{x→+∞} (2e^x+1)/(e^x+3).\nSolution : Diviser numérateur et dénominateur par e^x : lim (2 + 1/e^x) / (1 + 3/e^x) = (2+0)/(1+0) = 2.",
+      "content": "Question : Calculer $\\lim_{x \\to +\\infty}$ (2e^x+1)/(e^x+3).\nSolution : Diviser numérateur et dénominateur par e^x : lim (2 + 1/e^x) / (1 + 3/e^x) = (2+0)/(1+0) = 2.",
       "level": 2,
       "tags": [
         "maths",
@@ -1344,7 +1344,7 @@
       "chapter": "Nombres complexes",
       "subchapter": "Les trois formes d'un nombre complexe",
       "type": "examples",
-      "content": "1+i : r=√2, θ=π/4 → 1+i = √2 e^{iπ/4}\n-2+2i√3 : r=4, cosθ=-1/2, sinθ=√3/2 → θ=2π/3 → z=4e^{i2π/3}",
+      "content": "1+i : r=√2, θ=π/4 → 1+i = √2 $e^{iπ/4}$\n-2+2i√3 : r=4, cosθ=-1/2, sinθ=√3/2 → θ=2π/3 → z=4$e^{i2π/3}$",
       "level": 3,
       "tags": [
         "maths",
@@ -1358,7 +1358,7 @@
       "chapter": "Nombres complexes",
       "subchapter": "Les trois formes d'un nombre complexe",
       "type": "detailed_examples",
-      "content": "z = (1-i√3)(1-i) : |z|=2√2, arg(z)= -π/3 - π/4 = -7π/12 → z=2√2 e^{-7iπ/12}\nz = √3 - i : r=2, θ=-π/6 → z=2e^{-iπ/6} ; z⁶ = 64 e^{-iπ} = -64",
+      "content": "z = (1-i√3)(1-i) : |z|=2√2, arg(z)= -π/3 - π/4 = -7π/12 → z=2√2 $e^{-7iπ/12}$\nz = √3 - i : r=2, θ=-π/6 → z=2$e^{-iπ/6}$ ; z⁶ = 64 $e^{-iπ}$ = -64",
       "level": 3,
       "tags": [
         "maths",
@@ -1582,7 +1582,7 @@
       "chapter": "Nombres complexes",
       "subchapter": "Géométrie dans le plan complexe",
       "type": "detailed_examples",
-      "content": "Isobarycentre de trois points : affixe = (z_A+z_B+z_C)/3.\nImage d'un point par rotation d'angle θ : z' = e^{iθ}(z - z_Ω) + z_Ω.",
+      "content": "Isobarycentre de trois points : affixe = (z_A+z_B+z_C)/3.\nImage d'un point par rotation d'angle θ : z' = $e^{iθ}$(z - z_Ω) + z_Ω.",
       "level": 3,
       "tags": [
         "maths",
@@ -1638,7 +1638,7 @@
       "chapter": "Nombres complexes",
       "subchapter": "Exercice 1",
       "type": "exercise",
-      "content": "Question : Écrire 1-i sous forme trigonométrique et exponentielle.\nSolution : Module = √(1²+(-1)²)=√2. cosθ=1/√2, sinθ=-1/√2 ⇒ θ = -π/4 (ou 7π/4). Donc forme trigo : √2(cos(-π/4)+ i sin(-π/4)), forme exponentielle : √2 e^{-iπ/4}.",
+      "content": "Question : Écrire 1-i sous forme trigonométrique et exponentielle.\nSolution : Module = √(1²+(-1)²)=√2. cosθ=1/√2, sinθ=-1/√2 ⇒ θ = -π/4 (ou 7π/4). Donc forme trigo : √2(cos(-π/4)+ i sin(-π/4)), forme exponentielle : √2 $e^{-iπ/4}$.",
       "level": 2,
       "tags": [
         "maths",
@@ -1683,7 +1683,7 @@
       "chapter": "Nombres complexes",
       "subchapter": "Exercice 4",
       "type": "exercise",
-      "content": "Question : Trouver les racines de z⁴=16 dans ℂ.\nSolution : z⁴ = 16 = 16 e^{i2kπ}. Donc z = 16^{1/4} e^{i(2kπ)/4} = 2 e^{i kπ/2} pour k=0,1,2,3. Racines : 2, 2i, -2, -2i.",
+      "content": "Question : Trouver les racines de z⁴=16 dans ℂ.\nSolution : z⁴ = 16 = 16 $e^{i2kπ}$. Donc z = 16^{1/4} $e^{i(2kπ)/4}$ = 2 $e^{i kπ/2}$ pour k=0,1,2,3. Racines : 2, 2i, -2, -2i.",
       "level": 2,
       "tags": [
         "maths",
@@ -2443,7 +2443,7 @@
       "chapter": "Primitives et intégrales",
       "subchapter": "Primitives usuelles",
       "type": "detailed_examples",
-      "content": "f(x)=2xeˣ, avec F(0)=0. Par parties : u'=eˣ, v=2x → F=2xeˣ-2eˣ+C ; F(0)=-2+C=0 → C=2, F(x)=2eˣ(x-1)+2.\nf(x)=2e^{2x}, F(ln2)=0 : F(x)=e^{2x}+C ; F(ln2)=4+C=0 → C=-4, F(x)=e^{2x}-4.",
+      "content": "f(x)=2xeˣ, avec F(0)=0. Par parties : u'=eˣ, v=2x → F=2xeˣ-2eˣ+C ; F(0)=-2+C=0 → C=2, F(x)=2eˣ(x-1)+2.\n\nf(x)=2$e^{2x}$, F(ln2)=0 : F(x)=$e^{2x}$+C ; F(ln2)=4+C=0 → C=-4, F(x)=$e^{2x}$-4.",
       "level": 3,
       "tags": [
         "maths",
@@ -2555,7 +2555,7 @@
       "chapter": "Primitives et intégrales",
       "subchapter": "Intégrale définie et valeur moyenne",
       "type": "detailed_examples",
-      "content": "f(t)=140-40e^t sur [0,5] : valeur moyenne = 1/5 [140t-40e^t]_0^5 = 1/5(700-40e^5+40) = 148-8e^5 ≈ -1039.\n∫_{ln2}^{ln4} e^{2x} dx = [e^{2x}/2] = (16-4)/2 = 6.",
+      "content": "f(t)=140-40e^t sur [0,5] : valeur moyenne = 1/5 [140t-40e^t]_0^5 = 1/5(700-40e^5+40) = 148-8e^5 ≈ -1039.\n∫_{ln2}^{ln4} $e^{2x}$ dx = [$e^{2x}$/2] = (16-4)/2 = 6.",
       "level": 3,
       "tags": [
         "maths",

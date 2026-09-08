@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ competition.name }} · Génies{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/genius.css' %}">
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="genius" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Concours</div>
+      <a href="{% url 'genius_hub' %}" style="font-size:.82rem;color:var(--green)">← Hub</a>
+    </div>
+    <div class="view-area" style="overflow-y:auto">
+      <div class="v2-genius-shell">
+        <div class="v2-genius-comp-head">
+          <h1>{{ competition.name }}</h1>
+          <div class="v2-genius-comp-head__meta">
+            <span class="v2-genius-pill">{{ status_label }}</span>
+            {% if competition.start_date %}<span class="meta">{{ competition.start_date|date:"j F Y" }}</span>{% endif %}
+          </div>
+        </div>
+
+        {% if team and registration %}
+        <div class="v2-genius-card" style="margin-bottom:1rem">
+          <h3><i class="fas fa-shield-alt"></i> {{ team.name }}</h3>
+          <p style="font-size:.84rem;color:var(--t2)">
+            Inscription : <strong>{{ registration.get_status_display }}</strong>
+          </p>
+        </div>
+        {% endif %}
+
+        {% if can_start_competition %}
+        <div class="v2-genius-card" style="margin-bottom:1rem">
+          <p style="font-size:.84rem;color:var(--t2);margin:0 0 .65rem">
+            {{ locked_teams_count }} équipe(s) prêtes — minimum 2 pour le bracket.
+          </p>
+          <button type="button" class="v2-genius-btn" id="btnStartCompetition" data-comp-id="{{ competition.id }}">
+            <i class="fas fa-play"></i> Lancer le concours
+          </button>
+        </div>
+        {% endif %}
+
+        {% if prizes %}
+        <section class="v2-genius-card v2-genius-prizes" style="margin-bottom:1rem">
+          <h3><i class="fas fa-gift"></i> Récompenses</h3>
+          <div class="v2-genius-prize-grid">
+            {% for p in prizes %}
+            <div class="v2-genius-prize-card">
+              <div class="v2-genius-prize-place">{{ p.place }}</div>
+              <div class="v2-genius-prize-label">{{ p.label }}</div>
+              {% if p.reward %}<div class="v2-genius-prize-reward">{{ p.reward }}</div>{% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+
+        {% if leaderboard %}
+        <section class="v2-genius-card" style="margin-bottom:1rem">
+          <h3><i class="fas fa-medal"></i> Classement du concours</h3>
+          <div class="v2-genius-leaderboard">
+            {% for r in leaderboard %}
+            <div class="v2-genius-lb-row">
+              <span class="v2-genius-lb-rank">#{{ r.rank }}</span>
+              <span>{{ r.emblem }} {{ r.name }}</span>
+              <span class="meta">{{ r.points }} pts</span>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+
+        <section class="v2-genius-card">
+          <h3><i class="fas fa-sitemap"></i> Bracket</h3>
+          {% if bracket_by_round %}
+          <div class="v2-genius-bracket-ucl">
+            {% for round_order, nodes in bracket_by_round %}
+            <div class="v2-genius-bracket-col {% if forloop.last %}v2-genius-bracket-col--final{% endif %}">
+              <div class="v2-genius-bracket-col-title">
+                {% if forloop.last %}<i class="fas fa-crown" style="color:#fbbf24"></i>{% endif %}
+                {{ nodes.0.phase_label|default:"Round" }}
+              </div>
+              {% for node in nodes %}
+              <div class="v2-genius-bracket-match {% if node.winner %}done{% endif %} {% if forloop.parentloop.last and node.winner %}champion{% endif %}">
+                <div class="v2-genius-bracket-team {% if node.winner == node.team_a %}winner{% endif %}">
+                  {% if forloop.parentloop.last and node.winner == node.team_a %}👑 {% endif %}{{ node.team_a|default:"—" }}
+                </div>
+                <div class="v2-genius-bracket-vs">vs</div>
+                <div class="v2-genius-bracket-team {% if node.winner == node.team_b %}winner{% endif %}">
+                  {% if forloop.parentloop.last and node.winner == node.team_b %}👑 {% endif %}{{ node.team_b|default:"—" }}
+                </div>
+                {% if node.match_id %}
+                <a href="{% url 'genius_match' match_id=node.match_id %}" class="v2-genius-bracket-link">Match →</a>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="v2-genius-empty">Le bracket sera publié quand le concours commencera.</p>
+          {% endif %}
+        </section>
+
+        {% include "partials/v2/_page_info.html" with info_key=page_info_key info_title=competition.name info_body=competition.description %}
+      </div>
+    </div>
+  </div>
+</div>
+{% if can_start_competition %}
+<script>
+(function() {
+  const btn = document.getElementById('btnStartCompetition');
+  if (!btn) return;
+  btn.onclick = async () => {
+    btn.disabled = true;
+    try {
+      const r = await fetch('{% url "api_genius_competition_start" %}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': (typeof window.CSRF === 'string' ? window.CSRF : '') },
+        body: JSON.stringify({ competition_id: parseInt(btn.dataset.compId, 10) }),
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error || 'Erreur');
+      window.location.reload();
+    } catch (e) {
+      alert(e.message);
+      btn.disabled = false;
+    }
+  };
+})();
+</script>
+{% endif %}
+{% endblock %}

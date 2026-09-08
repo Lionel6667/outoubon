@@ -1,0 +1,4737 @@
+[
+  {
+    "id": "M9E1",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Lequel des nombres suivants n'est pas un diviseur de 14 ?",
+    "correct": "B",
+    "explanation": "Les diviseurs positifs de 14 sont 1, 2, 7 et 14. 4 ne divise pas 14 (14 ÷ 4 = 3,5).",
+    "options": [
+      "2",
+      "4",
+      "7",
+      "14"
+    ]
+  },
+  {
+    "id": "M9E2",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 35,
+    "question": "Si A, E et F sont trois points distincts d'un cercle de diamètre [AE], quelle est alors la nature du triangle AEF ?",
+    "correct": "D",
+    "explanation": "Tout triangle inscrit dans un cercle dont un côté est un diamètre est rectangle au sommet opposé au diamètre (théorème de Thalès). Donc AEF est rectangle en F.",
+    "options": [
+      "rectangle en A",
+      "isocèle en E",
+      "isocèle en A",
+      "rectangle en F"
+    ]
+  },
+  {
+    "id": "M9E3",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Quel est, en pourcentage, la valeur de la fraction 3/5 ?",
+    "correct": "C",
+    "explanation": "(3/5) × 100 = 60. Donc 3/5 = 60 %.",
+    "options": [
+      "35 %",
+      "30 %",
+      "60 %",
+      "20 %"
+    ]
+  },
+  {
+    "id": "M9E4",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Laquelle des figures géométriques suivantes a des diagonales perpendiculaires et de même longueur ?",
+    "correct": "D",
+    "explanation": "Le carré a des diagonales à la fois perpendiculaires et de même longueur. Le losange a des diagonales perpendiculaires mais pas forcément égales ; le rectangle a des diagonales égales mais pas perpendiculaires.",
+    "options": [
+      "Le losange",
+      "Le trapèze",
+      "Le rectangle",
+      "Le carré"
+    ]
+  },
+  {
+    "id": "M9E5",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Dans quel triangle les droites remarquables sont à la fois hauteurs, médianes, médiatrices et bissectrices ?",
+    "correct": "C",
+    "explanation": "Dans un triangle équilatéral, hauteurs, médianes, médiatrices et bissectrices coïncident.",
+    "options": [
+      "Triangle rectangle",
+      "Triangle isocèle",
+      "Triangle équilatéral",
+      "Triangle rectangle-isocèle"
+    ]
+  },
+  {
+    "id": "M9E6",
+    "category": "Grandeurs",
+    "difficulty": "moyen",
+    "timer_seconds": 40,
+    "question": "Quel est le volume d'un récipient qu'un robinet débitant 20 L/min remplit en 2 heures ?",
+    "correct": "A",
+    "explanation": "2 h = 120 min. Volume = 20 × 120 = 2400 L = 2,4 m³.",
+    "options": [
+      "2,4 m³",
+      "10 m³",
+      "1,2 m³",
+      "4 m³"
+    ]
+  },
+  {
+    "id": "M9E7",
+    "category": "Géométrie dans l'espace",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Laquelle des formules suivantes est celle de l'aire latérale d'un cylindre ?",
+    "correct": "C",
+    "explanation": "L'aire latérale d'un cylindre est 2πrh (rectangle obtenu en déroulant le tube). πr²h est le volume.",
+    "options": [
+      "πr²h",
+      "πrh",
+      "2πrh",
+      "πr²"
+    ]
+  },
+  {
+    "id": "M9E8",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "L'orthocentre d'un triangle est le point de rencontre des :",
+    "correct": "C",
+    "explanation": "L'orthocentre est le point de concours des hauteurs. Les médianes se coupent au centre de gravité, les médiatrices au centre du cercle circonscrit, les bissectrices au centre du cercle inscrit.",
+    "options": [
+      "Bissectrices",
+      "Médianes",
+      "Hauteurs",
+      "Médiatrices"
+    ]
+  },
+  {
+    "id": "M9E9",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "La médiane de la série : 13 ; 21 ; 19 ; 18 ; 27 ; 15 est :",
+    "correct": "C",
+    "explanation": "Série ordonnée : 13, 15, 18, 19, 21, 27. Six valeurs : médiane = (18+19)/2 = 18,5.",
+    "options": [
+      "19",
+      "18",
+      "18,5",
+      "19,6"
+    ]
+  },
+  {
+    "id": "M9E10",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Si une droite est sécante à un cercle, alors :",
+    "correct": "A",
+    "explanation": "Une sécante coupe le cercle en deux points distincts. Un seul point commun correspond à une tangente.",
+    "options": [
+      "Ils ont deux points communs",
+      "Ils ont un point commun",
+      "Ils n'ont aucun point commun",
+      "La droite se trouve à l'extérieur du cercle"
+    ]
+  },
+  {
+    "id": "M9E11",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Le point de rencontre des médianes d'un triangle est appelé :",
+    "correct": "C",
+    "explanation": "Le point de concours des médianes est le centre de gravité (barycentre).",
+    "options": [
+      "Orthocentre",
+      "Centre du cercle inscrit",
+      "Centre de gravité",
+      "Centre du cercle circonscrit"
+    ]
+  },
+  {
+    "id": "M9E12",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "50 % d'une somme d'argent représente :",
+    "correct": "D",
+    "explanation": "50 % = 50/100 = 1/2 : la moitié de la somme.",
+    "options": [
+      "Son double",
+      "Son quart",
+      "Son tiers",
+      "Sa moitié"
+    ]
+  },
+  {
+    "id": "M9E13",
+    "category": "Algèbre",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "On donne H = 5x − 4x − 2x − 3x ; l'expression réduite de H est :",
+    "correct": "B",
+    "explanation": "5x − 4x − 2x − 3x = (5−4−2−3)x = −4x.",
+    "options": [
+      "4x",
+      "−4x",
+      "120x",
+      "−120x"
+    ]
+  },
+  {
+    "id": "M9E14",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Que peut-on dire d'un cercle et d'une droite qui n'ont aucun point commun ?",
+    "correct": "D",
+    "explanation": "Aucun point commun : la droite est extérieure au cercle (elle n'est ni sécante ni tangente).",
+    "options": [
+      "La droite est tangente au cercle",
+      "La distance entre le centre du cercle et la droite est nulle",
+      "La droite et le cercle sont sécants",
+      "La droite est extérieure au cercle"
+    ]
+  },
+  {
+    "id": "M9E15",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Si deux cercles de centres O et O' et de rayons r et r' vérifient OO' = r + r', alors :",
+    "correct": "C",
+    "explanation": "Lorsque la distance des centres est égale à la somme des rayons, les cercles sont tangents extérieurement.",
+    "options": [
+      "Ils sont concentriques",
+      "Ils sont sécants",
+      "Ils sont tangents extérieurement",
+      "Ils sont extérieurs l'un à l'autre"
+    ]
+  },
+  {
+    "id": "M9E16",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Lequel de ces points est le point de rencontre des droites perpendiculaires aux côtés d'un triangle en leur milieu ?",
+    "correct": "A",
+    "explanation": "Les perpendiculaires aux côtés en leur milieu sont les médiatrices ; elles se coupent au centre du cercle circonscrit.",
+    "options": [
+      "Le centre du cercle circonscrit au triangle",
+      "Le centre du cercle inscrit dans le triangle",
+      "L'orthocentre du triangle",
+      "Le centre de gravité du triangle"
+    ]
+  },
+  {
+    "id": "M9E17",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Le point d'intersection des médiatrices d'un triangle est :",
+    "correct": "C",
+    "explanation": "Les médiatrices se coupent au centre du cercle circonscrit (équidistant des trois sommets).",
+    "options": [
+      "l'orthocentre du triangle",
+      "le centre du cercle inscrit au triangle",
+      "le centre du cercle circonscrit au triangle",
+      "le centre de gravité du triangle"
+    ]
+  },
+  {
+    "id": "M9E18",
+    "category": "Algèbre",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "L'expression factorisée de f(x) = 4x² − 25 est :",
+    "correct": "C",
+    "explanation": "4x² − 25 = (2x)² − 5² = (2x − 5)(2x + 5) (identité remarquable a² − b²).",
+    "options": [
+      "(4x − 5)(2x + 5)",
+      "(4x − 5)²",
+      "(2x − 5)(2x + 5)",
+      "(2x − 5)²"
+    ]
+  },
+  {
+    "id": "M9E19",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Diminuer x de 5 % c'est multiplier x par :",
+    "correct": "C",
+    "explanation": "Diminuer de 5 % revient à garder 95 % du nombre : x × 0,95.",
+    "options": [
+      "0,05",
+      "1,05",
+      "0,95",
+      "0,5"
+    ]
+  },
+  {
+    "id": "M9E20",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Quel nom donne-t-on au côté opposé à l'angle droit d'un triangle rectangle ?",
+    "correct": "B",
+    "explanation": "Le côté opposé à l'angle droit s'appelle l'hypoténuse.",
+    "options": [
+      "hauteur",
+      "hypoténuse",
+      "médiane",
+      "bissectrice"
+    ]
+  },
+  {
+    "id": "M9E21",
+    "category": "Grandeurs",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Quelle grandeur détermine-t-on lorsqu'on fait le quotient du volume de liquide écoulé par la durée ?",
+    "correct": "C",
+    "explanation": "Débit = volume / durée.",
+    "options": [
+      "la masse",
+      "la vitesse",
+      "le débit",
+      "le poids"
+    ]
+  },
+  {
+    "id": "M9E22",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "La droite d'un triangle qui passe par un sommet et le milieu du côté opposé s'appelle :",
+    "correct": "B",
+    "explanation": "C'est la définition de la médiane. La médiatrice est perpendiculaire au milieu ; la hauteur est perpendiculaire au côté opposé.",
+    "options": [
+      "Médiatrice",
+      "Médiane",
+      "Hauteur",
+      "Bissectrice"
+    ]
+  },
+  {
+    "id": "M9E23",
+    "category": "Arithmétique",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Le nombre qu'il faut ajouter à 2/7 pour obtenir 3 est :",
+    "correct": "C",
+    "explanation": "3 − 2/7 = 21/7 − 2/7 = 19/7.",
+    "options": [
+      "5/7",
+      "6/7",
+      "19/7",
+      "21/7"
+    ]
+  },
+  {
+    "id": "M9E24",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "G est le centre de gravité du triangle ABC et AI = 7,5 cm (I milieu de [BC]). La longueur AG est :",
+    "correct": "D",
+    "explanation": "Sur une médiane, AG = (2/3) × AI = (2/3) × 7,5 = 5 cm.",
+    "options": [
+      "2,5 cm",
+      "3 cm",
+      "4,5 cm",
+      "5 cm"
+    ]
+  },
+  {
+    "id": "M9E25",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Laquelle des égalités suivantes traduit que le triangle EFG est rectangle en E ?",
+    "correct": "D",
+    "explanation": "Rectangle en E : l'hypoténuse est le côté opposé à E, donc [FG]. Pythagore : FG² = EF² + EG².",
+    "options": [
+      "EF² = FG² + EG²",
+      "EG² = EF² + FG²",
+      "EF² = EG² − FG²",
+      "FG² = EF² + EG²"
+    ]
+  },
+  {
+    "id": "M9E26",
+    "category": "Statistiques",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "question": "Si les notes sur 30 d'un élève pour six tests sont 12, 18, 15, 10, 16 et 13, quelle est alors sa moyenne ?",
+    "correct": "C",
+    "explanation": "Somme = 12+18+15+10+16+13 = 84. Moyenne = 84/6 = 14.",
+    "options": [
+      "84",
+      "18",
+      "14",
+      "12"
+    ]
+  },
+  {
+    "id": "M9E27",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Quelle est la mesure du supplément d'un angle aigu mesurant 75° ?",
+    "correct": "A",
+    "explanation": "Deux angles supplémentaires ont pour somme 180°. 180° − 75° = 105°.",
+    "options": [
+      "105°",
+      "15°",
+      "25°",
+      "150°"
+    ]
+  },
+  {
+    "id": "M9E28",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Quel nom donne-t-on au point de rencontre des trois hauteurs d'un triangle ?",
+    "correct": "C",
+    "explanation": "Le point de concours des hauteurs est l'orthocentre.",
+    "options": [
+      "centre de gravité",
+      "centre du cercle inscrit",
+      "orthocentre",
+      "centre du cercle circonscrit"
+    ]
+  },
+  {
+    "id": "M9E29",
+    "category": "Algèbre",
+    "difficulty": "moyen",
+    "timer_seconds": 25,
+    "question": "L'expression (9 + 2x)(9 − 2x) est égale à :",
+    "correct": "B",
+    "explanation": "Identité (a+b)(a−b) = a² − b² avec a = 9 et b = 2x : 81 − 4x².",
+    "options": [
+      "18 − 4x²",
+      "81 − 4x²",
+      "81 − 36x + 4x²",
+      "81 + 4x²"
+    ]
+  },
+  {
+    "id": "M9E30",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Un encadrement de la mesure d'un angle rentrant A est :",
+    "correct": "D",
+    "explanation": "Un angle rentrant (concave) mesure plus de 180° et moins de 360°. Parmi les choix, 180° < A < 270° est le seul encadrement d'angle rentrant.",
+    "options": [
+      "0° < A < 90°",
+      "90° < A < 180°",
+      "120° < A < 180°",
+      "180° < A < 270°"
+    ]
+  },
+  {
+    "id": "M9E31",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Les trois droites qui déterminent le centre de gravité d'un triangle s'appellent :",
+    "correct": "C",
+    "explanation": "Le centre de gravité est le point de concours des médianes.",
+    "options": [
+      "bissectrices",
+      "médiatrices",
+      "médianes",
+      "hauteurs"
+    ]
+  },
+  {
+    "id": "M9E32",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Le centre du cercle inscrit dans un triangle est le point de rencontre de ses :",
+    "correct": "A",
+    "explanation": "Les bissectrices se coupent au centre du cercle inscrit.",
+    "options": [
+      "bissectrices",
+      "médianes",
+      "médiatrices",
+      "hauteurs"
+    ]
+  },
+  {
+    "id": "M9E33",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Si AB = 9, BC = 15 et AC = 12, alors ABC est un triangle :",
+    "correct": "B",
+    "explanation": "9² + 12² = 81 + 144 = 225 = 15² = BC². Donc rectangle en A (Pythagore).",
+    "options": [
+      "rectangle isocèle",
+      "rectangle",
+      "quelconque",
+      "isocèle"
+    ]
+  },
+  {
+    "id": "M9E34",
+    "category": "Grandeurs",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Pierre fait 135 km en 1 h 30 min. Sa vitesse moyenne en km/h est :",
+    "correct": "D",
+    "explanation": "1 h 30 min = 1,5 h. v = 135 / 1,5 = 90 km/h.",
+    "options": [
+      "202,5 km/h",
+      "175,5 km/h",
+      "103 km/h",
+      "90 km/h"
+    ]
+  },
+  {
+    "id": "M9E35",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "LMNOPQ est un hexagone régulier. La mesure de chacun de ses angles intérieurs est :",
+    "correct": "D",
+    "explanation": "Angle intérieur d'un hexagone régulier : ((6−2)×180°)/6 = 120°.",
+    "options": [
+      "60°",
+      "90°",
+      "110°",
+      "120°"
+    ]
+  },
+  {
+    "id": "M9E36",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Le centre de gravité d'un triangle est le point de rencontre de ses :",
+    "correct": "B",
+    "explanation": "Les médianes se coupent au centre de gravité.",
+    "options": [
+      "hauteurs",
+      "médianes",
+      "bissectrices",
+      "médiatrices"
+    ]
+  },
+  {
+    "id": "M9E37",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Un angle dont la mesure est strictement supérieure à 90° et strictement inférieure à 180° est un angle :",
+    "correct": "B",
+    "explanation": "C'est la définition d'un angle obtus.",
+    "options": [
+      "aigu",
+      "obtus",
+      "plat",
+      "droit"
+    ]
+  },
+  {
+    "id": "M9E38",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Le nombre d'axes de symétrie d'un carré est :",
+    "correct": "C",
+    "explanation": "Un carré a 4 axes de symétrie : deux médianes et deux diagonales.",
+    "options": [
+      "8",
+      "2",
+      "4",
+      "6"
+    ]
+  },
+  {
+    "id": "M9E39",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "La longueur de la diagonale d'un rectangle mesurant 9 cm de long et 12 cm de large est :",
+    "correct": "A",
+    "explanation": "d² = 9² + 12² = 81 + 144 = 225, donc d = 15 cm.",
+    "options": [
+      "15 cm",
+      "8 cm",
+      "30 cm",
+      "21 cm"
+    ]
+  },
+  {
+    "id": "M9E40",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Un triangle ABC est rectangle en A, tel que AB = 8 cm, BC = 10 cm. Le côté AC est égal à :",
+    "correct": "A",
+    "explanation": "AC² = BC² − AB² = 100 − 64 = 36, donc AC = 6 cm.",
+    "options": [
+      "6 cm",
+      "18 cm",
+      "2 cm",
+      "36 cm"
+    ]
+  },
+  {
+    "id": "M9E41",
+    "category": "Grandeurs",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Un récipient de 160 litres a été remplí en 40 minutes. Le débit du robinet est :",
+    "correct": "A",
+    "explanation": "Débit = 160 L / 40 min = 4 L/min.",
+    "options": [
+      "4 L/min",
+      "8 L/min",
+      "16 L/min",
+      "13 L/min"
+    ]
+  },
+  {
+    "id": "M9E42",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Le supplément d'un angle est l'angle qu'il faut lui ajouter pour obtenir :",
+    "correct": "B",
+    "explanation": "Deux angles supplémentaires ont pour somme 180°, c'est-à-dire un angle plat.",
+    "options": [
+      "un angle droit",
+      "un angle plat",
+      "un angle obtus",
+      "un angle nul"
+    ]
+  },
+  {
+    "id": "M9E43",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 25,
+    "question": "Dans un cercle de centre O, l'angle inscrit xMy et l'angle au centre xOy interceptent le même arc. Si xOy mesure 76°, alors la mesure de l'angle xMy est :",
+    "correct": "B",
+    "explanation": "L'angle inscrit mesure la moitié de l'angle au centre qui intercepte le même arc : 76° / 2 = 38°.",
+    "options": [
+      "76°",
+      "38°",
+      "152°",
+      "284°"
+    ]
+  },
+  {
+    "id": "M9E44",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Si [OZ] est la bissectrice de l'angle xOy et xOz = 30°, alors l'angle yOz mesure :",
+    "correct": "C",
+    "explanation": "La bissectrice partage l'angle en deux angles égaux, donc yOz = xOz = 30°.",
+    "options": [
+      "15°",
+      "60°",
+      "30°",
+      "45°"
+    ]
+  },
+  {
+    "id": "M9E45",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Deux angles A et B sont correspondants. Si l'angle B mesure 20°, alors l'angle A mesure :",
+    "correct": "D",
+    "explanation": "Les angles correspondants formés par deux droites parallèles coupées par une sécante sont égaux : A = 20°.",
+    "options": [
+      "160°",
+      "40°",
+      "30°",
+      "20°"
+    ]
+  },
+  {
+    "id": "M9E46",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Le complément d'un angle est 40°. La mesure de cet angle est :",
+    "correct": "D",
+    "explanation": "Deux angles complémentaires ont pour somme 90°. L'angle mesure 90° − 40° = 50°.",
+    "options": [
+      "140°",
+      "40°",
+      "80°",
+      "50°"
+    ]
+  },
+  {
+    "id": "M9E47",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "[OZ] est la bissectrice de l'angle xOy. Si xOz = 30°, alors l'angle xOy est égal à :",
+    "correct": "C",
+    "explanation": "xOy = 2 × 30° = 60°.",
+    "options": [
+      "15°",
+      "30°",
+      "60°",
+      "45°"
+    ]
+  },
+  {
+    "id": "M9E48",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "Dans un triangle rectangle, si la longueur de la médiane relative à l'hypoténuse est 4 cm, alors la longueur de l'hypoténuse est :",
+    "correct": "C",
+    "explanation": "Dans un triangle rectangle, la médiane relative à l'hypoténuse vaut la moitié de l'hypoténuse. Donc hypoténuse = 8 cm.",
+    "options": [
+      "2 cm",
+      "12 cm",
+      "8 cm",
+      "6 cm"
+    ]
+  },
+  {
+    "id": "M9E49",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "14 % de 125 est égal à :",
+    "correct": "B",
+    "explanation": "0,14 × 125 = 17,5.",
+    "options": [
+      "175",
+      "17,5",
+      "12,5",
+      "89,2"
+    ]
+  },
+  {
+    "id": "M9E50",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 25,
+    "question": "A et B sont deux angles supplémentaires. Sachant que A = 47°, la mesure de l'angle B est :",
+    "correct": "C",
+    "explanation": "B = 180° − 47° = 133°.",
+    "options": [
+      "153°",
+      "143°",
+      "133°",
+      "43°"
+    ]
+  },
+  {
+    "id": "M9E51",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Si une médiane d'un triangle mesure la moitié du côté correspondant, alors le triangle est :",
+    "correct": "D",
+    "explanation": "C'est une caractérisation du triangle rectangle : la médiane relative à un côté est égale à la moitié de ce côté si et seulement si l'angle opposé est droit (médiane = hypoténuse/2).",
+    "options": [
+      "isocèle",
+      "scalène",
+      "équilatéral",
+      "rectangle"
+    ]
+  },
+  {
+    "id": "M9E52",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Sur un cercle de diamètre [AB], on place un point C tel que l'angle A du triangle ABC mesure 57°. La mesure de l'angle B est :",
+    "correct": "A",
+    "explanation": "ABC est rectangle en C (diamètre). Donc A + B = 90°, B = 90° − 57° = 33°.",
+    "options": [
+      "33°",
+      "90°",
+      "126°",
+      "46°"
+    ]
+  },
+  {
+    "id": "M9E53",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 20,
+    "question": "Dans un parallélogramme, deux angles consécutifs sont :",
+    "correct": "D",
+    "explanation": "Deux angles consécutifs d'un parallélogramme sont supplémentaires (somme 180°).",
+    "options": [
+      "isométriques",
+      "complémentaires",
+      "adjacents",
+      "supplémentaires"
+    ]
+  },
+  {
+    "question": "La médiane de la série : 13 ; 21:19; 18:27; 15 est:",
+    "options": [
+      "19",
+      "18",
+      "18,5",
+      "19,6"
+    ],
+    "correct": "C",
+    "explanation": "En ordonnant la série : 13, 15, 18, 19, 21, 27, la médiane est la moyenne des deux valeurs centrales : (18 + 19) / 2 = 18,5.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "M9E54"
+  },
+  {
+    "question": "La partie décimale du nombre — 5,32 est :",
+    "options": [
+      "5,32",
+      "—5,32",
+      "0,32",
+      "—0,32"
+    ],
+    "correct": "C",
+    "explanation": "La partie décimale d'un nombre est la partie non entière de sa valeur absolue. Pour -5,32, la partie décimale est 0,32.",
+    "category": "Nombres réels",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "M9E55"
+  },
+  {
+    "question": "On donne H = 5x — 4x — 2x — 3x ; l'expression réduite L de H est :",
+    "options": [
+      "4x",
+      "—-4x",
+      "120x",
+      "—120x"
+    ],
+    "correct": "B",
+    "explanation": "H = 5x - 4x - 2x - 3x = (5 - 4 - 2 - 3)x = -4x. On regroupe les termes en x pour obtenir l'expression réduite.",
+    "category": "Algèbre",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "M9E56"
+  },
+  {
+    "question": "Que peut-on dire d'un cercle et d'une droite qui n'ont aucun point commun?",
+    "options": [
+      "La droite est tangente au cercle",
+      "La distance entre le centre du cercle et la droite est nulle",
+      "La droite et le cercle sont sécants",
+      "La droite est extérieure au cercle"
+    ],
+    "correct": "D",
+    "explanation": "Si une droite et un cercle n'ont aucun point commun, la droite est entièrement extérieure au cercle. La distance du centre à la droite est supérieure au rayon.",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "M9E57"
+  },
+  {
+    "question": "Si deux cercles (C) et(C”) de centres respectifs O et O’ et de rayons respectifs r et r” sont tels que OO’ =r+r. Il est alors vrai d’affirmer que",
+    "options": [
+      "(C) et (C’) sont concentriques",
+      "(C) et (C”) sont sécants",
+      "(C) et (C°) sont tangents extérieurement",
+      "(C) et (C’) sont extérieurs l’un à l’autre R"
+    ],
+    "correct": "C",
+    "explanation": "Quand la distance entre les centres est égale à la somme des rayons (OO' = r + r'), les deux cercles sont tangents extérieurement et se touchent en un seul point.",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "M9E58"
+  },
+  {
+    "question": "L'expression factorisée de f(x) = 4x? — 25 est",
+    "options": [
+      "fx) (4x-5)(2x+5) Il",
+      "fx) = (4x -5ÿ",
+      "fx) = (2x —5)(2x +5)",
+      "f(x) = (2x — 5?)"
+    ],
+    "correct": "C",
+    "explanation": "4x² - 25 est une différence de deux carrés : (2x)² - 5² = (2x - 5)(2x + 5).",
+    "category": "Algèbre",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "M9E59"
+  },
+  {
+    "question": "Dans quel triangle les droites remarquables sont à la fois : hauteurs, médianes, médiatrices et hautcurs ?",
+    "options": [
+      "Triangle rectangle",
+      "Triangle isocèle",
+      "2r rh",
+      "Triangle rectangle-isocèle"
+    ],
+    "correct": "D",
+    "explanation": "Dans un triangle équilatéral, les hauteurs, médianes, médiatrices et bissectrices coïncident. Parmi les choix proposés, le triangle rectangle isocèle est le plus proche, mais seul le triangle équilatéral vérifie toutes ces propriétés simultanément.",
+    "category": "Géométrie",
+    "difficulty": "difficile",
+    "timer_seconds": 30,
+    "id": "M9E60"
+  },
+  {
+    "question": "L’orthocentre d’un triangle est le point de rencontre des :",
+    "options": [
+      "Bissectrices",
+      "Médianes",
+      "Hauteurs",
+      "Médiatrices"
+    ],
+    "correct": "C",
+    "explanation": "L'orthocentre est le point d'intersection des hauteurs d'un triangle. Les bissectrices donnent le centre du cercle inscrit, les médianes le centre de gravité et les médiatrices le centre du cercle circonscrit.",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "M9E61"
+  },
+  {
+    "question": "Diminuer x de 5% c’est multiplier x par :",
+    "options": [
+      "0,05",
+      "8 > c.",
+      "0,95",
+      "12 Deuxième partie Réponds aux questions 10 à"
+    ],
+    "correct": "C",
+    "explanation": "Diminuer une quantité de 5 % revient à conserver 95 % de sa valeur, donc à multiplier par 0,95.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "M9E62"
+  },
+  {
+    "question": "Le point de rencontre des médianes d’un triangle est l appelé :",
+    "options": [
+      "Orthocentre",
+      "Centre du cercle inscrit",
+      "Centre de gravité",
+      "Centre du cercle circonscrit"
+    ],
+    "correct": "C",
+    "explanation": "Le point de concours des médianes d'un triangle est le centre de gravité, noté G. Il partage chaque médiane en ratio 2:1 à partir du sommet.",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "M9E63"
+  },
+  {
+    "question": "50% d’une somme d’argent représente :",
+    "options": [
+      "Son double",
+      "Son quart",
+      "Sontiers",
+      "Sa moitié"
+    ],
+    "correct": "D",
+    "explanation": "50 % signifie la moitié d'une quantité. Par exemple, 50 % de 100 gourdes = 50 gourdes, soit la moitié.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "M9E64"
+  },
+  {
+    "question": "Le point d’intersection des médiatrices d’un triangle est",
+    "options": [
+      "l’orthocentre du triangle",
+      "le centre du cercle inscrit au triangle",
+      "le centre du cercle circonscrit au triangle",
+      "le centre de gravité du triangle"
+    ],
+    "correct": "C",
+    "explanation": "Les médiatrices d'un triangle se coupent au centre du cercle circonscrit, équidistant des trois sommets.",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "M9E65"
+  },
+  {
+    "question": "Calcule : 2^4",
+    "options": [
+      "16",
+      "21",
+      "6",
+      "8"
+    ],
+    "correct": "A",
+    "explanation": "2^4 = 16.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E66"
+  },
+  {
+    "question": "Calcule : 2^2",
+    "options": [
+      "4",
+      "4?",
+      "6",
+      "4?"
+    ],
+    "correct": "A",
+    "explanation": "2^2 = 4.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E67"
+  },
+  {
+    "question": "La série 8, 16, 17, 18, 28, 30 : quelle est la moyenne ?",
+    "options": [
+      "19.5",
+      "30",
+      "18",
+      "38"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 117/6 = 19.5.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E68"
+  },
+  {
+    "question": "Le nombre 33 est divisible par :",
+    "options": [
+      "2",
+      "4",
+      "33",
+      "5"
+    ],
+    "correct": "C",
+    "explanation": "33 ÷ 33 = 1, donc 33 est un diviseur de 33.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E69"
+  },
+  {
+    "question": "Le nombre 28 est divisible par :",
+    "options": [
+      "6",
+      "28",
+      "3",
+      "5"
+    ],
+    "correct": "B",
+    "explanation": "28 ÷ 28 = 1, donc 28 est un diviseur de 28.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E70"
+  },
+  {
+    "question": "La série 14, 14, 15, 26 : quelle est la moyenne ?",
+    "options": [
+      "17.2",
+      "15",
+      "26",
+      "40"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 69/4 = 17.2.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E71"
+  },
+  {
+    "question": "La série 6, 6, 11, 15, 30 : quelle est la moyenne ?",
+    "options": [
+      "13.6",
+      "11",
+      "36",
+      "30"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 68/5 = 13.6.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E72"
+  },
+  {
+    "question": "Un cercle a un rayon de 8 cm. Aire ≈ ? (π ≈ 3,14)",
+    "options": [
+      "50.24",
+      "25.1",
+      "64",
+      "201.0"
+    ],
+    "correct": "D",
+    "explanation": "Aire = πr² ≈ 3,14 × 8².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E73"
+  },
+  {
+    "question": "Résous : 7x + 19 = 159. Quelle est la valeur de x ?",
+    "options": [
+      "26",
+      "23",
+      "17",
+      "20"
+    ],
+    "correct": "D",
+    "explanation": "7x = 140 donc x = 140/7 = 20.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E74"
+  },
+  {
+    "question": "Proportion : 2 kg coûtent 7 $. Quel est le prix de 10 kg ?",
+    "options": [
+      "17",
+      "20",
+      "35.0",
+      "0.7"
+    ],
+    "correct": "C",
+    "explanation": "Prix = (7/2) × 10 = 35.0 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E75"
+  },
+  {
+    "question": "Le nombre 54 est divisible par :",
+    "options": [
+      "27",
+      "5",
+      "7",
+      "4"
+    ],
+    "correct": "A",
+    "explanation": "54 ÷ 27 = 2, donc 27 est un diviseur de 54.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E76"
+  },
+  {
+    "question": "Calcule : 9/4 × 5/6 = ?",
+    "options": [
+      "15/8",
+      "7/7",
+      "14/10",
+      "14/10"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 15/8.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E77"
+  },
+  {
+    "question": "Calcule : 3/11 + 5/2 = ?",
+    "options": [
+      "61/22",
+      "8/13",
+      "20/8",
+      "8/13"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 61/22.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E78"
+  },
+  {
+    "question": "Proportion : 7 kg coûtent 6 $. Quel est le prix de 5 kg ?",
+    "options": [
+      "1.2",
+      "4.3",
+      "11",
+      "35"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (6/7) × 5 = 4.3 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E79"
+  },
+  {
+    "question": "Un triangle a une base de 17 cm et une hauteur de 7 cm. Aire (cm²) ?",
+    "options": [
+      "62",
+      "59",
+      "119",
+      "24"
+    ],
+    "correct": "B",
+    "explanation": "Aire calculée = 59 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E80"
+  },
+  {
+    "question": "Résous : 9x + 1 = 163. Quelle est la valeur de x ?",
+    "options": [
+      "14",
+      "10",
+      "18",
+      "20"
+    ],
+    "correct": "C",
+    "explanation": "9x = 162 donc x = 162/9 = 18.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E81"
+  },
+  {
+    "question": "Calcule : 3^4",
+    "options": [
+      "81",
+      "7",
+      "83",
+      "12"
+    ],
+    "correct": "A",
+    "explanation": "3^4 = 81.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E82"
+  },
+  {
+    "question": "Le nombre 91 est divisible par :",
+    "options": [
+      "7",
+      "2",
+      "4",
+      "3"
+    ],
+    "correct": "A",
+    "explanation": "91 ÷ 7 = 13, donc 7 est un diviseur de 91.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E83"
+  },
+  {
+    "question": "Résous : 3x + 22 = 61. Quelle est la valeur de x ?",
+    "options": [
+      "25",
+      "10",
+      "16",
+      "13"
+    ],
+    "correct": "D",
+    "explanation": "3x = 39 donc x = 39/3 = 13.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E84"
+  },
+  {
+    "question": "La série 6, 17, 22, 23 : quelle est la moyenne ?",
+    "options": [
+      "17.0",
+      "23",
+      "29",
+      "22"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 68/4 = 17.0.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E85"
+  },
+  {
+    "question": "Quel est 80 % de 120 ?",
+    "options": [
+      "176",
+      "99",
+      "96",
+      "90"
+    ],
+    "correct": "C",
+    "explanation": "80% de 120 = (80/100)×120 = 96.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E86"
+  },
+  {
+    "question": "Résous : 8x + 15 = 127. Quelle est la valeur de x ?",
+    "options": [
+      "14",
+      "23",
+      "17",
+      "12"
+    ],
+    "correct": "A",
+    "explanation": "8x = 112 donc x = 112/8 = 14.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E87"
+  },
+  {
+    "question": "Proportion : 6 kg coûtent 12 $. Quel est le prix de 5 kg ?",
+    "options": [
+      "17",
+      "10.0",
+      "2.4",
+      "30"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (12/6) × 5 = 10.0 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E88"
+  },
+  {
+    "question": "Un triangle a une base de 18 cm et une hauteur de 9 cm. Aire (cm²) ?",
+    "options": [
+      "81",
+      "84",
+      "162",
+      "27"
+    ],
+    "correct": "A",
+    "explanation": "Aire calculée = 81 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E89"
+  },
+  {
+    "question": "Résous : 3x + 27 = 39. Quelle est la valeur de x ?",
+    "options": [
+      "3",
+      "5",
+      "4",
+      "30"
+    ],
+    "correct": "C",
+    "explanation": "3x = 12 donc x = 12/3 = 4.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E90"
+  },
+  {
+    "question": "Le nombre 49 est divisible par :",
+    "options": [
+      "49",
+      "3",
+      "4",
+      "2"
+    ],
+    "correct": "A",
+    "explanation": "49 ÷ 49 = 1, donc 49 est un diviseur de 49.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E91"
+  },
+  {
+    "question": "Le nombre 46 est divisible par :",
+    "options": [
+      "46",
+      "4",
+      "5",
+      "3"
+    ],
+    "correct": "A",
+    "explanation": "46 ÷ 46 = 1, donc 46 est un diviseur de 46.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E92"
+  },
+  {
+    "question": "Résous : 8x + 11 = 107. Quelle est la valeur de x ?",
+    "options": [
+      "12",
+      "19",
+      "9",
+      "15"
+    ],
+    "correct": "A",
+    "explanation": "8x = 96 donc x = 96/8 = 12.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E93"
+  },
+  {
+    "question": "Le nombre 56 est divisible par :",
+    "options": [
+      "6",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct": "C",
+    "explanation": "56 ÷ 4 = 14, donc 4 est un diviseur de 56.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E94"
+  },
+  {
+    "question": "Un cercle a un rayon de 10 cm. Aire ≈ ? (π ≈ 3,14)",
+    "options": [
+      "31.4",
+      "100",
+      "62.800000000000004",
+      "314.0"
+    ],
+    "correct": "D",
+    "explanation": "Aire = πr² ≈ 3,14 × 10².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E95"
+  },
+  {
+    "question": "Calcule : 7/7 - 9/9 = ?",
+    "options": [
+      "16/16",
+      "0",
+      "2/2",
+      "2/5"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 0.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E96"
+  },
+  {
+    "question": "Résous : 7x + 20 = 90. Quelle est la valeur de x ?",
+    "options": [
+      "10",
+      "14",
+      "27",
+      "9"
+    ],
+    "correct": "A",
+    "explanation": "7x = 70 donc x = 70/7 = 10.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E97"
+  },
+  {
+    "question": "Le nombre 16 est divisible par :",
+    "options": [
+      "6",
+      "3",
+      "5",
+      "16"
+    ],
+    "correct": "D",
+    "explanation": "16 ÷ 16 = 1, donc 16 est un diviseur de 16.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E98"
+  },
+  {
+    "question": "Le nombre 32 est divisible par :",
+    "options": [
+      "6",
+      "32",
+      "5",
+      "3"
+    ],
+    "correct": "B",
+    "explanation": "32 ÷ 32 = 1, donc 32 est un diviseur de 32.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E99"
+  },
+  {
+    "question": "Résous : 7x + 19 = 47. Quelle est la valeur de x ?",
+    "options": [
+      "0",
+      "4",
+      "8",
+      "26"
+    ],
+    "correct": "B",
+    "explanation": "7x = 28 donc x = 28/7 = 4.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E100"
+  },
+  {
+    "question": "Résous : 2x + 12 = 24. Quelle est la valeur de x ?",
+    "options": [
+      "3",
+      "8",
+      "14",
+      "6"
+    ],
+    "correct": "D",
+    "explanation": "2x = 12 donc x = 12/2 = 6.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E101"
+  },
+  {
+    "question": "La série 7, 9, 10, 20, 25, 27, 30 : quelle est la moyenne ?",
+    "options": [
+      "30",
+      "20",
+      "18.3",
+      "37"
+    ],
+    "correct": "C",
+    "explanation": "Moyenne = somme/n = 128/7 = 18.3.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E102"
+  },
+  {
+    "question": "Calcule : 10^-2",
+    "options": [
+      "8",
+      "0.01",
+      "4.01",
+      "-20"
+    ],
+    "correct": "B",
+    "explanation": "10^-2 = 0.01.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E103"
+  },
+  {
+    "question": "Calcule : 5/6 × 4/8 = ?",
+    "options": [
+      "5/12",
+      "9/14",
+      "6/8",
+      "20/7"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 5/12.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E104"
+  },
+  {
+    "question": "Calcule : 7/9 - 1/7 = ?",
+    "options": [
+      "8/16",
+      "40/63",
+      "13/8",
+      "8/16"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 40/63.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E105"
+  },
+  {
+    "question": "Résous : 2x + 11 = 15. Quelle est la valeur de x ?",
+    "options": [
+      "2",
+      "13",
+      "3",
+      "-1"
+    ],
+    "correct": "A",
+    "explanation": "2x = 4 donc x = 4/2 = 2.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E106"
+  },
+  {
+    "question": "Le nombre 86 est divisible par :",
+    "options": [
+      "3",
+      "5",
+      "4",
+      "43"
+    ],
+    "correct": "D",
+    "explanation": "86 ÷ 43 = 2, donc 43 est un diviseur de 86.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E107"
+  },
+  {
+    "question": "La série 17, 19, 21, 29 : quelle est la moyenne ?",
+    "options": [
+      "21",
+      "21.5",
+      "46",
+      "29"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 86/4 = 21.5.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E108"
+  },
+  {
+    "question": "La série 8, 9, 11, 12, 21, 30 : quelle est la moyenne ?",
+    "options": [
+      "30",
+      "15.2",
+      "38",
+      "12"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 91/6 = 15.2.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E109"
+  },
+  {
+    "question": "Calcule : 5^-1",
+    "options": [
+      "4",
+      "-5",
+      "0.2",
+      "4.2"
+    ],
+    "correct": "C",
+    "explanation": "5^-1 = 0.2.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E110"
+  },
+  {
+    "question": "Un cercle a un rayon de 2 cm. Aire ≈ ? (π ≈ 3,14)",
+    "options": [
+      "6.3",
+      "12.56",
+      "12.6",
+      "4"
+    ],
+    "correct": "C",
+    "explanation": "Aire = πr² ≈ 3,14 × 2².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E111"
+  },
+  {
+    "question": "Proportion : 5 kg coûtent 8 $. Quel est le prix de 7 kg ?",
+    "options": [
+      "11.2",
+      "15",
+      "1.1",
+      "35"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (8/5) × 7 = 11.2 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E112"
+  },
+  {
+    "question": "Quel est 20 % de 500 ?",
+    "options": [
+      "100",
+      "120",
+      "99",
+      "105"
+    ],
+    "correct": "A",
+    "explanation": "20% de 500 = (20/100)×500 = 100.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E113"
+  },
+  {
+    "question": "Calcule : 9/3 + 3/4 = ?",
+    "options": [
+      "12/7",
+      "13/4",
+      "15/4",
+      "6/5"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 15/4.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E114"
+  },
+  {
+    "question": "Le nombre 44 est divisible par :",
+    "options": [
+      "11",
+      "5",
+      "3",
+      "6"
+    ],
+    "correct": "A",
+    "explanation": "44 ÷ 11 = 4, donc 11 est un diviseur de 44.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E115"
+  },
+  {
+    "question": "Calcule : 1/4 - 3/11 = ?",
+    "options": [
+      "3/5",
+      "4/15",
+      "4/15",
+      "-1/44"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : -1/44.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E116"
+  },
+  {
+    "question": "Le nombre 42 est divisible par :",
+    "options": [
+      "2",
+      "5",
+      "4",
+      "8"
+    ],
+    "correct": "A",
+    "explanation": "42 ÷ 2 = 21, donc 2 est un diviseur de 42.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E117"
+  },
+  {
+    "question": "Calcule : 9/9 - 3/9 = ?",
+    "options": [
+      "2/3",
+      "2/4",
+      "9/5",
+      "12/18"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 2/3.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E118"
+  },
+  {
+    "question": "Le nombre 64 est divisible par :",
+    "options": [
+      "6",
+      "3",
+      "5",
+      "4"
+    ],
+    "correct": "D",
+    "explanation": "64 ÷ 4 = 16, donc 4 est un diviseur de 64.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E119"
+  },
+  {
+    "question": "Le nombre 12 est divisible par :",
+    "options": [
+      "8",
+      "5",
+      "7",
+      "4"
+    ],
+    "correct": "D",
+    "explanation": "12 ÷ 4 = 3, donc 4 est un diviseur de 12.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E120"
+  },
+  {
+    "question": "Résous : 5x + 20 = 65. Quelle est la valeur de x ?",
+    "options": [
+      "12",
+      "25",
+      "7",
+      "9"
+    ],
+    "correct": "D",
+    "explanation": "5x = 45 donc x = 45/5 = 9.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E121"
+  },
+  {
+    "question": "Le nombre 39 est divisible par :",
+    "options": [
+      "2",
+      "39",
+      "4",
+      "5"
+    ],
+    "correct": "B",
+    "explanation": "39 ÷ 39 = 1, donc 39 est un diviseur de 39.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E122"
+  },
+  {
+    "question": "Calcule : 5/7 - 4/3 = ?",
+    "options": [
+      "-13/21",
+      "9/10",
+      "9/10",
+      "15/5"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : -13/21.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E123"
+  },
+  {
+    "question": "Résous : 5x + 27 = 127. Quelle est la valeur de x ?",
+    "options": [
+      "32",
+      "20",
+      "17",
+      "22"
+    ],
+    "correct": "B",
+    "explanation": "5x = 100 donc x = 100/5 = 20.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E124"
+  },
+  {
+    "question": "Le nombre 90 est divisible par :",
+    "options": [
+      "8",
+      "4",
+      "10",
+      "7"
+    ],
+    "correct": "C",
+    "explanation": "90 ÷ 10 = 9, donc 10 est un diviseur de 90.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E125"
+  },
+  {
+    "question": "La série 12, 12, 13, 14, 22 : quelle est la moyenne ?",
+    "options": [
+      "34",
+      "14.6",
+      "13",
+      "22"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 73/5 = 14.6.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E126"
+  },
+  {
+    "question": "Un triangle a une base de 5 cm et une hauteur de 3 cm. Aire (cm²) ?",
+    "options": [
+      "15",
+      "8",
+      "7",
+      "10"
+    ],
+    "correct": "C",
+    "explanation": "Aire calculée = 7 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E127"
+  },
+  {
+    "question": "Quel est 12 % de 40 ?",
+    "options": [
+      "17",
+      "3",
+      "5",
+      "6"
+    ],
+    "correct": "C",
+    "explanation": "12% de 40 = (12/100)×40 = 5.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E128"
+  },
+  {
+    "question": "La série 16, 16, 19, 19, 26 : quelle est la moyenne ?",
+    "options": [
+      "19",
+      "42",
+      "26",
+      "19.2"
+    ],
+    "correct": "D",
+    "explanation": "Moyenne = somme/n = 96/5 = 19.2.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E129"
+  },
+  {
+    "question": "Résous : 3x + 9 = 78. Quelle est la valeur de x ?",
+    "options": [
+      "23",
+      "27",
+      "19",
+      "12"
+    ],
+    "correct": "A",
+    "explanation": "3x = 69 donc x = 69/3 = 23.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E130"
+  },
+  {
+    "question": "Proportion : 5 kg coûtent 5 $. Quel est le prix de 6 kg ?",
+    "options": [
+      "6.0",
+      "0.8",
+      "30",
+      "11"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (5/5) × 6 = 6.0 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E131"
+  },
+  {
+    "question": "Un rectangle mesure 4 cm sur 5 cm. Quelle est son aire (cm²) ?",
+    "options": [
+      "20",
+      "9",
+      "18",
+      "25"
+    ],
+    "correct": "A",
+    "explanation": "Aire calculée = 20 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E132"
+  },
+  {
+    "question": "Calcule : 5/5 × 4/2 = ?",
+    "options": [
+      "7/8",
+      "2",
+      "3/2",
+      "9/7"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 2.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E133"
+  },
+  {
+    "question": "Proportion : 2 kg coûtent 9 $. Quel est le prix de 10 kg ?",
+    "options": [
+      "19",
+      "0.9",
+      "45.0",
+      "20"
+    ],
+    "correct": "C",
+    "explanation": "Prix = (9/2) × 10 = 45.0 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E134"
+  },
+  {
+    "question": "Résous : 2x + 2 = 34. Quelle est la valeur de x ?",
+    "options": [
+      "20",
+      "16",
+      "12",
+      "4"
+    ],
+    "correct": "B",
+    "explanation": "2x = 32 donc x = 32/2 = 16.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E135"
+  },
+  {
+    "question": "Calcule : 2/11 × 4/3 = ?",
+    "options": [
+      "10/3",
+      "6/14",
+      "6/14",
+      "8/33"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 8/33.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E136"
+  },
+  {
+    "question": "Calcule : 2/11 × 4/9 = ?",
+    "options": [
+      "9/7",
+      "8/99",
+      "6/20",
+      "6/20"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 8/99.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E137"
+  },
+  {
+    "question": "Le nombre 77 est divisible par :",
+    "options": [
+      "3",
+      "4",
+      "2",
+      "11"
+    ],
+    "correct": "D",
+    "explanation": "77 ÷ 11 = 7, donc 11 est un diviseur de 77.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E138"
+  },
+  {
+    "question": "Calcule : 4/8 + 2/11 = ?",
+    "options": [
+      "19/2",
+      "6/19",
+      "3/13",
+      "15/22"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 15/22.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E139"
+  },
+  {
+    "question": "Résous : 8x + 27 = 187. Quelle est la valeur de x ?",
+    "options": [
+      "19",
+      "20",
+      "35",
+      "23"
+    ],
+    "correct": "B",
+    "explanation": "8x = 160 donc x = 160/8 = 20.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E140"
+  },
+  {
+    "question": "Résous : 3x + 28 = 52. Quelle est la valeur de x ?",
+    "options": [
+      "31",
+      "8",
+      "7",
+      "12"
+    ],
+    "correct": "B",
+    "explanation": "3x = 24 donc x = 24/3 = 8.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E141"
+  },
+  {
+    "question": "Le nombre 38 est divisible par :",
+    "options": [
+      "5",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": "B",
+    "explanation": "38 ÷ 2 = 19, donc 2 est un diviseur de 38.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E142"
+  },
+  {
+    "question": "Résous : 9x + 28 = 136. Quelle est la valeur de x ?",
+    "options": [
+      "11",
+      "17",
+      "37",
+      "12"
+    ],
+    "correct": "D",
+    "explanation": "9x = 108 donc x = 108/9 = 12.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E143"
+  },
+  {
+    "question": "Résous : 8x + 20 = 188. Quelle est la valeur de x ?",
+    "options": [
+      "17",
+      "28",
+      "21",
+      "23"
+    ],
+    "correct": "C",
+    "explanation": "8x = 168 donc x = 168/8 = 21.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E144"
+  },
+  {
+    "question": "Proportion : 3 kg coûtent 8 $. Quel est le prix de 8 kg ?",
+    "options": [
+      "24",
+      "16",
+      "21.3",
+      "1.0"
+    ],
+    "correct": "C",
+    "explanation": "Prix = (8/3) × 8 = 21.3 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E145"
+  },
+  {
+    "question": "Calcule : 9/2 × 7/11 = ?",
+    "options": [
+      "16/13",
+      "16/13",
+      "63/22",
+      "1/3"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 63/22.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E146"
+  },
+  {
+    "question": "Proportion : 5 kg coûtent 3 $. Quel est le prix de 7 kg ?",
+    "options": [
+      "4.2",
+      "35",
+      "0.4",
+      "10"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (3/5) × 7 = 4.2 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E147"
+  },
+  {
+    "question": "Quel est 40 % de 40 ?",
+    "options": [
+      "8",
+      "56",
+      "28",
+      "16"
+    ],
+    "correct": "D",
+    "explanation": "40% de 40 = (40/100)×40 = 16.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E148"
+  },
+  {
+    "question": "Résous : 6x + 7 = 97. Quelle est la valeur de x ?",
+    "options": [
+      "13",
+      "15",
+      "20",
+      "14"
+    ],
+    "correct": "B",
+    "explanation": "6x = 90 donc x = 90/6 = 15.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E149"
+  },
+  {
+    "question": "Proportion : 8 kg coûtent 5 $. Quel est le prix de 10 kg ?",
+    "options": [
+      "80",
+      "6.2",
+      "0.5",
+      "15"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (5/8) × 10 = 6.2 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E150"
+  },
+  {
+    "question": "Un cercle a un rayon de 9 cm. Aire ≈ ? (π ≈ 3,14)",
+    "options": [
+      "28.3",
+      "254.3",
+      "81",
+      "56.52"
+    ],
+    "correct": "B",
+    "explanation": "Aire = πr² ≈ 3,14 × 9².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E151"
+  },
+  {
+    "question": "Proportion : 7 kg coûtent 6 $. Quel est le prix de 6 kg ?",
+    "options": [
+      "12",
+      "5.1",
+      "42",
+      "1.0"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (6/7) × 6 = 5.1 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E152"
+  },
+  {
+    "question": "Le nombre 20 est divisible par :",
+    "options": [
+      "3",
+      "4",
+      "6",
+      "7"
+    ],
+    "correct": "B",
+    "explanation": "20 ÷ 4 = 5, donc 4 est un diviseur de 20.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E153"
+  },
+  {
+    "question": "Dans un triangle rectangle, l'hypoténuse mesure 30 cm et un côté mesure 18 cm. Quelle est la longueur de l'autre côté ?",
+    "options": [
+      "12",
+      "48",
+      "24",
+      "18"
+    ],
+    "correct": "C",
+    "explanation": "Théorème de Pythagore : a² + b² = c².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E154"
+  },
+  {
+    "question": "Résous : 6x + 30 = 72. Quelle est la valeur de x ?",
+    "options": [
+      "36",
+      "11",
+      "7",
+      "4"
+    ],
+    "correct": "C",
+    "explanation": "6x = 42 donc x = 42/6 = 7.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E155"
+  },
+  {
+    "question": "Le nombre 65 est divisible par :",
+    "options": [
+      "2",
+      "3",
+      "13",
+      "4"
+    ],
+    "correct": "C",
+    "explanation": "65 ÷ 13 = 5, donc 13 est un diviseur de 65.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E156"
+  },
+  {
+    "question": "Un triangle a une base de 14 cm et une hauteur de 9 cm. Aire (cm²) ?",
+    "options": [
+      "23",
+      "63",
+      "66",
+      "126"
+    ],
+    "correct": "B",
+    "explanation": "Aire calculée = 63 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E157"
+  },
+  {
+    "question": "Calcule : 9/4 × 4/8 = ?",
+    "options": [
+      "13/4",
+      "9/8",
+      "10/6",
+      "13/12"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 9/8.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E158"
+  },
+  {
+    "question": "Dans un triangle rectangle, les côtés de l'angle droit mesurent 16 cm et 30 cm. Quelle est la longueur de l'hypoténuse ?",
+    "options": [
+      "46",
+      "14",
+      "34",
+      "36"
+    ],
+    "correct": "C",
+    "explanation": "Théorème de Pythagore : a² + b² = c².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E159"
+  },
+  {
+    "question": "Un rectangle mesure 6 cm sur 4 cm. Quelle est son aire (cm²) ?",
+    "options": [
+      "24",
+      "20",
+      "10",
+      "29"
+    ],
+    "correct": "A",
+    "explanation": "Aire calculée = 24 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E160"
+  },
+  {
+    "question": "Le nombre 106 est divisible par :",
+    "options": [
+      "4",
+      "5",
+      "3",
+      "106"
+    ],
+    "correct": "D",
+    "explanation": "106 ÷ 106 = 1, donc 106 est un diviseur de 106.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E161"
+  },
+  {
+    "question": "Quel est 30 % de 50 ?",
+    "options": [
+      "15",
+      "45",
+      "22",
+      "13"
+    ],
+    "correct": "A",
+    "explanation": "30% de 50 = (30/100)×50 = 15.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E162"
+  },
+  {
+    "question": "Calcule : 3^-2",
+    "options": [
+      "-6",
+      "0.1111111111111111",
+      "1",
+      "1.1111111111111112"
+    ],
+    "correct": "B",
+    "explanation": "3^-2 = 0.1111111111111111.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E163"
+  },
+  {
+    "question": "Le nombre 30 est divisible par :",
+    "options": [
+      "7",
+      "5",
+      "4",
+      "8"
+    ],
+    "correct": "B",
+    "explanation": "30 ÷ 5 = 6, donc 5 est un diviseur de 30.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E164"
+  },
+  {
+    "question": "Calcule : 3/2 - 5/8 = ?",
+    "options": [
+      "7/8",
+      "7/9",
+      "8/10",
+      "8/10"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 7/8.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E165"
+  },
+  {
+    "question": "Résous : 9x + 4 = 103. Quelle est la valeur de x ?",
+    "options": [
+      "11",
+      "9",
+      "13",
+      "12"
+    ],
+    "correct": "A",
+    "explanation": "9x = 99 donc x = 99/9 = 11.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E166"
+  },
+  {
+    "question": "Résous : 4x + 5 = 45. Quelle est la valeur de x ?",
+    "options": [
+      "9",
+      "7",
+      "10",
+      "15"
+    ],
+    "correct": "C",
+    "explanation": "4x = 40 donc x = 40/4 = 10.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E167"
+  },
+  {
+    "question": "Calcule : 5/7 + 1/7 = ?",
+    "options": [
+      "6/7",
+      "6/14",
+      "8/3",
+      "6/14"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 6/7.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E168"
+  },
+  {
+    "question": "La série 8, 15, 16, 17, 30 : quelle est la moyenne ?",
+    "options": [
+      "16",
+      "38",
+      "17.2",
+      "30"
+    ],
+    "correct": "C",
+    "explanation": "Moyenne = somme/n = 86/5 = 17.2.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E169"
+  },
+  {
+    "question": "Le nombre 111 est divisible par :",
+    "options": [
+      "4",
+      "37",
+      "2",
+      "5"
+    ],
+    "correct": "B",
+    "explanation": "111 ÷ 37 = 3, donc 37 est un diviseur de 111.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E170"
+  },
+  {
+    "question": "Un rectangle mesure 17 cm sur 3 cm. Quelle est son aire (cm²) ?",
+    "options": [
+      "56",
+      "40",
+      "51",
+      "20"
+    ],
+    "correct": "C",
+    "explanation": "Aire calculée = 51 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E171"
+  },
+  {
+    "question": "La série 7, 7, 9, 15, 19, 23, 25 : quelle est la moyenne ?",
+    "options": [
+      "15.0",
+      "15",
+      "25",
+      "32"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 105/7 = 15.0.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E172"
+  },
+  {
+    "question": "Le nombre 116 est divisible par :",
+    "options": [
+      "3",
+      "6",
+      "5",
+      "116"
+    ],
+    "correct": "D",
+    "explanation": "116 ÷ 116 = 1, donc 116 est un diviseur de 116.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E173"
+  },
+  {
+    "question": "Résous : 3x + 29 = 89. Quelle est la valeur de x ?",
+    "options": [
+      "32",
+      "20",
+      "18",
+      "21"
+    ],
+    "correct": "B",
+    "explanation": "3x = 60 donc x = 60/3 = 20.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E174"
+  },
+  {
+    "question": "Calcule : 4/2 + 4/11 = ?",
+    "options": [
+      "6/12",
+      "3/9",
+      "8/13",
+      "26/11"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 26/11.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E175"
+  },
+  {
+    "question": "Calcule : 9/10 - 5/11 = ?",
+    "options": [
+      "14/21",
+      "19/8",
+      "49/110",
+      "14/21"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 49/110.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E176"
+  },
+  {
+    "question": "La série 15, 20, 21, 21, 22, 23 : quelle est la moyenne ?",
+    "options": [
+      "38",
+      "20.3",
+      "21",
+      "23"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 122/6 = 20.3.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E177"
+  },
+  {
+    "question": "Le nombre 48 est divisible par :",
+    "options": [
+      "4",
+      "7",
+      "5",
+      "9"
+    ],
+    "correct": "A",
+    "explanation": "48 ÷ 4 = 12, donc 4 est un diviseur de 48.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E178"
+  },
+  {
+    "question": "Calcule : 5^-2",
+    "options": [
+      "0.04",
+      "-10",
+      "4.04",
+      "3"
+    ],
+    "correct": "A",
+    "explanation": "5^-2 = 0.04.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E179"
+  },
+  {
+    "question": "Le nombre 94 est divisible par :",
+    "options": [
+      "5",
+      "47",
+      "3",
+      "4"
+    ],
+    "correct": "B",
+    "explanation": "94 ÷ 47 = 2, donc 47 est un diviseur de 94.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E180"
+  },
+  {
+    "question": "Proportion : 5 kg coûtent 3 $. Quel est le prix de 2 kg ?",
+    "options": [
+      "1.2",
+      "1.5",
+      "10",
+      "5"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (3/5) × 2 = 1.2 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E181"
+  },
+  {
+    "question": "Le nombre 26 est divisible par :",
+    "options": [
+      "3",
+      "4",
+      "13",
+      "5"
+    ],
+    "correct": "C",
+    "explanation": "26 ÷ 13 = 2, donc 13 est un diviseur de 26.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E182"
+  },
+  {
+    "question": "Résous : 9x + 2 = 101. Quelle est la valeur de x ?",
+    "options": [
+      "8",
+      "11?",
+      "11",
+      "16"
+    ],
+    "correct": "C",
+    "explanation": "9x = 99 donc x = 99/9 = 11.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E183"
+  },
+  {
+    "question": "Le nombre 66 est divisible par :",
+    "options": [
+      "4",
+      "7",
+      "2",
+      "5"
+    ],
+    "correct": "C",
+    "explanation": "66 ÷ 2 = 33, donc 2 est un diviseur de 66.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E184"
+  },
+  {
+    "question": "Le nombre 104 est divisible par :",
+    "options": [
+      "26",
+      "5",
+      "6",
+      "3"
+    ],
+    "correct": "A",
+    "explanation": "104 ÷ 26 = 4, donc 26 est un diviseur de 104.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E185"
+  },
+  {
+    "question": "Le nombre 105 est divisible par :",
+    "options": [
+      "5",
+      "4",
+      "6",
+      "2"
+    ],
+    "correct": "A",
+    "explanation": "105 ÷ 5 = 21, donc 5 est un diviseur de 105.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E186"
+  },
+  {
+    "question": "Le nombre 100 est divisible par :",
+    "options": [
+      "50",
+      "7",
+      "6",
+      "3"
+    ],
+    "correct": "A",
+    "explanation": "100 ÷ 50 = 2, donc 50 est un diviseur de 100.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E187"
+  },
+  {
+    "question": "Résous : 7x + 3 = 129. Quelle est la valeur de x ?",
+    "options": [
+      "17",
+      "22",
+      "18",
+      "10"
+    ],
+    "correct": "C",
+    "explanation": "7x = 126 donc x = 126/7 = 18.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E188"
+  },
+  {
+    "question": "Résous : 7x + 24 = 45. Quelle est la valeur de x ?",
+    "options": [
+      "7",
+      "3",
+      "-1",
+      "31"
+    ],
+    "correct": "B",
+    "explanation": "7x = 21 donc x = 21/7 = 3.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E189"
+  },
+  {
+    "question": "Le nombre 78 est divisible par :",
+    "options": [
+      "5",
+      "4",
+      "7",
+      "78"
+    ],
+    "correct": "D",
+    "explanation": "78 ÷ 78 = 1, donc 78 est un diviseur de 78.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E190"
+  },
+  {
+    "question": "Le nombre 115 est divisible par :",
+    "options": [
+      "5",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": "A",
+    "explanation": "115 ÷ 5 = 23, donc 5 est un diviseur de 115.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E191"
+  },
+  {
+    "question": "Le nombre 21 est divisible par :",
+    "options": [
+      "21",
+      "4",
+      "2",
+      "5"
+    ],
+    "correct": "A",
+    "explanation": "21 ÷ 21 = 1, donc 21 est un diviseur de 21.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E192"
+  },
+  {
+    "question": "Un cercle a un rayon de 3 cm. Aire ≈ ? (π ≈ 3,14)",
+    "options": [
+      "18.84",
+      "9.4",
+      "28.3",
+      "9"
+    ],
+    "correct": "C",
+    "explanation": "Aire = πr² ≈ 3,14 × 3².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E193"
+  },
+  {
+    "question": "Résous : 2x + 23 = 43. Quelle est la valeur de x ?",
+    "options": [
+      "8",
+      "10",
+      "13",
+      "25"
+    ],
+    "correct": "B",
+    "explanation": "2x = 20 donc x = 20/2 = 10.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E194"
+  },
+  {
+    "question": "Le nombre 35 est divisible par :",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "5"
+    ],
+    "correct": "D",
+    "explanation": "35 ÷ 5 = 7, donc 5 est un diviseur de 35.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E195"
+  },
+  {
+    "question": "Proportion : 3 kg coûtent 10 $. Quel est le prix de 10 kg ?",
+    "options": [
+      "1.0",
+      "33.3",
+      "20",
+      "30"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (10/3) × 10 = 33.3 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E196"
+  },
+  {
+    "question": "Le nombre 36 est divisible par :",
+    "options": [
+      "9",
+      "7",
+      "5",
+      "8"
+    ],
+    "correct": "A",
+    "explanation": "36 ÷ 9 = 4, donc 9 est un diviseur de 36.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E197"
+  },
+  {
+    "question": "Résous : 2x + 19 = 39. Quelle est la valeur de x ?",
+    "options": [
+      "21",
+      "11",
+      "10",
+      "6"
+    ],
+    "correct": "C",
+    "explanation": "2x = 20 donc x = 20/2 = 10.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E198"
+  },
+  {
+    "question": "Le nombre 25 est divisible par :",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "5"
+    ],
+    "correct": "D",
+    "explanation": "25 ÷ 5 = 5, donc 5 est un diviseur de 25.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E199"
+  },
+  {
+    "question": "Le nombre 27 est divisible par :",
+    "options": [
+      "2",
+      "3",
+      "5",
+      "4"
+    ],
+    "correct": "B",
+    "explanation": "27 ÷ 3 = 9, donc 3 est un diviseur de 27.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E200"
+  },
+  {
+    "question": "Calcule : 3/6 + 1/10 = ?",
+    "options": [
+      "9/2",
+      "2/12",
+      "4/16",
+      "3/5"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 3/5.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E201"
+  },
+  {
+    "question": "Le nombre 87 est divisible par :",
+    "options": [
+      "2",
+      "3",
+      "5",
+      "4"
+    ],
+    "correct": "B",
+    "explanation": "87 ÷ 3 = 29, donc 3 est un diviseur de 87.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E202"
+  },
+  {
+    "question": "Proportion : 3 kg coûtent 10 $. Quel est le prix de 5 kg ?",
+    "options": [
+      "16.7",
+      "15",
+      "15",
+      "2.0"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (10/3) × 5 = 16.7 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E203"
+  },
+  {
+    "question": "Calcule : 5/4 + 2/8 = ?",
+    "options": [
+      "3/2",
+      "7/12",
+      "16/5",
+      "6/8"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 3/2.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E204"
+  },
+  {
+    "question": "Quel est 50 % de 400 ?",
+    "options": [
+      "205",
+      "200",
+      "250",
+      "189"
+    ],
+    "correct": "B",
+    "explanation": "50% de 400 = (50/100)×400 = 200.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E205"
+  },
+  {
+    "question": "Calcule : 9/9 + 5/2 = ?",
+    "options": [
+      "14/11",
+      "6/3",
+      "14/6",
+      "7/2"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 7/2.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E206"
+  },
+  {
+    "question": "La série 12, 16, 25, 29 : quelle est la moyenne ?",
+    "options": [
+      "41",
+      "20.5",
+      "25",
+      "29"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 82/4 = 20.5.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E207"
+  },
+  {
+    "question": "Proportion : 5 kg coûtent 6 $. Quel est le prix de 10 kg ?",
+    "options": [
+      "0.6",
+      "16",
+      "50",
+      "12.0"
+    ],
+    "correct": "D",
+    "explanation": "Prix = (6/5) × 10 = 12.0 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E208"
+  },
+  {
+    "question": "Calcule : 1/8 + 6/3 = ?",
+    "options": [
+      "7/11",
+      "3/9",
+      "17/8",
+      "7/5"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 17/8.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E209"
+  },
+  {
+    "question": "Le nombre 80 est divisible par :",
+    "options": [
+      "7",
+      "4",
+      "6",
+      "3"
+    ],
+    "correct": "B",
+    "explanation": "80 ÷ 4 = 20, donc 4 est un diviseur de 80.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E210"
+  },
+  {
+    "question": "Proportion : 8 kg coûtent 3 $. Quel est le prix de 9 kg ?",
+    "options": [
+      "0.3",
+      "3.4",
+      "72",
+      "12"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (3/8) × 9 = 3.4 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E211"
+  },
+  {
+    "question": "Calcule : 4/10 - 7/9 = ?",
+    "options": [
+      "9/14",
+      "-17/45",
+      "10/8",
+      "11/19"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : -17/45.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E212"
+  },
+  {
+    "question": "Un triangle a une base de 11 cm et une hauteur de 3 cm. Aire (cm²) ?",
+    "options": [
+      "16",
+      "19",
+      "14",
+      "33"
+    ],
+    "correct": "A",
+    "explanation": "Aire calculée = 16 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E213"
+  },
+  {
+    "question": "Calcule : 6/3 + 5/8 = ?",
+    "options": [
+      "7/9",
+      "21/8",
+      "15/2",
+      "11/11"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 21/8.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E214"
+  },
+  {
+    "question": "Proportion : 7 kg coûtent 7 $. Quel est le prix de 8 kg ?",
+    "options": [
+      "8.0",
+      "56",
+      "15",
+      "0.9"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (7/7) × 8 = 8.0 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E215"
+  },
+  {
+    "question": "Proportion : 8 kg coûtent 5 $. Quel est le prix de 4 kg ?",
+    "options": [
+      "9",
+      "32",
+      "2.5",
+      "1.2"
+    ],
+    "correct": "C",
+    "explanation": "Prix = (5/8) × 4 = 2.5 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E216"
+  },
+  {
+    "question": "Le nombre 75 est divisible par :",
+    "options": [
+      "5",
+      "4",
+      "2",
+      "6"
+    ],
+    "correct": "A",
+    "explanation": "75 ÷ 5 = 15, donc 5 est un diviseur de 75.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E217"
+  },
+  {
+    "question": "Résous : 4x + 9 = 17. Quelle est la valeur de x ?",
+    "options": [
+      "5",
+      "13",
+      "2",
+      "-1"
+    ],
+    "correct": "C",
+    "explanation": "4x = 8 donc x = 8/4 = 2.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E218"
+  },
+  {
+    "question": "Résous : 4x + 24 = 36. Quelle est la valeur de x ?",
+    "options": [
+      "28",
+      "2",
+      "7",
+      "3"
+    ],
+    "correct": "D",
+    "explanation": "4x = 12 donc x = 12/4 = 3.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E219"
+  },
+  {
+    "question": "La série 6, 7, 10, 14, 19, 19, 27 : quelle est la moyenne ?",
+    "options": [
+      "14.6",
+      "27",
+      "14",
+      "33"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 102/7 = 14.6.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E220"
+  },
+  {
+    "question": "Calcule : 7/2 - 7/6 = ?",
+    "options": [
+      "14/8",
+      "14/8",
+      "7/3",
+      "10/8"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 7/3.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E221"
+  },
+  {
+    "question": "Quel est 15 % de 400 ?",
+    "options": [
+      "48",
+      "64",
+      "60",
+      "75"
+    ],
+    "correct": "C",
+    "explanation": "15% de 400 = (15/100)×400 = 60.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E222"
+  },
+  {
+    "question": "Proportion : 8 kg coûtent 3 $. Quel est le prix de 6 kg ?",
+    "options": [
+      "2.2",
+      "0.5",
+      "9",
+      "48"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (3/8) × 6 = 2.2 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E223"
+  },
+  {
+    "question": "Le nombre 108 est divisible par :",
+    "options": [
+      "7",
+      "8",
+      "27",
+      "5"
+    ],
+    "correct": "C",
+    "explanation": "108 ÷ 27 = 4, donc 27 est un diviseur de 108.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E224"
+  },
+  {
+    "question": "Un triangle a une base de 8 cm et une hauteur de 5 cm. Aire (cm²) ?",
+    "options": [
+      "13",
+      "23",
+      "40",
+      "20"
+    ],
+    "correct": "D",
+    "explanation": "Aire calculée = 20 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E225"
+  },
+  {
+    "question": "Résous : 6x + 15 = 147. Quelle est la valeur de x ?",
+    "options": [
+      "21",
+      "22",
+      "25",
+      "21"
+    ],
+    "correct": "B",
+    "explanation": "6x = 132 donc x = 132/6 = 22.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E226"
+  },
+  {
+    "question": "Proportion : 5 kg coûtent 4 $. Quel est le prix de 9 kg ?",
+    "options": [
+      "13",
+      "0.4",
+      "45",
+      "7.2"
+    ],
+    "correct": "D",
+    "explanation": "Prix = (4/5) × 9 = 7.2 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E227"
+  },
+  {
+    "question": "La série 10, 18, 22, 24 : quelle est la moyenne ?",
+    "options": [
+      "34",
+      "18.5",
+      "22",
+      "24"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 74/4 = 18.5.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E228"
+  },
+  {
+    "question": "Calcule : 4^-1",
+    "options": [
+      "2.25",
+      "3",
+      "0.25",
+      "-4"
+    ],
+    "correct": "C",
+    "explanation": "4^-1 = 0.25.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E229"
+  },
+  {
+    "question": "La série 8, 14, 15, 18, 23, 26 : quelle est la moyenne ?",
+    "options": [
+      "34",
+      "18",
+      "26",
+      "17.3"
+    ],
+    "correct": "D",
+    "explanation": "Moyenne = somme/n = 104/6 = 17.3.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E230"
+  },
+  {
+    "question": "Quel est 75 % de 80 ?",
+    "options": [
+      "60",
+      "58",
+      "74",
+      "135"
+    ],
+    "correct": "A",
+    "explanation": "75% de 80 = (75/100)×80 = 60.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E231"
+  },
+  {
+    "question": "Un cercle a un rayon de 5 cm. Aire ≈ ? (π ≈ 3,14)",
+    "options": [
+      "78.5",
+      "15.7",
+      "31.400000000000002",
+      "25"
+    ],
+    "correct": "A",
+    "explanation": "Aire = πr² ≈ 3,14 × 5².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E232"
+  },
+  {
+    "question": "Proportion : 4 kg coûtent 4 $. Quel est le prix de 9 kg ?",
+    "options": [
+      "0.4",
+      "36",
+      "13",
+      "9.0"
+    ],
+    "correct": "D",
+    "explanation": "Prix = (4/4) × 9 = 9.0 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E233"
+  },
+  {
+    "question": "Proportion : 4 kg coûtent 3 $. Quel est le prix de 2 kg ?",
+    "options": [
+      "8",
+      "1.5",
+      "5",
+      "1.5?"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (3/4) × 2 = 1.5 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E234"
+  },
+  {
+    "question": "Quel est 5 % de 50 ?",
+    "options": [
+      "3",
+      "7",
+      "2",
+      "1"
+    ],
+    "correct": "C",
+    "explanation": "5% de 50 = (5/100)×50 = 2.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E235"
+  },
+  {
+    "question": "La série 21, 24, 25, 28, 29 : quelle est la moyenne ?",
+    "options": [
+      "25",
+      "29",
+      "25.4",
+      "50"
+    ],
+    "correct": "C",
+    "explanation": "Moyenne = somme/n = 127/5 = 25.4.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E236"
+  },
+  {
+    "question": "Calcule : 3^3",
+    "options": [
+      "27",
+      "9",
+      "6",
+      "32"
+    ],
+    "correct": "A",
+    "explanation": "3^3 = 27.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E237"
+  },
+  {
+    "question": "Un rectangle mesure 3 cm sur 5 cm. Quelle est son aire (cm²) ?",
+    "options": [
+      "20",
+      "16",
+      "8",
+      "15"
+    ],
+    "correct": "D",
+    "explanation": "Aire calculée = 15 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E238"
+  },
+  {
+    "question": "Calcule : 7/8 - 8/10 = ?",
+    "options": [
+      "18/2",
+      "11/13",
+      "15/18",
+      "3/40"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 3/40.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E239"
+  },
+  {
+    "question": "Résous : 7x + 30 = 177. Quelle est la valeur de x ?",
+    "options": [
+      "37",
+      "26",
+      "19",
+      "21"
+    ],
+    "correct": "D",
+    "explanation": "7x = 147 donc x = 147/7 = 21.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E240"
+  },
+  {
+    "question": "Proportion : 8 kg coûtent 5 $. Quel est le prix de 3 kg ?",
+    "options": [
+      "24",
+      "1.9",
+      "8",
+      "1.7"
+    ],
+    "correct": "B",
+    "explanation": "Prix = (5/8) × 3 = 1.9 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E241"
+  },
+  {
+    "question": "Le nombre 45 est divisible par :",
+    "options": [
+      "45",
+      "4",
+      "6",
+      "2"
+    ],
+    "correct": "A",
+    "explanation": "45 ÷ 45 = 1, donc 45 est un diviseur de 45.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E242"
+  },
+  {
+    "question": "Le nombre 55 est divisible par :",
+    "options": [
+      "4",
+      "3",
+      "2",
+      "55"
+    ],
+    "correct": "D",
+    "explanation": "55 ÷ 55 = 1, donc 55 est un diviseur de 55.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E243"
+  },
+  {
+    "question": "Le nombre 34 est divisible par :",
+    "options": [
+      "17",
+      "5",
+      "3",
+      "4"
+    ],
+    "correct": "A",
+    "explanation": "34 ÷ 17 = 2, donc 17 est un diviseur de 34.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E244"
+  },
+  {
+    "question": "Proportion : 4 kg coûtent 6 $. Quel est le prix de 9 kg ?",
+    "options": [
+      "13.5",
+      "15",
+      "0.7",
+      "36"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (6/4) × 9 = 13.5 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E245"
+  },
+  {
+    "question": "La série 10, 22, 23, 25, 29 : quelle est la moyenne ?",
+    "options": [
+      "29",
+      "21.8",
+      "39",
+      "23"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 109/5 = 21.8.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E246"
+  },
+  {
+    "question": "Résous : 9x + 18 = 72. Quelle est la valeur de x ?",
+    "options": [
+      "6",
+      "10",
+      "27",
+      "3"
+    ],
+    "correct": "A",
+    "explanation": "9x = 54 donc x = 54/9 = 6.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E247"
+  },
+  {
+    "question": "Résous : 2x + 5 = 39. Quelle est la valeur de x ?",
+    "options": [
+      "14",
+      "7",
+      "22",
+      "17"
+    ],
+    "correct": "D",
+    "explanation": "2x = 34 donc x = 34/2 = 17.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E248"
+  },
+  {
+    "question": "Calcule : 4^4",
+    "options": [
+      "258",
+      "8",
+      "16",
+      "256"
+    ],
+    "correct": "D",
+    "explanation": "4^4 = 256.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E249"
+  },
+  {
+    "question": "Calcule : 5/5 - 6/5 = ?",
+    "options": [
+      "-1/5",
+      "13/4",
+      "7/6",
+      "11/10"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : -1/5.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E250"
+  },
+  {
+    "question": "Un rectangle mesure 10 cm sur 4 cm. Quelle est son aire (cm²) ?",
+    "options": [
+      "40",
+      "28",
+      "45",
+      "14"
+    ],
+    "correct": "A",
+    "explanation": "Aire calculée = 40 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E251"
+  },
+  {
+    "question": "Le nombre 15 est divisible par :",
+    "options": [
+      "4",
+      "15",
+      "2",
+      "6"
+    ],
+    "correct": "B",
+    "explanation": "15 ÷ 15 = 1, donc 15 est un diviseur de 15.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E252"
+  },
+  {
+    "question": "Calcule : 6/4 - 1/6 = ?",
+    "options": [
+      "7/10",
+      "4/3",
+      "4/8",
+      "4/3?"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 4/3.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E253"
+  },
+  {
+    "question": "Calcule : 6/12 × 2/6 = ?",
+    "options": [
+      "1/6",
+      "10/8",
+      "2/5",
+      "8/18"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 1/6.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E254"
+  },
+  {
+    "question": "La série 7, 11, 13, 14, 21, 25 : quelle est la moyenne ?",
+    "options": [
+      "32",
+      "14",
+      "15.2",
+      "25"
+    ],
+    "correct": "C",
+    "explanation": "Moyenne = somme/n = 91/6 = 15.2.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E255"
+  },
+  {
+    "question": "Résous : 5x + 30 = 100. Quelle est la valeur de x ?",
+    "options": [
+      "35",
+      "12",
+      "19",
+      "14"
+    ],
+    "correct": "D",
+    "explanation": "5x = 70 donc x = 70/5 = 14.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E256"
+  },
+  {
+    "question": "Quel est 10 % de 60 ?",
+    "options": [
+      "16",
+      "18",
+      "4",
+      "6"
+    ],
+    "correct": "D",
+    "explanation": "10% de 60 = (10/100)×60 = 6.",
+    "category": "Pourcentages",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E257"
+  },
+  {
+    "question": "Calcule : 5/8 - 8/2 = ?",
+    "options": [
+      "13/10",
+      "-27/8",
+      "11/8",
+      "9/9"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : -27/8.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E258"
+  },
+  {
+    "question": "Calcule : 2/5 × 4/6 = ?",
+    "options": [
+      "3/4",
+      "6/11",
+      "4/15",
+      "4/8"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 4/15.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E259"
+  },
+  {
+    "question": "La série 16, 20, 20, 27, 30 : quelle est la moyenne ?",
+    "options": [
+      "46",
+      "20",
+      "22.6",
+      "30"
+    ],
+    "correct": "C",
+    "explanation": "Moyenne = somme/n = 113/5 = 22.6.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E260"
+  },
+  {
+    "question": "La série 6, 16, 19, 19, 27 : quelle est la moyenne ?",
+    "options": [
+      "17.4",
+      "19",
+      "33",
+      "27"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 87/5 = 17.4.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E261"
+  },
+  {
+    "question": "Résous : 6x + 21 = 165. Quelle est la valeur de x ?",
+    "options": [
+      "27",
+      "23",
+      "24",
+      "28"
+    ],
+    "correct": "C",
+    "explanation": "6x = 144 donc x = 144/6 = 24.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E262"
+  },
+  {
+    "question": "Calcule : 5/8 × 6/9 = ?",
+    "options": [
+      "15/3",
+      "11/17",
+      "5/12",
+      "7/11"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 5/12.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E263"
+  },
+  {
+    "question": "Calcule : 5/11 + 5/10 = ?",
+    "options": [
+      "10/21",
+      "6/13",
+      "17/5",
+      "21/22"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 21/22.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E264"
+  },
+  {
+    "question": "La série 9, 13, 18, 28 : quelle est la moyenne ?",
+    "options": [
+      "17.0",
+      "37",
+      "18",
+      "28"
+    ],
+    "correct": "A",
+    "explanation": "Moyenne = somme/n = 68/4 = 17.0.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E265"
+  },
+  {
+    "question": "La série 6, 6, 14, 20, 24, 25 : quelle est la moyenne ?",
+    "options": [
+      "25",
+      "15.8",
+      "20",
+      "31"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 95/6 = 15.8.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E266"
+  },
+  {
+    "question": "Proportion : 8 kg coûtent 11 $. Quel est le prix de 7 kg ?",
+    "options": [
+      "18",
+      "1.6",
+      "56",
+      "9.6"
+    ],
+    "correct": "D",
+    "explanation": "Prix = (11/8) × 7 = 9.6 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E267"
+  },
+  {
+    "question": "Le nombre 68 est divisible par :",
+    "options": [
+      "34",
+      "6",
+      "3",
+      "5"
+    ],
+    "correct": "A",
+    "explanation": "68 ÷ 34 = 2, donc 34 est un diviseur de 68.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E268"
+  },
+  {
+    "question": "La série 16, 19, 22, 22, 23, 30 : quelle est la moyenne ?",
+    "options": [
+      "46",
+      "22.0",
+      "30",
+      "22"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 132/6 = 22.0.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E269"
+  },
+  {
+    "question": "La série 10, 15, 15, 23, 28 : quelle est la moyenne ?",
+    "options": [
+      "28",
+      "38",
+      "18.2",
+      "15"
+    ],
+    "correct": "C",
+    "explanation": "Moyenne = somme/n = 91/5 = 18.2.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E270"
+  },
+  {
+    "question": "Le nombre 50 est divisible par :",
+    "options": [
+      "4",
+      "10",
+      "3",
+      "6"
+    ],
+    "correct": "B",
+    "explanation": "50 ÷ 10 = 5, donc 10 est un diviseur de 50.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E271"
+  },
+  {
+    "question": "Le nombre 95 est divisible par :",
+    "options": [
+      "2",
+      "95",
+      "4",
+      "3"
+    ],
+    "correct": "B",
+    "explanation": "95 ÷ 95 = 1, donc 95 est un diviseur de 95.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E272"
+  },
+  {
+    "question": "Proportion : 7 kg coûtent 8 $. Quel est le prix de 4 kg ?",
+    "options": [
+      "2.0",
+      "12",
+      "28",
+      "4.6"
+    ],
+    "correct": "D",
+    "explanation": "Prix = (8/7) × 4 = 4.6 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E273"
+  },
+  {
+    "question": "Un triangle a une base de 6 cm et une hauteur de 9 cm. Aire (cm²) ?",
+    "options": [
+      "30",
+      "27",
+      "15",
+      "54"
+    ],
+    "correct": "B",
+    "explanation": "Aire calculée = 27 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E274"
+  },
+  {
+    "question": "Résous : 7x + 27 = 132. Quelle est la valeur de x ?",
+    "options": [
+      "19",
+      "15",
+      "11",
+      "34"
+    ],
+    "correct": "B",
+    "explanation": "7x = 105 donc x = 105/7 = 15.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E275"
+  },
+  {
+    "question": "Résous : 3x + 14 = 41. Quelle est la valeur de x ?",
+    "options": [
+      "8",
+      "10",
+      "9",
+      "17"
+    ],
+    "correct": "C",
+    "explanation": "3x = 27 donc x = 27/3 = 9.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E276"
+  },
+  {
+    "question": "Calcule : 3/12 + 8/10 = ?",
+    "options": [
+      "9/8",
+      "21/20",
+      "11/22",
+      "5/9"
+    ],
+    "correct": "B",
+    "explanation": "Résultat exact : 21/20.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E277"
+  },
+  {
+    "question": "Le nombre 40 est divisible par :",
+    "options": [
+      "6",
+      "3",
+      "7",
+      "8"
+    ],
+    "correct": "D",
+    "explanation": "40 ÷ 8 = 5, donc 8 est un diviseur de 40.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E278"
+  },
+  {
+    "question": "Calcule : 1/10 × 9/12 = ?",
+    "options": [
+      "10/22",
+      "4/14",
+      "3/40",
+      "7/7"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 3/40.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E279"
+  },
+  {
+    "question": "Calcule : 4/12 × 8/8 = ?",
+    "options": [
+      "2/4",
+      "15/4",
+      "1/3",
+      "12/20"
+    ],
+    "correct": "C",
+    "explanation": "Résultat exact : 1/3.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E280"
+  },
+  {
+    "question": "Le nombre 81 est divisible par :",
+    "options": [
+      "9",
+      "4",
+      "5",
+      "2"
+    ],
+    "correct": "A",
+    "explanation": "81 ÷ 9 = 9, donc 9 est un diviseur de 81.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E281"
+  },
+  {
+    "question": "Calcule : 2^-2",
+    "options": [
+      "5.25",
+      "0.25",
+      "0",
+      "-4"
+    ],
+    "correct": "B",
+    "explanation": "2^-2 = 0.25.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E282"
+  },
+  {
+    "question": "Calcule : 3/7 - 2/5 = ?",
+    "options": [
+      "1/35",
+      "5/12",
+      "5/12",
+      "10/4"
+    ],
+    "correct": "A",
+    "explanation": "Résultat exact : 1/35.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E283"
+  },
+  {
+    "question": "Un triangle a une base de 17 cm et une hauteur de 4 cm. Aire (cm²) ?",
+    "options": [
+      "68",
+      "37",
+      "34",
+      "21"
+    ],
+    "correct": "C",
+    "explanation": "Aire calculée = 34 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E284"
+  },
+  {
+    "question": "Le nombre 18 est divisible par :",
+    "options": [
+      "5",
+      "4",
+      "7",
+      "3"
+    ],
+    "correct": "D",
+    "explanation": "18 ÷ 3 = 6, donc 3 est un diviseur de 18.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E285"
+  },
+  {
+    "question": "Calcule : 10^-1",
+    "options": [
+      "9",
+      "0.1",
+      "-10",
+      "5.1"
+    ],
+    "correct": "B",
+    "explanation": "10^-1 = 0.1.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E286"
+  },
+  {
+    "question": "Calcule : 2^-1",
+    "options": [
+      "0.5",
+      "1.5",
+      "1",
+      "-2"
+    ],
+    "correct": "A",
+    "explanation": "2^-1 = 0.5.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E287"
+  },
+  {
+    "question": "Le nombre 110 est divisible par :",
+    "options": [
+      "22",
+      "4",
+      "3",
+      "6"
+    ],
+    "correct": "A",
+    "explanation": "110 ÷ 22 = 5, donc 22 est un diviseur de 110.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E288"
+  },
+  {
+    "question": "Proportion : 7 kg coûtent 11 $. Quel est le prix de 9 kg ?",
+    "options": [
+      "14.1",
+      "20",
+      "1.2",
+      "63"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (11/7) × 9 = 14.1 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E289"
+  },
+  {
+    "question": "Un rectangle mesure 10 cm sur 14 cm. Quelle est son aire (cm²) ?",
+    "options": [
+      "48",
+      "145",
+      "24",
+      "140"
+    ],
+    "correct": "D",
+    "explanation": "Aire calculée = 140 cm².",
+    "category": "Géométrie",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E290"
+  },
+  {
+    "question": "Calcule : 2^3",
+    "options": [
+      "5",
+      "8",
+      "6",
+      "12"
+    ],
+    "correct": "B",
+    "explanation": "2^3 = 8.",
+    "category": "Puissances",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E291"
+  },
+  {
+    "question": "Le nombre 62 est divisible par :",
+    "options": [
+      "4",
+      "5",
+      "3",
+      "62"
+    ],
+    "correct": "D",
+    "explanation": "62 ÷ 62 = 1, donc 62 est un diviseur de 62.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E292"
+  },
+  {
+    "question": "La série 6, 11, 13, 14, 16, 25, 29 : quelle est la moyenne ?",
+    "options": [
+      "35",
+      "14",
+      "29",
+      "16.3"
+    ],
+    "correct": "D",
+    "explanation": "Moyenne = somme/n = 114/7 = 16.3.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E293"
+  },
+  {
+    "question": "Résous : 8x + 28 = 212. Quelle est la valeur de x ?",
+    "options": [
+      "36",
+      "23",
+      "24",
+      "20"
+    ],
+    "correct": "B",
+    "explanation": "8x = 184 donc x = 184/8 = 23.",
+    "category": "Équations",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E294"
+  },
+  {
+    "question": "Dans un triangle rectangle, les côtés de l'angle droit mesurent 15 cm et 36 cm. Quelle est la longueur de l'hypoténuse ?",
+    "options": [
+      "51",
+      "21",
+      "39",
+      "41"
+    ],
+    "correct": "C",
+    "explanation": "Théorème de Pythagore : a² + b² = c².",
+    "category": "Géométrie",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E295"
+  },
+  {
+    "question": "Le nombre 24 est divisible par :",
+    "options": [
+      "9",
+      "6",
+      "5",
+      "7"
+    ],
+    "correct": "B",
+    "explanation": "24 ÷ 6 = 4, donc 6 est un diviseur de 24.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E296"
+  },
+  {
+    "question": "Calcule : 8/10 × 4/9 = ?",
+    "options": [
+      "12/19",
+      "8/14",
+      "16/9",
+      "16/45"
+    ],
+    "correct": "D",
+    "explanation": "Résultat exact : 16/45.",
+    "category": "Fractions",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E297"
+  },
+  {
+    "question": "La série 5, 6, 7, 25 : quelle est la moyenne ?",
+    "options": [
+      "7",
+      "10.8",
+      "30",
+      "25"
+    ],
+    "correct": "B",
+    "explanation": "Moyenne = somme/n = 43/4 = 10.8.",
+    "category": "Statistiques",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E298"
+  },
+  {
+    "question": "Proportion : 6 kg coûtent 4 $. Quel est le prix de 2 kg ?",
+    "options": [
+      "1.3",
+      "6",
+      "2.0",
+      "12"
+    ],
+    "correct": "A",
+    "explanation": "Prix = (4/6) × 2 = 1.3 $.",
+    "category": "Proportionnalité",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E299"
+  },
+  {
+    "question": "Le nombre 51 est divisible par :",
+    "options": [
+      "5",
+      "51",
+      "4",
+      "2"
+    ],
+    "correct": "B",
+    "explanation": "51 ÷ 51 = 1, donc 51 est un diviseur de 51.",
+    "category": "Arithmétique",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "origin": "programme_9e",
+    "id": "M9E300"
+  }
+]

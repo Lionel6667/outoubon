@@ -1,0 +1,39 @@
+<div class="card stat-card v2-stat-rich v2-stat-rich--bac">
+  <div class="v2-stat-rich__head">
+    <div class="stat-icon v2-stat-rich__icon v2-stat-rich__icon--cyan"><i class="fas fa-graduation-cap"></i></div>
+    <div class="v2-stat-rich__title">Note estimée BAC</div>
+  </div>
+
+  {% if has_diagnostic %}
+  <div class="v2-stat-rich__hero">
+    <span class="stat-val">{{ bac_score }}</span><span class="v2-stat-rich__unit">/1900</span>
+  </div>
+  <div class="v2-stat-rich__row">
+    <span class="v2-stat-rich__chip v2-stat-rich__chip--cyan">{{ bac_next_milestone_label }}</span>
+    <span class="v2-stat-rich__chip-meta">{{ bac_score }}/{{ bac_next_milestone_pts }}</span>
+  </div>
+  <div class="v2-stat-rich__track">
+    <div class="v2-stat-rich__fill v2-stat-rich__fill--cyan" style="width:{% if bac_score >= 1520 %}100{% else %}{{ bac_milestone_pct }}{% endif %}%;"></div>
+  </div>
+  <div class="v2-stat-rich__status {% if bac_score >= 950 %}is-ok{% else %}is-warn{% endif %}">
+    {% if bac_score >= 950 %}
+    <i class="fas fa-check-circle"></i> Seuil BAC atteint
+    {% else %}
+    <i class="fas fa-arrow-up"></i> {{ bac_gap_pass }} pts pour le BAC
+    {% endif %}
+  </div>
+  <div class="v2-stat-rich__live"><span></span> Live</div>
+
+  {% elif diagnostic_in_progress %}
+  <p class="v2-stat-rich__copy">Test diagnostique en cours — reprends où tu en étais.</p>
+  <div class="v2-stat-rich__track"><div class="v2-stat-rich__fill v2-stat-rich__fill--cyan" style="width:35%;"></div></div>
+  <a href="{% url 'diagnostic' %}" class="v2-stat-rich__cta"><i class="fas fa-play"></i> Continuer le test</a>
+
+  {% else %}
+  <p class="v2-stat-rich__copy">15 min · 10 questions par matière pour estimer ta note et personnaliser ton parcours.</p>
+  <a href="{% url 'diagnostic' %}" class="v2-stat-rich__cta"><i class="fas fa-bullseye"></i> Lancer le diagnostic</a>
+  {% if is_guest %}
+  <p class="v2-stat-rich__guest-note">Mode démo — crée un compte pour sauvegarder ta progression.</p>
+  {% endif %}
+  {% endif %}
+</div>

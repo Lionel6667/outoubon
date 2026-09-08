@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OU TOU BON - Réussis ton BAC NS4 avec l'IA</title>
 <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+<link rel="stylesheet" href="{% static 'css/v2/design-system.css' %}">
 <link rel="stylesheet" href="{% static 'css/bac_landing.css' %}">
+<link rel="stylesheet" href="{% static 'css/v2/landing.css' %}">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
@@ -538,7 +540,7 @@
 .hero-login-reveal a:hover { opacity: .8; text-decoration: underline; }
 </style>
 </head>
-<body>
+<body class="v2-landing">
 
 <div class="agent-modal-overlay" id="agentModal" onclick="if(event.target===this)closeAgentModal()">
   <div class="agent-modal">
@@ -573,7 +575,7 @@
       </div>
       <label class="agent-form-label" for="agentPhone">Numéro de téléphone</label>
       <div class="agent-phone-wrap">
-        <span class="pfx">🇭🇹 +509</span>
+        <span class="pfx">+509</span>
         <input id="agentPhone" type="tel" placeholder="3X XX XX XX" autocomplete="tel">
       </div>
       <label class="agent-form-label" for="agentPass">Mot de passe</label>
@@ -602,25 +604,43 @@
     <a href="#home">Fonctionnalités</a>
     <a href="#subjects">Matières</a>
     <a href="#pricing">Tarifs</a>
-    <a href="#" class="btn-agent nav-agent-btn" onclick="openAgentModal();return false;"><i class="fas fa-user-tie"></i>Gagner de l'argent</a>
+    <a href="#" class="btn-agent nav-agent-btn" onclick="openAgentModal();return false;" aria-label="Gagner de l'argent en devenant agent">
+      <i class="fas fa-user-tie" aria-hidden="true"></i>
+      <span class="nav-agent-btn__label nav-agent-btn__label--full">Gagner de l'argent</span>
+      <span class="nav-agent-btn__label nav-agent-btn__label--short">Gagner</span>
+    </a>
   </nav>
 </header>
 
 <section id="home" class="hero">
   <div class="hero-left">
+    <div class="v2-hero-eyebrow"><i class="fas fa-bolt"></i> BAC NS4 · Haïti · IA entraînée sur vrais examens</div>
     <h1>Réussis ton <span>BAC NS4</span> avec OU TOU BON</h1>
     <p class="subtitle">
       Notre IA, entraînée sur des centaines d'examens BAC passés, t'explique chaque notion, corrige tes erreurs et te prépare comme dans un vrai centre d'excellence — tu ne révises plus au hasard, tu avances avec méthode.
     </p>
-    <div class="hero-buttons">
-      <a href="{% url 'signup' %}"><button class="btn-primary">Commencer maintenant</button></a>
-      <a href="{% url 'guest_start' %}"><button class="btn-demo"><i class="fas fa-eye"></i> Explorer sans compte</button></a>
+    <div class="v2-hero-values">
+      <span class="v2-hero-value"><i class="fas fa-scroll"></i> Quiz des vrais BAC</span>
+      <span class="v2-hero-value"><i class="fas fa-robot"></i> Coach IA personnalisé</span>
+      <span class="v2-hero-value"><i class="fas fa-trophy"></i> Ligues & XP</span>
+      <span class="v2-hero-value"><i class="fas fa-chart-line"></i> Progression live</span>
     </div>
+    <div class="hero-buttons">
+      <a href="{% url 'signup' %}" class="btn-primary btn-cta">
+        <i class="fas fa-rocket" aria-hidden="true"></i>
+        <span>Commencer maintenant</span>
+      </a>
+      <a href="{% url 'guest_start' %}" class="btn-demo btn-cta">
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <span>Explorer sans compte</span>
+      </a>
+    </div>
+    <p class="v2-hero-cta-note">Gratuit pour commencer · MonCash & NatCash acceptés</p>
     <div class="social-proof">
       <div class="avatars">
         <div class="avatar">👨‍🎓</div><div class="avatar">👩‍🎓</div><div class="avatar">👨‍🎓</div><div class="avatar">👩‍🎓</div>
       </div>
-      <span>Rejoint par +2847 élèves</span>
+      <span>{% if total_users %}Rejoint par +{{ total_users }} élève{{ total_users|pluralize }}{% else %}Rejoins la communauté OU TOU BON{% endif %}</span>
     </div>
   </div>
 
@@ -652,6 +672,45 @@
     <div class="stat-card"><div class="stat-header"><span>CHAT IA STRATÈGE</span><i class="fas fa-robot"></i></div><div class="stat-number">24/7</div><div class="stat-growth positive"><i class="fas fa-check"></i><span>Comme un répétiteur privé, à toute heure</span></div></div>
     <div class="stat-card"><div class="stat-header"><span>EXAMEN BLANC PRO</span><i class="fas fa-scroll"></i></div><div class="stat-number">Réel</div><div class="stat-growth positive"><i class="fas fa-check"></i><span>Simulation complète + correction IA détaillée sur 100</span></div></div>
     <div class="stat-card"><div class="stat-header"><span>COURS + QUIZ + EXOS</span><i class="fas fa-bolt"></i></div><div class="stat-number">Intégré</div><div class="stat-growth positive"><i class="fas fa-check"></i><span>Tu apprends, tu testes, tu corriges, tu progresses</span></div></div>
+  </div>
+</section>
+
+<section class="v2-daily-section">
+  <div class="v2-daily-inner">
+    <div class="v2-daily-copy">
+      <div class="v2-hero-eyebrow" style="margin-bottom:0.85rem;"><i class="fas fa-fire"></i> Habitude quotidienne</div>
+      <h2>Chaque jour compte pour ton BAC</h2>
+      <p>Quiz, exercices et chat IA te rapportent des <strong style="color:#10b981;">XP</strong>. Monte dans les ligues, garde ta série active et vois ta progression en temps réel — comme un jeu, mais pour ton avenir.</p>
+      <a href="{% url 'signup' %}" class="btn-primary" style="display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;padding:.75rem 1.25rem;">
+        <i class="fas fa-rocket"></i> Commencer gratuitement
+      </a>
+    </div>
+    <div class="v2-daily-cards">
+      <div class="v2-daily-mission">
+        <div class="v2-daily-mission__icon v2-daily-mission__icon--quiz"><i class="fas fa-bolt"></i></div>
+        <div>
+          <div class="v2-daily-mission__title">Lancer un quiz</div>
+          <div class="v2-daily-mission__sub">Questions tirées des examens officiels</div>
+        </div>
+        <span class="v2-daily-mission__xp">+2 XP</span>
+      </div>
+      <div class="v2-daily-mission">
+        <div class="v2-daily-mission__icon v2-daily-mission__icon--exo"><i class="fas fa-pen"></i></div>
+        <div>
+          <div class="v2-daily-mission__title">Résoudre un exercice</div>
+          <div class="v2-daily-mission__sub">Correction IA + explication pas à pas</div>
+        </div>
+        <span class="v2-daily-mission__xp">+2 XP</span>
+      </div>
+      <div class="v2-daily-mission">
+        <div class="v2-daily-mission__icon v2-daily-mission__icon--chat"><i class="fas fa-robot"></i></div>
+        <div>
+          <div class="v2-daily-mission__title">Poser une question à ton coach IA</div>
+          <div class="v2-daily-mission__sub">Ton coach IA 24/7 sur toutes les matières</div>
+        </div>
+        <span class="v2-daily-mission__xp">+1 XP</span>
+      </div>
+    </div>
   </div>
 </section>
 

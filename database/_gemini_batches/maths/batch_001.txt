@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Mathématiques).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "2",
+    "question": "La réduction de B=1+40+5+5x5—5 donne: | 9",
+    "options": [
+      "9",
+      "29",
+      "4,1",
+      "28,2"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "L’orthocentre d’un triangle est le point de rencontre des :",
+    "options": [
+      "Bissectrices D",
+      "Médianes R",
+      "Hauteurs",
+      "Médiatrices L"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "La médiane de la série : 13 ; 21:19; 18:27; 15 est:",
+    "options": [
+      "19",
+      "18 E",
+      "18,5 —",
+      "19,6 ="
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Lequel de ces quatre nombres n’est pas égal à sa somme des cubes de leurs chiffres ? 1",
+    "options": [
+      "153",
+      "370",
+      "371",
+      "407"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "8",
+    "question": "Diminuer x de 5% c’est multiplier x par :",
+    "options": [
+      "0,05",
+      "8 > c. 10",
+      "0,95",
+      "12 Deuxième partie Réponds aux questions 10 à 15"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "La partie décimale du nombre — 5,32 est :",
+    "options": [
+      "5,32",
+      "—5,32 9",
+      "0,32",
+      "—0,32"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "L’arrondi du nombre x au dix-millième est le nombre décimal :",
+    "options": [
+      "3,14",
+      "3,1415 D",
+      "3,1416",
+      "3,1410 R"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Le point de rencontre des médianes d’un triangle est l appelé :",
+    "options": [
+      "Orthocentre —-",
+      "Centre du cercle inscrit —-",
+      "Centre de gravité —",
+      "Centre du cercle circonscrit _"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "50% d’une somme d’argent représente : 1",
+    "options": [
+      "Son double",
+      "Son quart —",
+      "Sontiers —",
+      "Sa moitié —"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "On donne H = 5x — 4x — 2x — 3x ; l'expression réduite L de H est :",
+    "options": [
+      "4x",
+      "—-4x",
+      "120x _",
+      "—120x _"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "9",
+    "question": "L'écriture simplifiée de A sous la forme d’une 3 puissance de 10 est : A = ee",
+    "options": [
+      "10?",
+      "10?",
+      "10%",
+      "10 Deuxième partie Réponds aux questions 10 à 15"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Que peut-on dire d'un cercle et d'une droite qui n'ont aucun point commun?",
+    "options": [
+      "La droite est tangente au cercle",
+      "La distance entre le centre du cercle et la droite est nulle",
+      "La droite et le cercle sont sécants",
+      "La droite est extérieure au cercle"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Si deux cercles (C) et(C”) de centres respectifs O et O’ et de rayons respectifs r et r” sont tels que OO’ =r+r. Il est alors vrai d’affirmer que",
+    "options": [
+      "(C) et (C’) sont concentriques",
+      "(C) et (C”) sont sécants T",
+      "(C) et (C°) sont tangents extérieurement",
+      "(C) et (C’) sont extérieurs l’un à l’autre R d"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Le point d’intersection des médiatrices d’un triangle est",
+    "options": [
+      "l’orthocentre du triangle",
+      "le centre du cercle inscrit au triangle",
+      "le centre du cercle circonscrit au triangle",
+      "le centre de gravité du triangle"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Trouve le polynôme ordonné suivant les puissances croissantes de x:",
+    "options": [
+      "5xy*+y° 10x2y° + 10xŸy + 5xfy + x°",
+      "5xy*+ 10x2y + 10xy + y + 5xty + x°",
+      "5xy* + 10x2ÿ? + y + 10x3y + 5xty + x° n",
+      "y°+ 5xy* + 10x2y? + 10x?y2 + 5xty + x$"
+    ],
+    "source": "exam_maths_math-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

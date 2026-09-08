@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ team.name }} · Génies{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/genius.css' %}">
+{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="genius" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title">Mon équipe</div>
+      <a href="{% url 'genius_hub' %}" style="font-size:.82rem;color:var(--green)">← Hub</a>
+    </div>
+    <div class="view-area v2-genius-view">
+      <div class="v2-genius-page">
+
+        <header class="v2-genius-team-page-header">
+          <div class="v2-genius-team-header__emblem">{{ team.emblem_emoji|default:"🧠" }}</div>
+          <div>
+            <h1>{{ team.name }}</h1>
+            <div class="v2-genius-code-badge">{{ team.invite_code }}</div>
+          </div>
+        </header>
+
+        <div class="v2-genius-stats-grid">
+          <div class="v2-genius-stat-card">
+            <span class="label">Points</span>
+            <strong>{{ stats.ranking_points }}</strong>
+          </div>
+          <div class="v2-genius-stat-card">
+            <span class="label">Victoires</span>
+            <strong>{{ stats.wins }}V / {{ stats.losses }}D</strong>
+          </div>
+          <div class="v2-genius-stat-card v2-genius-stat-card--gold">
+            <span class="label">Série</span>
+            <strong>{{ stats.team_streak }} 🔥</strong>
+          </div>
+          <div class="v2-genius-stat-card">
+            <span class="label">XP équipe</span>
+            <strong>{{ stats.team_xp }}</strong>
+          </div>
+        </div>
+
+        <div class="v2-genius-panel-card">
+          <h3 class="v2-genius-panel-title"><i class="fas fa-users"></i> Membres</h3>
+          <div class="v2-genius-members-list">
+            {% for m in members %}
+            <div class="v2-genius-member-row {% if m.is_captain %}is-captain{% endif %}">
+              <div class="v2-genius-member-row__avatar">{% if m.is_captain %}👑{% else %}👤{% endif %}</div>
+              <div class="v2-genius-member-row__info">
+                <strong>{{ m.display_name }}</strong>
+                <span>{% if m.is_captain %}Capitaine{% else %}Membre{% endif %}</span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="v2-genius-panel-card">
+          <h3 class="v2-genius-panel-title"><i class="fas fa-stream"></i> Activité récente</h3>
+          {% if activity %}
+          <div class="v2-genius-activity-feed">
+            {% for item in activity %}
+            <div class="v2-genius-activity-item v2-genius-activity-item--{{ item.type }}">
+              <div class="v2-genius-activity-item__dot"></div>
+              <div>
+                <strong>{{ item.title }}</strong>
+                <div class="meta">{{ item.body }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="v2-genius-empty">Aucune activité pour le moment.</p>
+          {% endif %}
+        </div>
+
+        <div class="v2-genius-panel-card">
+          <h3 class="v2-genius-panel-title"><i class="fas fa-history"></i> Historique des matchs</h3>
+          {% if match_history %}
+          <div class="v2-genius-list">
+            {% for m in match_history %}
+            <div class="v2-genius-list-item">
+              <div>
+                <strong>{% if m.won %}Victoire{% else %}Défaite{% endif %} vs {{ m.opponent }}</strong>
+                <div class="meta">{{ m.score_us }}-{{ m.score_them }} · {{ m.competition }}</div>
+              </div>
+              <a href="{% url 'genius_match' match_id=m.id %}" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">Voir</a>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="v2-genius-empty">Aucun match terminé.</p>
+          {% endif %}
+        </div>
+
+        {% include "partials/v2/_page_info.html" with info_key="genius-team" info_title=team.name info_body=team.description %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
-{% load core_extras %}
+{% load static core_extras %}
 
 {% block title %}Accueil · OU TOU BON{% endblock %}
+
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/dashboard.css' %}">
+{% endblock %}
 
 {% block extra_css %}{% endblock %}
 
@@ -14,9 +18,9 @@
   <div id="schoolModal" class="modal-backdrop">
     <div class="modal-card premium-glass">
       <div style="text-align:center;margin-bottom:1.5rem;">
-        <div style="width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;box-shadow:0 10px 20px rgba(59,130,246,0.3);">🎓</div>
+          <div style="width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--green),#0e7490);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem;box-shadow:0 10px 20px rgba(16,185,129,0.28);">🎓</div>
         <h2 style="font-size:1.4rem;font-weight:800;color:var(--t1);margin-bottom:.5rem;">Où étudies-tu ?</h2>
-        <p style="color:var(--t2);font-size:.9rem;line-height:1.5;">Précise ton école pour débloquer ton profil et voir le classement de ton établissement !</p>
+        <p style="color:var(--t2);font-size:.9rem;line-height:1.5;">Précise ton école pour débloquer ton profil et voir le classement de ton établissement.</p>
       </div>
 
       <div class="form-group" style="position:relative;">
@@ -90,81 +94,59 @@
 
             <div class="stat-icon" style="background:rgba(6,182,212,.12);color:#06b6d4"><i class="fas fa-graduation-cap"></i></div>
 
+            <div class="stat-label" style="margin-top:.15rem;">Note estimée BAC</div>
+
+            {% if has_diagnostic or is_guest %}
+
             <div style="display:flex;align-items:baseline;gap:.3rem;margin-top:.2rem;">
-
-              <span class="stat-val">{% if bac_score %}{{ bac_score }}{% else %}·{% endif %}</span>
-
-              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">{% if bac_score %}/1900{% endif %}</span>
-
+              <span class="stat-val">{{ bac_score }}</span>
+              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">/1900</span>
             </div>
-
-            <div class="stat-label">Note estimée BAC</div>
-
-            {% if bac_score %}
-
-            <span class="stat-badge" style="background:rgba(6,182,212,.1);color:#06b6d4;">? Prochain objectif : {{ bac_next_milestone_label }}</span>
-
+            <span class="stat-badge" style="background:rgba(6,182,212,.1);color:#06b6d4;"><i class="fas fa-bullseye"></i> Prochain objectif : {{ bac_next_milestone_label }}</span>
             <div style="margin-top:.6rem;">
-
               <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--t3);margin-bottom:.3rem;">
-
                 <span>{{ bac_next_milestone_label }} ({{ bac_next_milestone_pts }}/1900)</span>
-
                 <span style="color:#06b6d4;font-weight:600;">{{ bac_score }}/{{ bac_next_milestone_pts }}</span>
-
               </div>
-
               <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
-
                 {% if bac_score >= 1520 %}
-
                   <div style="width:100%;height:100%;background:linear-gradient(90deg,#10b981,#34d399);border-radius:99px;"></div>
-
                 {% else %}
-
                   <div style="width:{{ bac_milestone_pct }}%;height:100%;background:linear-gradient(90deg,#06b6d4,#38bdf8);border-radius:99px;transition:width .8s ease;"></div>
-
                 {% endif %}
-
               </div>
-
             </div>
-
-            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:.35rem;
-
-              {% if bac_score >= 950 %}background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:#10b981;{% else %}background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:#f87171;{% endif %}">
-
+            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:.35rem;{% if bac_score >= 950 %}background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:#10b981;{% else %}background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:#f87171;{% endif %}">
               {% if bac_score >= 950 %}<i class="fas fa-check-circle"></i> BAC passable · continue !
-
               {% else %}<i class="fas fa-exclamation-triangle"></i> il manque {{ bac_gap_pass }} pts pour le BAC
-
               {% endif %}
-
             </div>
+            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
+              <span style="width:6px;height:6px;border-radius:50%;background:#06b6d4;animation:pulse 1.4s infinite;display:inline-block;"></span>
+              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
+            </div>
+
+            {% elif diagnostic_in_progress %}
+
+            <div style="margin-top:.35rem;font-size:.78rem;color:var(--t2);line-height:1.45;">Tu as commencé le test diagnostique. Reprends où tu en étais — tu peux le mettre en pause à tout moment.</div>
+            <div style="margin-top:.65rem;height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
+              <div style="width:35%;height:100%;background:linear-gradient(90deg,#06b6d4,#38bdf8);border-radius:99px;"></div>
+            </div>
+            <a href="{% url 'diagnostic' %}" style="display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.75rem;padding:.55rem .75rem;background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;border-radius:10px;font-size:.78rem;font-weight:800;text-decoration:none;">
+              <i class="fas fa-play"></i> Continuer le test
+            </a>
 
             {% else %}
 
-            <span class="stat-badge" style="visibility:hidden;">? placeholder</span>
-
-            <div style="margin-top:.6rem;">
-
-              <div style="height:.7rem;margin-bottom:.3rem;"></div>
-
-              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);"></div>
-
+            <div style="margin-top:.35rem;font-size:.78rem;color:var(--t2);line-height:1.45;">10 questions par matière · ~15 min. C’est la base pour estimer ta note BAC et personnaliser ton parcours.</div>
+            <div style="margin-top:.65rem;padding:.5rem .65rem;border-radius:10px;background:rgba(6,182,212,.08);border:1px dashed rgba(6,182,212,.35);font-size:.7rem;color:#67e8f9;line-height:1.4;">
+              <i class="fas fa-pause-circle"></i> Pause possible — tu reprends plus tard où tu en étais.
             </div>
-
-            <div style="margin-top:.55rem;padding:.35rem .6rem;visibility:hidden;">·</div>
+            <a href="{% url 'diagnostic' %}" style="display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.75rem;padding:.55rem .75rem;background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;border-radius:10px;font-size:.78rem;font-weight:800;text-decoration:none;">
+              <i class="fas fa-bullseye"></i> Commencer le test
+            </a>
 
             {% endif %}
-
-            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
-
-              <span style="width:6px;height:6px;border-radius:50%;background:#06b6d4;animation:pulse 1.4s infinite;display:inline-block;"></span>
-
-              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
-
-            </div>
 
           </div>
 
@@ -182,7 +164,7 @@
 
             <div class="stat-label" data-i18n="stat_exo_resolus">Exercices résolus</div>
 
-            <span class="stat-badge" style="background:rgba(59,130,246,.1);color:var(--blue2);">? Prochain palier : {{ next_exo_milestone }}</span>
+            <span class="stat-badge" style="background:rgba(59,130,246,.1);color:var(--blue2);"><i class="fas fa-layer-group"></i> Prochain palier : {{ next_exo_milestone }}</span>
 
             <div style="margin-top:.6rem;">
 
@@ -234,7 +216,7 @@
 
             <div class="stat-label" data-i18n="stat_quiz_completes">Quiz complétést·s</div>
 
-            <span class="stat-badge" style="background:rgba(139,92,246,.1);color:var(--purple)" data-i18n="badge_total">? Total</span>
+            <span class="stat-badge" style="background:rgba(139,92,246,.1);color:var(--purple)" data-i18n="badge_total"><i class="fas fa-chart-pie"></i> Total</span>
 
           </div>
 
@@ -250,151 +232,17 @@
 
           </div>
 
-          <div class="card stat-card" style="border-top:3px solid #06b6d4;display:flex;flex-direction:column;">
+          {% include "partials/v2/_dash_stat_bac.html" %}
 
-            <div class="stat-icon" style="background:rgba(6,182,212,.12);color:#06b6d4"><i class="fas fa-graduation-cap"></i></div>
-
-            <div style="display:flex;align-items:baseline;gap:.3rem;margin-top:.2rem;">
-
-              <span class="stat-val">{% if bac_score %}{{ bac_score }}{% else %}·{% endif %}</span>
-
-              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">{% if bac_score %}/1900{% endif %}</span>
-
-            </div>
-
-            <div class="stat-label">Note estimée BAC</div>
-
-            {% if bac_score %}
-
-            <span class="stat-badge" style="background:rgba(6,182,212,.1);color:#06b6d4;">? Prochain objectif : {{ bac_next_milestone_label }}</span>
-
-            <div style="margin-top:.6rem;">
-
-              <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--t3);margin-bottom:.3rem;">
-
-                <span>{{ bac_next_milestone_label }} ({{ bac_next_milestone_pts }}/1900)</span>
-
-                <span style="color:#06b6d4;font-weight:600;">{{ bac_score }}/{{ bac_next_milestone_pts }}</span>
-
-              </div>
-
-              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
-
-                {% if bac_score >= 1520 %}
-
-                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#10b981,#34d399);border-radius:99px;"></div>
-
-                {% else %}
-
-                  <div style="width:{{ bac_milestone_pct }}%;height:100%;background:linear-gradient(90deg,#06b6d4,#38bdf8);border-radius:99px;transition:width .8s ease;"></div>
-
-                {% endif %}
-
-              </div>
-
-            </div>
-
-            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:.35rem;
-
-              {% if bac_score >= 950 %}background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:#10b981;{% else %}background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:#f87171;{% endif %}">
-
-              {% if bac_score >= 950 %}<i class="fas fa-check-circle"></i> BAC passable · continue !
-
-              {% else %}<i class="fas fa-exclamation-triangle"></i> il manque {{ bac_gap_pass }} pts pour le BAC
-
-              {% endif %}
-
-            </div>
-
-            {% else %}
-
-            <span class="stat-badge" style="visibility:hidden;">? placeholder</span>
-
-            <div style="margin-top:.6rem;">
-
-              <div style="height:.7rem;margin-bottom:.3rem;"></div>
-
-              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);"></div>
-
-            </div>
-
-            <div style="margin-top:.55rem;padding:.35rem .6rem;visibility:hidden;">·</div>
-
-            {% endif %}
-
-            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
-
-              <span style="width:6px;height:6px;border-radius:50%;background:#06b6d4;animation:pulse 1.4s infinite;display:inline-block;"></span>
-
-              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
-
-            </div>
-
-          </div>
-
-          <div class="card stat-card" style="border-top:3px solid var(--blue2);display:flex;flex-direction:column;">
-
-            <div class="stat-icon" style="background:rgba(59,130,246,.12);color:var(--blue2)"><i class="fas fa-check-circle"></i></div>
-
-            <div style="display:flex;align-items:baseline;gap:.3rem;margin-top:.2rem;">
-
-              <span class="stat-val">{{ stats.exercices_resolus }}</span>
-
-              <span style="font-size:.85rem;color:var(--t3);font-weight:600;">exos</span>
-
-            </div>
-
-            <div class="stat-label" data-i18n="stat_exo_resolus">Exercices résolus</div>
-
-            <span class="stat-badge" style="background:rgba(59,130,246,.1);color:var(--blue2);">? Prochain palier : {{ next_exo_milestone }}</span>
-
-            <div style="margin-top:.6rem;">
-
-              <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--t3);margin-bottom:.3rem;">
-
-                <span>Palier {{ next_exo_milestone }} exos</span>
-
-                <span style="color:var(--blue2);font-weight:600;">{{ stats.exercices_resolus }}/{{ next_exo_milestone }}</span>
-
-              </div>
-
-              <div style="height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;">
-
-                <div style="width:{{ exo_milestone_pct }}%;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue2));border-radius:99px;transition:width .8s ease;"></div>
-
-              </div>
-
-            </div>
-
-            {% if exo_focus_subject %}
-
-            <div style="margin-top:.55rem;padding:.35rem .6rem;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;font-size:.7rem;color:var(--blue2);font-weight:600;display:flex;align-items:center;gap:.35rem;">
-
-              <i class="fas fa-bullseye"></i> Focus conseillé : {{ exo_focus_subject|capfirst }}
-
-            </div>
-
-            {% else %}
-
-            <div style="margin-top:.55rem;padding:.35rem .6rem;border-radius:8px;font-size:.7rem;visibility:hidden;">·</div>
-
-            {% endif %}
-
-            <div style="display:flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.65rem;">
-
-              <span style="width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:pulse 1.4s infinite;display:inline-block;"></span>
-
-              <span style="font-size:.68rem;color:var(--t3);font-weight:500;letter-spacing:.03em;">Mis à jour en temps réel</span>
-
-            </div>
-
-          </div>
+          {% include "partials/v2/_dash_stat_exo.html" %}
 
         </div>
 
-        
+        {% include "partials/v2/_daily_missions.html" %}
 
-        <div style="margin-bottom:1.5rem;">
+        <div class="v2-coaching-section">
+
+          <div class="coaching-section-label">Conseils personnalisés</div>
 
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;">
 
@@ -408,9 +256,9 @@
 
               <div>
 
-                <div style="font-weight:700;font-size:.92rem;color:var(--t1);" data-i18n="coach_title">Coach IA</div>
+                <div style="font-weight:700;font-size:.92rem;color:var(--t1);">Coach IA · conseils</div>
 
-                <div style="font-size:.7rem;color:var(--t3);" data-i18n="coach_sub">Analyse de ton profil en temps réel</div>
+                <div style="font-size:.7rem;color:var(--t3);">Recommandations basées sur ton profil</div>
 
               </div>
 
@@ -488,141 +336,117 @@
 
         </div>
 
-        
+        {% include "core/_hall_of_fame.html" %}
 
-        <div class="resp-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+        <section class="v2-dash-progress-section" aria-label="Progression et ligue">
 
-          <div class="card" style="padding:1.25rem;">
-
-            <div style="font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;"><i class="fas fa-chart-bar" style="color:#3b82f6;font-size:.95rem;"></i> <span data-i18n="niveau_par_matiere">Niveau par matière</span></div>
-
-            {% for subj, info in mats.items %}
-
-            {% if subj in user_serie_subjects %}
-
-            <div class="prog-row">
-
-              <div class="prog-header">
-
-                <span>{{ info.label }}</span>
-
-                <span style="color:{{ info.color }}">{% if subj in quiz_scores %}{{ quiz_scores|getitem:subj }}%{% else %}0%{% endif %}</span>
-
+          <div class="card v2-dash-subjects-panel">
+            <header class="v2-dash-panel-header">
+              <div class="v2-dash-panel-icon v2-dash-panel-icon--subjects">
+                <i class="fas fa-chart-bar"></i>
               </div>
-
-              <div class="prog-track">
-
-                <div class="prog-fill" style="width:{% if subj in quiz_scores %}{{ quiz_scores|getitem:subj }}{% else %}0{% endif %}%;background:{{ info.color }}"></div>
-
+              <div class="v2-dash-panel-titles">
+                <h3 class="v2-dash-panel-title" data-i18n="niveau_par_matiere">Niveau par matière</h3>
+                <p class="v2-dash-panel-sub">Quiz, exercices et cours — score unifié sur tout le site</p>
               </div>
+            </header>
 
+            <div class="v2-dash-subject-grid">
+              {% for subj, info in mats.items %}
+              {% if subj in user_serie_subjects %}
+              <div class="v2-dash-subject-tile">
+                <div class="v2-dash-subject-tile-head">
+                  <span class="v2-dash-subject-dot" style="background:{{ info.color }}"></span>
+                  <span class="v2-dash-subject-name">{{ info.label }}</span>
+                </div>
+                <div class="v2-dash-subject-score" style="color:{{ info.color }}">
+                  {% if subj in quiz_scores %}{{ quiz_scores|getitem:subj }}%{% else %}0%{% endif %}
+                </div>
+                <div class="v2-dash-subject-track">
+                  <div class="v2-dash-subject-fill" style="width:{% if subj in quiz_scores %}{{ quiz_scores|getitem:subj }}{% else %}0{% endif %}%;background:{{ info.color }}"></div>
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="card v2-dash-league-panel">
+            <header class="v2-dash-league-hero">
+              <div class="v2-dash-league-hero-left">
+                <div class="v2-dash-league-badge" style="--league-color:{{ league_color }}">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div>
+                  <h3 class="v2-dash-league-name">Ligue {{ league_name }}</h3>
+                  <p class="v2-dash-league-ranks">
+                    {% if league_rank %}Rang <strong>#{{ league_rank }}</strong> dans ta ligue{% else %}Ligue démo — classement réel ci-dessous{% endif %}
+                    <span class="v2-dash-league-sep">·</span>
+                    <span title="Ta position parmi tous les élèves inscrits">{% if global_rank %}#{{ global_rank }} sur tout le site{% else %}Rang perso — (compte requis){% endif %}</span>
+                  </p>
+                </div>
+              </div>
+              <div class="v2-dash-league-xp-block">
+                <div class="v2-dash-league-xp" style="color:{{ league_color }}">{{ my_xp }} XP</div>
+                <div class="v2-dash-league-level">Niveau {{ current_level }}</div>
+              </div>
+            </header>
+
+            <div class="v2-dash-league-progress">
+              <div class="v2-dash-league-progress-track">
+                <div class="v2-dash-league-progress-fill" style="width:{{ xp_progress_pct }}%;--league-color:{{ league_color }}"></div>
+              </div>
+              <p class="v2-dash-league-progress-label">
+                {{ xp_progress_pct }}% — encore <strong>{{ remaining_xp }} XP</strong> pour la ligue
+                <strong class="v2-dash-league-next" style="color:{{ league_color }}">{{ next_league_name }}</strong>
+              </p>
             </div>
 
+            <div class="v2-dash-league-reward">
+              <div class="v2-dash-league-reward-emoji" aria-hidden="true">👑</div>
+              <div class="v2-dash-league-reward-body">
+                <div class="v2-dash-league-reward-title">Récompense de Ligue</div>
+                <p class="v2-dash-league-reward-text">
+                  L'élève classé <strong>Top 1 de tout le site</strong> (toutes séries confondues) à la fin du mois remportera un abonnement <strong>Premium gratuit</strong> en récompense !
+                </p>
+                <div class="v2-dash-league-reward-pill">
+                  <i class="fas fa-trophy"></i> {% if global_rank %}Ta position actuelle : #{{ global_rank }} sur tout le site{% else %}Connecte-toi pour apparaître au classement global{% endif %}
+                </div>
+                <p class="v2-dash-league-reward-meta">
+                  <i class="fas fa-calendar-check"></i> Pas de récompense en septembre · Récompense active dès <strong>octobre</strong>
+                </p>
+              </div>
+            </div>
+            {% if user.is_authenticated and not is_guest %}
+            <a href="{% url 'gains' %}" class="v2-dash-gains-cta">
+              <span class="v2-dash-gains-cta__icon" aria-hidden="true"><i class="fas fa-gift"></i></span>
+              <span class="v2-dash-gains-cta__copy">
+                <strong>Parrainage &amp; retraits</strong>
+                <em>Invite un ami · convertis tes XP en gourdes</em>
+              </span>
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </a>
             {% endif %}
 
-            {% endfor %}
-
-          </div>
-
-          
-
-          <div class="card" style="padding:1.25rem;display:flex;flex-direction:column;gap:.9rem;">
-
-            
-
-            <div style="display:flex;align-items:center;justify-content:space-between;">
-
-              <div style="display:flex;align-items:center;gap:.55rem;">
-
-                <div style="width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,{{ league_color }}22,{{ league_color }}44);">
-
-                  <i class="fas fa-trophy" style="color:{{ league_color }};font-size:.85rem;"></i>
-
-                </div>
-
-                <div>
-
-                  <div style="font-weight:700;font-size:.88rem;color:var(--t1);">Ligue {{ league_name }}</div>
-
-                  <div style="font-size:.7rem;color:var(--t3);">Rang #{{ league_rank }} dans ta ligue · <span title="Ta position parmi tous les élèvesves inscrits sur le site" style="color:var(--t2);font-weight:600;">#{{ global_rank }} sur tout le site</span></div>
-
-                </div>
-
-              </div>
-
-              <div style="text-align:right;">
-
-                <div style="font-size:1.1rem;font-weight:900;color:{{ league_color }};">{{ my_xp }} XP</div>
-
-                <div style="font-size:.68rem;color:var(--t3);">Niveau {{ current_level }}</div>
-
-              </div>
-
-            </div>
-
-            <div>
-              <div style="height:7px;background:var(--card2);border-radius:99px;overflow:hidden;">
-                <div style="height:100%;width:{{ xp_progress_pct }}%;background:linear-gradient(90deg,{{ league_color }},{{ league_color }}cc);border-radius:99px;transition:width .6s ease;"></div>
-              </div>
-              <div style="font-size:.67rem;color:var(--t3);margin-top:.3rem;">{{ xp_progress_pct }}% — encore <strong>{{ remaining_xp }} XP</strong> pour la ligue <strong style="color:{{ league_color }};">{{ next_league_name }}</strong></div>
-            </div>
-            
-            <!-- Zone de récompense de Ligue (Annonce Premium) -->
-            <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.04) 100%); border: 1.5px solid rgba(245, 158, 11, 0.25); border-radius: 14px; padding: 0.8rem 1rem; display: flex; align-items: flex-start; gap: 0.75rem; margin: 0.2rem 0; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.05); position: relative; overflow: hidden; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-              <div style="position: absolute; top: -12px; right: -12px; width: 44px; height: 44px; background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%); pointer-events: none;"></div>
-              <div style="font-size: 1.4rem; line-height: 1; filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.25)); animation: floatCrown 3s ease-in-out infinite;">👑</div>
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-weight: 800; font-size: 0.82rem; color: #f59e0b; margin-bottom: 0.2rem; display: flex; align-items: center; gap: 0.35rem; letter-spacing: 0.02em; text-transform: uppercase;">
-                  Récompense de Ligue
-                </div>
-                <div style="font-size: 0.76rem; color: var(--t2); line-height: 1.5; font-weight: 550;">
-                  L'élève classé <strong style="color: #f59e0b;">Top 1 de tout le site</strong> (toutes séries confondues) à la fin du mois remportera un abonnement <strong style="color: #10b981;">Premium gratuit</strong> en récompense !
-                </div>
-                <div style="margin-top: 0.45rem; font-size: 0.72rem; font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 20px; padding: 0.25rem 0.65rem; display: inline-flex; align-items: center; gap: 0.3rem;">
-                  <i class="fas fa-trophy"></i> Ta position actuelle : #{{ global_rank }} sur tout le site
-                </div>
-                <div style="font-size: 0.68rem; color: var(--t3); margin-top: 0.45rem; display: flex; align-items: center; gap: 0.35rem; font-weight: 600;">
-                  <i class="fas fa-calendar-check" style="color: #f59e0b;"></i> Activation le 01 Juin · Aucune récompense pour ce mois de Mai
-                </div>
-              </div>
-            </div>
-            
-            <style>
-              @keyframes floatCrown {
-                0%, 100% { transform: translateY(0) rotate(0deg); }
-                50% { transform: translateY(-3px) rotate(4deg); }
-              }
-            </style>
-
-            <div style="display:flex;flex-direction:column;gap:.3rem;max-height:220px;overflow-y:auto;">
-
+            <div class="v2-dash-league-list-header">Classement de ta ligue</div>
+            <div class="v2-dash-league-list">
               {% for entry in league_data %}
-
-              <div style="display:flex;align-items:center;gap:.6rem;padding:.38rem .55rem;border-radius:9px;{% if entry.is_me %}background:linear-gradient(90deg,rgba({{ league_color|slice:'1:' }},.12),transparent);border:1px solid {{ league_color }}44;{% endif %}">
-
-                <div style="width:22px;text-align:center;font-size:.78rem;font-weight:700;color:{% if entry.rank == 1 %}#f59e0b{% elif entry.rank == 2 %}#94a3b8{% elif entry.rank == 3 %}#b45309{% else %}var(--t3){% endif %};">
-
+              <div class="v2-dash-league-row{% if entry.is_me %} is-me{% endif %}" style="{% if entry.is_me %}--league-color:{{ league_color }}{% endif %}">
+                <div class="v2-dash-league-rank rank-{{ entry.rank }}">
                   {% if entry.rank == 1 %}🥇{% elif entry.rank == 2 %}🥈{% elif entry.rank == 3 %}🥉{% else %}{{ entry.rank }}{% endif %}
-
                 </div>
-
-                <div style="flex:1;font-size:.8rem;font-weight:{% if entry.is_me %}700{% else %}500{% endif %};color:{% if entry.is_me %}var(--t1){% else %}var(--t2){% endif %};">{{ entry.name }}{% if entry.is_me %} <span style="font-size:.65rem;color:{{ league_color }};">(toi)</span>{% endif %}</div>
-
-                <div style="font-size:.78rem;font-weight:700;color:{% if entry.is_me %}{{ league_color }}{% else %}var(--t3){% endif %};">{{ entry.xp }} XP</div>
-
+                <div class="v2-dash-league-player">
+                  {{ entry.name }}{% if entry.is_me %} <span class="v2-dash-league-you">(toi)</span>{% endif %}
+                </div>
+                <div class="v2-dash-league-row-xp">{{ entry.xp }} XP</div>
               </div>
-
               {% empty %}
-
-              <div style="text-align:center;color:var(--t3);font-size:.8rem;padding:1rem;">Sois le premier dans ta ligue!</div>
-
+              <div class="v2-dash-league-empty">Sois le premier dans ta ligue !</div>
               {% endfor %}
-
             </div>
-
           </div>
 
-        </div>
+        </section>
 
       </div>
 
@@ -701,11 +525,11 @@
   z-index: 9999; padding: 1.5rem;
 }
 .premium-glass {
-  background: rgba(30, 41, 59, 0.75);
+  background: linear-gradient(165deg, rgba(16, 185, 129, 0.08), rgba(15, 23, 42, 0.92));
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.22);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border-radius: 28px;
+  border-radius: 24px;
   padding: 2rem;
   max-width: 440px; width: 100%;
   animation: modalPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -719,9 +543,9 @@
   padding: .75rem 1rem; cursor: pointer; border-bottom: 1px solid var(--border2); font-size: .88rem; color: var(--t2); transition: all .15s;
 }
 .suggestions-list .suggestion-item:last-child { border-bottom: none; }
-.suggestions-list .suggestion-item:hover { background: rgba(59,130,246,0.1); color: var(--t1); padding-left: 1.25rem; }
+.suggestions-list .suggestion-item:hover { background: rgba(16,185,129,0.1); color: var(--t1); padding-left: 1.25rem; }
 
-#schoolInput:focus { border-color: var(--blue2); background: var(--bg); box-shadow: 0 0 0 4px rgba(59,130,246,0.15); }
+#schoolInput:focus { border-color: var(--green); background: var(--bg); box-shadow: 0 0 0 4px rgba(16,185,129,0.15); }
 #saveSchoolBtn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 </style>
 
@@ -1186,6 +1010,8 @@ function selectGuestSerie(serie) {
         }
         
         debounceTimer = setTimeout(async () => {
+          suggestionsBox.innerHTML = '<div style="padding:.75rem 1rem;color:var(--t3);font-size:.82rem;"><i class="fas fa-spinner fa-spin"></i> Recherche…</div>';
+          suggestionsBox.style.display = 'block';
           try {
             const res = await fetch(`/schools/?q=${encodeURIComponent(q)}`);
             const data = await res.json();
@@ -1200,10 +1026,20 @@ function selectGuestSerie(serie) {
                 });
               });
             } else {
-              suggestionsBox.style.display = 'none';
+              suggestionsBox.innerHTML = `<div class="suggestion-item suggestion-item--new" style="padding:.75rem 1rem;cursor:pointer;font-size:.88rem;color:var(--green);font-weight:700;">Utiliser « ${q} »</div>`;
+              suggestionsBox.style.display = 'block';
+              const newItem = suggestionsBox.querySelector('.suggestion-item--new');
+              if (newItem) {
+                newItem.addEventListener('click', () => {
+                  schoolInput.value = q;
+                  suggestionsBox.style.display = 'none';
+                });
+              }
             }
-          } catch(e) {}
-        }, 300);
+          } catch(e) {
+            suggestionsBox.style.display = 'none';
+          }
+        }, 200);
       });
       
       // Close suggestions on outside click

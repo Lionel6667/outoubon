@@ -1,0 +1,29 @@
+<div class="card stat-card v2-stat-rich v2-stat-rich--exo">
+  <div class="v2-stat-rich__head">
+    <div class="stat-icon v2-stat-rich__icon v2-stat-rich__icon--blue"><i class="fas fa-check-circle"></i></div>
+    <div class="v2-stat-rich__title" data-i18n="stat_exo_resolus">Exercices résolus</div>
+  </div>
+
+  <div class="v2-stat-rich__hero">
+    <span class="stat-val">{{ stats.exercices_resolus }}</span><span class="v2-stat-rich__unit">exos</span>
+  </div>
+  <div class="v2-stat-rich__row">
+    <span class="v2-stat-rich__chip v2-stat-rich__chip--blue">Palier {{ next_exo_milestone }}</span>
+    <span class="v2-stat-rich__chip-meta">{{ stats.exercices_resolus }}/{{ next_exo_milestone }}</span>
+  </div>
+  <div class="v2-stat-rich__track">
+    <div class="v2-stat-rich__fill v2-stat-rich__fill--blue" style="width:{{ exo_milestone_pct }}%;"></div>
+  </div>
+  {% if exo_focus_subject %}
+  <div class="v2-stat-rich__status is-info">
+    <i class="fas fa-bullseye"></i> Focus : {{ exo_focus_subject|capfirst }}
+  </div>
+  {% elif is_guest %}
+  <div class="v2-stat-rich__status is-info">
+    <i class="fas fa-rocket"></i> Essaie un exercice pour voir ta progression
+  </div>
+  {% else %}
+  <div class="v2-stat-rich__status is-muted"><i class="fas fa-layer-group"></i> Continue ta série</div>
+  {% endif %}
+  <div class="v2-stat-rich__live"><span></span> Live</div>
+</div>

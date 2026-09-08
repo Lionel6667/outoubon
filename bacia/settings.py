@@ -2,9 +2,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
-
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
 
 # ── Security: SECRET_KEY ──
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -38,7 +37,8 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'accounts',
-    'core',
+    'core.apps.CoreConfig',
+    'core.genius',
 ]
 
 MIDDLEWARE = [
@@ -49,12 +49,16 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'accounts.middleware.PersistentAuthMiddleware',
+    'core.spa_middleware.SpaModeMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'core.security.RateLimitMiddleware',
+    'core.security.AiUsageContextMiddleware',
     'core.security.UserDailyAiLimitMiddleware',
+    'core.security.AiBudgetExceptionMiddleware',
     'core.security.SecurityHeadersMiddleware',
     'accounts.middleware.SingleDeviceMiddleware',
+    'accounts.middleware.UserActivityMiddleware',
     'accounts.middleware.VisitorTrackingMiddleware',
 ]
 
@@ -87,12 +91,31 @@ import dj_database_url
 
 # Use dj_database_url to parse the DATABASE_URL environment variable
 # If not set, it defaults to the local SQLite database.
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+# En dev local : USE_LOCAL_DB=1 dans .env pour ignorer DATABASE_URL (Railway/Neon)
+# et utiliser db.sqlite3 — navigation ~10× plus rapide.
+_use_local_db = os.getenv('USE_LOCAL_DB', '').lower() in ('1', 'true', 'yes')
+if _use_local_db:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE_URL', f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'outoubon-local',
+        'OPTIONS': {'MAX_ENTRIES': 2000},
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -129,6 +152,26 @@ cloudinary.config(
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+#
+# ── Cloudflare R2 (django-storages) ─────────────────────────────────────────
+# Feed médias (Post.media_file) uniquement.
+#
+R2_ACCESS_KEY_ID = os.getenv('R2_ACCESS_KEY_ID', '')
+R2_SECRET_ACCESS_KEY = os.getenv('R2_SECRET_ACCESS_KEY', '')
+R2_BUCKET_NAME = os.getenv('R2_BUCKET_NAME', '')
+R2_ENDPOINT_URL = os.getenv('R2_ENDPOINT_URL', '')
+R2_REGION_NAME = os.getenv('R2_REGION_NAME', 'auto')
+
+# django-storages (S3Boto3Storage) attend ces clés "AWS_*".
+AWS_ACCESS_KEY_ID = R2_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY = R2_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME = R2_BUCKET_NAME
+AWS_S3_ENDPOINT_URL = R2_ENDPOINT_URL
+AWS_S3_REGION_NAME = R2_REGION_NAME
+
+# For R2 we use signature v4 by default.
+AWS_QUERYSTRING_AUTH = False
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ── Security flags ──────────────────────────────────────────────────────────
@@ -162,6 +205,23 @@ LOGOUT_REDIRECT_URL = '/'
 # Google Gemini
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
 DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY', '')
+
+# Plafonds DeepSeek (appels API réels, pas requêtes HTTP)
+MAX_AI_API_CALLS_PER_DAY = int(os.getenv('MAX_AI_API_CALLS_PER_DAY', '50'))
+MAX_GUEST_AI_API_CALLS_PER_DAY = int(os.getenv('MAX_GUEST_AI_API_CALLS_PER_DAY', '10'))
+MAX_GLOBAL_API_CALLS_PER_DAY = int(os.getenv('MAX_GLOBAL_API_CALLS_PER_DAY', '600'))
+MAX_GLOBAL_TOKENS_PER_DAY = int(os.getenv('MAX_GLOBAL_TOKENS_PER_DAY', '1500000'))
+ENABLE_QUIZ_BACKGROUND_SEED = os.getenv('ENABLE_QUIZ_BACKGROUND_SEED', 'false').lower() in ('1', 'true', 'yes')
+ENABLE_EXAM_AI_ENHANCE = os.getenv('ENABLE_EXAM_AI_ENHANCE', 'false').lower() in ('1', 'true', 'yes')
+AI_USAGE_LOG = os.getenv('AI_USAGE_LOG', 'true').lower() in ('1', 'true', 'yes')
+# V4-Pro thinking=high par défaut ≈ 350k tokens/requête. Laisser false.
+AI_ALLOW_PRO = os.getenv('AI_ALLOW_PRO', 'false').lower() in ('1', 'true', 'yes')
+AI_DISABLE_THINKING = os.getenv('AI_DISABLE_THINKING', 'true').lower() in ('1', 'true', 'yes')
+AI_MAX_OUTPUT_TOKENS = int(os.getenv('AI_MAX_OUTPUT_TOKENS', '2000'))
+# Tarifs DeepSeek V4-Flash (USD / million tokens) — dashboard admin + estimation
+AI_PRICE_INPUT_PER_M = float(os.getenv('AI_PRICE_INPUT_PER_M', '0.14'))
+AI_PRICE_OUTPUT_PER_M = float(os.getenv('AI_PRICE_OUTPUT_PER_M', '0.28'))
+AI_PRICE_CACHE_HIT_PER_M = float(os.getenv('AI_PRICE_CACHE_HIT_PER_M', '0.0028'))
 
 # PeyemAPI (MonCash)
 PEYEM_API_URL        = 'https://fyxmoljbnionrylsmfoo.supabase.co/functions/v1/bazik-api'
@@ -265,4 +325,25 @@ LOGGING = {
             'propagate': False,
         },
     },
+}
+
+# ── Firebase Cloud Messaging ──
+FIREBASE_CREDENTIALS_PATH = os.getenv(
+    'FIREBASE_CREDENTIALS_PATH',
+    str(BASE_DIR / 'credentials' / 'htbac-d22cb-firebase-adminsdk.json'),
+)
+FIREBASE_VAPID_KEY = os.getenv(
+    'FIREBASE_VAPID_KEY',
+    'BHk57TJ7uPkT_WDjag57sWkukdGGndOmVtNydrdCpfN1gUOUCA7nrl7-u0J5MNmTLF5k5uiqgI6OCtsqWCdNIjc',
+)
+PUBLIC_BASE_URL = os.getenv('PUBLIC_BASE_URL', 'https://outoubon.com').rstrip('/')
+FIREBASE_WEB_CONFIG = {
+    'apiKey': os.getenv('FIREBASE_API_KEY', 'AIzaSyCtzjju7BZJKQy8RcKOyDTfp0ujjVxVdUc'),
+    'authDomain': os.getenv('FIREBASE_AUTH_DOMAIN', 'htbac-d22cb.firebaseapp.com'),
+    'databaseURL': os.getenv('FIREBASE_DATABASE_URL', 'https://htbac-d22cb-default-rtdb.firebaseio.com'),
+    'projectId': os.getenv('FIREBASE_PROJECT_ID', 'htbac-d22cb'),
+    'storageBucket': os.getenv('FIREBASE_STORAGE_BUCKET', 'htbac-d22cb.firebasestorage.app'),
+    'messagingSenderId': os.getenv('FIREBASE_MESSAGING_SENDER_ID', '414988535258'),
+    'appId': os.getenv('FIREBASE_APP_ID', '1:414988535258:web:f0beaeff6cdcb114e4ace3'),
+    'measurementId': os.getenv('FIREBASE_MEASUREMENT_ID', 'G-6L5C812Q6V'),
 }

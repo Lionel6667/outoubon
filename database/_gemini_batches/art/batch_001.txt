@@ -1,0 +1,23 @@
+Tu es professeur Haïti 9e AF (Art).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "5",
+    "question": "Le dessin technique est souvent utilisé en",
+    "options": [
+      "Cuisine",
+      "Architecture",
+      "Theåtre",
+      "Musique"
+    ],
+    "source": "exam_art_education-esthetique-et-artistique-9e-af-2025.pdf",
+    "year": "2025"
+  }
+]

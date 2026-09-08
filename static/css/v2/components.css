@@ -1,0 +1,35 @@
+/**
+ * OU TOU BON V2 — Shared UI components (Phase 1, minimal)
+ */
+
+.v2-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid var(--border2);
+  background: var(--card);
+  color: var(--t2);
+}
+
+.v2-pill--green {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green);
+}
+
+.v2-pill--purple {
+  border-color: rgba(139, 92, 246, 0.35);
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--purple);
+}
+
+.v2-hub-more {
+  font-size: 0.65rem;
+  color: var(--t3);
+  padding: 0.15rem 1rem 0.35rem 1.35rem;
+  line-height: 1.4;
+}

@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Sciences sociales).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "7",
+    "question": "Lequel des groupes de pays suivants constitua les forces de l’ Axe?",
+    "options": [
+      "Italie — Albanie — Japon 1",
+      "France — Allemagne — Russie",
+      "Italie — Japon — Allemagne",
+      "États-Unis — Angleterre — France"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Toutes les conséquences suivantes découlent de la crise économique de 1929, sauf une, laquelle?",
+    "options": [
+      "L’inflation monétaire",
+      "L'arrêt de toute production. 9",
+      "Le développement bancaire",
+      "Le chômage et la misère"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Lors de la bataille de Vertières le 18 novembre 1803, l’un des généraux indigènes suivants a été félicité pour sa bravoure par le Général Donatien Rochambeau, lequel?",
+    "options": [
+      "Général Antoine Clerveau",
+      "Général André Vernet",
+      "Général François Capois l",
+      "Général Henry Christophe"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Parmi les évènements suivants lequel est connu dans l’histoire d'Haïti sous l’appellation ‘Drame du Pont- Route’°?",
+    "options": [
+      "L’assassinat de Dessalines le 17 octobre 1806",
+      "Le suicide du Roi Henry Christophe le 8 octobre 1820",
+      "Le retour au pays du Général André Rigaud en 1810",
+      "Le massacre général des français en 1804"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Tous les facteurs suivants caractérisent les pays sous- développés, sauf, lequel? 1",
+    "options": [
+      "Fort taux d’analphabétisme",
+      "Faible taux de chômage",
+      "Agriculture vivrière",
+      "Balance commerciale déficitaire"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "L'une des chaines de montagnes suivantes se trouvent dans les limites des départements du Sud, de la Grand- Anse et des Nippes, laquelle ?",
+    "options": [
+      "Les montagnes noires",
+      "Les montagnes du Trou d’eau",
+      "Le massif de la Hotte",
+      "Le massif de Terre-Neuve 188"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Lequel des généraux suivants commandait l’armée expéditionnaire française lors de la bataille de Vertières du 18 novembre 1803 ?",
+    "options": [
+      "Charles Emmanuel Leclerc",
+      "Donatien Rochambeau",
+      "Jean Humbert",
+      "Jean François Debelle"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Le conseil municipal relève de l’un desa ministè ères suivants, lequel ?",
+    "options": [
+      "affaires étrangères",
+      "Défense nationale",
+      "Intérieur et collectivités territoriales 1",
+      "Travaux publics transports et communication"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Toutes les caractéristiues suivantes correspondent Porto- rico, sauf une, laquelle",
+    "options": [
+      "Le seul État es grandes Antilles producteur de pétrole",
+      "Le plus petit territoire des grandes Antilles",
+      "Le seul État des grandes Antilles associé aux États- Unis d'Amérique",
+      "Le seul PMA des grandes Antilles 1"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "Lequel des événements suivants s’est déroulé pendant la Seconde Guerre Mondiale?",
+    "options": [
+      "La révolution en Russie. 1",
+      "Le Krach boursier de New York",
+      "Le génocide des juifs",
+      "La décolonisation de l’Afrique"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "L'un des chefs d’état haïtiens a maté la révolte de ! Goman dans la Grand” Anse. Lequel?",
+    "options": [
+      "Jean Pierre Boyer",
+      "Jean Jacques Dessalines",
+      "Alexandre Pétion",
+      "Henry Christophe"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "La faim peut être provoquée par l’un des facteurs suivants. Lequel?",
+    "options": [
+      "Reboisement des mornes. i",
+      "Insuffisance de la production agricole",
+      "Utilisation de machines agricoles",
+      "Augmentation de la surface cultivable"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "L’une des conséquences politiques de l’assassinat de Dessalines, le 17 octobre 1806 est",
+    "options": [
+      "La scission du pays en 2 états",
+      "La révolte des cacos",
+      "Le soulèvement des piquets",
+      "L’explosion du palais national. I"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Le processus de l’effondrement du système colonial et esclavagiste à St Domingue est marqué par tous les faits suivants, sauf un. Lequel? 1",
+    "options": [
+      "La cérémonie du Bois-Caïman",
+      "La bataille de Vertières",
+      "L’affranchissement général des esclaves",
+      "Le retour du général André Rigaud au pays en 1810"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "La date du 8 mai 1945 rappelle l’un des faits historiques suivants. Lequel?",
+    "options": [
+      "Armistice de l’Allemagne",
+      "Attaque de la Serbie contre le Macédoine",
+      "Invasion de la Pologne par l’ Allemagne",
+      "Capitulation de l’Allemagne"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

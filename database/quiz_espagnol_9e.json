@@ -1,0 +1,4502 @@
+[
+  {
+    "id": "E9E1",
+    "category": "Gramática",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Hay programas que convierten a los niños ____ futuros delincuentes.",
+    "correct": "B",
+    "explanation": "La locución es «convertir en»: convertir a alguien en algo. Se dice «convertir en futuros delincuentes», no «a», «de» ni «con».",
+    "options": [
+      "a",
+      "en",
+      "de",
+      "con"
+    ]
+  },
+  {
+    "id": "E9E2",
+    "category": "Gramática",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "question": "Yo ____ al aeropuerto pasado mañana.",
+    "correct": "C",
+    "explanation": "«Pasado mañana» sitúa la acción en el futuro. El futuro de «ir» es «iré». «Voy» es presente, «fui» es pretérito, «ir» es infinitivo.",
+    "options": [
+      "voy",
+      "ir",
+      "iré",
+      "fui"
+    ]
+  },
+  {
+    "question": "Conector: estudio ___ paso.",
+    "options": [
+      "para",
+      "por",
+      "de",
+      "con"
+    ],
+    "correct": "A",
+    "explanation": "Para = in order to.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E3"
+  },
+  {
+    "question": "Calcule: 12 x 12 = ?",
+    "options": [
+      "24",
+      "143",
+      "145",
+      "144"
+    ],
+    "correct": "D",
+    "explanation": "12×12=144.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E4"
+  },
+  {
+    "question": "Conector: ___ estudias, aprendes.",
+    "options": [
+      "Si",
+      "Pero",
+      "Porque",
+      "Aunque"
+    ],
+    "correct": "A",
+    "explanation": "Si = if.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E5"
+  },
+  {
+    "question": "Calcule: 2 x 11 = ?",
+    "options": [
+      "22",
+      "21",
+      "13",
+      "23"
+    ],
+    "correct": "A",
+    "explanation": "2×11=22.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E6"
+  },
+  {
+    "question": "Calcule: 10 x 9 = ?",
+    "options": [
+      "90",
+      "91",
+      "19",
+      "89"
+    ],
+    "correct": "A",
+    "explanation": "10×9=90.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E7"
+  },
+  {
+    "question": "Frecuencia: ___ día",
+    "options": [
+      "cada",
+      "todo",
+      "muy",
+      "poco"
+    ],
+    "correct": "A",
+    "explanation": "Cada día.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E8"
+  },
+  {
+    "question": "Clima: hace ___ (hot)",
+    "options": [
+      "calor",
+      "frío",
+      "sol",
+      "nieve"
+    ],
+    "correct": "A",
+    "explanation": "Hace calor.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E9"
+  },
+  {
+    "question": "Calcule: 3 x 2 = ?",
+    "options": [
+      "5",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct": "C",
+    "explanation": "3×2=6.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E10"
+  },
+  {
+    "question": "Calcule: 12 x 5 = ?",
+    "options": [
+      "60",
+      "59",
+      "61",
+      "17"
+    ],
+    "correct": "A",
+    "explanation": "12×5=60.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E11"
+  },
+  {
+    "question": "Vocabulario: la ___ (school)",
+    "options": [
+      "escuela",
+      "hospital",
+      "tienda",
+      "calle"
+    ],
+    "correct": "A",
+    "explanation": "School.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E12"
+  },
+  {
+    "question": "Pretérito: Ayer ___ al cine.",
+    "options": [
+      "fuimos",
+      "vamos",
+      "ir",
+      "vayan"
+    ],
+    "correct": "A",
+    "explanation": "Fuimos past.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E13"
+  },
+  {
+    "question": "Cuerpo: oigo con los ___",
+    "options": [
+      "oidos",
+      "ojos",
+      "nariz",
+      "boca"
+    ],
+    "correct": "A",
+    "explanation": "Ears.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E14"
+  },
+  {
+    "question": "Vocabulario: el ___ (museum)",
+    "options": [
+      "museo",
+      "cine",
+      "teatro",
+      "estadio"
+    ],
+    "correct": "A",
+    "explanation": "Museum.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E15"
+  },
+  {
+    "question": "Calcule: 11 x 4 = ?",
+    "options": [
+      "44",
+      "15",
+      "43",
+      "45"
+    ],
+    "correct": "A",
+    "explanation": "11×4=44.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E16"
+  },
+  {
+    "question": "Vocabulario: el ___ (park)",
+    "options": [
+      "parque",
+      "calle",
+      "país",
+      "montaña"
+    ],
+    "correct": "A",
+    "explanation": "Park.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E17"
+  },
+  {
+    "question": "Numero: 100 =",
+    "options": [
+      "cien",
+      "ciento",
+      "mil",
+      "diez"
+    ],
+    "correct": "A",
+    "explanation": "Cien.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E18"
+  },
+  {
+    "question": "Calcule: 9 x 10 = ?",
+    "options": [
+      "91",
+      "90",
+      "19",
+      "89"
+    ],
+    "correct": "B",
+    "explanation": "9×10=90.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E19"
+  },
+  {
+    "question": "Número ordinal: primero, segundo, ___",
+    "options": [
+      "tercero",
+      "cuarto",
+      "quinto",
+      "sexto"
+    ],
+    "correct": "A",
+    "explanation": "Third.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E20"
+  },
+  {
+    "question": "Calcule: 3 x 3 = ?",
+    "options": [
+      "10",
+      "6",
+      "9",
+      "8"
+    ],
+    "correct": "C",
+    "explanation": "3×3=9.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E21"
+  },
+  {
+    "question": "Calcule: 3 x 4 = ?",
+    "options": [
+      "7",
+      "13",
+      "11",
+      "12"
+    ],
+    "correct": "D",
+    "explanation": "3×4=12.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E22"
+  },
+  {
+    "question": "Calcule: 2 x 9 = ?",
+    "options": [
+      "17",
+      "18",
+      "11",
+      "19"
+    ],
+    "correct": "B",
+    "explanation": "2×9=18.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E23"
+  },
+  {
+    "question": "Comida: ___ con leche",
+    "options": [
+      "café",
+      "pan",
+      "arroz",
+      "pollo"
+    ],
+    "correct": "A",
+    "explanation": "Café.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E24"
+  },
+  {
+    "question": "Plural: los ___",
+    "options": [
+      "niños",
+      "niño",
+      "niña",
+      "niñas"
+    ],
+    "correct": "A",
+    "explanation": "Niños plural.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E25"
+  },
+  {
+    "question": "Demostrativo: ___ libro (here)",
+    "options": [
+      "este",
+      "ese",
+      "aquel",
+      "esta"
+    ],
+    "correct": "A",
+    "explanation": "Este = this.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E26"
+  },
+  {
+    "question": "Familia: madre del padre =",
+    "options": [
+      "abuela",
+      "tía",
+      "hermana",
+      "prima"
+    ],
+    "correct": "A",
+    "explanation": "Grandmother.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E27"
+  },
+  {
+    "question": "Artículo: ___ casa (femenino)",
+    "options": [
+      "la",
+      "el",
+      "los",
+      "un"
+    ],
+    "correct": "A",
+    "explanation": "La casa.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E28"
+  },
+  {
+    "question": "Conector: ___ llueve, no salgo.",
+    "options": [
+      "Si",
+      "Y",
+      "O",
+      "Pero"
+    ],
+    "correct": "A",
+    "explanation": "Si llueve.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E29"
+  },
+  {
+    "question": "Calcule: 6 x 12 = ?",
+    "options": [
+      "18",
+      "71",
+      "72",
+      "73"
+    ],
+    "correct": "C",
+    "explanation": "6×12=72.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E30"
+  },
+  {
+    "question": "Palabra: gracias =",
+    "options": [
+      "thank you",
+      "hello",
+      "goodbye",
+      "please"
+    ],
+    "correct": "A",
+    "explanation": "Thanks.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E31"
+  },
+  {
+    "question": "Yo ___ (verb tener)",
+    "options": [
+      "tienes",
+      "tiene",
+      "tengo",
+      "tener"
+    ],
+    "correct": "C",
+    "explanation": "Yo tengo.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E32"
+  },
+  {
+    "question": "Calcule: 7 x 7 = ?",
+    "options": [
+      "48",
+      "50",
+      "49",
+      "14"
+    ],
+    "correct": "C",
+    "explanation": "7×7=49.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E33"
+  },
+  {
+    "question": "Calcule: 10 x 5 = ?",
+    "options": [
+      "51",
+      "50",
+      "49",
+      "15"
+    ],
+    "correct": "B",
+    "explanation": "10×5=50.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E34"
+  },
+  {
+    "question": "Calcule: 11 x 11 = ?",
+    "options": [
+      "122",
+      "22",
+      "121",
+      "120"
+    ],
+    "correct": "C",
+    "explanation": "11×11=121.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E35"
+  },
+  {
+    "question": "Animal: ___ ladra",
+    "options": [
+      "el perro",
+      "el gato",
+      "el pájaro",
+      "el ratón"
+    ],
+    "correct": "A",
+    "explanation": "Perro.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E36"
+  },
+  {
+    "question": "Palabra: lo siento =",
+    "options": [
+      "I'm sorry",
+      "thanks",
+      "hello",
+      "goodbye"
+    ],
+    "correct": "A",
+    "explanation": "Sorry.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E37"
+  },
+  {
+    "question": "Ser: Yo ___ estudiante.",
+    "options": [
+      "soy",
+      "es",
+      "son",
+      "estoy"
+    ],
+    "correct": "A",
+    "explanation": "Yo soy.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E38"
+  },
+  {
+    "question": "Futuro: ___ mañana.",
+    "options": [
+      "Estudiaré",
+      "Estudio",
+      "Estudiaba",
+      "Estudié"
+    ],
+    "correct": "A",
+    "explanation": "Future.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E39"
+  },
+  {
+    "question": "Tiempo: por la ___ (night)",
+    "options": [
+      "noche",
+      "mañana",
+      "tarde",
+      "día"
+    ],
+    "correct": "A",
+    "explanation": "Noche.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E40"
+  },
+  {
+    "question": "Vocabulario: el ___ (cinema)",
+    "options": [
+      "cine",
+      "teatro",
+      "museo",
+      "estadio"
+    ],
+    "correct": "A",
+    "explanation": "Cinema.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E41"
+  },
+  {
+    "question": "Tiempo: por la ___ (morning)",
+    "options": [
+      "mañana",
+      "noche",
+      "tarde",
+      "semana"
+    ],
+    "correct": "A",
+    "explanation": "Mañana.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E42"
+  },
+  {
+    "question": "Calcule: 5 x 9 = ?",
+    "options": [
+      "45",
+      "46",
+      "14",
+      "44"
+    ],
+    "correct": "A",
+    "explanation": "5×9=45.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E43"
+  },
+  {
+    "question": "Demostrativo: ___ casa (there far)",
+    "options": [
+      "aquella",
+      "esta",
+      "ese",
+      "aquel"
+    ],
+    "correct": "A",
+    "explanation": "Aquella.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E44"
+  },
+  {
+    "question": "Calcule: 6 x 11 = ?",
+    "options": [
+      "65",
+      "17",
+      "67",
+      "66"
+    ],
+    "correct": "D",
+    "explanation": "6×11=66.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E45"
+  },
+  {
+    "question": "Calcule: 4 x 9 = ?",
+    "options": [
+      "13",
+      "35",
+      "36",
+      "37"
+    ],
+    "correct": "C",
+    "explanation": "4×9=36.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E46"
+  },
+  {
+    "question": "Calcule: 3 x 9 = ?",
+    "options": [
+      "26",
+      "12",
+      "28",
+      "27"
+    ],
+    "correct": "D",
+    "explanation": "3×9=27.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E47"
+  },
+  {
+    "question": "Tiempo: hoy, ayer, ___",
+    "options": [
+      "mañana",
+      "ahora",
+      "siempre",
+      "nunca"
+    ],
+    "correct": "A",
+    "explanation": "Tomorrow.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E48"
+  },
+  {
+    "question": "Comparación: tan ___ como",
+    "options": [
+      "inteligente",
+      "inteligentes",
+      "inteligentemente",
+      "inteligencia"
+    ],
+    "correct": "A",
+    "explanation": "Tan + adj.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E49"
+  },
+  {
+    "question": "Question: ¿___ es tu nombre?",
+    "options": [
+      "Cuál",
+      "Qué",
+      "Quién",
+      "Dónde"
+    ],
+    "correct": "A",
+    "explanation": "Cuál nombre.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E50"
+  },
+  {
+    "question": "Pronombre: ___ casa (they fem)",
+    "options": [
+      "ellas",
+      "ellos",
+      "nosotros",
+      "ustedes"
+    ],
+    "correct": "A",
+    "explanation": "They fem.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E51"
+  },
+  {
+    "question": "Calcule: 4 x 3 = ?",
+    "options": [
+      "13",
+      "11",
+      "7",
+      "12"
+    ],
+    "correct": "D",
+    "explanation": "4×3=12.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E52"
+  },
+  {
+    "question": "Calcule: 3 x 11 = ?",
+    "options": [
+      "32",
+      "33",
+      "34",
+      "14"
+    ],
+    "correct": "B",
+    "explanation": "3×11=33.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E53"
+  },
+  {
+    "question": "Mes: enero, febrero, ___",
+    "options": [
+      "marzo",
+      "abril",
+      "mayo",
+      "junio"
+    ],
+    "correct": "A",
+    "explanation": "March.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E54"
+  },
+  {
+    "question": "Numero: 15 =",
+    "options": [
+      "quince",
+      "catorce",
+      "dieciséis",
+      "cincuenta"
+    ],
+    "correct": "A",
+    "explanation": "Quince.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E55"
+  },
+  {
+    "question": "Vocabulario: la ___ (port)",
+    "options": [
+      "puerta",
+      "ventana",
+      "mesa",
+      "silla"
+    ],
+    "correct": "A",
+    "explanation": "Door - puerta.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E56"
+  },
+  {
+    "question": "Calcule: 11 x 9 = ?",
+    "options": [
+      "99",
+      "20",
+      "98",
+      "100"
+    ],
+    "correct": "A",
+    "explanation": "11×9=99.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E57"
+  },
+  {
+    "question": "Cuerpo: veo con los ___",
+    "options": [
+      "ojos",
+      "oidos",
+      "nariz",
+      "boca"
+    ],
+    "correct": "A",
+    "explanation": "Eyes.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E58"
+  },
+  {
+    "question": "Condicional: me ___",
+    "options": [
+      "gustaría",
+      "gusta",
+      "gustó",
+      "gustaba"
+    ],
+    "correct": "A",
+    "explanation": "Would like.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E59"
+  },
+  {
+    "question": "Color: el cielo es ___",
+    "options": [
+      "azul",
+      "rojo",
+      "verde",
+      "amarillo"
+    ],
+    "correct": "A",
+    "explanation": "Azul.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E60"
+  },
+  {
+    "question": "Calcule: 8 x 4 = ?",
+    "options": [
+      "32",
+      "33",
+      "12",
+      "31"
+    ],
+    "correct": "A",
+    "explanation": "8×4=32.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E61"
+  },
+  {
+    "question": "Vocabulario: la ___ (theater)",
+    "options": [
+      "teatro",
+      "cine",
+      "museo",
+      "estadio"
+    ],
+    "correct": "A",
+    "explanation": "Theater.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E62"
+  },
+  {
+    "question": "Calcule: 6 x 8 = ?",
+    "options": [
+      "47",
+      "48",
+      "14",
+      "49"
+    ],
+    "correct": "B",
+    "explanation": "6×8=48.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E63"
+  },
+  {
+    "question": "Cuerpo: como con la ___",
+    "options": [
+      "boca",
+      "nariz",
+      "ojo",
+      "oreja"
+    ],
+    "correct": "A",
+    "explanation": "Mouth.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E64"
+  },
+  {
+    "question": "Calcule: 12 x 7 = ?",
+    "options": [
+      "84",
+      "83",
+      "85",
+      "19"
+    ],
+    "correct": "A",
+    "explanation": "12×7=84.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E65"
+  },
+  {
+    "question": "Pronombre: ___ amigos (we)",
+    "options": [
+      "nosotros",
+      "ellos",
+      "ustedes",
+      "vosotros"
+    ],
+    "correct": "A",
+    "explanation": "We.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E66"
+  },
+  {
+    "question": "Calcule: 12 x 4 = ?",
+    "options": [
+      "16",
+      "48",
+      "47",
+      "49"
+    ],
+    "correct": "B",
+    "explanation": "12×4=48.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E67"
+  },
+  {
+    "question": "Calcule: 7 x 9 = ?",
+    "options": [
+      "63",
+      "64",
+      "62",
+      "16"
+    ],
+    "correct": "A",
+    "explanation": "7×9=63.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E68"
+  },
+  {
+    "question": "Querer: ___ agua.",
+    "options": [
+      "Quiero",
+      "Quieres",
+      "Quiere",
+      "Queremos"
+    ],
+    "correct": "A",
+    "explanation": "Quiero.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E69"
+  },
+  {
+    "question": "Música: tocar la ___",
+    "options": [
+      "guitarra",
+      "mesa",
+      "silla",
+      "ventana"
+    ],
+    "correct": "A",
+    "explanation": "Guitar.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E70"
+  },
+  {
+    "question": "Vocabulario: la ___ (city)",
+    "options": [
+      "ciudad",
+      "aldea",
+      "país",
+      "continente"
+    ],
+    "correct": "A",
+    "explanation": "City.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E71"
+  },
+  {
+    "question": "El numero 8 en espanol:",
+    "options": [
+      "dos",
+      "cuatro",
+      "ocho",
+      "siete"
+    ],
+    "correct": "C",
+    "explanation": "8 = ocho.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E72"
+  },
+  {
+    "question": "Calcule: 4 x 4 = ?",
+    "options": [
+      "17",
+      "15",
+      "16",
+      "8"
+    ],
+    "correct": "C",
+    "explanation": "4×4=16.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E73"
+  },
+  {
+    "question": "Yo ___ (verb hablar)",
+    "options": [
+      "hablar",
+      "hablas",
+      "hablo",
+      "habla"
+    ],
+    "correct": "C",
+    "explanation": "Yo hablo.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E74"
+  },
+  {
+    "question": "Vocabulario: el ___ (country)",
+    "options": [
+      "país",
+      "ciudad",
+      "calle",
+      "barrio"
+    ],
+    "correct": "A",
+    "explanation": "Country.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E75"
+  },
+  {
+    "question": "Ir: Nosotros ___ al parque.",
+    "options": [
+      "vamos",
+      "va",
+      "van",
+      "ir"
+    ],
+    "correct": "A",
+    "explanation": "Vamos.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E76"
+  },
+  {
+    "question": "Calcule: 6 x 5 = ?",
+    "options": [
+      "30",
+      "31",
+      "11",
+      "29"
+    ],
+    "correct": "A",
+    "explanation": "6×5=30.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E77"
+  },
+  {
+    "question": "El numero 6 en espanol:",
+    "options": [
+      "seis",
+      "tres",
+      "uno",
+      "diez"
+    ],
+    "correct": "A",
+    "explanation": "6 = seis.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E78"
+  },
+  {
+    "question": "Transporte: en la ___",
+    "options": [
+      "bicicleta",
+      "silla",
+      "mesa",
+      "ventana"
+    ],
+    "correct": "A",
+    "explanation": "Bicicleta.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E79"
+  },
+  {
+    "question": "Calcule: 4 x 11 = ?",
+    "options": [
+      "45",
+      "43",
+      "44",
+      "15"
+    ],
+    "correct": "C",
+    "explanation": "4×11=44.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E80"
+  },
+  {
+    "question": "Calcule: 10 x 4 = ?",
+    "options": [
+      "14",
+      "41",
+      "40",
+      "39"
+    ],
+    "correct": "C",
+    "explanation": "10×4=40.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E81"
+  },
+  {
+    "question": "Calcule: 11 x 12 = ?",
+    "options": [
+      "133",
+      "131",
+      "132",
+      "23"
+    ],
+    "correct": "C",
+    "explanation": "11×12=132.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E82"
+  },
+  {
+    "question": "Calcule: 8 x 7 = ?",
+    "options": [
+      "57",
+      "56",
+      "55",
+      "15"
+    ],
+    "correct": "B",
+    "explanation": "8×7=56.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E83"
+  },
+  {
+    "question": "Calcule: 8 x 6 = ?",
+    "options": [
+      "49",
+      "48",
+      "14",
+      "47"
+    ],
+    "correct": "B",
+    "explanation": "8×6=48.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E84"
+  },
+  {
+    "question": "Calcule: 4 x 7 = ?",
+    "options": [
+      "29",
+      "27",
+      "28",
+      "11"
+    ],
+    "correct": "C",
+    "explanation": "4×7=28.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E85"
+  },
+  {
+    "question": "Cuerpo: huelo con la ___",
+    "options": [
+      "nariz",
+      "boca",
+      "ojo",
+      "oreja"
+    ],
+    "correct": "A",
+    "explanation": "Nose.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E86"
+  },
+  {
+    "question": "Calcule: 4 x 5 = ?",
+    "options": [
+      "9",
+      "20",
+      "21",
+      "19"
+    ],
+    "correct": "B",
+    "explanation": "4×5=20.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E87"
+  },
+  {
+    "question": "Calcule: 3 x 7 = ?",
+    "options": [
+      "21",
+      "20",
+      "10",
+      "22"
+    ],
+    "correct": "A",
+    "explanation": "3×7=21.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E88"
+  },
+  {
+    "question": "Calcule: 12 x 10 = ?",
+    "options": [
+      "119",
+      "121",
+      "120",
+      "22"
+    ],
+    "correct": "C",
+    "explanation": "12×10=120.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E89"
+  },
+  {
+    "question": "Calcule: 5 x 2 = ?",
+    "options": [
+      "11",
+      "7",
+      "9",
+      "10"
+    ],
+    "correct": "D",
+    "explanation": "5×2=10.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E90"
+  },
+  {
+    "question": "Calcule: 7 x 3 = ?",
+    "options": [
+      "22",
+      "20",
+      "10",
+      "21"
+    ],
+    "correct": "D",
+    "explanation": "7×3=21.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E91"
+  },
+  {
+    "question": "Vocabulario: la ___ (church)",
+    "options": [
+      "iglesia",
+      "escuela",
+      "tienda",
+      "fábrica"
+    ],
+    "correct": "A",
+    "explanation": "Church.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E92"
+  },
+  {
+    "question": "Calcule: 7 x 8 = ?",
+    "options": [
+      "56",
+      "57",
+      "55",
+      "15"
+    ],
+    "correct": "A",
+    "explanation": "7×8=56.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E93"
+  },
+  {
+    "question": "Ropa: llevo una ___",
+    "options": [
+      "camisa",
+      "mesa",
+      "silla",
+      "ventana"
+    ],
+    "correct": "A",
+    "explanation": "Shirt.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E94"
+  },
+  {
+    "question": "Participio: he ___",
+    "options": [
+      "hablado",
+      "hablar",
+      "hablo",
+      "hablaba"
+    ],
+    "correct": "A",
+    "explanation": "Hablado.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E95"
+  },
+  {
+    "question": "Tiempo: siempre / nunca / ___",
+    "options": [
+      "a veces",
+      "nunca",
+      "siempre",
+      "jamás"
+    ],
+    "correct": "A",
+    "explanation": "Sometimes.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E96"
+  },
+  {
+    "question": "Calcule: 2 x 7 = ?",
+    "options": [
+      "13",
+      "9",
+      "14",
+      "15"
+    ],
+    "correct": "C",
+    "explanation": "2×7=14.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E97"
+  },
+  {
+    "question": "Calcule: 11 x 6 = ?",
+    "options": [
+      "67",
+      "65",
+      "17",
+      "66"
+    ],
+    "correct": "D",
+    "explanation": "11×6=66.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E98"
+  },
+  {
+    "question": "Vocabulario: el ___ (mountain)",
+    "options": [
+      "montaña",
+      "playa",
+      "río",
+      "lago"
+    ],
+    "correct": "A",
+    "explanation": "Mountain.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E99"
+  },
+  {
+    "question": "Verbo: dormir = to",
+    "options": [
+      "sleep",
+      "eat",
+      "run",
+      "read"
+    ],
+    "correct": "A",
+    "explanation": "Sleep.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E100"
+  },
+  {
+    "question": "El numero 5 en espanol:",
+    "options": [
+      "tres",
+      "cinco",
+      "dos",
+      "nueve"
+    ],
+    "correct": "B",
+    "explanation": "5 = cinco.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E101"
+  },
+  {
+    "question": "Para: Estudio ___ aprender.",
+    "options": [
+      "para",
+      "por",
+      "de",
+      "en"
+    ],
+    "correct": "A",
+    "explanation": "Para = purpose.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E102"
+  },
+  {
+    "question": "Clima: hace ___ (cold)",
+    "options": [
+      "frío",
+      "calor",
+      "sol",
+      "lluvia"
+    ],
+    "correct": "A",
+    "explanation": "Hace frío.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E103"
+  },
+  {
+    "question": "Calcule: 9 x 6 = ?",
+    "options": [
+      "53",
+      "55",
+      "15",
+      "54"
+    ],
+    "correct": "D",
+    "explanation": "9×6=54.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E104"
+  },
+  {
+    "question": "El numero 7 en espanol:",
+    "options": [
+      "nueve",
+      "tres",
+      "dos",
+      "siete"
+    ],
+    "correct": "D",
+    "explanation": "7 = siete.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E105"
+  },
+  {
+    "question": "Palabra: adiós =",
+    "options": [
+      "goodbye",
+      "hello",
+      "thanks",
+      "please"
+    ],
+    "correct": "A",
+    "explanation": "Goodbye.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E106"
+  },
+  {
+    "question": "El numero 10 en espanol:",
+    "options": [
+      "seis",
+      "siete",
+      "dos",
+      "diez"
+    ],
+    "correct": "D",
+    "explanation": "10 = diez.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E107"
+  },
+  {
+    "question": "El numero 9 en espanol:",
+    "options": [
+      "cinco",
+      "cuatro",
+      "tres",
+      "nueve"
+    ],
+    "correct": "D",
+    "explanation": "9 = nueve.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E108"
+  },
+  {
+    "question": "Calcule: 9 x 12 = ?",
+    "options": [
+      "21",
+      "109",
+      "108",
+      "107"
+    ],
+    "correct": "C",
+    "explanation": "9×12=108.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E109"
+  },
+  {
+    "question": "Calcule: 6 x 6 = ?",
+    "options": [
+      "36",
+      "12",
+      "35",
+      "37"
+    ],
+    "correct": "A",
+    "explanation": "6×6=36.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E110"
+  },
+  {
+    "question": "Augmentativo: casa →",
+    "options": [
+      "casucha",
+      "casita",
+      "casas",
+      "casero"
+    ],
+    "correct": "A",
+    "explanation": "Casucha.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E111"
+  },
+  {
+    "question": "Possessive: mi / tu / ___",
+    "options": [
+      "su",
+      "mis",
+      "tus",
+      "sus"
+    ],
+    "correct": "A",
+    "explanation": "His/her.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E112"
+  },
+  {
+    "question": "Calcule: 8 x 12 = ?",
+    "options": [
+      "97",
+      "20",
+      "96",
+      "95"
+    ],
+    "correct": "C",
+    "explanation": "8×12=96.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E113"
+  },
+  {
+    "question": "Calcule: 3 x 12 = ?",
+    "options": [
+      "15",
+      "37",
+      "35",
+      "36"
+    ],
+    "correct": "D",
+    "explanation": "3×12=36.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E114"
+  },
+  {
+    "question": "Imperfecto: Siempre ___ feliz.",
+    "options": [
+      "era",
+      "es",
+      "fue",
+      "son"
+    ],
+    "correct": "A",
+    "explanation": "Era = used to be.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E115"
+  },
+  {
+    "question": "Gerundio: estoy ___",
+    "options": [
+      "comiendo",
+      "comer",
+      "comí",
+      "comeré"
+    ],
+    "correct": "A",
+    "explanation": "Comiendo.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E116"
+  },
+  {
+    "question": "Calcule: 8 x 11 = ?",
+    "options": [
+      "89",
+      "87",
+      "19",
+      "88"
+    ],
+    "correct": "D",
+    "explanation": "8×11=88.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E117"
+  },
+  {
+    "question": "Calcule: 6 x 9 = ?",
+    "options": [
+      "55",
+      "53",
+      "54",
+      "15"
+    ],
+    "correct": "C",
+    "explanation": "6×9=54.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E118"
+  },
+  {
+    "question": "El numero 2 en espanol:",
+    "options": [
+      "ocho",
+      "cinco",
+      "dos",
+      "nueve"
+    ],
+    "correct": "C",
+    "explanation": "2 = dos.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E119"
+  },
+  {
+    "question": "Calcule: 12 x 6 = ?",
+    "options": [
+      "72",
+      "73",
+      "71",
+      "18"
+    ],
+    "correct": "A",
+    "explanation": "12×6=72.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E120"
+  },
+  {
+    "question": "Vocabulario: la ___ (beach)",
+    "options": [
+      "playa",
+      "montaña",
+      "ciudad",
+      "campo"
+    ],
+    "correct": "A",
+    "explanation": "Beach.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E121"
+  },
+  {
+    "question": "El numero 4 en espanol:",
+    "options": [
+      "cuatro",
+      "uno",
+      "dos",
+      "nueve"
+    ],
+    "correct": "A",
+    "explanation": "4 = cuatro.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E122"
+  },
+  {
+    "question": "Lugar: donde compramos comida =",
+    "options": [
+      "supermercado",
+      "banco",
+      "hospital",
+      "iglesia"
+    ],
+    "correct": "A",
+    "explanation": "Supermarket.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E123"
+  },
+  {
+    "question": "Diminutivo: perro →",
+    "options": [
+      "perrito",
+      "perros",
+      "perra",
+      "perrazo"
+    ],
+    "correct": "A",
+    "explanation": "Perrito.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E124"
+  },
+  {
+    "question": "Calcule: 9 x 3 = ?",
+    "options": [
+      "26",
+      "28",
+      "27",
+      "12"
+    ],
+    "correct": "C",
+    "explanation": "9×3=27.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E125"
+  },
+  {
+    "question": "Calcule: 9 x 2 = ?",
+    "options": [
+      "11",
+      "18",
+      "17",
+      "19"
+    ],
+    "correct": "B",
+    "explanation": "9×2=18.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E126"
+  },
+  {
+    "question": "Yo ___ (verb estar)",
+    "options": [
+      "estar",
+      "estoy",
+      "esta",
+      "estas"
+    ],
+    "correct": "B",
+    "explanation": "Yo estoy.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E127"
+  },
+  {
+    "question": "Calcule: 11 x 10 = ?",
+    "options": [
+      "111",
+      "21",
+      "110",
+      "109"
+    ],
+    "correct": "C",
+    "explanation": "11×10=110.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E128"
+  },
+  {
+    "question": "Salud: necesito un ___",
+    "options": [
+      "doctor",
+      "árbol",
+      "coche",
+      "libro"
+    ],
+    "correct": "A",
+    "explanation": "Doctor.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E129"
+  },
+  {
+    "question": "Calcule: 9 x 5 = ?",
+    "options": [
+      "45",
+      "46",
+      "14",
+      "44"
+    ],
+    "correct": "A",
+    "explanation": "9×5=45.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E130"
+  },
+  {
+    "question": "Calcule: 8 x 10 = ?",
+    "options": [
+      "79",
+      "18",
+      "80",
+      "81"
+    ],
+    "correct": "C",
+    "explanation": "8×10=80.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E131"
+  },
+  {
+    "question": "Yo ___ (verb ir)",
+    "options": [
+      "va",
+      "ir",
+      "vas",
+      "voy"
+    ],
+    "correct": "D",
+    "explanation": "Yo voy.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E132"
+  },
+  {
+    "question": "Verbo: leer = to",
+    "options": [
+      "read",
+      "write",
+      "eat",
+      "run"
+    ],
+    "correct": "A",
+    "explanation": "Read.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E133"
+  },
+  {
+    "question": "Question: ¿___ hora es?",
+    "options": [
+      "Qué",
+      "Cuál",
+      "Quién",
+      "Dónde"
+    ],
+    "correct": "A",
+    "explanation": "Qué hora.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E134"
+  },
+  {
+    "question": "Vocabulario: el ___ (market)",
+    "options": [
+      "mercado",
+      "hospital",
+      "iglesia",
+      "parque"
+    ],
+    "correct": "A",
+    "explanation": "Market.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E135"
+  },
+  {
+    "question": "Poder: No ___ entrar.",
+    "options": [
+      "puedo",
+      "puede",
+      "pueden",
+      "podemos"
+    ],
+    "correct": "A",
+    "explanation": "No puedo.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E136"
+  },
+  {
+    "question": "Plural adj: chicas ___",
+    "options": [
+      "inteligentes",
+      "inteligente",
+      "inteligent",
+      "inteligenteses"
+    ],
+    "correct": "A",
+    "explanation": "Inteligentes.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E137"
+  },
+  {
+    "question": "Hacer: ¿Qué ___ tú?",
+    "options": [
+      "haces",
+      "hace",
+      "hacen",
+      "hago"
+    ],
+    "correct": "A",
+    "explanation": "Tú haces.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E138"
+  },
+  {
+    "question": "Palabra: hola =",
+    "options": [
+      "hello",
+      "goodbye",
+      "thanks",
+      "please"
+    ],
+    "correct": "A",
+    "explanation": "Hello.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E139"
+  },
+  {
+    "question": "Vocabulario: la ___ (station)",
+    "options": [
+      "estación",
+      "aeropuerto",
+      "puerto",
+      "terminal"
+    ],
+    "correct": "A",
+    "explanation": "Station.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E140"
+  },
+  {
+    "question": "Calcule: 5 x 4 = ?",
+    "options": [
+      "9",
+      "19",
+      "21",
+      "20"
+    ],
+    "correct": "D",
+    "explanation": "5×4=20.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E141"
+  },
+  {
+    "question": "Calcule: 4 x 2 = ?",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "6"
+    ],
+    "correct": "B",
+    "explanation": "4×2=8.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E142"
+  },
+  {
+    "question": "Calcule: 2 x 6 = ?",
+    "options": [
+      "11",
+      "12",
+      "8",
+      "13"
+    ],
+    "correct": "B",
+    "explanation": "2×6=12.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E143"
+  },
+  {
+    "question": "Día: lunes, martes, ___",
+    "options": [
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado"
+    ],
+    "correct": "A",
+    "explanation": "Sequence.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E144"
+  },
+  {
+    "question": "Preposición: Vivo ___ México.",
+    "options": [
+      "en",
+      "a",
+      "de",
+      "con"
+    ],
+    "correct": "A",
+    "explanation": "En + país.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E145"
+  },
+  {
+    "question": "Calcule: 10 x 6 = ?",
+    "options": [
+      "61",
+      "59",
+      "16",
+      "60"
+    ],
+    "correct": "D",
+    "explanation": "10×6=60.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E146"
+  },
+  {
+    "question": "Comparativo: más ___ que",
+    "options": [
+      "alto",
+      "alta",
+      "altos",
+      "altas"
+    ],
+    "correct": "A",
+    "explanation": "Más alto que.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E147"
+  },
+  {
+    "question": "Calcule: 3 x 8 = ?",
+    "options": [
+      "11",
+      "25",
+      "23",
+      "24"
+    ],
+    "correct": "D",
+    "explanation": "3×8=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E148"
+  },
+  {
+    "question": "Subjuntivo trigger: Espero que ___",
+    "options": [
+      "venga",
+      "viene",
+      "vino",
+      "venir"
+    ],
+    "correct": "A",
+    "explanation": "Espero que + subj.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E149"
+  },
+  {
+    "question": "Calcule: 5 x 6 = ?",
+    "options": [
+      "30",
+      "29",
+      "31",
+      "11"
+    ],
+    "correct": "A",
+    "explanation": "5×6=30.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E150"
+  },
+  {
+    "question": "Antónimo: bueno / ___",
+    "options": [
+      "malo",
+      "bueno",
+      "mejor",
+      "buenísimo"
+    ],
+    "correct": "A",
+    "explanation": "Bad.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E151"
+  },
+  {
+    "question": "Verbo: comer = to",
+    "options": [
+      "eat",
+      "drink",
+      "sleep",
+      "write"
+    ],
+    "correct": "A",
+    "explanation": "Eat.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E152"
+  },
+  {
+    "question": "Por: Gracias ___ todo.",
+    "options": [
+      "por",
+      "para",
+      "de",
+      "en"
+    ],
+    "correct": "A",
+    "explanation": "Por gracias.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E153"
+  },
+  {
+    "question": "Vocabulario: la ___ (library)",
+    "options": [
+      "biblioteca",
+      "cafetería",
+      "panadería",
+      "carnicería"
+    ],
+    "correct": "A",
+    "explanation": "Library.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E154"
+  },
+  {
+    "question": "Sinónimo: grande ≈",
+    "options": [
+      "grande",
+      "pequeño",
+      "corto",
+      "bajo"
+    ],
+    "correct": "A",
+    "explanation": "Same - big.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E155"
+  },
+  {
+    "question": "Calcule: 9 x 7 = ?",
+    "options": [
+      "63",
+      "64",
+      "16",
+      "62"
+    ],
+    "correct": "A",
+    "explanation": "9×7=63.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E156"
+  },
+  {
+    "question": "Yo ___ (verb comer)",
+    "options": [
+      "como",
+      "comer",
+      "come",
+      "comes"
+    ],
+    "correct": "A",
+    "explanation": "Yo como.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E157"
+  },
+  {
+    "question": "Calcule: 3 x 5 = ?",
+    "options": [
+      "8",
+      "14",
+      "15",
+      "16"
+    ],
+    "correct": "C",
+    "explanation": "3×5=15.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E158"
+  },
+  {
+    "question": "Ropa: zapatos en los ___",
+    "options": [
+      "pies",
+      "manos",
+      "cabeza",
+      "ojos"
+    ],
+    "correct": "A",
+    "explanation": "Feet.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E159"
+  },
+  {
+    "question": "Calcule: 8 x 3 = ?",
+    "options": [
+      "23",
+      "11",
+      "25",
+      "24"
+    ],
+    "correct": "D",
+    "explanation": "8×3=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E160"
+  },
+  {
+    "question": "Estar: Yo ___ cansado.",
+    "options": [
+      "estoy",
+      "soy",
+      "es",
+      "son"
+    ],
+    "correct": "A",
+    "explanation": "Estar = state.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E161"
+  },
+  {
+    "question": "Calcule: 11 x 3 = ?",
+    "options": [
+      "14",
+      "32",
+      "34",
+      "33"
+    ],
+    "correct": "D",
+    "explanation": "11×3=33.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E162"
+  },
+  {
+    "question": "Object: Veo ___",
+    "options": [
+      "a María",
+      "María",
+      "de María",
+      "con María"
+    ],
+    "correct": "A",
+    "explanation": "Personal a.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E163"
+  },
+  {
+    "question": "Verbo: escribir = to",
+    "options": [
+      "write",
+      "read",
+      "eat",
+      "run"
+    ],
+    "correct": "A",
+    "explanation": "Write.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E164"
+  },
+  {
+    "question": "Yo ___ (verb ser)",
+    "options": [
+      "eres",
+      "soy",
+      "es",
+      "ser"
+    ],
+    "correct": "B",
+    "explanation": "Yo soy.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E165"
+  },
+  {
+    "question": "Calcule: 2 x 10 = ?",
+    "options": [
+      "21",
+      "20",
+      "19",
+      "12"
+    ],
+    "correct": "B",
+    "explanation": "2×10=20.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E166"
+  },
+  {
+    "question": "Deporte: jugar al ___",
+    "options": [
+      "fútbol",
+      "tenis",
+      "baloncesto",
+      "voleibol"
+    ],
+    "correct": "A",
+    "explanation": "Football.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E167"
+  },
+  {
+    "question": "Imperativo: ¡___ la ventana!",
+    "options": [
+      "Abre",
+      "Abres",
+      "Abrir",
+      "Abrió"
+    ],
+    "correct": "A",
+    "explanation": "Abre!",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E168"
+  },
+  {
+    "question": "Superlativo: el más ___",
+    "options": [
+      "rápido",
+      "rápidamente",
+      "rápidos",
+      "rápida"
+    ],
+    "correct": "A",
+    "explanation": "El más rápido.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E169"
+  },
+  {
+    "question": "Profesión: enseña =",
+    "options": [
+      "profesor",
+      "doctor",
+      "cocinero",
+      "piloto"
+    ],
+    "correct": "A",
+    "explanation": "Teacher.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E170"
+  },
+  {
+    "question": "Calcule: 2 x 8 = ?",
+    "options": [
+      "10",
+      "16",
+      "15",
+      "17"
+    ],
+    "correct": "B",
+    "explanation": "2×8=16.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E171"
+  },
+  {
+    "question": "Vocabulario: el ___ (river)",
+    "options": [
+      "río",
+      "montaña",
+      "playa",
+      "desierto"
+    ],
+    "correct": "A",
+    "explanation": "River.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E172"
+  },
+  {
+    "question": "Salud: estoy ___",
+    "options": [
+      "enfermo",
+      "enferma",
+      "enfermos",
+      "enfermas"
+    ],
+    "correct": "A",
+    "explanation": "Sick.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E173"
+  },
+  {
+    "question": "Antónimo: alto / ___",
+    "options": [
+      "bajo",
+      "alto",
+      "grande",
+      "largo"
+    ],
+    "correct": "A",
+    "explanation": "Short/low.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E174"
+  },
+  {
+    "question": "Calcule: 3 x 6 = ?",
+    "options": [
+      "18",
+      "19",
+      "9",
+      "17"
+    ],
+    "correct": "A",
+    "explanation": "3×6=18.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E175"
+  },
+  {
+    "question": "El numero 1 en espanol:",
+    "options": [
+      "tres",
+      "nueve",
+      "cinco",
+      "uno"
+    ],
+    "correct": "D",
+    "explanation": "1 = uno.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E176"
+  },
+  {
+    "question": "Calcule: 5 x 12 = ?",
+    "options": [
+      "59",
+      "60",
+      "61",
+      "17"
+    ],
+    "correct": "B",
+    "explanation": "5×12=60.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E177"
+  },
+  {
+    "question": "Question: ¿___ años tienes?",
+    "options": [
+      "Cuántos",
+      "Cuánto",
+      "Cuánta",
+      "Cuántas"
+    ],
+    "correct": "A",
+    "explanation": "Cuántos años.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E178"
+  },
+  {
+    "question": "Calcule: 9 x 8 = ?",
+    "options": [
+      "73",
+      "17",
+      "72",
+      "71"
+    ],
+    "correct": "C",
+    "explanation": "9×8=72.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E179"
+  },
+  {
+    "question": "Reflexivo: Me ___ las manos.",
+    "options": [
+      "lavo",
+      "lava",
+      "lavan",
+      "lavamos"
+    ],
+    "correct": "A",
+    "explanation": "Me lavo.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E180"
+  },
+  {
+    "question": "Verbo: hablar = to",
+    "options": [
+      "speak",
+      "eat",
+      "sleep",
+      "run"
+    ],
+    "correct": "A",
+    "explanation": "Speak.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E181"
+  },
+  {
+    "question": "Negación: No ___ nada.",
+    "options": [
+      "digo",
+      "digas",
+      "dice",
+      "dicen"
+    ],
+    "correct": "A",
+    "explanation": "No digo.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E182"
+  },
+  {
+    "question": "Vocabulario: la ___ (street)",
+    "options": [
+      "calle",
+      "país",
+      "ciudad",
+      "montaña"
+    ],
+    "correct": "A",
+    "explanation": "Street.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E183"
+  },
+  {
+    "question": "Voz pasiva: fue ___",
+    "options": [
+      "construido",
+      "construir",
+      "construye",
+      "construyó"
+    ],
+    "correct": "A",
+    "explanation": "Fue construido.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E184"
+  },
+  {
+    "question": "Calcule: 6 x 2 = ?",
+    "options": [
+      "8",
+      "11",
+      "13",
+      "12"
+    ],
+    "correct": "D",
+    "explanation": "6×2=12.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E185"
+  },
+  {
+    "question": "Calcule: 12 x 2 = ?",
+    "options": [
+      "24",
+      "23",
+      "25",
+      "14"
+    ],
+    "correct": "A",
+    "explanation": "12×2=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E186"
+  },
+  {
+    "question": "Question: ¿___ es él?",
+    "options": [
+      "Quién",
+      "Qué",
+      "Dónde",
+      "Cuál"
+    ],
+    "correct": "A",
+    "explanation": "Quién = who.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E187"
+  },
+  {
+    "question": "Con: Hablo ___ mi amigo.",
+    "options": [
+      "con",
+      "de",
+      "en",
+      "a"
+    ],
+    "correct": "A",
+    "explanation": "Con = with.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E188"
+  },
+  {
+    "question": "Vocabulario: el ___ (hospital)",
+    "options": [
+      "hospital",
+      "escuela",
+      "parque",
+      "cine"
+    ],
+    "correct": "A",
+    "explanation": "Hospital.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E189"
+  },
+  {
+    "question": "Adjetivo: casa ___",
+    "options": [
+      "grande",
+      "grandes",
+      "grandemente",
+      "grandísimo"
+    ],
+    "correct": "A",
+    "explanation": "Grande.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E190"
+  },
+  {
+    "question": "Yo ___ (verb vivir)",
+    "options": [
+      "vivir",
+      "vive",
+      "vivo",
+      "vives"
+    ],
+    "correct": "C",
+    "explanation": "Yo vivo.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E191"
+  },
+  {
+    "question": "De: Soy ___ Haití.",
+    "options": [
+      "de",
+      "en",
+      "a",
+      "con"
+    ],
+    "correct": "A",
+    "explanation": "De Haití.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E192"
+  },
+  {
+    "question": "Gustar: Me ___ la música.",
+    "options": [
+      "gusta",
+      "gustan",
+      "gusto",
+      "gustas"
+    ],
+    "correct": "A",
+    "explanation": "Me gusta.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E193"
+  },
+  {
+    "question": "Calcule: 7 x 10 = ?",
+    "options": [
+      "69",
+      "70",
+      "71",
+      "17"
+    ],
+    "correct": "B",
+    "explanation": "7×10=70.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E194"
+  },
+  {
+    "question": "Calcule: 7 x 12 = ?",
+    "options": [
+      "84",
+      "19",
+      "85",
+      "83"
+    ],
+    "correct": "A",
+    "explanation": "7×12=84.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E195"
+  },
+  {
+    "question": "Yo ___ (verb hacer)",
+    "options": [
+      "hace",
+      "hago",
+      "hacer",
+      "haces"
+    ],
+    "correct": "B",
+    "explanation": "Yo hago.",
+    "category": "Conjugaison",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E196"
+  },
+  {
+    "question": "Tener: Yo ___ dos hermanos.",
+    "options": [
+      "tengo",
+      "tiene",
+      "tenemos",
+      "tienen"
+    ],
+    "correct": "A",
+    "explanation": "Yo tengo.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E197"
+  },
+  {
+    "question": "Question: ¿___ vives?",
+    "options": [
+      "Dónde",
+      "Qué",
+      "Quién",
+      "Cuál"
+    ],
+    "correct": "A",
+    "explanation": "Dónde = where.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E198"
+  },
+  {
+    "question": "Vocabulario: el ___ (airport)",
+    "options": [
+      "aeropuerto",
+      "estación",
+      "puerto",
+      "terminal"
+    ],
+    "correct": "A",
+    "explanation": "Airport.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E199"
+  },
+  {
+    "question": "Calcule: 2 x 2 = ?",
+    "options": [
+      "4",
+      "3",
+      "4?",
+      "5"
+    ],
+    "correct": "A",
+    "explanation": "2×2=4.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E200"
+  },
+  {
+    "question": "Calcule: 10 x 8 = ?",
+    "options": [
+      "79",
+      "80",
+      "81",
+      "18"
+    ],
+    "correct": "B",
+    "explanation": "10×8=80.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E201"
+  },
+  {
+    "question": "Calcule: 9 x 11 = ?",
+    "options": [
+      "98",
+      "99",
+      "100",
+      "20"
+    ],
+    "correct": "B",
+    "explanation": "9×11=99.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E202"
+  },
+  {
+    "question": "Palabra: por favor =",
+    "options": [
+      "please",
+      "thanks",
+      "sorry",
+      "hello"
+    ],
+    "correct": "A",
+    "explanation": "Please.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E203"
+  },
+  {
+    "question": "Preposición: Voy ___ la escuela.",
+    "options": [
+      "a",
+      "en",
+      "de",
+      "con"
+    ],
+    "correct": "A",
+    "explanation": "A + place.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E204"
+  },
+  {
+    "question": "Calcule: 10 x 11 = ?",
+    "options": [
+      "21",
+      "110",
+      "111",
+      "109"
+    ],
+    "correct": "B",
+    "explanation": "10×11=110.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E205"
+  },
+  {
+    "question": "Calcule: 4 x 8 = ?",
+    "options": [
+      "12",
+      "31",
+      "33",
+      "32"
+    ],
+    "correct": "D",
+    "explanation": "4×8=32.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E206"
+  },
+  {
+    "question": "Pregunta: ¿Hablas ___?",
+    "options": [
+      "español",
+      "española",
+      "españoles",
+      "españolas"
+    ],
+    "correct": "A",
+    "explanation": "Español language.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E207"
+  },
+  {
+    "question": "Artículo: ___ libro (masculino)",
+    "options": [
+      "el",
+      "la",
+      "las",
+      "una"
+    ],
+    "correct": "A",
+    "explanation": "El libro.",
+    "category": "Espagnol",
+    "difficulty": "moyen",
+    "timer_seconds": 30,
+    "id": "E9E208"
+  },
+  {
+    "question": "El numero 3 en espanol:",
+    "options": [
+      "siete",
+      "dos",
+      "cinco",
+      "tres"
+    ],
+    "correct": "D",
+    "explanation": "3 = tres.",
+    "category": "Nombres",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E209"
+  },
+  {
+    "question": "Calcule: 12 x 9 = ?",
+    "options": [
+      "109",
+      "21",
+      "108",
+      "107"
+    ],
+    "correct": "C",
+    "explanation": "12×9=108.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E210"
+  },
+  {
+    "question": "Calcule: 5 x 8 = ?",
+    "options": [
+      "41",
+      "39",
+      "13",
+      "40"
+    ],
+    "correct": "D",
+    "explanation": "5×8=40.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E211"
+  },
+  {
+    "question": "Calcule: 5 x 11 = ?",
+    "options": [
+      "16",
+      "56",
+      "55",
+      "54"
+    ],
+    "correct": "C",
+    "explanation": "5×11=55.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E212"
+  },
+  {
+    "question": "Calcule: 6 x 3 = ?",
+    "options": [
+      "9",
+      "19",
+      "18",
+      "17"
+    ],
+    "correct": "C",
+    "explanation": "6×3=18.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E213"
+  },
+  {
+    "question": "Calcule: 8 x 9 = ?",
+    "options": [
+      "72",
+      "17",
+      "71",
+      "73"
+    ],
+    "correct": "A",
+    "explanation": "8×9=72.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E214"
+  },
+  {
+    "question": "Calcule: 9 x 4 = ?",
+    "options": [
+      "35",
+      "36",
+      "37",
+      "13"
+    ],
+    "correct": "B",
+    "explanation": "9×4=36.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E215"
+  },
+  {
+    "question": "Calcule: 7 x 6 = ?",
+    "options": [
+      "43",
+      "13",
+      "41",
+      "42"
+    ],
+    "correct": "D",
+    "explanation": "7×6=42.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E216"
+  },
+  {
+    "question": "Calcule: 11 x 2 = ?",
+    "options": [
+      "13",
+      "23",
+      "21",
+      "22"
+    ],
+    "correct": "D",
+    "explanation": "11×2=22.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E217"
+  },
+  {
+    "question": "Calcule: 2 x 3 = ?",
+    "options": [
+      "6",
+      "5",
+      "7",
+      "5"
+    ],
+    "correct": "A",
+    "explanation": "2×3=6.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E218"
+  },
+  {
+    "question": "Calcule: 8 x 8 = ?",
+    "options": [
+      "65",
+      "16",
+      "63",
+      "64"
+    ],
+    "correct": "D",
+    "explanation": "8×8=64.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E219"
+  },
+  {
+    "question": "Calcule: 10 x 10 = ?",
+    "options": [
+      "99",
+      "100",
+      "101",
+      "20"
+    ],
+    "correct": "B",
+    "explanation": "10×10=100.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E220"
+  },
+  {
+    "question": "Calcule: 7 x 4 = ?",
+    "options": [
+      "27",
+      "28",
+      "29",
+      "11"
+    ],
+    "correct": "B",
+    "explanation": "7×4=28.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E221"
+  },
+  {
+    "question": "Calcule: 7 x 11 = ?",
+    "options": [
+      "18",
+      "77",
+      "76",
+      "78"
+    ],
+    "correct": "B",
+    "explanation": "7×11=77.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E222"
+  },
+  {
+    "question": "Calcule: 8 x 2 = ?",
+    "options": [
+      "16",
+      "10",
+      "15",
+      "17"
+    ],
+    "correct": "A",
+    "explanation": "8×2=16.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E223"
+  },
+  {
+    "question": "Calcule: 5 x 10 = ?",
+    "options": [
+      "15",
+      "51",
+      "50",
+      "49"
+    ],
+    "correct": "C",
+    "explanation": "5×10=50.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E224"
+  },
+  {
+    "question": "Calcule: 2 x 5 = ?",
+    "options": [
+      "9",
+      "10",
+      "7",
+      "11"
+    ],
+    "correct": "B",
+    "explanation": "2×5=10.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E225"
+  },
+  {
+    "question": "Calcule: 12 x 11 = ?",
+    "options": [
+      "132",
+      "133",
+      "131",
+      "23"
+    ],
+    "correct": "A",
+    "explanation": "12×11=132.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E226"
+  },
+  {
+    "question": "Calcule: 6 x 7 = ?",
+    "options": [
+      "43",
+      "42",
+      "41",
+      "13"
+    ],
+    "correct": "B",
+    "explanation": "6×7=42.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E227"
+  },
+  {
+    "question": "Calcule: 2 x 4 = ?",
+    "options": [
+      "9",
+      "7",
+      "8",
+      "6"
+    ],
+    "correct": "C",
+    "explanation": "2×4=8.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E228"
+  },
+  {
+    "question": "Calcule: 3 x 10 = ?",
+    "options": [
+      "29",
+      "13",
+      "30",
+      "31"
+    ],
+    "correct": "C",
+    "explanation": "3×10=30.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E229"
+  },
+  {
+    "question": "Calcule: 4 x 6 = ?",
+    "options": [
+      "25",
+      "24",
+      "23",
+      "10"
+    ],
+    "correct": "B",
+    "explanation": "4×6=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E230"
+  },
+  {
+    "question": "Calcule: 5 x 3 = ?",
+    "options": [
+      "15",
+      "14",
+      "16",
+      "8"
+    ],
+    "correct": "A",
+    "explanation": "5×3=15.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E231"
+  },
+  {
+    "question": "Calcule: 7 x 5 = ?",
+    "options": [
+      "12",
+      "36",
+      "34",
+      "35"
+    ],
+    "correct": "D",
+    "explanation": "7×5=35.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E232"
+  },
+  {
+    "question": "Calcule: 11 x 7 = ?",
+    "options": [
+      "77",
+      "76",
+      "78",
+      "18"
+    ],
+    "correct": "A",
+    "explanation": "11×7=77.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E233"
+  },
+  {
+    "question": "Calcule: 10 x 12 = ?",
+    "options": [
+      "22",
+      "120",
+      "119",
+      "121"
+    ],
+    "correct": "B",
+    "explanation": "10×12=120.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E234"
+  },
+  {
+    "question": "Calcule: 4 x 10 = ?",
+    "options": [
+      "40",
+      "41",
+      "14",
+      "39"
+    ],
+    "correct": "A",
+    "explanation": "4×10=40.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E235"
+  },
+  {
+    "question": "Calcule: 6 x 10 = ?",
+    "options": [
+      "61",
+      "59",
+      "16",
+      "60"
+    ],
+    "correct": "D",
+    "explanation": "6×10=60.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E236"
+  },
+  {
+    "question": "Calcule: 12 x 3 = ?",
+    "options": [
+      "35",
+      "36",
+      "37",
+      "15"
+    ],
+    "correct": "B",
+    "explanation": "12×3=36.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E237"
+  },
+  {
+    "question": "Calcule: 11 x 5 = ?",
+    "options": [
+      "54",
+      "16",
+      "56",
+      "55"
+    ],
+    "correct": "D",
+    "explanation": "11×5=55.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E238"
+  },
+  {
+    "question": "Calcule: 4 x 12 = ?",
+    "options": [
+      "48",
+      "47",
+      "49",
+      "16"
+    ],
+    "correct": "A",
+    "explanation": "4×12=48.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E239"
+  },
+  {
+    "question": "Calcule: 7 x 2 = ?",
+    "options": [
+      "9",
+      "15",
+      "13",
+      "14"
+    ],
+    "correct": "D",
+    "explanation": "7×2=14.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E240"
+  },
+  {
+    "question": "Calcule: 9 x 9 = ?",
+    "options": [
+      "82",
+      "18",
+      "80",
+      "81"
+    ],
+    "correct": "D",
+    "explanation": "9×9=81.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E241"
+  },
+  {
+    "question": "Calcule: 10 x 2 = ?",
+    "options": [
+      "12",
+      "21",
+      "20",
+      "19"
+    ],
+    "correct": "C",
+    "explanation": "10×2=20.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E242"
+  },
+  {
+    "question": "Calcule: 12 x 8 = ?",
+    "options": [
+      "97",
+      "95",
+      "20",
+      "96"
+    ],
+    "correct": "D",
+    "explanation": "12×8=96.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E243"
+  },
+  {
+    "question": "Calcule: 2 x 12 = ?",
+    "options": [
+      "14",
+      "23",
+      "25",
+      "24"
+    ],
+    "correct": "D",
+    "explanation": "2×12=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E244"
+  },
+  {
+    "question": "Calcule: 5 x 5 = ?",
+    "options": [
+      "25",
+      "26",
+      "24",
+      "10"
+    ],
+    "correct": "A",
+    "explanation": "5×5=25.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E245"
+  },
+  {
+    "question": "Calcule: 8 x 5 = ?",
+    "options": [
+      "40",
+      "13",
+      "41",
+      "39"
+    ],
+    "correct": "A",
+    "explanation": "8×5=40.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E246"
+  },
+  {
+    "question": "Calcule: 11 x 8 = ?",
+    "options": [
+      "87",
+      "89",
+      "19",
+      "88"
+    ],
+    "correct": "D",
+    "explanation": "11×8=88.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E247"
+  },
+  {
+    "question": "Calcule: 5 x 7 = ?",
+    "options": [
+      "35",
+      "12",
+      "36",
+      "34"
+    ],
+    "correct": "A",
+    "explanation": "5×7=35.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E248"
+  },
+  {
+    "question": "Calcule: 10 x 7 = ?",
+    "options": [
+      "17",
+      "71",
+      "69",
+      "70"
+    ],
+    "correct": "D",
+    "explanation": "10×7=70.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E249"
+  },
+  {
+    "question": "Calcule: 6 x 4 = ?",
+    "options": [
+      "25",
+      "24",
+      "10",
+      "23"
+    ],
+    "correct": "B",
+    "explanation": "6×4=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E250"
+  },
+  {
+    "question": "Calcule: 10 x 3 = ?",
+    "options": [
+      "13",
+      "31",
+      "29",
+      "30"
+    ],
+    "correct": "D",
+    "explanation": "10×3=30.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E251"
+  },
+  {
+    "question": "En espanol: 50 + 2 = ?",
+    "options": [
+      "48",
+      "51",
+      "53",
+      "52"
+    ],
+    "correct": "D",
+    "explanation": "50+2=52.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E252"
+  },
+  {
+    "question": "En espanol: 45 + 5 = ?",
+    "options": [
+      "50",
+      "49",
+      "40",
+      "51"
+    ],
+    "correct": "A",
+    "explanation": "45+5=50.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E253"
+  },
+  {
+    "question": "En espanol: 58 + 11 = ?",
+    "options": [
+      "69",
+      "47",
+      "68",
+      "70"
+    ],
+    "correct": "A",
+    "explanation": "58+11=69.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E254"
+  },
+  {
+    "question": "En espanol: 49 + 7 = ?",
+    "options": [
+      "55",
+      "42",
+      "56",
+      "57"
+    ],
+    "correct": "C",
+    "explanation": "49+7=56.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E255"
+  },
+  {
+    "question": "En espanol: 50 + 7 = ?",
+    "options": [
+      "43",
+      "58",
+      "56",
+      "57"
+    ],
+    "correct": "D",
+    "explanation": "50+7=57.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E256"
+  },
+  {
+    "question": "En espanol: 59 + 7 = ?",
+    "options": [
+      "66",
+      "65",
+      "67",
+      "52"
+    ],
+    "correct": "A",
+    "explanation": "59+7=66.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E257"
+  },
+  {
+    "question": "En espanol: 55 + 11 = ?",
+    "options": [
+      "44",
+      "67",
+      "66",
+      "65"
+    ],
+    "correct": "C",
+    "explanation": "55+11=66.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E258"
+  },
+  {
+    "question": "En espanol: 45 + 8 = ?",
+    "options": [
+      "54",
+      "52",
+      "37",
+      "53"
+    ],
+    "correct": "D",
+    "explanation": "45+8=53.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E259"
+  },
+  {
+    "question": "En espanol: 40 + 5 = ?",
+    "options": [
+      "35",
+      "46",
+      "44",
+      "45"
+    ],
+    "correct": "D",
+    "explanation": "40+5=45.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E260"
+  },
+  {
+    "question": "En espanol: 54 + 5 = ?",
+    "options": [
+      "59",
+      "58",
+      "60",
+      "49"
+    ],
+    "correct": "A",
+    "explanation": "54+5=59.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E261"
+  },
+  {
+    "question": "En espanol: 47 + 4 = ?",
+    "options": [
+      "50",
+      "51",
+      "43",
+      "52"
+    ],
+    "correct": "B",
+    "explanation": "47+4=51.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E262"
+  },
+  {
+    "question": "En espanol: 22 + 17 = ?",
+    "options": [
+      "5",
+      "39",
+      "40",
+      "38"
+    ],
+    "correct": "B",
+    "explanation": "22+17=39.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E263"
+  },
+  {
+    "question": "En espanol: 19 + 5 = ?",
+    "options": [
+      "14",
+      "25",
+      "24",
+      "23"
+    ],
+    "correct": "C",
+    "explanation": "19+5=24.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E264"
+  },
+  {
+    "question": "En espanol: 52 + 12 = ?",
+    "options": [
+      "64",
+      "65",
+      "63",
+      "40"
+    ],
+    "correct": "A",
+    "explanation": "52+12=64.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E265"
+  },
+  {
+    "question": "En espanol: 35 + 5 = ?",
+    "options": [
+      "39",
+      "41",
+      "30",
+      "40"
+    ],
+    "correct": "D",
+    "explanation": "35+5=40.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E266"
+  },
+  {
+    "question": "En espanol: 32 + 16 = ?",
+    "options": [
+      "47",
+      "49",
+      "16",
+      "48"
+    ],
+    "correct": "D",
+    "explanation": "32+16=48.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E267"
+  },
+  {
+    "question": "En espanol: 28 + 5 = ?",
+    "options": [
+      "32",
+      "34",
+      "23",
+      "33"
+    ],
+    "correct": "D",
+    "explanation": "28+5=33.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E268"
+  },
+  {
+    "question": "En espanol: 47 + 7 = ?",
+    "options": [
+      "40",
+      "54",
+      "53",
+      "55"
+    ],
+    "correct": "B",
+    "explanation": "47+7=54.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E269"
+  },
+  {
+    "question": "En espanol: 19 + 7 = ?",
+    "options": [
+      "26",
+      "12",
+      "25",
+      "27"
+    ],
+    "correct": "A",
+    "explanation": "19+7=26.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E270"
+  },
+  {
+    "question": "En espanol: 54 + 17 = ?",
+    "options": [
+      "70",
+      "71",
+      "72",
+      "37"
+    ],
+    "correct": "B",
+    "explanation": "54+17=71.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E271"
+  },
+  {
+    "question": "En espanol: 30 + 3 = ?",
+    "options": [
+      "34",
+      "27",
+      "33",
+      "32"
+    ],
+    "correct": "C",
+    "explanation": "30+3=33.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E272"
+  },
+  {
+    "question": "En espanol: 48 + 18 = ?",
+    "options": [
+      "67",
+      "65",
+      "30",
+      "66"
+    ],
+    "correct": "D",
+    "explanation": "48+18=66.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E273"
+  },
+  {
+    "question": "En espanol: 13 + 4 = ?",
+    "options": [
+      "9",
+      "18",
+      "16",
+      "17"
+    ],
+    "correct": "D",
+    "explanation": "13+4=17.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E274"
+  },
+  {
+    "question": "En espanol: 12 x 4 = ?",
+    "options": [
+      "49",
+      "48",
+      "16",
+      "47"
+    ],
+    "correct": "B",
+    "explanation": "12x4=48.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E275"
+  },
+  {
+    "question": "En espanol: 46 + 14 = ?",
+    "options": [
+      "59",
+      "61",
+      "32",
+      "60"
+    ],
+    "correct": "D",
+    "explanation": "46+14=60.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E276"
+  },
+  {
+    "question": "En espanol: 34 + 3 = ?",
+    "options": [
+      "31",
+      "38",
+      "36",
+      "37"
+    ],
+    "correct": "D",
+    "explanation": "34+3=37.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E277"
+  },
+  {
+    "question": "En espanol: 38 + 17 = ?",
+    "options": [
+      "56",
+      "55",
+      "54",
+      "21"
+    ],
+    "correct": "B",
+    "explanation": "38+17=55.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E278"
+  },
+  {
+    "question": "En espanol: 15 + 7 = ?",
+    "options": [
+      "21",
+      "22",
+      "23",
+      "8"
+    ],
+    "correct": "B",
+    "explanation": "15+7=22.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E279"
+  },
+  {
+    "question": "En espanol: 32 + 17 = ?",
+    "options": [
+      "49",
+      "15",
+      "48",
+      "50"
+    ],
+    "correct": "A",
+    "explanation": "32+17=49.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E280"
+  },
+  {
+    "question": "En espanol: 33 + 6 = ?",
+    "options": [
+      "39",
+      "27",
+      "40",
+      "38"
+    ],
+    "correct": "A",
+    "explanation": "33+6=39.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E281"
+  },
+  {
+    "question": "En espanol: 16 + 13 = ?",
+    "options": [
+      "29",
+      "28",
+      "30",
+      "3"
+    ],
+    "correct": "A",
+    "explanation": "16+13=29.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E282"
+  },
+  {
+    "question": "En espanol: 44 + 19 = ?",
+    "options": [
+      "62",
+      "25",
+      "64",
+      "63"
+    ],
+    "correct": "D",
+    "explanation": "44+19=63.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E283"
+  },
+  {
+    "question": "En espanol: 42 + 17 = ?",
+    "options": [
+      "60",
+      "59",
+      "58",
+      "25"
+    ],
+    "correct": "B",
+    "explanation": "42+17=59.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E284"
+  },
+  {
+    "question": "En espanol: 38 + 6 = ?",
+    "options": [
+      "45",
+      "32",
+      "44",
+      "43"
+    ],
+    "correct": "C",
+    "explanation": "38+6=44.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E285"
+  },
+  {
+    "question": "En espanol: 35 + 2 = ?",
+    "options": [
+      "38",
+      "37",
+      "33",
+      "36"
+    ],
+    "correct": "B",
+    "explanation": "35+2=37.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E286"
+  },
+  {
+    "question": "En espanol: 21 + 16 = ?",
+    "options": [
+      "5",
+      "37",
+      "36",
+      "38"
+    ],
+    "correct": "B",
+    "explanation": "21+16=37.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E287"
+  },
+  {
+    "question": "En espanol: 12 x 6 = ?",
+    "options": [
+      "71",
+      "18",
+      "72",
+      "73"
+    ],
+    "correct": "C",
+    "explanation": "12x6=72.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E288"
+  },
+  {
+    "question": "En espanol: 28 + 17 = ?",
+    "options": [
+      "11",
+      "44",
+      "45",
+      "46"
+    ],
+    "correct": "C",
+    "explanation": "28+17=45.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E289"
+  },
+  {
+    "question": "En espanol: 43 + 18 = ?",
+    "options": [
+      "61",
+      "60",
+      "62",
+      "25"
+    ],
+    "correct": "A",
+    "explanation": "43+18=61.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E290"
+  },
+  {
+    "question": "En espanol: 29 + 5 = ?",
+    "options": [
+      "35",
+      "33",
+      "34",
+      "24"
+    ],
+    "correct": "C",
+    "explanation": "29+5=34.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E291"
+  },
+  {
+    "question": "En espanol: 14 + 15 = ?",
+    "options": [
+      "-1",
+      "29",
+      "28",
+      "30"
+    ],
+    "correct": "B",
+    "explanation": "14+15=29.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E292"
+  },
+  {
+    "question": "En espanol: 2 x 2 = ?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "4?"
+    ],
+    "correct": "B",
+    "explanation": "2x2=4.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E293"
+  },
+  {
+    "question": "En espanol: 46 + 5 = ?",
+    "options": [
+      "50",
+      "51",
+      "52",
+      "41"
+    ],
+    "correct": "B",
+    "explanation": "46+5=51.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E294"
+  },
+  {
+    "question": "En espanol: 44 + 17 = ?",
+    "options": [
+      "62",
+      "61",
+      "27",
+      "60"
+    ],
+    "correct": "B",
+    "explanation": "44+17=61.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E295"
+  },
+  {
+    "question": "En espanol: 6 x 9 = ?",
+    "options": [
+      "55",
+      "15",
+      "53",
+      "54"
+    ],
+    "correct": "D",
+    "explanation": "6x9=54.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E296"
+  },
+  {
+    "question": "En espanol: 50 + 6 = ?",
+    "options": [
+      "55",
+      "57",
+      "56",
+      "44"
+    ],
+    "correct": "C",
+    "explanation": "50+6=56.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E297"
+  },
+  {
+    "question": "En espanol: 10 + 18 = ?",
+    "options": [
+      "28",
+      "29",
+      "27",
+      "-8"
+    ],
+    "correct": "A",
+    "explanation": "10+18=28.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E298"
+  },
+  {
+    "question": "En espanol: 42 + 18 = ?",
+    "options": [
+      "60",
+      "59",
+      "24",
+      "61"
+    ],
+    "correct": "A",
+    "explanation": "42+18=60.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E299"
+  },
+  {
+    "question": "En espanol: 8 x 9 = ?",
+    "options": [
+      "73",
+      "71",
+      "72",
+      "17"
+    ],
+    "correct": "C",
+    "explanation": "8x9=72.",
+    "category": "Calcul",
+    "difficulty": "facile",
+    "timer_seconds": 30,
+    "id": "E9E300"
+  }
+]

@@ -1,0 +1,59 @@
+{% if daily_missions %}
+<section class="v2-daily-missions" aria-label="Missions du jour">
+  <div class="v2-daily-missions__head">
+    <div>
+      <div class="v2-daily-missions__title">
+        <i class="fas fa-bullseye" aria-hidden="true"></i>
+        Missions du jour
+      </div>
+      <div class="v2-daily-missions__sub">{{ daily_missions.date_label }}</div>
+    </div>
+    <div class="v2-daily-missions__meta">
+      <span class="v2-daily-pill v2-daily-pill--green">
+        <i class="fas fa-check-circle"></i>
+        {{ daily_missions.completed }}/{{ daily_missions.total }}
+      </span>
+      {% if daily_missions.streak %}
+      <span class="v2-daily-pill v2-daily-pill--orange">
+        <i class="fas fa-fire"></i> {{ daily_missions.streak }} j
+      </span>
+      {% endif %}
+      <span class="v2-daily-pill">
+        +{{ daily_missions.xp_earned_today }}/{{ daily_missions.xp_available_today }} XP
+      </span>
+    </div>
+  </div>
+
+  <div class="v2-daily-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ daily_missions.progress_pct }}">
+    <div class="v2-daily-progress__fill" style="width: {{ daily_missions.progress_pct }}%;"></div>
+  </div>
+
+  <div class="v2-daily-list">
+    {% for m in daily_missions.items %}
+    <a href="{{ m.url }}" class="v2-mission-card{% if m.completed %} is-done{% endif %}">
+      <div class="v2-mission-card__icon" style="background: {{ m.color }}22; color: {{ m.color }};">
+        <i class="{{ m.icon }}" aria-hidden="true"></i>
+      </div>
+      <div class="v2-mission-card__body">
+        <div class="v2-mission-card__title">{{ m.title }}</div>
+        <div class="v2-mission-card__desc">{{ m.description }}</div>
+      </div>
+      <div class="v2-mission-card__right">
+        {% if m.xp %}
+        <span class="v2-mission-card__xp">+{{ m.xp }} XP</span>
+        {% endif %}
+        <span class="v2-mission-card__status" aria-hidden="true">
+          {% if m.completed %}<i class="fas fa-check"></i>{% else %}&nbsp;{% endif %}
+        </span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% if daily_missions.is_guest %}
+  <p style="margin-top:.75rem;font-size:.72rem;color:var(--t3);text-align:center;">
+  Crée un compte pour sauvegarder ta progression et tes missions.
+  </p>
+  {% endif %}
+</section>
+{% endif %}

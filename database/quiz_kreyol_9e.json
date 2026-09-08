@@ -1,0 +1,4767 @@
+{
+  "matiere": "kreyol",
+  "level": "9e AF",
+  "total": 300,
+  "description": "Quiz Kreyòl — 9e AF : examens officiels + programme 9e (300 QCM, réponses vérifiées)",
+  "quiz": [
+    {
+      "id": "K9E1",
+      "category": "Gramè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "«Li reziyen li, li chita tèt bese.» Fraz sa a se yon fraz tip :",
+      "correct": "C",
+      "explanation": "Se yon fraz deklaratif : li bay yon enfòmasyon, li pa bay lòd (enperatif), li pa poze kesyon (entèwogatif), li pa montre yon emosyon fò (esklamatif).",
+      "options": [
+        "Enperatif",
+        "Entèwogatif",
+        "Deklaratif",
+        "Esklamatif"
+      ]
+    },
+    {
+      "id": "K9E2",
+      "category": "Aspè tan",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "«Pandan l ap panse konsa, yon lòt vwayajè rive.» Vèb ki souliye (ap panse) nan fraz sa a, nan ki tan ak aspè ?",
+      "correct": "B",
+      "explanation": "«Ap» make prezan inakonpli : aksyon an ap fèt nan moman an, li poko fini. Se pa prezan akonpli, ni pase akonpli, ni pase inakonpli.",
+      "options": [
+        "Prezan akonpli",
+        "Prezan inakonpli",
+        "Pase akonpli",
+        "Pase inakonpli"
+      ]
+    },
+    {
+      "id": "K9E3",
+      "category": "Figi estil",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "question": "«Lavi a se yon vwayaj.» Figi estil nou gen nan fraz sa a se :",
+      "correct": "D",
+      "explanation": "Se yon metafò : lavi a idantifye dirèkteman ak yon vwayaj, san mo konparezon tankou «tankou» oswa «tank». Konparezon ta bezwen yon zouti konparezon. Se pa pèsonifikasyon ni metonimi.",
+      "options": [
+        "Konparezon",
+        "Pèsonifikasyon",
+        "Metonimi",
+        "Metafò"
+      ]
+    },
+    {
+      "id": "K9E4",
+      "category": "Vokabilè",
+      "difficulty": "facile",
+      "timer_seconds": 25,
+      "question": "Men yon lis mo : vwayajè, malèt, dekouvèt, rankont, wout, pwovizyon. Tout mo sa yo kapab antre nan chan leksikal :",
+      "correct": "B",
+      "explanation": "Tout mo yo pale de vwayaj (moun k ap vwayaje, valiz, wout, pwovizyon pou wout). Yo pa fòme chan leksikal peyi, elvaj ni jaden.",
+      "options": [
+        "Peyi",
+        "Vwayaj",
+        "Elvaj",
+        "Jaden"
+      ]
+    },
+    {
+      "question": "Mwens =",
+      "options": [
+        "moins",
+        "plus",
+        "beaucoup",
+        "tout"
+      ],
+      "correct": "A",
+      "explanation": "Less.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E5"
+    },
+    {
+      "question": "Jakmèl =",
+      "options": [
+        "Jacmel",
+        "Port-au-Prince",
+        "Cap-Haïtien",
+        "Les Cayes"
+      ],
+      "correct": "A",
+      "explanation": "Jacmel.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E6"
+    },
+    {
+      "question": "Mwa =",
+      "options": [
+        "mois",
+        "jour",
+        "semaine",
+        "heure"
+      ],
+      "correct": "A",
+      "explanation": "Month.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E7"
+    },
+    {
+      "question": "Bezwen =",
+      "options": [
+        "besoin",
+        "richesse",
+        "luxe",
+        "jeu"
+      ],
+      "correct": "A",
+      "explanation": "Need.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E8"
+    },
+    {
+      "question": "Gen =",
+      "options": [
+        "avoir / il y a",
+        "pas avoir",
+        "rien",
+        "zéro"
+      ],
+      "correct": "A",
+      "explanation": "Have/there is.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E9"
+    },
+    {
+      "question": "Vyann =",
+      "options": [
+        "viande",
+        "fruit",
+        "légume",
+        "pain"
+      ],
+      "correct": "A",
+      "explanation": "Meat.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E10"
+    },
+    {
+      "question": "Bon nòt =",
+      "options": [
+        "bonne note",
+        "mauvaise note",
+        "zéro",
+        "échec"
+      ],
+      "correct": "A",
+      "explanation": "Good grade.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E11"
+    },
+    {
+      "question": "Polisyon =",
+      "options": [
+        "pollution",
+        "propreté",
+        "pureté",
+        "clarté"
+      ],
+      "correct": "A",
+      "explanation": "Pollution.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E12"
+    },
+    {
+      "question": "Vòt =",
+      "options": [
+        "vote",
+        "jeu",
+        "fête",
+        "repos"
+      ],
+      "correct": "A",
+      "explanation": "Vote.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E13"
+    },
+    {
+      "question": "Règ =",
+      "options": [
+        "règle",
+        "crayon",
+        "stylo",
+        "gomme"
+      ],
+      "correct": "A",
+      "explanation": "Ruler.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E14"
+    },
+    {
+      "question": "Siksè =",
+      "options": [
+        "succès",
+        "échec",
+        "erreur",
+        "perte"
+      ],
+      "correct": "A",
+      "explanation": "Success.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E15"
+    },
+    {
+      "question": "Bliye =",
+      "options": [
+        "oublier",
+        "se souvenir",
+        "savoir",
+        "voir"
+      ],
+      "correct": "A",
+      "explanation": "Forget.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E16"
+    },
+    {
+      "question": "Giraumon =",
+      "options": [
+        "giraumon / courge",
+        "tomate",
+        "pomme",
+        "orange"
+      ],
+      "correct": "A",
+      "explanation": "Pumpkin/squash.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E17"
+    },
+    {
+      "question": "Mwen pale kreyòl =",
+      "options": [
+        "Je parle créole",
+        "Je mange",
+        "Je dors",
+        "Je cours"
+      ],
+      "correct": "A",
+      "explanation": "I speak Creole.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E18"
+    },
+    {
+      "question": "Poukisa? =",
+      "options": [
+        "pourquoi?",
+        "comment?",
+        "où?",
+        "quand?"
+      ],
+      "correct": "A",
+      "explanation": "Why?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E19"
+    },
+    {
+      "question": "Manman =",
+      "options": [
+        "mère",
+        "père",
+        "frère",
+        "sœur"
+      ],
+      "correct": "A",
+      "explanation": "Mother.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E20"
+    },
+    {
+      "question": "Dèyè =",
+      "options": [
+        "derrière",
+        "devant",
+        "sur",
+        "dans"
+      ],
+      "correct": "A",
+      "explanation": "Behind.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E21"
+    },
+    {
+      "question": "Kreyòl se lang",
+      "options": [
+        "ofisyèl",
+        "etranjè",
+        "obligatwa sèl",
+        "entèdi"
+      ],
+      "correct": "A",
+      "explanation": "Official language.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E22"
+    },
+    {
+      "question": "Mòn =",
+      "options": [
+        "montagne",
+        "mer",
+        "rivière",
+        "plage"
+      ],
+      "correct": "A",
+      "explanation": "Mountain.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E23"
+    },
+    {
+      "question": "Mande =",
+      "options": [
+        "demander",
+        "répondre",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Ask.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E24"
+    },
+    {
+      "question": "Solèy =",
+      "options": [
+        "soleil",
+        "lune",
+        "étoile",
+        "nuage"
+      ],
+      "correct": "A",
+      "explanation": "Sun.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E25"
+    },
+    {
+      "question": "Plantasyon =",
+      "options": [
+        "plantation",
+        "usine",
+        "école",
+        "hôpital"
+      ],
+      "correct": "A",
+      "explanation": "Plantation.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E26"
+    },
+    {
+      "question": "Plant =",
+      "options": [
+        "planter",
+        "cueillir",
+        "manger",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Plant.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E27"
+    },
+    {
+      "question": "Sou =",
+      "options": [
+        "sur",
+        "dans",
+        "sous",
+        "devant"
+      ],
+      "correct": "A",
+      "explanation": "On.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E28"
+    },
+    {
+      "question": "Ekonomi =",
+      "options": [
+        "économie",
+        "politique",
+        "sport",
+        "musique"
+      ],
+      "correct": "A",
+      "explanation": "Economy.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E29"
+    },
+    {
+      "question": "Gwo =",
+      "options": [
+        "grand",
+        "petit",
+        "court",
+        "bas"
+      ],
+      "correct": "A",
+      "explanation": "Big.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E30"
+    },
+    {
+      "question": "Renmen =",
+      "options": [
+        "aimer",
+        "détester",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Love/like.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E31"
+    },
+    {
+      "question": "Kalandriyè =",
+      "options": [
+        "calendrier",
+        "horloge",
+        "montre",
+        "réveil"
+      ],
+      "correct": "A",
+      "explanation": "Calendar.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E32"
+    },
+    {
+      "question": "Gade =",
+      "options": [
+        "regarder",
+        "écouter",
+        "dormir",
+        "manger"
+      ],
+      "correct": "A",
+      "explanation": "Look.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E33"
+    },
+    {
+      "question": "Ble =",
+      "options": [
+        "bleu",
+        "rouge",
+        "vert",
+        "noir"
+      ],
+      "correct": "A",
+      "explanation": "Blue.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E34"
+    },
+    {
+      "question": "Endepandans Ayiti =",
+      "options": [
+        "1 janvier 1804",
+        "14 juillet 1789",
+        "4 juillet 1776",
+        "1492"
+      ],
+      "correct": "A",
+      "explanation": "Haiti independence.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E35"
+    },
+    {
+      "question": "Danse =",
+      "options": [
+        "danse",
+        "musique",
+        "peinture",
+        "sculpture"
+      ],
+      "correct": "A",
+      "explanation": "Dance.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E36"
+    },
+    {
+      "question": "NS4 =",
+      "options": [
+        "nouveau secondaire (4 ans)",
+        "fondamental",
+        "université",
+        "maternelle"
+      ],
+      "correct": "A",
+      "explanation": "NS4 secondary.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E37"
+    },
+    {
+      "question": "Tèt =",
+      "options": [
+        "tête",
+        "pied",
+        "main",
+        "dos"
+      ],
+      "correct": "A",
+      "explanation": "Head.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E38"
+    },
+    {
+      "question": "Chofè =",
+      "options": [
+        "chauffeur",
+        "docteur",
+        "professeur",
+        "cuisinier"
+      ],
+      "correct": "A",
+      "explanation": "Driver.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E39"
+    },
+    {
+      "question": "Dwa =",
+      "options": [
+        "droit",
+        "devoir seul",
+        "interdiction",
+        "crime"
+      ],
+      "correct": "A",
+      "explanation": "Right.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E40"
+    },
+    {
+      "question": "Mache =",
+      "options": [
+        "marché",
+        "école",
+        "hôpital",
+        "église"
+      ],
+      "correct": "A",
+      "explanation": "Market.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E41"
+    },
+    {
+      "question": "Vle =",
+      "options": [
+        "vouloir",
+        "refuser",
+        "dormir",
+        "manger"
+      ],
+      "correct": "A",
+      "explanation": "Want.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E42"
+    },
+    {
+      "question": "Bato =",
+      "options": [
+        "bateau",
+        "voiture",
+        "avion",
+        "train"
+      ],
+      "correct": "A",
+      "explanation": "Boat.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E43"
+    },
+    {
+      "question": "Lanmè =",
+      "options": [
+        "mer",
+        "montagne",
+        "rivière",
+        "forêt"
+      ],
+      "correct": "A",
+      "explanation": "Sea.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E44"
+    },
+    {
+      "question": "Blan =",
+      "options": [
+        "blanc",
+        "noir",
+        "gris",
+        "rose"
+      ],
+      "correct": "A",
+      "explanation": "White.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E45"
+    },
+    {
+      "question": "Rivyè =",
+      "options": [
+        "rivière",
+        "mer",
+        "montagne",
+        "désert"
+      ],
+      "correct": "A",
+      "explanation": "River.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E46"
+    },
+    {
+      "question": "Men =",
+      "options": [
+        "main",
+        "pied",
+        "tête",
+        "dos"
+      ],
+      "correct": "A",
+      "explanation": "Hand.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E47"
+    },
+    {
+      "question": "Ekselan =",
+      "options": [
+        "excellent",
+        "mauvais",
+        "médiocre",
+        "nul"
+      ],
+      "correct": "A",
+      "explanation": "Excellent.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E48"
+    },
+    {
+      "question": "Sonje =",
+      "options": [
+        "se souvenir",
+        "oublier",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Remember.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E49"
+    },
+    {
+      "question": "Defèt =",
+      "options": [
+        "défaite",
+        "victoire",
+        "succès",
+        "gain"
+      ],
+      "correct": "A",
+      "explanation": "Defeat.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E50"
+    },
+    {
+      "question": "Pa gen =",
+      "options": [
+        "il n'y a pas",
+        "il y a",
+        "beaucoup",
+        "tout"
+      ],
+      "correct": "A",
+      "explanation": "There isn't.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E51"
+    },
+    {
+      "question": "Li ak ekri =",
+      "options": [
+        "lire et écrire",
+        "manger et dormir",
+        "courir et sauter",
+        "chanter et danser"
+      ],
+      "correct": "A",
+      "explanation": "Read and write.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E52"
+    },
+    {
+      "question": "Mwen fatige =",
+      "options": [
+        "Je suis fatigué",
+        "Je suis content",
+        "Je suis jeune",
+        "Je suis riche"
+      ],
+      "correct": "A",
+      "explanation": "Tired.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E53"
+    },
+    {
+      "question": "Non =",
+      "options": [
+        "non",
+        "oui",
+        "si",
+        "toujours"
+      ],
+      "correct": "A",
+      "explanation": "No.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E54"
+    },
+    {
+      "question": "Mèsi =",
+      "options": [
+        "merci",
+        "bonjour",
+        "pardon",
+        "oui"
+      ],
+      "correct": "A",
+      "explanation": "Thanks.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E55"
+    },
+    {
+      "question": "Lajan =",
+      "options": [
+        "argent",
+        "temps",
+        "eau",
+        "pain"
+      ],
+      "correct": "A",
+      "explanation": "Money.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E56"
+    },
+    {
+      "question": "Pa =",
+      "options": [
+        "ne pas / pas",
+        "oui",
+        "si",
+        "toujours"
+      ],
+      "correct": "A",
+      "explanation": "Negation.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E57"
+    },
+    {
+      "question": "Tan =",
+      "options": [
+        "temps",
+        "argent",
+        "eau",
+        "pain"
+      ],
+      "correct": "A",
+      "explanation": "Time.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E58"
+    },
+    {
+      "question": "Ane =",
+      "options": [
+        "année",
+        "jour",
+        "heure",
+        "minute"
+      ],
+      "correct": "A",
+      "explanation": "Year.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E59"
+    },
+    {
+      "question": "Rekòt =",
+      "options": [
+        "récolte",
+        "semence",
+        "pluie",
+        "vent"
+      ],
+      "correct": "A",
+      "explanation": "Harvest.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E60"
+    },
+    {
+      "question": "Piti =",
+      "options": [
+        "petit",
+        "grand",
+        "long",
+        "haut"
+      ],
+      "correct": "A",
+      "explanation": "Small.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E61"
+    },
+    {
+      "question": "Van =",
+      "options": [
+        "vent",
+        "pluie",
+        "neige",
+        "soleil"
+      ],
+      "correct": "A",
+      "explanation": "Wind.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E62"
+    },
+    {
+      "question": "Kreyòl ayisyen =",
+      "options": [
+        "langue nationale",
+        "langue étrangère",
+        "langue morte",
+        "langue inventée"
+      ],
+      "correct": "A",
+      "explanation": "National language.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E63"
+    },
+    {
+      "question": "Revèy =",
+      "options": [
+        "réveil / rêve",
+        "calendrier",
+        "montre",
+        "horloge"
+      ],
+      "correct": "A",
+      "explanation": "Alarm/dream.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E64"
+    },
+    {
+      "question": "Lavi =",
+      "options": [
+        "vie",
+        "mort",
+        "fin",
+        "échec"
+      ],
+      "correct": "A",
+      "explanation": "Life.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E65"
+    },
+    {
+      "question": "Pale =",
+      "options": [
+        "parler",
+        "écouter",
+        "dormir",
+        "manger"
+      ],
+      "correct": "A",
+      "explanation": "Speak.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E66"
+    },
+    {
+      "question": "Alfabè =",
+      "options": [
+        "alphabétisation",
+        "analphabétisme",
+        "ignorance",
+        "fuite"
+      ],
+      "correct": "A",
+      "explanation": "Literacy.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E67"
+    },
+    {
+      "question": "Patriyot =",
+      "options": [
+        "patriote",
+        "traître",
+        "ennemi",
+        "étranger"
+      ],
+      "correct": "A",
+      "explanation": "Patriot.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E68"
+    },
+    {
+      "question": "Ayisyen =",
+      "options": [
+        "haïtien",
+        "étranger",
+        "ennemi",
+        "touriste"
+      ],
+      "correct": "A",
+      "explanation": "Haitian.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E69"
+    },
+    {
+      "question": "Bonswa =",
+      "options": [
+        "bonsoir",
+        "bonjour",
+        "bonne nuit",
+        "salut"
+      ],
+      "correct": "A",
+      "explanation": "Soir.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E70"
+    },
+    {
+      "question": "Enjis =",
+      "options": [
+        "injuste",
+        "juste",
+        "équitable",
+        "honnête"
+      ],
+      "correct": "A",
+      "explanation": "Unjust.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E71"
+    },
+    {
+      "question": "Nwa =",
+      "options": [
+        "noir",
+        "blanc",
+        "gris",
+        "rose"
+      ],
+      "correct": "A",
+      "explanation": "Black.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E72"
+    },
+    {
+      "question": "Timoun =",
+      "options": [
+        "enfant",
+        "adulte",
+        "vieux",
+        "bébé seul"
+      ],
+      "correct": "A",
+      "explanation": "Child.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E73"
+    },
+    {
+      "question": "Kay =",
+      "options": [
+        "maison",
+        "école",
+        "voiture",
+        "livre"
+      ],
+      "correct": "A",
+      "explanation": "House.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E74"
+    },
+    {
+      "question": "Jòn =",
+      "options": [
+        "jaune",
+        "rouge",
+        "bleu",
+        "vert"
+      ],
+      "correct": "A",
+      "explanation": "Yellow.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E75"
+    },
+    {
+      "question": "Amerik =",
+      "options": [
+        "Amérique",
+        "Europe",
+        "Asie",
+        "Afrique"
+      ],
+      "correct": "A",
+      "explanation": "America.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E76"
+    },
+    {
+      "question": "Lanmò =",
+      "options": [
+        "mort",
+        "vie",
+        "naissance",
+        "croissance"
+      ],
+      "correct": "A",
+      "explanation": "Death.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E77"
+    },
+    {
+      "question": "Tanpri =",
+      "options": [
+        "s'il te plaît",
+        "merci",
+        "pardon",
+        "bonjour"
+      ],
+      "correct": "A",
+      "explanation": "Please.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E78"
+    },
+    {
+      "question": "Kalkilatè =",
+      "options": [
+        "calculatrice",
+        "crayon",
+        "stylo",
+        "gomme"
+      ],
+      "correct": "A",
+      "explanation": "Calculator.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E79"
+    },
+    {
+      "question": "Klas =",
+      "options": [
+        "classe",
+        "maison",
+        "rue",
+        "marché"
+      ],
+      "correct": "A",
+      "explanation": "Class.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E80"
+    },
+    {
+      "question": "Legim =",
+      "options": [
+        "légume",
+        "fruit",
+        "viande",
+        "pain"
+      ],
+      "correct": "A",
+      "explanation": "Vegetable.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E81"
+    },
+    {
+      "question": "Jwenn =",
+      "options": [
+        "trouver / obtenir",
+        "perdre",
+        "cacher",
+        "jeter"
+      ],
+      "correct": "A",
+      "explanation": "Find/get.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E82"
+    },
+    {
+      "question": "Lalin =",
+      "options": [
+        "lune",
+        "soleil",
+        "étoile",
+        "nuage"
+      ],
+      "correct": "A",
+      "explanation": "Moon.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E83"
+    },
+    {
+      "question": "Plim =",
+      "options": [
+        "stylo (plume)",
+        "crayon",
+        "gomme",
+        "règle"
+      ],
+      "correct": "A",
+      "explanation": "Pen.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E84"
+    },
+    {
+      "question": "Jis =",
+      "options": [
+        "juste",
+        "injuste",
+        "cruel",
+        "méchant"
+      ],
+      "correct": "A",
+      "explanation": "Just.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E85"
+    },
+    {
+      "question": "Kouri =",
+      "options": [
+        "courir",
+        "marcher",
+        "dormir",
+        "manger"
+      ],
+      "correct": "A",
+      "explanation": "Run.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E86"
+    },
+    {
+      "question": "San =",
+      "options": [
+        "sans",
+        "avec",
+        "pour",
+        "de"
+      ],
+      "correct": "A",
+      "explanation": "Without.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E87"
+    },
+    {
+      "question": "Repo =",
+      "options": [
+        "repos",
+        "travail",
+        "jeu",
+        "course"
+      ],
+      "correct": "A",
+      "explanation": "Rest.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E88"
+    },
+    {
+      "question": "Mache pri =",
+      "options": [
+        "marché / prix monte",
+        "baisse",
+        "stable",
+        "zéro"
+      ],
+      "correct": "A",
+      "explanation": "Market/price.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E89"
+    },
+    {
+      "question": "Depatman =",
+      "options": [
+        "département",
+        "commune",
+        "quartier",
+        "rue"
+      ],
+      "correct": "A",
+      "explanation": "Department.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E90"
+    },
+    {
+      "question": "Pòtoprens =",
+      "options": [
+        "Port-au-Prince",
+        "Cap-Haïtien",
+        "Jacmel",
+        "Les Cayes"
+      ],
+      "correct": "A",
+      "explanation": "Capital.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E91"
+    },
+    {
+      "question": "Avyon =",
+      "options": [
+        "avion",
+        "voiture",
+        "bateau",
+        "train"
+      ],
+      "correct": "A",
+      "explanation": "Plane.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E92"
+    },
+    {
+      "question": "Chante =",
+      "options": [
+        "chanter",
+        "danser",
+        "manger",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Sing.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E93"
+    },
+    {
+      "question": "Konpitè =",
+      "options": [
+        "ordinateur",
+        "téléphone",
+        "radio",
+        "télé"
+      ],
+      "correct": "A",
+      "explanation": "Computer.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E94"
+    },
+    {
+      "question": "Foto =",
+      "options": [
+        "photo",
+        "vidéo",
+        "audio",
+        "texte"
+      ],
+      "correct": "A",
+      "explanation": "Photo.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E95"
+    },
+    {
+      "question": "Padon =",
+      "options": [
+        "pardon",
+        "merci",
+        "bonjour",
+        "oui"
+      ],
+      "correct": "A",
+      "explanation": "Sorry.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E96"
+    },
+    {
+      "question": "Lidè =",
+      "options": [
+        "leader",
+        "suiveur",
+        "ennemi",
+        "étranger"
+      ],
+      "correct": "A",
+      "explanation": "Leader.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E97"
+    },
+    {
+      "question": "Kote? =",
+      "options": [
+        "où?",
+        "quand?",
+        "qui?",
+        "quoi?"
+      ],
+      "correct": "A",
+      "explanation": "Where?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E98"
+    },
+    {
+      "question": "Machin =",
+      "options": [
+        "voiture",
+        "bateau",
+        "avion",
+        "train"
+      ],
+      "correct": "A",
+      "explanation": "Car.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E99"
+    },
+    {
+      "question": "Dlo k ap tonbe =",
+      "options": [
+        "pluie",
+        "neige",
+        "vent",
+        "soleil"
+      ],
+      "correct": "A",
+      "explanation": "Rain.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E100"
+    },
+    {
+      "question": "Mwen byen =",
+      "options": [
+        "Je suis bien",
+        "Je suis mal",
+        "Je dors",
+        "Je mange"
+      ],
+      "correct": "A",
+      "explanation": "I'm fine.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E101"
+    },
+    {
+      "question": "Rete =",
+      "options": [
+        "rester / arrêter",
+        "partir",
+        "courir",
+        "voler"
+      ],
+      "correct": "A",
+      "explanation": "Stay/stop.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E102"
+    },
+    {
+      "question": "Plis =",
+      "options": [
+        "plus",
+        "moins",
+        "peu",
+        "rien"
+      ],
+      "correct": "A",
+      "explanation": "More.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E103"
+    },
+    {
+      "question": "Pri =",
+      "options": [
+        "prix",
+        "temps",
+        "eau",
+        "air"
+      ],
+      "correct": "A",
+      "explanation": "Price.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E104"
+    },
+    {
+      "question": "Sitadèl =",
+      "options": [
+        "Citadelle Laferrière",
+        "Tour Eiffel",
+        "Big Ben",
+        "Colisée"
+      ],
+      "correct": "A",
+      "explanation": "Citadel.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E105"
+    },
+    {
+      "question": "Rezo sosyal =",
+      "options": [
+        "réseau social",
+        "journal",
+        "livre",
+        "crayon"
+      ],
+      "correct": "A",
+      "explanation": "Social network.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E106"
+    },
+    {
+      "question": "Devwa =",
+      "options": [
+        "devoir",
+        "droit seul",
+        "privilège",
+        "luxe"
+      ],
+      "correct": "A",
+      "explanation": "Duty.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E107"
+    },
+    {
+      "question": "Vye =",
+      "options": [
+        "vieux",
+        "nouveau",
+        "jeune",
+        "frais"
+      ],
+      "correct": "A",
+      "explanation": "Old.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E108"
+    },
+    {
+      "question": "Dlo =",
+      "options": [
+        "eau",
+        "pain",
+        "riz",
+        "sucre"
+      ],
+      "correct": "A",
+      "explanation": "Water.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E109"
+    },
+    {
+      "question": "Move =",
+      "options": [
+        "méchant/mauvais",
+        "bon",
+        "gentil",
+        "doux"
+      ],
+      "correct": "A",
+      "explanation": "Bad.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E110"
+    },
+    {
+      "question": "Kriminèl =",
+      "options": [
+        "criminel",
+        "honnête",
+        "innocent",
+        "juste"
+      ],
+      "correct": "A",
+      "explanation": "Criminal.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E111"
+    },
+    {
+      "question": "Janvye =",
+      "options": [
+        "janvier",
+        "février",
+        "mars",
+        "avril"
+      ],
+      "correct": "A",
+      "explanation": "January.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E112"
+    },
+    {
+      "question": "Nouvo =",
+      "options": [
+        "nouveau",
+        "vieux",
+        "ancien",
+        "usé"
+      ],
+      "correct": "A",
+      "explanation": "New.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E113"
+    },
+    {
+      "question": "Pye =",
+      "options": [
+        "pied",
+        "main",
+        "tête",
+        "dos"
+      ],
+      "correct": "A",
+      "explanation": "Foot.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E114"
+    },
+    {
+      "question": "Franse se lang",
+      "options": [
+        "ofisyèl tou",
+        "entèdi",
+        "obligatwa sèl",
+        "pa egziste"
+      ],
+      "correct": "A",
+      "explanation": "Also official.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E115"
+    },
+    {
+      "question": "Karayib =",
+      "options": [
+        "Caraïbes",
+        "Europe",
+        "Asie",
+        "Afrique"
+      ],
+      "correct": "A",
+      "explanation": "Caribbean.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E116"
+    },
+    {
+      "question": "Pou =",
+      "options": [
+        "pour",
+        "avec",
+        "sans",
+        "de"
+      ],
+      "correct": "A",
+      "explanation": "For.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E117"
+    },
+    {
+      "question": "Politik =",
+      "options": [
+        "politique",
+        "économie",
+        "sport",
+        "musique"
+      ],
+      "correct": "A",
+      "explanation": "Politics.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E118"
+    },
+    {
+      "question": "Repons =",
+      "options": [
+        "réponse",
+        "question",
+        "problème",
+        "devinette"
+      ],
+      "correct": "A",
+      "explanation": "Answer.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E119"
+    },
+    {
+      "question": "Dlo nan je =",
+      "options": [
+        "larmes",
+        "pluie",
+        "sueur",
+        "rosée"
+      ],
+      "correct": "A",
+      "explanation": "Tears.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E120"
+    },
+    {
+      "question": "Reyinyon =",
+      "options": [
+        "réunion / examen",
+        "fête",
+        "jeu",
+        "repos"
+      ],
+      "correct": "A",
+      "explanation": "Meeting/exam.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E121"
+    },
+    {
+      "question": "Kijan ou ye? =",
+      "options": [
+        "Comment es-tu?",
+        "Où es-tu?",
+        "Qui es-tu?",
+        "Quand?"
+      ],
+      "correct": "A",
+      "explanation": "How are you?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E122"
+    },
+    {
+      "question": "Papa =",
+      "options": [
+        "père",
+        "mère",
+        "frère",
+        "sœur"
+      ],
+      "correct": "A",
+      "explanation": "Father.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E123"
+    },
+    {
+      "question": "Rouj =",
+      "options": [
+        "rouge",
+        "bleu",
+        "vert",
+        "jaune"
+      ],
+      "correct": "A",
+      "explanation": "Red.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E124"
+    },
+    {
+      "question": "Reciklaj =",
+      "options": [
+        "recyclage",
+        "déchets",
+        "pollution",
+        "brûlage"
+      ],
+      "correct": "A",
+      "explanation": "Recycling.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E125"
+    },
+    {
+      "question": "Kòman? =",
+      "options": [
+        "comment?",
+        "pourquoi?",
+        "où?",
+        "quand?"
+      ],
+      "correct": "A",
+      "explanation": "How?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E126"
+    },
+    {
+      "question": "Komin =",
+      "options": [
+        "commune",
+        "département",
+        "rue",
+        "maison"
+      ],
+      "correct": "A",
+      "explanation": "Commune.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E127"
+    },
+    {
+      "question": "Pwoteje anviwonman =",
+      "options": [
+        "protéger l'environnement",
+        "polluer",
+        "détruire",
+        "brûler"
+      ],
+      "correct": "A",
+      "explanation": "Protect environment.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E128"
+    },
+    {
+      "question": "Riz =",
+      "options": [
+        "riz",
+        "pain",
+        "eau",
+        "sucre"
+      ],
+      "correct": "A",
+      "explanation": "Rice.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E129"
+    },
+    {
+      "question": "Respekte =",
+      "options": [
+        "respecter",
+        "insulter",
+        "ignorer",
+        "nuire"
+      ],
+      "correct": "A",
+      "explanation": "Respect.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E130"
+    },
+    {
+      "question": "Erè =",
+      "options": [
+        "erreur",
+        "solution",
+        "réponse",
+        "succès"
+      ],
+      "correct": "A",
+      "explanation": "Error.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E131"
+    },
+    {
+      "question": "Aprann =",
+      "options": [
+        "apprendre",
+        "oublier",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Learn.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E132"
+    },
+    {
+      "question": "Granmoun =",
+      "options": [
+        "adulte / vieux",
+        "enfant",
+        "bébé",
+        "ado"
+      ],
+      "correct": "A",
+      "explanation": "Adult.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E133"
+    },
+    {
+      "question": "Avèk =",
+      "options": [
+        "avec",
+        "sans",
+        "pour",
+        "de"
+      ],
+      "correct": "A",
+      "explanation": "With.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E134"
+    },
+    {
+      "question": "Vèt =",
+      "options": [
+        "vert",
+        "rouge",
+        "bleu",
+        "jaune"
+      ],
+      "correct": "A",
+      "explanation": "Green.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E135"
+    },
+    {
+      "question": "Yè =",
+      "options": [
+        "hier",
+        "demain",
+        "aujourd'hui",
+        "toujours"
+      ],
+      "correct": "A",
+      "explanation": "Yesterday.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E136"
+    },
+    {
+      "question": "Mwen rele... =",
+      "options": [
+        "Je m'appelle...",
+        "J'ai...",
+        "Je vais...",
+        "Je fais..."
+      ],
+      "correct": "A",
+      "explanation": "My name is...",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E137"
+    },
+    {
+      "question": "Reponn =",
+      "options": [
+        "répondre",
+        "demander",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Answer.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E138"
+    },
+    {
+      "question": "Kilè? =",
+      "options": [
+        "quand? / quelle heure?",
+        "où?",
+        "qui?",
+        "quoi?"
+      ],
+      "correct": "A",
+      "explanation": "When?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E139"
+    },
+    {
+      "question": "Premye janvye =",
+      "options": [
+        "1er janvier",
+        "18 mai",
+        "17 octobre",
+        "25 décembre"
+      ],
+      "correct": "A",
+      "explanation": "Jan 1.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E140"
+    },
+    {
+      "question": "Rara =",
+      "options": [
+        "fête musicale haïtienne",
+        "carnaval seul",
+        "examen",
+        "travail"
+      ],
+      "correct": "A",
+      "explanation": "Rara.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E141"
+    },
+    {
+      "question": "Lari =",
+      "options": [
+        "rue",
+        "maison",
+        "école",
+        "hôpital"
+      ],
+      "correct": "A",
+      "explanation": "Street.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E142"
+    },
+    {
+      "question": "Sansoussi =",
+      "options": [
+        "Palais Sans-Souci",
+        "Tour Eiffel",
+        "Big Ben",
+        "Colisée"
+      ],
+      "correct": "A",
+      "explanation": "Sans-Souci.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E143"
+    },
+    {
+      "question": "Pwoblèm =",
+      "options": [
+        "problème",
+        "solution",
+        "réponse",
+        "fin"
+      ],
+      "correct": "A",
+      "explanation": "Problem.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E144"
+    },
+    {
+      "question": "Dòmi =",
+      "options": [
+        "dormir",
+        "manger",
+        "courir",
+        "lire"
+      ],
+      "correct": "A",
+      "explanation": "Sleep.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E145"
+    },
+    {
+      "question": "Nouvèl an =",
+      "options": [
+        "Nouvel An",
+        "Noël",
+        "Pâques",
+        "Carnaval"
+      ],
+      "correct": "A",
+      "explanation": "New Year.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E146"
+    },
+    {
+      "question": "Mòn Kabrit =",
+      "options": [
+        "Morne à l'UNESCO",
+        "Tour Eiffel",
+        "Big Ben",
+        "Colisée"
+      ],
+      "correct": "A",
+      "explanation": "Haiti UNESCO.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E147"
+    },
+    {
+      "question": "Rakonte =",
+      "options": [
+        "raconter",
+        "écouter",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Tell.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E148"
+    },
+    {
+      "question": "EDH =",
+      "options": [
+        "compagnie électricité Haïti",
+        "école",
+        "hôpital",
+        "banque"
+      ],
+      "correct": "A",
+      "explanation": "EDH.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E149"
+    },
+    {
+      "question": "Karnaval =",
+      "options": [
+        "carnaval",
+        "examen",
+        "travail",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Carnival.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E150"
+    },
+    {
+      "question": "Bonjou =",
+      "options": [
+        "bonjour",
+        "au revoir",
+        "merci",
+        "pardon"
+      ],
+      "correct": "A",
+      "explanation": "Salutation.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E151"
+    },
+    {
+      "question": "Bèl =",
+      "options": [
+        "beau/belle",
+        "laid",
+        "petit",
+        "court"
+      ],
+      "correct": "A",
+      "explanation": "Beautiful.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E152"
+    },
+    {
+      "question": "Kote ou soti? =",
+      "options": [
+        "D'où viens-tu?",
+        "Où vas-tu?",
+        "Quand?",
+        "Pourquoi?"
+      ],
+      "correct": "A",
+      "explanation": "Where from?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E153"
+    },
+    {
+      "question": "Trè =",
+      "options": [
+        "très",
+        "peu",
+        "un peu",
+        "pas"
+      ],
+      "correct": "A",
+      "explanation": "Very.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E154"
+    },
+    {
+      "question": "Anba =",
+      "options": [
+        "sous",
+        "sur",
+        "dans",
+        "devant"
+      ],
+      "correct": "A",
+      "explanation": "Under.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E155"
+    },
+    {
+      "question": "Solisyon =",
+      "options": [
+        "solution",
+        "problème",
+        "question",
+        "erreur"
+      ],
+      "correct": "A",
+      "explanation": "Solution.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E156"
+    },
+    {
+      "question": "Goud =",
+      "options": [
+        "gourde haïtienne",
+        "dollar",
+        "euro",
+        "peso"
+      ],
+      "correct": "A",
+      "explanation": "Gourde.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E157"
+    },
+    {
+      "question": "Fèt =",
+      "options": [
+        "fête",
+        "travail",
+        "guerre",
+        "maladie"
+      ],
+      "correct": "A",
+      "explanation": "Party.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E158"
+    },
+    {
+      "question": "Bak =",
+      "options": [
+        "baccalauréat",
+        "examen fondamental",
+        "maternelle",
+        "primaire"
+      ],
+      "correct": "A",
+      "explanation": "Baccalaureate.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E159"
+    },
+    {
+      "question": "Elektrisite =",
+      "options": [
+        "électricité",
+        "eau",
+        "air",
+        "terre"
+      ],
+      "correct": "A",
+      "explanation": "Electricity.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E160"
+    },
+    {
+      "question": "Demen =",
+      "options": [
+        "demain",
+        "hier",
+        "aujourd'hui",
+        "maintenant"
+      ],
+      "correct": "A",
+      "explanation": "Tomorrow.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E161"
+    },
+    {
+      "question": "Libète =",
+      "options": [
+        "liberté",
+        "prison",
+        "chaîne",
+        "esclavage"
+      ],
+      "correct": "A",
+      "explanation": "Freedom.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E162"
+    },
+    {
+      "question": "M ap =",
+      "options": [
+        "je vais (futur proche)",
+        "je suis",
+        "j'étais",
+        "j'ai"
+      ],
+      "correct": "A",
+      "explanation": "Future marker.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E163"
+    },
+    {
+      "question": "Jodi a =",
+      "options": [
+        "aujourd'hui",
+        "demain",
+        "hier",
+        "toujours"
+      ],
+      "correct": "A",
+      "explanation": "Today.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E164"
+    },
+    {
+      "question": "Latè =",
+      "options": [
+        "Terre / monde",
+        "lune",
+        "mars",
+        "soleil"
+      ],
+      "correct": "A",
+      "explanation": "Earth.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E165"
+    },
+    {
+      "question": "Nan =",
+      "options": [
+        "dans / en",
+        "sur",
+        "sous",
+        "devant"
+      ],
+      "correct": "A",
+      "explanation": "In.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E166"
+    },
+    {
+      "question": "Pèdi =",
+      "options": [
+        "perdre",
+        "trouver",
+        "gagner",
+        "garder"
+      ],
+      "correct": "A",
+      "explanation": "Lose.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E167"
+    },
+    {
+      "question": "Mwen soti Ayiti =",
+      "options": [
+        "Je viens d'Haïti",
+        "Je vais Haïti",
+        "Je quitte Haïti",
+        "Je suis France"
+      ],
+      "correct": "A",
+      "explanation": "From Haiti.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E168"
+    },
+    {
+      "question": "Fondamantal =",
+      "options": [
+        "fondamental (école)",
+        "universitaire",
+        "professionnel",
+        "militaire"
+      ],
+      "correct": "A",
+      "explanation": "Fundamental school.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E169"
+    },
+    {
+      "question": "M te =",
+      "options": [
+        "j'étais / j'ai (past)",
+        "je suis",
+        "je vais",
+        "j'aurai"
+      ],
+      "correct": "A",
+      "explanation": "Past marker.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E170"
+    },
+    {
+      "question": "Chanjman klimatik =",
+      "options": [
+        "changement climatique",
+        "changement politique",
+        "changement musical",
+        "changement sportif"
+      ],
+      "correct": "A",
+      "explanation": "Climate change.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E171"
+    },
+    {
+      "question": "Mizik =",
+      "options": [
+        "musique",
+        "danse",
+        "peinture",
+        "sculpture"
+      ],
+      "correct": "A",
+      "explanation": "Music.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E172"
+    },
+    {
+      "question": "Manje =",
+      "options": [
+        "manger / nourriture",
+        "dormir",
+        "courir",
+        "lire"
+      ],
+      "correct": "A",
+      "explanation": "Eat/food.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E173"
+    },
+    {
+      "question": "Onè =",
+      "options": [
+        "honnête",
+        "menteur",
+        "cruel",
+        "méchant"
+      ],
+      "correct": "A",
+      "explanation": "Honest.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E174"
+    },
+    {
+      "question": "Viktwa =",
+      "options": [
+        "victoire",
+        "défaite",
+        "échec",
+        "perte"
+      ],
+      "correct": "A",
+      "explanation": "Victory.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E175"
+    },
+    {
+      "question": "Mwen kontan =",
+      "options": [
+        "Je suis content",
+        "Je suis triste",
+        "Je suis malade",
+        "Je suis fâché"
+      ],
+      "correct": "A",
+      "explanation": "Happy.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E176"
+    },
+    {
+      "question": "Chita =",
+      "options": [
+        "s'asseoir",
+        "debout",
+        "courir",
+        "sauter"
+      ],
+      "correct": "A",
+      "explanation": "Sit.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E177"
+    },
+    {
+      "question": "Fo =",
+      "options": [
+        "faux",
+        "vrai",
+        "correct",
+        "exact"
+      ],
+      "correct": "A",
+      "explanation": "False.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E178"
+    },
+    {
+      "question": "Kole =",
+      "options": [
+        "riz et sauce",
+        "pain",
+        "eau",
+        "fruit"
+      ],
+      "correct": "A",
+      "explanation": "Rice and beans.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E179"
+    },
+    {
+      "question": "Tou =",
+      "options": [
+        "tout / aussi",
+        "rien",
+        "jamais",
+        "personne"
+      ],
+      "correct": "A",
+      "explanation": "All/also.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E180"
+    },
+    {
+      "question": "Legliz =",
+      "options": [
+        "église",
+        "école",
+        "hôpital",
+        "marché"
+      ],
+      "correct": "A",
+      "explanation": "Church.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E181"
+    },
+    {
+      "question": "Ale =",
+      "options": [
+        "aller",
+        "venir",
+        "rester",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Go.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E182"
+    },
+    {
+      "question": "Kreyon =",
+      "options": [
+        "crayon",
+        "stylo",
+        "gomme",
+        "règle"
+      ],
+      "correct": "A",
+      "explanation": "Pencil.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E183"
+    },
+    {
+      "question": "Semèn =",
+      "options": [
+        "semaine",
+        "jour",
+        "mois",
+        "année"
+      ],
+      "correct": "A",
+      "explanation": "Week.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E184"
+    },
+    {
+      "question": "Ki lè li ye? =",
+      "options": [
+        "Quelle heure est-il?",
+        "Quel jour?",
+        "Quelle date?",
+        "Quelle année?"
+      ],
+      "correct": "A",
+      "explanation": "What time?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E185"
+    },
+    {
+      "question": "Videyo =",
+      "options": [
+        "vidéo",
+        "photo",
+        "audio",
+        "texte"
+      ],
+      "correct": "A",
+      "explanation": "Video.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E186"
+    },
+    {
+      "question": "Diri =",
+      "options": [
+        "riz (Haïti)",
+        "pain",
+        "eau",
+        "sucre"
+      ],
+      "correct": "A",
+      "explanation": "Rice Creole.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E187"
+    },
+    {
+      "question": "Tou pre =",
+      "options": [
+        "très près",
+        "très loin",
+        "haut",
+        "bas"
+      ],
+      "correct": "A",
+      "explanation": "Very near.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E188"
+    },
+    {
+      "question": "Kè =",
+      "options": [
+        "cœur / courage",
+        "tête",
+        "pied",
+        "main"
+      ],
+      "correct": "A",
+      "explanation": "Heart/courage.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E189"
+    },
+    {
+      "question": "Manti =",
+      "options": [
+        "mensonge",
+        "vérité",
+        "honnête",
+        "sincère"
+      ],
+      "correct": "A",
+      "explanation": "Lie.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E190"
+    },
+    {
+      "question": "Kesyon =",
+      "options": [
+        "question",
+        "réponse",
+        "solution",
+        "fin"
+      ],
+      "correct": "A",
+      "explanation": "Question.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E191"
+    },
+    {
+      "question": "9e ane =",
+      "options": [
+        "9e année fondamentale",
+        "université",
+        "doctorat",
+        "maternelle"
+      ],
+      "correct": "A",
+      "explanation": "9th grade.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E192"
+    },
+    {
+      "question": "Lendi =",
+      "options": [
+        "lundi",
+        "mardi",
+        "mercredi",
+        "jeudi"
+      ],
+      "correct": "A",
+      "explanation": "Monday.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E193"
+    },
+    {
+      "question": "Lalwa =",
+      "options": [
+        "la loi",
+        "crime",
+        "chaos",
+        "guerre"
+      ],
+      "correct": "A",
+      "explanation": "Law.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E194"
+    },
+    {
+      "question": "Konprann =",
+      "options": [
+        "comprendre",
+        "ignorer",
+        "fuir",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Understand.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E195"
+    },
+    {
+      "question": "Diferan =",
+      "options": [
+        "différent",
+        "même",
+        "identique",
+        "égal"
+      ],
+      "correct": "A",
+      "explanation": "Different.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E196"
+    },
+    {
+      "question": "Semans =",
+      "options": [
+        "semence",
+        "récolte",
+        "fruit",
+        "feuille"
+      ],
+      "correct": "A",
+      "explanation": "Seed.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E197"
+    },
+    {
+      "question": "Prezidan =",
+      "options": [
+        "président",
+        "maire",
+        "professeur",
+        "docteur"
+      ],
+      "correct": "A",
+      "explanation": "President.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E198"
+    },
+    {
+      "question": "Pwa =",
+      "options": [
+        "pois / haricots",
+        "riz",
+        "pain",
+        "eau"
+      ],
+      "correct": "A",
+      "explanation": "Beans.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E199"
+    },
+    {
+      "question": "Kò =",
+      "options": [
+        "corps",
+        "tête",
+        "âme",
+        "esprit seul"
+      ],
+      "correct": "A",
+      "explanation": "Body.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E200"
+    },
+    {
+      "question": "Ede =",
+      "options": [
+        "aider",
+        "blesser",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Help.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E201"
+    },
+    {
+      "question": "Pwoteje =",
+      "options": [
+        "protéger",
+        "attaquer",
+        "blesser",
+        "nuire"
+      ],
+      "correct": "A",
+      "explanation": "Protect.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E202"
+    },
+    {
+      "question": "Soti =",
+      "options": [
+        "sortir / venir de",
+        "entrer",
+        "rester",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Exit/from.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E203"
+    },
+    {
+      "question": "Liv =",
+      "options": [
+        "livre",
+        "stylo",
+        "table",
+        "chaise"
+      ],
+      "correct": "A",
+      "explanation": "Book.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E204"
+    },
+    {
+      "question": "Katye =",
+      "options": [
+        "quartier",
+        "département",
+        "commune",
+        "pays"
+      ],
+      "correct": "A",
+      "explanation": "Neighborhood.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E205"
+    },
+    {
+      "question": "Egzamen =",
+      "options": [
+        "examen",
+        "fête",
+        "jeu",
+        "repos"
+      ],
+      "correct": "A",
+      "explanation": "Exam.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E206"
+    },
+    {
+      "question": "OU TOU BON =",
+      "options": [
+        "plateforme éducative haïtienne",
+        "restaurant",
+        "hôtel",
+        "banque"
+      ],
+      "correct": "A",
+      "explanation": "Educational platform.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E207"
+    },
+    {
+      "question": "Polis =",
+      "options": [
+        "police",
+        "armée",
+        "école",
+        "marché"
+      ],
+      "correct": "A",
+      "explanation": "Police.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E208"
+    },
+    {
+      "question": "Jwèt =",
+      "options": [
+        "jeu",
+        "travail",
+        "repos",
+        "sommeil"
+      ],
+      "correct": "A",
+      "explanation": "Game.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E209"
+    },
+    {
+      "question": "Pwofesè =",
+      "options": [
+        "professeur",
+        "docteur",
+        "chauffeur",
+        "pilot"
+      ],
+      "correct": "A",
+      "explanation": "Teacher.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E210"
+    },
+    {
+      "question": "Dola =",
+      "options": [
+        "dollar",
+        "gourde",
+        "euro",
+        "peso"
+      ],
+      "correct": "A",
+      "explanation": "Dollar.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E211"
+    },
+    {
+      "question": "Zanmi =",
+      "options": [
+        "ami",
+        "ennemi",
+        "étranger",
+        "voisin"
+      ],
+      "correct": "A",
+      "explanation": "Friend.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E212"
+    },
+    {
+      "question": "Mwen grangou =",
+      "options": [
+        "J'ai faim",
+        "J'ai soif",
+        "Je suis fatigué",
+        "Je suis content"
+      ],
+      "correct": "A",
+      "explanation": "Hungry.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E213"
+    },
+    {
+      "question": "Antre =",
+      "options": [
+        "entrer",
+        "sortir",
+        "fuir",
+        "partir"
+      ],
+      "correct": "A",
+      "explanation": "Enter.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E214"
+    },
+    {
+      "question": "Mwen pa konprann =",
+      "options": [
+        "Je ne comprends pas",
+        "Je comprends",
+        "Je sais",
+        "Je vois"
+      ],
+      "correct": "A",
+      "explanation": "Don't understand.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E215"
+    },
+    {
+      "question": "Mwen swè =",
+      "options": [
+        "J'ai soif",
+        "J'ai faim",
+        "Je dors",
+        "Je cours"
+      ],
+      "correct": "A",
+      "explanation": "Thirsty.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E216"
+    },
+    {
+      "question": "Pèt dife =",
+      "options": [
+        "coupure de courant",
+        "fête",
+        "jeu",
+        "repos"
+      ],
+      "correct": "A",
+      "explanation": "Power outage.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E217"
+    },
+    {
+      "question": "Sè =",
+      "options": [
+        "sœur",
+        "frère",
+        "mère",
+        "père"
+      ],
+      "correct": "A",
+      "explanation": "Sister.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E218"
+    },
+    {
+      "question": "Kap Ayisyen =",
+      "options": [
+        "Cap-Haïtien",
+        "Port-au-Prince",
+        "Jacmel",
+        "Les Cayes"
+      ],
+      "correct": "A",
+      "explanation": "Cap-Haitien.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E219"
+    },
+    {
+      "question": "Lopital =",
+      "options": [
+        "hôpital",
+        "école",
+        "marché",
+        "église"
+      ],
+      "correct": "A",
+      "explanation": "Hospital.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E220"
+    },
+    {
+      "question": "Pa renmen =",
+      "options": [
+        "ne pas aimer",
+        "aimer",
+        "adorer",
+        "préférer"
+      ],
+      "correct": "A",
+      "explanation": "Don't like.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E221"
+    },
+    {
+      "question": "Vini =",
+      "options": [
+        "venir",
+        "aller",
+        "partir",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Come.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E222"
+    },
+    {
+      "question": "Kiyès? =",
+      "options": [
+        "qui?",
+        "où?",
+        "quand?",
+        "quoi?"
+      ],
+      "correct": "A",
+      "explanation": "Who?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E223"
+    },
+    {
+      "question": "Latè ap chofe =",
+      "options": [
+        "la Terre se réchauffe",
+        "la Terre se refroidit",
+        "la Terre disparaît",
+        "la Terre arrête"
+      ],
+      "correct": "A",
+      "explanation": "Global warming.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E224"
+    },
+    {
+      "question": "Ekri =",
+      "options": [
+        "écrire",
+        "lire",
+        "manger",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Write.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E225"
+    },
+    {
+      "question": "Kapab =",
+      "options": [
+        "pouvoir / capable",
+        "incapable",
+        "faible",
+        "malade"
+      ],
+      "correct": "A",
+      "explanation": "Can/capable.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E226"
+    },
+    {
+      "question": "Gom =",
+      "options": [
+        "gomme",
+        "crayon",
+        "stylo",
+        "règle"
+      ],
+      "correct": "A",
+      "explanation": "Eraser.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E227"
+    },
+    {
+      "question": "Okay =",
+      "options": [
+        "Les Cayes",
+        "Port-au-Prince",
+        "Cap-Haïtien",
+        "Jacmel"
+      ],
+      "correct": "A",
+      "explanation": "Les Cayes.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E228"
+    },
+    {
+      "question": "Doktè =",
+      "options": [
+        "docteur",
+        "professeur",
+        "chauffeur",
+        "pilot"
+      ],
+      "correct": "A",
+      "explanation": "Doctor.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E229"
+    },
+    {
+      "question": "Vodou =",
+      "options": [
+        "religion syncrétique haïtienne",
+        "religion européenne seule",
+        "sport",
+        "jeu"
+      ],
+      "correct": "A",
+      "explanation": "Vodou.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E230"
+    },
+    {
+      "question": "Bon =",
+      "options": [
+        "bon",
+        "mauvais",
+        "laid",
+        "petit"
+      ],
+      "correct": "A",
+      "explanation": "Good.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E231"
+    },
+    {
+      "question": "Ti kras =",
+      "options": [
+        "un peu",
+        "beaucoup",
+        "tout",
+        "rien"
+      ],
+      "correct": "A",
+      "explanation": "A little.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E232"
+    },
+    {
+      "question": "Li =",
+      "options": [
+        "lire / il/elle",
+        "écrire",
+        "manger",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Read/he/she.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E233"
+    },
+    {
+      "question": "Soup joumou =",
+      "options": [
+        "soupe de giraumon (indépendance)",
+        "soupe tomate",
+        "soupe poulet",
+        "soupe légume"
+      ],
+      "correct": "A",
+      "explanation": "Independence soup.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E234"
+    },
+    {
+      "question": "Pen =",
+      "options": [
+        "pain",
+        "eau",
+        "viande",
+        "fruit"
+      ],
+      "correct": "A",
+      "explanation": "Bread.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E235"
+    },
+    {
+      "question": "Telefòn =",
+      "options": [
+        "téléphone",
+        "ordinateur",
+        "radio",
+        "télé"
+      ],
+      "correct": "A",
+      "explanation": "Phone.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E236"
+    },
+    {
+      "question": "Ou ka ede m? =",
+      "options": [
+        "Peux-tu m'aider?",
+        "Où es-tu?",
+        "Qui es-tu?",
+        "Quand?"
+      ],
+      "correct": "A",
+      "explanation": "Can you help?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E237"
+    },
+    {
+      "question": "Frè =",
+      "options": [
+        "frère",
+        "sœur",
+        "mère",
+        "père"
+      ],
+      "correct": "A",
+      "explanation": "Brother.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E238"
+    },
+    {
+      "question": "Kisa? =",
+      "options": [
+        "quoi?",
+        "qui?",
+        "où?",
+        "quand?"
+      ],
+      "correct": "A",
+      "explanation": "What?",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E239"
+    },
+    {
+      "question": "Bò =",
+      "options": [
+        "côté / près de",
+        "loin",
+        "haut",
+        "bas"
+      ],
+      "correct": "A",
+      "explanation": "Side/near.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E240"
+    },
+    {
+      "question": "Ayiti =",
+      "options": [
+        "Haïti",
+        "France",
+        "Cuba",
+        "Jamaïque"
+      ],
+      "correct": "A",
+      "explanation": "Haiti.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E241"
+    },
+    {
+      "question": "Enerji =",
+      "options": [
+        "énergie",
+        "fatigue",
+        "repos",
+        "sommeil"
+      ],
+      "correct": "A",
+      "explanation": "Energy.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E242"
+    },
+    {
+      "question": "Echèk =",
+      "options": [
+        "échec",
+        "succès",
+        "victoire",
+        "gain"
+      ],
+      "correct": "A",
+      "explanation": "Failure.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E243"
+    },
+    {
+      "question": "Entènèt =",
+      "options": [
+        "internet",
+        "radio",
+        "télé",
+        "journal"
+      ],
+      "correct": "A",
+      "explanation": "Internet.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E244"
+    },
+    {
+      "question": "Koute =",
+      "options": [
+        "écouter",
+        "parler",
+        "ignorer",
+        "fuir"
+      ],
+      "correct": "A",
+      "explanation": "Listen.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E245"
+    },
+    {
+      "question": "Anpil =",
+      "options": [
+        "beaucoup",
+        "peu",
+        "rien",
+        "un peu"
+      ],
+      "correct": "A",
+      "explanation": "Many/much.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E246"
+    },
+    {
+      "question": "Monte =",
+      "options": [
+        "monter",
+        "descendre",
+        "tomber",
+        "sauter"
+      ],
+      "correct": "A",
+      "explanation": "Go up.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E247"
+    },
+    {
+      "question": "Devàn =",
+      "options": [
+        "devant",
+        "derrière",
+        "sous",
+        "sur"
+      ],
+      "correct": "A",
+      "explanation": "In front.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E248"
+    },
+    {
+      "question": "Aprann leson =",
+      "options": [
+        "étudier la leçon",
+        "jouer",
+        "dormir",
+        "manger"
+      ],
+      "correct": "A",
+      "explanation": "Study lesson.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E249"
+    },
+    {
+      "question": "Wi =",
+      "options": [
+        "oui",
+        "non",
+        "peut-être",
+        "jamais"
+      ],
+      "correct": "A",
+      "explanation": "Yes.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E250"
+    },
+    {
+      "question": "Kanpe =",
+      "options": [
+        "debout / arrêter",
+        "s'asseoir",
+        "courir",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Stand/stop.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E251"
+    },
+    {
+      "question": "Dwe =",
+      "options": [
+        "devoir",
+        "vouloir",
+        "pouvoir",
+        "aimer"
+      ],
+      "correct": "A",
+      "explanation": "Must/owe.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E252"
+    },
+    {
+      "question": "Tounen =",
+      "options": [
+        "retourner",
+        "partir",
+        "fuir",
+        "dormir"
+      ],
+      "correct": "A",
+      "explanation": "Return.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E253"
+    },
+    {
+      "question": "Menm =",
+      "options": [
+        "même",
+        "différent",
+        "autre",
+        "nouveau"
+      ],
+      "correct": "A",
+      "explanation": "Same.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E254"
+    },
+    {
+      "question": "Lekòl =",
+      "options": [
+        "école",
+        "maison",
+        "hôpital",
+        "marché"
+      ],
+      "correct": "A",
+      "explanation": "School.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E255"
+    },
+    {
+      "question": "Fwi =",
+      "options": [
+        "fruit",
+        "légume",
+        "viande",
+        "pain"
+      ],
+      "correct": "A",
+      "explanation": "Fruit.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E256"
+    },
+    {
+      "question": "Dlo nan bouch =",
+      "options": [
+        "salive",
+        "pluie",
+        "larmes",
+        "rosée"
+      ],
+      "correct": "A",
+      "explanation": "Saliva.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E257"
+    },
+    {
+      "question": "Vre =",
+      "options": [
+        "vrai",
+        "faux",
+        "mensonge",
+        "fictif"
+      ],
+      "correct": "A",
+      "explanation": "True.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E258"
+    },
+    {
+      "question": "Pè =",
+      "options": [
+        "père religieux / peur",
+        "mère",
+        "frère",
+        "ami"
+      ],
+      "correct": "A",
+      "explanation": "Priest/fear.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E259"
+    },
+    {
+      "question": "Eleksyon =",
+      "options": [
+        "élection",
+        "fête",
+        "jeu",
+        "repos"
+      ],
+      "correct": "A",
+      "explanation": "Election.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E260"
+    },
+    {
+      "question": "Travay =",
+      "options": [
+        "travail",
+        "repos",
+        "jeu",
+        "sommeil"
+      ],
+      "correct": "A",
+      "explanation": "Work.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E261"
+    },
+    {
+      "question": "Desann =",
+      "options": [
+        "descendre",
+        "monter",
+        "voler",
+        "nager"
+      ],
+      "correct": "A",
+      "explanation": "Go down.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E262"
+    },
+    {
+      "question": "Mwen malad =",
+      "options": [
+        "Je suis malade",
+        "Je suis fort",
+        "Je suis jeune",
+        "Je suis riche"
+      ],
+      "correct": "A",
+      "explanation": "Sick.",
+      "category": "Kreyòl",
+      "difficulty": "moyen",
+      "timer_seconds": 30,
+      "origin": "programme_9e",
+      "id": "K9E263"
+    },
+    {
+      "question": "Kalkile: 15 + 10 = ?",
+      "options": [
+        "25",
+        "29",
+        "23",
+        "24"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 24.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E264"
+    },
+    {
+      "question": "Kalkile: 29 + 4 = ?",
+      "options": [
+        "45",
+        "40",
+        "41",
+        "39"
+      ],
+      "correct": "B",
+      "explanation": "Addition = 40.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E265"
+    },
+    {
+      "question": "Kalkile: 16 + 12 = ?",
+      "options": [
+        "22",
+        "16",
+        "18",
+        "17"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 17.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E266"
+    },
+    {
+      "question": "Kalkile: 25 + 2 = ?",
+      "options": [
+        "49",
+        "44",
+        "45",
+        "43"
+      ],
+      "correct": "B",
+      "explanation": "Addition = 44.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E267"
+    },
+    {
+      "question": "Kalkile: 35 + 3 = ?",
+      "options": [
+        "46",
+        "50",
+        "44",
+        "45"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 45.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E268"
+    },
+    {
+      "question": "Kalkile: 37 + 12 = ?",
+      "options": [
+        "47",
+        "41",
+        "43",
+        "42"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 42.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E269"
+    },
+    {
+      "question": "Kalkile: 24 + 9 = ?",
+      "options": [
+        "34",
+        "40",
+        "36",
+        "35"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 35.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E270"
+    },
+    {
+      "question": "Kalkile: 45 + 14 = ?",
+      "options": [
+        "49",
+        "54",
+        "50",
+        "48"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 49.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E271"
+    },
+    {
+      "question": "Kalkile: 33 + 10 = ?",
+      "options": [
+        "40",
+        "36",
+        "34",
+        "35"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 35.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E272"
+    },
+    {
+      "question": "Kalkile: 17 + 7 = ?",
+      "options": [
+        "36",
+        "42",
+        "38",
+        "37"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 37.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E273"
+    },
+    {
+      "question": "'kay' signifie en français:",
+      "options": [
+        "maison",
+        "bonjour",
+        "merci",
+        "bonsoir"
+      ],
+      "correct": "A",
+      "explanation": "kay = maison.",
+      "category": "Vocabulaire",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E274"
+    },
+    {
+      "question": "Kalkile: 48 + 20 = ?",
+      "options": [
+        "56",
+        "50",
+        "52",
+        "51"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 51.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E275"
+    },
+    {
+      "question": "Kalkile: 43 + 6 = ?",
+      "options": [
+        "49",
+        "54",
+        "50",
+        "48"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 49.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E276"
+    },
+    {
+      "question": "'dlo' signifie en français:",
+      "options": [
+        "merci",
+        "bonsoir",
+        "eau",
+        "bonjour"
+      ],
+      "correct": "C",
+      "explanation": "dlo = eau.",
+      "category": "Vocabulaire",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E277"
+    },
+    {
+      "question": "Kalkile: 48 + 13 = ?",
+      "options": [
+        "55",
+        "54",
+        "56",
+        "60"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 55.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E278"
+    },
+    {
+      "question": "Kalkile: 32 + 17 = ?",
+      "options": [
+        "52",
+        "50",
+        "56",
+        "51"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 51.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E279"
+    },
+    {
+      "question": "Kalkile: 26 + 4 = ?",
+      "options": [
+        "44",
+        "43",
+        "45",
+        "49"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 44.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E280"
+    },
+    {
+      "question": "Kalkile: 37 + 9 = ?",
+      "options": [
+        "41",
+        "46",
+        "40",
+        "42"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 41.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E281"
+    },
+    {
+      "question": "Kalkile: 45 + 9 = ?",
+      "options": [
+        "61",
+        "63",
+        "62",
+        "67"
+      ],
+      "correct": "C",
+      "explanation": "Addition = 62.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E282"
+    },
+    {
+      "question": "Kalkile: 41 + 17 = ?",
+      "options": [
+        "46",
+        "52",
+        "48",
+        "47"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 47.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E283"
+    },
+    {
+      "question": "Kalkile: 28 + 14 = ?",
+      "options": [
+        "29",
+        "30",
+        "31",
+        "35"
+      ],
+      "correct": "B",
+      "explanation": "Addition = 30.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E284"
+    },
+    {
+      "question": "Kalkile: 22 + 8 = ?",
+      "options": [
+        "45",
+        "40",
+        "41",
+        "39"
+      ],
+      "correct": "B",
+      "explanation": "Addition = 40.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E285"
+    },
+    {
+      "question": "Kalkile: 34 + 2 = ?",
+      "options": [
+        "36",
+        "34",
+        "40",
+        "35"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 35.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E286"
+    },
+    {
+      "question": "Kalkile: 22 + 9 = ?",
+      "options": [
+        "45",
+        "41",
+        "40",
+        "39"
+      ],
+      "correct": "C",
+      "explanation": "Addition = 40.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E287"
+    },
+    {
+      "question": "Kalkile: 34 + 6 = ?",
+      "options": [
+        "51",
+        "46",
+        "47",
+        "45"
+      ],
+      "correct": "B",
+      "explanation": "Addition = 46.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E288"
+    },
+    {
+      "question": "Kalkile: 26 + 17 = ?",
+      "options": [
+        "46",
+        "40",
+        "41",
+        "42"
+      ],
+      "correct": "C",
+      "explanation": "Addition = 41.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E289"
+    },
+    {
+      "question": "Kalkile: 40 + 18 = ?",
+      "options": [
+        "59",
+        "53",
+        "55",
+        "54"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 54.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E290"
+    },
+    {
+      "question": "Kalkile: 43 + 1 = ?",
+      "options": [
+        "48",
+        "52",
+        "46",
+        "47"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 47.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E291"
+    },
+    {
+      "question": "Kalkile: 7 + 3 = ?",
+      "options": [
+        "26",
+        "30",
+        "25",
+        "24"
+      ],
+      "correct": "C",
+      "explanation": "Addition = 25.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E292"
+    },
+    {
+      "question": "Kalkile: 8 + 13 = ?",
+      "options": [
+        "27",
+        "28",
+        "26",
+        "32"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 27.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E293"
+    },
+    {
+      "question": "Kalkile: 42 + 10 = ?",
+      "options": [
+        "58",
+        "60",
+        "64",
+        "59"
+      ],
+      "correct": "D",
+      "explanation": "Addition = 59.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E294"
+    },
+    {
+      "question": "'mèsi' signifie en français:",
+      "options": [
+        "merci",
+        "bonjour",
+        "bonsoir",
+        "pardon"
+      ],
+      "correct": "A",
+      "explanation": "mèsi = merci.",
+      "category": "Vocabulaire",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E295"
+    },
+    {
+      "question": "Kalkile: 11 + 20 = ?",
+      "options": [
+        "28",
+        "29",
+        "27",
+        "33"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 28.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E296"
+    },
+    {
+      "question": "Kalkile: 39 + 19 = ?",
+      "options": [
+        "49",
+        "43",
+        "44",
+        "45"
+      ],
+      "correct": "C",
+      "explanation": "Addition = 44.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E297"
+    },
+    {
+      "question": "Kalkile: 6 + 3 = ?",
+      "options": [
+        "20",
+        "16",
+        "15",
+        "14"
+      ],
+      "correct": "C",
+      "explanation": "Addition = 15.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E298"
+    },
+    {
+      "question": "Kalkile: 34 + 15 = ?",
+      "options": [
+        "44",
+        "42",
+        "43",
+        "48"
+      ],
+      "correct": "C",
+      "explanation": "Addition = 43.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E299"
+    },
+    {
+      "question": "Kalkile: 35 + 6 = ?",
+      "options": [
+        "43",
+        "48",
+        "44",
+        "42"
+      ],
+      "correct": "A",
+      "explanation": "Addition = 43.",
+      "category": "Calcul",
+      "difficulty": "facile",
+      "timer_seconds": 30,
+      "id": "K9E300"
+    }
+  ]
+}

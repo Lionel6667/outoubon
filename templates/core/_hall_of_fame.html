@@ -1,0 +1,100 @@
+<section class="v2-hall" aria-label="Vitrine OU TOU BON">
+  <div class="v2-hall__frame">
+    <div class="v2-hall__kicker">
+      <div class="v2-hall__kicker-left">
+        <div class="v2-hall__seal" aria-hidden="true"><i class="fas fa-crown"></i></div>
+        <div>
+          <div class="v2-hall__title">Vitrine du site</div>
+          <div class="v2-hall__sub">Couronnes automatiques parmi les élèves OU TOU BON</div>
+        </div>
+      </div>
+      <span class="v2-hall__year">{{ hall_year|default:"2026-2027" }}</span>
+    </div>
+
+    <article class="v2-hall-hero">
+      <div class="v2-hall-hero__badge"><i class="fas fa-medal"></i> Lauréat du site</div>
+      {% if laureate %}
+      <div class="v2-hall-hero__row">
+        <div class="v2-hall-hero__avatar">
+          {% if laureate.photo_url %}
+          <img src="{{ laureate.photo_url }}" alt="">
+          {% else %}
+          <span>{{ laureate.initials }}</span>
+          {% endif %}
+        </div>
+        <div class="v2-hall-hero__copy">
+          <div class="v2-hall-hero__name">{{ laureate.name }}</div>
+          {% if laureate.meta %}<div class="v2-hall-hero__meta">{{ laureate.meta }}</div>{% endif %}
+          {% if laureate.body %}<p class="v2-hall-hero__note">{{ laureate.body }}</p>{% endif %}
+        </div>
+      </div>
+      {% else %}
+      <div class="v2-hall-hero__empty">
+        L’élève OU TOU BON qui prépare le BAC avec la plus haute note sur le site sera couronné ici.
+      </div>
+      {% endif %}
+    </article>
+
+    <div class="v2-hall__week">
+      {% if team_week and team_week.url %}
+      <a href="{{ team_week.url }}" class="v2-hall-card v2-hall-card--team v2-hall-card--link">
+      {% else %}
+      <article class="v2-hall-card v2-hall-card--team">
+      {% endif %}
+        <div class="v2-hall-card__tag"><i class="fas fa-trophy"></i> Équipe championne</div>
+        {% if team_week %}
+        <div class="v2-hall-card__identity">
+          <div class="v2-hall-card__emblem" aria-hidden="true">{{ team_week.emblem|default:"🧠" }}</div>
+          <div>
+            <div class="v2-hall-card__name">{{ team_week.name }}</div>
+            <div class="v2-hall-card__meta">{{ team_week.meta }}</div>
+          </div>
+        </div>
+        {% if team_week.members %}
+        <div class="v2-hall-card__faces">
+          {% for m in team_week.members %}
+          <span class="v2-hall-face" title="{{ m.name }}{% if m.is_captain %} · capitaine{% endif %}">
+            {% if m.photo_url %}<img src="{{ m.photo_url }}" alt="">{% else %}{{ m.initials }}{% endif %}
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if team_week.last_match %}
+        <div class="v2-hall-card__match"><i class="fas fa-futbol"></i> {{ team_week.last_match }}</div>
+        {% endif %}
+        <div class="v2-hall-card__cta">Voir le club <i class="fas fa-arrow-right"></i></div>
+        {% else %}
+        <div class="v2-hall-card__name">En attente</div>
+        <div class="v2-hall-card__meta">Le système couronne l’équipe n°1 parmi tous les Groupes de Génies.</div>
+        {% endif %}
+      {% if team_week and team_week.url %}
+      </a>
+      {% else %}
+      </article>
+      {% endif %}
+
+      <article class="v2-hall-card v2-hall-card--student">
+        <div class="v2-hall-card__tag"><i class="fas fa-bolt"></i> Élève de la semaine</div>
+        {% if student_week %}
+        <div class="v2-hall-card__identity">
+          <div class="v2-hall-card__avatar">
+            {% if student_week.photo_url %}
+            <img src="{{ student_week.photo_url }}" alt="">
+            {% else %}
+            <span>{{ student_week.initials }}</span>
+            {% endif %}
+          </div>
+          <div>
+            <div class="v2-hall-card__name">{{ student_week.name }}</div>
+            <div class="v2-hall-card__meta">{{ student_week.meta }}</div>
+          </div>
+        </div>
+        {% if student_week.body %}<p class="v2-hall-card__note">{{ student_week.body }}</p>{% endif %}
+        {% else %}
+        <div class="v2-hall-card__name">Pas encore de portrait</div>
+        <div class="v2-hall-card__meta">Dès qu’un élève se démarque cette semaine (quiz, exo, série, XP), son nom apparaît ici.</div>
+        {% endif %}
+      </article>
+    </div>
+  </div>
+</section>

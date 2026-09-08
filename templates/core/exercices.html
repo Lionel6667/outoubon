@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Exercices · OU TOU BON{% endblock %}
+
+{% block extra_head_links %}{% include "partials/v2/_v2_exercises_css.html" %}{% endblock %}
+
 {% block extra_css %}
 <style>
 .exo-page { height:100%; display:flex; flex-direction:column; overflow:hidden; }
 .exo-scroll { flex:1; overflow-y:auto; padding:1.25rem; }
 .exo-scroll > #stepSubject, .exo-scroll > #stepChapter { max-width:720px; margin:0 auto; }
 
-.exo-step3 { display:none; flex:1; flex-direction:column; overflow:hidden; padding:1rem; max-width:760px; margin:0 auto; width:100%; }
+.exo-step3 { display:none; flex:1; flex-direction:column; overflow:hidden; padding:0; max-width:none; margin:0; width:100%; }
 .exo-step3.active { display:flex; }
 .exo-chat-wrap { display:flex; flex-direction:column; flex:1; min-height:0; }
 .exo-card {
@@ -308,6 +311,69 @@
 .exo-q-step.done { background:rgba(16,185,129,.2); border-color:var(--green); color:#fff; }
 .exo-q-step.partial { background:rgba(245,158,11,.15); border-color:#f59e0b; color:#f59e0b; }
 .exo-q-step.wrong { background:rgba(239,68,68,.12); border-color:#ef4444; color:#fca5a5; }
+
+.exo-stepper-wrap { flex:1; display:flex; flex-direction:column; min-height:0; padding-bottom:5.5rem; }
+.exo-step-screen { flex:1; display:flex; flex-direction:column; background:var(--card); border:1px solid var(--border2); border-radius:20px; padding:1.25rem; margin-bottom:.75rem; overflow-y:auto; }
+.exo-step-q-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--green); margin-bottom:.5rem; }
+.exo-step-q-text { font-size:1rem; line-height:1.75; color:var(--t1); font-weight:600; margin-bottom:1rem; }
+.exo-step-answer { width:100%; min-height:90px; background:var(--bg2); border:2px solid var(--border2); border-radius:14px; color:var(--t1); font-family:inherit; font-size:.9rem; padding:.85rem 1rem; resize:vertical; outline:none; }
+.exo-step-answer:focus { border-color:var(--green); }
+.exo-step-hint-box { margin-top:.75rem; padding:.7rem .9rem; background:rgba(245,158,11,.08); border:1px solid rgba(245,158,11,.25); border-radius:10px; font-size:.84rem; color:var(--t2); }
+.exo-feedback-banner { padding:.85rem 1rem; border-radius:12px; font-weight:700; font-size:.88rem; margin-bottom:.65rem; animation:msgIn .3s ease; }
+.exo-feedback-banner.correct { background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.35); color:var(--green); }
+.exo-feedback-banner.wrong { background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.3); color:#fca5a5; }
+.exo-feedback-banner.partial { background:rgba(245,158,11,.1); border:1px solid rgba(245,158,11,.3); color:#fbbf24; }
+.exo-streak-badge { display:inline-flex; align-items:center; gap:.3rem; padding:.2rem .55rem; background:rgba(249,115,22,.15); border:1px solid rgba(249,115,22,.3); border-radius:99px; font-size:.72rem; font-weight:800; color:#fb923c; }
+.exo-stepper-bar { position:fixed; bottom:0; left:var(--sidebar-w,240px); right:0; z-index:210; background:rgba(8,15,30,.94); backdrop-filter:blur(12px); border-top:1px solid var(--border2); padding:.65rem 1rem; }
+.exo-stepper-bar-inner { max-width:760px; margin:0 auto; display:flex; gap:.5rem; flex-wrap:wrap; }
+.exo-btn-verify { flex:1; min-width:140px; padding:.65rem; background:var(--green); color:#000; border:none; border-radius:12px; font-weight:800; cursor:pointer; }
+.exo-btn-hint, .exo-btn-skip, .exo-btn-tutor { padding:.55rem .85rem; background:var(--card); border:1px solid var(--border2); border-radius:10px; color:var(--t2); font-weight:700; cursor:pointer; font-size:.8rem; }
+.exo-btn-tutor { border-color:rgba(139,92,246,.35); color:#a78bfa; }
+.exo-tutor-drawer { position:fixed; top:0; right:0; bottom:0; width:min(380px,92vw); z-index:220; background:var(--card); border-left:1px solid var(--border2); transform:translateX(100%); transition:transform .3s; display:flex; flex-direction:column; }
+.exo-tutor-drawer.open { transform:translateX(0); }
+.exo-tutor-header { display:flex; justify-content:space-between; padding:.85rem 1rem; border-bottom:1px solid var(--border2); font-weight:800; }
+.exo-tutor-msgs { flex:1; overflow-y:auto; padding:.75rem; }
+.exo-tutor-input-row { display:flex; gap:.5rem; padding:.75rem; border-top:1px solid var(--border2); }
+.exo-tutor-input { flex:1; background:var(--bg2); border:1px solid var(--border2); border-radius:10px; padding:.5rem .75rem; color:var(--t1); }
+.exo-summary-screen { display:none; flex-direction:column; gap:1rem; padding-bottom:6rem; }
+.exo-summary-screen.active { display:flex; }
+.exo-summary-hero { text-align:center; padding:1.75rem; background:linear-gradient(160deg,rgba(16,185,129,.1),rgba(37,99,235,.08)); border:1px solid rgba(16,185,129,.25); border-radius:18px; }
+.exo-summary-score { font-size:2.75rem; font-weight:900; color:var(--green); }
+.exo-summary-lists { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+.exo-summary-list { background:var(--card); border:1px solid var(--border2); border-radius:12px; padding:.85rem; }
+.exo-summary-list h4 { font-size:.72rem; font-weight:800; text-transform:uppercase; margin-bottom:.5rem; }
+.exo-summary-list ul { margin:0; padding-left:1rem; font-size:.8rem; line-height:1.6; color:var(--t2); }
+@media (max-width:768px) {
+  .exo-step3 { padding:.5rem .65rem 0; }
+  .exo-stepper-wrap { padding-bottom:calc(5.75rem + env(safe-area-inset-bottom, 0px)); }
+  .exo-step-screen { padding:1rem .9rem; border-radius:16px; }
+  .exo-step-q-text { font-size:.92rem; line-height:1.65; }
+  .exo-step-answer { min-height:76px; font-size:.88rem; padding:.7rem .85rem; }
+  .exo-progress-wrap { padding:.6rem .75rem; margin-bottom:.5rem; }
+  .exo-q-steps { flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:.15rem; scrollbar-width:none; }
+  .exo-q-steps::-webkit-scrollbar { display:none; }
+  .exo-q-step { flex-shrink:0; width:26px; height:26px; font-size:.65rem; }
+  .exo-stepper-bar {
+    left:0; right:0;
+    padding:.55rem .65rem;
+    padding-bottom:calc(.55rem + env(safe-area-inset-bottom, 0px));
+  }
+  .exo-stepper-bar-inner { gap:.4rem; }
+  .exo-btn-verify { min-width:0; flex:1 1 100%; order:-1; padding:.7rem; }
+  .exo-btn-hint, .exo-btn-skip, .exo-btn-tutor { flex:1; min-width:0; padding:.5rem .4rem; font-size:.74rem; }
+  .exo-tutor-drawer { width:100%; max-width:100vw; }
+  .exo-summary-lists { grid-template-columns:1fr; }
+  .exo-summary-hero { padding:1.25rem 1rem; }
+  .exo-summary-score { font-size:2.25rem; }
+  .exo-input-bar { left:0; }
+  .chap-tile-grid { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+  .exo-stepper-bar-inner { flex-wrap:wrap; }
+  .exo-btn-hint, .exo-btn-skip, .exo-btn-tutor { flex:1 1 calc(33.33% - .35rem); }
+  .exo-feedback-banner { font-size:.82rem; padding:.7rem .85rem; }
+  .exo-streak-badge { font-size:.68rem; }
+}
 </style>
 {% endblock %}
 {% block body %}
@@ -315,153 +381,496 @@
   {% include "core/_sidebar.html" with active_page="exercices" %}
   <div class="main">
     <div class="topbar"><div class="topbar-title" data-i18n="nav_exercices">Exercices</div></div>
-    <div class="view-area exo-page" id="exoPage">
-      <div class="exo-scroll" id="exoScroll" style="max-width:760px;margin:0 auto;width:100%;display:block;">
+    <div class="view-area exo-page v2-exo-page" id="exoPage">
+      <div id="exLoadingOverlay" class="v2-exo-loading-overlay" aria-hidden="true">
+        <div class="v2-exo-loading-core">
+          <div class="v2-exo-loading-spinner" aria-hidden="true"></div>
+          <div class="v2-exo-loading__title">Recherche dans les examens BAC…</div>
+          <div class="v2-exo-loading__sub" id="exLoadingMsg">Sélection d'un exercice adapté</div>
+        </div>
+      </div>
+      <div class="exo-scroll v2-exo-scroll" id="exoScroll">
+      <div class="v2-exo-shell">
 
         
-        <div id="stepSubject" style="display:block;">
-          <div style="text-align:center;margin-bottom:1.75rem;padding-top:1rem;">
-            <div style="font-weight:700;font-size:1.2rem;margin-bottom:.3rem;">Choisis une matière</div>
-            <div style="color:var(--t2);font-size:.875rem;">Exercices tirés des vrais examens BAC — l'IA te guide étape par étape sans donner la réponse directement</div>
+        <div id="stepSubject" class="v2-exo-step" style="display:block;">
+          <div class="v2-exo-hero-panel">
+            <div class="v2-exo-eyebrow"><i class="fas fa-pen-fancy"></i> Exercices BAC · vrais examens Haïti</div>
+            <h1 class="v2-exo-hero__title">Choisis une matière</h1>
+            <div class="v2-exo-pills">
+              <span class="v2-exo-pill"><i class="fas fa-robot"></i> Tuteur {{ coach_name|default:"Chat IA" }}</span>
+              <span class="v2-exo-pill"><i class="fas fa-comments"></i> Discussion guidée</span>
+              <span class="v2-exo-pill"><i class="fas fa-bolt"></i> XP via missions (selon ta note)</span>
+            </div>
           </div>
-          <div class="quiz-mat-grid">
+          <div class="quiz-mat-grid v2-exo-mat-grid">
             {% for key, mat in mats.items %}
-            <button class="mat-tile" onclick="selectSubject('{{ key }}','{{ mat.label }}')" style="--color:{{ mat.color }}">
+            <button type="button" class="mat-tile v2-exo-mat-tile" onclick="selectSubject('{{ key }}','{{ mat.label }}')" style="--color:{{ mat.color }}">
               <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
               <div class="mat-tile-label">{{ mat.label }}</div>
             </button>
             {% endfor %}
           </div>
+          {% include "partials/v2/_page_info.html" with info_key="exercices" info_title="Exercices" info_body="Exercices tirés des vrais examens BAC — le tuteur t'explique l'exo et t'accompagne pendant que tu essaies de résoudre." %}
         </div>
 
         
-        <div id="stepChapter" style="display:none;">
-          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;">
-            <button onclick="backToSubject()" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;color:var(--t2);">
+        <div id="stepChapter" class="v2-exo-step" style="display:none;">
+          <div class="v2-exo-chapter-head">
+            <button type="button" class="v2-exo-back" onclick="backToSubject()">
               <i class="fas fa-arrow-left"></i> Retour
             </button>
-            <div id="chapterSubjectLabel" style="font-weight:700;font-size:1.05rem;"></div>
+            <div>
+              <div class="v2-exo-chapter-kicker">Matière</div>
+              <div id="chapterSubjectLabel" class="v2-exo-chapter-title"></div>
+            </div>
           </div>
-          <div style="background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:1.25rem;margin-bottom:1rem;">
-            <div style="font-weight:700;margin-bottom:1rem;font-size:.95rem;">Choisis un chapitre :</div>
-            <div id="chapterList" class="chap-tile-grid"></div>
+          <div class="v2-exo-chapter-card">
+            <h3 class="v2-exo-chapter-card__title">Choisis un chapitre</h3>
+            <div id="chapterList" class="chap-tile-grid v2-chap-grid"></div>
           </div>
-          <button onclick="loadExercise('random')" style="width:100%;padding:.75rem;background:var(--green);border-radius:12px;color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:.5rem;">
+          <button type="button" class="v2-exo-random-btn" onclick="loadExercise('random')">
             <i class="fas fa-shuffle"></i> Chapitre aléatoire
           </button>
         </div>
 
+      </div>
       </div>
 
       
       <div class="exo-step3" id="stepExercise">
 
           
-          <div id="exLoading" style="text-align:center;padding:3rem 0;flex-shrink:0;">
-            <div style="font-size:2.2rem;margin-bottom:.75rem;">🔍</div>
-            <div style="font-weight:700;margin-bottom:.3rem;">Recherche dans les examens BAC…</div>
-            <div style="color:var(--t2);font-size:.875rem;" id="exLoadingMsg">Sélection d'un exercice adapté</div>
-            <div class="astra-loader" style="justify-content:center;margin-top:1rem;">
-              <div class="astra-row">
-                <div class="astra-dot generating"></div><div class="astra-dot generating"></div>
-                <div class="astra-dot generating"></div><div class="astra-dot generating"></div>
+          <div id="exContent" style="display:none;" class="v2-exo-astra-session">
+
+            <header class="v2-exo-astra-head">
+              <button type="button" class="v2-exo-astra-head__back" onclick="backToChapter()" aria-label="Retour">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <h1 class="v2-exo-astra-head__title" id="exerciseTitleBar">Exercice</h1>
+            </header>
+
+            <button type="button" class="v2-exo-fab" id="exoSheetFab" onclick="openExoSheet()" aria-label="Voir l'énoncé complet" title="Énoncé complet">
+              <i class="fas fa-file-alt"></i>
+            </button>
+
+            <div class="v2-exo-astra-scroll" id="v2ExoAstraScroll">
+              <div class="v2-exo-astra-card" id="v2ExoEnonceZone">
+                <div class="v2-exo-astra-card__top">
+                  <span class="v2-exo-astra-badge">EXERCICE</span>
+                  <button type="button" class="v2-exo-astra-gen" onclick="generateNewExercise()" id="genNewBtn">
+                    <i class="fas fa-sync-alt"></i> Nouvel exo
+                  </button>
+                </div>
+                <div class="v2-exo-astra-card__inner" id="v2ExoCardInner">
+                  <div class="exo-title" id="exerciseTitle" style="display:none;"></div>
+                  <div class="v2-exo-astra-card__text" id="exerciseText"></div>
+                  <div class="exo-meta v2-exo-card-meta" id="exerciseMeta" style="display:none;"></div>
+                  <div class="v2-exo-questions" id="exerciseQuestions"></div>
+                  <button type="button" id="exoToolBtn" class="v2-exo-tool-btn" onclick="toggleToolPanel()" style="display:none;">
+                    <i id="exoToolBtnIcon" class="fas fa-th"></i>
+                    <span id="exoToolBtnLabel">Outil interactif</span>
+                  </button>
+                </div>
+                <div id="interactiveSection" class="v2-exo-interactive" style="display:none;"></div>
+              </div>
+
+              <div class="v2-exo-astra-chat" id="exMsgs"></div>
+              <div id="exoFeedbackBanner" class="v2-exo-astra-feedback" style="display:none;"></div>
+
+              <div class="v2-exo-astra-actions" id="v2ExoActions">
+                <button type="button" class="v2-exo-astra-chip v2-exo-astra-chip--hint" onclick="askHint()" title="Indice">
+                  <i class="fas fa-lightbulb"></i>
+                </button>
+                <button type="button" class="v2-exo-astra-chip" id="exFinishBtn" onclick="finishSession()">
+                  <i class="fas fa-check"></i> Terminer
+                </button>
               </div>
             </div>
+
+            <div id="exImgPreview" class="v2-exo-astra-img-preview" style="display:none;">
+              <img id="exImgThumb" src="" alt="">
+              <span id="exImgName"></span>
+              <button type="button" onclick="removeExImg()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="v2-exo-astra-compose" id="exInputBar">
+              <div class="v2-exo-astra-compose__pill">
+                <button type="button" class="v2-exo-astra-compose__cam" onclick="document.getElementById('exImgInput').click()" title="Photo">
+                  <i class="fas fa-camera"></i>
+                </button>
+                <input type="file" id="exImgInput" accept="image/*" style="display:none" onchange="handleExImg(event)">
+                <textarea id="exInput" class="v2-exo-astra-compose__input" placeholder="Écris ta démarche…" rows="1"
+                  oninput="autoResize(this)"
+                  onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}"></textarea>
+                <button type="button" class="v2-exo-astra-compose__send" onclick="sendMessage()" title="Envoyer" id="exSendBtn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+
+            <div id="exoSummaryScreen" class="v2-exo-astra-summary">
+              <div class="exo-summary-hero">
+                <div style="font-size:2rem;margin-bottom:.35rem;" id="exoSummaryEmoji">🏆</div>
+                <div class="exo-summary-score" id="exoSummaryScore">8/10</div>
+                <div style="font-size:.9rem;font-weight:700;margin-top:.25rem;" id="exoSummaryMention">Bien joué !</div>
+                <div style="font-size:.8rem;color:var(--t3);margin-top:.35rem;" id="exoSummaryXp"></div>
+              </div>
+              <div class="exo-summary-lists">
+                <div class="exo-summary-list" style="border-color:rgba(16,185,129,.25);">
+                  <h4 style="color:var(--green);">✓ Maîtrisé</h4>
+                  <ul id="exoMasteredList"></ul>
+                </div>
+                <div class="exo-summary-list" style="border-color:rgba(239,68,68,.2);">
+                  <h4 style="color:#fca5a5;">↻ À revoir</h4>
+                  <ul id="exoMissedList"></ul>
+                </div>
+              </div>
+              <div style="text-align:center;padding:.75rem;">
+                <a id="exoCourseLink" href="#" style="color:var(--blue2);font-size:.85rem;font-weight:700;">📚 Réviser le chapitre</a>
+              </div>
+              <div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;">
+                <button type="button" onclick="generateNewExercise()" class="btn-primary" style="padding:.55rem 1.25rem;">Nouvel exercice</button>
+                <button type="button" onclick="backToChapter()" style="padding:.55rem 1.25rem;background:var(--card);border:1px solid var(--border2);border-radius:10px;color:var(--t2);cursor:pointer;">Autre chapitre</button>
+              </div>
+            </div>
+
+            <!-- legacy hidden -->
+            <div class="v2-exo-session-body" id="v2ExoSessionBody" style="display:none !important;"></div>
+            <div id="exoStepperWrap" style="display:none !important;"></div>
+            <div class="exo-stepper-bar" id="exoStepperBar" style="display:none !important;"></div>
+            <div class="exo-tutor-drawer" id="exoTutorDrawer" style="display:none !important;"></div>
+            <div class="exo-progress-wrap" id="exoProgressWrap" style="display:none !important;"></div>
           </div>
 
-          
-          <div id="exContent" style="display:none;" class="exo-chat-wrap">
-
-            
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-shrink:0;min-width:0;">
-              <button onclick="backToChapter()" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;color:var(--t2);">
-                <i class="fas fa-arrow-left"></i> Retour
-              </button>
-              <div id="exerciseTitleBar" style="font-weight:700;font-size:.95rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--t2);"></div>
-              <button class="exo-gen-btn" onclick="generateNewExercise()" id="genNewBtn" style="position:static;">
-                <i class="fas fa-sync-alt"></i> Nouvel exercice
-              </button>
-            </div>
-
-            <div class="exo-progress-wrap" id="exoProgressWrap" style="display:none;">
-              <div class="exo-progress-top">
-                <span class="exo-progress-label"><i class="fas fa-route"></i> Progression</span>
-                <span class="exo-progress-pct" id="exoProgressPct">0%</span>
-              </div>
-              <div class="exo-progress-track"><div class="exo-progress-fill" id="exoProgressFill" style="width:0%"></div></div>
-              <div class="exo-q-steps" id="exoQSteps"></div>
-            </div>
-
-            
-            <div class="exo-card" id="exerciseCard" style="overflow-y:auto;max-height:35vh;flex-shrink:0;">
-              <div style="display:flex;align-items:center;gap:.5rem;">
-                <span class="exo-badge">EXERCICE</span>
-              </div>
-              <div class="exo-title" id="exerciseTitle">—</div>
-              <div class="exo-text" id="exerciseText"></div>
-              <div id="exerciseQuestions" style="margin-top:.75rem;"></div>
-              <div class="exo-meta" id="exerciseMeta"></div>
-              
-              <button id="exoToolBtn" onclick="toggleToolPanel()" style="display:none;margin-top:.75rem;align-items:center;gap:.45rem;padding:.38rem .9rem;font-size:.78rem;font-weight:700;background:transparent;border:1.5px solid;border-radius:99px;cursor:pointer;transition:opacity .15s;">
-                <i id="exoToolBtnIcon" class="fas fa-th"></i>
-                <span id="exoToolBtnLabel">Échiquier de Punnett</span>
-              </button>
-            </div>
-
-            
-            <div id="interactiveSection" style="display:none;flex-shrink:0;"></div>
-
-            
-            <div id="exImgPreview" style="display:none;align-items:center;gap:.6rem;background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:.5rem .75rem;margin-bottom:.4rem;flex-shrink:0;">
-              <img id="exImgThumb" style="width:36px;height:36px;border-radius:6px;object-fit:cover;" src="" alt="">
-              <span id="exImgName" style="flex:1;font-size:.78rem;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-              <button onclick="removeExImg()" style="background:none;border:none;color:var(--t3);cursor:pointer;font-size:.9rem;"><i class="fas fa-times"></i></button>
-            </div>
-
-            
-            <div class="exo-chat-section card" style="padding:.75rem 1rem;flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:130px;">
-              <div class="exo-msgs" id="exMsgs"></div>
-            </div>
-
-<div class="exo-input-bar" id="exInputBar">
-  <div class="exo-input-bar-inner">
-    <div class="exo-action-row" style="margin-bottom:.5rem;">
-      <button class="exo-more-btn" onclick="askHint()"><i class="fas fa-lightbulb"></i> Indice</button>
-      <button class="exo-more-btn" onclick="askMethod()"><i class="fas fa-compass"></i> Méthode</button>
-      <button class="exo-more-btn" onclick="skipQuestion()"><i class="fas fa-forward"></i> Passer</button>
-      <button class="exo-finish-btn" id="exFinishBtn" onclick="finishSession()"><i class="fas fa-check"></i> Terminer</button>
-    </div>
-    <div class="exo-input-wrap">
-      <textarea class="exo-input" id="exInput" placeholder="Écris ta réponse ou pose une question…" rows="1"
-        onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}"
-        oninput="autoResize(this)"></textarea>
-      <div class="exo-input-bottom">
-        <div class="exo-input-icons">
-          <label class="exo-icon-btn" title="Joindre une image">
-            <i class="fas fa-image"></i>
-            <input type="file" id="exImgInput" accept="image/*" style="display:none" onchange="handleExImg(event)">
-          </label>
+          <div id="exoSheetOverlay" class="v2-exo-sheet-overlay" onclick="closeExoSheet()"></div>
+          <div id="exoSheet" class="v2-exo-sheet" role="dialog" aria-label="Énoncé complet">
+            <button type="button" class="v2-exo-sheet__close" onclick="closeExoSheet()" aria-label="Fermer">
+              <i class="fas fa-times"></i>
+            </button>
+            <span class="v2-exo-astra-badge">EXERCICE</span>
+            <div class="v2-exo-sheet__body" id="exoSheetBody"></div>
+          </div>
         </div>
-        <button class="exo-send-btn" id="exSendBtn" onclick="sendMessage()" disabled>
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
 const CHAPTERS_BY_SUBJECT = JSON.parse(`{{ chapters_by_subject|default:'{}'|escapejs }}`);
 const STUDENT_NAME = '{{ request.user.first_name|default:"Élève"|escapejs }}' || 'Élève';
+const COACH_NAME = (function() {
+  var w = (typeof window !== 'undefined' && window.OTB_COACH_NAME) ? String(window.OTB_COACH_NAME).trim() : '';
+  var t = '{{ coach_name|escapejs }}'.trim();
+  return w || t || 'Chat IA';
+})();
 
 let currentSubject = '';
 let currentSubjectLabel = '';
 let currentChapter = null;
 let currentExercise = null;
+let exoActivityToken = null;
 let chatHistory = [];
 let hintIndex = 0;
 let exoSessionState = null;
 let exoSessionView = null;
+let exoStreak = 0;
+let tutorHistory = [];
+let stepperVerifying = false;
+
+function _chapterParam(chap) {
+  if (!chap) return 'Aléatoire';
+  return chap.chapter_key || chap.title || 'Aléatoire';
+}
+
+function getLocalHint(ex, idx, level) {
+  const reps = ex.reponses || {};
+  const keys = [String.fromCharCode(97 + idx), String(idx + 1)];
+  let official = '';
+  for (const k of keys) { if (reps[k]) { official = String(reps[k]).trim(); break; } }
+  if (!official && Array.isArray(reps) && idx < reps.length) official = String(reps[idx]).trim();
+  if (!official) return null;
+  const theme = (ex.theme || ex.chapter || 'ce chapitre').slice(0, 40);
+  if (level <= 1) return `💡 Niveau 1 — Quelle loi ou définition de « ${theme} » s'applique ?`;
+  if (level === 2) return `💡 Niveau 2 — ${official.split('.')[0].slice(0, 100)}…`;
+  return `💡 Niveau 3 — ${official.slice(0, 160)}${official.length > 160 ? '…' : ''}`;
+}
+
+function getExerciseQuestions(ex) {
+  const qs = (ex.questions || []).filter(function(q) { return q && String(q).trim(); });
+  if (qs.length) return qs;
+  const blob = ((ex.intro || ex.enonce || '') + '\n' + (ex.enonce || '')).trim();
+  const parsed = blob.split(/(?=\b[a-z]\)\s)/i).filter(function(s) {
+    return /^\s*[a-z]\)\s/i.test(s);
+  }).map(function(s) { return s.trim(); }).filter(Boolean);
+  if (parsed.length) return parsed;
+  if (blob) return ['Résous cet exercice en expliquant ta démarche étape par étape.'];
+  return [];
+}
+
+function fixExerciseLabels(text) {
+  if (!text) return text;
+  return String(text)
+    .replace(/\\?\(U_(\d+)\\?\)/g, 'U$1')
+    .replace(/\$U_(\d+)\$/g, 'U$1');
+}
+
+function renderExoRichHtml(raw) {
+  if (!raw || !String(raw).trim()) return '';
+  let t = formatExerciseDisplayLocal(String(raw));
+  t = fixExerciseLabels(t);
+  if (typeof fixLatexControls === 'function') t = fixLatexControls(t);
+  return typeof renderMarkdown === 'function' ? renderMarkdown(t) : escapeHtml(t);
+}
+
+function paintExoKatex(root) {
+  if (!root) return;
+  requestAnimationFrame(function() {
+    if (typeof renderKatex === 'function') renderKatex(root);
+  });
+}
+
+function scrollExoBottom() {
+  const sc = document.getElementById('v2ExoAstraScroll');
+  if (sc) sc.scrollTo({ top: sc.scrollHeight, behavior: 'smooth' });
+}
+
+function openExoSheet() {
+  document.getElementById('exoSheetOverlay')?.classList.add('open');
+  document.getElementById('exoSheet')?.classList.add('open');
+}
+
+function closeExoSheet() {
+  document.getElementById('exoSheetOverlay')?.classList.remove('open');
+  document.getElementById('exoSheet')?.classList.remove('open');
+}
+
+function toggleV2ExoEnonce() { openExoSheet(); }
+
+function initTutorChat(exercise, openingText) {
+  document.getElementById('exoSummaryScreen')?.classList.remove('active');
+  const msgs = document.getElementById('exMsgs');
+  if (msgs) msgs.innerHTML = '';
+  chatHistory = [];
+  tutorHistory = [];
+  const input = document.getElementById('exInput');
+  if (input) { input.disabled = false; input.value = ''; }
+  updateExSendBtnState();
+  const intro = (openingText || '').trim();
+  if (intro) {
+    appendAIMessage(intro);
+    chatHistory.push({ role: 'assistant', content: intro });
+  }
+  setTimeout(scrollExoBottom, 120);
+}
+
+function initStepper(exercise, openingText) { initTutorChat(exercise, openingText); }
+
+function renderStepperQuestion() {
+  const ex = currentExercise;
+  if (!ex) return;
+  const qs = (ex.questions || []).filter(q => q && String(q).trim());
+  const total = qs.length || 1;
+  const idx = exoSessionState ? (exoSessionState.current_index || 0) : 0;
+  const qText = qs[idx] || 'Explique ta démarche pour résoudre cet exercice.';
+  document.getElementById('exoStepLabel').textContent = `Question ${idx + 1} sur ${total}`;
+  const formatted = formatExerciseDisplayLocal(String(qText));
+  const rendered = typeof fixLatexControls === 'function' ? fixLatexControls(formatted) : formatted;
+  const el = document.getElementById('exoStepQuestion');
+  el.innerHTML = typeof renderMarkdown === 'function' ? renderMarkdown(rendered) : rendered;
+  requestAnimationFrame(() => renderKatex(el));
+  const ans = document.getElementById('stepperAnswer');
+  if (ans) { ans.value = ''; ans.disabled = false; ans.focus(); }
+  document.getElementById('exoStepHintBox').style.display = 'none';
+  hideFeedbackBanner();
+}
+
+function updateStreakUI() {
+  const badge = document.getElementById('exoStreakBadge');
+  const val = document.getElementById('exoStreakVal');
+  if (!badge) return;
+  if (exoStreak > 0) { badge.style.display = 'inline-flex'; if (val) val.textContent = exoStreak; }
+  else badge.style.display = 'none';
+}
+
+function showFeedbackBanner(evalType, msg) {
+  const banner = document.getElementById('exoFeedbackBanner');
+  if (!banner) return;
+  const t = (evalType || '').toLowerCase();
+  banner.className = 'exo-feedback-banner ' + (t === 'correct' ? 'correct' : t === 'partial' ? 'partial' : 'wrong');
+  const icon = t === 'correct' ? '✅ Bravo !' : t === 'partial' ? '⚠️ Presque !' : '❌ Pas tout à fait';
+  banner.innerHTML = icon + (msg ? ' — ' + escapeHtml(String(msg).slice(0, 120)) : '');
+  banner.style.display = 'flex';
+  if (t === 'correct') launchExoConfetti();
+}
+
+function hideFeedbackBanner() {
+  const b = document.getElementById('exoFeedbackBanner');
+  if (b) b.style.display = 'none';
+}
+
+function launchExoConfetti() {
+  const c = document.createElement('canvas');
+  c.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:300;';
+  document.body.appendChild(c);
+  const ctx = c.getContext('2d');
+  c.width = innerWidth; c.height = innerHeight;
+  const pcs = Array.from({length:40}, () => ({ x: Math.random()*c.width, y: -10, vy: 2+Math.random()*3, c: ['#22c55e','#3b82f6','#f59e0b'][Math.floor(Math.random()*3)] }));
+  let f = 0;
+  (function draw() {
+    ctx.clearRect(0,0,c.width,c.height);
+    pcs.forEach(p => { p.y += p.vy; ctx.fillStyle = p.c; ctx.fillRect(p.x, p.y, 6, 6); });
+    if (++f < 50) requestAnimationFrame(draw); else c.remove();
+  })();
+}
+
+async function stepperVerify() {
+  if (stepperVerifying || !currentExercise) return;
+  const text = (document.getElementById('stepperAnswer').value || '').trim();
+  if (!text) { showToast('Écris une réponse avant de vérifier.', 'error'); return; }
+  stepperVerifying = true;
+  const btn = document.getElementById('exoVerifyBtn');
+  if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>'; }
+  try {
+    const { resp, data } = await _exoChatRequest(text, chatHistory.slice(-6));
+    if (!_handleStepperResponse(data, resp, text)) return;
+  } catch(e) { showToast('Connexion instable.', 'error'); }
+  finally {
+    stepperVerifying = false;
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-check"></i> Vérifier'; }
+  }
+}
+
+function _handleStepperResponse(data, resp, userText) {
+  if (_handleDailyLimit(resp, data)) return false;
+  if (!data.ok) { showToast(data.error || 'Erreur', 'error'); return false; }
+  chatHistory.push({role:'user', content:userText});
+  if (data.response) chatHistory.push({role:'assistant', content:data.response});
+  appendUserMessage(userText);
+  if (data.response) appendAIMessage(data.response);
+  _applySessionFromResponse(data);
+  const ev = (data.meta && data.meta.evaluation) || '';
+  showFeedbackBanner(ev, data.response);
+  if (ev === 'correct') {
+    exoStreak++;
+    updateStreakUI();
+    setTimeout(() => _afterStepperAdvance(data), 1400);
+  } else if (ev === 'partial') {
+    setTimeout(() => _afterStepperAdvance(data), 2000);
+  } else {
+    if (data.offer_tutor) openTutorDrawer('Besoin d\'aide ? L\'assistant peut te guider.');
+  }
+  if (data.meta && data.meta.note != null) {
+    showStepperSummary(data.meta.note, data.summary);
+  } else if (exoSessionView && exoSessionView.completed) {
+    showStepperSummary(null, data.summary);
+  }
+  return true;
+}
+
+function _afterStepperAdvance(data) {
+  if (exoSessionView && exoSessionView.completed) {
+    showStepperSummary((data.meta && data.meta.note) || null, data.summary);
+    return;
+  }
+  renderStepperQuestion();
+}
+
+async function stepperHint() {
+  if (!currentExercise || !exoSessionState) return;
+  const idx = exoSessionState.current_index || 0;
+  const hints = exoSessionState.hints_used || [];
+  const level = (hints[idx] || 0) + 1;
+  if (level > 3) { showToast('Plus d\'indices disponibles.', 'info'); return; }
+  const local = getLocalHint(currentExercise, idx, level);
+  const box = document.getElementById('exoStepHintBox');
+  if (local) {
+    box.textContent = local;
+    box.style.display = 'block';
+    appendAIMessage(local);
+    hints[idx] = level;
+    exoSessionState.hints_used = hints;
+    return;
+  }
+  await _exoQuickAction('[HINT]', true);
+  if (box && chatHistory.length) {
+    const last = chatHistory[chatHistory.length-1];
+    if (last.role === 'assistant') { box.textContent = last.content; box.style.display = 'block'; }
+  }
+}
+
+async function stepperSkip() {
+  await _exoQuickAction('[SKIP]', true);
+  if (exoSessionView && exoSessionView.completed) finishStepperSession();
+  else renderStepperQuestion();
+}
+
+async function finishStepperSession() {
+  await _exoQuickAction('[FINISH]', true);
+  const note = (exoSessionState && exoSessionState.score_estimate) || null;
+  showStepperSummary(note, null);
+}
+
+function showStepperSummary(note, summary) {
+  const screen = document.getElementById('exoSummaryScreen');
+  if (!screen) return;
+  screen.classList.add('active');
+  const n = note != null ? parseFloat(note) : (summary && summary.note) || 5;
+  const scoreEl = document.getElementById('exoSummaryScore');
+  scoreEl.textContent = n + '/10';
+  scoreEl.style.color = n >= 8 ? 'var(--green)' : n >= 5 ? '#f59e0b' : '#ef4444';
+  document.getElementById('exoSummaryEmoji').textContent = n >= 8 ? '🏆' : n >= 5 ? '👍' : '📖';
+  document.getElementById('exoSummaryMention').textContent = n >= 8 ? 'Excellent !' : n >= 6 ? 'Bien !' : n >= 5 ? 'Passable' : 'Continue à réviser';
+  const mastered = (summary && summary.mastered) || [];
+  const missed = (summary && summary.missed) || [];
+  document.getElementById('exoMasteredList').innerHTML = mastered.length ? mastered.map(m => `<li>${escapeHtml(m)}</li>`).join('') : '<li style="color:var(--t3)">—</li>';
+  document.getElementById('exoMissedList').innerHTML = missed.length ? missed.map(m => `<li>${escapeHtml(m)}</li>`).join('') : '<li style="color:var(--t3)">Rien de critique</li>';
+  const link = document.getElementById('exoCourseLink');
+  if (link) link.href = `/cours/?subject=${encodeURIComponent(currentSubject)}`;
+  fetch('{% url "api_exercise_complete" %}', {
+    method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':CSRF},
+    body: JSON.stringify({score: n, subject: currentSubject, activity_token: exoActivityToken}),
+  }).then(r => r.json()).then(d => {
+    if (d.xp) document.getElementById('exoSummaryXp').textContent = `+${d.xp} XP · Série : ${exoStreak}`;
+  }).catch(() => {});
+}
+
+function openTutorDrawer(msg) {
+  document.getElementById('exoTutorDrawer').classList.add('open');
+  const msgs = document.getElementById('exoTutorMsgs');
+  if (msg && msgs && !msgs.children.length) {
+    const d = document.createElement('div');
+    d.className = 'exo-bubble';
+    d.style.cssText = 'background:var(--bg2);padding:.65rem;border-radius:10px;font-size:.84rem;margin-bottom:.5rem;';
+    d.textContent = msg;
+    msgs.appendChild(d);
+  }
+}
+function closeTutorDrawer() { document.getElementById('exoTutorDrawer').classList.remove('open'); }
+
+async function sendTutorMessage() {
+  const input = document.getElementById('exoTutorInput');
+  const text = (input.value || '').trim();
+  if (!text) return;
+  input.value = '';
+  const msgs = document.getElementById('exoTutorMsgs');
+  const u = document.createElement('div');
+  u.style.cssText = 'text-align:right;font-size:.84rem;margin:.35rem 0;color:var(--blue2);';
+  u.textContent = text;
+  msgs.appendChild(u);
+  tutorHistory.push({role:'user', content:text});
+  try {
+    const payload = { exercise: currentExercise, subject: currentSubject, messages: tutorHistory.slice(-6), message: text, student_name: STUDENT_NAME, session_state: exoSessionState, mode: 'tutor' };
+    const resp = await fetch('{% url "api_exercise_chat" %}', { method:'POST', headers:{'Content-Type':'application/json','X-CSRFToken':CSRF}, body: JSON.stringify(payload) });
+    const data = await resp.json();
+    if (data.ok && data.response) {
+      const a = document.createElement('div');
+      a.className = 'exo-bubble';
+      a.style.cssText = 'background:var(--bg2);padding:.65rem;border-radius:10px;font-size:.84rem;margin:.35rem 0;';
+      a.textContent = data.response;
+      msgs.appendChild(a);
+      tutorHistory.push({role:'assistant', content:data.response});
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+  } catch(e) { showToast('Tuteur indisponible.', 'error'); }
+}
 
 function _limitMsg(data) {
   return (data && data.message) ? data.message : 'Limite atteinte. Réessaie plus tard.';
@@ -509,11 +918,17 @@ function selectSubject(key, label) {
 function _showStep(step) {
   document.getElementById('stepSubject').style.display = step===1 ? 'block' : 'none';
   document.getElementById('stepChapter').style.display = step===2 ? 'block' : 'none';
-  document.getElementById('exoScroll').style.display   = step===3 ? 'none' : 'flex';
+  const scroll = document.getElementById('exoScroll');
+  if (scroll) scroll.style.display = step===3 ? 'none' : 'block';
   const s3 = document.getElementById('stepExercise');
   if (step===3) { s3.classList.add('active'); } else { s3.classList.remove('active'); }
+  const page = document.getElementById('exoPage');
+  if (page) page.classList.toggle('v2-exo-page--session', step === 3);
+  const topbar = document.querySelector('#exoPage')?.closest('.main')?.querySelector('.topbar');
+  if (topbar) topbar.style.display = step === 3 ? 'none' : '';
   const bar = document.getElementById('exInputBar');
   if (bar) { if (step===3) bar.classList.add('visible'); else bar.classList.remove('visible'); }
+  document.body.classList.toggle('v2-exo-session-active', step === 3);
 }
 
 function backToSubject() {
@@ -524,27 +939,33 @@ function backToChapter() {
   _showStep(2);
 }
 
+function _showExoLoading(show) {
+  const overlay = document.getElementById('exLoadingOverlay');
+  if (!overlay) return;
+  overlay.classList.toggle('active', show);
+  overlay.setAttribute('aria-hidden', show ? 'false' : 'true');
+}
+
 async function loadExercise(chapterId) {
   currentChapter = chapterId;
   const chapters = CHAPTERS_BY_SUBJECT[currentSubject] || [];
   const chap = (chapterId === 'random') ? null : chapters.find(c => c.id == chapterId);
-  const chapName = chap ? chap.title : 'Aléatoire';
+  const chapName = _chapterParam(chap);
   const chapLabel = chap ? (chap.display || chap.title) : 'Aléatoire';
   _showStep(3);
-  document.getElementById('exLoading').style.display = 'block';
+  _showExoLoading(true);
   document.getElementById('exContent').style.display = 'none';
   document.getElementById('exerciseTitleBar').textContent = currentSubjectLabel + ' — ' + chapLabel;
-  document.getElementById('exMsgs').innerHTML = '';
+  const msgsEl = document.getElementById('exMsgs');
+  if (msgsEl) msgsEl.innerHTML = '';
   chatHistory = [];
   hintIndex = 0;
   const finishBtn = document.getElementById('exFinishBtn');
   if (finishBtn) { finishBtn.disabled = false; finishBtn.style.opacity = ''; finishBtn.style.pointerEvents = ''; }
-  if (typeof showLoader === 'function') showLoader('Recherche d\'un exercice…', 'Sélection depuis les vrais examens BAC Haïti');
   try {
     const params = new URLSearchParams({ subject: currentSubject, chapter: chapName, mode: 'pdf' });
     const resp = await fetch(`{% url 'api_get_exercise' %}?${params}`, { headers:{'X-CSRFToken':CSRF} });
     const data = await resp.json();
-    if (typeof hideLoader === 'function') hideLoader();
     if (data.error === 'daily_limit_reached' || resp.status === 429) {
       showToast(_limitMsg(data), 'error');
       _disableExoInput();
@@ -558,12 +979,14 @@ async function loadExercise(chapterId) {
     }
     if (!resp.ok || data.error) throw new Error(data.error || 'Erreur serveur');
     currentExercise = data.exercise;
+    exoActivityToken = data.activity_token || null;
     exoSessionState = data.session_state || null;
     exoSessionView = data.session || null;
+    chatHistory = [];
+    tutorHistory = [];
     displayExercise(currentExercise);
-    await startAIChat(data.opening);
+    initStepper(currentExercise, data.opening);
   } catch(e) {
-    if (typeof hideLoader === 'function') hideLoader();
     _showStep(2);
     showToast('? ' + e.message, 'error');
   }
@@ -573,107 +996,148 @@ async function generateNewExercise() {
   const btn = document.getElementById('genNewBtn');
   btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
   btn.disabled = true;
+  _showExoLoading(true);
   try {
     const chapters = CHAPTERS_BY_SUBJECT[currentSubject] || [];
     const chap = (currentChapter === 'random') ? null : chapters.find(c => c.id == currentChapter);
-    const chapName = chap ? chap.title : 'Aléatoire';
+    const chapName = _chapterParam(chap);
     const params = new URLSearchParams({ subject: currentSubject, chapter: chapName, mode: 'pdf' });
     const resp = await fetch(`{% url 'api_get_exercise' %}?${params}`, { headers:{'X-CSRFToken':CSRF} });
     const data = await resp.json();
     if (data.error === 'daily_limit_reached' || resp.status === 429) {
       showToast(_limitMsg(data), 'error');
       _disableExoInput();
+      _showExoLoading(false);
       btn.innerHTML = '<i class="fas fa-sync-alt"></i> Nouvel exercice';
       btn.disabled = false;
       return;
     }
     if (data.premium_required) {
       showPremiumGate(data.message || "Tu as atteint ta limite d'exercices gratuits pour cette matière.");
+      _showExoLoading(false);
       btn.innerHTML = '<i class="fas fa-sync-alt"></i> Nouvel exercice';
       btn.disabled = false;
       return;
     }
     if (!resp.ok || data.error) throw new Error(data.error || 'Erreur serveur');
     currentExercise = data.exercise;
+    exoActivityToken = data.activity_token || null;
     exoSessionState = data.session_state || null;
     exoSessionView = data.session || null;
     chatHistory = [];
-    hintIndex = 0;
-    document.getElementById('exInput').disabled = false;
-    document.getElementById('exInput').value = '';
-    updateExSendBtnState();
+    tutorHistory = [];
+    document.getElementById('exoSummaryScreen').classList.remove('active');
     displayExercise(currentExercise);
-    document.getElementById('exMsgs').innerHTML = '';
-    const finishBtn = document.getElementById('exFinishBtn');
-    if (finishBtn) { finishBtn.disabled = false; finishBtn.style.opacity = ''; finishBtn.style.pointerEvents = ''; }
-    await startAIChat(data.opening);
+    initStepper(currentExercise, data.opening);
   } catch(e) {
     showToast('? ' + e.message, 'error');
   }
+  _showExoLoading(false);
   btn.innerHTML = '<i class="fas fa-sync-alt"></i> Nouvel exercice';
   btn.disabled = false;
 }
 
+/** Formatage local côté client — complète le traitement serveur (tables x/y, dédup légère). */
+function formatExerciseDisplayLocal(text) {
+  if (!text || typeof text !== 'string') return text || '';
+  let s = text;
+  // Dédup mots consécutifs identiques
+  s = s.replace(/\b(\S+)(\s+\1\b)+/gi, '$1');
+  if (s.includes('|')) return s;
+  // x\ty\t... + y\ty\t... → tableau pipe
+  const xMatch = s.match(/\bx[\s\t]+([\d,.\s\t]+?)(?=\n|\s*y[\s\t])/i);
+  const yMatch = s.match(/\by[\s\t]+([\d,.\s\t]+?)(?=\n|\.|\s*$)/i);
+  if (xMatch && yMatch) {
+    const xVals = xMatch[1].trim().split(/[\s\t]+/).filter(Boolean);
+    const yVals = yMatch[1].trim().split(/[\s\t]+/).filter(Boolean);
+    if (xVals.length >= 2 && xVals.length === yVals.length) {
+      const hdr = '| x | ' + xVals.join(' | ') + ' |';
+      const sep = '|---|' + xVals.map(() => '---').join('|') + '|';
+      const row = '| y | ' + yVals.join(' | ') + ' |';
+      const table = '\n' + hdr + '\n' + sep + '\n' + row + '\n';
+      s = s.replace(/\bx[\s\t]+[\d,\s\t]+?\n?\s*y[\s\t]+[\d,\s\t]+/i, table);
+    }
+  }
+  return s;
+}
+
 function displayExercise(ex) {
+  if (!ex) return;
   const theme = ex.theme || ex.matiere || currentSubjectLabel;
-  document.getElementById('exerciseTitle').textContent = theme;
+  const titleBar = document.getElementById('exerciseTitleBar');
+  if (titleBar) titleBar.textContent = theme;
+  const titleEl = document.getElementById('exerciseTitle');
+  if (titleEl) titleEl.textContent = theme;
 
   const bodyEl = document.getElementById('exerciseText');
-  const consigne = ex.intro || ex.enonce || '';
-  const textPassage = ex.texte || '';
-  let bodyHTML = renderMarkdown(consigne);
-  if (textPassage && textPassage.trim()) {
-    bodyHTML += `<div style="margin-top:.75rem;padding:.85rem 1rem;background:var(--bg2);border-left:3px solid var(--green);border-radius:0 10px 10px 0;font-size:.875rem;line-height:1.8;color:var(--t1);">${renderMarkdown(textPassage)}</div>`;
+  const introRaw = ((ex.intro || ex.enonce || '').trim());
+  const textPassage = (ex.texte || '').trim();
+  let bodyHTML = '';
+  if (introRaw) {
+    bodyHTML = renderExoRichHtml(introRaw);
   }
-  bodyEl.innerHTML = bodyHTML;
+  if (textPassage) {
+    bodyHTML += `<div class="v2-exo-sheet-passage">${renderExoRichHtml(textPassage)}</div>`;
+  }
+  if (!bodyHTML) {
+    bodyHTML = '<p class="v2-exo-card-lead">Lis les questions ci-dessous et travaille étape par étape avec ton tuteur.</p>';
+  }
+  if (bodyEl) {
+    bodyEl.className = 'v2-exo-astra-card__text exo-text';
+    bodyEl.innerHTML = bodyHTML;
+  }
 
   const qEl = document.getElementById('exerciseQuestions');
-  const questions = (ex.questions || []).filter(q => q && q.toString().trim());
-  qEl.innerHTML = '';
-  if (questions.length) {
-    const wrap = document.createElement('div');
-    wrap.style.cssText = 'margin-top:.5rem;padding-top:.6rem;border-top:1px solid var(--border2);';
-    const lbl = document.createElement('div');
-    lbl.style.cssText = 'font-size:.72rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem;';
-    lbl.textContent = 'Questions';
-    wrap.appendChild(lbl);
-    questions.forEach((q, i) => {
-      const row = document.createElement('div');
-      row.style.cssText = 'font-size:.875rem;color:var(--t1);margin-bottom:.45rem;line-height:1.7;display:flex;align-items:baseline;gap:.4rem;';
-      const num = document.createElement('span');
-      num.style.cssText = 'font-weight:700;color:var(--green);flex-shrink:0;';
-      num.textContent = (i + 1) + '.';
-      const txt = document.createElement('span');
-      txt.style.cssText = 'flex:1;min-width:0;';
-      txt.textContent = typeof fixLatexControls === 'function' ? fixLatexControls(String(q)) : String(q);
-      row.appendChild(num);
-      row.appendChild(txt);
-      wrap.appendChild(row);
-    });
-    qEl.appendChild(wrap);
+  let qHtml = '';
+  const qs = getExerciseQuestions(ex);
+  if (qs.length) {
+    qHtml = '<div class="v2-exo-questions__label">Questions</div>' +
+      qs.map(function(q, i) {
+        const rendered = renderExoRichHtml(String(q));
+        return '<div class="v2-exo-question-item"><span class="v2-exo-q-num">' + (i + 1) + '</span><div class="v2-exo-q-text exo-text">' + rendered + '</div></div>';
+      }).join('');
+  }
+  if (qEl) {
+    qEl.innerHTML = qHtml;
+    qEl.style.display = qHtml ? 'block' : 'none';
   }
 
   const metaEl = document.getElementById('exerciseMeta');
   const diff = ex.difficulte || 'moyen';
   const diffColor = diff === 'facile' ? '#22c55e' : diff === 'difficile' ? '#ef4444' : '#f59e0b';
   const src = (ex.source || '').replace(/\.pdf$/i, '').replace(/\s*—\s*exam_\w+/i, '').trim();
-  metaEl.innerHTML = (src ? `<span class="exo-meta-tag" style="background:rgba(148,163,184,.1);color:var(--t3);">${escapeHtml(src)}</span>` : '')
-    + `<span class="exo-meta-tag" style="color:${diffColor};background:${diffColor}22;">${diff.charAt(0).toUpperCase()+diff.slice(1)}</span>`;
+  const metaHtml = (src ? `<span class="exo-meta-tag">${escapeHtml(src)}</span>` : '')
+    + `<span class="exo-meta-tag" style="color:${diffColor};">${diff.charAt(0).toUpperCase()+diff.slice(1)}</span>`;
+  if (metaEl) {
+    metaEl.innerHTML = metaHtml;
+    metaEl.style.display = metaHtml.trim() ? 'flex' : 'none';
+  }
 
-  document.getElementById('exLoading').style.display = 'none';
+  const sheetBody = document.getElementById('exoSheetBody');
+  if (sheetBody) {
+    sheetBody.innerHTML = bodyHTML + qHtml + `<div class="v2-exo-sheet-meta">${metaHtml}</div>`;
+    paintExoKatex(sheetBody);
+  }
+
+  _showExoLoading(false);
   document.getElementById('exContent').style.display = 'flex';
-  document.getElementById('exInput').focus();
-  requestAnimationFrame(() => renderKatex(document.getElementById('exContent')));
+  const input = document.getElementById('exInput');
+  if (input) input.focus();
+  paintExoKatex(document.getElementById('v2ExoCardInner'));
 
   const toolBtn = document.getElementById('exoToolBtn');
   const toolIcon = document.getElementById('exoToolBtnIcon');
   const toolLabel = document.getElementById('exoToolBtnLabel');
   const section = document.getElementById('interactiveSection');
-  section.style.display = 'none';
-  section.innerHTML = '';
+  if (section) {
+    section.style.display = 'none';
+    section.innerHTML = '';
+  }
   _punnettConfig = null;
   _avancementConfig = null;
   _toolLoaded = false;
+
+  if (!toolBtn || !toolIcon || !toolLabel) return;
 
   let showTool = false;
   let toolType = '';
@@ -756,53 +1220,36 @@ async function startAIChat(openingText) {
 
 function appendAIMessage(text) {
   const msgs = document.getElementById('exMsgs');
+  if (!msgs) return;
   const div = document.createElement('div');
-  div.className = 'exo-msg ai';
-  div.innerHTML = `<div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue2))"><i class="fas fa-robot" style="font-size:.7rem;"></i></div>
-    <div class="exo-msg-content">
-      <div class="exo-bubble">${renderMarkdown(text)}</div>
-      <div class="exo-msg-actions">
-        <button class="exo-react-btn" onclick="this.style.color='var(--green)'"><i class="fas fa-thumbs-up"></i></button>
-        <button class="exo-react-btn" onclick="this.style.color='var(--red)'"><i class="fas fa-thumbs-down"></i></button>
-      </div>
-    </div>`;
+  div.className = 'v2-exo-astra-msg v2-exo-astra-msg--ai';
+  div.innerHTML = `<div class="v2-exo-astra-avatar" aria-hidden="true"><i class="fas fa-robot"></i></div>
+    <div class="v2-exo-astra-msg__text exo-text">${renderExoRichHtml(text)}</div>`;
   msgs.appendChild(div);
-  renderKatex(div);
-  div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  const txt = div.querySelector('.v2-exo-astra-msg__text');
+  paintExoKatex(txt);
+  scrollExoBottom();
 }
 
 function appendUserMessage(text) {
   const msgs = document.getElementById('exMsgs');
+  if (!msgs) return;
   const div = document.createElement('div');
-  div.className = 'exo-msg user';
-  div.innerHTML = `<div class="exo-msg-content" style="align-items:flex-end;">
-      <div class="exo-bubble">${escapeHtml(text)}</div>
-    </div>
-    <div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--blue),var(--purple));font-size:.75rem;font-weight:800;">${STUDENT_NAME[0]||'?'}</div>`;
+  div.className = 'v2-exo-astra-msg v2-exo-astra-msg--user';
+  div.innerHTML = `<div class="v2-exo-astra-bubble">${escapeHtml(text)}</div>`;
   msgs.appendChild(div);
-  div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  scrollExoBottom();
 }
 
 function appendTypingIndicator() {
   const msgs = document.getElementById('exMsgs');
   const div = document.createElement('div');
-  div.className = 'exo-msg ai';
+  div.className = 'v2-exo-astra-msg v2-exo-astra-msg--ai';
   div.id = 'typingIndicator';
-  div.innerHTML = `<div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue2))"><i class="fas fa-robot" style="font-size:.7rem;"></i></div>
-    <div class="exo-msg-content"><div class="exo-bubble" style="padding:.5rem .9rem;">
-      <div class="astra-loader" style="padding:0;">
-        <div class="astra-row"><div class="astra-dot thinking"></div><div class="astra-dot thinking"></div><div class="astra-dot thinking"></div><div class="astra-dot thinking"></div></div>
-        <div class="astra-phase-label thinking" id="exoTypingLabel">Réflexion…</div>
-      </div>
-    </div></div>`;
+  div.innerHTML = `<div class="v2-exo-astra-avatar"><i class="fas fa-robot"></i></div>
+    <div class="v2-exo-astra-typing"><span></span><span></span><span></span></div>`;
   msgs.appendChild(div);
-  div.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  setTimeout(() => {
-    const lbl = document.getElementById('exoTypingLabel');
-    const dots = div.querySelectorAll('.astra-dot');
-    if (lbl) lbl.textContent = 'Génération…';
-    dots.forEach(d => { d.classList.remove('thinking'); d.classList.add('generating'); });
-  }, 1200);
+  scrollExoBottom();
   return div;
 }
 
@@ -830,6 +1277,11 @@ async function _exoChatRequest(message, historySlice, imageB64, imageMime) {
 
 function _handleExoResponse(data, resp) {
   if (_handleDailyLimit(resp, data)) { _disableExoInput(); return false; }
+  if (data.error === 'ia_auth' || data.error === 'ia_unavailable') {
+    showToast(data.message || 'IA indisponible.', 'error');
+    _showExRetry();
+    return false;
+  }
   if (!data.ok || !data.response) { _showExRetry(); return false; }
   let response = data.response;
   const noteMatch = response.match(/\[NOTE:(\d+(?:\.\d+)?)\/10\]/i);
@@ -851,16 +1303,18 @@ function _handleExoResponse(data, resp) {
 let _lastExMsg = '';
 function _showExRetry() {
   const msgs = document.getElementById('exMsgs');
+  if (!msgs) return;
   const div = document.createElement('div');
-  div.className = 'exo-msg ai';
-  div.innerHTML = `<div class="exo-msg-avatar" style="background:linear-gradient(135deg,var(--green),var(--blue2))"><i class="fas fa-robot" style="font-size:.7rem;"></i></div>
-    <div class="exo-msg-content"><div class="exo-bubble"><div class="retry-error-card">
+  div.className = 'v2-exo-astra-msg v2-exo-astra-msg--ai';
+  div.innerHTML = `<div class="v2-exo-astra-avatar"><i class="fas fa-robot"></i></div>
+    <div class="v2-exo-astra-msg__text"><div class="retry-error-card">
       <div class="retry-error-icon">⚠️</div>
-      <div class="retry-error-text"><strong>Oups ! Connexion instable</strong>L'IA n'a pas pu répondre. Vérifie ta connexion et réessaie.</div>
-      <button class="retry-btn" onclick="this.closest('.exo-msg').remove();_retrySendExMsg()">🔄 Réessayer</button>
-    </div></div></div>`;
+      <div class="retry-error-text"><strong>Oups ! Connexion instable</strong>
+        L'IA n'a pas pu répondre. Réessaie dans un instant.</div>
+      <button type="button" class="retry-btn" onclick="this.closest('.v2-exo-astra-msg').remove();_retrySendExMsg()">🔄 Réessayer</button>
+    </div></div>`;
   msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
+  scrollExoBottom();
 }
 function _retrySendExMsg() {
   if (!_lastExMsg || !currentExercise) return;
@@ -920,13 +1374,37 @@ function _showSessionNote(note) {
   fetch('{% url "api_exercise_complete" %}', {
     method: 'POST',
     headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
-    body: JSON.stringify({score: note, subject: currentSubject}),
+    body: JSON.stringify({score: note, subject: currentSubject, activity_token: exoActivityToken}),
   }).catch(() => {});
 }
 
 async function askHint() {
   if (!currentExercise) return;
-  await _exoQuickAction('[HINT] Donne un indice progressif pour la question en cours.');
+  const idx = exoSessionState ? (exoSessionState.current_index || 0) : 0;
+  const hints = exoSessionState?.hints_used || [];
+  const level = (hints[idx] || 0) + 1;
+  if (level > 3) {
+    showToast('Plus d\'indices pour cette question.', 'info');
+    return;
+  }
+  let hintText = getLocalHint(currentExercise, idx, level);
+  if (!hintText) {
+    const theme = (currentExercise.theme || currentExercise.chapter || 'ce chapitre').slice(0, 50);
+    const generic = [
+      `💡 Indice 1 — Relis l'énoncé : quelles données sont données ? Que doit-on trouver ?`,
+      `💡 Indice 2 — Quelle formule ou loi de « ${theme} » s'applique ici ?`,
+      `💡 Indice 3 — Décompose en étapes : pose les inconnues, écris les relations, puis calcule.`,
+    ];
+    hintText = generic[Math.min(level - 1, generic.length - 1)];
+  }
+  appendAIMessage(hintText);
+  chatHistory.push({ role: 'assistant', content: hintText });
+  if (exoSessionState) {
+    const h = exoSessionState.hints_used || [];
+    while (h.length <= idx) h.push(0);
+    h[idx] = level;
+    exoSessionState.hints_used = h;
+  }
 }
 
 async function askMethod() {
@@ -939,28 +1417,25 @@ async function skipQuestion() {
   await _exoQuickAction('[SKIP] Je veux passer à la question suivante.');
 }
 
-async function _exoQuickAction(message) {
-  const typing = appendTypingIndicator();
-  document.getElementById('exInput').disabled = true;
-  document.getElementById('exSendBtn').disabled = true;
+async function _exoQuickAction(message, silent) {
+  if (!silent) appendTypingIndicator && appendUserMessage(message.replace(/^\[[A-Z]+\]\s*/, ''));
   try {
     const { resp, data } = await _exoChatRequest(message, chatHistory.slice(-6));
-    typing.remove();
+    if (silent) {
+      if (data.session_state) exoSessionState = data.session_state;
+      if (data.session) { exoSessionView = data.session; updateExoProgressUI(data.session); }
+      if (data.response) chatHistory.push({role:'assistant', content:data.response});
+      return data;
+    }
     if (!_handleExoResponse(data, resp)) {
-      const fallback = '💡 Continue étape par étape — identifie les données, puis la formule ou la loi du chapitre.';
+      const fallback = '💡 Continue étape par étape.';
       appendAIMessage(fallback);
       chatHistory.push({role: 'assistant', content: fallback});
     }
   } catch(e) {
-    typing.remove();
-    showToast('Connexion instable. Réessaie.', 'error');
-  } finally {
-    if (!exoSessionView || !exoSessionView.completed) {
-      document.getElementById('exInput').disabled = false;
-      document.getElementById('exSendBtn').disabled = false;
-      document.getElementById('exInput').focus();
-    }
+    if (!silent) showToast('Connexion instable. Réessaie.', 'error');
   }
+  return null;
 }
 
 async function finishSession() {
@@ -972,7 +1447,9 @@ async function finishSession() {
 
 function autoResize(el) {
   el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 80) + 'px';
+  const max = 56;
+  el.style.height = Math.min(el.scrollHeight, max) + 'px';
+  el.style.overflowY = 'hidden';
   updateExSendBtnState();
 }
 
@@ -980,8 +1457,8 @@ function updateExSendBtnState() {
   const input = document.getElementById('exInput');
   const btn = document.getElementById('exSendBtn');
   if (input && btn) {
-    // Enable if there is text OR an image attached
     btn.disabled = !input.value.trim() && !exImgFile;
+    btn.style.opacity = btn.disabled ? '0.45' : '1';
   }
 }
 

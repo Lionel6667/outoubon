@@ -4,6 +4,7 @@ import random
 import re
 import hashlib
 import logging
+import functools
 import unicodedata
 from datetime import date
 from pathlib import Path
@@ -14,9 +15,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 
-from django.db import models
+from django.db import models, transaction
 from accounts.models import DiagnosticResult, UserProfile
 from django.contrib.contenttypes.models import ContentType
 from accounts.models import MessageDeletion
@@ -26,10 +27,11 @@ from .models import (
     Flashcard, FlashcardProgress, RevisionPlan, QuizAnalysis, BookmarkedQuestion,
     SubjectChapter, CourseSession, CourseProgressState, GeneratedCourseAsset,
     MistakeTracker, SubjectMastery, ChatSessionSummary, LearningEvent,
-    ExtraBetPost, ExtraBetAttempt, GeneratedExam,
+    ExtraBetPost, ExtraBetAttempt, GeneratedExam, UserSeenExamItem,
 )
 from . import gemini
 from . import pdf_loader
+from . import local_responses
 from .series_data import get_priority_subjects, get_serie_context_text, SERIES
 from .exercise_generator import generate_physics_exercise
 from django.utils import timezone as _timezone
@@ -74,6 +76,14 @@ def _hybrid_course_key(subject: str, num: int) -> str:
 # ── AI context optimization ───────────────────────────────────────────────────
 # Subjects where JSON note context is NOT sent to AI (no calculations/formulas needed)
 _NO_JSON_CONTEXT_SUBJECTS = frozenset(['anglais', 'espagnol', 'informatique'])
+
+# Hard caps — coût tokens (entrée)
+AI_BLOCK_MAX_OUTPUT_CHARS = 3_500
+AI_BLOCK_MAX_OUTPUT_COURSE = 3_000
+AI_CHAT_CONTEXT_MAX_CHARS = 2_800   # chat — cap entrée (voir chat_token_optimizer)
+CHAT_HISTORY_DB_LOAD = 4            # fenêtre historique chat (2 échanges)
+CHAT_HISTORY_KEEP = 6           # messages verbatim max (3 échanges user/assistant)
+COURSE_SESSION_CHAT_KEEP = 6    # session cours — sliding window ultra-strict
 
 # Map subject → _ai.json file name
 _AI_JSON_FILE_MAP = {
@@ -179,7 +189,7 @@ def _pick_best_local_exercise_block(subject: str, query: str) -> dict | None:
         else:
             exact = 0
 
-        type_bonus = {'exercise': 120, 'detailed_examples': 95, 'examples': 85}.get(btype, 0)
+        type_bonus = {'exercise': 200, 'examples': 60, 'detailed_examples': 30}.get(btype, 0)
         bac_bonus = 20 if ('bac ' in search_zone or '(bac' in search_zone) else 0
         content_len = len((b.get('content', '') or '').strip())
         score = (exact * 100) + type_bonus + bac_bonus + min(content_len, 1800) / 30
@@ -191,7 +201,15 @@ def _pick_best_local_exercise_block(subject: str, query: str) -> dict | None:
     return best
 
 
-def _search_ai_blocks(subject: str, chapter_num: int, query: str, max_blocks: int = 12) -> str:
+def _search_ai_blocks(
+    subject: str,
+    chapter_num: int,
+    query: str,
+    max_blocks: int = 12,
+    max_output_chars: int = AI_BLOCK_MAX_OUTPUT_CHARS,
+    summary_only: bool = False,
+    return_top_score: bool = False,
+) -> str | tuple[str, float]:
     """
     Load note_*_ai.json for subject, filter blocks by chapter_num,
     score by semantic relevance (keywords + type priority), return formatted context.
@@ -227,7 +245,14 @@ def _search_ai_blocks(subject: str, chapter_num: int, query: str, max_blocks: in
     if chapter_num > 0:
         chapter_blocks = [b for b in all_blocks if b.get('chapter_num') == chapter_num]
     else:
-        chapter_blocks = all_blocks[:]
+        # Chat global : limiter aux résumés pour éviter de scanner toute la matière.
+        if summary_only:
+            chapter_blocks = [
+                b for b in all_blocks
+                if b.get('type') in ('chapter_summary', 'summary')
+            ] or all_blocks[:]
+        else:
+            chapter_blocks = all_blocks[:]
 
     if not chapter_blocks:
         chapter_blocks = all_blocks
@@ -361,13 +386,14 @@ def _search_ai_blocks(subject: str, chapter_num: int, query: str, max_blocks: in
     if not selected or (not query_tokens and scored_blocks and scored_blocks[0][0] <= 0):
         selected = sorted(chapter_blocks, key=lambda b: TYPE_PRIORITY.get(b.get('type', ''), 99))[:max_blocks]
 
-    # Format as context text
+    # Format as context text (hard cap on total output size)
     if not selected:
         return ''
 
     lines = []
     prev_chapter = None
     prev_sub = None
+    total_out = 0
 
     for block in selected:
         chapter = block.get('chapter', '')
@@ -379,12 +405,20 @@ def _search_ai_blocks(subject: str, chapter_num: int, query: str, max_blocks: in
             continue
 
         if chapter != prev_chapter:
-            lines.append(f"\n## {chapter}")
+            header = f"\n## {chapter}"
+            if total_out + len(header) > max_output_chars:
+                break
+            lines.append(header)
+            total_out += len(header)
             prev_chapter = chapter
             prev_sub = None
 
         if sub != prev_sub:
-            lines.append(f"\n### {sub}")
+            header = f"\n### {sub}"
+            if total_out + len(header) > max_output_chars:
+                break
+            lines.append(header)
+            total_out += len(header)
             prev_sub = sub
 
         _TYPE_LABELS = {
@@ -400,9 +434,40 @@ def _search_ai_blocks(subject: str, chapter_num: int, query: str, max_blocks: in
             'exercise':         'Exercice',
         }
         label = _TYPE_LABELS.get(btype, btype.replace('_', ' ').capitalize())
-        lines.append(f"\n**{label}**\n{content}\n")
+        remaining = max_output_chars - total_out
+        if remaining <= 80:
+            break
+        snippet = content if len(content) <= remaining - 40 else content[: remaining - 40].rstrip() + '…'
+        block_text = f"\n**{label}**\n{snippet}\n"
+        lines.append(block_text)
+        total_out += len(block_text)
 
-    return '\n'.join(lines) if lines else ''
+    formatted = '\n'.join(lines) if lines else ''
+    if return_top_score:
+        return formatted, float(top_score)
+    return formatted
+
+
+def _build_course_ai_context(subject: str, chapter_num: int, user_msg: str, max_chars: int = AI_BLOCK_MAX_OUTPUT_COURSE) -> tuple[str, str]:
+    """
+    Contexte IA pour le cours — extraits STABLES par chapitre (cache DeepSeek).
+    user_msg est ignoré exprès : un extrait qui change à chaque question casse le prefix cache.
+    """
+    full = pdf_loader.get_note_chapter_content(subject, chapter_num)
+    if full:
+        return full[:max_chars], 'notes_stable'
+
+    excerpt = pdf_loader.get_note_chapter_ai_context(
+        subject, chapter_num, max_chars=max_chars, query='',
+    )
+    if excerpt:
+        return excerpt[:max_chars], 'notes_stable'
+
+    summary = pdf_loader.get_chapter_summary_context(subject, chapter_num, max_chars=max_chars)
+    if summary:
+        return summary[:max_chars], 'chapter_summary'
+
+    return '', 'empty'
 
 
 def _get_user_lang(request) -> str:
@@ -1343,8 +1408,140 @@ MATS = {
 }
 
 def _get_subj_label(subj):
-    """Helper pour récupérer le label d'une matière de manière sécurisée."""
-    return MATS.get(subj, {}).get('label', subj)
+    """Label d'affichage. En NS4, francais = Kreyòl — jamais « Français »."""
+    if not subj:
+        return ''
+    key = str(subj).strip().lower()
+    aliases = {
+        'kreyol': 'francais',
+        'kreyòl': 'francais',
+        'creole': 'francais',
+        'créole': 'francais',
+        'français': 'francais',
+        'francais': 'francais',
+    }
+    key = aliases.get(key, key)
+    label = MATS.get(key, {}).get('label')
+    if label:
+        return label
+    raw = str(subj).strip()
+    low = raw.lower()
+    if 'français' in low and 'krey' not in low:
+        return 'Kreyòl'
+    return raw
+
+
+def _format_chat_preview_text(content: str, max_len: int = 80) -> str:
+    """Texte court pour titres d'historique (sans PDF brut ni sauts de ligne)."""
+    if not content:
+        return ''
+    s = str(content).strip()
+    s = re.sub(r'📄\s*\*\*PDF:.*', '', s, flags=re.I | re.S)
+    s = re.sub(r'Analyse et aide-moi à réviser[^.]*\.?\s*', '', s, flags=re.I)
+    s = re.sub(r'\s+', ' ', s).strip()
+    if len(s) > max_len:
+        s = s[: max_len - 1].rstrip() + '…'
+    return s
+
+
+def _usable_chat_title(val) -> str:
+    if not isinstance(val, str):
+        return ''
+    t = val.strip()
+    if not t or len(t) >= 90 or len(t.split()) > 8:
+        return ''
+    from core.chat_title import is_weak_title
+    if is_weak_title(t):
+        return ''
+    return t
+
+
+def _chat_conversation_title(first_content: str, subject: str, summary_row=None, extra_user_msgs=None) -> str:
+    """Titre lisible : mots-clés heuristiques, ou titre court déjà stocké."""
+    if summary_row and summary_row.summary:
+        summ = summary_row.summary
+        if isinstance(summ, dict):
+            for key in ('title', 'topic', 'main_topic'):
+                stored = _usable_chat_title(summ.get(key))
+                if stored:
+                    return stored
+    from core.chat_title import conversation_title_from_thread
+    msgs = []
+    if first_content:
+        msgs.append(first_content)
+    for extra in extra_user_msgs or []:
+        if extra:
+            msgs.append(extra)
+    return conversation_title_from_thread(msgs, subject)
+
+
+def _persist_and_return_chat_title(user, session_key: str, text: str, subject: str) -> str:
+    try:
+        from core.chat_title import persist_conversation_title
+        return persist_conversation_title(user, session_key, text, subject)
+    except Exception:
+        from core.chat_title import conversation_title_from_thread
+        return conversation_title_from_thread([text], subject)
+
+
+def _chat_greeting_for(user) -> str:
+    from django.utils import timezone as _tz
+    hour = _tz.localtime().hour
+    first = (getattr(user, 'first_name', '') or getattr(user, 'username', '') or 'Élève').strip()
+    salut = 'bonsoir' if (hour >= 18 or hour < 5) else 'bonjour'
+    icon = ' 🌙' if salut == 'bonsoir' else ''
+    return f'{first}, {salut} !{icon}'
+
+
+def _list_chat_conversations(user, q: str = '', limit: int = 500):
+    from django.db.models import Max, Count
+    from collections import defaultdict
+
+    q = (q or '').strip()
+    base = ChatMessage.objects.filter(user=user).exclude(session_key='')
+    if q:
+        keys = (
+            ChatMessage.objects.filter(user=user, content__icontains=q)
+            .exclude(session_key='')
+            .values_list('session_key', flat=True)
+            .distinct()
+        )
+        base = base.filter(session_key__in=keys)
+    conversations = list(
+        base.values('session_key', 'subject')
+        .annotate(last_msg=Max('created_at'), msg_count=Count('id'))
+        .order_by('-last_msg')[:limit]
+    )
+    session_keys = [c['session_key'] for c in conversations]
+    user_msgs_map = defaultdict(list)
+    if session_keys:
+        for m in (
+            ChatMessage.objects.filter(user=user, session_key__in=session_keys, role='user')
+            .order_by('created_at')
+            .only('session_key', 'content')
+        ):
+            bucket = user_msgs_map[m.session_key]
+            if len(bucket) < 6:
+                bucket.append(m.content)
+    summary_map = {
+        s.session_key: s
+        for s in ChatSessionSummary.objects.filter(user=user, session_key__in=session_keys)
+    } if session_keys else {}
+    out = []
+    for c in conversations:
+        sk = c['session_key']
+        msgs = user_msgs_map.get(sk) or []
+        first_raw = msgs[0] if msgs else ''
+        extra = msgs[1:]
+        out.append({
+            'session_key': sk,
+            'subject':     c['subject'],
+            'label':       _get_subj_label(c['subject']),
+            'last_msg':    c['last_msg'],
+            'msg_count':   c['msg_count'],
+            'preview':     _chat_conversation_title(first_raw, c['subject'], summary_map.get(sk), extra),
+        })
+    return out
 
 
 def _get_or_create_stats(user):
@@ -1363,6 +1560,16 @@ def _update_streak(user):
         profile.streak = 1
     profile.last_activity = today
     profile.save(update_fields=['streak', 'last_activity'])
+    try:
+        from datetime import timedelta as _td
+        from core.xp import apply_streak_xp
+        started = today - _td(days=max(0, profile.streak - 1))
+        apply_streak_xp(user, profile.streak, started)
+    except Exception:
+        pass
+    if profile.streak in (7, 14, 30, 60, 100):
+        from core.push_events import push_streak_milestone
+        push_streak_milestone(user, profile.streak)
     return profile.streak  # newly achieved streak value
 
 
@@ -1375,6 +1582,169 @@ def _is_guest(request):
     return request.session.get('guest_mode', False)
 
 
+def _calc_stats_xp(stats):
+    return int(getattr(stats, 'xp_total', 0) or 0)
+
+
+def _user_xp(user, stats=None):
+    if stats is not None and getattr(stats, 'xp_total', None) is not None:
+        return int(stats.xp_total or 0)
+    from core.xp import get_user_xp
+    return get_user_xp(user)
+
+
+def _exam_attempt_id(request, subject):
+    if not getattr(request.user, 'is_authenticated', False):
+        return None
+    from core.xp import create_activity
+    act = create_activity(request.user, 'exam', subject or 'general', {})
+    return str(act.token)
+
+
+def _cached_quiz_scores(user, serie_subjects, diag_scores, spa_mode=False):
+    """Scores par matière — cache court en navigation SPA (DB distante)."""
+    from django.core.cache import cache
+    from core.subject_scores import get_scores_for_user
+
+    if not spa_mode:
+        return get_scores_for_user(user, serie_subjects, diag_scores)
+    cache_key = f'quiz_scores:{user.pk}'
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return cached
+    scores = get_scores_for_user(user, serie_subjects, diag_scores)
+    cache.set(cache_key, scores, 60)
+    return scores
+
+
+def _cached_league_context(user, my_xp, spa_mode=False):
+    """Classement global + ligue — cache court en navigation SPA."""
+    from django.core.cache import cache
+    from django.db.models import F
+    from core.models import UserStats
+
+    my_league_tier = my_xp // 1000
+    cache_key = f'league_ctx:{user.pk}:{my_league_tier}'
+    if spa_mode:
+        cached = cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+    _all_stats = UserStats.objects.filter(
+        user__is_staff=False,
+        user__is_superuser=False,
+        user__agent__isnull=True,
+    )
+    global_rank = _all_stats.filter(xp_total__gt=my_xp).count() + 1
+    league_slice = list(
+        _all_stats.filter(
+            xp_total__gte=my_league_tier * 1000,
+            xp_total__lt=(my_league_tier + 1) * 1000,
+        ).select_related('user', 'user__profile').order_by('-xp_total')[:30]
+    )
+    league_rank = 1
+    for i, s in enumerate(league_slice):
+        if s.user_id == user.id:
+            league_rank = i + 1
+            break
+    league_data = []
+    from accounts.names import alias_map_for, overlay_alias
+    aliases = alias_map_for(user)
+    for i, s in enumerate(league_slice):
+        prof = getattr(s.user, 'profile', None)
+        display = (prof.first_name if prof and prof.first_name else s.user.username)
+        league_data.append({
+            'rank': i + 1,
+            'name': overlay_alias(aliases, s.user_id, display),
+            'xp': int(s.xp_total or 0),
+            'is_me': s.user_id == user.id,
+        })
+    result = {
+        'global_rank': global_rank,
+        'league_rank': league_rank,
+        'league_data': league_data,
+        'my_league_tier': my_league_tier,
+    }
+    if spa_mode:
+        cache.set(cache_key, result, 90)
+    return result
+
+
+def _public_league_snapshot(limit=10):
+    """Real leaderboard slice for landing / guest demo (no fake names)."""
+    from django.core.cache import cache
+    from django.db.models import F
+    from core.models import UserStats
+
+    cache_key = f'public_league_snapshot:{limit}'
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return cached
+
+    base_stats = UserStats.objects.filter(
+        user__is_staff=False,
+        user__is_superuser=False,
+        user__agent__isnull=True,
+    )
+    total = base_stats.count()
+    top = list(base_stats.select_related('user', 'user__profile').order_by('-xp_total')[:limit])
+    league_data = []
+    for i, s in enumerate(top):
+        prof = getattr(s.user, 'profile', None)
+        name = (prof.first_name if prof and prof.first_name else s.user.username)
+        league_data.append({
+            'rank': i + 1,
+            'name': name,
+            'xp': int(s.xp_total or 0),
+            'is_me': False,
+        })
+    result = {
+        'total_students': total,
+        'league_data': league_data,
+        'top_user_name': league_data[0]['name'] if league_data else '—',
+        'top_user_xp': league_data[0]['xp'] if league_data else 0,
+    }
+    cache.set(cache_key, result, 60)
+    return result
+
+
+def _guest_platform_coaching_cards():
+    """Cartes démo réalistes (scores / conseils) pour le mode visiteur."""
+    g = _GUEST_DEMO
+    cards = []
+    for i, c in enumerate(g.get('coaching_cards') or []):
+        cards.append({
+            'id': f'guest-demo-{i}',
+            'type': 'action',
+            'icon': c.get('icon', 'fas fa-lightbulb'),
+            'color': c.get('color', '#a78bfa'),
+            'priority': i + 1,
+            'title': c.get('title', ''),
+            'description': c.get('description', ''),
+            'action_label': c.get('action_label', 'Voir'),
+            'action_url': c.get('action_url', '/dashboard/'),
+            'badge': c.get('badge', 'Démo'),
+            'badge_color': c.get('color', '#a78bfa'),
+        })
+    if not cards:
+        cards = [
+            {
+                'id': 'guest-signup',
+                'type': 'action',
+                'icon': 'fas fa-user-plus',
+                'color': '#38bdf8',
+                'priority': 1,
+                'title': 'Crée ton compte gratuit',
+                'description': 'Sauvegarde ta progression et débloque le coach personnalisé.',
+                'action_label': "S'inscrire",
+                'action_url': '/signup/',
+                'badge': '2 min',
+                'badge_color': '#38bdf8',
+            },
+        ]
+    return cards
+
+
 def _get_cours_chapters(subject: str) -> list[dict]:
     """
     Returns chapter list for cours pages using note_*.json as the single source.
@@ -1385,7 +1755,44 @@ def _get_cours_chapters(subject: str) -> list[dict]:
         'sc_social': 'histoire',
     }
     subject_norm = aliases.get(subject_norm, subject_norm)
-    return pdf_loader.get_chapters_from_note_json(subject_norm)
+    return list(_get_cours_chapters_cached(subject_norm))
+
+
+@functools.lru_cache(maxsize=32)
+def _get_cours_chapters_cached(subject_norm: str) -> tuple:
+    chapters = pdf_loader.get_chapters_from_note_json(subject_norm)
+    return tuple(chapters) if chapters else tuple()
+
+
+def _cours_progress_by_chapter(user, user_subjs):
+    """Progression chapitres sans charger le JSON messages (très lourd sur DB distante)."""
+    from django.core.cache import cache
+
+    cache_key = f'cours_prog:{user.pk}'
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return cached
+
+    step_pct = {0: 5, 1: 15, 2: 30, 3: 50}
+    progress = {}
+    for sess in CourseSession.objects.filter(
+        user=user,
+        chapter_subject__in=list(user_subjs),
+        chapter_num__isnull=False,
+    ).only('chapter_subject', 'chapter_num', 'status', 'progress_step'):
+        subj = (sess.chapter_subject or '').strip().lower()
+        num = sess.chapter_num
+        if not subj or num is None:
+            continue
+        if sess.status == 'completed':
+            pct = 100
+        else:
+            step = int(sess.progress_step or 0)
+            pct = step_pct.get(step, min(95, step * 10))
+        key = (subj, int(num))
+        progress[key] = max(progress.get(key, 0), pct)
+    cache.set(cache_key, progress, 45)
+    return progress
 
 def start_guest_view(request):
     """Start the guest demo session and redirect to the demo dashboard."""
@@ -1426,7 +1833,7 @@ _GUEST_DEMO = {
     'exo_focus_subject': 'svt',
     # User serie context (SVT demo)
     'user_serie_subjects': ['svt', 'chimie', 'physique', 'maths', 'philosophie', 'histoire', 'anglais', 'francais'],
-    'my_xp': 340,
+    'my_xp': 2840,
     'current_level': 3,
     'league_rank': 7,
     'league_name': 'Débutant',
@@ -1445,18 +1852,18 @@ _GUEST_DEMO = {
         'economie':    48,
     },
     'strengths': [('francais', 80), ('chimie', 72), ('philosophie', 70)],
-    'weaknesses': [('economie', 48), ('svt', 55), ('maths', 58)],
+    'weaknesses': [('svt', 55), ('maths', 58), ('histoire', 63)],
     'league_data': [
-        {'rank': 1, 'name': 'Marie T.', 'xp': 820, 'is_me': False},
-        {'rank': 2, 'name': 'Jean-Paul', 'xp': 710, 'is_me': False},
-        {'rank': 3, 'name': 'Claudia M.', 'xp': 655, 'is_me': False},
-        {'rank': 4, 'name': 'Hervé R.', 'xp': 590, 'is_me': False},
-        {'rank': 5, 'name': 'Sophia V.', 'xp': 510, 'is_me': False},
-        {'rank': 6, 'name': 'André L.', 'xp': 430, 'is_me': False},
-        {'rank': 7, 'name': 'Visiteur (vous)', 'xp': 340, 'is_me': True},
-        {'rank': 8, 'name': 'Patrick D.', 'xp': 290, 'is_me': False},
-        {'rank': 9, 'name': 'Fabiola N.', 'xp': 210, 'is_me': False},
-        {'rank': 10, 'name': 'Ricot B.', 'xp': 155, 'is_me': False},
+        {'rank': 1, 'name': 'Marie T.', 'xp': 6200, 'is_me': False},
+        {'rank': 2, 'name': 'Jean-Paul', 'xp': 5400, 'is_me': False},
+        {'rank': 3, 'name': 'Claudia M.', 'xp': 4900, 'is_me': False},
+        {'rank': 4, 'name': 'Hervé R.', 'xp': 4300, 'is_me': False},
+        {'rank': 5, 'name': 'Sophia V.', 'xp': 3700, 'is_me': False},
+        {'rank': 6, 'name': 'André L.', 'xp': 3200, 'is_me': False},
+        {'rank': 7, 'name': 'Visiteur (vous)', 'xp': 2840, 'is_me': True},
+        {'rank': 8, 'name': 'Patrick D.', 'xp': 2100, 'is_me': False},
+        {'rank': 9, 'name': 'Fabiola N.', 'xp': 1650, 'is_me': False},
+        {'rank': 10, 'name': 'Ricot B.', 'xp': 1200, 'is_me': False},
     ],
     'recent_sessions': [
         {'subject': 'maths',    'score': 6,  'total': 10, 'display': 'Mathématiques — 6/10'},
@@ -1466,53 +1873,51 @@ _GUEST_DEMO = {
     # Coaching cards (shown on dashboard + progression)
     'coaching_cards': [
         {
-            'title': 'Économie — Priorité urgente',
-            'description': 'Ton score en Économie (48%) est en dessous du seuil BAC. Commence par la comptabilité nationale : PIB, PNB et la fonction de consommation sont des sujets récurrents aux examens.',
-            'icon': 'fas fa-chart-line',
+            'title': 'SVT — Priorité urgente',
+            'description': 'Ton score en SVT (55%) est le plus bas de ta série. La génétique mendélienne et la division cellulaire sont tes points faibles : méiose, lois de Mendel et arbres généalogiques reviennent souvent au BAC.',
+            'icon': 'fas fa-dna',
             'color': '#f87171',
             'badge': '⚠ Urgent',
-            'action_url': '/dashboard/cours/',
-            'action_label': 'Réviser Économie',
-        },
-        {
-            'title': 'SVT — Génétique à renforcer',
-            'description': 'En SVT (55%), les chapitres sur la division cellulaire et l\'hérédité mendélienne sont tes points faibles. Une révision ciblée de la méiose et des lois de Mendel t\'aidera beaucoup.',
-            'icon': 'fas fa-dna',
-            'color': '#fb923c',
-            'badge': '⬆ À améliorer',
-            'action_url': '/dashboard/cours/',
+            'action_url': '/dashboard/cours/?subject=svt',
             'action_label': 'Cours SVT',
         },
         {
             'title': 'Mathématiques — Dérivées & Intégrales',
             'description': 'Tes 58% en Maths montrent des lacunes en calcul différentiel. Pratique les dérivées de fonctions composées et les intégrales par parties — ces sujets représentent ~30% du BAC Maths.',
             'icon': 'fas fa-calculator',
-            'color': '#a78bfa',
-            'badge': '📈 À consolider',
+            'color': '#fb923c',
+            'badge': '⬆ À améliorer',
             'action_url': '/dashboard/quiz/?subject=maths',
             'action_label': 'Quiz Maths',
         },
         {
+            'title': 'Histoire — Chronologie à consolider',
+            'description': 'À 63% en Histoire, tu perds des points sur les repères chronologiques (1804–1915). Une fiche timeline + 2 quiz ciblés cette semaine te feront gagner rapidement.',
+            'icon': 'fas fa-landmark',
+            'color': '#a78bfa',
+            'badge': '📈 À consolider',
+            'action_url': '/dashboard/quiz/?subject=histoire',
+            'action_label': 'Quiz Histoire',
+        },
+        {
             'title': 'Kreyòl — Continue comme ça !',
-            'description': 'Excellent travail en Kreyòl (80%) ! Tu maîtrises bien la konpreyansyon ak pwoduksyon ekri. Pour atteindre l\'excellence, entraîne-toi sur l\'analiz de tèks ak kòmantè literè en kreyòl.',
+            'description': 'Excellent travail (80%) ! Tu maîtrises bien la compréhension et la production écrite. Pour viser l\'excellence, entraîne-toi sur l\'analyse de texte et le commentaire littéraire.',
             'icon': 'fas fa-pen-nib',
             'color': '#34d399',
             'badge': '✓ Fort',
-            'action_url': '/dashboard/exercices/',
+            'action_url': '/dashboard/exercices/?subject=francais',
             'action_label': 'Exercices Kreyòl',
         },
     ],
     'coach_advice': (
         '<strong>🎯 Analyse de ta progression</strong><br><br>'
-        'Après analyse de tes résultats, voici mes recommandations prioritaires :<br><br>'
-        '⚠️ <strong>Économie (48%)</strong> — C\'est ta matière la plus faible. Je t\'encourage à commencer immédiatement '
-        'par le chapitre sur la <em>comptabilité nationale</em>. Les notions de PIB, PNB et les indicateurs macroéconomiques '
-        'sont systématiquement testés au BAC.<br><br>'
-        '📊 <strong>SVT (55%)</strong> — La génétique mendélienne et la division cellulaire t\'échappent encore. '
-        'Revois les croisements dihybrides et l\'arbre généalogique — deux types de questions très fréquents.<br><br>'
+        'Après analyse de tes résultats démo, voici mes recommandations prioritaires :<br><br>'
+        '⚠️ <strong>SVT (55%)</strong> — Priorité n°1. Revois la méiose et les lois de Mendel : '
+        'croisements dihybrides et arbres généalogiques reviennent très souvent au BAC.<br><br>'
+        '📊 <strong>Maths (58%)</strong> — Consolide dérivées et intégrales (fonctions composées, intégration par parties).<br><br>'
         '✅ <strong>Kreyòl (80%)</strong> et <strong>Chimie (72%)</strong> — Très bon niveau ! '
-        'Continue à maintenir ces acquis tout en renforçant tes matières faibles.<br><br>'
-        '<em>💡 Conseil du coach : un plan de révision de 8 semaines avec 2h/jour te permettrait d\'atteindre un score BAC estimé à 1 400/1 900.</em>'
+        'Maintiens ces acquis tout en renforçant SVT et Maths.<br><br>'
+        '<em>💡 Conseil du coach : un plan de 8 semaines à ~2h/jour te permettrait d\'approcher 1 400/1 900 au BAC estimé.</em>'
     ),
     # Demo flashcards per subject (used when no DB cards exist)
     'demo_flashcards': {
@@ -1549,42 +1954,47 @@ _GUEST_DEMO = {
     },
     # Plan de révision structuré (format attendu par le template)
     'plan_content': {
-        'summary': '🎯 Plan personnalisé basé sur tes résultats : priorité à l\'Économie et la SVT, consolidation des Maths, maintien du Français et de la Chimie. 2h de révision quotidienne recommandées.',
+        'summary': '🎯 Plan personnalisé démo : priorité SVT + Maths, consolidation Histoire, maintien Kreyòl et Chimie. ~2h/jour recommandées.',
         'weeks': [
             {
                 'label': 'Sem. 1',
-                'focus': 'Économie — Comptabilité nationale & PIB',
+                'focus': 'SVT — Génétique mendélienne',
                 'days': [
-                    {'day': 'Lundi', 'subject': 'Économie', 'task': 'Chap. 1 : PIB, PNB et indicateurs macroéconomiques — lecture + fiche mémo', 'duration_min': 90, 'priority': 'high'},
-                    {'day': 'Mardi', 'subject': 'SVT', 'task': 'Révision génétique mendélienne : lois + exercices de croisement', 'duration_min': 60, 'priority': 'high'},
-                    {'day': 'Mercredi', 'subject': 'Mathématiques', 'task': 'Dérivées : fonctions composées — cours + 10 exercices', 'duration_min': 90, 'priority': 'medium'},
-                    {'day': 'Vendredi', 'subject': 'Économie', 'task': 'Fonctions de consommation et d\'épargne — quiz 10 questions', 'duration_min': 60, 'priority': 'high'},
-                    {'day': 'Samedi', 'subject': 'Chimie', 'task': 'Oxydoréduction : révision + TD numéros 5-8', 'duration_min': 60, 'priority': 'medium'},
+                    {'day': 'Lundi', 'subject': 'SVT', 'task': 'Lois de Mendel + exercices de croisement monohybride', 'duration_min': 90, 'priority': 'high'},
+                    {'day': 'Mardi', 'subject': 'Mathématiques', 'task': 'Dérivées : fonctions composées — cours + 10 exercices', 'duration_min': 90, 'priority': 'high'},
+                    {'day': 'Mercredi', 'subject': 'Histoire', 'task': 'Timeline 1804–1915 + fiche mémo', 'duration_min': 60, 'priority': 'medium'},
+                    {'day': 'Vendredi', 'subject': 'SVT', 'task': 'Méiose vs mitose — diagrammes + quiz 10 questions', 'duration_min': 60, 'priority': 'high'},
+                    {'day': 'Samedi', 'subject': 'Chimie', 'task': 'Oxydoréduction : révision + TD 5-8', 'duration_min': 60, 'priority': 'medium'},
                 ],
             },
             {
                 'label': 'Sem. 2',
-                'focus': 'SVT — Génétique & Division cellulaire',
+                'focus': 'Maths — Intégrales & Physique',
                 'days': [
-                    {'day': 'Lundi', 'subject': 'SVT', 'task': 'Mitose vs Méiose : diagrammes + résumé schématique', 'duration_min': 90, 'priority': 'high'},
-                    {'day': 'Mardi', 'subject': 'Mathématiques', 'task': 'Intégrales : primitives usuelles + calcul d\'aires', 'duration_min': 90, 'priority': 'medium'},
-                    {'day': 'Mercredi', 'subject': 'Philosophie', 'task': 'Chap. Liberté & Déterminisme — plan de dissertation', 'duration_min': 60, 'priority': 'medium'},
-                    {'day': 'Jeudi', 'subject': 'SVT', 'task': 'ADN et synthèse des protéines — quiz 15 questions BAC', 'duration_min': 60, 'priority': 'high'},
-                    {'day': 'Samedi', 'subject': 'Physique', 'task': 'Cinématique : exercices de trajectoires et vitesses', 'duration_min': 75, 'priority': 'medium'},
+                    {'day': 'Lundi', 'subject': 'Mathématiques', 'task': 'Intégrales : primitives usuelles + calcul d\'aires', 'duration_min': 90, 'priority': 'high'},
+                    {'day': 'Mardi', 'subject': 'Physique', 'task': 'Cinématique : trajectoires et vitesses', 'duration_min': 75, 'priority': 'medium'},
+                    {'day': 'Mercredi', 'subject': 'Philosophie', 'task': 'Liberté & déterminisme — plan de dissertation', 'duration_min': 60, 'priority': 'medium'},
+                    {'day': 'Jeudi', 'subject': 'SVT', 'task': 'ADN et synthèse des protéines — quiz BAC', 'duration_min': 60, 'priority': 'high'},
+                    {'day': 'Samedi', 'subject': 'Kreyòl', 'task': 'Commentaire de texte — méthode + entraînement', 'duration_min': 90, 'priority': 'low'},
                 ],
             },
             {
                 'label': 'Sem. 3',
-                'focus': 'Mathématiques & Physique — Consolidation',
+                'focus': 'Consolidation transversale',
                 'days': [
                     {'day': 'Lundi', 'subject': 'Mathématiques', 'task': 'Suites arithmétiques & géométriques — exercices BAC', 'duration_min': 90, 'priority': 'medium'},
                     {'day': 'Mardi', 'subject': 'Physique', 'task': 'Lois de Newton — problèmes de dynamique', 'duration_min': 90, 'priority': 'medium'},
-                    {'day': 'Jeudi', 'subject': 'Économie', 'task': 'Politique monétaire et budgétaire — révision + quiz', 'duration_min': 75, 'priority': 'high'},
-                    {'day': 'Vendredi', 'subject': 'Français', 'task': 'Commentaire de texte — méthode + texte d\'entraînement', 'duration_min': 90, 'priority': 'low'},
+                    {'day': 'Jeudi', 'subject': 'Histoire', 'task': 'Révision chronologie + quiz 15 questions', 'duration_min': 75, 'priority': 'high'},
+                    {'day': 'Vendredi', 'subject': 'Anglais', 'task': 'Reading comprehension + vocabulaire BAC', 'duration_min': 60, 'priority': 'medium'},
                     {'day': 'Samedi', 'subject': 'Chimie', 'task': 'Thermochimie : enthalpie, loi de Hess', 'duration_min': 60, 'priority': 'medium'},
                 ],
             },
         ],
+    },
+    # Progression chapitres cours (démo réaliste, 0–100)
+    'course_progress': {
+        'svt': 35, 'maths': 42, 'chimie': 68, 'physique': 55,
+        'philosophie': 60, 'histoire': 48, 'anglais': 58, 'francais': 75,
     },
 }
 
@@ -1596,9 +2006,15 @@ def dashboard(request):
     if not request.user.is_authenticated:
         if _is_guest(request):
             from types import SimpleNamespace as _SN
+            from core.daily_missions import build_guest_daily_missions
             g = _GUEST_DEMO
-            _g_stats = _SN(exercices_resolus=6, quiz_completes=3, minutes_etude=135)
-            # Pop the pending series flag so modal shows only once
+            platform = _public_league_snapshot()
+            _g_stats = _SN(
+                exercices_resolus=7,
+                quiz_completes=12,
+                minutes_etude=135,
+                xp_total=g['my_xp'],
+            )
             guest_serie_pending = request.session.pop('guest_serie_pending', False)
             request.session.modified = True
             _serie_choices = [
@@ -1607,25 +2023,65 @@ def dashboard(request):
                 ('SES', '📊', 'Sciences Économiques et Sociales',    'Économie · Histoire · Philo · Maths'),
                 ('LLA', '📚', 'Lettres, Langues et Arts',            'Philo · Kreyòl · Anglais · Art'),
             ]
-            ctx = {**g, 'mats': MATS, 'profile': None, 'stats': _g_stats, 'is_guest': True,
-                   'guest_serie_pending': guest_serie_pending,
-                   'serie_choices': _serie_choices}
+            ctx = {
+                'username': g['username'],
+                'username': g['username'],
+                'first_name': g['first_name'],
+                'streak': g['streak'],
+                'heures_etude': g['heures_etude'],
+                'minutes_rest': g['minutes_rest'],
+                'avg_score': g['avg_score'],
+                'bac_score': g['bac_score'],
+                'bac_gap_pass': g['bac_gap_pass'],
+                'bac_gap_target': g['bac_gap_target'],
+                'bac_next_milestone_pts': g['bac_next_milestone_pts'],
+                'bac_next_milestone_label': g['bac_next_milestone_label'],
+                'bac_prev_milestone_pts': g['bac_prev_milestone_pts'],
+                'bac_milestone_pct': g['bac_milestone_pct'],
+                'next_exo_milestone': g['next_exo_milestone'],
+                'exo_milestone_pct': g['exo_milestone_pct'],
+                'exo_focus_subject': g['exo_focus_subject'],
+                'user_serie_subjects': g['user_serie_subjects'],
+                'league_data': platform['league_data'],
+                'my_xp': g['my_xp'],
+                'current_level': g['current_level'],
+                'league_rank': None,
+                'league_name': g['league_name'],
+                'league_color': g['league_color'],
+                'xp_progress_pct': g['xp_progress_pct'],
+                'global_rank': None,
+                'total_students': platform['total_students'],
+                'mats': MATS,
+                'profile': None,
+                'stats': _g_stats,
+                'is_guest': True,
+                'guest_serie_pending': guest_serie_pending,
+                'serie_choices': _serie_choices,
+                'has_diagnostic': True,
+                'diagnostic_in_progress': False,
+                'daily_missions': build_guest_daily_missions(),
+                'quiz_scores': g['quiz_scores'],
+                'strengths': g['strengths'],
+                'weaknesses': g['weaknesses'],
+                'coaching_cards': g['coaching_cards'],
+                'recent_sessions': g['recent_sessions'],
+            }
+            from core.spotlights import get_home_spotlights
+            ctx.update(get_home_spotlights())
             return render(request, 'core/dashboard.html', ctx)
         return redirect('/login/?next=' + request.get_full_path())
+    spa_mode = getattr(request, 'spa_mode', False)
     _streak_just_earned = _update_streak(request.user)
     profile, _ = UserProfile.objects.get_or_create(user=request.user)
     stats       = _get_or_create_stats(request.user)
 
-    # Score par matière — blended (Optimized bulk calculation)
+    # Score par matière — source unique (quiz + exo + cours)
     diag_scores = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
-    all_blended = _compute_all_blended_scores(request.user)
-    quiz_scores = {}
-    for subj in MATS:
-        sc = all_blended.get(subj, {})
-        if sc.get('blended') is not None:
-            quiz_scores[subj] = sc['blended']
-        elif subj in diag_scores:
-            quiz_scores[subj] = diag_scores[subj]
+    diag_result_count = len(diag_scores)
+    has_diagnostic = diag_result_count > 0
+    diagnostic_in_progress = bool(request.session.get('diagnostic_qs'))
+    _user_subjs = set(_get_user_serie_subjects(request.user))
+    quiz_scores = _cached_quiz_scores(request.user, _user_subjs, diag_scores, spa_mode=spa_mode)
 
     # Check if school is missing
     school_missing = not profile.school
@@ -1638,70 +2094,21 @@ def dashboard(request):
 
     avg_score = round(sum(quiz_scores.values()) / len(quiz_scores)) if quiz_scores else 0
 
-    # ── Note BAC pondérée par les coefficients officiels ──────────────
-    # Chaque matière est pondérée par son coefficient dans la série de l'élève.
-    # La note finale est ramenée sur 1900 (total BAC officiel haïtien).
-    try:
-        _user_serie_key = profile.serie or 'SVT'
-        _serie_coeffs   = SERIES.get(_user_serie_key, SERIES['SVT'])['subjects']  # subj → coef
-        _weighted_sum   = 0.0
-        _total_coeff    = 0
-        for _subj, _coef in _serie_coeffs.items():
-            if _subj in quiz_scores:
-                _weighted_sum += (quiz_scores[_subj] / 100.0) * _coef
-                _total_coeff  += _coef
-        if _total_coeff > 0:
-            # Score pondéré ramené sur 1900
-            _total_serie_coeff = sum(_serie_coeffs.values())
-            bac_score = round((_weighted_sum / _total_serie_coeff) * 1900)
-        else:
-            bac_score = round(avg_score / 100 * 1900) if avg_score else 0
-    except Exception:
-        bac_score = round(avg_score / 100 * 1900) if avg_score else 0
+    # Note BAC — source unique (coefficients officiels)
+    _user_serie_key = profile.serie or 'SVT'
+    bac_score = estimate_bac_score(quiz_scores, _user_serie_key, SERIES)
 
     heures_etude = stats.minutes_etude // 60
     minutes_rest = stats.minutes_etude % 60
 
-    # ── XP / League (Duolingo-style) ──────────────────────────
-    def calc_xp(s):
-        return s.quiz_completes * 20 + s.exercices_resolus * 50 + s.messages_envoyes * 5
+    # ── XP / League ──────────────────────────────────────────
+    my_xp = _user_xp(request.user, stats)
 
-    # XP-tier based league: every 1000 XP = new league tier
-    my_xp = calc_xp(stats)
-
-    # ── High-performance Ranking ──
-    # Instead of loading all users, we use a single Count query to find how many have more XP.
-    # XP = quiz_completes * 20 + exercices_resolus * 50 + messages_envoyes * 5
-    from django.db.models import F
-    _all_stats = UserStats.objects.filter(
-        user__is_staff=False,
-        user__is_superuser=False,
-        user__agent__isnull=True,
-    )
-    # Global Rank
-    global_rank = _all_stats.annotate(
-        xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
-    ).filter(xp__gt=my_xp).count() + 1
-
-    # League Logic (top 30 of the same tier)
-    my_league_tier = my_xp // 1000
-    league_slice = list(
-        _all_stats.annotate(
-            xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
-        ).filter(
-            xp__gte=my_league_tier * 1000, 
-            xp__lt=(my_league_tier + 1) * 1000
-        ).select_related('user', 'user__profile').order_by('-xp')[:30]
-    )
-    league_rank = 1
-    for i, s in enumerate(league_slice):
-        if s.user_id == request.user.id:
-            league_rank = i + 1
-            break
-    else:
-        # If user is not in top 30, we could fetch their specific league rank, 
-        # but for now 1 (or 31) is a safe display fallback.
-        pass
+    league_ctx = _cached_league_context(request.user, my_xp, spa_mode=spa_mode)
+    global_rank = league_ctx['global_rank']
+    league_rank = league_ctx['league_rank']
+    league_data = league_ctx['league_data']
+    my_league_tier = league_ctx['my_league_tier']
 
     # XP milestones for levels
     XP_LEVELS = [0, 100, 250, 500, 1000, 2000, 4000, 8000]
@@ -1731,16 +2138,6 @@ def dashboard(request):
     next_tier_xp = (my_league_tier + 1) * 1000
     remaining_xp = next_tier_xp - my_xp
     next_league_name = LEAGUE_NAMES[min(my_league_tier + 1, len(LEAGUE_NAMES) - 1)]
-
-    league_data = []
-    for i, s in enumerate(league_slice):
-        display = getattr(s.user, 'profile', None).first_name or s.user.username
-        league_data.append({
-            'rank': i + 1,
-            'name': display,
-            'xp': calc_xp(s),
-            'is_me': s.user_id == request.user.id,
-        })
 
     bac_gap_pass   = max(0, 950 - bac_score)   # points to reach 50% (pass threshold)
     # Second goal: user's personal bac_target if set, otherwise 950 (same as first until set)
@@ -1780,7 +2177,6 @@ def dashboard(request):
         'mats':          MATS,
         'heures_etude':  heures_etude,
         'minutes_rest':  minutes_rest,
-        'recent_sessions': QuizSession.objects.filter(user=request.user).order_by('-completed_at')[:5],
         'my_xp':         my_xp,
         'league_rank':   league_rank,
         'league_name':   league_name,
@@ -1801,23 +2197,50 @@ def dashboard(request):
         'bac_prev_milestone_pts':   _prev_bac_pts,
         'streak_just_earned':       _streak_just_earned,
         'school_missing':           school_missing,
+        'has_diagnostic':           has_diagnostic,
+        'diagnostic_in_progress':   diagnostic_in_progress,
     }
 
     # Données de maîtrise adaptative pour le dashboard
-    try:
-        masteries = {
-            sm.subject: {
-                'mastery': round(sm.mastery_score),
-                'confidence': sm.confidence_level,
-                'correct': sm.correct_count,
-                'errors': sm.error_count,
-                'weak_topics': sm.weak_topics[:3],
-            }
-            for sm in SubjectMastery.objects.filter(user=request.user)
-        }
-        context['masteries'] = masteries
-    except Exception:
+    if spa_mode:
         context['masteries'] = {}
+    else:
+        try:
+            masteries = {
+                sm.subject: {
+                    'mastery': round(sm.mastery_score),
+                    'confidence': sm.confidence_level,
+                    'correct': sm.correct_count,
+                    'errors': sm.error_count,
+                    'weak_topics': sm.weak_topics[:3],
+                }
+                for sm in SubjectMastery.objects.filter(user=request.user)
+            }
+            context['masteries'] = masteries
+        except Exception:
+            context['masteries'] = {}
+
+    from django.core.cache import cache
+    from core.daily_missions import build_daily_missions
+    _weak_label = MATS.get(exo_focus_subject, {}).get('label') if exo_focus_subject else None
+    _serie_label = SERIES.get(_user_serie_key, {}).get('label', _user_serie_key)
+    dm_cache_key = f'daily_missions:{request.user.pk}'
+    daily_missions = cache.get(dm_cache_key) if spa_mode else None
+    if daily_missions is None:
+        daily_missions = build_daily_missions(
+            request.user,
+            profile,
+            stats,
+            weaknesses=weaknesses,
+            exo_focus_subject=exo_focus_subject,
+            weak_subject_label=_weak_label,
+            serie_label=_serie_label,
+        )
+        if spa_mode:
+            cache.set(dm_cache_key, daily_missions, 60)
+    context['daily_missions'] = daily_missions
+    from core.spotlights import get_home_spotlights
+    context.update(get_home_spotlights())
 
     return render(request, 'core/dashboard.html', context)
 
@@ -1996,58 +2419,57 @@ def chat_view(request):
         if _is_guest(request):
             from .models import PublicDemoQA
             demo_qa = list(
-                PublicDemoQA.objects.values('matiere', 'question', 'answer', 'updated_at')
+                PublicDemoQA.objects.values('matiere', 'question', 'answer', 'updated_at')[:12]
             )
+            if not demo_qa:
+                demo_qa = [
+                    {
+                        'matiere': 'maths',
+                        'question': 'Comment dériver f(x) = x² · sin(x) ?',
+                        'answer': 'Produit : f\'(x) = 2x·sin(x) + x²·cos(x).',
+                        'updated_at': None,
+                    },
+                    {
+                        'matiere': 'svt',
+                        'question': 'Quelle est la différence entre mitose et méiose ?',
+                        'answer': 'Mitose = cellules filles identiques ; méiose = gamètes haploïdes avec brassage.',
+                        'updated_at': None,
+                    },
+                    {
+                        'matiere': 'chimie',
+                        'question': 'Qu\'est-ce qu\'un acide selon Brønsted ?',
+                        'answer': 'Un donneur de proton H⁺.',
+                        'updated_at': None,
+                    },
+                ]
             return render(request, 'core/chat.html', {
-                'mats': MATS,
+                'mats': {k: v for k, v in MATS.items() if k in _GUEST_DEMO['user_serie_subjects']},
                 'conversations': [],
                 'preload_subject': '',
                 'preload_message': '',
                 'preload_session': '',
+                'last_chat_subject': 'svt',
                 'is_guest': True,
                 'demo_qa': demo_qa,
             })
         return redirect('/login/?next=' + request.get_full_path())
-    # ── Historique (sidebar) ──
-    # Optimization: limit to last 40 conversations and fetch first messages in bulk
-    from django.db.models import Max, Count
-    conversations = (
-        ChatMessage.objects.filter(user=request.user)
-        .exclude(session_key='')
-        .values('session_key', 'subject')
-        .annotate(last_msg=Max('created_at'), msg_count=Count('id'))
-        .order_by('-last_msg')[:40]
-    )
-
-    session_keys = [c['session_key'] for c in conversations]
-    
-    # Bulk fetch the first message content for each session
-    first_msgs_qs = ChatMessage.objects.filter(
-        user=request.user, 
-        session_key__in=session_keys,
-        role='user'
-    ).order_by('created_at')
-    
-    first_msg_map = {}
-    for m in first_msgs_qs:
-        if m.session_key not in first_msg_map:
-            first_msg_map[m.session_key] = m.content[:60] + ('...' if len(m.content) > 60 else '')
-
-    conv_list = []
-    for c in conversations:
-        sk = c['session_key']
-        conv_list.append({
-            'session_key': sk,
-            'subject':     c['subject'],
-            'label':       _get_subj_label(c['subject']),
-            'last_msg':    c['last_msg'],
-            'msg_count':   c['msg_count'],
-            'preview':     first_msg_map.get(sk, "Conversation"),
-        })
+    # ── Historique (panneau chat) : toutes les conversations ──
+    conv_list = _list_chat_conversations(request.user)
 
     # Filtrer les matières selon la série du user
     user_subjs = _get_user_serie_subjects(request.user)
     chat_mats = {k: v for k, v in MATS.items() if k in user_subjs}
+
+    last_chat_subject = (
+        ChatMessage.objects.filter(user=request.user)
+        .exclude(subject='')
+        .exclude(subject='general')
+        .order_by('-created_at')
+        .values_list('subject', flat=True)
+        .first()
+    )
+    if last_chat_subject not in chat_mats:
+        last_chat_subject = 'svt' if 'svt' in chat_mats else next(iter(chat_mats), '')
 
     # Check premium status & remaining chat messages
     from core.premium import is_premium as _is_prem, can_use_chat
@@ -2060,11 +2482,13 @@ def chat_view(request):
         'preload_subject': request.GET.get('subject', ''),
         'preload_message': request.GET.get('preload', ''),
         'preload_session': request.GET.get('session', ''),
+        'last_chat_subject': last_chat_subject,
         'is_premium': user_is_premium,
         'chat_remaining': chat_remaining,
         'pdf_path': request.GET.get('pdf', ''),
         'pdf_name': request.GET.get('pdf_name', ''),
         'pdf_text': request.GET.get('pdf_text', ''),
+        'chat_greeting': _chat_greeting_for(request.user),
     })
 
 
@@ -2085,10 +2509,27 @@ def chat_api(request):
         return JsonResponse(premium_required_json(), status=403)
     
     try:
-        text = request.POST.get('message', '').strip()
+        raw_text = request.POST.get('message', '').strip()
         subject = (request.POST.get('subject', '') or '').strip().lower()
         session_key = request.POST.get('session_key', '') or uuid.uuid4().hex[:16]
         image = request.FILES.get('image')
+
+        from core.chat_token_optimizer import (
+            split_pdf_from_message,
+            build_pdf_context,
+            needs_user_profile,
+            wants_exercise_explanation,
+            needs_ai_synthesis,
+            format_local_chat_reply,
+            trim_chat_context,
+            CHAT_RAG_MAX_BLOCKS,
+            CHAT_RAG_MAX_CHARS,
+            CHAT_CONTEXT_MAX_CHARS,
+            CHAT_HISTORY_LOAD,
+        )
+
+        user_query, pdf_name, pdf_excerpt = split_pdf_from_message(raw_text)
+        text = user_query or raw_text
 
         if not text:
             return JsonResponse({'error': 'Message vide.'}, status=400)
@@ -2099,6 +2540,42 @@ def chat_api(request):
         if subject not in MATS:
             return JsonResponse({'error': 'Matiere invalide.'}, status=400)
 
+        user_lang = _get_user_lang(request)
+
+        # Bypass IA : salutations, fillers, FAQ en cache
+        local_reply = local_responses.try_local_chat_response(
+            text,
+            subject=subject,
+            user_lang=user_lang,
+            subject_label=_get_subj_label(subject),
+            has_image=bool(request.FILES.get('image')),
+        )
+        if local_reply:
+            try:
+                ChatMessage.objects.create(
+                    user=request.user, role='user', content=text,
+                    subject=subject, session_key=session_key,
+                )
+                ChatMessage.objects.create(
+                    user=request.user, role='ai', content=local_reply,
+                    subject=subject, session_key=session_key,
+                )
+                increment_chat(request.user)
+                try:
+                    from core.xp import settle_daily_missions
+                    settle_daily_missions(request.user)
+                except Exception:
+                    pass
+            except Exception as save_err:
+                print(f"[SAVE_ERROR] {save_err}")
+            return JsonResponse({
+                'reply': local_reply,
+                'followups': [],
+                'session_key': session_key,
+                'local': True,
+                'title': _persist_and_return_chat_title(request.user, session_key, text, subject),
+            })
+
         image_data = None
         image_mime = None
         try:
@@ -2107,72 +2584,125 @@ def chat_api(request):
         except Exception:
             image_data = None
             image_mime = None
+        if image_data:
+            image_data, image_mime = gemini.prepare_image_bytes(image_data, image_mime)
 
         # 1) Recherche locale: on construit un contexte fiable depuis les JSON.
         result = ''
-        try:
-            result = _search_ai_blocks(subject, chapter_num=0, query=text, max_blocks=8)
-        except Exception as block_err:
-            print(f"[AI_BLOCK_SEARCH_ERROR] {subject}: {block_err}")
-            result = ''
-
-        if not result:
+        rag_top_score = 0.0
+        skip_rag = local_responses.is_conversation_filler(text) and not image_data
+        if not skip_rag:
             try:
-                result = _get_db_context(subject, user_message=text)
-            except Exception as ctx_err:
-                print(f"[DB_CONTEXT_ERROR] {subject}: {ctx_err}")
+                rag_out = _search_ai_blocks(
+                    subject, chapter_num=0, query=text, max_blocks=CHAT_RAG_MAX_BLOCKS,
+                    max_output_chars=CHAT_RAG_MAX_CHARS,
+                    summary_only=True,
+                    return_top_score=True,
+                )
+                result, rag_top_score = rag_out
+            except Exception as block_err:
+                print(f"[AI_BLOCK_SEARCH_ERROR] {subject}: {block_err}")
                 result = ''
+                rag_top_score = 0.0
+
+            if not result:
+                try:
+                    result = _get_db_context(subject, user_message=text)
+                except Exception as ctx_err:
+                    print(f"[DB_CONTEXT_ERROR] {subject}: {ctx_err}")
+                    result = ''
 
         local_context = ''
         local_fallback_reply = ''
+        exercise_reformat_only = False
 
         # If the user asks for an exercise/example, build a compact targeted local context.
         best_exo = _pick_best_local_exercise_block(subject, text)
         if best_exo:
+            from core.chat_exercise_local import (
+                format_exercise_question_for_chat,
+                build_exercise_reformat_context,
+                split_exercise_qa,
+            )
             chapter = best_exo.get('chapter', '').strip() or 'Chapitre non precise'
             subchapter = best_exo.get('subchapter', '').strip() or 'Sous-chapitre non precise'
             content = (best_exo.get('content', '') or '').strip()
-            if len(content) > 2400:
-                content = content[:2400].rstrip() + '\n\n...'
-            local_context = (
-                f"Chapitre: {chapter}\n"
-                f"Sous-chapitre: {subchapter}\n"
-                f"Exercice local:\n{content}\n"
-            )
-            local_fallback_reply = (
-                f"### Exercice type - {_get_subj_label(subject)}\n\n"
+            question_part, _ = split_exercise_qa(content)
+            q_only = re.sub(r'^question\s*:\s*', '', question_part, flags=re.I).strip()
+            if len(q_only) > 1600:
+                q_only = q_only[:1600].rstrip() + '\n\n...'
 
-                f"**Chapitre:** {_escape_markdown_text(chapter)}\n"
-                f"**Sous-chapitre:** {_escape_markdown_text(subchapter)}\n\n"
-                f"{_escape_markdown_text(content)}\n\n"
-                "_Source: notes JSON locales_"
-            )
+            local_exo_reply = format_exercise_question_for_chat(best_exo, _get_subj_label(subject))
+            if local_exo_reply and not wants_exercise_explanation(text):
+                local_fallback_reply = local_exo_reply
+                local_context = ''  # pas besoin de contexte lourd
+            else:
+                exercise_reformat_only = True
+                local_context = build_exercise_reformat_context(best_exo)
+                local_fallback_reply = local_exo_reply or format_local_chat_reply(
+                    _get_subj_label(subject),
+                    q_only or content[:1200],
+                    chapter=chapter,
+                    subchapter=subchapter,
+                )
         elif result:
             snippet = result.strip()
-            if len(snippet) > 9000:
-                snippet = snippet[:9000].rstrip() + '\n\n...'
+            if len(snippet) > 3200:
+                snippet = snippet[:3200].rstrip() + '\n\n...'
             local_context = snippet
-            local_fallback_reply = (
-                f"### {_get_subj_label(subject)}\n\n"
-                f"{snippet}"
+            local_fallback_reply = format_local_chat_reply(
+                _get_subj_label(subject),
+                snippet,
             )
         else:
             local_fallback_reply = (
                 f"Je n ai pas trouve de passage pertinent dans les notes JSON de {_get_subj_label(subject)}. "
-
                 "Essaie avec des mots-cles plus precis."
             )
 
-        # 2) Appel IA avec question + contexte local trouvé.
+        pdf_context = build_pdf_context(pdf_name, pdf_excerpt)
+        history_len = 0
+        try:
+            history_len = ChatMessage.objects.filter(
+                user=request.user,
+                subject=subject,
+                session_key=session_key,
+            ).count()
+        except Exception:
+            history_len = 0
+
+        skip_ai = False
+        if not image_data:
+            if (
+                best_exo
+                and local_fallback_reply
+                and not exercise_reformat_only
+                and not wants_exercise_explanation(text)
+            ):
+                skip_ai = True
+            elif local_context and not best_exo and not needs_ai_synthesis(
+                text,
+                history_len=history_len,
+                has_image=False,
+                has_pdf=bool(pdf_excerpt),
+                rag_top_score=rag_top_score,
+            ):
+                skip_ai = True
+
+        # 2) Appel IA seulement si la synthèse est nécessaire.
         reply = ''
-        if local_context:
+        used_local_path = False
+        if skip_ai:
+            reply = local_fallback_reply
+            used_local_path = True
+        elif local_context or pdf_context or exercise_reformat_only:
             history = []
             try:
                 history_qs = ChatMessage.objects.filter(
                     user=request.user,
                     subject=subject,
                     session_key=session_key,
-                ).order_by('-created_at')[:20]
+                ).order_by('-created_at')[:CHAT_HISTORY_LOAD]
                 for msg in reversed(list(history_qs)):
                     role = 'model' if msg.role == 'ai' else 'user'
                     history.append({'role': role, 'parts': [msg.content]})
@@ -2180,19 +2710,29 @@ def chat_api(request):
                 history = []
 
             user_profile = None
-            try:
-                user_profile = gemini.build_user_learning_profile_short(request.user)
-            except Exception:
-                user_profile = None
+            if needs_user_profile(text, history_len) and not exercise_reformat_only:
+                try:
+                    user_profile = gemini.build_user_learning_profile_short(request.user, subject=subject)
+                except Exception:
+                    user_profile = None
 
-            user_lang = _get_user_lang(request)
+            context_parts = []
+            if pdf_context:
+                context_parts.append(pdf_context)
+            if local_context:
+                context_parts.append(local_context)
+            ai_db_context = trim_chat_context('\n\n'.join(context_parts), max_chars=CHAT_CONTEXT_MAX_CHARS)
 
-            # Keep local context compact for cost/stability.
-            ai_db_context = local_context[:12000]
+            ai_message = text
+            if exercise_reformat_only:
+                ai_message = (
+                    'Reformule cet exercice pour un élève BAC : énoncé clair, '
+                    'une seule problème, sans donner la solution.'
+                )
 
             try:
                 ai_reply = gemini.get_chat_response(
-                    message=text,
+                    message=ai_message,
                     history=history,
                     subject=subject,
                     db_context=ai_db_context,
@@ -2203,41 +2743,75 @@ def chat_api(request):
                 )
                 if ai_reply and ai_reply.strip():
                     reply = ai_reply.strip()
+                    try:
+                        local_responses.cache_faq_answer(subject, text, reply)
+                    except Exception:
+                        pass
             except Exception as ai_err:
                 print(f"[CHAT_GEMINI_ERROR] {subject}: {ai_err}")
 
         if not reply:
-            if '📄 **PDF:' in text or 'Analyse' in text:
+            if pdf_excerpt or '📄 **PDF:' in raw_text or 'Analyse' in text:
                 reply = (
                     "Désolé, je rencontre une petite difficulté technique pour analyser ce document à l'instant. "
                     "Peux-tu me reposer une question plus précise sur son contenu ?"
                 )
             else:
                 reply = local_fallback_reply
+                used_local_path = True
 
+        print(
+            f"[CHAT_HYBRID] subject={subject} query={text[:60]} "
+            f"reply_len={len(reply)} local={used_local_path} rag_score={rag_top_score:.0f}"
+        )
 
-        print(f"[CHAT_HYBRID] subject={subject} query={text[:60]} reply_len={len(reply)}")
-
-        # SAUVEGARDER l'échange
+        # SAUVEGARDER l'échange (message utilisateur = question courte, pas le PDF entier)
         try:
             if text:
-                ChatMessage.objects.create(user=request.user, role='user', content=text, subject=subject, session_key=session_key)
+                stored_user_msg = text
+                if pdf_name and pdf_excerpt:
+                    stored_user_msg = f"{text}\n\n📄 {pdf_name}"
+                ChatMessage.objects.create(
+                    user=request.user, role='user', content=stored_user_msg,
+                    subject=subject, session_key=session_key,
+                )
             ChatMessage.objects.create(user=request.user, role='ai', content=reply, subject=subject, session_key=session_key)
             increment_chat(request.user)
-            if text and reply:
+            try:
+                from core.xp import settle_daily_missions
+                settle_daily_missions(request.user)
+            except Exception:
+                pass
+            if text and reply and not used_local_path:
                 from .learning_tracker import schedule_chat_learning_updates
                 schedule_chat_learning_updates(request.user, session_key, text, reply, subject)
         except Exception as save_err:
             print(f"[SAVE_ERROR] {str(save_err)}\n{traceback.format_exc()}")
             # Continue même si la sauvegarde échoue
 
-        return JsonResponse({'reply': reply, 'followups': [], 'session_key': session_key})
+        return JsonResponse({
+            'reply': reply,
+            'followups': [],
+            'session_key': session_key,
+            'local': used_local_path,
+            'title': _persist_and_return_chat_title(request.user, session_key, text, subject),
+        })
 
     except Exception as e:
         _logger.exception('Server error')
         error_msg = 'Erreur interne du serveur.'
         print(f"[CHAT_ERROR] {error_msg}\n{traceback.format_exc()}")
         return JsonResponse({'error': error_msg}, status=500)
+
+
+@login_required
+def api_ai_usage_snapshot(request):
+    """Micro-log tokens : utilisateur voit sa conso du jour ; staff voit la marge globale."""
+    from core.ai_usage import get_user_usage_today, get_margin_snapshot_today
+
+    if request.user.is_staff:
+        return JsonResponse({'ok': True, 'scope': 'global', **get_margin_snapshot_today()})
+    return JsonResponse({'ok': True, 'scope': 'user', **get_user_usage_today(request.user)})
 
 
 @login_required
@@ -2260,6 +2834,31 @@ def api_load_session(request):
         })
     subject = msgs.first().subject
     return JsonResponse({'messages': data, 'subject': subject, 'session_key': session_key})
+
+
+@login_required
+def api_chat_conversations(request):
+    """Liste / recherche l'historique : q cherche dans le texte des messages."""
+    q = (request.GET.get('q') or '').strip()
+    convs = _list_chat_conversations(request.user, q=q)
+    data = []
+    for c in convs:
+        last = c.get('last_msg')
+        when = ''
+        if last:
+            try:
+                when = _local_time(last).strftime('%d/%m %H:%M')
+            except Exception:
+                when = ''
+        data.append({
+            'session_key': c['session_key'],
+            'subject': c.get('subject') or '',
+            'label': c.get('label') or '',
+            'preview': c.get('preview') or '',
+            'msg_count': c.get('msg_count') or 0,
+            'when': when,
+        })
+    return JsonResponse({'ok': True, 'q': q, 'conversations': data})
 
 
 _NOTE_FILES_MAP = {
@@ -2359,33 +2958,12 @@ def _get_db_context(subject, user_message: str = ''):
                 detected = _s
                 break
         if not detected:
-            # No specific subject detected — load condensed notes from ALL subjects as fallback
+            # Pas de matière détectée → pas de dump multi-matières (économie tokens).
             _SKIP_GEN = {'bonjou', 'bonswa', 'salut', 'alo', 'ok', 'merci', 'mesi', 'dako', 'super', 'hi', 'hello', 'bye', 'au revoir'}
             _msg_tmp = user_message.strip().lower()
             if len(_msg_tmp) < 10 or _msg_tmp in _SKIP_GEN:
                 return ''
-            from pathlib import Path as _NPathAll
-            import json as _jsonAll
-            _db_base_all = _NPathAll(__file__).resolve().parent.parent / 'database'
-            _all_parts = []
-            for _s_all, _fname_all in _NOTE_FILES_MAP.items():
-                try:
-                    _np_all = _db_base_all / _fname_all
-                    if not _np_all.exists():
-                        continue
-                    _raw_all = _np_all.read_text(encoding='utf-8')
-                    try:
-                        _obj_all = _jsonAll.loads(_raw_all)
-                        if isinstance(_obj_all, dict) and 'raw_text' in _obj_all:
-                            _raw_all = _obj_all['raw_text']
-                    except _jsonAll.JSONDecodeError:
-                        pass
-                    _sec_all = _extract_relevant_note_section(_raw_all, user_message, max_chars=800)
-                    if _sec_all:
-                        _all_parts.append(f"=== {_s_all.upper()} ===\n{_sec_all}")
-                except Exception:
-                    pass
-            return ("[Notes du programme BAC — toutes matières]\n\n" + "\n\n".join(_all_parts)) if _all_parts else ''
+            return ''
         subject = detected
 
     # Questions trop courtes → pas la peine de charger du contexte
@@ -2405,7 +2983,11 @@ def _get_db_context(subject, user_message: str = ''):
     if subject not in _NO_JSON_CONTEXT_SUBJECTS:
         try:
             # Try AI blocks first (chapter_num=0 = all chapters)
-            note_context = _search_ai_blocks(subject, chapter_num=0, query=user_message, max_blocks=12)
+            note_context = _search_ai_blocks(
+                subject, chapter_num=0, query=user_message, max_blocks=6,
+                max_output_chars=AI_BLOCK_MAX_OUTPUT_CHARS,
+                summary_only=True,
+            )
         except Exception as _ai_err:
             print(f"[AI_BLOCKS_ERROR] {subject}: {_ai_err}")
             note_context = ''
@@ -2491,44 +3073,18 @@ def quiz_view(request):
 
 
 def _normalize_text_for_match(text: str) -> str:
-    text = (text or '').strip().lower()
-    text = unicodedata.normalize('NFD', text)
-    text = ''.join(ch for ch in text if unicodedata.category(ch) != 'Mn')
-    text = re.sub(r'\s+', ' ', text)
-    text = re.sub(r'[^a-z0-9\s]', '', text)
-    return text.strip()
+    from core.extra_bet_grader import normalize_text
+    return normalize_text(text)
 
 
 def _verify_extra_bet_submission_with_ai(subject: str, question_type: str, prompt: str, answer: str, options: list) -> dict:
-    """AI fact-check before publication for community-created study items."""
-    try:
-        options_txt = '\n'.join([f"- {str(o)}" for o in (options or [])]) if options else '(none)'
-        ai_prompt = (
-            "Tu es un verificateur academique strict pour le BAC haitien. "
-            "Analyse si la question et sa reponse sont factuellement justes et pedagogiquement valides.\n\n"
-            f"Matiere: {subject}\n"
-            f"Type: {question_type}\n"
-            f"Question: {prompt}\n"
-            f"Reponse proposee: {answer}\n"
-            f"Options: {options_txt}\n\n"
-            "Reponds UNIQUEMENT en JSON valide avec ce schema:\n"
-            "{\"valid\": true|false, \"reason\": \"...\", \"correct_answer\": \"...\"}"
-        )
-        raw = gemini._call_json(ai_prompt, max_tokens=450)
-        m = re.search(r'\{[\s\S]*\}', raw or '')
-        if not m:
-            return {'valid': True, 'reason': 'Verification automatique indisponible.', 'correct_answer': answer}
-        parsed = json.loads(m.group(0))
-        return {
-            'valid': bool(parsed.get('valid', True)),
-            'reason': str(parsed.get('reason', '') or 'Validation terminee.'),
-            'correct_answer': str(parsed.get('correct_answer', '') or answer),
-        }
-    except Exception:
-        return {'valid': True, 'reason': 'Verification automatique indisponible.', 'correct_answer': answer}
+    """Validation à la publication — règles locales, 0 IA."""
+    from core.extra_bet_grader import verify_extra_bet_submission
+    return verify_extra_bet_submission(question_type, prompt, answer, options)
 
 
 def extra_bet_view(request):
+    from core.extra_bet_leaderboard import get_week_top_creators
     # ── Guest mode: allowed to browse and interact but can't publish ──
     if _is_guest(request):
         from django.db.models import Count, Q
@@ -2545,12 +3101,7 @@ def extra_bet_view(request):
         posts = list(posts_qs[:120])
         subject_labels = json.dumps({k: v['label'] for k, v in MATS.items()})
         subject_colors = json.dumps({k: v['color'] for k, v in MATS.items()})
-        top_creators = (
-            ExtraBetPost.objects
-            .values('user__id', 'user__username', 'user__profile__first_name')
-            .annotate(post_count=Count('id'), total_likes=Count('likes'))
-            .order_by('-post_count')[:5]
-        )
+        top_creators, week_label = get_week_top_creators(3)
         return render(request, 'core/extra_bet.html', {
             'mats': MATS,
             'posts': posts,
@@ -2558,7 +3109,8 @@ def extra_bet_view(request):
             'active_sort': sort,
             'subject_labels': subject_labels,
             'subject_colors': subject_colors,
-            'top_creators': list(top_creators),
+            'top_creators': top_creators,
+            'week_label': week_label,
             'current_user_id': None,
             'is_guest': True,
         })
@@ -2590,16 +3142,21 @@ def extra_bet_view(request):
     posts_qs = posts_qs.order_by(sort_map.get(sort, '-created_at'))
 
     posts = list(posts_qs[:120])
+    from accounts.names import alias_map_for, overlay_alias, public_name
+    aliases = alias_map_for(request.user)
+    for p in posts:
+        try:
+            fallback = p.user.profile.get_display_name()
+        except Exception:
+            fallback = public_name(p.user)
+        p.author_display = overlay_alias(aliases, p.user_id, fallback)
     # Build subject label map for template
     subject_labels = json.dumps({k: v['label'] for k, v in MATS.items()})
     subject_colors = json.dumps({k: v['color'] for k, v in MATS.items()})
-    # Leaderboard: top creators by number of posts
-    top_creators = (
-        ExtraBetPost.objects
-        .values('user__id', 'user__username', 'user__profile__first_name')
-        .annotate(post_count=Count('id'), total_likes=Count('likes'))
-        .order_by('-post_count')[:5]
-    )
+    top_creators, week_label = get_week_top_creators(3)
+    for c in top_creators:
+        fallback = c.get('user__profile__first_name') or c.get('user__username') or ''
+        c['user__profile__first_name'] = overlay_alias(aliases, c.get('user__id'), fallback)
     return render(request, 'core/extra_bet.html', {
         'mats': filtered_mats,
         'posts': posts,
@@ -2607,7 +3164,8 @@ def extra_bet_view(request):
         'active_sort': sort,
         'subject_labels': subject_labels,
         'subject_colors': subject_colors,
-        'top_creators': list(top_creators),
+        'top_creators': top_creators,
+        'week_label': week_label,
         'current_user_id': request.user.id,
         'is_premium': is_premium_user,
     })
@@ -2622,23 +3180,30 @@ def api_extra_bet_create(request):
         return JsonResponse({'ok': False, 'error': 'Payload invalide.'}, status=400)
 
     subject = str(data.get('subject', '')).strip().lower()
-    question_type = str(data.get('question_type', 'direct')).strip().lower()
+    question_type = str(data.get('question_type', 'word')).strip().lower()
     prompt = str(data.get('prompt', '')).strip()
-    answer = str(data.get('answer', '')).strip()
-    options = data.get('options', []) or []
-    if not isinstance(options, list):
-        options = []
-    options = [str(o).strip() for o in options if str(o).strip()]
+    answer_raw = data.get('answer', '')
+    if isinstance(answer_raw, dict):
+        answer = json.dumps(answer_raw, ensure_ascii=False)
+    else:
+        answer = str(answer_raw or '').strip()
 
-    allowed_types = {'direct', 'fill', 'qcm'}
+    options_raw = data.get('options')
+    if question_type == 'qcm':
+        options = options_raw if isinstance(options_raw, list) else []
+        options = [str(o).strip() for o in options if str(o).strip()]
+    elif question_type in ('match', 'parts'):
+        options = options_raw if isinstance(options_raw, dict) else {}
+    else:
+        options = options_raw if isinstance(options_raw, list) else []
+
+    allowed_types = {'word', 'qcm', 'match', 'parts', 'direct', 'fill'}
     if subject not in MATS:
         return JsonResponse({'ok': False, 'error': 'Matiere invalide.'}, status=400)
     if question_type not in allowed_types:
         return JsonResponse({'ok': False, 'error': 'Type de question invalide.'}, status=400)
-    if len(prompt) < 12 or len(answer) < 1:
-        return JsonResponse({'ok': False, 'error': 'Question/reponse trop courte.'}, status=400)
-    if question_type == 'qcm' and len(options) < 2:
-        return JsonResponse({'ok': False, 'error': 'Le QCM doit contenir au moins 2 options.'}, status=400)
+    if not answer:
+        return JsonResponse({'ok': False, 'error': 'Reponse manquante.'}, status=400)
 
     verdict = _verify_extra_bet_submission_with_ai(subject, question_type, prompt, answer, options)
     if not verdict.get('valid', True):
@@ -2674,7 +3239,11 @@ def api_extra_bet_answer(request):
         return JsonResponse({'ok': False, 'error': 'Payload invalide.'}, status=400)
 
     post_id = data.get('post_id')
-    submitted = str(data.get('answer', '')).strip()
+    answer_raw = data.get('answer', '')
+    if isinstance(answer_raw, dict):
+        submitted = json.dumps(answer_raw, ensure_ascii=False)
+    else:
+        submitted = str(answer_raw or '').strip()
     if not post_id or not submitted:
         return JsonResponse({'ok': False, 'error': 'Reponse manquante.'}, status=400)
 
@@ -2684,23 +3253,10 @@ def api_extra_bet_answer(request):
         return JsonResponse({'ok': False, 'error': 'Publication introuvable.'}, status=404)
 
     expected = str(post.answer or '').strip()
-    is_correct = False
-    if post.question_type == 'qcm':
-        opts = post.options or []
-        s_norm = _normalize_text_for_match(submitted)
-        e_norm = _normalize_text_for_match(expected)
-        if len(s_norm) == 1 and s_norm in 'abcd':
-            is_correct = s_norm == e_norm
-        elif len(e_norm) == 1 and e_norm in 'abcd':
-            expected_idx = ord(e_norm) - ord('a')
-            if 0 <= expected_idx < len(opts):
-                is_correct = s_norm == _normalize_text_for_match(str(opts[expected_idx]))
-        else:
-            is_correct = s_norm == e_norm
-    else:
-        s_norm = _normalize_text_for_match(submitted)
-        e_norm = _normalize_text_for_match(expected)
-        is_correct = bool(s_norm) and bool(e_norm) and (s_norm == e_norm or s_norm in e_norm or e_norm in s_norm)
+    from core.extra_bet_grader import grade_extra_bet_answer
+    is_correct, display_answer = grade_extra_bet_answer(
+        submitted, expected, post.question_type, post.options or [],
+    )
 
     # Guests: return result without recording attempt in DB
     if not _is_guest(request) and request.user.is_authenticated:
@@ -2723,13 +3279,15 @@ def api_extra_bet_answer(request):
                 'is_correct': is_correct,
             },
         )
+        from core.push_events import push_extra_bet_answer
+        push_extra_bet_answer(request.user, post, is_correct)
     responders_count = ExtraBetAttempt.objects.filter(post=post).values('user').distinct().count()
     creators_count = ExtraBetPost.objects.filter(subject=post.subject).values('user').distinct().count()
 
     return JsonResponse({
         'ok': True,
         'is_correct': is_correct,
-        'correct_answer': expected,
+        'correct_answer': display_answer,
         'responders_count': responders_count,
         'creators_count': creators_count,
     })
@@ -2737,32 +3295,36 @@ def api_extra_bet_answer(request):
 
 @require_POST
 def api_extra_bet_ai_help(request):
+    """Indice local — 0 IA (pas de synonymes inventés, juste structure)."""
     try:
         data = json.loads(request.body or '{}')
     except Exception:
         return JsonResponse({'ok': False, 'error': 'Payload invalide.'}, status=400)
 
     post_id = data.get('post_id')
-    user_msg = str(data.get('message', '')).strip()
-    if not post_id or not user_msg:
-        return JsonResponse({'ok': False, 'error': 'Question IA manquante.'}, status=400)
+    if not post_id:
+        return JsonResponse({'ok': False, 'error': 'Publication introuvable.'}, status=400)
 
     try:
         post = ExtraBetPost.objects.get(id=post_id)
     except ExtraBetPost.DoesNotExist:
         return JsonResponse({'ok': False, 'error': 'Publication introuvable.'}, status=404)
 
-    preface = (
-        "Aide l eleve sur cette question sans donner directement toute la solution en une seule ligne. "
-        "Explique clairement, par etapes, avec un style pedagogique.\n\n"
-        f"Question: {post.prompt}\n"
-        f"Type: {post.question_type}\n"
-        f"Reponse correcte: {post.answer}\n"
-        f"Options: {post.options}\n\n"
-        f"Question de l eleve: {user_msg}"
-    )
-    reply = gemini.get_chat_response(preface, history=[], subject=post.subject, db_context='')
-    return JsonResponse({'ok': True, 'reply': reply})
+    primary = (str(post.answer or '').split('|')[0].strip())
+    qtype = (post.question_type or 'word').lower()
+    if qtype in ('direct', 'fill'):
+        qtype = 'word'
+
+    if qtype == 'qcm':
+        hint = 'QCM : élimine les options incohérentes avant de choisir.'
+    elif qtype == 'match':
+        hint = 'Relie chaque élément de gauche à la bonne définition / valeur à droite.'
+    elif qtype == 'parts':
+        hint = 'Chaque sous-question a une valeur exacte (nombre ou mot court). Pas d\'espace dans les mots.'
+    else:
+        hint = 'Réponds en un seul mot, sans phrase complète.'
+
+    return JsonResponse({'ok': True, 'reply': hint})
 
 
 @require_POST
@@ -2792,6 +3354,8 @@ def api_extra_bet_like(request):
     else:
         post.likes.add(request.user)
         liked = True
+        from core.push_events import push_extra_bet_like
+        push_extra_bet_like(request.user, post)
 
     return JsonResponse({
         'ok': True,
@@ -2824,14 +3388,14 @@ def api_extra_bet_delete(request):
     return JsonResponse({'ok': True, 'message': 'Publication supprimee.'})
 
 
-def _auto_seed_quiz_questions(subject: str, target: int = 40) -> int:
+def _auto_seed_quiz_questions(subject: str, target: int = 40, max_attempts: int = 1) -> int:
     """
     Génère des QCM via l'IA depuis les JSON d'examens structurés.
     Priorité : get_exam_context_json (rapide, varié) → fallback PDF brut.
     Retourne le nombre total de questions disponibles après seeding.
     """
     try:
-        for attempt in range(5):
+        for attempt in range(max_attempts):
             if QuizQuestion.objects.filter(subject=subject).count() >= target:
                 break
             # Utiliser les JSON pré-exportés en priorité (plus riche et plus rapide)
@@ -2861,11 +3425,16 @@ def _auto_seed_quiz_questions(subject: str, target: int = 40) -> int:
 
 
 def _background_seed(subject: str, target: int):
-    """Lance le seeding dans un thread séparé pour ne pas bloquer la réponse."""
+    """Lance le seeding dans un thread séparé (désactivé par défaut en prod)."""
+    from core.ai_usage import ENABLE_QUIZ_BACKGROUND_SEED, try_acquire_quiz_seed_lock
+    if not ENABLE_QUIZ_BACKGROUND_SEED:
+        return
+    if not try_acquire_quiz_seed_lock(subject):
+        return
     import threading
     def _run():
         try:
-            _auto_seed_quiz_questions(subject, target=target)
+            _auto_seed_quiz_questions(subject, target=target, max_attempts=2)
         except Exception:
             pass
     threading.Thread(target=_run, daemon=True).start()
@@ -3015,6 +3584,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
             _ang_qs = _ang_raw if isinstance(_ang_raw, list) else _ang_raw.get('quiz', [])
             if not _ang_qs:
                 raise ValueError('empty')
+            _ang_qs = list(_ang_qs)
             if chapter:
                 _ang_f = [q for q in _ang_qs if chapter.lower() in q.get('category', '').lower()]
                 if _ang_f:
@@ -3067,6 +3637,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
             _esp_qs = _esp_raw if isinstance(_esp_raw, list) else _esp_raw.get('quiz', [])
             if not _esp_qs:
                 raise ValueError('empty')
+            _esp_qs = list(_esp_qs)
             if chapter:
                 _esp_f = [q for q in _esp_qs if chapter.lower() in q.get('category', '').lower()]
                 if _esp_f:
@@ -3119,6 +3690,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
             _kr_qs = _kr_data.get('quiz', [])
             if not _kr_qs:
                 return {'error': 'Quiz Kreyòl vide.', 'questions': []}
+            _kr_qs = list(_kr_qs)
             _filtered = [q for q in _kr_qs if chapter.lower() in q.get('category', '').lower()] if chapter else _kr_qs
             if not _filtered:
                 _filtered = _kr_qs
@@ -3175,6 +3747,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
             _j_qs = _j_data if isinstance(_j_data, list) else _j_data.get('quiz', [])
             if not _j_qs:
                 return {'error': f'Aucune question disponible pour {subject}.', 'questions': []}
+            _j_qs = list(_j_qs)
             if chapter:
                 _ch_lower = chapter.lower()
                 # SVT: filtre par champ 'discipline' (biologie/geologie) en priorité
@@ -3297,7 +3870,7 @@ def get_quiz_questions_for_user(user, subject: str, count: int = 10, chapter: st
         return {'error': 'Questions indisponibles. Réessaie dans quelques secondes.', 'questions': []}
 
     if total_available < new_count:
-        total_available = _auto_seed_quiz_questions(subject, target=40)
+        total_available = _auto_seed_quiz_questions(subject, target=40, max_attempts=1)
     if total_available == 0:
         return {'error': 'Génération des questions en cours… Recharge dans 15 secondes.', 'questions': []}
     if total_available < 80:
@@ -3363,7 +3936,21 @@ def quiz_questions_api(request):
         chapter = request.GET.get('chapter', '')
         count = int(request.GET.get('count', 10))
         payload = get_quiz_questions_for_user(request.user, subject=subject, count=count, chapter=chapter, include_review=True)
-        increment_quiz(request.user)
+        qs = payload.get('questions') or []
+        if qs:
+            from core.xp import create_activity
+            act = create_activity(request.user, 'quiz', subject, {
+                'questions': [
+                    {
+                        'enonce': (q.get('enonce') or '')[:800],
+                        'options': list(q.get('options') or [])[:8],
+                        'reponse_correcte': q.get('reponse_correcte', 0),
+                    }
+                    for q in qs
+                ],
+            })
+            payload['attempt_id'] = str(act.token)
+            increment_quiz(request.user)
         return JsonResponse(payload, status=200)
     except Exception as e:
         import traceback; traceback.print_exc()
@@ -3378,27 +3965,121 @@ def quiz_save_api(request):
         return err
     if not request.user.is_authenticated:
         if _is_guest(request):
-            # Already counted at quiz launch in quiz_questions_api.
             return JsonResponse({'ok': True, 'guest': True, 'signup_url': '/signup/'})
         return JsonResponse({'error': 'login_required'}, status=401)
     from datetime import date
-    from .models import MistakeTracker
-    subject = data.get('subject', 'maths')
-    details = data.get('details', [])
-    score   = data.get('score', sum(1 for d in details if d.get('ok')))
-    total   = data.get('total', len(details))
+    from django.utils import timezone as _tz
+    from .models import MistakeTracker, XpActivity
+    from core import xp_config as _xp_c
+    from core.xp import consume_activity, grant_xp, settle_daily_missions
 
+    subject = data.get('subject', 'maths')
+    details = data.get('details', []) or []
+    attempt_id = (data.get('attempt_id') or '').strip()
+    xp_gained = 0
+    xp_reason = 'no_attempt'
+    session_valid = False
+    activity_kind = None
+    activity_token_str = ''
+    server_score = sum(1 for d in details if d.get('ok'))
+    server_total = max(len(details), int(data.get('total') or 0) or 1)
+
+    if attempt_id:
+        try:
+            from uuid import UUID
+            token = UUID(str(attempt_id))
+        except (ValueError, TypeError):
+            token = None
+        kind = None
+        if token:
+            kind = XpActivity.objects.filter(token=token, user=request.user).values_list('kind', flat=True).first()
+        if token and kind in ('quiz', 'exam'):
+            activity_kind = kind
+            activity_token_str = str(token)
+            min_s = _xp_c.QUIZ_MIN_SECONDS if kind == 'quiz' else _xp_c.EXAM_MIN_SECONDS
+            with transaction.atomic():
+                act, status = consume_activity(request.user, token, kind, min_s)
+                if status == 'invalid_activity':
+                    xp_reason = 'invalid_activity'
+                elif status == 'too_fast':
+                    xp_reason = 'too_fast'
+                elif status == 'already_consumed':
+                    xp_reason = 'already_consumed'
+                elif act is not None:
+                    stored = (act.payload or {}).get('questions') or []
+                    if kind == 'quiz' and stored:
+                        by_enonce = {(s.get('enonce') or '')[:800]: s for s in stored}
+                        graded_ok = 0
+                        answered = 0
+                        for d in details:
+                            en = (d.get('question') or '')[:800]
+                            sq = by_enonce.get(en)
+                            if not sq:
+                                continue
+                            answered += 1
+                            opts = sq.get('options') or []
+                            try:
+                                rc = int(sq.get('reponse_correcte', 0))
+                            except (TypeError, ValueError):
+                                rc = 0
+                            correct_txt = opts[rc] if 0 <= rc < len(opts) else ''
+                            chosen = d.get('chosen') or d.get('user_answer')
+                            d['ok'] = bool(correct_txt) and chosen == correct_txt
+                            if d['ok']:
+                                graded_ok += 1
+                        ratio = answered / max(len(stored), 1)
+                        server_score, server_total = graded_ok, max(len(stored), 1)
+                        if ratio >= _xp_c.QUIZ_MIN_ANSWER_RATIO:
+                            session_valid = True
+                            xp_reason = 'ok'
+                            if status != 'already_consumed':
+                                act.consumed_at = _tz.now()
+                                act.save(update_fields=['consumed_at'])
+                        else:
+                            xp_reason = 'incomplete'
+                    else:
+                        # Examen blanc : session valide, pas d'XP hors mission.
+                        session_valid = True
+                        xp_reason = 'ok'
+                        if status != 'already_consumed':
+                            act.consumed_at = _tz.now()
+                            act.save(update_fields=['consumed_at'])
+
+    score = server_score
+    total = server_total
     session = QuizSession.objects.create(
         user=request.user, subject=subject,
         score=score, total=total, details=details
     )
 
-    stats = _get_or_create_stats(request.user)
-    stats.quiz_completes += 1
-    stats.minutes_etude  += 10  # ~10 min par quiz
-    stats.save(update_fields=['quiz_completes', 'minutes_etude'])
+    if session_valid:
+        stats = _get_or_create_stats(request.user)
+        stats.quiz_completes += 1
+        stats.minutes_etude += 10
+        stats.save(update_fields=['quiz_completes', 'minutes_etude'])
+        try:
+            quiz_ratio = _xp_c.score_ratio(score, total)
+            if activity_kind == 'exam':
+                amount = _xp_c.xp_from_score(_xp_c.XP_EXAM_MAX, ratio=quiz_ratio)
+                src, cap, ref_prefix = _xp_c.SOURCE_EXAM, _xp_c.DAILY_CAP_EXAM, 'exam'
+            else:
+                amount = _xp_c.xp_from_score(_xp_c.XP_QUIZ_MAX, ratio=quiz_ratio)
+                if quiz_ratio >= 0.8:
+                    amount += _xp_c.XP_QUIZ_PERFECT_BONUS
+                src, cap, ref_prefix = _xp_c.SOURCE_QUIZ, _xp_c.DAILY_CAP_QUIZ, 'quiz'
+            res = grant_xp(
+                request.user, amount, src,
+                f'{ref_prefix}:{activity_token_str or session.pk}',
+                extra={'score': score, 'total': total, 'ratio': quiz_ratio},
+                daily_cap=cap,
+            )
+            xp_gained = res.amount if res.granted else 0
+            mission_results = settle_daily_missions(request.user, scores={'quiz': quiz_ratio})
+            xp_gained += sum(r.amount for r in mission_results if r.granted)
+            xp_reason = 'ok' if xp_gained else (res.reason if not res.granted else 'ok')
+        except Exception:
+            pass
 
-    # ── Répétition espacée SM-2 ─────────────────────────────────────────
     today = date.today()
     for d in details:
         enonce = (d.get('question') or '').strip()
@@ -3480,6 +4161,7 @@ def quiz_save_api(request):
     return JsonResponse({
         'ok': True, 'score': score, 'total': total,
         'pct': session.get_percentage(), 'session_id': session.pk,
+        'xp_gained': xp_gained, 'xp_reason': xp_reason,
     })
 
 
@@ -3565,6 +4247,12 @@ def _auto_seed_chapters(subject: str) -> list:
 
 def _build_exercices_chapters():
     """Build chapters_by_subject dict for the exercices page (shared by guest + auth)."""
+    return _build_exercices_chapters_cached()
+
+
+@functools.lru_cache(maxsize=1)
+def _build_exercices_chapters_cached():
+    """Cached — lit les JSON disque une seule fois par process."""
     chapters_by_subject = {}
     _EXO_SUBJECTS_EXCLUDE = {'francais', 'histoire', 'informatique', 'art'}
     SUBJECT_JSON_MAP = {
@@ -3626,8 +4314,10 @@ def _build_exercices_chapters():
         from . import exo_loader as _exo_loader_phys
         _phys_chaps = _exo_loader_phys.get_chapters('physique')
         if _phys_chaps:
+            from .exo_loader import normalize_chapter_key
             for _ch in _phys_chaps:
                 _ch['display'] = _PHYS_DISPLAY_MAP.get(_ch['title'], _ch['title'])
+                _ch['chapter_key'] = normalize_chapter_key(_ch['title']) or _ch['display']
             chapters_by_subject['physique'] = _phys_chaps
     except Exception:
         pass
@@ -3646,8 +4336,11 @@ def _build_exercices_chapters():
         if subj in ('maths', 'chimie'):
             try:
                 from . import exo_loader as _exo_loader_subj
+                from .exo_loader import normalize_chapter_key
                 _subj_chaps = _exo_loader_subj.get_chapters(subj)
                 if _subj_chaps:
+                    for _ch in _subj_chaps:
+                        _ch['chapter_key'] = normalize_chapter_key(_ch['title']) or _ch['title']
                     if subj == 'chimie':
                         # Ajouter le chapitre des équations chimiques si le fichier existe
                         _eq_chim_path = _db_dir / 'equation_chimique.json'
@@ -3663,6 +4356,18 @@ def _build_exercices_chapters():
             except Exception:
                 pass
         if subj == 'svt':
+            try:
+                from . import exo_loader as _exo_loader_svt
+                _svt_chaps = _exo_loader_svt.get_chapters('svt')
+                if _svt_chaps:
+                    from .exo_loader import normalize_chapter_key
+                    for _ch in _svt_chaps:
+                        _ch['chapter_key'] = normalize_chapter_key(_ch['title']) or _ch['title']
+                        _ch['display'] = _ch['title']
+                    chapters_by_subject['svt'] = _svt_chaps
+                    continue
+            except Exception:
+                pass
             chapters_by_subject['svt'] = [
                 {'id': 1, 'title': 'Génétique – Croisements (monohybridisme, dihybridisme)', 'num': 1},
                 {'id': 2, 'title': 'Hérédité liée au sexe (daltonisme, hémophilie, myopathie)', 'num': 2},
@@ -3718,7 +4423,11 @@ def exercices_view(request):
             })
         return redirect('/login/?next=' + request.get_full_path())
     chapters_by_subject = _build_exercices_chapters()
-    profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    profile = UserProfile.objects.filter(user=request.user).only(
+        'serie', 'langue_etrangere', 'coach_name', 'first_name',
+    ).first()
+    if profile is None:
+        profile, _ = UserProfile.objects.get_or_create(user=request.user)
 
     # Matières pour la page exercices (filtrées par série, sans exo disponible)
     _EXO_EXCLUDE_ALWAYS = {'francais', 'histoire', 'informatique', 'art'}
@@ -3740,15 +4449,38 @@ def solve_api(request):
         image = request.FILES.get('image')
         image_data = image.read() if image else None
         image_mime = image.content_type if image else None
+        if image_data:
+            image_data, image_mime = gemini.prepare_image_bytes(image_data, image_mime)
 
         result = gemini.solve_exercise(text, image_data, image_mime)
 
-        stats = _get_or_create_stats(request.user)
-        stats.exercices_resolus += 1
-        stats.minutes_etude += 5   # ~5 min par exercice
-        stats.save(update_fields=['exercices_resolus', 'minutes_etude'])
+        fp_src = (text or '')[:1500]
+        if image:
+            fp_src += f'|img:{image.size}:{image_mime}'
+        fp = hashlib.sha256(fp_src.encode('utf-8', errors='ignore')).hexdigest()[:32]
+        token = None
+        try:
+            body_token = request.POST.get('activity_token') or ''
+            token = body_token or None
+        except Exception:
+            token = None
+        from core.xp import reward_exercise
+        if token:
+            xp_res = reward_exercise(request.user, fp, token=token, orphan=False)
+        else:
+            xp_res = reward_exercise(request.user, fp, orphan=True)
+        # Solve photo/texte : pas d'XP activité (orphelin ou hors mission).
+        if xp_res.reason not in ('no_token', 'invalid_activity', 'too_fast', 'no_fingerprint', 'no_activity_xp'):
+            stats = _get_or_create_stats(request.user)
+            stats.exercices_resolus += 1
+            stats.minutes_etude += 5
+            stats.save(update_fields=['exercices_resolus', 'minutes_etude'])
 
-        return JsonResponse({'solution': result})
+        return JsonResponse({
+            'solution': result,
+            'xp_gained': xp_res.amount if xp_res.granted else 0,
+            'xp_reason': xp_res.reason,
+        })
     except Exception as e:
         _logger.exception('Server error')
         return JsonResponse({'error': 'Erreur interne du serveur.'}, status=500)
@@ -3769,9 +4501,7 @@ def api_get_exercise(request):
             guest_exo_done = request.session.get('guest_exo_done', 0)
             if guest_exo_done >= 2:
                 return JsonResponse({'error': 'guest_limit', 'message': 'Tu as atteint la limite de 2 exercices en mode démo. Crée un compte pour continuer !', 'signup_url': '/signup/', 'premium_required': True}, status=403)
-            # Demo rule: exercise is consumed when launched.
-            request.session['guest_exo_done'] = guest_exo_done + 1
-            request.session.modified = True
+            # Quota invité consommé au 1er message chat (pas au chargement)
         else:
             return JsonResponse({'error': 'login_required'}, status=401)
 
@@ -3952,7 +4682,24 @@ def api_get_exercise(request):
                 ],
             },
         }
-        _chapter_rule = _CHAPTER_RULES.get(chapter.lower().strip()) if chapter else None
+        from core.exo_loader import normalize_chapter_key
+
+        def _lookup_chapter_rule(chapter_name: str, rules: dict):
+            if not chapter_name:
+                return None
+            norm = normalize_chapter_key(chapter_name)
+            if norm in rules:
+                return rules[norm]
+            low = chapter_name.lower().strip()
+            if low in rules:
+                return rules[low]
+            for key, rule in rules.items():
+                kn = normalize_chapter_key(key) or key.lower()
+                if norm and (norm in kn or kn in norm):
+                    return rule
+            return None
+
+        _chapter_rule = _lookup_chapter_rule(chapter, _CHAPTER_RULES) if chapter else None
 
         def _respects_chapter_rule(exo_data):
             """Vérifie que l'exercice correspond bien au chapitre demandé."""
@@ -3976,16 +4723,21 @@ def api_get_exercise(request):
             if exercise_data:
                 exercise_data['_is_real_bac'] = False
             if exercise_data:
-                if not _is_guest(request):
-                    increment_exercise(request.user, subject)
                 from .exercise_tutor import init_session, session_public_view, opening_message
                 _student = request.user.first_name or request.user.username or 'Élève' if request.user.is_authenticated else 'Élève'
+                _coach = ''
+                if request.user.is_authenticated:
+                    try:
+                        from accounts.models import UserProfile
+                        _coach = (UserProfile.objects.get(user=request.user).coach_name or '').strip()
+                    except Exception:
+                        pass
                 _session = init_session(exercise_data)
                 return JsonResponse({
                     'ok': True,
                     'exercise': exercise_data,
                     'session': session_public_view(_session, exercise_data),
-                    'opening': opening_message(exercise_data, _student),
+                    'opening': opening_message(exercise_data, _student, coach_name=_coach),
                     'session_state': _session,
                 })
             return JsonResponse({'error': 'Aucun exercice disponible.'}, status=404)
@@ -4053,6 +4805,7 @@ def api_get_exercise(request):
                             'intro':      _intro,
                             'enonce':     _exo.get('enonce') or _intro,
                             'questions':  _questions,
+                            'reponses':   _exo.get('reponses', {}),
                             'theme':      (_exo.get('theme') or _exo.get('chapter') or subject.upper()).strip(),
                             'matiere':    subject.upper(),
                             'difficulte': 'moyen',
@@ -4061,23 +4814,38 @@ def api_get_exercise(request):
                             'conseils':   '',
                             '_is_real_bac': True,
                         }
-                        # ── Groq formatting review: fix tables, LaTeX artefacts ──
-                        # Skip if intro already has a well-formed pipe table (avoid overwriting)
-                        _has_table = '\n|' in exercise_data['intro'] or exercise_data['intro'].lstrip().startswith('|')
-                        if not _has_table:
-                            try:
-                                _fmt = gemini.format_exercise_display(
-                                    subject,
-                                    exercise_data['intro'],
-                                    exercise_data['questions'],
-                                )
-                                exercise_data['intro']     = _fmt['intro']
-                                exercise_data['enonce']    = _fmt['intro']
-                                exercise_data['questions'] = _fmt['questions']
-                            except Exception as _fmt_err:
-                                print(f'[api_get_exercise] format_exercise_display error: {_fmt_err}')
+                        # ── Formatage local (tables, LaTeX) — zéro appel IA ──
+                        try:
+                            from .exercise_display import format_exercise_display_local
+                            _fmt = format_exercise_display_local(
+                                subject,
+                                exercise_data['intro'],
+                                exercise_data['questions'],
+                            )
+                            exercise_data['intro']     = _fmt['intro']
+                            exercise_data['enonce']    = _fmt['intro']
+                            exercise_data['questions'] = _fmt['questions']
+                        except Exception as _fmt_err:
+                            print(f'[api_get_exercise] format_exercise_display_local error: {_fmt_err}')
             except Exception as _exo_err:
                 print(f'[api_get_exercise] exo_loader error: {_exo_err}')
+
+        # ── 1a. Programme note_*_ai.json — énoncé seul, zéro IA ─────────────
+        _NOTE_AI_SUBJECTS = {'maths', 'chimie', 'physique', 'economie'}
+        if not exercise_data and subject in _NOTE_AI_SUBJECTS:
+            try:
+                from core.chat_exercise_local import (
+                    pick_note_ai_exercise,
+                    block_to_exercise_payload,
+                    apply_exercise_display_polish,
+                )
+                _nai_block = pick_note_ai_exercise(subject, chapter)
+                if _nai_block:
+                    _nai_candidate = block_to_exercise_payload(_nai_block, subject)
+                    if _nai_candidate and _respects_chapter_rule(_nai_candidate):
+                        exercise_data = apply_exercise_display_polish(_nai_candidate, subject)
+            except Exception as _nai_err:
+                print(f'[api_get_exercise] note_ai error: {_nai_err}')
 
         # ── 1b. (ancien) Vrais exercices du BAC depuis BACExercise ────────────
         # Conservé en fallback pour physique uniquement
@@ -4171,22 +4939,22 @@ def api_get_exercise(request):
                         if _respects_chapter_rule(candidate):
                             exercise_data = candidate
 
-        # ── 3. Fallback: IA live sur texte brut exam ─────────────────────────
-        AI_SUBJECTS = {'maths', 'physique', 'chimie', 'svt'}
-        if not exercise_data and subject in AI_SUBJECTS:
-            raw_texts = pdf_loader.get_raw_exam_texts_for_ai(subject, chapter, max_chars=10000)
-            if raw_texts:
-                candidate = gemini.extract_structured_exercise(raw_texts, subject, chapter)
-                if candidate and _respects_chapter_rule(candidate):
-                    candidate['_is_real_bac'] = False
-                    exercise_data = candidate
-
-        # ── 4. Fallback : JSON structuré parsé ──────────────────────────────
+        # ── 3. Fallback : JSON structuré parsé (0 appel IA) ──────────────────
         if not exercise_data:
             candidate = pdf_loader.get_exercise_from_json(subject, chapter)
             if candidate and _respects_chapter_rule(candidate):
                 candidate['_is_real_bac'] = False
                 exercise_data = candidate
+
+        # ── 4. Fallback: IA live sur texte brut exam ─────────────────────────
+        AI_SUBJECTS = {'maths', 'physique', 'chimie', 'svt'}
+        if not exercise_data and subject in AI_SUBJECTS:
+            raw_texts = pdf_loader.get_raw_exam_texts_for_ai(subject, chapter, max_chars=4000)
+            if raw_texts:
+                candidate = gemini.extract_structured_exercise(raw_texts, subject, chapter)
+                if candidate and _respects_chapter_rule(candidate):
+                    candidate['_is_real_bac'] = False
+                    exercise_data = candidate
 
         # ── 5. Fallback final : IA pure ──────────────────────────────────────
         if not exercise_data:
@@ -4208,44 +4976,68 @@ def api_get_exercise(request):
         src = _re.sub(r'exam_[a-z]+_[a-z]+-(\d{4})', r'Bac Haïti \1', src, flags=_re.IGNORECASE)
         exercise_data['source'] = src.strip()
 
-        # 2. Si pas de questions, les générer depuis l'intro via l'IA
+        # 2. Si pas de questions, découper l'intro localement (pas d'appel IA)
         questions = [str(q).strip() for q in (exercise_data.get('questions') or []) if str(q).strip()]
         if len(questions) < 2:
             intro = exercise_data.get('intro') or exercise_data.get('enonce', '')
-            if intro and len(intro.strip()) > 30:
-                gen_prompt = (
-                    f"Voici l'énoncé d'un exercice de {subject} du Bac Haïti :\n\n{intro[:1500]}\n\n"
-                    f"Génère 3 à 5 questions numérotées a), b), c)... précises et directes que l'élève "
-                    f"doit résoudre. Réponds UNIQUEMENT avec la liste JSON : "
-                    f'["a) question 1", "b) question 2", "c) question 3"]'
-                )
-                try:
-                    q_raw = gemini._call_json(gen_prompt, max_tokens=500)
-                    q_raw = _re.sub(r'```[a-z]*\s*', '', q_raw).strip()
-                    m = _re.search(r'\[[\s\S]+\]', q_raw)
-                    if m:
-                        import json as _json2
-                        gen_qs = _json2.loads(m.group(0))
-                        gen_qs = [str(q).strip() for q in gen_qs if str(q).strip()]
-                        if gen_qs:
-                            exercise_data['questions'] = gen_qs
-                except Exception:
-                    pass
-
-        if not _is_guest(request):
-            increment_exercise(request.user, subject)
+            split_qs = [
+                p.strip()
+                for p in _re.split(r'(?=(?:^|\n)\s*(?:[a-e]\)|\d+[\.)]\s))', intro or '')
+                if len(p.strip()) > 15
+            ]
+            if len(split_qs) >= 2:
+                exercise_data['questions'] = split_qs[:6]
 
         from .exercise_tutor import init_session, session_public_view, opening_message
+        from core.chat_exercise_local import exercise_public_payload
+
         _student = 'Élève'
+        _coach = ''
         if request.user.is_authenticated:
             _student = request.user.first_name or request.user.username or _student
+            try:
+                _prof = UserProfile.objects.get(user=request.user)
+                _coach = (_prof.coach_name or '').strip()
+            except Exception:
+                pass
         _session = init_session(exercise_data)
+        _fp_raw = (
+            str(exercise_data.get('id') or '')
+            + '|' + (exercise_data.get('titre') or '')[:200]
+            + '|' + (exercise_data.get('enonce') or exercise_data.get('intro') or '')[:800]
+        )
+        _fp = hashlib.sha256(_fp_raw.encode('utf-8', errors='ignore')).hexdigest()[:32]
+        _exo_token = None
+        if request.user.is_authenticated:
+            from core.xp import create_activity
+            from .models import XpActivity
+            _act = create_activity(
+                request.user, XpActivity.KIND_EXERCISE, subject,
+                {'fingerprint': _fp},
+            )
+            _exo_token = str(_act.token)
+
+        _public_exercise = exercise_data
+        if exercise_data.get('_from_note_ai') and exercise_data.get('solution'):
+            try:
+                from django.core.cache import cache as _dj_cache
+                _uid = request.user.id if request.user.is_authenticated else 'guest'
+                _dj_cache.set(
+                    f'exo_sol:{_uid}:{exercise_data.get("_note_ai_id", "")}',
+                    exercise_data['solution'],
+                    timeout=3600,
+                )
+            except Exception:
+                pass
+            _public_exercise = exercise_public_payload(exercise_data)
+
         return JsonResponse({
             'ok': True,
-            'exercise': exercise_data,
+            'exercise': _public_exercise,
             'session': session_public_view(_session, exercise_data),
-            'opening': opening_message(exercise_data, _student),
+            'opening': opening_message(exercise_data, _student, coach_name=_coach),
             'session_state': _session,
+            'activity_token': _exo_token,
         })
     except Exception as e:
         import traceback; traceback.print_exc()
@@ -4310,19 +5102,37 @@ def api_correct_exercise(request):
 
         result = gemini.correct_exercise_answers(exercise, answers, subject, user_lang=user_lang)
 
+        xp_gained = 0
+        xp_reason = 'partial'
         # Track stats
         if question_index is None:
-            stats = _get_or_create_stats(request.user)
-            stats.exercices_resolus += 1
-            stats.minutes_etude += 8
-            stats.save(update_fields=['exercices_resolus', 'minutes_etude'])
+            from core.xp import reward_exercise
+            _fp_raw = (
+                str(exercise.get('id') or '')
+                + '|' + (exercise.get('titre') or '')[:200]
+                + '|' + (exercise.get('enonce') or exercise.get('intro') or '')[:800]
+            )
+            _fp = hashlib.sha256(_fp_raw.encode('utf-8', errors='ignore')).hexdigest()[:32]
+            token = body.get('activity_token')
+            _gs = result.get('global_score', 0)
+            _ms = result.get('max_score', 1) or 1
+            _pct = round(float(_gs) / float(_ms) * 100) if _ms else 0
+            xp_res = reward_exercise(
+                request.user, _fp, token=token, orphan=False, score_pct=_pct,
+            )
+            xp_reason = xp_res.reason
+            if xp_res.granted:
+                xp_gained = xp_res.amount
+            # Compteur exo même sans XP (mission déjà prise / plafond)
+            if xp_res.reason not in ('no_token', 'invalid_activity', 'too_fast', 'no_fingerprint'):
+                stats = _get_or_create_stats(request.user)
+                stats.exercices_resolus += 1
+                stats.minutes_etude += 8
+                stats.save(update_fields=['exercices_resolus', 'minutes_etude'])
 
             # ── Suivi adaptatif — exercice corrigé ─────────────────────────
             try:
                 from .learning_tracker import update_subject_mastery, log_learning_event
-                _gs = result.get('global_score', 0)
-                _ms = result.get('max_score', 1) or 1
-                _pct = round(_gs / _ms * 100)
                 update_subject_mastery(
                     user=request.user,
                     subject=subject,
@@ -4330,25 +5140,37 @@ def api_correct_exercise(request):
                     question_text=(exercise.get('titre') or exercise.get('enonce') or '')[:200],
                     score_pct=float(_pct),
                 )
+                wrong_samples = []
+                for corr in (result.get('corrections') or [])[:6]:
+                    if corr.get('correct') or corr.get('partial'):
+                        continue
+                    wrong_samples.append({
+                        'question': str(corr.get('question') or '')[:160],
+                        'student_answer': str(corr.get('student_answer') or '')[:120],
+                        'expected_key': str(corr.get('expected_key') or '')[:120],
+                    })
                 log_learning_event(
                     user=request.user,
                     event_type='exercise_corrected',
                     subject=subject,
-                    details={'score': _gs, 'max': _ms, 'pct': _pct,
-                             'exercise_title': (exercise.get('titre') or '')[:100]},
+                    details={
+                        'score': _gs, 'max': _ms, 'pct': _pct,
+                        'exercise_title': (exercise.get('titre') or exercise.get('enonce') or '')[:100],
+                        'wrong_samples': wrong_samples[:4],
+                        'wrong_count': len(wrong_samples),
+                    },
                     score_pct=float(_pct),
                 )
             except Exception as _lt_err:
                 print(f"[LEARNING_TRACKER] exercise: {_lt_err}")
 
-        return JsonResponse({'ok': True, **result})
+        return JsonResponse({'ok': True, 'xp_gained': xp_gained, 'xp_reason': xp_reason, **result})
     except Exception as e:
         import traceback; traceback.print_exc()
         _logger.exception('Server error')
         return JsonResponse({'error': 'Erreur interne du serveur.'}, status=500)
 
 
-@login_required
 @require_POST
 def api_exam_ai_correct(request):
     """Correction IA d'un examen blanc complet (réponses ouvertes).
@@ -4384,18 +5206,43 @@ def api_exam_ai_correct(request):
         # Guest exam usage is counted at launch in api_generate_exam_v2.
 
         user_lang = _get_user_lang(request)
+        part_a_earned = float(body.get('part_a_earned', 0) or 0)
+        part_a_max = float(body.get('part_a_max', 0) or 0)
         if not getattr(settings, 'DEEPSEEK_API_KEY', ''):
+            total_pts = sum(float(q.get('pts', 0) or 0) for q in safe_pairs)
             return JsonResponse({
                 'ok': False,
-                'error': "DEEPSEEK_API_KEY est manquante dans le fichier .env. Ajoute cette clé puis redémarre le serveur Django.",
+                'error': 'correction_unavailable',
                 'corrections': [],
                 'estimated_score': 0,
-                'total_pts': sum(float(q.get('pts', 0) or 0) for q in safe_pairs),
-                'global_feedback': 'Correction IA indisponible: configuration DeepSeek manquante.',
+                'total_pts': total_pts,
+                'global_feedback': (
+                    'La correction automatique est temporairement indisponible. '
+                    'Compare tes réponses avec le corrigé ou réessaie plus tard.'
+                ),
             }, status=503)
         try:
             result = gemini.correct_exam_open_answers(subject, safe_pairs, user_lang=user_lang, mise_au_net=mise_au_net)
-            return JsonResponse({'ok': True, **result})
+            part_b_eff = max(0.0, 100.0 - part_a_max) if part_a_max else float(result.get('total_pts', 0) or 0)
+            part_b_scaled = 0.0
+            total_pts_b = float(result.get('total_pts', 0) or 0)
+            est_b = float(result.get('estimated_score', 0) or 0)
+            if total_pts_b > 0 and part_a_max:
+                part_b_scaled = round(est_b / total_pts_b * part_b_eff, 1)
+            grand_score = round(part_a_earned + part_b_scaled, 1) if part_a_max else est_b
+            skills = result.get('skills_breakdown') or {}
+            skills['partie_a'] = {'earned': part_a_earned, 'max': part_a_max}
+            skills['grand_total'] = {'earned': grand_score, 'max': 100.0}
+            return JsonResponse({
+                'ok': True,
+                **result,
+                'part_a_earned': part_a_earned,
+                'part_a_max': part_a_max,
+                'part_b_scaled': part_b_scaled,
+                'part_b_eff_max': part_b_eff,
+                'grand_score': grand_score,
+                'skills_breakdown': skills,
+            })
         except Exception:
             _logger.exception('AI exam correction unavailable')
             total_pts = sum(float(q.get('pts', 0) or 0) for q in safe_pairs)
@@ -4659,13 +5506,10 @@ def api_generate_exam(request):
         if not exam_text:
             return JsonResponse({'error': 'Aucun PDF trouvé pour cette matière.'}, status=404)
 
-        # Retry up to 3 times — model may rate-limit and return empty
+        # Une seule tentative — les retries multipliaient les coûts API
         exam_data = {}
-        for _attempt in range(3):
+        for _attempt in range(1):
             exam_data = gemini.generate_structured_exam(exam_text, subject)
-            if exam_data:
-                break
-            _time.sleep(1.5)
 
         if not exam_data:
             import traceback; traceback.print_exc()
@@ -4675,6 +5519,40 @@ def api_generate_exam(request):
         import traceback; traceback.print_exc()
         _logger.exception('Server error')
         return JsonResponse({'error': 'Erreur interne du serveur.'}, status=500)
+
+
+def _get_exam_exclude_hashes(request, subject: str) -> set:
+    """Hashes d'items déjà vus : DB (connecté) ou paramètre seen_hashes (invité)."""
+    if request.user.is_authenticated:
+        return set(
+            UserSeenExamItem.objects
+            .filter(user=request.user, subject=subject)
+            .values_list('item_hash', flat=True)[:500]
+        )
+
+    raw = (request.GET.get('seen_hashes') or '').strip()
+    if not raw:
+        return set()
+    return {h.strip() for h in raw.split(',') if len(h.strip()) == 64}
+
+
+def _record_exam_item_hashes(request, subject: str, exam_data: dict) -> list:
+    """Enregistre les hashes des items servis ; retourne la liste pour le client invité."""
+    from .exam_item_registry import extract_exam_item_hashes
+
+    hashes = extract_exam_item_hashes(exam_data)
+    if not hashes:
+        return hashes
+
+    if request.user.is_authenticated:
+        UserSeenExamItem.objects.bulk_create(
+            [
+                UserSeenExamItem(user=request.user, subject=subject, item_hash=h)
+                for h in hashes
+            ],
+            ignore_conflicts=True,
+        )
+    return hashes
 
 
 def api_generate_exam_v2(request):
@@ -4695,15 +5573,14 @@ def api_generate_exam_v2(request):
             guest_exam_done = request.session.get('guest_exam_done', 0)
             if guest_exam_done >= 1:
                 return JsonResponse({'error': 'guest_limit', 'signup_url': '/signup/'}, status=403)
-            # Demo rule: exam is consumed when generation is launched.
-            request.session['guest_exam_done'] = guest_exam_done + 1
-            request.session.modified = True
 
         _user_serie = ''
         try:
             _user_serie = request.user.profile.serie or ''
         except Exception:
             pass
+
+        _exclude_hashes = _get_exam_exclude_hashes(request, subject)
 
         # ── ÉTAPE 1 : Chercher un examen en cache non encore vu ──────────────
         _is_authenticated = request.user.is_authenticated
@@ -4717,8 +5594,14 @@ def api_generate_exam_v2(request):
             )
             if cached_exam:
                 cached_exam.seen_by.add(request.user)
+                item_hashes = _record_exam_item_hashes(request, subject, cached_exam.exam_data)
                 _logger.info(f'[exam_cache] Served cached exam #{cached_exam.pk} for {subject}/{_user_serie} to {request.user.username}')
-                return JsonResponse({'exam': cached_exam.exam_data, 'cached': True})
+                return JsonResponse({
+                    'exam': cached_exam.exam_data,
+                    'cached': True,
+                    'item_hashes': item_hashes,
+                    'attempt_id': _exam_attempt_id(request, subject),
+                })
 
         # ── ÉTAPE 2 : Générer un nouvel examen ───────────────────────────────
         # Pull quality quiz questions as thematic reference
@@ -4726,15 +5609,19 @@ def api_generate_exam_v2(request):
 
         exam_data = {}
         last_err = ''
-        for _attempt in range(3):
+        for _attempt in range(1):
             try:
-                exam_data = gemini.generate_exam_from_db(subject, quiz_questions=db_questions, user_serie=_user_serie)
+                exam_data = gemini.generate_exam_from_db(
+                    subject,
+                    quiz_questions=db_questions,
+                    user_serie=_user_serie,
+                    exclude_hashes=_exclude_hashes,
+                )
                 if exam_data and exam_data.get('parts'):
                     break
             except Exception as _e:
                 last_err = str(_e)
                 _tb.print_exc()
-            _time.sleep(1.5)
 
         if not exam_data or not exam_data.get('parts'):
             # Fallback: use structure_exam.json + PDF context
@@ -4809,7 +5696,12 @@ def api_generate_exam_v2(request):
                         else:
                             # Aucun exo analyse trouvé: régénération stricte depuis DB
                             db_questions = list(QuizQuestion.objects.filter(subject=subject).order_by('?')[:16])
-                            strict_exam = gemini.generate_exam_from_db(subject, quiz_questions=db_questions, user_serie=_user_serie)
+                            strict_exam = gemini.generate_exam_from_db(
+                                subject,
+                                quiz_questions=db_questions,
+                                user_serie=_user_serie,
+                                exclude_hashes=_exclude_hashes,
+                            )
                             if strict_exam and strict_exam.get('parts'):
                                 exam_data = strict_exam
                                 parts = exam_data.get('parts', [])
@@ -4834,11 +5726,18 @@ def api_generate_exam_v2(request):
                 'error': "L'IA est momentanément indisponible."
             })
 
-        # ── ÉTAPE 3 : Appel DeepSeek pour varier les questions (unicité) ─────
-        try:
-            exam_data = gemini.ai_enhance_exam(exam_data, subject)
-        except Exception:
-            _tb.print_exc()  # Non-bloquant
+        if _is_guest(request):
+            guest_exam_done = int(request.session.get('guest_exam_done', 0) or 0)
+            request.session['guest_exam_done'] = guest_exam_done + 1
+            request.session.modified = True
+
+        # ── ÉTAPE 3 : Variation IA optionnelle (désactivée par défaut — coût) ─
+        from core.ai_usage import ENABLE_EXAM_AI_ENHANCE
+        if ENABLE_EXAM_AI_ENHANCE:
+            try:
+                exam_data = gemini.ai_enhance_exam(exam_data, subject)
+            except Exception:
+                _tb.print_exc()  # Non-bloquant
 
         # ── ÉTAPE 4 : Sauvegarder en cache Railway DB ─────────────────────────
         if _is_authenticated and exam_data and exam_data.get('parts'):
@@ -4853,7 +5752,12 @@ def api_generate_exam_v2(request):
             except Exception:
                 _tb.print_exc()  # Non-bloquant — l'examen est quand même servi
 
-        return JsonResponse({'exam': exam_data})
+        item_hashes = _record_exam_item_hashes(request, subject, exam_data)
+        return JsonResponse({
+            'exam': exam_data,
+            'item_hashes': item_hashes,
+            'attempt_id': _exam_attempt_id(request, subject),
+        })
 
     except Exception as e:
         _logger.exception('api_generate_exam_v2 error')
@@ -4861,177 +5765,67 @@ def api_generate_exam_v2(request):
 
 
 # ─────────────────────────────────────────────
-# PROGRESSION
+# PROGRESSION — scores unifiés (core/subject_scores.py)
 # ─────────────────────────────────────────────
-def _compute_all_blended_scores(user) -> dict:
-    """
-    Calcule les scores composite pour TOUTES les matières en une seule passe.
-    Optimise les performances en évitant les requêtes N+1.
-    """
-    from .models import QuizSession, MistakeTracker, CourseSession
-    
-    # 1. Récupération groupée des données
-    all_sessions = QuizSession.objects.filter(user=user).only('subject', 'score', 'total')
-    all_mistakes = MistakeTracker.objects.filter(user=user).only('subject', 'correct_streak')
-    all_courses  = set(CourseSession.objects.filter(user=user).values_list('chapter_subject', flat=True))
-    
-    # 2. Organisation par matière
-    subjects_data = {s: {'pcts': [], 'm_total': 0, 'm_recov': 0, 'has_course': False} for s in MATS}
-    
-    for s in all_sessions:
-        if s.subject in subjects_data and s.total > 0:
-            subjects_data[s.subject]['pcts'].append(round((s.score / s.total) * 100))
-            
-    for m in all_mistakes:
-        if m.subject in subjects_data:
-            subjects_data[m.subject]['m_total'] += 1
-            if m.correct_streak > 0:
-                subjects_data[m.subject]['m_recov'] += 1
-                
-    for subj in all_courses:
-        if subj in subjects_data:
-            subjects_data[subj]['has_course'] = True
-            
-    # 3. Calcul des scores finaux (même logique que _compute_subject_blended_score)
-    results = {}
-    NO_EXERCISE_SUBJECTS = {'francais', 'histoire', 'informatique', 'art'}
-    
-    for subj, data in subjects_data.items():
-        quiz_avg = round(sum(data['pcts']) / len(data['pcts'])) if data['pcts'] else None
-        
-        exo_pct = None
-        if subj not in NO_EXERCISE_SUBJECTS and data['m_total'] > 0:
-            exo_pct = round((data['m_recov'] / data['m_total']) * 100)
-            
-        has_course = data['has_course']
-        course_bonus = 20 if has_course else 0
-        
-        blended = None
-        if subj in NO_EXERCISE_SUBJECTS:
-            if quiz_avg is not None:
-                blended = round(quiz_avg * 0.80 + course_bonus)
-            else:
-                blended = course_bonus if has_course else None
-        else:
-            if quiz_avg is not None and exo_pct is not None:
-                blended = round(quiz_avg * 0.30 + exo_pct * 0.50 + course_bonus)
-            elif quiz_avg is not None:
-                blended = round(quiz_avg * 0.50 + course_bonus)
-            elif exo_pct is not None:
-                blended = round(exo_pct * 0.80 + course_bonus)
-            else:
-                blended = course_bonus if has_course else None
-                
-        if blended is not None:
-            blended = min(100, blended)
-            
-        results[subj] = {
-            'blended': blended,
-            'quiz_avg': quiz_avg,
-            'exo_pct': exo_pct,
-            'course_bonus': course_bonus,
-            'quiz_count': len(data['pcts']),
-            'exo_total': data['m_total']
-        }
-    return results
-
-
-def _compute_subject_blended_score(user, subj: str) -> dict:
-    """
-    Calcule un score composite par matière combinant :
-      - Quiz (30%) : moyenne des dernières sessions quiz
-      - Exercices (50%) : taux de récupération des erreurs
-        → 0 pour 'francais' et 'histoire' — pas de section exercices disponible
-      - Cours (20%) : bonus si l'élève a ouvert au moins 1 session de cours
-    Retourne un dict avec quiz_avg, exo_pct, course_bonus, blended, quiz_count, exo_total.
-    """
-    # Subjects with no exercise page: redistribute weights to quiz+cours only
-    NO_EXERCISE_SUBJECTS = {'francais', 'histoire', 'informatique', 'art'}
-
-    # ── Quiz ──────────────────────────────────────────────────────────
-    sessions = QuizSession.objects.filter(user=user, subject=subj)
-    pcts = [round((s.score / s.total) * 100) for s in sessions if s.total and s.total > 0]
-    quiz_avg   = round(sum(pcts) / len(pcts)) if pcts else None
-    quiz_count = len(pcts)
-
-    # ── Exercices ─────────────────────────────────────────────────────
-    exo_pct   = None
-    exo_total = 0
-    if subj not in NO_EXERCISE_SUBJECTS:
-        mistakes = MistakeTracker.objects.filter(user=user, subject=subj)
-        exo_total = mistakes.count()
-        if exo_total:
-            recovering = mistakes.filter(correct_streak__gt=0).count()
-            exo_pct = round((recovering / exo_total) * 100)
-
-    # ── Cours ─────────────────────────────────────────────────────────
-    has_course = CourseSession.objects.filter(user=user, chapter_subject=subj).exists()
-    course_bonus = 20 if has_course else 0
-
-    # ── Blended : quiz 30% + exo 50% + cours 20% ──────────────────────
-    if subj in NO_EXERCISE_SUBJECTS:
-        # No exercises: quiz 80% + cours 20%
-        if quiz_avg is not None:
-            blended = round(quiz_avg * 0.80 + course_bonus)
-        else:
-            blended = course_bonus if has_course else None
-    else:
-        if quiz_avg is not None and exo_pct is not None:
-            blended = round(quiz_avg * 0.30 + exo_pct * 0.50 + course_bonus)
-        elif quiz_avg is not None:
-            blended = round(quiz_avg * 0.50 + course_bonus)
-        elif exo_pct is not None:
-            blended = round(exo_pct * 0.80 + course_bonus)
-        else:
-            blended = course_bonus if has_course else None
-
-    # Cap at 100
-    if blended is not None:
-        blended = min(100, blended)
-
-    return {
-        'quiz_avg':    quiz_avg,
-        'quiz_count':  quiz_count,
-        'exo_pct':     exo_pct,
-        'exo_total':   exo_total,
-        'has_course':  has_course,
-        'course_bonus': course_bonus,
-        'blended':     blended,
-    }
+from core.subject_scores import (
+    compute_all_blended_scores as _compute_all_blended_scores,
+    compute_subject_blended_score as _compute_subject_blended_score,
+    get_scores_for_user,
+    estimate_bac_score,
+)
 
 
 def progression_view(request):
-    # ── Premium gate ──
-    if request.user.is_authenticated:
-        from core.premium import is_premium
-        if not is_premium(request.user):
-            profile, _ = UserProfile.objects.get_or_create(user=request.user)
-            return render(request, 'core/premium_required.html', {
-                'profile': profile,
-                'feature': 'Progression',
-                'message': 'Le suivi de progression est réservé aux abonnés premium. Upgrade pour suivre tes stats détaillées !',
-            })
-
     if not request.user.is_authenticated:
         if _is_guest(request):
             from types import SimpleNamespace
             g = _GUEST_DEMO
             mats_extended = {}
             for k, v in MATS.items():
+                if k not in g['user_serie_subjects']:
+                    continue
                 mats_extended[k] = dict(v)
-                mats_extended[k]['quiz_score'] = g['quiz_scores'].get(k)
-                mats_extended[k]['sessions'] = random.randint(1, 4)
-                mats_extended[k]['exo_count'] = random.randint(0, 3)
-                mats_extended[k]['quiz_avg'] = g['quiz_scores'].get(k)
-                mats_extended[k]['exo_pct'] = random.randint(30, 85)
+                score = g['quiz_scores'].get(k, 55)
+                mats_extended[k]['quiz_score'] = score
+                mats_extended[k]['sessions'] = 2 + (score % 4)
+                mats_extended[k]['exo_count'] = 1 + (score % 3)
+                mats_extended[k]['quiz_avg'] = score
+                mats_extended[k]['exo_pct'] = min(95, score + 8)
                 mats_extended[k]['has_course'] = True
-                mats_extended[k]['exo_total'] = random.randint(0, 5)
-            mock_profile = SimpleNamespace(streak=g['streak'], school='', serie='', avatar=None)
-            mock_stats = SimpleNamespace(exercices_resolus=7, quiz_completes=3, minutes_etude=135)
+                mats_extended[k]['exo_total'] = mats_extended[k]['exo_count']
+            mock_profile = SimpleNamespace(streak=g['streak'], school='Lycée Demo', serie='SVT', avatar=None)
+            mock_stats = SimpleNamespace(exercices_resolus=7, quiz_completes=12, minutes_etude=135, xp_total=g['my_xp'])
+            study_insights = []
+            for subj, sc in g['weaknesses']:
+                info = MATS.get(subj, {})
+                study_insights.append({
+                    'subject': subj,
+                    'label': info.get('label', subj),
+                    'score': sc,
+                    'priority': 'haute' if sc < 55 else 'moyenne',
+                    'chapter_num': 1,
+                    'chapter': 'Chapitre prioritaire',
+                    'subtopics': ['Révisions ciblées', 'Exercices BAC'],
+                    'weakness_reason': f'Score démo {sc}% — à renforcer avant le BAC.',
+                    'cours_url': f'/dashboard/cours/?subject={subj}',
+                    'quiz_url': f'/dashboard/quiz/?subject={subj}',
+                    'exo_url': f'/dashboard/exercices/?subject={subj}',
+                    'quiz_category': '',
+                })
+            quiz_sessions = [
+                SimpleNamespace(
+                    subject=s['subject'],
+                    score=s['score'],
+                    total=s['total'],
+                    completed_at=_timezone.now(),
+                    get_percentage=lambda s=s: round(100 * s['score'] / max(1, s['total'])),
+                )
+                for s in g['recent_sessions']
+            ]
             return render(request, 'core/progression.html', {
                 'is_guest': True,
                 'mats': mats_extended,
-                'diag_scores': {},
+                'diag_scores': g['quiz_scores'],
                 'heures_etude': g['heures_etude'],
                 'minutes_rest': g['minutes_rest'],
                 'avg_score': g['avg_score'],
@@ -5040,18 +5834,46 @@ def progression_view(request):
                 'bac_gap_target': g['bac_gap_target'],
                 'stats': mock_stats,
                 'profile': mock_profile,
-                'quiz_sessions': [],
+                'quiz_sessions': quiz_sessions,
                 'user_serie_subjects': g['user_serie_subjects'],
+                'study_insights': study_insights,
+                'coach_advice': g['coach_advice'],
+                'coaching_cards': g['coaching_cards'],
+                'mastery_display': [
+                    {
+                        'label': MATS.get(subj, {}).get('label', subj),
+                        'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                        'score': sc,
+                        'level': 'en progrès' if sc < 70 else 'solide',
+                        'correct': max(1, sc // 10),
+                        'total': 10,
+                        'weak_topics': ['Révision'],
+                    }
+                    for subj, sc in list(g['quiz_scores'].items())[:6]
+                ],
+                'study_recs': [
+                    {
+                        'subject': subj,
+                        'label': MATS.get(subj, {}).get('label', subj),
+                        'mastery': sc,
+                        'reason': 'Priorité démo — renforce cette matière.',
+                    }
+                    for subj, sc in g['weaknesses']
+                ],
+                'chat_summaries': [],
             })
         return redirect('/login/?next=' + request.get_full_path())
+    # Progression accessible à tous les comptes (gratuit inclus)
     _update_streak(request.user)
     profile, _ = UserProfile.objects.get_or_create(user=request.user)
     stats       = _get_or_create_stats(request.user)
     diag_scores  = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
     quiz_sessions = QuizSession.objects.filter(user=request.user).order_by('-completed_at')[:10]
 
-    # Optimized bulk calculation
+    # Optimized bulk calculation + scores unifiés
     all_blended = _compute_all_blended_scores(request.user)
+    _prog_user_serie_subjects = list(SERIES.get(profile.serie or 'SVT', SERIES['SVT'])['subjects'].keys())
+    _prog_scores = get_scores_for_user(request.user, set(_prog_user_serie_subjects), diag_scores)
 
     mats_extended = {}
     for k, v in MATS.items():
@@ -5059,7 +5881,8 @@ def progression_view(request):
         mats_extended[k] = dict(v)
         mats_extended[k]['sessions']    = sc.get('quiz_count', 0)
         mats_extended[k]['exo_count']   = sc.get('exo_total', 0)
-        mats_extended[k]['quiz_score']  = sc.get('blended')    # blended replaces old quiz-only score
+        blended = _prog_scores.get(k) if k in _prog_scores else sc.get('blended')
+        mats_extended[k]['quiz_score']  = blended
         mats_extended[k]['quiz_avg']    = sc.get('quiz_avg')
         mats_extended[k]['exo_pct']     = sc.get('exo_pct')
         mats_extended[k]['has_course']  = sc.get('has_course', False)
@@ -5067,31 +5890,10 @@ def progression_view(request):
     heures_etude = stats.minutes_etude // 60
     minutes_rest = stats.minutes_etude % 60
 
-    # Estimation BAC sur 1900
-    blended_scores = [mats_extended[k]['quiz_score'] for k in mats_extended if mats_extended[k]['quiz_score'] is not None]
+    blended_scores = [v for v in _prog_scores.values() if v is not None]
     avg_blended = round(sum(blended_scores) / len(blended_scores)) if blended_scores else 0
-
-    # Estimation BAC sur 1900 — coefficient-weighted (même formule que le dashboard)
-    # Utilise les scores quiz en priorité, avec fallback sur les scores diagnostics
-    # (identique à la logique du dashboard pour éviter les divergences)
-    try:
-        _prog_serie_key = profile.serie or 'SVT'
-        _prog_coeffs = SERIES.get(_prog_serie_key, SERIES['SVT'])['subjects']
-        _prog_total_c = sum(_prog_coeffs.values())
-        _prog_weighted = 0.0
-        for _s, _c in _prog_coeffs.items():
-            _score_val = (
-                mats_extended[_s]['quiz_score']
-                if _s in mats_extended and mats_extended[_s]['quiz_score'] is not None
-                else diag_scores.get(_s)
-            )
-            if _score_val is not None:
-                _prog_weighted += (_score_val / 100.0) * _c
-        bac_score = round((_prog_weighted / _prog_total_c) * 1900) if _prog_total_c else round(avg_blended / 100 * 1900)
-    except Exception:
-        bac_score = round(avg_blended / 100 * 1900)
-
-    _prog_user_serie_subjects = list(SERIES.get(profile.serie or 'SVT', SERIES['SVT'])['subjects'].keys())
+    _prog_serie_key = profile.serie or 'SVT'
+    bac_score = estimate_bac_score(_prog_scores, _prog_serie_key, SERIES)
 
     context = {
         'mats': mats_extended,
@@ -5116,14 +5918,93 @@ def progression_view(request):
             if m.weak_topics:
                 m.weak_topics = [_clean_topic_name(t) for t in m.weak_topics]
         chat_summaries = list(ChatSessionSummary.objects.filter(user=request.user).order_by('-created_at')[:5])
-        study_recs = [r for r in get_study_recommendations(request.user) if r['subject'] in _serie_subjs_set]
+        study_recs = []
+        for r in get_study_recommendations(request.user):
+            if r['subject'] not in _serie_subjs_set:
+                continue
+            reason = r.get('reason', '')
+            if 'topics à retravailler' in reason:
+                parts = reason.split('topics à retravailler :', 1)
+                if len(parts) > 1:
+                    topics = [
+                        _clean_topic_name(t.strip())
+                        for t in parts[1].split(',')
+                        if t.strip() and not _is_generic_topic_name(_clean_topic_name(t.strip()))
+                    ]
+                    if topics:
+                        reason = f'{parts[0].strip()} — {", ".join(topics[:3])}'
+            study_recs.append({**r, 'reason': reason})
+
+        mastery_display = []
+        for m in masteries:
+            label = MATS.get(m.subject, {}).get('label', m.subject.title())
+            weak = [
+                _clean_topic_name(t) for t in (m.weak_topics or [])
+                if _clean_topic_name(t) and not _is_generic_topic_name(_clean_topic_name(t))
+            ]
+            acc = m.correct_count + m.error_count
+            if acc <= 0:
+                continue
+            mastery_display.append({
+                'subject': m.subject,
+                'label': label,
+                'color': MATS.get(m.subject, {}).get('color', '#6366f1'),
+                'score': _prog_scores.get(m.subject, int(round(m.mastery_score))),
+                'level': m.confidence_level,
+                'correct': m.correct_count,
+                'total': acc,
+                'weak_topics': weak[:3],
+            })
+
+        from .revision_planner import build_study_insights
+        study_insights = build_study_insights(request.user, MATS, _get_user_serie_subjects, limit=10)
+        if not study_insights:
+            weak = sorted(
+                ((s, sc) for s, sc in _prog_scores.items() if sc is not None),
+                key=lambda x: x[1],
+            )[:5]
+            study_insights = []
+            for subj, sc in weak:
+                info = MATS.get(subj, {})
+                study_insights.append({
+                    'subject': subj,
+                    'label': info.get('label', subj),
+                    'score': int(sc),
+                    'priority': 'haute' if sc < 55 else ('moyenne' if sc < 70 else 'basse'),
+                    'chapter_num': 1,
+                    'chapter': 'Révision prioritaire',
+                    'subtopics': ['Quiz ciblés', 'Cours'],
+                    'weakness_reason': f'Score actuel {int(sc)}% — à renforcer.',
+                    'cours_url': f'/dashboard/cours/?subject={subj}',
+                    'quiz_url': f'/dashboard/quiz/?subject={subj}',
+                    'exo_url': f'/dashboard/exercices/?subject={subj}',
+                    'quiz_category': '',
+                })
+        if not mastery_display and _prog_scores:
+            mastery_display = [
+                {
+                    'label': MATS.get(subj, {}).get('label', subj),
+                    'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                    'score': int(sc),
+                    'level': 'en progrès' if sc < 70 else 'solide',
+                    'correct': max(1, int(sc) // 10),
+                    'total': 10,
+                    'weak_topics': ['Révision'],
+                }
+                for subj, sc in list(_prog_scores.items())[:6]
+                if sc is not None
+            ]
         context['masteries']     = masteries
+        context['mastery_display'] = mastery_display
         context['chat_summaries'] = chat_summaries
         context['study_recs']    = study_recs
+        context['study_insights'] = study_insights
     except Exception:
         context['masteries']      = []
+        context['mastery_display'] = []
         context['chat_summaries'] = []
         context['study_recs']     = []
+        context['study_insights'] = []
 
     return render(request, 'core/progression.html', context)
 
@@ -5160,6 +6041,10 @@ def profil_view(request):
         u = request.user
         u.first_name = request.POST.get('first_name', u.first_name)
         u.last_name  = request.POST.get('last_name',  u.last_name)
+        raw_coach = (request.POST.get('coach_name') or '').strip()
+        if raw_coach:
+            profile.coach_name = raw_coach[:40]
+            profile.save(update_fields=['coach_name'])
         # Email is not editable for security
         pass  # email change disabled
         # Password change — no old password required
@@ -5177,7 +6062,48 @@ def profil_view(request):
         django_messages.success(request, 'Profil mis à jour !')
         return redirect('profil')
 
-    return render(request, 'core/profil.html', {'profile': profile, 'stats': stats})
+    return render(request, 'core/profil.html', {
+        'profile': profile,
+        'stats': stats,
+    })
+
+
+def gains_view(request):
+    if _is_guest(request) or not request.user.is_authenticated:
+        return redirect('/login/?next=' + request.get_full_path())
+    profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    stats = _get_or_create_stats(request.user)
+    from accounts.referrals import ensure_invite_code
+    from accounts.models import StudentReferral, XpWithdrawal
+    from core.xp_config import MIN_WITHDRAWAL_HTG, REFERRAL_REWARD_HTG, htg_to_xp, xp_to_htg
+    invite_code = ensure_invite_code(profile)
+    invite_link = request.build_absolute_uri(f'/?ref={invite_code}')
+    my_xp = _user_xp(request.user, stats)
+    htg_value = xp_to_htg(my_xp)
+    referrals = (
+        StudentReferral.objects.filter(referrer=request.user)
+        .select_related('referred_user')
+        .order_by('-created_at')[:30]
+    )
+    wd_qs = XpWithdrawal.objects.filter(user=request.user)
+    pending_wd = wd_qs.filter(status='pending').first()
+    return render(request, 'core/gains.html', {
+        'active_page': 'gains',
+        'profile': profile,
+        'invite_code': invite_code,
+        'invite_link': invite_link,
+        'referral_reward_htg': REFERRAL_REWARD_HTG,
+        'referral_reward_xp': htg_to_xp(REFERRAL_REWARD_HTG),
+        'referrals': referrals,
+        'paid_referrals': sum(1 for r in referrals if r.paid),
+        'my_xp': my_xp,
+        'xp_htg_value': htg_value,
+        'min_withdraw_htg': MIN_WITHDRAWAL_HTG,
+        'min_withdraw_xp': htg_to_xp(MIN_WITHDRAWAL_HTG),
+        'withdrawals': list(wd_qs[:12]),
+        'pending_withdrawal': pending_wd,
+        'default_moncash': profile.phone or '',
+    })
 
 
 @login_required
@@ -5209,76 +6135,63 @@ def api_avatar_upload(request):
     return JsonResponse({'ok': True, 'url': profile.avatar.url})
 
 
+@login_required
+@require_POST
+def api_xp_withdraw(request):
+    """Demande de retrait XP → MonCash."""
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    from core.xp import request_xp_withdrawal, get_user_xp
+    from core.xp_config import MIN_WITHDRAWAL_HTG, htg_to_xp
+    w, reason = request_xp_withdrawal(
+        request.user,
+        data.get('htg'),
+        data.get('moncash') or '',
+    )
+    messages = {
+        'invalid_amount': 'Montant invalide.',
+        'below_minimum': f'Minimum {MIN_WITHDRAWAL_HTG} G.',
+        'rate_unset': 'Conversion XP indisponible pour le moment.',
+        'invalid_phone': 'Numéro MonCash invalide.',
+        'pending_exists': 'Tu as déjà une demande en attente.',
+        'insufficient': 'Solde XP insuffisant.',
+        'duplicate': 'Cette demande existe déjà.',
+    }
+    if reason != 'ok' or w is None:
+        return JsonResponse({'ok': False, 'error': messages.get(reason, 'Impossible de retirer.')}, status=400)
+    return JsonResponse({
+        'ok': True,
+        'id': w.pk,
+        'htg': w.amount_htg,
+        'xp': w.xp_amount,
+        'balance': get_user_xp(request.user),
+        'min_xp': htg_to_xp(MIN_WITHDRAWAL_HTG),
+    })
+
+
 # ─────────────────────────────────────────────
 # HISTORIQUE DES CONVERSATIONS
 # ─────────────────────────────────────────────
 @login_required
 def historique_view(request):
-    subject_filter = request.GET.get('subject', '')
-    search_q       = request.GET.get('q', '').strip()
-
-    qs = ChatMessage.objects.filter(user=request.user, role='user')
-    if subject_filter:
-        qs = qs.filter(subject=subject_filter)
-    if search_q:
-        qs = qs.filter(content__icontains=search_q)
-
-    # Group messages by session_key (conversation thread)
-    all_messages = list(qs.order_by('-created_at')[:200])
-    sessions_dict = {}
-    for msg in all_messages:
-        key = msg.session_key or f'legacy_{msg.pk}'
-        if key not in sessions_dict:
-            sessions_dict[key] = []
-        sessions_dict[key].append(msg)
-
-    # Build conversation summary list
-    conversations = []
-    for key, msgs in sessions_dict.items():
-        first_msg = msgs[-1]  # oldest
-        last_msg  = msgs[0]   # newest (ordered by -created_at)
-        conversations.append({
-            'session_key': key,
-            'subject':     first_msg.subject,
-            'preview':     first_msg.content[:100],
-            'count':       len(msgs),
-            'date':        first_msg.created_at,
-        })
-    conversations.sort(key=lambda x: x['date'], reverse=True)
-
-    # Stats per subject
-    subject_counts = {}
-    for m in MATS:
-        subject_counts[m] = ChatMessage.objects.filter(
-            user=request.user, subject=m, role='user'
-        ).count()
-
-    return render(request, 'core/historique.html', {
-        'conversations':   conversations,
-        'subject_filter':  subject_filter,
-        'search_q':        search_q,
-        'mats':            MATS,
-        'subject_counts':  subject_counts,
-        'total_messages':  ChatMessage.objects.filter(user=request.user, role='user').count(),
-    })
+    """Ancienne page historique : tout est dans le panneau du chat."""
+    from urllib.parse import urlencode
+    target = reverse('chat')
+    q = (request.GET.get('q') or '').strip()
+    params = {'hist': '1'}
+    if q:
+        params['hist_q'] = q
+    return redirect(f'{target}?{urlencode(params)}')
 
 
 @login_required
 def conversation_detail(request, session_key):
-    """Affiche tous les messages d’une conversation."""
-    messages = ChatMessage.objects.filter(
-        user=request.user, session_key=session_key
-    ).order_by('created_at')
-    if not messages.exists():
-        return redirect('historique')
-    subject = messages.first().subject
-    return render(request, 'core/conversation_detail.html', {
-        'messages': messages,
-        'session_key': session_key,
-        'subject': subject,
-        'subject_label': MATS.get(subject, {}).get('label', subject.capitalize()),
-        'mats': MATS,
-    })
+    """Ouvre la conversation dans Astra."""
+    exists = ChatMessage.objects.filter(user=request.user, session_key=session_key).exists()
+    if not exists:
+        return redirect('chat')
+    return redirect(f"{reverse('chat')}?session={session_key}")
 
 
 # ─────────────────────────────────────────────
@@ -5417,7 +6330,7 @@ def api_generate_fiches(request):
     count   = min(int(data.get('count', 8)), 15)
 
     pdf_ctx = pdf_loader.get_course_context(subject, max_chars=3000)
-    user_profile = gemini.build_user_learning_profile(request.user)
+    user_profile = gemini.build_user_learning_profile_short(request.user)
     from django.core.cache import cache as _dj_cache
     _flash_key = f'flashcards_{request.user.pk}_{subject}_{count}'
     raw = _dj_cache.get(_flash_key)
@@ -5466,8 +6379,44 @@ def api_flashcard_status(request):
 
 
 # ─────────────────────────────────────────────
-# PLAN DE RÉVISION IA
+# PLAN DE RÉVISION
 # ─────────────────────────────────────────────
+
+def _current_week_start():
+    from datetime import date, timedelta
+    today = date.today()
+    return today - timedelta(days=today.weekday())
+
+
+def _ensure_weekly_revision_plan(user, serie_key: str):
+    """Crée un plan de la semaine si absent ou obsolète (nouvelle semaine calendaire)."""
+    week_start = _current_week_start()
+    latest = RevisionPlan.objects.filter(user=user).order_by('-created_at').first()
+    if latest:
+        created_local = _timezone.localtime(latest.created_at).date()
+        if created_local >= week_start:
+            return latest
+
+    from .revision_planner import build_revision_plan
+    plan_data = build_revision_plan(
+        user, serie_key, 1, MATS, _get_user_serie_subjects,
+    )
+    if not plan_data:
+        plan_data = {
+            'summary': 'Plan de la semaine généré automatiquement selon tes résultats récents.',
+            'weeks': [],
+        }
+    plan_data.setdefault('meta', {})
+    plan_data['meta']['week_start'] = week_start.isoformat()
+    plan_data['meta']['auto'] = True
+    return RevisionPlan.objects.create(
+        user=user,
+        serie=serie_key,
+        content=plan_data,
+        completed_tasks=[],
+    )
+
+
 def plan_view(request):
     # ── Premium gate (RETIRED: Now unlocked for free users) ──
     # if request.user.is_authenticated:
@@ -5493,15 +6442,20 @@ def plan_view(request):
         return redirect('/login/?next=' + request.get_full_path())
     try:
         profile, _ = UserProfile.objects.get_or_create(user=request.user)
+        try:
+            serie_key = profile.serie or 'SVT'
+        except Exception:
+            serie_key = 'SVT'
+        latest = _ensure_weekly_revision_plan(request.user, serie_key)
         plans = RevisionPlan.objects.filter(user=request.user)[:5]
         from .learning_tracker import build_combined_weakness_scores
         diag_scores = build_combined_weakness_scores(request.user)
-        latest = plans.first()
         weakness_items = sorted(
             [{'key': k, 'label': MATS.get(k, {}).get('label', k), 'score': v}
              for k, v in diag_scores.items()],
             key=lambda x: x['score'],
         )
+        week_start = _current_week_start()
         return render(request, 'core/plan.html', {
             'plans':       plans,
             'latest_plan': latest,
@@ -5510,6 +6464,7 @@ def plan_view(request):
             'weakness_items': weakness_items,
             'completed_tasks_json': json.dumps(list(latest.completed_tasks or []) if latest else []),
             'profile':     profile,
+            'week_start': week_start,
         })
     except Exception as _e:
         _logger.exception('plan_view error')
@@ -5522,59 +6477,31 @@ def plan_view(request):
 @login_required
 @require_POST
 def api_generate_plan(request):
-    """Génère un plan de révision IA — calcule automatiquement les semaines jusqu'au Bac (fin juillet)."""
+    """Régénère le plan de la semaine (1 semaine, lacunes récentes)."""
     try:
         data, _err = _parse_json_body(request)
         if _err:
             return _err
-        from datetime import date as _date, timedelta as _td
-        today = _date.today()
-        bac_date = _date(today.year if today.month <= 7 else today.year + 1, 7, 31)
-        weeks = max(2, min(26, round((bac_date - today).days / 7)))
-        if data.get('weeks'):
-            weeks = max(2, min(26, int(data['weeks'])))
+        weeks = 1
 
         try:
             serie_key = request.user.profile.serie or 'SVT'
         except Exception:
             serie_key = 'SVT'
 
-        from .learning_tracker import build_combined_weakness_scores, get_mistake_topics_for_plan
+        from .learning_tracker import build_combined_weakness_scores
         combined_scores = build_combined_weakness_scores(request.user)
         diag_scores = combined_scores
 
-        plan_data = None
+        from .revision_planner import build_revision_plan
 
-        from django.core.cache import cache as _dj_cache
-        import hashlib as _hashlib
-        _scores_hash = _hashlib.md5(str(sorted(combined_scores.items())).encode()).hexdigest()[:8]
-        _plan_cache_key = f'rev_plan_{request.user.pk}_{serie_key}_{weeks}_{_scores_hash}'
-        plan_data = _dj_cache.get(_plan_cache_key)
-        if plan_data:
-            plan = RevisionPlan.objects.create(
-                user=request.user,
-                serie=serie_key,
-                content=plan_data,
-            )
-            return JsonResponse({'ok': True, 'plan_id': plan.id, 'plan': plan_data, 'cached': True})
-
-        try:
-            user_profile = gemini.build_user_learning_profile(request.user)
-            due_topics = get_mistake_topics_for_plan(request.user)
-            if due_topics:
-                user_profile += '\nRÉVISIONS PRIORITAIRES (erreurs à revoir): ' + ', '.join(due_topics) + '\n'
-            plan_data = gemini.generate_revision_plan(serie_key, combined_scores, weeks, user_profile=user_profile, user_lang=_get_user_lang(request))
-        except Exception as _e:
-            _logger.error('generate_revision_plan error (attempt 1): %s', _e)
-
-        if not plan_data:
-            try:
-                plan_data = gemini.generate_revision_plan(serie_key, combined_scores, weeks, user_profile='', user_lang=_get_user_lang(request))
-            except Exception as _e2:
-                _logger.error('generate_revision_plan error (attempt 2): %s', _e2)
-
-        if plan_data:
-            _dj_cache.set(_plan_cache_key, plan_data, 21600)  # 6h cache
+        plan_data = build_revision_plan(
+            request.user,
+            serie_key,
+            weeks,
+            MATS,
+            _get_user_serie_subjects,
+        )
 
         if not plan_data:
             _user_subjs = list(SERIES.get(serie_key, SERIES['SVT'])['subjects'].keys())
@@ -5582,18 +6509,25 @@ def api_generate_plan(request):
             for _si, _subj in enumerate(_user_subjs):
                 _lbl = MATS.get(_subj, {}).get('label', _subj)
                 _prio = 'high' if diag_scores.get(_subj, 50) < 50 else ('medium' if diag_scores.get(_subj, 50) < 70 else 'low')
-                _fallback_days_pool.append({'day': ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'][_si % 5], 'subject': _subj, 'task': f'Réviser {_lbl} — chapitres clés', 'duration_min': 60, 'priority': _prio})
-            _fallback_weeks = []
-            for _wi in range(min(weeks, 4)):
-                _start = (_wi * 5) % len(_fallback_days_pool)
-                _wdays = [_fallback_days_pool[(_start + d) % len(_fallback_days_pool)] for d in range(5)]
-                _fallback_weeks.append({'label': f'Semaine {_wi + 1}', 'focus': 'Révision générale', 'days': _wdays})
-            plan_data = {'summary': 'Plan de révision généré automatiquement. Concentre-toi sur tes matières les plus faibles.', 'weeks': _fallback_weeks}
+                _fallback_days_pool.append({'day': ['Lundi','Mardi','Mercredi','Jeudi','Vendredi'][_si % 5], 'subject': _lbl, 'task': f'Réviser {_lbl} — chapitres clés', 'duration_min': 60, 'priority': _prio})
+            _wdays = [_fallback_days_pool[d % len(_fallback_days_pool)] for d in range(5)]
+            for i, d in enumerate(_wdays):
+                d['day'] = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'][i]
+            plan_data = {
+                'summary': 'Plan de la semaine généré automatiquement.',
+                'weeks': [{'label': 'Cette semaine', 'focus': 'Révision ciblée', 'days': _wdays}],
+            }
+
+        week_start = _current_week_start()
+        plan_data.setdefault('meta', {})
+        plan_data['meta']['week_start'] = week_start.isoformat()
+        plan_data['meta']['auto'] = True
 
         plan = RevisionPlan.objects.create(
             user=request.user,
             serie=serie_key,
             content=plan_data,
+            completed_tasks=[],
         )
         return JsonResponse({'ok': True, 'plan_id': plan.id, 'plan': plan_data})
     except Exception as e:
@@ -5649,7 +6583,7 @@ def api_analyse_quiz(request):
     except Exception:
         serie_key = 'SVT'
 
-    user_profile = gemini.build_user_learning_profile(request.user)
+    user_profile = gemini.build_user_learning_profile_short(request.user)
     result = gemini.analyse_quiz_mistakes(subject, details, serie_key, user_profile=user_profile)
 
     # Save analysis if session exists
@@ -5789,7 +6723,29 @@ def api_stats(request):
             {'subject': 'Kreyòl',      'score': 80},
             {'subject': 'Philosophie', 'score': 60},
         ]
-        return JsonResponse({'timeline': fake_timeline, 'radar': radar, 'fc_progress': {}})
+        return JsonResponse({
+            'timeline': fake_timeline,
+            'radar': radar,
+            'fc_progress': {},
+            'subject_evolution': [
+                {
+                    'subject': subj,
+                    'label': MATS.get(subj, {}).get('label', subj),
+                    'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                    'icon': MATS.get(subj, {}).get('icon', 'fa-book'),
+                    'current': sc,
+                    'trend': 5 if sc >= 60 else -3,
+                    'quiz_count': 3 + (sc % 4),
+                    'points': [
+                        {'date': '01/03', 'pct': max(30, sc - 12)},
+                        {'date': '08/03', 'pct': max(35, sc - 5)},
+                        {'date': '15/03', 'pct': sc},
+                    ],
+                }
+                for subj, sc in _GUEST_DEMO['quiz_scores'].items()
+                if subj in _GUEST_DEMO['user_serie_subjects']
+            ],
+        })
     if not request.user.is_authenticated:
         return JsonResponse({'error': 'auth required'}, status=401)
     subject = request.GET.get('subject', '')
@@ -5809,19 +6765,14 @@ def api_stats(request):
         'pct':     s.get_percentage(),
     } for s in sessions_qs]
 
-    # Radar chart data — blended score per subject (Optimized)
-    all_blended = _compute_all_blended_scores(request.user)
+    # Radar chart data — scores unifiés (identique dashboard / progression)
+    diag_for_radar = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
+    unified_scores = get_scores_for_user(request.user, user_subjs, diag_for_radar)
     radar = []
     for subj, info in MATS.items():
         if subj not in user_subjs:
             continue
-        sc = all_blended.get(subj, {})
-        if sc.get('blended') is not None:
-            score = sc['blended']
-        else:
-            diag = DiagnosticResult.objects.filter(user=request.user, subject=subj).first()
-            score = diag.score if diag else 0
-        radar.append({'subject': info['label'], 'score': score})
+        radar.append({'subject': info['label'], 'score': unified_scores.get(subj, 0)})
 
     # Flashcards progress
     fc_progress = {}
@@ -5832,16 +6783,164 @@ def api_stats(request):
         ).count()
         fc_progress[subj] = {'total': total, 'known': known}
 
+    # Évolution par matière (derniers quiz par sujet)
+    sessions_all = list(
+        QuizSession.objects.filter(user=request.user)
+        .order_by('completed_at')
+        .values('subject', 'score', 'total', 'completed_at')[:200]
+    )
+    by_subject: dict = {}
+    for row in sessions_all:
+        subj = row['subject']
+        if subj not in user_subjs:
+            continue
+        if row['total'] and row['total'] > 0:
+            pct = round((row['score'] / row['total']) * 100)
+            entry = by_subject.setdefault(subj, {
+                'label': MATS.get(subj, {}).get('label', subj),
+                'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                'icon': MATS.get(subj, {}).get('icon', 'fa-book'),
+                'points': [],
+            })
+            if len(entry['points']) < 12:
+                entry['points'].append({
+                    'date': _local_time(row['completed_at']).strftime('%d/%m'),
+                    'pct': pct,
+                })
+
+    all_blended = _compute_all_blended_scores(request.user)
+    for subj in user_subjs:
+        if subj not in by_subject:
+            sc = all_blended.get(subj, {})
+            blended = sc.get('blended')
+            if blended is not None:
+                by_subject[subj] = {
+                    'label': MATS.get(subj, {}).get('label', subj),
+                    'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                    'icon': MATS.get(subj, {}).get('icon', 'fa-book'),
+                    'points': [{'date': '—', 'pct': blended}],
+                }
+
+    subject_evolution = []
+    for subj in user_subjs:
+        info = by_subject.get(subj)
+        if not info or not info['points']:
+            diag = DiagnosticResult.objects.filter(user=request.user, subject=subj).first()
+            if diag:
+                info = {
+                    'label': MATS.get(subj, {}).get('label', subj),
+                    'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                    'icon': MATS.get(subj, {}).get('icon', 'fa-book'),
+                    'points': [{'date': 'diag', 'pct': int(diag.score)}],
+                }
+            else:
+                # Fallback scores unifiés (évite page progression vide)
+                blended = unified_scores.get(subj)
+                if blended is None:
+                    continue
+                info = {
+                    'label': MATS.get(subj, {}).get('label', subj),
+                    'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                    'icon': MATS.get(subj, {}).get('icon', 'fa-book'),
+                    'points': [{'date': '—', 'pct': int(blended)}],
+                }
+        pts = info['points']
+        current = pts[-1]['pct']
+        trend = 0
+        if len(pts) >= 4:
+            recent = sum(p['pct'] for p in pts[-2:]) / 2
+            older = sum(p['pct'] for p in pts[-4:-2]) / 2
+            trend = round(recent - older)
+        elif len(pts) >= 2:
+            trend = pts[-1]['pct'] - pts[0]['pct']
+        subject_evolution.append({
+            'subject': subj,
+            'label': info['label'],
+            'color': info['color'],
+            'icon': info['icon'],
+            'current': current,
+            'trend': trend,
+            'quiz_count': len(pts),
+            'points': pts,
+        })
+    subject_evolution.sort(key=lambda x: x['current'])
+
     return JsonResponse({
         'timeline':    timeline,
         'radar':       radar,
         'fc_progress': fc_progress,
+        'subject_evolution': subject_evolution,
     })
 
 
 # ─────────────────────────────────────────────
 # COACHING IA — analyse complète + conseils
 # ─────────────────────────────────────────────
+
+def _local_smart_coach_fallback(user) -> dict:
+    """Coach sans IA — insights depuis coaching_context + lacunes chapitres."""
+    from .revision_planner import build_study_insights
+    name = user.first_name or user.username
+    insights = build_study_insights(user, MATS, _get_user_serie_subjects, limit=5)
+    lines = [f'<strong>{name}</strong>, voici ton bilan personnalisé (sans appel IA) :']
+    if insights:
+        for ins in insights[:4]:
+            ch = ins.get('chapter', '')
+            reason = (ins.get('weakness_reason') or '')[:140]
+            lines.append(
+                f'• <strong>{ins["label"]}</strong> ({ins["score"]}%) — '
+                f'Ch.{ins.get("chapter_num", "")} {ch}. {reason}'
+            )
+        lines.append('Concentre-toi sur ces chapitres cette semaine, puis régénère ton plan de révision.')
+    else:
+        lines.append('Passe des quiz pour que je puisse analyser tes lacunes précises.')
+    quiz_picks = []
+    for ins in insights[:3]:
+        subj = ins['subject']
+        info = MATS.get(subj, {})
+        cat = ins.get('quiz_category') or 'Révision'
+        quiz_picks.append({
+            'subject': subj,
+            'subject_label': info.get('label', subj),
+            'subject_color': info.get('color', '#6366f1'),
+            'category': cat,
+            'reason': (ins.get('weakness_reason') or f'Score {ins.get("score", 0)}%')[:200],
+            'quiz_url': ins.get('quiz_url') or f'/dashboard/quiz/?subject={subj}',
+            'n_questions': 8,
+            'questions': [],
+        })
+    chapter_recs = []
+    for ins in insights[:3]:
+        subj = ins['subject']
+        info = MATS.get(subj, {})
+        chapter_recs.append({
+            'subject': subj,
+            'subject_label': info.get('label', subj),
+            'subject_color': info.get('color', '#06b6d4'),
+            'chapter': ins.get('chapter') or 'Chapitre prioritaire',
+            'reason': ' · '.join(ins.get('subtopics', [])[:2]) or (ins.get('weakness_reason') or '')[:160],
+            'url': ins.get('cours_url') or f'/dashboard/cours/?subject={subj}',
+        })
+    exercise_recs = []
+    for ins in insights[:2]:
+        subj = ins['subject']
+        info = MATS.get(subj, {})
+        exercise_recs.append({
+            'subject': subj,
+            'subject_label': info.get('label', subj),
+            'subject_color': info.get('color', '#8b5cf6'),
+            'chapter': ins.get('chapter') or 'Exercices ciblés',
+            'reason': (ins.get('weakness_reason') or 'À consolider')[:160],
+            'url': ins.get('exo_url') or f'/dashboard/exercices/?subject={subj}',
+        })
+    return {
+        'message': '<br>'.join(lines),
+        'message_html': '<br>'.join(lines),
+        'quiz_picks': quiz_picks,
+        'exercise_recs': exercise_recs,
+        'chapter_recs': chapter_recs,
+    }
+
 
 def _clean_topic_name(raw: str) -> str:
     """Nettoie les noms de catégories/topics bruts pour l'affichage pédagogique."""
@@ -5927,36 +7026,33 @@ def _generate_coaching_cards(user) -> list:
     recent_errors, LearningEvent — et génère des cartes de coaching ultra-ciblées.
     Aucun appel IA externe — 100% règles Python pour réponse instantanée.
     """
-    from datetime import date, timedelta
-    from .models import MistakeTracker, AIMemory, QuizAnalysis
-    from accounts.models import DiagnosticResult
+    from core.coaching_context import build_coaching_context, append_hyper_coaching_cards
 
     cards = []
-    today = date.today()
 
-    # Filter to user's serie subjects only
     user_subjs = _get_user_serie_subjects(user)
     serie_mats = {k: v for k, v in MATS.items() if not user_subjs or k in user_subjs}
 
-    # ── Données brutes ─────────────────────────────────────────────────
-    profile, _ = UserProfile.objects.get_or_create(user=user)
-    stats       = _get_or_create_stats(user)
+    # ── Contexte riche (quiz wrong answers, cours, SM-2, diagnostic, chat…) ──
+    ctx = build_coaching_context(user, MATS, _get_user_serie_subjects)
+    profile = ctx['profile']
+    stats = ctx['stats']
+    today = ctx['today']
+    mastery_map = ctx['mastery_map']
+    memories = ctx['memories']
+    due_by_subj = ctx['due_by_subj']
+    total_due = ctx['total_due']
+    total_mistakes = ctx['total_mistakes']
+    total_mastered = ctx['total_mastered']
+    topic_error_counts = ctx['topic_error_counts']
+    sessions_by_subj = ctx['sessions_by_subj']
 
-    # Scores blended par matière (Optimized)
+    # Scores blended quiz + exo (complète le contexte mastery)
     all_blended = _compute_all_blended_scores(user)
-    
-    # Pre-fetch recent sessions for all subjects to avoid N+1
-    # We take the last 200 sessions and group them. This covers most active users.
-    all_recent_sessions = list(QuizSession.objects.filter(user=user).order_by('-completed_at')[:200])
-    sessions_by_subj = {s: [] for s in MATS}
-    for rs in all_recent_sessions:
-        if rs.subject in sessions_by_subj and len(sessions_by_subj[rs.subject]) < 15:
-            sessions_by_subj[rs.subject].append(rs)
-
     subject_data = {}
     for subj, info in MATS.items():
         sc = all_blended.get(subj, {})
-        sessions = sessions_by_subj[subj]
+        sessions = sessions_by_subj.get(subj, [])
         pcts = [round((s.score / s.total) * 100) for s in sessions if s.total]
         trend = 0
         if len(pcts) >= 4:
@@ -5977,34 +7073,6 @@ def _generate_coaching_cards(user) -> list:
             'has_course': sc.get('has_course', False),
         }
 
-    # Erreurs dues en révision
-    due_by_subj = {}
-    total_due = 0
-    for subj in serie_mats:
-        n = MistakeTracker.objects.filter(
-            user=user, subject=subj, mastered=False, next_review__lte=today
-        ).count()
-        due_by_subj[subj] = n
-        total_due += n
-
-    total_mistakes = MistakeTracker.objects.filter(user=user, mastered=False).count()
-    total_mastered = MistakeTracker.objects.filter(user=user, mastered=True).count()
-
-    # AIMemory
-    memories = list(AIMemory.objects.filter(
-        user=user, memory_type__in=['erreur', 'concept']
-    ).order_by('-importance', '-updated_at')[:5])
-
-    # ── SubjectMastery — le cœur du nouveau système ───────────────────
-    mastery_map = {}  # subject → SubjectMastery
-    try:
-        for sm in SubjectMastery.objects.filter(user=user):
-            if user_subjs and sm.subject not in user_subjs:
-                continue
-            mastery_map[sm.subject] = sm
-    except Exception:
-        pass
-
     # ── Ressources disponibles (catégories quiz) ──────────────────────
     try:
         from .resource_index import get_quiz_categories, get_subject_chapters
@@ -6017,15 +7085,6 @@ def _generate_coaching_cards(user) -> list:
     # =================================================================
 
     # ── RÈGLE A : Topic le plus souvent raté sur une matière (#1 cible) ──
-    # Trouve la matière + topic avec le plus d'erreurs récentes enregistrées
-    topic_error_counts = {}  # (subject, topic) → count
-    for subj, sm in mastery_map.items():
-        for err in (sm.recent_errors or []):
-            topic = err.get('topic', '').strip()
-            if topic:
-                key = (subj, topic)
-                topic_error_counts[key] = topic_error_counts.get(key, 0) + 1
-
     if topic_error_counts:
         best_key = max(topic_error_counts, key=topic_error_counts.get)
         s, top_topic = best_key
@@ -6369,9 +7428,23 @@ def _generate_coaching_cards(user) -> list:
             'badge_color':  '#facc15',
         })
 
-    # ── Trier par priorité + limiter à 5 cartes ───────────────────────
+    # ── Cartes ultra-ciblées depuis le contexte complet ───────────────
+    try:
+        cards = append_hyper_coaching_cards(
+            cards, ctx, MATS,
+            {
+                '_pick_clear_topic': _pick_clear_topic,
+                '_clean_topic_name': _clean_topic_name,
+                '_has_resources': _has_resources,
+                'get_subject_chapters': get_subject_chapters if _has_resources else None,
+            },
+        )
+    except Exception as _ctx_err:
+        print(f"[COACHING_CTX] append_hyper: {_ctx_err}")
+
+    # ── Trier par priorité + limiter à 6 cartes ───────────────────────
     cards.sort(key=lambda c: c['priority'])
-    return cards[:5]
+    return cards[:6]
 
 
 
@@ -6423,7 +7496,7 @@ def api_coaching_cards(request):
     """Retourne instantanément les cartes de coaching sans appel IA (pour le dashboard)."""
     if _is_guest(request):
         guest_serie = request.GET.get('serie') or request.session.get('guest_serie')
-        cards = _GUEST_DEMO['coaching_cards']
+        cards = _guest_platform_coaching_cards()
         if guest_serie:
             cards = _filter_coaching_cards_by_serie(cards, guest_serie)
         return JsonResponse({'ok': True, 'cards': cards})
@@ -6433,27 +7506,23 @@ def api_coaching_cards(request):
     return JsonResponse({'ok': True, 'cards': cards})
 
 
+def _ai_progress_cache_valid_today(cache):
+    """Cache IA progression : valide pour le jour calendaire courant."""
+    from django.utils import timezone as _tz
+    if not cache or not cache.is_valid or not cache.last_updated:
+        return False
+    return cache.last_updated.date() == _tz.localdate()
+
+
 def api_coaching(request):
     """Retourne les cartes de coaching + un message IA personnalisé pour la page Progression."""
     if _is_guest(request):
+        g = _GUEST_DEMO
         return JsonResponse({
             'ok': True,
-            'cards': _GUEST_DEMO['coaching_cards'],
-            'advice': _GUEST_DEMO['coach_advice'],
-            'chapter_advice': (
-                '<strong>📊 Analyse par chapitre</strong><br><br>'
-                '⚠️ <strong>Économie — Comptabilité nationale</strong> : '
-                'Ce chapitre représente ~15% du BAC. Tes résultats (48%) montrent des lacunes '
-                'sur les agrégats et le PIB. Revois les définitions clés.<br><br>'
-                '📈 <strong>SVT — Division cellulaire (Mitose / Méiose)</strong> : '
-                'Chapitre incontournable (55%). Travaille les schémas des phases et '
-                'les différences entre mitose et méiose.<br><br>'
-                '📐 <strong>Maths — Dérivées et applications</strong> : '
-                'Avec 58%, concentre-toi sur les règles de dérivation composée '
-                'et les études de variations.<br><br>'
-                '✅ <strong>Kreyòl (80%)</strong> et <strong>Chimie (72%)</strong> '
-                '— Continue sur ta lancée ! Passe aux exercices BAC pour consolider.'
-            ),
+            'cards': _guest_platform_coaching_cards(),
+            'advice': g['coach_advice'],
+            'chapter_advice': 'Priorité démo : Économie (comptabilité nationale) puis SVT (génétique).',
         })
     if not request.user.is_authenticated:
         return JsonResponse({'ok': False, 'cards': [], 'advice': '', 'chapter_advice': ''}, status=401)
@@ -6632,8 +7701,8 @@ def api_coaching(request):
     # Récupérer ou créer le cache persistant
     cache, created = AIProgressCache.objects.get_or_create(user=user)
     
-    # Vérifier si le cache est encore valide (24h max)
-    is_cache_valid = cache.is_valid and cache.last_updated > (_tz.now() - _td(hours=24))
+    # Vérifier si le cache est encore valide (1 refresh par jour calendaire)
+    is_cache_valid = _ai_progress_cache_valid_today(cache)
     
     advice = cache.coaching_advice if is_cache_valid else None
     chapter_advice = cache.chapter_advice if is_cache_valid else None
@@ -6681,24 +7750,73 @@ def api_smart_coach(request):
     et retourne un plan personnalisé avec quiz ciblés, exercices et chapitres recommandés.
     """
     if _is_guest(request):
+        g = _GUEST_DEMO
+        quiz_picks = []
+        for s, sc in g['weaknesses']:
+            info = MATS.get(s, {})
+            quiz_picks.append({
+                'subject': s,
+                'subject_label': info.get('label', s),
+                'subject_color': info.get('color', '#6366f1'),
+                'category': 'Révision ciblée',
+                'reason': f'Score démo {sc}% — à renforcer avant le BAC.',
+                'quiz_url': f'/dashboard/quiz/?subject={s}',
+                'n_questions': 8,
+                'questions': [],
+            })
+        chapter_recs = [
+            {
+                'subject': 'svt',
+                'subject_label': MATS.get('svt', {}).get('label', 'SVT'),
+                'subject_color': MATS.get('svt', {}).get('color', '#06b6d4'),
+                'chapter': 'Division cellulaire',
+                'reason': 'Méiose, mitose et lois de Mendel — point faible démo.',
+                'url': '/dashboard/cours/?subject=svt',
+            },
+            {
+                'subject': 'maths',
+                'subject_label': MATS.get('maths', {}).get('label', 'Maths'),
+                'subject_color': MATS.get('maths', {}).get('color', '#06b6d4'),
+                'chapter': 'Dérivées',
+                'reason': 'Fonctions composées et règles de dérivation.',
+                'url': '/dashboard/cours/?subject=maths',
+            },
+        ]
+        exercise_recs = [
+            {
+                'subject': 'svt',
+                'subject_label': MATS.get('svt', {}).get('label', 'SVT'),
+                'subject_color': MATS.get('svt', {}).get('color', '#8b5cf6'),
+                'chapter': 'Génétique mendélienne',
+                'reason': 'Point faible démo — exercices BAC recommandés.',
+                'url': '/dashboard/exercices/?subject=svt',
+            },
+            {
+                'subject': 'maths',
+                'subject_label': MATS.get('maths', {}).get('label', 'Maths'),
+                'subject_color': MATS.get('maths', {}).get('color', '#8b5cf6'),
+                'chapter': 'Dérivées',
+                'reason': 'À consolider — entraînement ciblé.',
+                'url': '/dashboard/exercices/?subject=maths',
+            },
+        ]
         return JsonResponse({
             'ok': True,
-            'message': "Crée un compte gratuit pour accéder au Coach IA Avancé — il analysera chaque erreur, chaque quiz, chaque session de chat pour te connaître vraiment et te guider précisément !",
-            'quiz_picks': [],
-            'exercise_recs': [],
-            'chapter_recs': [],
+            'message': g['coach_advice'].replace('<br>', '\n').replace('<strong>', '').replace('</strong>', '').replace('<em>', '').replace('</em>', ''),
+            'message_html': g['coach_advice'],
+            'quiz_picks': quiz_picks,
+            'exercise_recs': exercise_recs,
+            'chapter_recs': chapter_recs,
         })
     if not request.user.is_authenticated:
         return JsonResponse({'ok': False, 'error': 'auth required'}, status=401)
-    from core.premium import is_premium
-    if not is_premium(request.user):
-        return JsonResponse({
-            'ok': False, 'premium_required': True,
-            'error': 'Le Coach IA Avancé est réservé aux abonnés premium.',
-            'message': '', 'quiz_picks': [], 'exercise_recs': [], 'chapter_recs': [],
-        }, status=403)
 
     user = request.user
+    from core.premium import is_premium
+    # Comptes gratuits : coach local (pas d'appel IA) pour que Progression ne soit pas vide
+    if not is_premium(user):
+        fallback = _local_smart_coach_fallback(user)
+        return JsonResponse({'ok': True, 'premium': False, **fallback})
 
     from django.utils import timezone as _tz_sc
     from datetime import timedelta as _td_sc
@@ -6707,7 +7825,7 @@ def api_smart_coach(request):
         try:
             _sc_cache = AIProgressCache.objects.filter(user=user).first()
             if (_sc_cache and _sc_cache.is_valid and _sc_cache.smart_coach_data
-                    and _sc_cache.last_updated > (_tz_sc.now() - _td_sc(hours=6))):
+                    and _ai_progress_cache_valid_today(_sc_cache)):
                 return JsonResponse({'ok': True, 'cached': True, **_sc_cache.smart_coach_data})
         except Exception:
             pass
@@ -6778,12 +7896,7 @@ def api_smart_coach(request):
         plan = gemini.generate_smart_coach_plan(student_data, resource_catalog)
     except Exception as _e:
         print(f"[smart_coach] AI error: {_e}")
-        plan = {
-            'message':       f"Bonjour {user.first_name or user.username} ! Ton coach IA analyse ton profil — reviens dans un instant.",
-            'quiz_picks':    [],
-            'exercise_recs': [],
-            'chapter_recs':  [],
-        }
+        plan = _local_smart_coach_fallback(user)
 
     # ── Pour chaque quiz_pick : récupérer les vraies questions ciblées ────────
     quiz_picks_enriched = []
@@ -6939,7 +8052,10 @@ def api_mistakes_summary(request):
             'subject':          MATS.get(m.subject, {}).get('label', m.subject),
             'next_review':      label,
         })
-    return JsonResponse({'mistakes': mistakes})
+    due_count = MistakeTracker.objects.filter(
+        user=request.user, mastered=False, next_review__lte=today,
+    ).count()
+    return JsonResponse({'mistakes': mistakes, 'due': due_count})
 
 
 # ─────────────────────────────────────────────
@@ -6967,13 +8083,18 @@ def study_ping(request):
 def cours_view(request):
     """Page principale : choisir une matière puis un chapitre (JSON-backed)."""
     if _is_guest(request):
+        g = _GUEST_DEMO
+        demo_progress = g.get('course_progress', {})
         chapters_by_subject = {}
         for subj, info in MATS.items():
+            if subj not in g['user_serie_subjects']:
+                continue
             chapters = _get_cours_chapters(subj)
-            # ALL chapters locked for guests — no course reading in demo
-            for ch in chapters:
+            base = int(demo_progress.get(subj, 40))
+            for i, ch in enumerate(chapters):
+                # Progression démo réaliste décroissante sur les chapitres
                 ch['guest_locked'] = True
-                ch['progress_pct'] = 0
+                ch['progress_pct'] = max(5, min(95, base + (8 - i * 7)))
             chapters_by_subject[subj] = {
                 'info': info,
                 'chapters': chapters,
@@ -6982,61 +8103,21 @@ def cours_view(request):
         return render(request, 'core/cours.html', {
             'profile': None,
             'chapters_by_subject': chapters_by_subject,
-            'recent_sessions': [],
             'mats': MATS,
-            'user_serie_subjects': list(MATS.keys()),
+            'user_serie_subjects': g['user_serie_subjects'],
             'any_chapters': any(d['count'] > 0 for d in chapters_by_subject.values()),
             'is_guest': True,
         })
     if not request.user.is_authenticated:
         return redirect('/login/?next=' + request.get_full_path())
-    profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    spa_mode = getattr(request, 'spa_mode', False)
+    profile = UserProfile.objects.filter(user=request.user).only(
+        'serie', 'langue_etrangere', 'coach_name', 'first_name', 'school',
+    ).first()
+    if profile is None:
+        profile, _ = UserProfile.objects.get_or_create(user=request.user)
     user_subjs = _get_user_serie_subjects(request.user)
-
-    # Progression par chapitre (visible avant l'ouverture d'un chapitre)
-    sessions = CourseSession.objects.filter(
-        user=request.user,
-        chapter_subject__in=list(MATS.keys()),
-        chapter_num__isnull=False,
-    ).order_by('-updated_at')
-
-    progress_by_chapter = {}
-
-    def _session_progress_pct(sess):
-        if sess.status == 'completed':
-            return 100
-        step = int(sess.progress_step or 0)
-        # Try to get total from __plan__ in messages for precise %
-        total = 0
-        for m in (sess.messages or []):
-            if m.get('role') == '__plan__':
-                try:
-                    import json as _j
-                    tl = _j.loads(m.get('content', '{}'))
-                    content = tl.get('content', '')
-                    if content:
-                        total = len(_j.loads(content))
-                except Exception:
-                    pass
-                break
-        if total > 0 and step >= 0:
-            return min(100, round(step / total * 100))
-        # Fallback: rough phase mapping
-        return {
-            0: 5,
-            1: 15,
-            2: 30,
-            3: 50,
-        }.get(step, min(95, step * 10))
-
-    for sess in sessions:
-        subj = (sess.chapter_subject or '').strip().lower()
-        num = sess.chapter_num
-        if not subj or num is None:
-            continue
-        key = (subj, int(num))
-        pct = _session_progress_pct(sess)
-        progress_by_chapter[key] = max(progress_by_chapter.get(key, 0), pct)
+    progress_by_chapter = _cours_progress_by_chapter(request.user, user_subjs)
 
     chapters_by_subject = {}
     for subj, info in MATS.items():
@@ -7052,15 +8133,9 @@ def cours_view(request):
             'count': len(chapters),
         }
 
-    # Sessions récentes de l'utilisateur
-    recent_sessions = CourseSession.objects.filter(
-        user=request.user, status='active'
-    ).order_by('-updated_at')[:5]
-
     return render(request, 'core/cours.html', {
         'profile': profile,
         'chapters_by_subject': chapters_by_subject,
-        'recent_sessions': recent_sessions,
         'mats': MATS,
         'user_serie_subjects': list(user_subjs),
         'any_chapters': any(d['count'] > 0 for d in chapters_by_subject.values()),
@@ -8372,13 +9447,7 @@ def chapter_cours_view(request, subject, num):
     
     # Try to get hybrid payload for ANY subject that has chapters
     if subject in MATS:
-        if subject == 'maths':
-            hybrid_course = pdf_loader.get_math_hybrid_course_payload(num)
-        else:
-            # For other subjects, try to extract chapter content and create hybrid payload
-            note_content = pdf_loader.get_note_chapter_content(subject, num) or ''
-            if note_content:
-                hybrid_course = pdf_loader.get_generic_hybrid_course_payload(note_content, chapter_title)
+        hybrid_course = pdf_loader.get_hybrid_course_payload(subject, num, chapter_title)
         
         hybrid_mode = bool(hybrid_course.get('subchapters'))
         if hybrid_mode:
@@ -8468,6 +9537,7 @@ def api_course_chat(request):
             import base64 as _b64mod
             _image_data = _b64mod.b64decode(_img_b64)
             _image_mime = _img_mime or 'image/jpeg'
+            _image_data, _image_mime = gemini.prepare_image_bytes(_image_data, _image_mime)
         except Exception:
             pass
 
@@ -8478,6 +9548,8 @@ def api_course_chat(request):
         session = CourseSession.objects.get(pk=session_id, user=request.user)
     except CourseSession.DoesNotExist:
         return JsonResponse({'error': 'Session introuvable'}, status=404)
+
+    incoming_course_step = int(session.progress_step or 0)
 
     # ── Récupérer les données du chapitre (JSON ou DB legacy) ─────────────
     subj = session.chapter_subject or (session.chapter.subject if session.chapter_id else 'general')
@@ -8497,17 +9569,40 @@ def api_course_chat(request):
 
         hybrid_total_steps = 1
         if session.chapter_subject and session.chapter_num:
-            if session.chapter_subject == 'maths':
-                hybrid_payload = pdf_loader.get_math_hybrid_course_payload(session.chapter_num)
-            else:
-                note_content = pdf_loader.get_note_chapter_content(session.chapter_subject, session.chapter_num) or ''
-                hybrid_payload = pdf_loader.get_generic_hybrid_course_payload(note_content, chapter_title)
+            hybrid_payload = pdf_loader.get_hybrid_course_payload(
+                session.chapter_subject, session.chapter_num, chapter_title,
+            )
             hybrid_total_steps = max(1, len(hybrid_payload.get('subchapters', [])))
 
         try:
             user_profile = gemini.build_user_learning_profile_short(request.user)
         except Exception:
             user_profile = ''
+
+        _clar_lang = _get_user_lang(request)
+        _clar_local = local_responses.try_local_chat_response(
+            user_msg,
+            subject=subj,
+            user_lang=_clar_lang,
+            subject_label=_get_subj_label(subj),
+            chapter_title=chunk_title or subchapter_title or chapter_title,
+            has_image=bool(_image_data),
+        )
+        if _clar_local:
+            ts = _timezone.localtime(_timezone.now()).strftime('%H:%M')
+            session.messages.append({'role': 'user', 'content': user_msg, 'ts': ts})
+            session.messages.append({'role': 'assistant', 'content': _clar_local, 'ts': ts})
+            session.progress_step = current_step
+            session.save(update_fields=['messages', 'progress_step', 'updated_at'])
+            return JsonResponse({
+                'reply': _clar_local,
+                'followups': [],
+                'new_step': current_step,
+                'total_steps': hybrid_total_steps,
+                'task_list': [],
+                'auto_continue': False,
+                'local': True,
+            })
 
         # Score maîtrise pour la matière
         _subject_score = None
@@ -8566,24 +9661,11 @@ def api_course_chat(request):
             exam_excerpts = ''
             content_source_mode = 'no_context'
         else:
-            # Try atomized AI blocks first (faster, less tokens)
-            ai_context = _search_ai_blocks(
+            exam_excerpts, content_source_mode = _build_course_ai_context(
                 session.chapter_subject,
                 session.chapter_num,
                 user_msg,
-                max_blocks=12,
             )
-            if ai_context:
-                exam_excerpts = ai_context
-                content_source_mode = 'ai_blocks'
-            else:
-                # Fallback: full note chapter content
-                note_content = pdf_loader.get_note_chapter_content(session.chapter_subject, session.chapter_num)
-                if note_content:
-                    exam_excerpts = note_content
-                    content_source_mode = 'notes'
-
-            # For science subjects without notes: try exercises as fallback
             if not exam_excerpts and session.chapter_subject in ('maths', 'physique', 'chimie'):
                 content_source_mode = 'exo_fallback'
                 try:
@@ -8630,7 +9712,7 @@ def api_course_chat(request):
     # ── Plan pédagogique — généré une fois, caché dans la session ──────────────────
     chapter_task_list = None
     plan_invalidated = False
-    plan_version = 11  # maths now uses deterministic JSON subchapter plan
+    plan_version = 12  # static chapter plans — no runtime IA for task_list
     _plan_entry = next((m for m in session.messages if m.get('role') == '__plan__'), None)
     if _plan_entry:
         try:
@@ -8651,13 +9733,15 @@ def api_course_chat(request):
         session.messages = [m for m in session.messages if str(m.get('role', '')).startswith('__') and m.get('role') != '__plan__']
         session.progress_step = 0
 
-    if not chapter_task_list and exam_excerpts:
+    if not chapter_task_list:
         try:
-            if subj == 'maths' and session.chapter_num:
-                chapter_task_list = pdf_loader.get_math_chapter_plan_from_note(session.chapter_num)
-            if not chapter_task_list:
-                chapter_task_list = gemini.generate_chapter_task_list(subj, chapter_title, exam_excerpts)
+            chapter_task_list = pdf_loader.get_chapter_plan(
+                subj,
+                session.chapter_num or 0,
+                chapter_title=chapter_title,
+            )
             if chapter_task_list:
+                content_source_mode = 'static_plan'
                 session.messages = [m for m in session.messages if m.get('role') != '__plan__']
                 session.messages.insert(0, {
                     'role': '__plan__',
@@ -8666,8 +9750,6 @@ def api_course_chat(request):
                     'plan_version': plan_version,
                     'content': json.dumps(chapter_task_list, ensure_ascii=False),
                 })
-                # Safety: if plan was regenerated mid-session, clamp progress_step
-                # to avoid pointing beyond the new plan's concept list
                 if session.progress_step > len(chapter_task_list):
                     session.progress_step = len(chapter_task_list)
         except Exception:
@@ -8681,6 +9763,37 @@ def api_course_chat(request):
                 session.progress_step = target_idx
         except (TypeError, ValueError):
             pass
+
+    _is_auto_continue_msg = user_msg.strip() in ('[AUTO_CONTINUE]', '[REGEN_TRUNCATED]')
+    if not _is_auto_continue_msg and not _image_data:
+        _course_user_lang = _get_user_lang(request)
+        _local_course = local_responses.try_local_chat_response(
+            user_msg,
+            subject=subj,
+            user_lang=_course_user_lang,
+            subject_label=_get_subj_label(subj),
+            chapter_title=chapter_title,
+            has_image=False,
+        )
+        if _local_course:
+            ts = _timezone.localtime(_timezone.now()).strftime('%H:%M')
+            session.messages.append({'role': 'user', 'content': user_msg, 'ts': ts})
+            session.messages.append({'role': 'assistant', 'content': _local_course, 'ts': ts})
+            if len(session.messages) > 40:
+                meta_msgs = [m for m in session.messages if str(m.get('role', '')).startswith('__')]
+                chat_msgs = [m for m in session.messages if not str(m.get('role', '')).startswith('__')]
+                chat_msgs = chat_msgs[-COURSE_SESSION_CHAT_KEEP:]
+                session.messages = meta_msgs + chat_msgs
+            session.save(update_fields=['messages', 'updated_at'])
+            return JsonResponse({
+                'reply': _local_course,
+                'followups': [],
+                'new_step': session.progress_step,
+                'total_steps': len(chapter_task_list) if chapter_task_list else 3,
+                'task_list': chapter_task_list or [],
+                'auto_continue': False,
+                'local': True,
+            })
 
     try:
         result = gemini.course_chat(
@@ -8698,6 +9811,9 @@ def api_course_chat(request):
             subject_score=_subject_score,
         )
     except Exception as _e:
+        from core.ai_usage import AiBudgetExceeded, budget_exceeded_json
+        if isinstance(_e, AiBudgetExceeded):
+            return JsonResponse(budget_exceeded_json(_e.reason), status=429)
         import logging as _logging
         _logging.getLogger(__name__).error('course_chat error: %s', _e, exc_info=True)
         return JsonResponse({'error': f'Erreur IA : {type(_e).__name__}. Réessaie dans quelques secondes.'}, status=503)
@@ -8706,7 +9822,6 @@ def api_course_chat(request):
         return JsonResponse({'error': "L'IA n'a pas pu générer de réponse. Réessaie."})
 
     ts = _timezone.localtime(_timezone.now()).strftime('%H:%M')
-    _is_auto_continue_msg = (user_msg.strip() in ('[AUTO_CONTINUE]', '[REGEN_TRUNCATED]'))
     if not _is_auto_continue_msg:
         session.messages.append({'role': 'user', 'content': user_msg, 'ts': ts})
     session.messages.append({'role': 'assistant', 'content': result['reply'], 'ts': ts})
@@ -8730,14 +9845,25 @@ def api_course_chat(request):
         # Concept teaching happened (or synthesis) — remove the marker
         session.messages = [m for m in session.messages if m.get('role') != '__plan_intro__']
 
-    if len(session.messages) > 80:
-        # Preserve internal metadata roles (__plan__, __plan_intro__, etc.) when trimming
+    if len(session.messages) > 40:
         meta_msgs = [m for m in session.messages if str(m.get('role', '')).startswith('__')]
         chat_msgs = [m for m in session.messages if not str(m.get('role', '')).startswith('__')]
-        chat_msgs = chat_msgs[-70:]  # Keep last 70 chat messages (leave room for meta)
+        chat_msgs = chat_msgs[-COURSE_SESSION_CHAT_KEEP:]
         session.messages = meta_msgs + chat_msgs
 
     session.save(update_fields=['messages', 'progress_step', 'updated_at'])
+
+    xp_gained = 0
+    try:
+        from core.xp import grant_course_completion
+        total_steps = int(result.get('total_steps') or (len(chapter_task_list) if chapter_task_list else 0) or 0)
+        cres = grant_course_completion(
+            request.user, session, incoming_course_step, int(result['new_step'] or 0), total_steps,
+        )
+        if cres.granted:
+            xp_gained = cres.amount
+    except Exception:
+        pass
 
     # Mémorisation asynchrone — extrait les observations sur l'élève
     try:
@@ -8757,6 +9883,7 @@ def api_course_chat(request):
         'total_steps':   result.get('total_steps', 3),
         'task_list':     chapter_task_list or [],
         'auto_continue': bool(result.get('auto_continue')),
+        'xp_gained':     xp_gained,
     })
 
 
@@ -8799,10 +9926,13 @@ def api_course_hybrid_progress(request):
     except CourseSession.DoesNotExist:
         return JsonResponse({'error': 'Session introuvable'}, status=404)
 
-    if session.chapter_subject != 'maths' or not session.chapter_num:
+    if session.chapter_num is None:
         return JsonResponse({'error': 'Mode hybride indisponible pour cette matière.'}, status=400)
 
-    hybrid_payload = pdf_loader.get_math_hybrid_course_payload(session.chapter_num)
+    hybrid_payload = pdf_loader.get_hybrid_course_payload(
+        session.chapter_subject, session.chapter_num,
+        session.chapter_title or '',
+    )
     subchapters = hybrid_payload.get('subchapters', [])
     if not subchapters:
         return JsonResponse({'error': 'Cours hybride indisponible.'}, status=400)
@@ -8819,6 +9949,7 @@ def api_course_hybrid_progress(request):
         except (TypeError, ValueError):
             chunk_idx = 0
 
+    prev_step = session.progress_step or 0
     CourseProgressState.objects.update_or_create(
         user=request.user,
         course_key=_hybrid_course_key(session.chapter_subject, session.chapter_num),
@@ -8827,7 +9958,31 @@ def api_course_hybrid_progress(request):
     session.progress_step = subchapter_idx
     session.save(update_fields=['progress_step', 'updated_at'])
 
-    return JsonResponse({'ok': True, 'subchapter_idx': subchapter_idx, 'chunk_idx': chunk_idx})
+    xp_gained = 0
+    if len(subchapters) > 0:
+        last_idx = len(subchapters) - 1
+        last_chunks = subchapters[last_idx].get('chunks') or [0]
+        advanced_ok = subchapter_idx <= prev_step + 1
+        at_end = subchapter_idx >= last_idx and chunk_idx >= max(0, len(last_chunks) - 1)
+        if advanced_ok and at_end and (last_idx == 0 or prev_step >= max(0, last_idx - 1)):
+            from core.xp import grant_xp
+            from core import xp_config as _xp_c
+            course_key = _hybrid_course_key(session.chapter_subject, session.chapter_num)
+            res = grant_xp(
+                request.user, _xp_c.XP_COURSE_CHAPTER, _xp_c.SOURCE_COURSE,
+                f'course:{request.user.pk}:{course_key}',
+                extra={'subject': session.chapter_subject, 'num': session.chapter_num},
+                daily_cap=_xp_c.DAILY_CAP_COURSE,
+            )
+            if res.granted:
+                xp_gained = res.amount
+
+    return JsonResponse({
+        'ok': True,
+        'subchapter_idx': subchapter_idx,
+        'chunk_idx': chunk_idx,
+        'xp_gained': xp_gained,
+    })
 
 
 @login_required
@@ -8861,9 +10016,13 @@ def api_course_section(request):
         # Contexte du chapitre : priorité absolue au contenu complet des notes locales
         chapter_context = ''
         if session.chapter_subject and session.chapter_num:
-            full_note = pdf_loader.get_note_chapter_content(session.chapter_subject, session.chapter_num)
-            if full_note:
-                chapter_context = _extract_relevant_note_section(full_note, section_title, max_chars=7000)
+            chapter_context = pdf_loader.get_note_chapter_ai_context(
+                session.chapter_subject, session.chapter_num, max_chars=7000,
+            )
+            if chapter_context:
+                chapter_context = _extract_relevant_note_section(
+                    chapter_context, section_title, max_chars=7000,
+                )
         if not chapter_context:
             chapters = pdf_loader.get_chapters_from_json(subj)
             json_chap = next((c for c in chapters if c.get('num') == session.chapter_num), None)
@@ -9078,7 +10237,7 @@ def api_course_question(request):
 
         # Rebuild conversation history as text block (last 8 turns max)
         history_block = ''
-        for msg in history[-8:]:
+        for msg in history[-4:]:
             role_label = 'Élève' if msg.get('role') == 'user' else 'Tuteur'
             content = (msg.get('content') or '').strip()
             if content:
@@ -9129,6 +10288,26 @@ def api_save_school(request):
         School.objects.get_or_create(name=school_name)
         
         return JsonResponse({'ok': True})
+    except Exception as e:
+        return JsonResponse({'ok': False, 'error': str(e)}, status=500)
+
+
+@login_required
+@require_POST
+def api_set_coach_name(request):
+    """AJAX — nom personnel de l'assistant IA."""
+    try:
+        data = json.loads(request.body or '{}')
+        name = str(data.get('coach_name', '')).strip()
+        if not name:
+            return JsonResponse({'ok': False, 'error': 'Choisis un nom pour ton IA.'}, status=400)
+        if len(name) > 40:
+            name = name[:40]
+        from accounts.models import UserProfile
+        profile, _ = UserProfile.objects.get_or_create(user=request.user)
+        profile.coach_name = name
+        profile.save(update_fields=['coach_name'])
+        return JsonResponse({'ok': True, 'coach_name': name})
     except Exception as e:
         return JsonResponse({'ok': False, 'error': str(e)}, status=500)
 
@@ -9377,7 +10556,7 @@ def amis_view(request):
     recent_msgs = FriendMessage.objects.filter(
         (Q(sender=request.user, receiver_id__in=friend_ids) |
          Q(receiver=request.user, sender_id__in=friend_ids))
-    ).order_by('-created_at')[:500]
+    ).order_by('-created_at')[:150]
 
     last_msg_map = {}
     for msg in recent_msgs:
@@ -9385,17 +10564,21 @@ def amis_view(request):
         if other_id not in last_msg_map:
             last_msg_map[other_id] = msg
 
+    from accounts.names import alias_map_for
+    aliases = alias_map_for(request.user)
+
     for f in friends:
         other = f['user']
         f['last_message'] = last_msg_map.get(other.id)
         f['unread_count'] = unread_counts.get(other.id, 0)
+        f['display_name'] = aliases.get(other.id) or (other.get_full_name() or other.username)
 
     mention_candidates = [
         {
             'id': f['user'].id,
-            'name': f['user'].get_full_name() or f['user'].username,
+            'name': f['display_name'],
             'username': f['user'].username,
-            'initial': (f['user'].username or 'U')[0].upper(),
+            'initial': (f['display_name'] or f['user'].username or 'U')[0].upper(),
         }
         for f in friends
     ]
@@ -9404,10 +10587,9 @@ def amis_view(request):
     friends.sort(key=lambda f: f['last_message'].created_at if f['last_message'] else f['user'].date_joined, reverse=True)
 
     # Admin motivational message (OUTOUBON)
-    from accounts.models import AdminMessage, GroupMessage
+    from accounts.models import AdminMessage
     admin_msg = AdminMessage.objects.filter(receiver=request.user).first()  # latest (ordered -created_at)
     admin_unread = AdminMessage.objects.filter(receiver=request.user, is_read=False).exists()
-    group_last_message = GroupMessage.objects.order_by('-created_at').first()
 
     return render(request, 'core/amis.html', {
         'profile': profile,
@@ -9418,7 +10600,6 @@ def amis_view(request):
         'is_premium': user_is_premium,
         'admin_msg': admin_msg,
         'admin_unread': admin_unread,
-        'group_last_message': group_last_message,
         'mention_candidates': mention_candidates,
     })
 
@@ -9497,6 +10678,8 @@ def api_friend_request(request):
                 
             users = same_school_users + other_users
 
+        from accounts.names import alias_map_for, display_name_for
+        search_aliases = alias_map_for(request.user)
         result = []
         for u in users:
             try: p = u.profile
@@ -9505,7 +10688,7 @@ def api_friend_request(request):
             result.append({
                 'id': u.id,
                 'username': u.username,
-                'name': u.get_full_name() or u.username,
+                'name': display_name_for(request.user, u, search_aliases),
                 'school': p.school if p else '',
                 'serie': p.serie if p else '',
                 'photo_url': p.avatar.url if p and getattr(p, 'avatar', None) and p.avatar else None,
@@ -9547,6 +10730,8 @@ def api_friend_request(request):
                     # Invitation croisée : on accepte automatiquement.
                     existing.status = 'accepted'
                     existing.save(update_fields=['status', 'updated_at'])
+                    from core.push_events import push_friend_accepted
+                    push_friend_accepted(request.user, existing.from_user if existing.from_user_id != request.user.id else existing.to_user)
                     return JsonResponse({'ok': True, 'created': False, 'status': 'accepted', 'auto_accepted': True})
                 # declined -> on relance proprement dans le sens courant
                 if existing.from_user_id != request.user.id or existing.to_user_id != to_user.id:
@@ -9554,9 +10739,13 @@ def api_friend_request(request):
                     existing.to_user = to_user
                 existing.status = 'pending'
                 existing.save(update_fields=['from_user', 'to_user', 'status', 'updated_at'])
+                from core.push_events import push_friend_request
+                push_friend_request(request.user, to_user)
                 return JsonResponse({'ok': True, 'created': False, 'status': 'pending'})
 
             f = Friendship.objects.create(from_user=request.user, to_user=to_user, status='pending')
+            from core.push_events import push_friend_request
+            push_friend_request(request.user, to_user)
             return JsonResponse({'ok': True, 'created': True, 'status': f.status})
         except DUser.DoesNotExist:
             return JsonResponse({'error': 'Utilisateur introuvable'}, status=404)
@@ -9579,6 +10768,8 @@ def api_friend_request(request):
                 content=f"Vous êtes maintenant amis avec {f.from_user.get_full_name() or f.from_user.username} ! Vous pouvez commencer à discuter.",
                 is_system=True
             )
+            from core.push_events import push_friend_accepted
+            push_friend_accepted(request.user, f.from_user)
             return JsonResponse({'ok': True})
 
         except Friendship.DoesNotExist:
@@ -9597,6 +10788,11 @@ def api_friend_request(request):
             Q(from_user=request.user, to_user__id=user_id) |
             Q(to_user=request.user, from_user__id=user_id)
         ).delete()
+        from accounts.models import FriendAlias
+        FriendAlias.objects.filter(
+            Q(owner=request.user, friend_id=user_id) |
+            Q(owner_id=user_id, friend=request.user)
+        ).delete()
         return JsonResponse({'ok': True})
 
     elif action == 'cancel':
@@ -9614,68 +10810,93 @@ def api_friend_request(request):
 
 @login_required
 def api_friend_messages(request, friend_id):
-    """GET: retourne les messages entre l'utilisateur et un ami."""
+    """GET: messages entre l'utilisateur et un ami.
+    ?after_id=N → uniquement les messages plus récents + suppressions récentes.
+    """
     from accounts.models import FriendMessage, Friendship
     from django.contrib.auth.models import User as DUser
+    from django.db.models import Q
+    from django.utils import timezone
+    from datetime import timedelta
 
     try:
         friend = DUser.objects.get(pk=friend_id)
     except DUser.DoesNotExist:
         return JsonResponse({'error': 'Utilisateur introuvable'}, status=404)
 
-    # Vérifier qu'ils sont amis
     is_friend = Friendship.objects.filter(
-        models.Q(from_user=request.user, to_user=friend, status='accepted') |
-        models.Q(from_user=friend, to_user=request.user, status='accepted')
+        Q(from_user=request.user, to_user=friend, status='accepted') |
+        Q(from_user=friend, to_user=request.user, status='accepted')
     ).exists()
     if not is_friend:
         return JsonResponse({'error': 'Non ami'}, status=403)
 
-    # Marquer les messages reçus comme lus
     FriendMessage.objects.filter(
         sender=friend, receiver=request.user, is_read=False
     ).update(is_read=True)
 
-    # Récupérer les 50 derniers messages
-    messages = FriendMessage.objects.filter(
-        models.Q(sender=request.user, receiver=friend) |
-        models.Q(sender=friend, receiver=request.user)
-    ).order_by('-created_at')[:50]
+    after_id = _parse_after_id(request)
+    incremental = bool(after_id)
+    pair = Q(sender=request.user, receiver=friend) | Q(sender=friend, receiver=request.user)
+    if incremental:
+        messages = list(FriendMessage.objects.filter(pair, id__gt=after_id).order_by('created_at')[:50])
+    else:
+        messages = list(reversed(list(FriendMessage.objects.filter(pair).order_by('-created_at')[:50])))
 
-    # Apply per-user and global deletions (MessageDeletion)
     ct = ContentType.objects.get_for_model(FriendMessage)
-    msgs = []
-    for m in reversed(list(messages)):
-        # skip if deleted for this user only
-        if MessageDeletion.objects.filter(content_type=ct, object_id=m.id, for_all=False, deleted_by=request.user).exists():
-            continue
-        # check global deletion
-        if MessageDeletion.objects.filter(content_type=ct, object_id=m.id, for_all=True).exists():
-            msgs.append({
-                'id': m.id,
-                'sender_id': m.sender_id,
-                'content': 'Message supprimé pour tous',
-                'created_at': _local_time(m.created_at).strftime('%H:%M'),
-                'date': _local_time(m.created_at).strftime('%d/%m/%Y'),
-                'is_mine': m.sender_id == request.user.id,
-                'is_read': m.is_read,
-                'is_system': m.is_system,
-                'is_deleted': True,
-            })
-        else:
-            msgs.append({
-                'id': m.id,
-                'sender_id': m.sender_id,
-                'content': m.content,
-                'created_at': _local_time(m.created_at).strftime('%H:%M'),
-                'date': _local_time(m.created_at).strftime('%d/%m/%Y'),
-                'is_mine': m.sender_id == request.user.id,
-                'is_read': m.is_read,
-                'is_system': m.is_system,
-                'is_deleted': False,
-            })
+    msg_ids = [m.id for m in messages]
+    deleted_user = set()
+    deleted_all = set()
+    if msg_ids:
+        deleted_all = set(
+            MessageDeletion.objects.filter(
+                content_type=ct, object_id__in=msg_ids, for_all=True
+            ).values_list('object_id', flat=True)
+        )
+        deleted_user = set(
+            MessageDeletion.objects.filter(
+                content_type=ct, object_id__in=msg_ids, for_all=False, deleted_by=request.user
+            ).values_list('object_id', flat=True)
+        )
 
-    return JsonResponse({'ok': True, 'messages': msgs})
+    msgs = []
+    for m in messages:
+        if m.id in deleted_user:
+            continue
+        is_deleted = m.id in deleted_all
+        msgs.append({
+            'id': m.id,
+            'sender_id': m.sender_id,
+            'content': 'Message supprimé pour tous' if is_deleted else m.content,
+            'created_at': _local_time(m.created_at).strftime('%H:%M'),
+            'date': _local_time(m.created_at).strftime('%d/%m/%Y'),
+            'is_mine': m.sender_id == request.user.id,
+            'is_read': m.is_read,
+            'is_system': m.is_system,
+            'is_deleted': is_deleted,
+        })
+
+    deleted_for_me = []
+    deleted_for_all = []
+    if incremental:
+        cutoff = timezone.now() - timedelta(days=21)
+        del_qs = MessageDeletion.objects.filter(content_type=ct, deleted_at__gte=cutoff)
+        deleted_for_all = list(
+            del_qs.filter(for_all=True, object_id__lte=after_id).values_list('object_id', flat=True)[:300]
+        )
+        deleted_for_me = list(
+            del_qs.filter(for_all=False, deleted_by=request.user, object_id__lte=after_id)
+            .values_list('object_id', flat=True)[:300]
+        )
+
+    return JsonResponse({
+        'ok': True,
+        'messages': msgs,
+        'incremental': incremental,
+        'after_id': after_id,
+        'deleted_for_me': deleted_for_me,
+        'deleted_for_all': deleted_for_all,
+    })
 
 
 @login_required
@@ -9712,6 +10933,8 @@ def api_friend_send_message(request):
         receiver=friend,
         content=content,
     )
+    from core.push_events import push_dm
+    push_dm(request.user, friend, content)
 
     return JsonResponse({
         'ok': True,
@@ -9727,86 +10950,396 @@ def api_friend_send_message(request):
 
 @login_required
 def api_friend_unread_count(request):
-    """GET: nombre total de messages non lus."""
-    from accounts.models import FriendMessage, GroupMessageNotification
-    count = FriendMessage.objects.filter(receiver=request.user, is_read=False, is_system=False).count()
-    count += GroupMessageNotification.objects.filter(recipient=request.user, is_read=False).count()
-    return JsonResponse({'count': count})
+    """GET: badge Messages (contacts DM + tags groupe / point)."""
+    from accounts.chat_groups import unread_badge_payload
+    payload = unread_badge_payload(request.user)
+    return JsonResponse(payload)
 
 
 @login_required
-def api_group_chat_history(request):
-    """GET: retourne l'historique du chat de groupe."""
-    from accounts.models import GroupMessage, Friendship, GroupMessageNotification
+@require_POST
+def api_friend_alias(request):
+    """POST: {friend_id, alias} — surnom privé. Alias vide = suppression."""
+    from accounts.models import Friendship, FriendAlias
+    from accounts.names import public_name
+    from django.contrib.auth.models import User as DUser
     from django.db.models import Q
+    from django.core.cache import cache
 
-    messages = GroupMessage.objects.select_related(
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    try:
+        friend_id = int(data.get('friend_id') or 0)
+    except (TypeError, ValueError):
+        friend_id = 0
+    alias = (data.get('alias') or '').strip()
+    if not friend_id or friend_id == request.user.id:
+        return JsonResponse({'ok': False, 'error': 'Ami introuvable'}, status=400)
+    is_friend = Friendship.objects.filter(
+        Q(from_user=request.user, to_user_id=friend_id, status='accepted') |
+        Q(to_user=request.user, from_user_id=friend_id, status='accepted')
+    ).exists()
+    if not is_friend:
+        return JsonResponse({'ok': False, 'error': "Tu ne peux donner un surnom qu'à un ami"}, status=400)
+    try:
+        friend = DUser.objects.get(id=friend_id, is_active=True)
+    except DUser.DoesNotExist:
+        return JsonResponse({'ok': False, 'error': 'Ami introuvable'}, status=404)
+    if len(alias) > 40:
+        return JsonResponse({'ok': False, 'error': 'Surnom trop long (40 caractères max)'}, status=400)
+    if not alias:
+        FriendAlias.objects.filter(owner=request.user, friend_id=friend_id).delete()
+        display = public_name(friend)
+    else:
+        FriendAlias.objects.update_or_create(
+            owner=request.user,
+            friend_id=friend_id,
+            defaults={'alias': alias},
+        )
+        display = alias
+    cache.delete(f'genius:hub:{request.user.pk}')
+    return JsonResponse({
+        'ok': True,
+        'friend_id': friend_id,
+        'alias': alias,
+        'display_name': display,
+        'real_name': public_name(friend),
+    })
+
+
+@login_required
+@require_POST
+def api_push_register(request):
+    """POST: {token} — enregistre le jeton FCM du navigateur."""
+    from accounts.models import PushDevice
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    token = (data.get('token') or '').strip()
+    if not token or len(token) < 20:
+        return JsonResponse({'ok': False, 'error': 'Jeton invalide'}, status=400)
+    ua = (request.META.get('HTTP_USER_AGENT') or '')[:300]
+    PushDevice.objects.update_or_create(
+        token=token,
+        defaults={'user': request.user, 'enabled': True, 'user_agent': ua},
+    )
+    return JsonResponse({'ok': True})
+
+
+@login_required
+@require_POST
+def api_push_disable(request):
+    from accounts.models import PushDevice
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    token = (data.get('token') or '').strip()
+    if token:
+        PushDevice.objects.filter(user=request.user, token=token).update(enabled=False)
+    else:
+        PushDevice.objects.filter(user=request.user).update(enabled=False)
+    return JsonResponse({'ok': True})
+
+
+def _request_group_id(request, data=None):
+    raw = None
+    if isinstance(data, dict):
+        raw = data.get('group_id')
+    if raw in (None, '', False):
+        raw = request.GET.get('group_id') or request.POST.get('group_id')
+    if raw in (None, '', False):
+        return None
+    try:
+        return int(raw)
+    except (TypeError, ValueError):
+        return None
+
+
+_GROUP_QUIZ_TYPE_ALIASES = {
+    'directe': 'word',
+    'complete': 'word',
+    'direct': 'word',
+    'fill': 'word',
+}
+
+
+def _parse_after_id(request):
+    try:
+        return max(0, int(request.GET.get('after_id') or 0))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _normalize_group_quiz_data(quiz_data):
+    """Aligne un quiz de groupe sur le format Extra bèt (word/qcm/match/parts)."""
+    if not isinstance(quiz_data, dict):
+        return None, 'Quiz invalide.'
+    qtype = str(quiz_data.get('question_type') or quiz_data.get('type') or 'word').strip().lower()
+    qtype = _GROUP_QUIZ_TYPE_ALIASES.get(qtype, qtype)
+    prompt = str(quiz_data.get('prompt') or quiz_data.get('question') or '').strip()
+    answer_raw = quiz_data.get('answer', '')
+    if isinstance(answer_raw, dict):
+        answer = json.dumps(answer_raw, ensure_ascii=False)
+    else:
+        answer = str(answer_raw or '').strip()
+    options = quiz_data.get('options')
+    if qtype == 'qcm':
+        options = options if isinstance(options, list) else (quiz_data.get('choices') or [])
+        options = [str(o).strip() for o in options if str(o).strip()]
+    elif qtype in ('match', 'parts'):
+        options = options if isinstance(options, dict) else {}
+    else:
+        options = options if isinstance(options, list) else []
+
+    from core.extra_bet_grader import ALLOWED_TYPES, verify_extra_bet_submission
+    if qtype not in ALLOWED_TYPES:
+        return None, 'Type de question invalide.'
+    subject = str(quiz_data.get('subject') or '').strip().lower()
+    if subject and subject not in MATS:
+        return None, 'Matière invalide.'
+    verdict = verify_extra_bet_submission(qtype, prompt, answer, options)
+    if not verdict.get('valid', True):
+        return None, verdict.get('reason') or 'La réponse proposée ne semble pas correcte.'
+    return {
+        'subject': subject,
+        'question_type': qtype,
+        'type': qtype,
+        'question': prompt,
+        'prompt': prompt,
+        'answer': answer,
+        'options': options,
+        'choices': options if qtype == 'qcm' else [],
+    }, None
+
+
+def api_group_chat_history(request):
+    """GET: historique live groupe — guest en lecture seule, compte en complet.
+    ?after_id=N → uniquement les messages plus récents + suppressions récentes.
+    ?group_id=N → un groupe précis (défaut: OU TOU BON).
+    """
+    after_id = _parse_after_id(request)
+    from accounts.chat_groups import resolve_group
+    group_id = _request_group_id(request)
+    user = request.user if request.user.is_authenticated else None
+    if user is None and not request.session.get('guest_mode'):
+        return JsonResponse({'error': 'auth required'}, status=401)
+    group = resolve_group(user, group_id, write=False)
+    if group is None:
+        return JsonResponse({'error': 'Groupe introuvable'}, status=404)
+    return _group_chat_history_payload(user, after_id=after_id, group=group)
+
+
+def api_group_chat_history_public(request):
+    return api_group_chat_history(request)
+
+
+def _invalidate_study_groups_cache(*users_or_ids):
+    from django.core.cache import cache
+    seen = set()
+    for item in users_or_ids:
+        if item is None:
+            continue
+        uid = getattr(item, 'id', item)
+        try:
+            uid = int(uid)
+        except (TypeError, ValueError):
+            continue
+        if uid in seen:
+            continue
+        seen.add(uid)
+        cache.delete(f'study_groups_v1:{uid}')
+
+
+@login_required
+def api_study_groups(request):
+    """GET: liste des groupes de l'utilisateur (OTB, Génies, custom)."""
+    from django.core.cache import cache
+    from accounts.chat_groups import list_groups_for_user
+    from accounts.models import Friendship
+    from django.db.models import Q
+    ck = f'study_groups_v1:{request.user.id}'
+    cached = cache.get(ck)
+    if cached is not None:
+        return JsonResponse(cached)
+    groups = list_groups_for_user(request.user)
+    friends = []
+    rels = Friendship.objects.filter(
+        Q(from_user=request.user, status='accepted') | Q(to_user=request.user, status='accepted')
+    ).select_related('from_user', 'to_user')
+    from accounts.names import alias_map_for, display_name_for
+    aliases = alias_map_for(request.user)
+    seen = set()
+    for rel in rels:
+        other = rel.to_user if rel.from_user_id == request.user.id else rel.from_user
+        if other.id in seen:
+            continue
+        seen.add(other.id)
+        friends.append({
+            'id': other.id,
+            'name': display_name_for(request.user, other, aliases),
+            'username': other.username,
+        })
+    friends.sort(key=lambda f: (f['name'] or '').lower())
+    payload = {'ok': True, 'groups': groups, 'friends': friends}
+    cache.set(ck, payload, 45)
+    return JsonResponse(payload)
+
+
+@login_required
+@require_POST
+def api_study_group_create(request):
+    from accounts.chat_groups import create_custom_group, serialize_group
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    group, error = create_custom_group(
+        request.user,
+        data.get('name'),
+        data.get('friend_ids') or [],
+        data.get('usernames') or [],
+    )
+    if error:
+        return JsonResponse({'ok': False, 'error': error}, status=400)
+    member_ids = list(group.memberships.values_list('user_id', flat=True))
+    _invalidate_study_groups_cache(request.user.id, *member_ids)
+    return JsonResponse({'ok': True, 'group': serialize_group(group, request.user)})
+
+
+@login_required
+@require_POST
+def api_study_group_invite(request):
+    from accounts.chat_groups import invite_to_group, resolve_group, serialize_group
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    group = resolve_group(request.user, data.get('group_id'), write=True)
+    if group is None:
+        return JsonResponse({'ok': False, 'error': 'Groupe introuvable'}, status=404)
+    added, error = invite_to_group(
+        request.user, group, data.get('friend_ids') or [], data.get('usernames') or []
+    )
+    if error:
+        return JsonResponse({'ok': False, 'error': error}, status=400)
+    member_ids = list(group.memberships.values_list('user_id', flat=True))
+    added_ids = [u.id if hasattr(u, 'id') else u for u in (added if isinstance(added, list) else [])]
+    _invalidate_study_groups_cache(request.user.id, *member_ids, *added_ids)
+    return JsonResponse({'ok': True, 'added': added, 'group': serialize_group(group, request.user)})
+
+
+def _group_chat_history_payload(user, after_id=0, group=None):
+    from accounts.models import GroupMessage, Friendship, GroupMessageNotification, GroupChatQuizAttempt
+    from accounts.chat_groups import group_messages_qs, mark_group_read, get_or_create_official_group
+    from django.db.models import Q, Count
+    from django.utils import timezone
+    from datetime import timedelta
+
+    if group is None:
+        group = get_or_create_official_group()
+
+    incremental = bool(after_id)
+    qs = group_messages_qs(group).select_related(
         'sender__profile',
         'reply_to__sender__profile',
-    ).prefetch_related('mentions').order_by('-created_at')[:120]
-    sender_ids = {msg.sender_id for msg in messages if msg.sender_id != request.user.id}
+    ).prefetch_related('mentions').annotate(
+        quiz_attempts_count=Count('quiz_attempts', distinct=True),
+        quiz_correct_count=Count('quiz_attempts', filter=Q(quiz_attempts__is_correct=True), distinct=True),
+    )
+    if incremental:
+        messages = list(qs.filter(id__gt=after_id).order_by('created_at')[:80])
+    else:
+        messages = list(reversed(list(qs.order_by('-created_at')[:80])))
+    uid = getattr(user, 'id', None) if user and getattr(user, 'is_authenticated', False) else None
+    from accounts.names import alias_map_for, display_name_for
+    aliases = alias_map_for(user) if uid else {}
+    sender_ids = {msg.sender_id for msg in messages if uid and msg.sender_id != uid}
     friend_map = {}
-    if sender_ids:
+    if uid and sender_ids:
         rels = Friendship.objects.filter(
-            Q(from_user=request.user, to_user_id__in=sender_ids, status='accepted') |
-            Q(to_user=request.user, from_user_id__in=sender_ids, status='accepted')
+            Q(from_user_id=uid, to_user_id__in=sender_ids, status='accepted') |
+            Q(to_user_id=uid, from_user_id__in=sender_ids, status='accepted')
         )
         for rel in rels:
-            other_id = rel.to_user_id if rel.from_user_id == request.user.id else rel.from_user_id
+            other_id = rel.to_user_id if rel.from_user_id == uid else rel.from_user_id
             friend_map[other_id] = rel.id
+    my_attempts = {}
+    if uid and messages:
+        for attempt in GroupChatQuizAttempt.objects.filter(
+            user_id=uid, message_id__in=[m.id for m in messages if m.quiz_data]
+        ):
+            my_attempts[attempt.message_id] = {
+                'submitted': attempt.submitted_answer,
+                'is_correct': attempt.is_correct,
+            }
     result = []
-    for msg in reversed(list(messages)):
+    for msg in messages:
         sender = msg.sender
         profile = getattr(sender, 'profile', None)
-        attempts_count = 0
-        correct_count = 0
-        if msg.quiz_data:
-            from accounts.models import GroupChatQuizAttempt
-            attempts_count = msg.quiz_attempts.count()
-            correct_count = msg.quiz_attempts.filter(is_correct=True).count()
+        attempts_count = msg.quiz_attempts_count if msg.quiz_data else 0
+        correct_count = msg.quiz_correct_count if msg.quiz_data else 0
 
+        sender_shown = display_name_for(user, sender, aliases)
         result.append({
             'id': msg.id,
             'sender_id': sender.id,
-            'sender_name': sender.get_full_name() or sender.username,
+            'sender_name': sender_shown,
             'sender_school': profile.school if profile else '',
-            'sender_initial': (sender.username or 'U')[0].upper(),
+            'sender_initial': (sender_shown or sender.username or 'U')[0].upper(),
             'sender_avatar_url': profile.avatar.url if profile and getattr(profile, 'avatar', None) and profile.avatar else None,
             'sender_is_admin': sender.is_staff or sender.is_superuser,
-            'sender_is_you': sender.id == request.user.id,
+            'sender_is_you': bool(uid and sender.id == uid),
             'sender_is_friend': sender.id in friend_map,
             'sender_friendship_id': friend_map.get(sender.id),
-            # content may be replaced if deleted for all; per-user deletions are handled by the client not returning the message
             'content': msg.content,
             'quiz_data': msg.quiz_data,
             'reply_to': ({
                 'id': msg.reply_to_id,
                 'sender_id': msg.reply_to.sender_id,
-                'sender_name': msg.reply_to.sender.get_full_name() or msg.reply_to.sender.username,
+                'sender_name': display_name_for(user, msg.reply_to.sender, aliases),
                 'content': (msg.reply_to.content or ('Quiz' if msg.reply_to.quiz_data else 'Média'))[:160],
             } if msg.reply_to_id and msg.reply_to else None),
             'mentions': [
-                {'id': u.id, 'name': u.get_full_name() or u.username, 'username': u.username}
+                {'id': u.id, 'name': display_name_for(user, u, aliases), 'username': u.username}
                 for u in msg.mentions.all()
             ],
-            'mention_everyone': msg.mention_everyone,
+            'mention_everyone': bool(getattr(msg, 'mention_everyone', False)),
             'quiz_attempt_count': attempts_count,
             'quiz_correct_count': correct_count,
-            'image_url': msg.image.url if msg.image else None,
-            'video_url': msg.video.url if msg.video else None,
+            'quiz_stats': {
+                'attempts': attempts_count,
+                'pct': round(100 * correct_count / attempts_count) if attempts_count else 0,
+            } if msg.quiz_data else None,
+            'my_attempt': my_attempts.get(msg.id),
+            'image_url': msg.image.url if getattr(msg, 'image', None) and msg.image else None,
+            'video_url': msg.video.url if getattr(msg, 'video', None) and msg.video else None,
             'created_at': _local_time(msg.created_at).strftime('%H:%M'),
             'date': _local_time(msg.created_at).strftime('%d/%m/%Y'),
         })
-    # Apply deletion mapping: replace content for globally deleted messages and skip per-user deletions
+
     from django.contrib.contenttypes.models import ContentType
+    from accounts.models import MessageDeletion
     ct = ContentType.objects.get_for_model(GroupMessage)
+    msg_ids = [m['id'] for m in result]
+    deleted_user = set()
+    deleted_all = set()
+    if msg_ids:
+        deleted_all = set(
+            MessageDeletion.objects.filter(
+                content_type=ct, object_id__in=msg_ids, for_all=True
+            ).values_list('object_id', flat=True)
+        )
+        if uid:
+            deleted_user = set(
+                MessageDeletion.objects.filter(
+                    content_type=ct, object_id__in=msg_ids, for_all=False, deleted_by_id=uid
+                ).values_list('object_id', flat=True)
+            )
     final = []
     for m in result:
         mid = m['id']
-        # per-user deletion: if exists for this user, skip
-        if MessageDeletion.objects.filter(content_type=ct, object_id=mid, for_all=False, deleted_by=request.user).exists():
+        if mid in deleted_user:
             continue
-        if MessageDeletion.objects.filter(content_type=ct, object_id=mid, for_all=True).exists():
+        if mid in deleted_all:
             m['content'] = 'Message supprimé pour tous'
             m['is_deleted'] = True
             m['image_url'] = None
@@ -9815,22 +11348,44 @@ def api_group_chat_history(request):
             m['is_deleted'] = False
         final.append(m)
 
-    visible_ids = [m['id'] for m in final]
-    if visible_ids:
-        GroupMessageNotification.objects.filter(
-            recipient=request.user,
-            message_id__in=visible_ids,
-            is_read=False,
-        ).update(is_read=True)
+    if uid:
+        visible_ids = [m['id'] for m in final]
+        max_visible = max(visible_ids) if visible_ids else after_id
+        mark_group_read(user, group, max_visible)
 
-    return JsonResponse({'ok': True, 'messages': final})
+    deleted_for_me = []
+    deleted_for_all = []
+    if incremental:
+        cutoff = timezone.now() - timedelta(days=21)
+        del_qs = MessageDeletion.objects.filter(content_type=ct, deleted_at__gte=cutoff)
+        deleted_for_all = list(
+            del_qs.filter(for_all=True, object_id__lte=after_id).values_list('object_id', flat=True)[:300]
+        )
+        if uid:
+            deleted_for_me = list(
+                del_qs.filter(for_all=False, deleted_by_id=uid, object_id__lte=after_id)
+                .values_list('object_id', flat=True)[:300]
+            )
+
+    return JsonResponse({
+        'ok': True,
+        'messages': final,
+        'readonly': uid is None,
+        'incremental': incremental,
+        'after_id': after_id,
+        'deleted_for_me': deleted_for_me,
+        'deleted_for_all': deleted_for_all,
+        'group_id': group.id if group else None,
+        'group_kind': group.kind if group else 'official',
+    })
 
 
 @login_required
 @require_POST
 def api_group_chat_send(request):
     """POST: envoie un message ou un média dans le chat de groupe."""
-    from accounts.models import GroupMessage, GroupMessageNotification
+    from accounts.models import GroupMessage, GroupMessageNotification, StudyChatGroupMember
+    from accounts.chat_groups import resolve_group, group_messages_qs
     from django.contrib.auth.models import User as DUser
 
     content = ''
@@ -9841,6 +11396,7 @@ def api_group_chat_send(request):
     mention_ids = []
     mention_everyone = False
     is_admin_mode = False
+    group_id = None
 
     if request.content_type and request.content_type.startswith('multipart/form-data'):
         content = request.POST.get('content', '').strip()
@@ -9850,6 +11406,7 @@ def api_group_chat_send(request):
         mention_ids = request.POST.getlist('mention_ids')
         mention_everyone = str(request.POST.get('mention_everyone', '')).lower() in ('1', 'true', 'yes')
         is_admin_mode = str(request.POST.get('is_admin_mode', '')).lower() in ('1', 'true', 'yes')
+        group_id = _request_group_id(request)
     else:
         data, _err = _parse_json_body(request)
         if _err:
@@ -9861,6 +11418,11 @@ def api_group_chat_send(request):
         mention_ids = data.get('mention_ids') or []
         mention_everyone = bool(data.get('mention_everyone', False))
         is_admin_mode = bool(data.get('is_admin_mode', False))
+        group_id = _request_group_id(request, data)
+
+    group = resolve_group(request.user, group_id, write=True)
+    if group is None:
+        return JsonResponse({'error': 'Groupe introuvable'}, status=404)
 
     sender = request.user
     if is_admin_mode and request.session.get('_otb_admin_ok') is True:
@@ -9871,38 +11433,11 @@ def api_group_chat_send(request):
     if not content and not media and not quiz_data:
         return JsonResponse({'error': 'Message, média ou quiz requis.'}, status=400)
 
-    # Validation par l'IA DeepSeek (Gemini Client compatible) si c'est un message de type quiz
-    if media_type == 'quiz' or quiz_data:
-        question_text = ''
-        if isinstance(quiz_data, dict):
-            question_text = quiz_data.get('question', '')
-            if quiz_data.get('options'):
-                question_text += "\nOptions:\n" + "\n".join(f"- {opt}" for opt in quiz_data['options'])
-            if quiz_data.get('answer'):
-                question_text += f"\nRéponse attendue: {quiz_data['answer']}"
-        else:
-            question_text = content
-            
-        ai_prompt = (
-            "Tu es un enseignant expert chargé de valider des questions de quiz pour le BAC.\n"
-            "Vérifie strictement cette question de quiz. Elle ne doit comporter aucune erreur factuelle, "
-            "d'orthographe, de formulation, de logique ou de réponse correcte attendue.\n\n"
-            "Si la question ou la réponse attendue est fausse ou comporte la moindre erreur :\n"
-            "Réponds UNIQUEMENT par 'INVALIDE : <explication courte et pédagogique de l'erreur>'.\n\n"
-            "Si la question et la réponse sont 100% valides, correctes et sans erreur :\n"
-            "Réponds UNIQUEMENT par 'VALIDE'.\n\n"
-            f"Question à vérifier :\n{question_text}"
-        )
-        try:
-            ai_res = gemini._call_fast(ai_prompt).strip()
-            if ai_res.upper().startswith('INVALIDE'):
-                explanation = ai_res[8:].strip().lstrip(':').strip()
-                return JsonResponse({
-                    'ok': False,
-                    'error': f"Question invalide : {explanation}"
-                })
-        except Exception:
-            pass
+    # Quiz groupe : même validation Extra bèt (règles locales, 0 IA)
+    if quiz_data:
+        quiz_data, quiz_err = _normalize_group_quiz_data(quiz_data)
+        if quiz_err:
+            return JsonResponse({'ok': False, 'error': quiz_err}, status=200)
 
     if media and media_type == 'video' and not (request.user.is_staff or request.user.is_superuser):
         return JsonResponse({'error': 'Seul l\'équipe peut envoyer des vidéos.'}, status=403)
@@ -9910,11 +11445,11 @@ def api_group_chat_send(request):
     reply_to = None
     if reply_to_id:
         try:
-            reply_to = GroupMessage.objects.select_related('sender').get(pk=int(reply_to_id))
+            reply_to = group_messages_qs(group).select_related('sender').get(pk=int(reply_to_id))
         except (TypeError, ValueError, GroupMessage.DoesNotExist):
             reply_to = None
 
-    msg_kwargs = {'sender': sender, 'content': content, 'mention_everyone': mention_everyone}
+    msg_kwargs = {'sender': sender, 'content': content, 'mention_everyone': mention_everyone, 'group': group}
     if reply_to:
         msg_kwargs['reply_to'] = reply_to
     if quiz_data:
@@ -9943,21 +11478,37 @@ def api_group_chat_send(request):
         if user.id != sender.id:
             notification_targets[(user.id, 'mention')] = user
     if mention_everyone:
-        for user in DUser.objects.filter(is_active=True, is_staff=False).exclude(id=sender.id)[:500]:
+        if group.kind == 'official':
+            everyone_qs = DUser.objects.filter(is_active=True, is_staff=False).exclude(id=sender.id)[:500]
+        else:
+            member_ids = StudyChatGroupMember.objects.filter(group=group).exclude(user_id=sender.id).values_list('user_id', flat=True)
+            everyone_qs = DUser.objects.filter(id__in=member_ids, is_active=True)
+        for user in everyone_qs:
             notification_targets[(user.id, 'everyone')] = user
     if reply_to and reply_to.sender_id != sender.id:
         notification_targets[(reply_to.sender_id, 'reply')] = reply_to.sender
     for (_uid, reason), user in notification_targets.items():
         GroupMessageNotification.objects.get_or_create(message=msg, recipient=user, reason=reason)
+    if notification_targets:
+        from core.push_events import push_group_mention
+        by_reason = {}
+        for (_uid, reason), user in notification_targets.items():
+            by_reason.setdefault(reason, []).append(user)
+        preview = content or ('Quiz' if quiz_data else 'Média')
+        for reason, users in by_reason.items():
+            push_group_mention(sender, users, group, reason, preview)
 
+    from accounts.names import alias_map_for, display_name_for
+    aliases = alias_map_for(sender)
+    sender_shown = display_name_for(sender, sender, aliases)
     return JsonResponse({
         'ok': True,
         'message': {
             'id': msg.id,
             'sender_id': sender.id,
-            'sender_name': sender.get_full_name() or sender.username,
+            'sender_name': sender_shown,
             'sender_school': getattr(getattr(sender, 'profile', None), 'school', ''),
-            'sender_initial': (sender.username or 'U')[0].upper(),
+            'sender_initial': (sender_shown or sender.username or 'U')[0].upper(),
             'sender_avatar_url': sender.profile.avatar.url if getattr(sender, 'profile', None) and sender.profile.avatar else None,
             'sender_is_admin': sender.is_staff or sender.is_superuser,
             'sender_is_you': True,
@@ -9966,11 +11517,11 @@ def api_group_chat_send(request):
             'reply_to': ({
                 'id': reply_to.id,
                 'sender_id': reply_to.sender_id,
-                'sender_name': reply_to.sender.get_full_name() or reply_to.sender.username,
+                'sender_name': display_name_for(sender, reply_to.sender, aliases),
                 'content': (reply_to.content or ('Quiz' if reply_to.quiz_data else 'Média'))[:160],
             } if reply_to else None),
             'mentions': [
-                {'id': u.id, 'name': u.get_full_name() or u.username, 'username': u.username}
+                {'id': u.id, 'name': display_name_for(sender, u, aliases), 'username': u.username}
                 for u in mention_users
             ],
             'mention_everyone': msg.mention_everyone,
@@ -9978,6 +11529,7 @@ def api_group_chat_send(request):
             'video_url': msg.video.url if msg.video else None,
             'created_at': _local_time(msg.created_at).strftime('%H:%M'),
             'date': _local_time(msg.created_at).strftime('%d/%m/%Y'),
+            'group_id': group.id,
         }
     })
 
@@ -10040,6 +11592,12 @@ def api_admin_message(request):
     from accounts.models import AdminMessage
 
     if request.method == 'POST':
+        data, _err = _parse_json_body(request)
+        if _err:
+            return _err
+        if data.get('mark_read'):
+            AdminMessage.objects.filter(receiver=request.user, is_read=False).update(is_read=True)
+            return JsonResponse({'ok': True})
         if not request.user.is_superuser:
             return JsonResponse({'error': 'Non autorisé'}, status=403)
         data, _err = _parse_json_body(request)
@@ -10069,18 +11627,17 @@ def api_admin_message(request):
             AdminMessage.objects.create(receiver=receiver, content=content)
             return JsonResponse({'ok': True})
 
-    # GET: return latest admin message
+    # GET: return latest admin message without marking as read
     msg = AdminMessage.objects.filter(receiver=request.user).order_by('-created_at').first()
     if msg:
-        if not msg.is_read:
-            msg.is_read = True
-            msg.save(update_fields=['is_read'])
         return JsonResponse({
             'ok': True,
             'message': {
+                'id': msg.id,
                 'content': msg.content,
                 'created_at': msg.created_at.strftime('%H:%M'),
                 'date': msg.created_at.strftime('%d/%m/%Y'),
+                'is_read': bool(msg.is_read),
             }
         })
     return JsonResponse({'ok': True, 'message': None})
@@ -10145,12 +11702,39 @@ def api_exercise_chat(request):
     """
     if not request.user.is_authenticated and not _is_guest(request):
         return JsonResponse({'error': 'login_required'}, status=401)
+
+    if _is_guest(request):
+        guest_exo_chat = int(request.session.get('guest_exo_chat_count', 0) or 0)
+        if guest_exo_chat >= 5:
+            return JsonResponse({'error': 'guest_limit', 'signup_url': '/signup/'}, status=403)
+        request.session['guest_exo_chat_count'] = guest_exo_chat + 1
+        request.session.modified = True
+
     try:
         from . import exercise_tutor as et
 
         data = json.loads(request.body)
         exercise = data.get('exercise', {})
         subject = data.get('subject', 'maths')
+
+        # Réhydrater la solution note_ai (non envoyée au client)
+        if exercise.get('_from_note_ai') and exercise.get('_note_ai_id'):
+            try:
+                from django.core.cache import cache as _dj_cache
+                _cache_uid = (
+                    request.user.id
+                    if request.user.is_authenticated
+                    else request.session.session_key or 'guest'
+                )
+                _cached_sol = _dj_cache.get(
+                    f'exo_sol:{_cache_uid}:{exercise.get("_note_ai_id")}'
+                )
+                if _cached_sol:
+                    exercise = dict(exercise)
+                    exercise['solution'] = _cached_sol
+            except Exception:
+                pass
+
         messages = data.get('messages', [])
         user_message = data.get('message', '').strip()
         student_name = data.get('student_name', "l'élève")
@@ -10165,6 +11749,8 @@ def api_exercise_chat(request):
                 import base64 as _b64mod
                 _ex_image_data = _b64mod.b64decode(_ex_img_b64)
                 _ex_image_mime = _ex_img_mime or 'image/jpeg'
+                from core.ai_guard import prepare_image_bytes as _prep_img
+                _ex_image_data, _ex_image_mime = _prep_img(_ex_image_data, _ex_image_mime)
             except Exception:
                 pass
 
@@ -10184,6 +11770,23 @@ def api_exercise_chat(request):
         )
 
         mode = et.detect_message_mode(user_message)
+
+        if mode == 'intro':
+            user_message = user_message.replace('[INTRO]', '').strip() or (
+                "Présente brièvement cet exercice et aide l'élève à commencer, "
+                "sans donner la solution complète."
+            )
+
+        if mode == 'answer' and not session.get('_quota_counted'):
+            if _is_guest(request):
+                _g_done = int(request.session.get('guest_exo_done', 0) or 0)
+                request.session['guest_exo_done'] = _g_done + 1
+                request.session.modified = True
+            elif request.user.is_authenticated:
+                from core.premium import increment_exercise
+                increment_exercise(request.user, subject)
+            session['_quota_counted'] = True
+
         if mode == 'hint':
             session = et.apply_hint(session)
             user_message = user_message.replace('[HINT]', '').strip() or "Donne-moi un indice pour la question en cours."
@@ -10197,7 +11800,12 @@ def api_exercise_chat(request):
 
         # ── Philosophie : prompts spécialisés conservés ───────────────────
         _philo_type = exercise.get('_philo_type', '')
-        if subject.lower() == 'philosophie' and _philo_type:
+        tutor_mode = data.get('mode') == 'tutor'
+        if tutor_mode:
+            system_prompt = et.build_tutor_prompt_short(
+                exercise, subject, student_name, session, lang_rule,
+            )
+        elif subject.lower() == 'philosophie' and _philo_type:
             intro = exercise.get('intro') or exercise.get('enonce', '')
             questions = exercise.get('questions', [])
             texte_philo = exercise.get('texte', '')
@@ -10246,7 +11854,9 @@ def api_exercise_chat(request):
             )
 
         from . import gemini as _gemini
-        hist_summary, recent_msgs = _gemini._build_compact_history(messages, keep=8)
+        hist_summary, recent_msgs = _gemini._build_compact_history(
+            messages, keep=_gemini.HISTORY_SLIDING_WINDOW,
+        )
         ai_messages = [{"role": "system", "content": system_prompt}]
         if hist_summary:
             ai_messages.append({"role": "system", "content": hist_summary})
@@ -10265,11 +11875,47 @@ def api_exercise_chat(request):
         else:
             ai_messages.append({"role": "user", "content": user_message})
 
+        if not getattr(settings, 'DEEPSEEK_API_KEY', ''):
+            if _ex_image_data:
+                return JsonResponse({
+                    'error': 'ia_auth',
+                    'message': 'Photo indisponible sans connexion IA complète.',
+                }, status=503)
+            response, session, meta = et.try_local_tutor_response(
+                exercise, session, user_message, mode, student_name,
+            )
+            response, session, meta = et.parse_ai_directives(response, session)
+            if mode == 'skip' and not meta.get('advance') and not session.get('completed'):
+                session = et.advance_question(session, 'skipped')
+            idx = int(session.get('current_index') or 0)
+            attempts = list(session.get('attempts') or [0] * session.get('total', 1))
+            while len(attempts) < session.get('total', 1):
+                attempts.append(0)
+            if mode == 'answer' and idx < len(attempts):
+                attempts[idx] = int(attempts[idx] or 0) + 1
+                session['attempts'] = attempts
+            import re as _re_loc
+            response = _re_loc.sub(r'\*\*(.+?)\*\*', r'\1', response)
+            response = _re_loc.sub(r'\*(.+?)\*', r'\1', response)
+            public_session = et.session_public_view(session, exercise)
+            summary = et.compute_session_summary(session, exercise) if session.get('completed') else None
+            return JsonResponse({
+                'ok': True,
+                'response': response.strip(),
+                'session_state': session,
+                'session': public_session,
+                'meta': meta,
+                'offer_tutor': et.should_offer_tutor(session),
+                'summary': summary,
+                'local_mode': True,
+            })
+
         _ex_model = _gemini.VISION_MODEL if _ex_image_data else _gemini.FAST_MODEL
-        resp = _gemini._client().chat.completions.create(
+        _max_tok = 180 if tutor_mode else (400 if mode == 'answer' else 320)
+        resp = _gemini._tracked_create(
             model=_ex_model,
             messages=ai_messages,
-            max_tokens=550,
+            max_tokens=_max_tok,
         )
         raw = resp.choices[0].message.content or ''
         response, session, meta = et.parse_ai_directives(raw, session)
@@ -10290,16 +11936,68 @@ def api_exercise_chat(request):
         response = _re.sub(r'\*(.+?)\*', r'\1', response)
 
         public_session = et.session_public_view(session, exercise)
+        summary = et.compute_session_summary(session, exercise) if session.get('completed') else None
         return JsonResponse({
             'ok': True,
             'response': response.strip(),
             'session_state': session,
             'session': public_session,
             'meta': meta,
+            'offer_tutor': et.should_offer_tutor(session),
+            'summary': summary,
         })
-    except Exception:
+    except Exception as exc:
         import traceback
         traceback.print_exc()
+        from core.ai_usage import AiBudgetExceeded, budget_exceeded_json
+        try:
+            from openai import AuthenticationError, APIConnectionError, APIStatusError
+        except ImportError:
+            AuthenticationError = APIConnectionError = APIStatusError = tuple()
+        if isinstance(exc, AiBudgetExceeded):
+            return JsonResponse(budget_exceeded_json(exc.reason), status=429)
+        if isinstance(exc, AuthenticationError):
+            if not _ex_image_data:
+                try:
+                    response, session, meta = et.try_local_tutor_response(
+                        exercise, session, user_message, mode, student_name,
+                    )
+                    response, session, meta = et.parse_ai_directives(response, session)
+                    if mode == 'skip' and not meta.get('advance') and not session.get('completed'):
+                        session = et.advance_question(session, 'skipped')
+                    idx = int(session.get('current_index') or 0)
+                    attempts = list(session.get('attempts') or [0] * session.get('total', 1))
+                    while len(attempts) < session.get('total', 1):
+                        attempts.append(0)
+                    if mode == 'answer' and idx < len(attempts):
+                        attempts[idx] = int(attempts[idx] or 0) + 1
+                        session['attempts'] = attempts
+                    import re as _re_loc_auth
+                    response = _re_loc_auth.sub(r'\*\*(.+?)\*\*', r'\1', response)
+                    response = _re_loc_auth.sub(r'\*(.+?)\*', r'\1', response)
+                    public_session = et.session_public_view(session, exercise)
+                    summary = et.compute_session_summary(session, exercise) if session.get('completed') else None
+                    return JsonResponse({
+                        'ok': True,
+                        'response': response.strip(),
+                        'session_state': session,
+                        'session': public_session,
+                        'meta': meta,
+                        'offer_tutor': et.should_offer_tutor(session),
+                        'summary': summary,
+                        'local_mode': True,
+                    })
+                except Exception:
+                    pass
+            return JsonResponse({
+                'error': 'ia_unavailable',
+                'message': 'Le coach IA est temporairement indisponible. Réessaie dans un instant.',
+            }, status=503)
+        if isinstance(exc, (APIConnectionError, APIStatusError)):
+            return JsonResponse({
+                'error': 'ia_unavailable',
+                'message': 'L\'IA est temporairement indisponible. Réessaie dans un instant.',
+            }, status=503)
         _logger.exception('Server error')
         return JsonResponse({'error': 'Erreur interne du serveur.'}, status=500)
 
@@ -10312,20 +12010,26 @@ def api_exercise_chat(request):
 def api_exercise_complete(request):
     """
     Called when a chat-guided exercise session ends with a score.
-    POST: {score: 0-10, subject: str}
-    Increments exercices_resolus and minutes_etude, returns new XP.
+    POST: {score, subject, activity_token}
     """
     try:
         data = json.loads(request.body)
         score = float(data.get('score', 0))
         score = max(0.0, min(10.0, score))  # clamp 0-10
-
-        stats = _get_or_create_stats(request.user)
-        stats.exercices_resolus += 1
-        # Scale study time: 10/10 = 20 min, 5/10 = 10 min, 0/10 = 5 min
-        minutes = max(5, round(score * 2))
-        stats.minutes_etude += minutes
-        stats.save(update_fields=['exercices_resolus', 'minutes_etude'])
+        token = data.get('activity_token')
+        fp = hashlib.sha256(
+            f"{request.user.pk}|{data.get('subject')}|complete|{token}".encode()
+        ).hexdigest()[:32]
+        from core.xp import reward_exercise, get_user_xp
+        xp_res = reward_exercise(
+            request.user, fp, token=token, orphan=False, score_pct=score,
+        )
+        if xp_res.reason not in ('no_token', 'invalid_activity', 'too_fast', 'no_fingerprint'):
+            stats = _get_or_create_stats(request.user)
+            stats.exercices_resolus += 1
+            minutes = max(5, round(score * 2))
+            stats.minutes_etude += minutes
+            stats.save(update_fields=['exercices_resolus', 'minutes_etude'])
 
         _update_streak(request.user)
 
@@ -10350,11 +12054,15 @@ def api_exercise_complete(request):
         except Exception:
             pass
 
-        def calc_xp(s):
-            return s.quiz_completes * 20 + s.exercices_resolus * 50 + s.messages_envoyes * 5
-
-        new_xp = calc_xp(stats)
-        return JsonResponse({'ok': True, 'xp': new_xp, 'exercices_resolus': stats.exercices_resolus})
+        new_xp = get_user_xp(request.user)
+        stats = _get_or_create_stats(request.user)
+        return JsonResponse({
+            'ok': True,
+            'xp': new_xp,
+            'xp_gained': xp_res.amount if xp_res.granted else 0,
+            'xp_reason': xp_res.reason,
+            'exercices_resolus': stats.exercices_resolus,
+        })
     except Exception as e:
         _logger.exception('Server error')
         return JsonResponse({'error': 'Erreur interne du serveur.'}, status=500)
@@ -10416,19 +12124,32 @@ def library_view(request):
                 'count': len(files),
             })
 
-    # Plus de filtrage par sujet - afficher tous les exams de toutes les matières
-    filter_subj = 'all'  # Forcer à 'all' pour ne plus filtrer
+    # Matière active (filtre) — une seule section affichée
+    all_sections = list(library)
+    user_subjs = set()
+    if request.user.is_authenticated:
+        user_subjs = _get_user_serie_subjects(request.user)
+    active_subject = (request.GET.get('subject') or '').strip().lower()
+    available = [s for s in all_sections if not user_subjs or s['subject'] in user_subjs]
+    if not available:
+        available = all_sections
+    if active_subject and any(s['subject'] == active_subject for s in available):
+        library_display = [s for s in available if s['subject'] == active_subject]
+    else:
+        active_subject = available[0]['subject'] if available else ''
+        library_display = available[:1] if available else []
 
-    # Check premium for gating library actions
     user_is_premium = False
     if request.user.is_authenticated:
         from core.premium import is_premium as _is_prem
         user_is_premium = _is_prem(request.user)
 
     return render(request, 'core/library.html', {
-        'library': library,
+        'library': library_display,
+        'library_all': available,
         'mats': MATS,
-        'filter_subj': filter_subj,
+        'active_subject': active_subject,
+        'user_serie_subjects': user_subjs,
         'is_guest': is_guest_user,
         'is_premium': user_is_premium,
     })
@@ -10509,6 +12230,7 @@ def _fetch_duel_questions(subject: str, count: int = 10) -> list:
             import json as _krdj
             _krd_data = _krdj.loads(_krd_file.read_text(encoding='utf-8'))
             _krd_qs = _krd_data.get('quiz', [])
+            _krd_qs = list(_krd_qs)
             if _krd_qs:
                 import random as _krdrnd
                 _krdrnd.shuffle(_krd_qs)
@@ -10547,6 +12269,7 @@ def _fetch_duel_questions(subject: str, count: int = 10) -> list:
         'economie':     'quiz_economie.json',
         'chimie':       'quiz_chimie.json',
         'art':          'quiz_art.json',
+        'maths':        'quiz_math.json',
     }
     if subject in _DUEL_JSON_FILES:
         from pathlib import Path as _djPath
@@ -10554,7 +12277,8 @@ def _fetch_duel_questions(subject: str, count: int = 10) -> list:
         _dj_file = _djPath(__file__).resolve().parent.parent / 'database' / _DUEL_JSON_FILES[subject]
         try:
             _dj_data = _djj.loads(_dj_file.read_text(encoding='utf-8'))
-            _dj_qs   = _dj_data.get('quiz', [])
+            _dj_qs   = _dj_data if isinstance(_dj_data, list) else _dj_data.get('quiz', [])
+            _dj_qs = list(_dj_qs)
             random.shuffle(_dj_qs)
             for _q in _dj_qs[:count]:
                 # Re-shuffle options at serve time for full unpredictability
@@ -10581,9 +12305,42 @@ def _fetch_duel_questions(subject: str, count: int = 10) -> list:
         random.shuffle(questions)
         return questions[:count]
 
-    # ── SPECIAL: Anglais & Espagnol — 100% AI chapter-based (no JSON pool) ──
+    # ── SPECIAL: Anglais & Espagnol — JSON NS4, sinon IA ──
     if subject in ('anglais', 'espagnol'):
-        ai_qs = gemini.generate_quiz_questions(subject, count=count)
+        from pathlib import Path as _langPath
+        import json as _langj
+        _lang_file = _langPath(__file__).resolve().parent.parent / 'database' / f'quiz_{subject}.json'
+        try:
+            _lang_raw = _langj.loads(_lang_file.read_text(encoding='utf-8'))
+            _lang_qs = _lang_raw if isinstance(_lang_raw, list) else _lang_raw.get('quiz', [])
+            random.shuffle(_lang_qs)
+            for _q in _lang_qs:
+                _opts = list(_q.get('options') or [])
+                if len(_opts) < 4:
+                    continue
+                _cidx = {'A': 0, 'B': 1, 'C': 2, 'D': 3}.get(str(_q.get('correct', 'A')).upper(), 0)
+                _ans = _opts[_cidx] if _cidx < len(_opts) else ''
+                random.shuffle(_opts)
+                try:
+                    _rc = _opts.index(_ans)
+                except ValueError:
+                    _rc = 0
+                questions.append({
+                    'enonce':           _q.get('question', ''),
+                    'options':          _opts[:4],
+                    'reponse_correcte': _rc,
+                    'explication':      _q.get('explanation', ''),
+                    'theme':            _q.get('category', subject),
+                    'difficulte':       _q.get('difficulty', 'moyen'),
+                    'source':           f'quiz_{subject}_json',
+                })
+        except Exception:
+            import traceback
+            traceback.print_exc()
+        if len(questions) >= count:
+            random.shuffle(questions)
+            return questions[:count]
+        ai_qs = gemini.generate_quiz_questions(subject, count=count - len(questions))
         for q in (ai_qs or []):
             opts = q.get('options', [])
             if len(opts) < 4:
@@ -10696,13 +12453,22 @@ def api_duel_create(request):
     except Exception:
         return JsonResponse({'error': 'Données invalides'}, status=400)
 
-    if subject not in MATS:
+    if subject != 'aleatoire' and subject not in MATS:
         return JsonResponse({'error': 'Matière invalide'}, status=400)
 
     expires = _tz.now() + timedelta(minutes=15)
     code    = QuizDuel.generate_code()
 
-    questions = _fetch_duel_questions(subject, count=count)
+    if subject == 'aleatoire':
+        from core.matchmaking import _fetch_mixed_questions
+        questions = _fetch_mixed_questions(request.user, count=count)
+        store_subject = 'aleatoire'
+        is_mixed = True
+    else:
+        questions = _fetch_duel_questions(subject, count=count)
+        store_subject = subject
+        is_mixed = False
+
     if not questions:
         # Fallback sans IA: pioche dans la table QuizQuestion si elle est peuplée.
         try:
@@ -10716,14 +12482,16 @@ def api_duel_create(request):
     duel = QuizDuel.objects.create(
         code       = code,
         creator    = request.user,
-        subject    = subject,
+        subject    = store_subject,
         questions  = questions,
         expires_at = expires,
         status     = 'waiting',
+        match_mode = 'private',
+        is_mixed_subjects = is_mixed,
     )
     return JsonResponse({
         'code':       duel.code,
-        'subject':    subject,
+        'subject':    store_subject,
         'total':      len(questions),
         'expires_in': 900,
     })
@@ -10755,6 +12523,9 @@ def api_duel_join(request):
         duel.save(update_fields=['status'])
         return JsonResponse({'error': 'Ce duel a expiré.'}, status=410)
 
+    if duel.is_ghost_opponent:
+        return JsonResponse({'error': 'Ce match est un Génie Fantôme — pas de jointure.'}, status=400)
+
     if duel.status != 'waiting':
         return JsonResponse({'error': 'Ce duel est déjà en cours ou terminé.'}, status=409)
 
@@ -10762,14 +12533,21 @@ def api_duel_join(request):
         return JsonResponse({'error': 'Tu ne peux pas défier toi-même !'}, status=400)
 
     duel.challenger = request.user
-    duel.status     = 'active'
-    duel.save(update_fields=['challenger', 'status'])
+    duel.is_live_race = True
+    duel.save(update_fields=['challenger', 'is_live_race'])
+
+    from core.live_duel import start_live_duel
+    from accounts.names import display_name_for
+    start_live_duel(duel)
+
+    from core.push_events import push_duel_joined
+    push_duel_joined(duel.creator, request.user)
 
     return JsonResponse({
         'code':    duel.code,
         'subject': duel.subject,
         'total':   len(duel.questions),
-        'creator': duel.creator.get_full_name() or duel.creator.username,
+        'creator': display_name_for(request.user, duel.creator),
     })
 
 
@@ -10789,12 +12567,19 @@ def api_duel_state(request):
 
     is_creator    = (duel.creator == request.user)
     is_challenger = (duel.challenger == request.user)
-    if not is_creator and not is_challenger:
+    is_ghost = duel.is_ghost_opponent
+    if not is_creator and not is_challenger and not (is_ghost and is_creator):
         return JsonResponse({'error': 'Accès refusé'}, status=403)
 
     if duel.status == 'waiting' and duel.is_expired():
         duel.status = 'expired'
         duel.save(update_fields=['status'])
+
+    if is_ghost:
+        q_idx = int(request.GET.get('q_idx', 0))
+        from core.matchmaking import sync_ghost_duel_state
+        sync_ghost_duel_state(duel, q_idx)
+        duel.refresh_from_db()
 
     my_score      = duel.creator_score    if is_creator else duel.challenger_score
     opp_score     = duel.challenger_score if is_creator else duel.creator_score
@@ -10802,18 +12587,26 @@ def api_duel_state(request):
     opp_finished  = duel.challenger_finished if is_creator else duel.creator_finished
 
     opponent_name = ''
-    if is_creator and duel.challenger:
-        opponent_name = duel.challenger.get_full_name() or duel.challenger.username
+    opponent_emoji = ''
+    if duel.is_ghost_opponent:
+        opponent_name = duel.ghost_display_name or 'Génie Fantôme'
+        opponent_emoji = duel.ghost_avatar_emoji or '🎓'
+    elif is_creator and duel.challenger:
+        from accounts.names import display_name_for
+        opponent_name = display_name_for(request.user, duel.challenger)
     elif is_challenger:
-        opponent_name = duel.creator.get_full_name() or duel.creator.username
+        from accounts.names import display_name_for
+        opponent_name = display_name_for(request.user, duel.creator)
 
     return JsonResponse({
         'status':        duel.status,
         'my_score':      my_score,
         'opp_score':     opp_score,
         'my_finished':   my_finished,
-        'opp_finished':  opp_finished,
+        'opp_finished':  opp_finished if not is_ghost else duel.challenger_finished,
         'opponent_name': opponent_name,
+        'opponent_emoji': opponent_emoji,
+        'is_ghost':      is_ghost,
         'total':         len(duel.questions),
         'subject':       duel.subject,
         'questions':     duel.questions if duel.status == 'active' else [],
@@ -10858,13 +12651,194 @@ def api_duel_finish(request):
 
     if duel.creator_finished and duel.challenger_finished:
         duel.status = 'finished'
+    elif duel.is_ghost_opponent and duel.creator_finished:
+        plan = duel.ghost_answer_plan or []
+        duel.challenger_score = sum(1 for p in plan if p.get('correct'))
+        duel.challenger_finished = True
+        duel.status = 'finished'
 
     duel.save()
+    if duel.status == 'finished' and duel.challenger_id and not duel.is_ghost_opponent:
+        from core.push_events import push_duel_finished
+        creator_won = (duel.creator_score or 0) > (duel.challenger_score or 0)
+        challenger_won = (duel.challenger_score or 0) > (duel.creator_score or 0)
+        if is_creator:
+            push_duel_finished(duel.challenger, duel.creator, challenger_won)
+        else:
+            push_duel_finished(duel.creator, duel.challenger, creator_won)
     return JsonResponse({'ok': True, 'status': duel.status})
 
 
+
 # ─────────────────────────────────────────────
-# NEW VIEWS FOR FOREIGN LANGUAGE AND PROFILE SUMMARY
+# MATCH ARENA — hub + matchmaking
+# ─────────────────────────────────────────────
+
+@login_required
+def match_view(request):
+    """Hub Match : quick match, privé, tournois Génies."""
+    from django.db.models import Count, Q
+    from core.genius.constants import competition_status_label, registration_status_label
+    from core.genius.models import GeniusCompetition, GeniusRegistration
+    from core.genius.services import bracket_payload
+    from core.genius.services import get_user_active_team
+    from core.matchmaking import online_players_count, recent_duels_for_user
+
+    team = get_user_active_team(request.user)
+    comps = list(
+        GeniusCompetition.objects.filter(
+            status__in=['registration', 'roster_locked', 'in_progress'],
+        ).annotate(
+            registered_count=Count(
+                'registrations',
+                filter=Q(registrations__status__in=['registered', 'roster_locked']),
+            ),
+        ).order_by('-start_date', '-created_at')[:12]
+    )
+    reg_by_comp = {}
+    if team and comps:
+        for reg in GeniusRegistration.objects.filter(
+            competition_id__in=[c.pk for c in comps], team=team,
+        ).only('status', 'competition_id'):
+            reg_by_comp[reg.competition_id] = reg
+
+    competitions = []
+    for comp in comps:
+        reg = reg_by_comp.get(comp.id)
+        bracket = bracket_payload(comp) if comp.status == 'in_progress' else []
+        rounds = {}
+        for node in bracket:
+            rounds.setdefault(node['round_order'], []).append(node)
+        mini_bracket = []
+        if rounds:
+            max_round = max(rounds.keys())
+            for ro in sorted(rounds.keys()):
+                if ro >= max_round - 2 or len(rounds) <= 3:
+                    mini_bracket.append({'round_order': ro, 'nodes': rounds[ro]})
+
+        competitions.append({
+            'id': comp.id,
+            'name': comp.name,
+            'status': comp.status,
+            'status_label': competition_status_label(comp.status),
+            'start_date': comp.start_date,
+            'registered_count': getattr(comp, 'registered_count', 0) or 0,
+            'my_registration': registration_status_label(reg.status) if reg else None,
+            'mini_bracket': mini_bracket,
+        })
+
+    user_subjs = _get_user_serie_subjects(request.user)
+    serie_subjects = [k for k in MATS.keys() if k in user_subjs]
+    subject_choices = [
+        {'key': 'aleatoire', 'label': 'Aléatoire', 'color': '#a78bfa'},
+    ] + [
+        {'key': k, 'label': MATS[k].get('label', k), 'color': MATS[k].get('color', '#10b981')}
+        for k in (serie_subjects or list(MATS.keys())[:6])
+    ]
+
+    return render(request, 'core/match.html', {
+        'mats': MATS,
+        'serie_subjects': serie_subjects,
+        'subject_choices': subject_choices,
+        'online_count': online_players_count(),
+        'recent_duels': recent_duels_for_user(request.user),
+        'competitions': competitions,
+        'has_genius_team': team is not None,
+        'genius_team_name': team.name if team else '',
+    })
+
+
+@login_required
+@require_POST
+def api_match_quick(request):
+    """Entrer en file ou matcher immédiatement."""
+    from core.matchmaking import enter_quick_match
+
+    try:
+        data = json.loads(request.body)
+        subject = (data.get('subject') or 'maths').strip()
+    except Exception:
+        return JsonResponse({'error': 'JSON invalide'}, status=400)
+
+    if subject != 'aleatoire' and subject not in MATS:
+        return JsonResponse({'error': 'Matière invalide'}, status=400)
+
+    result = enter_quick_match(request.user, subject)
+    if result.get('error'):
+        return JsonResponse(result, status=400)
+    return JsonResponse(result)
+
+
+@login_required
+def api_match_poll(request):
+    """Poll file d'attente — pairing humain uniquement."""
+    from core.matchmaking import poll_quick_match
+
+    queue_id = request.GET.get('queue_id')
+    if not queue_id:
+        return JsonResponse({'error': 'queue_id requis'}, status=400)
+    try:
+        queue_id = int(queue_id)
+    except ValueError:
+        return JsonResponse({'error': 'queue_id invalide'}, status=400)
+
+    result = poll_quick_match(request.user, queue_id)
+    if result.get('error'):
+        return JsonResponse(result, status=400)
+    return JsonResponse(result)
+
+
+@login_required
+@require_POST
+def api_match_cancel(request):
+    from core.matchmaking import cancel_user_queue
+
+    cancel_user_queue(request.user)
+    return JsonResponse({'ok': True})
+
+
+@login_required
+def api_match_live_state(request):
+    from core.models import QuizDuel
+    from core.live_duel import live_state_payload
+
+    code = request.GET.get('code', '').strip().upper()
+    if not code:
+        return JsonResponse({'error': 'code requis'}, status=400)
+    try:
+        duel = QuizDuel.objects.get(code=code)
+    except QuizDuel.DoesNotExist:
+        return JsonResponse({'error': 'introuvable'}, status=404)
+
+    payload = live_state_payload(duel, request.user)
+    if payload.get('error'):
+        return JsonResponse(payload, status=403)
+    return JsonResponse(payload)
+
+
+@login_required
+@require_POST
+def api_match_live_answer(request):
+    from core.models import QuizDuel
+    from core.live_duel import submit_live_answer, live_state_payload
+
+    try:
+        data = json.loads(request.body)
+        code = (data.get('code') or '').strip().upper()
+        choice = data.get('choice')
+    except Exception:
+        return JsonResponse({'error': 'JSON invalide'}, status=400)
+
+    try:
+        duel = QuizDuel.objects.get(code=code)
+    except QuizDuel.DoesNotExist:
+        return JsonResponse({'error': 'introuvable'}, status=404)
+
+    result = submit_live_answer(duel, request.user, choice)
+    state = live_state_payload(duel, request.user)
+    return JsonResponse({**state, 'answer': result})
+
+
 # ─────────────────────────────────────────────
 
 @login_required
@@ -10886,12 +12860,14 @@ def api_set_language(request):
 
 
 
-@login_required
 def api_user_profile_summary(request, user_id):
-    """GET: retourne le résumé de profil d'un utilisateur."""
+    """GET: résumé public (pas d'infos sensibles). Guest OK en lecture."""
     from django.contrib.auth.models import User as DUser
     from accounts.models import Friendship
     import datetime
+
+    if not request.user.is_authenticated and not request.session.get('guest_mode'):
+        return JsonResponse({'error': 'auth required'}, status=401)
 
     try:
         target = DUser.objects.select_related('profile').get(id=user_id)
@@ -10938,9 +12914,9 @@ def api_user_profile_summary(request, user_id):
 
     # Relation
     relation = 'aucune'
-    if target.id == request.user.id:
+    if request.user.is_authenticated and target.id == request.user.id:
         relation = 'moi'
-    else:
+    elif request.user.is_authenticated:
         try:
             f = Friendship.objects.filter(
                 models.Q(from_user=request.user, to_user=target) |
@@ -10956,15 +12932,25 @@ def api_user_profile_summary(request, user_id):
         except Exception:
             pass
 
+    from accounts.names import display_name_for, public_name, alias_map_for
+    aliases = alias_map_for(request.user) if request.user.is_authenticated else {}
+    real_name = public_name(target)
+    display = display_name_for(request.user, target, aliases) if request.user.is_authenticated else real_name
+    alias = aliases.get(target.id, '') if relation == 'ami' else ''
+
     return JsonResponse({
         'ok': True,
         'user_id': target.id,
         'prenom': prenom,
         'nom': nom,
+        'username': target.username,
+        'display_name': display,
+        'alias': alias,
+        'real_name': real_name,
         'ecole': ecole,
         'serie': serie,
+        'is_premium': bool(is_premium_user),
         'photo_url': photo_url,
-        'statut_premium': is_premium_user,
         'point_fort': point_fort,
         'point_faible': point_faible,
         'relation': relation,
@@ -10974,65 +12960,70 @@ def api_user_profile_summary(request, user_id):
 @login_required
 @require_POST
 def api_group_chat_quiz_attempt(request):
-    """POST: soumission de réponse à une question directe/quiz du groupe chat."""
+    """POST: correction Extra bèt (sans IA) d'un quiz posté dans le groupe."""
     from accounts.models import GroupMessage, GroupChatQuizAttempt
-    
+    from core.extra_bet_grader import grade_extra_bet_answer
+
     data, _err = _parse_json_body(request)
     if _err:
         return _err
-        
+
     message_id = data.get('message_id')
-    submitted_answer = data.get('answer', '').strip()
-    
+    answer_raw = data.get('answer', '')
+    if isinstance(answer_raw, dict):
+        submitted_answer = json.dumps(answer_raw, ensure_ascii=False)
+    else:
+        submitted_answer = str(answer_raw or '').strip()
+
     try:
         msg = GroupMessage.objects.get(id=message_id)
     except GroupMessage.DoesNotExist:
         return JsonResponse({'error': 'Message introuvable'}, status=404)
-        
+
     if not msg.quiz_data:
         return JsonResponse({'error': "Ce message n'est pas un quiz"}, status=400)
-        
-    expected_answer = msg.quiz_data.get('answer', '')
-    question_text = msg.quiz_data.get('question', '')
-    
-    ai_prompt = (
-        f"En tant que correcteur pédagogique pour le BAC, évalue sémantiquement la réponse de l'élève.\n"
-        f"Question : {question_text}\n"
-        f"Réponse attendue : {expected_answer}\n"
-        f"Réponse de l'élève : {submitted_answer}\n\n"
-        f"Consignes :\n"
-        f"1. Sois indulgent sur la formulation, accepte les variations sémantiques équivalentes.\n"
-        f"2. Réponds au format JSON strict avec deux clés :\n"
-        f"   - \"is_correct\" (booléen) : true si la réponse est sémantiquement correcte, sinon false.\n"
-        f"   - \"explanation\" (string) : une explication pédagogique claire (max 3 phrases) commençant par une ampoule '💡 Explication : '."
+    if not submitted_answer:
+        return JsonResponse({'error': 'Réponse manquante'}, status=400)
+
+    q = msg.quiz_data or {}
+    qtype = str(q.get('question_type') or q.get('type') or 'word').strip().lower()
+    qtype = _GROUP_QUIZ_TYPE_ALIASES.get(qtype, qtype)
+    expected = q.get('answer', '')
+    if isinstance(expected, dict):
+        expected = json.dumps(expected, ensure_ascii=False)
+    options = q.get('options')
+    if options is None:
+        options = q.get('choices') or []
+
+    is_correct, display_answer = grade_extra_bet_answer(
+        submitted_answer, str(expected or ''), qtype, options,
     )
-    
-    is_correct = False
-    explanation = f"💡 Explication : La réponse attendue était : {expected_answer}."
-    
-    try:
-        import json as _json
-        ai_res = gemini._call_json_fast(ai_prompt)
-        res_data = _json.loads(ai_res)
-        is_correct = bool(res_data.get('is_correct', False))
-        explanation = res_data.get('explanation', explanation)
-    except Exception:
-        is_correct = (submitted_answer.lower() == expected_answer.lower())
-        
-    try:
-        attempt, created = GroupChatQuizAttempt.objects.update_or_create(
-            message=msg,
-            user=request.user,
-            defaults={
-                'submitted_answer': submitted_answer,
-                'is_correct': is_correct
-            }
-        )
-    except Exception:
-        pass
-        
+    if is_correct:
+        correction = 'Bonne réponse.'
+    else:
+        correction = f'La réponse attendue : {display_answer}' if display_answer else 'Réponse incorrecte.'
+
+    GroupChatQuizAttempt.objects.update_or_create(
+        message=msg,
+        user=request.user,
+        defaults={
+            'submitted_answer': submitted_answer,
+            'is_correct': is_correct,
+        },
+    )
+    attempts_count = GroupChatQuizAttempt.objects.filter(message=msg).count()
+    correct_count = GroupChatQuizAttempt.objects.filter(message=msg, is_correct=True).count()
+
     return JsonResponse({
         'ok': True,
         'is_correct': is_correct,
-        'correction': explanation
+        'correct_answer': display_answer,
+        'correction': correction,
+        'quiz_stats': {
+            'attempts': attempts_count,
+            'pct': round(100 * correct_count / attempts_count) if attempts_count else 0,
+        },
     })
+
+
+# ─────────────────────────────────────────────────────────────────────────────

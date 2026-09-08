@@ -1,0 +1,23 @@
+Tu es professeur Haïti 9e AF (Espagnol).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "1",
+    "question": "Pedrito no se acuesta tarde",
+    "options": [
+      "porque su mamä no quiere",
+      "porque va a la escuela andando",
+      "para levantarse temprano",
+      "por las clases"
+    ],
+    "source": "exam_espagnol_espagnol-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

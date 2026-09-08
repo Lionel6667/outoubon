@@ -1,25 +1,29 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Inscription – École & Série – OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/auth.css' %}">
+{% endblock %}
 {% block body %}
-<div class="auth-page">
-  <div class="auth-card" style="max-width:480px;">
+<div class="auth-page v2-auth">
+  <div class="auth-card v2-auth-card" style="max-width:480px;">
     <div class="auth-logo"><div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div></div>
 
     
-    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.5rem;">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;opacity:.5;">✓</div>
-        <span style="font-size:.7rem;color:var(--t3);">Infos</span>
+    <div class="v2-steps">
+      <div class="v2-step v2-step--done">
+        <div class="v2-step__dot">✓</div>
+        <span class="v2-step__label">Infos</span>
       </div>
-      <div style="flex:1;height:2px;background:var(--green);max-width:60px;opacity:.5;"></div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">2</div>
-        <span style="font-size:.7rem;color:var(--green);font-weight:600;">École</span>
+      <div class="v2-step__line v2-step__line--done"></div>
+      <div class="v2-step v2-step--active">
+        <div class="v2-step__dot">2</div>
+        <span class="v2-step__label">École</span>
       </div>
-      <div style="flex:1;height:2px;background:var(--border);max-width:60px;"></div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.25rem;">
-        <div style="width:32px;height:32px;border-radius:50%;background:var(--border);color:var(--t3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;">3</div>
-        <span style="font-size:.7rem;color:var(--t3);">Diagnostic</span>
+      <div class="v2-step__line"></div>
+      <div class="v2-step">
+        <div class="v2-step__dot">3</div>
+        <span class="v2-step__label">Diagnostic</span>
       </div>
     </div>
 
@@ -132,8 +136,8 @@
   </div>
 </div>
 
-<div id="loadingOverlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,26,.92);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;">
-  <div style="width:56px;height:56px;border:4px solid rgba(16,185,129,.2);border-top-color:var(--green);border-radius:50%;animation:spinLoad 1s linear infinite;"></div>
+<div id="loadingOverlay" class="v2-overlay">
+  <div class="v2-overlay-spinner"></div>
   <div style="text-align:center;">
     <div style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.4rem;">Génération de tes questions…</div>
     <div style="font-size:.85rem;color:var(--t2);">OU TOU BON prépare ton diagnostic personnalisé avec l'IA.</div>

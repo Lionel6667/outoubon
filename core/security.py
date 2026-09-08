@@ -139,8 +139,30 @@ class RateLimitMiddleware:
         return self.get_response(request)
 
 
+class AiUsageContextMiddleware:
+    """Expose user/guest au tracker d'appels API DeepSeek (thread-local)."""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        from core.ai_usage import set_ai_context, clear_ai_context, infer_feature_from_path
+        guest_key = None
+        if request.session.get('guest_mode'):
+            guest_key = request.session.session_key or _client_ip(request)
+        user = getattr(request, 'user', None)
+        if user is not None and not user.is_authenticated:
+            user = None
+        feature = infer_feature_from_path(request.path)
+        set_ai_context(user=user, guest_key=guest_key, feature=feature)
+        try:
+            return self.get_response(request)
+        finally:
+            clear_ai_context()
+
+
 class UserDailyAiLimitMiddleware:
-    """Plafond journalier de requêtes IA par utilisateur (50/jour, tous plans)."""
+    """Pré-contrôle du plafond journalier avant les endpoints IA (comptage réel dans gemini)."""
 
     def __init__(self, get_response):
         self.get_response = get_response
@@ -151,39 +173,40 @@ class UserDailyAiLimitMiddleware:
         user = getattr(request, 'user', None)
 
         if consumes_ai and user and user.is_authenticated:
-            from core.premium import can_make_ai_request, increment_ai_request, daily_limit_reached_json
+            from core.premium import can_make_ai_request, daily_limit_reached_json
             allowed, _ = can_make_ai_request(user)
             if not allowed:
                 logger.warning("Daily AI limit: user_id=%s path=%s", user.pk, path)
                 return JsonResponse(daily_limit_reached_json(), status=429)
 
-        response = self.get_response(request)
+        if consumes_ai and (not user or not user.is_authenticated) and request.session.get('guest_mode'):
+            from core.ai_usage import (
+                MAX_GUEST_AI_API_CALLS_PER_DAY,
+                budget_exceeded_json,
+                get_guest_api_calls,
+            )
+            guest_key = request.session.session_key or _client_ip(request)
+            if get_guest_api_calls(guest_key) >= MAX_GUEST_AI_API_CALLS_PER_DAY:
+                return JsonResponse(budget_exceeded_json('guest_daily'), status=429)
 
-        if (
-            consumes_ai
-            and user
-            and user.is_authenticated
-            and 200 <= response.status_code < 300
-            and not _ai_counted_by_view(path)
-        ):
-            skip_quota = False
-            try:
-                import json as _json
-                body = getattr(response, 'content', b'') or b''
-                if body:
-                    payload = _json.loads(body.decode('utf-8'))
-                    if payload.get('cached'):
-                        skip_quota = True
-            except Exception:
-                pass
-            if not skip_quota:
-                from core.premium import increment_ai_request
-                try:
-                    increment_ai_request(user)
-                except Exception:
-                    logger.exception("Failed to increment AI usage for user_id=%s", user.pk)
+        return self.get_response(request)
 
-        return response
+
+class AiBudgetExceptionMiddleware:
+    """Convertit AiBudgetExceeded en réponse 429 JSON."""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        try:
+            return self.get_response(request)
+        except Exception as exc:
+            from core.ai_usage import AiBudgetExceeded, budget_exceeded_json
+            if isinstance(exc, AiBudgetExceeded):
+                logger.warning('AI budget exceeded (%s) path=%s', exc.reason, request.path)
+                return JsonResponse(budget_exceeded_json(exc.reason), status=429)
+            raise
 
 
 class SecurityHeadersMiddleware:
@@ -209,7 +232,7 @@ class SecurityHeadersMiddleware:
                 "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; "
                 "font-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.gstatic.com https://use.fontawesome.com https://ka-f.fontawesome.com; "
                 "img-src 'self' data: blob: https://res.cloudinary.com https://*.googleusercontent.com; "
-                "connect-src 'self' https://cdnjs.cloudflare.com https://openfpcdn.io https://api.groq.com https://generativelanguage.googleapis.com https://cloudflareinsights.com; "
+                "connect-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://openfpcdn.io https://api.groq.com https://generativelanguage.googleapis.com https://cloudflareinsights.com; "
                 "frame-src 'none'; "
                 "object-src 'none'; "
                 "base-uri 'self';"

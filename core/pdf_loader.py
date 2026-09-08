@@ -35,6 +35,17 @@ _json_cache_lock = threading.Lock()
 _note_content_cache: dict[tuple, str] = {}  # {(subject, chapter_num): extracted_text}
 _note_cache_lock = threading.Lock()
 
+# UI hybrid peut embarquer le chapitre entier dans la page ; l'IA ne doit jamais recevoir ça.
+NOTE_CHAPTER_UI_MAX_CHARS = 90_000
+NOTE_CHAPTER_AI_MAX_CHARS = 3_000
+CHAPTER_PLANS_FILENAME = 'chapter_plans.json'
+
+_chapter_plans_cache: dict | None = None
+_chapter_plans_lock = threading.Lock()
+
+_hybrid_course_cache: dict[tuple, dict] = {}
+_hybrid_cache_lock = threading.Lock()
+
 
 def _get_json_dir() -> Path:
     """Retourne le dossier database/json/ où sont les JSON pré-exportés."""
@@ -50,12 +61,14 @@ def _load_subject_json(subject: str) -> dict:
         if subject in _json_exam_cache:
             return _json_exam_cache[subject]
         json_file = _get_json_dir() / f'exams_{subject}.json'
-        if not json_file.exists():
-            _json_exam_cache[subject] = {}
-            return {}
+        data = {}
         try:
-            with open(json_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            if json_file.exists():
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+            if not data:
+                _json_exam_cache[subject] = {}
+                return {}
             _json_exam_cache[subject] = data
             n = data.get('total_files', 0)
             chars = data.get('total_chars', 0)
@@ -91,8 +104,9 @@ def _load_chapter_json(subject: str) -> dict:
 
 
 def json_exams_available(subject: str) -> bool:
-    """Retourne True si le fichier JSON pré-exporté existe pour cette matière."""
-    return (_get_json_dir() / f'exams_{subject}.json').exists()
+    """Retourne True si un JSON d'examens NS4 existe pour cette matière."""
+    json_dir = _get_json_dir()
+    return (json_dir / f'exams_{subject}.json').exists()
 
 
 def get_rebuilt_exercise(subject: str, chapter: str = '') -> dict | None:
@@ -749,9 +763,8 @@ def _load_note_chapter_content(subject: str, chapter_num: int) -> str:
     except Exception:
         return get_course_context(subject, max_chars=4000)
 
-    # Keep the whole chapter whenever possible. The tutor prompt now relies on
-    # the complete chapter context instead of a heavily truncated excerpt.
-    MAX_CHARS = 90000
+    # Full chapter for UI/hybrid rendering only — AI paths must use get_note_chapter_ai_context().
+    MAX_CHARS = NOTE_CHAPTER_UI_MAX_CHARS
 
     # ── Plain-text extraction ─────────────────────────────────────────────────
     if fmt in _NOTE_HEADING_RE:
@@ -849,6 +862,217 @@ def get_math_chapter_plan_from_note(chapter_num: int) -> list[str]:
         out.append(title)
 
     return out
+
+
+def _load_chapter_plans_file() -> dict:
+    global _chapter_plans_cache
+    if _chapter_plans_cache is not None:
+        return _chapter_plans_cache
+    with _chapter_plans_lock:
+        if _chapter_plans_cache is not None:
+            return _chapter_plans_cache
+        path = Path(__file__).resolve().parent.parent / 'database' / CHAPTER_PLANS_FILENAME
+        if path.exists():
+            try:
+                _chapter_plans_cache = json.loads(path.read_text(encoding='utf-8-sig', errors='replace'))
+            except Exception:
+                _chapter_plans_cache = {}
+        else:
+            _chapter_plans_cache = {}
+        return _chapter_plans_cache
+
+
+def get_chapter_plan_from_note(subject: str, chapter_num: int) -> list[str]:
+    """Plan pédagogique déterministe — zéro appel IA (sous-chapitres / objectifs du JSON)."""
+    if subject == 'maths':
+        return get_math_chapter_plan_from_note(chapter_num)
+
+    cfg = _SUBJECT_NOTE_CONFIG.get(subject)
+    if not cfg:
+        return []
+
+    filename, fmt = cfg
+    note_file = Path(__file__).resolve().parent.parent / 'database' / filename
+    if not note_file.exists():
+        return []
+
+    try:
+        raw = note_file.read_text(encoding='utf-8-sig', errors='replace')
+        raw_for_json = raw.strip()
+        if raw_for_json.startswith('```'):
+            raw_for_json = re.sub(r'^```\w*\s*', '', raw_for_json)
+            raw_for_json = re.sub(r'\s*```\s*$', '', raw_for_json)
+        data = json.loads(raw_for_json)
+    except Exception:
+        data = None
+
+    if isinstance(data, dict) and fmt == 'json_chapitres':
+        chapters = data.get('chapters') or data.get('chapitres') or []
+        if 1 <= chapter_num <= len(chapters):
+            ch = chapters[chapter_num - 1]
+            if isinstance(ch, dict):
+                subs = ch.get('subchapters') or ch.get('sous_chapitres') or []
+                titles = [
+                    str(s.get('title') or s.get('titre') or '').strip()
+                    for s in subs if isinstance(s, dict)
+                ]
+                titles = [t for t in titles if t and len(t) >= 3]
+                if len(titles) >= 3:
+                    return titles[:15]
+                for key in ('chapter_objectives', 'objectifs', 'objectives'):
+                    objs = ch.get(key) or []
+                    if isinstance(objs, list) and len(objs) >= 3:
+                        return [str(o).strip() for o in objs[:15] if str(o).strip()]
+
+    content = get_note_chapter_content(subject, chapter_num)
+    if content:
+        subs = _split_content_into_subchapters(content[:12_000])
+        titles = [s.get('title', '').strip() for s in subs if s.get('title')]
+        titles = [t for t in titles if t and len(t) >= 3]
+        if len(titles) >= 3:
+            return titles[:15]
+        try:
+            from core import gemini as _gem
+            return _gem._extract_concepts_from_notes(content[:NOTE_CHAPTER_AI_MAX_CHARS], '', limit=15)
+        except Exception:
+            pass
+
+    return []
+
+
+def get_chapter_plan(subject: str, chapter_num: int, chapter_title: str = '') -> list[str]:
+    """Plan de cours statique — fichier chapter_plans.json puis extraction JSON locale."""
+    plans = _load_chapter_plans_file()
+    stored = (plans.get(subject) or {}).get(str(chapter_num))
+    if isinstance(stored, list) and stored:
+        cleaned = [str(x).strip() for x in stored if str(x).strip()]
+        if cleaned:
+            return cleaned[:15]
+
+    derived = get_chapter_plan_from_note(subject, chapter_num)
+    if derived:
+        return derived[:15]
+
+    fallback_title = (chapter_title or '').strip() or f'Chapitre {chapter_num}'
+    return [fallback_title]
+
+
+def get_chapter_summary_context(subject: str, chapter_num: int, max_chars: int = 2500) -> str:
+    """Résumé du chapitre depuis note_*_ai.json (type chapter_summary) — fallback RAG léger."""
+    _AI_MAP = {
+        'maths': 'note_math_ai.json', 'physique': 'note_physique_ai.json',
+        'chimie': 'note_de_Chimie_ai.json', 'svt': 'note_SVT_ai.json',
+        'economie': 'note_economie_ai.json', 'philosophie': 'note_philosophie_ai.json',
+        'francais': 'note_kreyol_ai.json', 'art': 'note_art_ai.json',
+        'histoire': 'note_sc_social_ai.json',
+    }
+    fname = _AI_MAP.get(subject)
+    if not fname:
+        return ''
+    ai_path = Path(__file__).resolve().parent.parent / 'database' / fname
+    if not ai_path.exists():
+        return ''
+    try:
+        blocks = json.loads(ai_path.read_text(encoding='utf-8-sig', errors='replace')).get('blocks', [])
+    except Exception:
+        return ''
+
+    summaries = []
+    for b in blocks:
+        if b.get('type') != 'chapter_summary':
+            continue
+        if chapter_num and b.get('chapter_num') not in (chapter_num, None, 0):
+            continue
+        text = (b.get('content') or '').strip()
+        if text:
+            summaries.append(text)
+
+    if not summaries and chapter_num:
+        for b in blocks:
+            if b.get('chapter_num') == chapter_num and b.get('type') in ('summary', 'chapter_summary'):
+                text = (b.get('content') or '').strip()
+                if text:
+                    summaries.append(text)
+
+    if not summaries:
+        return ''
+
+    combined = '\n\n'.join(summaries[:2])
+    return combined[:max_chars]
+
+
+def get_note_chapter_ai_context(
+    subject: str,
+    chapter_num: int,
+    max_chars: int = NOTE_CHAPTER_AI_MAX_CHARS,
+    query: str = '',
+) -> str:
+    """Contexte cours tronqué pour l'IA — jamais le chapitre UI complet."""
+    if query and query.strip():
+        full = get_note_chapter_content(subject, chapter_num)
+        if full:
+            excerpt = _extract_relevant_note_window(full, query, max_chars=max_chars)
+            if excerpt:
+                return excerpt
+
+    summary = get_chapter_summary_context(subject, chapter_num, max_chars=max_chars)
+    if summary:
+        return summary
+
+    full = get_note_chapter_content(subject, chapter_num)
+    if not full:
+        return ''
+    if len(full) <= max_chars:
+        return full
+
+    intro = re.search(r'(?is)(?:introduction|chapter_introduction).{0,1400}', full)
+    resume = re.search(r'(?is)(?:summary|résumé|resume|synthèse).{0,1400}', full)
+    parts = []
+    if intro:
+        parts.append(intro.group(0).strip())
+    if resume:
+        parts.append(resume.group(0).strip())
+    if parts:
+        return '\n\n'.join(parts)[:max_chars]
+    return full[:max_chars]
+
+
+def _extract_relevant_note_window(note_text: str, query: str, max_chars: int = 3000) -> str:
+    """Fenêtre pertinente dans les notes (même logique que views._extract_relevant_note_section)."""
+    if not note_text or not query:
+        return note_text[:max_chars] if note_text else ''
+
+    import re as _re
+    _stop = {
+        'quoi', 'quel', 'quelle', 'comment', 'pour', 'avec', 'dans', 'sont', 'the', 'what', 'and',
+        'cette', 'cest', 'est', 'bonjour', 'continuer', 'continue', 'merci',
+    }
+    keywords = [w for w in _re.findall(r'\b\w{3,}\b', query.lower()) if w not in _stop]
+    if not keywords:
+        return note_text[:max_chars]
+
+    note_lower = note_text.lower()
+    positions = []
+    for kw in keywords:
+        for m in _re.finditer(_re.escape(kw), note_lower):
+            positions.append(m.start())
+    if not positions:
+        return note_text[:max_chars]
+
+    best_start = 0
+    best_score = -1
+    for cand in sorted(set(max(0, p - 200) for p in positions)):
+        snap = cand
+        last_break = note_text.rfind('\n\n', max(0, cand - 400), cand)
+        if last_break != -1:
+            snap = last_break + 2
+        window_end = snap + max_chars
+        score = sum(1 for p in positions if snap <= p < window_end)
+        if score > best_score:
+            best_score = score
+            best_start = snap
+
+    return note_text[best_start: best_start + max_chars].strip()
 
 
 _MATH_HYBRID_CHUNK_ORDER: tuple[tuple[str, str], ...] = (
@@ -1097,6 +1321,27 @@ def _split_content_into_subchapters(content: str) -> list[dict]:
         'chunks': _split_content_into_chunks(content[:4000]),
         'lesson_context': content[:2200],
     }]
+
+
+def get_hybrid_course_payload(subject: str, chapter_num: int, chapter_title: str = '') -> dict:
+    """Payload hybrid cours — cache RAM (évite re-parse JSON à chaque requête HTTP)."""
+    cache_key = (subject, chapter_num)
+    if cache_key in _hybrid_course_cache:
+        return _hybrid_course_cache[cache_key]
+
+    with _hybrid_cache_lock:
+        if cache_key in _hybrid_course_cache:
+            return _hybrid_course_cache[cache_key]
+        if subject == 'maths':
+            payload = get_math_hybrid_course_payload(chapter_num)
+        else:
+            note_content = get_note_chapter_content(subject, chapter_num) or ''
+            payload = (
+                get_generic_hybrid_course_payload(note_content, chapter_title)
+                if note_content else {}
+            )
+        _hybrid_course_cache[cache_key] = payload
+        return payload
 
 
 def get_generic_hybrid_course_payload(content: str, chapter_title: str = '') -> dict:

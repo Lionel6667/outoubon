@@ -17,6 +17,33 @@ def _local_time(dt):
         return timezone.localtime(dt)
     except Exception:
         return dt
+
+
+def _format_last_seen(profile, now=None):
+    """Texte admin : En ligne ou dernière connexion précise."""
+    if not profile or not profile.last_seen_at:
+        return {'display': '—', 'online': False}
+    now = now or timezone.now()
+    delta = (now - profile.last_seen_at).total_seconds()
+    if delta <= 15 * 60:
+        return {'display': 'En ligne', 'online': True}
+    local = _local_time(profile.last_seen_at)
+    return {
+        'display': local.strftime('%d/%m/%Y %H:%M'),
+        'online': False,
+    }
+
+
+def _haiti_visits_qs():
+    from accounts.visit_tracking import HAITI_COUNTRY
+    return SiteVisit.objects.filter(country_code=HAITI_COUNTRY)
+
+
+def _unique_haiti_visitors_since(start_date, end_date=None):
+    qs = _haiti_visits_qs().filter(visit_date__gte=start_date)
+    if end_date:
+        qs = qs.filter(visit_date__lte=end_date)
+    return qs.values('ip_hash').distinct().count()
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Sum, Count, Q, F
@@ -25,7 +52,7 @@ from django.contrib.auth.models import User
 
 from accounts.models import (
     UserProfile, Payment, Agent, AgentReferral, AgentWithdrawal,
-    AdminMessage, AdminPanelConfig, SiteVisit, DailyUsage,
+    AdminMessage, AdminPanelConfig, SiteVisit, DailyUsage, XpWithdrawal,
 )
 from core.models import ExtraBetPost, ExtraBetAttempt, UserStats
 
@@ -100,27 +127,26 @@ def admin_panel_view(request):
     premium_count = premium_profiles.count()
     premium_pct = round(premium_count / max(total_users, 1) * 100, 1)
 
-    # ── Visits ──
-    visits_today = SiteVisit.objects.filter(visited_at__date=today).count()
-    unique_today = SiteVisit.objects.filter(visited_at__date=today).values('ip_hash').distinct().count()
-    visits_week = SiteVisit.objects.filter(visited_at__date__gte=today - timedelta(days=7)).count()
-    visits_month = SiteVisit.objects.filter(visited_at__date__gte=today - timedelta(days=30)).count()
+    # ── Visiteurs uniques Haïti (1 IP / jour) ──
+    haiti_visits = _haiti_visits_qs()
+    unique_visitors_today = haiti_visits.filter(visit_date=today).values('ip_hash').distinct().count()
+    unique_visitors_week = _unique_haiti_visitors_since(today - timedelta(days=7))
+    unique_visitors_month = _unique_haiti_visitors_since(today - timedelta(days=30))
 
-    # ── Revenue ──
-    # Revenue is computed based on active premium users count (750 G Plan) as most activations are manual
-    rev_total = premium_count * 750
-    rev_today = premium_profiles.filter(user__date_joined__date=today).count() * 750
-    rev_week = premium_profiles.filter(user__date_joined__date__gte=today - timedelta(days=7)).count() * 750
-    rev_month = premium_profiles.filter(user__date_joined__date__gte=today - timedelta(days=30)).count() * 750
+    # ── Revenus (paiements confirmés uniquement) ──
+    completed_payments = Payment.objects.filter(status='completed')
+    rev_total = completed_payments.aggregate(s=Sum('amount'))['s'] or 0
+    rev_today = completed_payments.filter(paid_at__date=today).aggregate(s=Sum('amount'))['s'] or 0
+    rev_week = completed_payments.filter(paid_at__date__gte=today - timedelta(days=7)).aggregate(s=Sum('amount'))['s'] or 0
+    rev_month = completed_payments.filter(paid_at__date__gte=today - timedelta(days=30)).aggregate(s=Sum('amount'))['s'] or 0
 
-    # ── Revenue chart data (last 30 days) ──
-    # Group by student join dates to show chronological active premium signups
+    # ── Revenue chart (paiements réels, 30 jours) ──
     rev_chart_qs = (
-        premium_profiles
-        .filter(user__date_joined__date__gte=today - timedelta(days=30))
-        .annotate(day=TruncDate('user__date_joined'))
+        completed_payments
+        .filter(paid_at__date__gte=today - timedelta(days=30))
+        .annotate(day=TruncDate('paid_at'))
         .values('day')
-        .annotate(total=Count('id'))
+        .annotate(total=Sum('amount'))
         .order_by('day')
     )
     rev_chart_labels = []
@@ -128,11 +154,11 @@ def admin_panel_view(request):
     for r in rev_chart_qs:
         if r['day']:
             rev_chart_labels.append(r['day'].strftime('%d/%m'))
-            rev_chart_data.append(r['total'] * 750)
+            rev_chart_data.append(r['total'] or 0)
 
     if not rev_chart_data:
         rev_chart_labels = [today.strftime('%d/%m')]
-        rev_chart_data = [rev_total]
+        rev_chart_data = [0]
 
     # ── Signups chart (last 30 days — students only) ──
     signups_chart = list(
@@ -163,8 +189,9 @@ def admin_panel_view(request):
     recent_payments = Payment.objects.filter(status='completed').select_related('user').order_by('-created_at')[:30]
 
     # ── Usage stats ──
-    active_today = DailyUsage.objects.filter(date=today).values('user').distinct().count()
-    active_week = DailyUsage.objects.filter(date__gte=today - timedelta(days=7)).values('user').distinct().count()
+    active_today = _student_qs.filter(profile__last_seen_at__date=today).count()
+    active_week = _student_qs.filter(profile__last_seen_at__date__gte=today - timedelta(days=7)).count()
+    students_online = _student_qs.filter(profile__last_seen_at__gte=now - timedelta(minutes=15)).count()
     total_chats = DailyUsage.objects.aggregate(s=Sum('chat_count'))['s'] or 0
     total_quizzes = DailyUsage.objects.aggregate(s=Sum('quiz_count'))['s'] or 0
 
@@ -175,13 +202,13 @@ def admin_panel_view(request):
     extra_bet_posts = ExtraBetPost.objects.count()
     extra_bet_answers = ExtraBetAttempt.objects.count()
 
-    # ── Real-time Active (last 15 min) ──
-    realtime_active = SiteVisit.objects.filter(visited_at__gte=now - timedelta(minutes=15)).values('ip_hash').distinct().count()
+    # ── Real-time visitors Haïti (pages, 15 min) ──
+    visitors_online = haiti_visits.filter(
+        visited_at__gte=now - timedelta(minutes=15)
+    ).values('ip_hash').distinct().count()
 
     # ── Top 5 Leaderboard ──
-    top_users = UserStats.objects.select_related('user', 'user__profile').annotate(
-        xp=F('quiz_completes') * 20 + F('exercices_resolus') * 50 + F('messages_envoyes') * 5
-    ).order_by('-xp')[:5]
+    top_users = UserStats.objects.select_related('user', 'user__profile').order_by('-xp_total')[:5]
 
     # ── Popular Subjects (approximate from recent DailyUsage) ──
     # We look at the last 1000 DailyUsage entries to find which subjects are hot
@@ -206,10 +233,10 @@ def admin_panel_view(request):
         'month_signups': month_signups,
         'premium_count': premium_count,
         'premium_pct': premium_pct,
-        'visits_today': visits_today,
-        'unique_today': unique_today,
-        'visits_week': visits_week,
-        'visits_month': visits_month,
+        'unique_visitors_today': unique_visitors_today,
+        'unique_visitors_week': unique_visitors_week,
+        'unique_visitors_month': unique_visitors_month,
+        'visitors_online': visitors_online,
         'rev_today': rev_today,
         'rev_week': rev_week,
         'rev_month': rev_month,
@@ -233,12 +260,18 @@ def admin_panel_view(request):
         'admin_msgs_count': admin_msgs_count,
         'extra_bet_posts':   extra_bet_posts,
         'extra_bet_answers': extra_bet_answers,
-        'realtime_active':   realtime_active,
+        'students_online': students_online,
         'top_users':         top_users,
         'popular_subjects':  popular_subjects,
         'agents': agents,
         'all_users': all_users,
     }
+    from core.models import SiteSpotlight
+    from core.spotlights import get_home_spotlights
+    context['spotlights'] = list(SiteSpotlight.objects.filter(kind=SiteSpotlight.KIND_LAUREATE)[:40])
+    context['hall_live'] = get_home_spotlights()
+    context['xp_withdrawals'] = list(XpWithdrawal.objects.select_related('user').all()[:40])
+    context['pending_xp_withdrawals'] = list(XpWithdrawal.objects.filter(status='pending').select_related('user'))
     return render(request, 'core/admin_panel.html', context)
 
 
@@ -315,6 +348,8 @@ def api_admin_send_message(request):
         users = User.objects.filter(is_active=True, is_superuser=False).exclude(id__in=_agent_ids_msg)
         for u in users:
             AdminMessage.objects.create(receiver=u, content=_personalize(content, u))
+        from core.push_events import push_admin_announcement
+        push_admin_announcement([u.id for u in users], content)
         return JsonResponse({'ok': True, 'count': users.count()})
     else:
         if not receiver_id:
@@ -324,6 +359,8 @@ def api_admin_send_message(request):
         except User.DoesNotExist:
             return JsonResponse({'error': 'Utilisateur introuvable'}, status=404)
         AdminMessage.objects.create(receiver=receiver, content=_personalize(content, receiver))
+        from core.push_events import push_admin_announcement
+        push_admin_announcement([receiver.id], content)
         return JsonResponse({'ok': True})
 
 
@@ -354,6 +391,7 @@ def api_admin_users(request):
     results = []
     for u in users:
         p = getattr(u, 'profile', None)
+        seen = _format_last_seen(p)
         results.append({
             'id': u.id,
             'username': u.username,
@@ -365,7 +403,8 @@ def api_admin_users(request):
             'is_premium': p.is_premium if p else False,
             'expiration': p.plan_expiration.strftime('%d/%m/%Y') if p and p.plan_expiration else None,
             'joined': _local_time(u.date_joined).strftime('%d/%m/%Y %H:%M'),
-            'last_active': _local_time(p.last_activity).strftime('%d/%m/%Y') if p and p.last_activity else None,
+            'last_active': seen['display'],
+            'is_online': seen['online'],
         })
 
     return JsonResponse({
@@ -397,8 +436,13 @@ def api_admin_stats_chart(request):
         .order_by('day')
     )
 
+    from accounts.models import Agent as _AgentChart
     signups = list(
-        User.objects.filter(date_joined__date__gte=start, is_superuser=False)
+        User.objects.filter(
+            date_joined__date__gte=start,
+            is_superuser=False,
+            is_active=True,
+        ).exclude(id__in=_AgentChart.objects.values_list('user_id', flat=True))
         .annotate(day=TruncDate('date_joined'))
         .values('day')
         .annotate(count=Count('id'))
@@ -490,8 +534,9 @@ def api_admin_user_detail(request):
 
     xp = 0
     if s:
-        xp = s.quiz_completes * 20 + s.exercices_resolus * 50 + s.messages_envoyes * 5 + getattr(s, 'minutes_etude', 0) // 10
+        xp = int(getattr(s, 'xp_total', 0) or 0)
 
+    seen = _format_last_seen(p)
     return JsonResponse({
         'id': user.id,
         'username': user.username,
@@ -505,7 +550,8 @@ def api_admin_user_detail(request):
         'expiration': p.plan_expiration.strftime('%d/%m/%Y') if p and p.plan_expiration else None,
         'streak': p.streak if p else 0,
         'joined': _local_time(user.date_joined).strftime('%d/%m/%Y'),
-        'last_active': _local_time(p.last_activity).strftime('%d/%m/%Y') if p and p.last_activity else None,
+        'last_active': seen['display'],
+        'is_online': seen['online'],
         'xp': xp,
         'quiz_completes': s.quiz_completes if s else 0,
         'exercices_resolus': s.exercices_resolus if s else 0,
@@ -531,14 +577,14 @@ def api_admin_users_by_type(request):
     if filter_type == 'premium':
         qs = qs.filter(profile__plan_expiration__gte=today)
     elif filter_type == 'active':
-        # Actifs ces 15 dernières minutes (visite récente) ou dernière activité récente
-        qs = qs.filter(profile__last_activity__gte=now - timedelta(minutes=15))
+        qs = qs.filter(profile__last_seen_at__gte=now - timedelta(minutes=15))
 
-    users = qs[:200]  # Limite raisonnable pour la modale
+    users = qs[:200]
 
     results = []
     for u in users:
         p = getattr(u, 'profile', None)
+        seen = _format_last_seen(p, now)
         results.append({
             'id': u.id,
             'username': u.username,
@@ -549,7 +595,8 @@ def api_admin_users_by_type(request):
             'serie': p.serie if p else '',
             'is_premium': p.is_premium if p else False,
             'joined': _local_time(u.date_joined).strftime('%d/%m/%Y'),
-            'last_active': _local_time(p.last_activity).strftime('%d/%m/%Y %H:%M') if p and p.last_activity else None,
+            'last_active': seen['display'],
+            'is_online': seen['online'],
         })
 
     return JsonResponse({
@@ -557,4 +604,93 @@ def api_admin_users_by_type(request):
         'total': qs.count(),
         'type': filter_type,
     })
+
+
+@_require_admin
+def api_admin_ai_usage(request):
+    """Solde DeepSeek + conso IA (aujourd'hui / 7j / période) et plus gros utilisateurs."""
+    try:
+        days = int(request.GET.get('days') or 30)
+    except (TypeError, ValueError):
+        days = 30
+    from core.ai_usage import get_ai_ops_dashboard
+    return JsonResponse(get_ai_ops_dashboard(days))
+
+
+@_require_admin
+def api_admin_xp_withdrawal(request):
+    if request.method != 'POST':
+        return JsonResponse({'error': 'POST only'}, status=405)
+    try:
+        data = json.loads(request.body)
+    except (json.JSONDecodeError, ValueError):
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    from core.xp import settle_xp_withdrawal
+    try:
+        w = XpWithdrawal.objects.select_related('user').get(pk=data.get('id'))
+    except XpWithdrawal.DoesNotExist:
+        return JsonResponse({'error': 'Introuvable'}, status=404)
+    if not settle_xp_withdrawal(w, data.get('action') or '', data.get('note') or ''):
+        return JsonResponse({'error': 'Déjà traité'}, status=400)
+    return JsonResponse({'ok': True})
+
+
+@_require_admin
+def api_admin_spotlight(request):
+    from core.models import SiteSpotlight
+    from core.spotlights import bust_spotlight_cache
+    if request.method == 'POST':
+        action = request.POST.get('action') or ''
+        if not action:
+            try:
+                payload = json.loads(request.body or '{}')
+            except (json.JSONDecodeError, ValueError):
+                payload = {}
+            action = payload.get('action') or ''
+            sid = payload.get('id')
+        else:
+            payload = {'id': request.POST.get('id')}
+            sid = request.POST.get('id')
+        if not action and request.POST.get('title'):
+            action = 'create'
+        if action == 'delete':
+            SiteSpotlight.objects.filter(pk=sid).delete()
+            bust_spotlight_cache()
+            return JsonResponse({'ok': True})
+        if action == 'toggle':
+            s = SiteSpotlight.objects.filter(pk=sid).first()
+            if not s:
+                return JsonResponse({'error': 'Introuvable'}, status=404)
+            s.is_published = not s.is_published
+            s.save(update_fields=['is_published'])
+            bust_spotlight_cache()
+            return JsonResponse({'ok': True, 'is_published': s.is_published})
+        # create
+        kind = request.POST.get('kind') or ''
+        title = (request.POST.get('title') or '').strip()
+        if kind != SiteSpotlight.KIND_LAUREATE or not title:
+            return JsonResponse({'error': 'Le portrait manuel sert uniquement au lauréat du site (1 an).'}, status=400)
+        try:
+            pin_order = max(0, int(request.POST.get('pin_order') or 0))
+        except (TypeError, ValueError):
+            pin_order = 0
+        s = SiteSpotlight(
+            kind=kind,
+            title=title[:140],
+            subtitle=(request.POST.get('subtitle') or '')[:180],
+            school=(request.POST.get('school') or '')[:180],
+            serie=(request.POST.get('serie') or '')[:40],
+            score=(request.POST.get('score') or '')[:40],
+            body=request.POST.get('body') or '',
+            academic_year=(request.POST.get('academic_year') or '2025-2026')[:16],
+            week_label=(request.POST.get('week_label') or '')[:80],
+            pin_order=pin_order,
+            is_published=request.POST.get('is_published') in ('1', 'on', 'true', 'True'),
+        )
+        if request.FILES.get('photo'):
+            s.photo = request.FILES['photo']
+        s.save()
+        bust_spotlight_cache()
+        return JsonResponse({'ok': True, 'id': s.pk})
+    return JsonResponse({'error': 'POST only'}, status=405)
 

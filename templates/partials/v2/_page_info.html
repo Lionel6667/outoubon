@@ -1,0 +1,15 @@
+{% if info_body %}
+<section class="otb-page-info" data-otb-info="{{ info_key }}">
+  {% if info_title %}<h3 class="otb-page-info__title">{{ info_title }}</h3>{% endif %}
+  <p class="otb-page-info__body"{% if info_i18n %} data-i18n="{{ info_i18n }}"{% endif %}>{{ info_body }}</p>
+</section>
+<div class="otb-info-modal" data-otb-info-modal="{{ info_key }}" hidden>
+  <div class="otb-info-modal__backdrop" data-otb-info-close></div>
+  <div class="otb-info-modal__box" role="dialog" aria-modal="true">
+    <button type="button" class="otb-info-modal__close" data-otb-info-close aria-label="Fermer"><i class="fas fa-times"></i></button>
+    {% if info_title %}<h2>{{ info_title }}</h2>{% endif %}
+    <p{% if info_i18n %} data-i18n="{{ info_i18n }}"{% endif %}>{{ info_body }}</p>
+    <button type="button" class="otb-info-modal__ok" data-otb-info-close>Compris</button>
+  </div>
+</div>
+{% endif %}

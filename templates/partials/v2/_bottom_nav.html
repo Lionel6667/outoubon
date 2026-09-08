@@ -1,0 +1,28 @@
+{% load static %}
+<nav id="v2BottomNav" class="v2-bottom-nav" aria-label="Navigation principale" role="navigation">
+  <a href="{% url 'dashboard' %}" class="v2-bottom-nav__item" data-hub="accueil" title="Accueil">
+    <span class="v2-bottom-nav__icon-wrap" aria-hidden="true"><i class="fas fa-home"></i></span>
+    <span>Accueil</span>
+  </a>
+  <a href="{% url 'cours' %}" class="v2-bottom-nav__item" data-hub="apprendre" title="Apprendre">
+    <span class="v2-bottom-nav__icon-wrap" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
+    <span>Apprendre</span>
+  </a>
+  <a href="{% url 'match' %}" class="v2-bottom-nav__item" data-hub="match" title="Match">
+    <span class="v2-bottom-nav__icon-wrap" aria-hidden="true"><i class="fas fa-trophy"></i></span>
+    <span>Match</span>
+  </a>
+  <a href="{% url 'chat' %}" class="v2-bottom-nav__item v2-bottom-nav__item--astra" data-hub="astra" title="{{ coach_name|default:'Chat IA' }}">
+    <span class="v2-bottom-nav__icon-wrap" aria-hidden="true"><i class="fas fa-robot"></i></span>
+    <span class="otb-coach-nav-label">{{ coach_nav_label|default:"Chat IA" }}</span>
+    <span class="otb-coach-name" style="display:none;">{{ coach_name|default:"Chat IA" }}</span>
+  </a>
+  <a href="{% url 'amis' %}" class="v2-bottom-nav__item" data-hub="messages" title="Messages">
+    <span class="v2-bottom-nav__icon-wrap" aria-hidden="true">
+      <i class="fas fa-comments"></i>
+      <span class="v2-bottom-nav__badge" data-otb-nav-badge="messages"{% if not unread_msg_count %} hidden{% endif %}>{% if unread_msg_count %}+{{ unread_msg_count }}{% endif %}</span>
+      <span class="v2-bottom-nav__dot" data-otb-nav-dot="messages"{% if not unread_msg_dot %} hidden{% endif %}></span>
+    </span>
+    <span>Messages</span>
+  </a>
+</nav>

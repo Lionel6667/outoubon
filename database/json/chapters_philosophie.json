@@ -9,14 +9,18 @@
       "matiere": "PHILOSOPHIE",
       "source_pdf": "",
       "pages": [],
-      "text": "",
+      "text": "Contenus du programme :\n• Les sources de la connaissance : raison, experience, intuition\n• Le rationalisme et l'empirisme\n• La verite : criteres et limites\n• La science et la methode scientifique\n• Le doute cartesien et le cogito",
       "contenus": [
         "Les sources de la connaissance : raison, experience, intuition",
         "Le rationalisme et l'empirisme",
         "La verite : criteres et limites",
         "La science et la methode scientifique",
         "Le doute cartesien et le cogito"
-      ]
+      ],
+      "competences": [],
+      "definitions": [],
+      "structured": true,
+      "cleaned": true
     },
     {
       "num": 2,
@@ -24,14 +28,18 @@
       "matiere": "PHILOSOPHIE",
       "source_pdf": "",
       "pages": [],
-      "text": "",
+      "text": "Contenus du programme :\n• La conscience : definition et proprietes\n• Conscience et inconscient (Freud)\n• L'identite personnelle et le moi\n• Autrui : la reconnaissance de l'autre\n• Le corps et l'esprit : dualisme et monisme",
       "contenus": [
         "La conscience : definition et proprietes",
         "Conscience et inconscient (Freud)",
         "L'identite personnelle et le moi",
         "Autrui : la reconnaissance de l'autre",
         "Le corps et l'esprit : dualisme et monisme"
-      ]
+      ],
+      "competences": [],
+      "definitions": [],
+      "structured": true,
+      "cleaned": true
     },
     {
       "num": 3,
@@ -39,14 +47,18 @@
       "matiere": "PHILOSOPHIE",
       "source_pdf": "",
       "pages": [],
-      "text": "",
+      "text": "Contenus du programme :\n• Le determinisme et le libre arbitre\n• La liberte comme condition humaine (Sartre)\n• La liberte et la responsabilite\n• Liberte interieure et liberte politique\n• La liberte et le destin",
       "contenus": [
         "Le determinisme et le libre arbitre",
         "La liberte comme condition humaine (Sartre)",
         "La liberte et la responsabilite",
         "Liberte interieure et liberte politique",
         "La liberte et le destin"
-      ]
+      ],
+      "competences": [],
+      "definitions": [],
+      "structured": true,
+      "cleaned": true
     },
     {
       "num": 4,
@@ -54,14 +66,18 @@
       "matiere": "PHILOSOPHIE",
       "source_pdf": "",
       "pages": [],
-      "text": "",
+      "text": "Contenus du programme :\n• Les fondements de la morale\n• L'ethique kantienne : l'imperatif categorique\n• L'utilitarisme et la morale des consequences\n• Le devoir, la conscience morale et la culpabilite\n• La justice et l'equite",
       "contenus": [
         "Les fondements de la morale",
         "L'ethique kantienne : l'imperatif categorique",
         "L'utilitarisme et la morale des consequences",
         "Le devoir, la conscience morale et la culpabilite",
         "La justice et l'equite"
-      ]
+      ],
+      "competences": [],
+      "definitions": [],
+      "structured": true,
+      "cleaned": true
     },
     {
       "num": 5,
@@ -69,14 +85,18 @@
       "matiere": "PHILOSOPHIE",
       "source_pdf": "",
       "pages": [],
-      "text": "",
+      "text": "Contenus du programme :\n• L'origine et les fondements de l'Etat\n• Le contrat social (Rousseau, Hobbes, Locke)\n• La democratie et ses formes\n• Le pouvoir : legitimite et autorite\n• Justice sociale et droits de l'homme",
       "contenus": [
         "L'origine et les fondements de l'Etat",
         "Le contrat social (Rousseau, Hobbes, Locke)",
         "La democratie et ses formes",
         "Le pouvoir : legitimite et autorite",
         "Justice sociale et droits de l'homme"
-      ]
+      ],
+      "competences": [],
+      "definitions": [],
+      "structured": true,
+      "cleaned": true
     },
     {
       "num": 6,
@@ -84,14 +104,18 @@
       "matiere": "PHILOSOPHIE",
       "source_pdf": "",
       "pages": [],
-      "text": "",
+      "text": "Contenus du programme :\n• La condition humaine et le sens de l'existence\n• Le temps : duree, memoire et avenir\n• La mort et l'angoisse existentielle\n• Le bonheur : hedonisme, eudemonisme, stoicisme\n• Le travail et la technique comme realisation humaine",
       "contenus": [
         "La condition humaine et le sens de l'existence",
         "Le temps : duree, memoire et avenir",
         "La mort et l'angoisse existentielle",
         "Le bonheur : hedonisme, eudemonisme, stoicisme",
         "Le travail et la technique comme realisation humaine"
-      ]
+      ],
+      "competences": [],
+      "definitions": [],
+      "structured": true,
+      "cleaned": true
     },
     {
       "num": 7,
@@ -99,14 +123,20 @@
       "matiere": "PHILOSOPHIE",
       "source_pdf": "",
       "pages": [],
-      "text": "",
+      "text": "Contenus du programme :\n• La religion : definition, fonctions et critiques\n• Foi et raison\n• L'art : nature et fonctions\n• Le beau et l'esthetique\n• La culture : humanisation de l'homme et identite culturelle",
       "contenus": [
         "La religion : definition, fonctions et critiques",
         "Foi et raison",
         "L'art : nature et fonctions",
         "Le beau et l'esthetique",
         "La culture : humanisation de l'homme et identite culturelle"
-      ]
+      ],
+      "competences": [],
+      "definitions": [],
+      "structured": true,
+      "cleaned": true
     }
-  ]
+  ],
+  "cleaned_at": "2026-08-12 03:18",
+  "clean_version": 1
 }

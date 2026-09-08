@@ -557,6 +557,164 @@
 }
 .avancement-input:focus { border-color:var(--orange,#f97316); }
 .avancement-formula { color:var(--t3); font-style:italic; font-size:.77rem; }
+
+/* ── Sprint 2 : Mode Examen Immersif ─────────────────────────────────────── */
+.exam-immersive-bar {
+  position:fixed; top:0; left:0; right:0; z-index:600;
+  display:none; align-items:center; gap:.75rem 1.25rem;
+  padding:.55rem 1.25rem;
+  background:rgba(8,15,30,.92); backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(37,99,235,.35);
+  box-shadow:0 4px 24px rgba(0,0,0,.45);
+  flex-wrap:wrap;
+}
+.exam-immersive-bar.active { display:flex; }
+.eib-left { display:flex; align-items:center; gap:.6rem; min-width:0; }
+.eib-subject { font-size:.78rem; font-weight:800; color:var(--t2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:180px; }
+.eib-zen-btn {
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  color:var(--t2); border-radius:9px; padding:.35rem .65rem; font-size:.72rem;
+  font-weight:700; cursor:pointer; display:flex; align-items:center; gap:.35rem;
+  transition:all .2s;
+}
+.eib-zen-btn:hover, .eib-zen-btn.on { background:rgba(37,99,235,.2); border-color:rgba(37,99,235,.4); color:#93c5fd; }
+.eib-center { flex:1; display:flex; align-items:center; gap:.85rem; min-width:200px; }
+.eib-timer {
+  font-size:1.35rem; font-weight:900; font-variant-numeric:tabular-nums;
+  font-family:'Courier New',monospace; color:var(--green); letter-spacing:.05em;
+  min-width:5.5rem; transition:color .3s;
+}
+.eib-timer.warn { color:var(--yellow); }
+.eib-timer.danger { color:var(--red); animation:timer-pulse .7s infinite; }
+.eib-progress-wrap { flex:1; min-width:100px; }
+.eib-progress-track { height:6px; background:rgba(255,255,255,.08); border-radius:4px; overflow:hidden; }
+.eib-progress-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--blue2),var(--green)); border-radius:4px; transition:width .4s ease; }
+.eib-progress-pct { font-size:.72rem; font-weight:800; color:var(--blue2); min-width:2.5rem; text-align:right; }
+.eib-right { display:flex; align-items:center; gap:.5rem; margin-left:auto; }
+.eib-mau-btn {
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15);
+  color:var(--t1); border-radius:9px; padding:.4rem .85rem; font-size:.78rem;
+  font-weight:700; cursor:pointer; display:flex; align-items:center; gap:.4rem;
+}
+.eib-mau-btn.open { background:rgba(37,99,235,.25); border-color:rgba(37,99,235,.5); color:#93c5fd; }
+.eib-submit-btn {
+  background:var(--green); border:none; border-radius:9px; color:#000;
+  padding:.4rem 1rem; font-size:.78rem; font-weight:800; cursor:pointer;
+}
+body.exam-zen .sidebar, body.exam-zen .topbar { display:none !important; }
+body.exam-zen .main { margin-left:0 !important; width:100% !important; }
+body.exam-zen .exam-immersive-bar { left:0; }
+#examSheet.exam-active { padding-top:3.25rem; transition:padding .3s; }
+body.mau-open #examMainCol { margin-right:min(460px,94vw); transition:margin .35s cubic-bezier(.4,0,.2,1); }
+
+/* Mise au net — panneau latéral */
+#miseAuNetFace {
+  position:fixed; top:3.25rem; right:0; bottom:0; width:min(460px,94vw);
+  z-index:550; display:none; flex-direction:column;
+  transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow:-12px 0 48px rgba(0,0,0,.55);
+}
+#miseAuNetFace.mau-open { display:flex; transform:translateX(0); }
+#miseAuNetFace .mau-page-wrap { border-radius:0; min-height:100%; flex:1; display:flex; flex-direction:column; overflow:hidden; }
+#miseAuNetFace .mau-body { flex:1; overflow-y:auto; }
+#miseAuNetFace .mau-side-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.65rem 1rem; background:#0f2747; border-bottom:1px solid rgba(37,99,235,.3);
+  color:#e2e8f0; font-size:.8rem; font-weight:800;
+}
+#miseAuNetFace .mau-close-btn {
+  background:none; border:1px solid rgba(255,255,255,.2); color:#94a3b8;
+  border-radius:8px; padding:.25rem .55rem; cursor:pointer; font-size:.75rem;
+}
+.mau-body { border-left:3px solid #e2e8f0; margin-left:2rem; padding-left:1.5rem !important; }
+
+/* Dashboard résultats */
+.results-dashboard { max-width:820px; margin:0 auto; }
+.results-hero {
+  text-align:center; padding:2rem 1.5rem 1.5rem;
+  background:linear-gradient(160deg,rgba(37,99,235,.12),rgba(16,185,129,.08));
+  border:1px solid rgba(37,99,235,.25); border-radius:20px; margin-bottom:1.25rem;
+  position:relative; overflow:hidden;
+}
+.results-hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(16,185,129,.12),transparent);
+  pointer-events:none;
+}
+.results-score-big { font-size:3.25rem; font-weight:900; line-height:1; margin:.35rem 0; }
+.results-mention { font-size:1.05rem; font-weight:800; margin-bottom:.25rem; }
+.results-sub { font-size:.82rem; color:var(--t3); line-height:1.5; }
+.results-bars { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.25rem; }
+.results-bar-card {
+  background:var(--card); border:1px solid var(--border2); border-radius:14px; padding:1rem 1.15rem;
+}
+.results-bar-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--t3); margin-bottom:.5rem; }
+.results-bar-val { font-size:1.1rem; font-weight:900; margin-bottom:.45rem; }
+.results-bar-track { height:8px; background:rgba(255,255,255,.07); border-radius:5px; overflow:hidden; }
+.results-bar-fill-a { height:100%; background:linear-gradient(90deg,#3b82f6,#60a5fa); border-radius:5px; transition:width .8s ease; }
+.results-bar-fill-b { height:100%; background:linear-gradient(90deg,#8b5cf6,#a78bfa); border-radius:5px; transition:width .8s ease; }
+.corr-loader {
+  text-align:center; padding:2rem 1rem;
+  background:rgba(37,99,235,.06); border:1px solid rgba(37,99,235,.2); border-radius:16px;
+}
+.corr-loader-steps { display:flex; justify-content:center; gap:1.5rem; margin-top:1rem; flex-wrap:wrap; }
+.corr-loader-step { font-size:.75rem; color:var(--t3); display:flex; align-items:center; gap:.4rem; }
+.corr-loader-step.active { color:var(--blue2); font-weight:700; }
+.corr-loader-step.done { color:var(--green); }
+.corr-accordion { margin-top:1rem; }
+.corr-acc-item { border:1px solid var(--border2); border-radius:12px; margin-bottom:.5rem; overflow:hidden; background:var(--card); }
+.corr-acc-header {
+  display:flex; align-items:center; gap:.65rem; padding:.85rem 1rem; cursor:pointer;
+  font-size:.84rem; font-weight:700; transition:background .15s;
+}
+.corr-acc-header:hover { background:rgba(255,255,255,.03); }
+.corr-acc-body { display:none; padding:0 1rem 1rem; font-size:.83rem; line-height:1.65; color:var(--t2); border-top:1px solid var(--border2); }
+.corr-acc-item.open .corr-acc-body { display:block; padding-top:.85rem; }
+.corr-acc-chevron { margin-left:auto; color:var(--t3); transition:transform .2s; }
+.corr-acc-item.open .corr-acc-chevron { transform:rotate(180deg); }
+.results-reco {
+  margin-top:1.25rem; padding:1rem 1.15rem;
+  background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.2); border-radius:14px;
+}
+.results-reco h4 { font-size:.78rem; font-weight:800; text-transform:uppercase; color:var(--orange); margin-bottom:.65rem; }
+.results-reco ul { margin:0; padding-left:1.1rem; font-size:.84rem; color:var(--t2); line-height:1.7; }
+#confettiCanvas { position:fixed; inset:0; pointer-events:none; z-index:9999; }
+
+@media (max-width:768px) {
+  .results-bars { grid-template-columns:1fr; }
+  body.mau-open #examMainCol { margin-right:0; }
+  #miseAuNetFace { width:100%; max-width:100vw; top:0; z-index:700; }
+  #miseAuNetFace .mau-body { margin-left:0; padding-left:1rem !important; border-left:none; }
+  #miseAuNetFace .mau-info-row { gap:.75rem; }
+  #miseAuNetFace .mau-info-field { min-width:0; flex:1 1 45%; }
+  .mau-backdrop {
+    display:none; position:fixed; inset:0; z-index:690;
+    background:rgba(0,0,0,.55); backdrop-filter:blur(3px);
+  }
+  body.mau-open .mau-backdrop { display:block; }
+  .exam-immersive-bar {
+    padding:.45rem .65rem;
+    gap:.4rem .6rem;
+    padding-top:calc(.45rem + env(safe-area-inset-top, 0px));
+  }
+  .eib-left { flex:1 1 auto; min-width:0; }
+  .eib-subject { max-width:42vw; font-size:.72rem; }
+  .eib-zen-btn { padding:.3rem .5rem; font-size:.68rem; }
+  .eib-zen-btn span.eib-btn-label, .eib-mau-btn span.eib-btn-label, .eib-submit-btn span.eib-btn-label { display:none; }
+  .eib-center { flex:1 1 100%; order:3; min-width:0; gap:.5rem; }
+  .eib-timer { font-size:1.05rem; min-width:4.5rem; }
+  .eib-progress-wrap { min-width:0; }
+  .eib-right { gap:.35rem; margin-left:0; }
+  .eib-mau-btn, .eib-submit-btn { padding:.38rem .6rem; font-size:.72rem; }
+  #examSheet.exam-active { padding-top:calc(5.5rem + env(safe-area-inset-top, 0px)); }
+  .results-score-big { font-size:2.5rem; }
+  .results-hero { padding:1.5rem 1rem; }
+}
+@media (max-width:480px) {
+  .exam-immersive-bar { flex-wrap:wrap; }
+  .eib-submit-btn { padding:.38rem .75rem; }
+  .eib-mau-btn i, .eib-submit-btn i { margin-right:0; }
+}
 </style>
 
 <div class="app has-topbar">
@@ -599,6 +757,31 @@
       
       <div id="examSheet" style="display:none;width:100%;margin:0 auto;" class="exam-flip-wrap">
 
+        <div id="examImmersiveBar" class="exam-immersive-bar">
+          <div class="eib-left">
+            <button type="button" class="eib-zen-btn" id="zenModeBtn" onclick="toggleZenMode()" title="Mode focus">
+              <i class="fas fa-expand"></i> <span class="eib-btn-label">Zen</span>
+            </button>
+            <span class="eib-subject" id="eibSubject">Examen</span>
+          </div>
+          <div class="eib-center">
+            <div class="eib-timer" id="eibTimer">3:00:00</div>
+            <div class="eib-progress-wrap">
+              <div class="eib-progress-track"><div class="eib-progress-fill" id="eibAnswerFill"></div></div>
+            </div>
+            <span class="eib-progress-pct" id="eibAnswerPct">0%</span>
+          </div>
+          <div class="eib-right">
+            <button type="button" class="eib-mau-btn" id="eibMauBtn" onclick="toggleMauPanel()">
+              <i class="fas fa-file-alt"></i> <span class="eib-btn-label">Mise au net</span>
+            </button>
+            <button type="button" class="eib-submit-btn" onclick="submitExam()">
+              <i class="fas fa-paper-plane"></i> <span class="eib-btn-label">Terminer</span>
+            </button>
+          </div>
+        </div>
+
+        <canvas id="confettiCanvas" style="display:none;"></canvas>
         
         
         <div id="stickyTimer" style="position:fixed;top:1rem;right:1rem;z-index:300;display:none;flex-direction:column;align-items:flex-end;gap:.35rem;">
@@ -624,6 +807,7 @@
         </div>
 
         
+        <div id="examMainCol">
         <div id="examFace">
           <div class="exam-sheet" id="examSheetContent" translate="no"></div>
           <input type="hidden" id="_examCoeffStore" value="">
@@ -647,9 +831,15 @@
             </button>
           </div>
         </div>
+        </div>
 
         
+        <div id="mauBackdrop" class="mau-backdrop" onclick="toggleMauPanel(false)" aria-hidden="true"></div>
         <div id="miseAuNetFace">
+          <div class="mau-side-header">
+            <span><i class="fas fa-file-alt"></i> Mise au net — Brouillon &amp; Copie</span>
+            <button type="button" class="mau-close-btn" onclick="toggleMauPanel()"><i class="fas fa-times"></i> Fermer</button>
+          </div>
           <div class="mau-page-wrap">
             <div class="mau-header">
               <div class="mau-header-title"> Mise au Net — Feuille de réponses</div>
@@ -709,24 +899,42 @@
 
         
         <div id="examResults" style="display:none;margin-top:1.5rem;">
-          <div class="card" style="padding:2rem;text-align:center;border-color:rgba(16,185,129,.25);">
-            <div id="resEmoji" style="font-size:3rem;margin-bottom:.5rem;"></div>
-            <div id="resMention" style="font-size:1.1rem;font-weight:800;margin-bottom:.4rem;"></div>
-            <div id="resScore"   style="font-size:2.5rem;font-weight:900;margin-bottom:.25rem;"></div>
-            <div id="resSub"     style="font-size:.82rem;color:var(--t3);margin-bottom:1.25rem;"></div>
-            <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+          <div class="results-dashboard">
+            <div id="corrLoader" class="corr-loader" style="display:none;">
+              <div style="font-size:2rem;margin-bottom:.5rem;">🤖</div>
+              <div style="font-weight:800;font-size:1rem;color:var(--t1);">Correction intelligente en cours…</div>
+              <div style="font-size:.82rem;color:var(--t3);margin-top:.35rem;">Analyse batch de toutes vos réponses Partie B</div>
+              <div class="corr-loader-steps">
+                <span class="corr-loader-step active" id="corrStep1"><i class="fas fa-circle-notch fa-spin"></i> Lecture</span>
+                <span class="corr-loader-step" id="corrStep2"><i class="fas fa-hourglass-half"></i> Évaluation</span>
+                <span class="corr-loader-step" id="corrStep3"><i class="fas fa-chart-bar"></i> Rapport</span>
+              </div>
+            </div>
+            <div id="resultsHero" class="results-hero" style="display:none;">
+              <div id="resEmoji" style="font-size:2.5rem;margin-bottom:.35rem;"></div>
+              <div id="resMention" class="results-mention"></div>
+              <div id="resScore" class="results-score-big"></div>
+              <div id="resSub" class="results-sub"></div>
+            </div>
+            <div id="resultsBars" class="results-bars" style="display:none;"></div>
+            <div id="resultsReco" class="results-reco" style="display:none;">
+              <h4><i class="fas fa-lightbulb"></i> Notions à réviser sur Outoubon</h4>
+              <ul id="resultsRecoList"></ul>
+            </div>
+            <div id="corrAccordion" class="corr-accordion"></div>
+            <div id="aiCorrPanel" style="display:none;"></div>
+            <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
               <button class="btn-primary" onclick="startExamen(currentSubject)" style="padding:.65rem 1.5rem;">
                 <i class="fas fa-redo"></i> Nouvel examen
               </button>
-              <button id="btnAiCorr" onclick="runAICorrection()" style="padding:.65rem 1.25rem;background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.3);border-radius:10px;font-size:.875rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;">
-                <i class="fas fa-robot"></i> Correction IA
+              <button id="btnAiCorr" onclick="runAICorrection()" style="display:none;padding:.65rem 1.25rem;background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.3);border-radius:10px;font-size:.875rem;font-weight:700;cursor:pointer;">
+                <i class="fas fa-robot"></i> Recorriger
               </button>
               <button onclick="showPicker()" style="padding:.65rem 1.25rem;background:var(--card);border:1px solid var(--border2);border-radius:10px;color:var(--t2);font-size:.875rem;font-weight:600;cursor:pointer;">
                 Autre matière
               </button>
             </div>
           </div>
-          <div id="aiCorrPanel" style="display:none;"></div>
         </div>
       </div>
 
@@ -734,7 +942,7 @@
   </div>
 </div>
 
-<button id="flipFab" onclick="flipCard()">
+<button id="flipFab" onclick="toggleMauPanel()">
   <i class="fas fa-file-alt" id="flipFabIcon"></i>
   <span id="flipFabLabel">Mise au net</span>
 </button>
@@ -745,6 +953,239 @@
 const STUDENT_NAME = '{{ student_name|default:""|escapejs }}';
 window.IS_GUEST = {{ is_guest|yesno:"true,false" }};
 window.GUEST_EXAM_DONE = {{ guest_exam_done|default:"0" }};
+const GUEST_EXAM_STORAGE_KEY = 'outoubon_guest_exam_done';
+const SEEN_EXAM_ITEMS_KEY = 'outoubon_seen_exam_items';
+
+function _getSeenHashesForSubject(subject) {
+  try {
+    const all = JSON.parse(sessionStorage.getItem(SEEN_EXAM_ITEMS_KEY) || '{}');
+    return (all[subject] || []).join(',');
+  } catch (e) { return ''; }
+}
+
+function _recordSeenExamHashes(subject, hashes) {
+  if (!hashes || !hashes.length) return;
+  try {
+    const all = JSON.parse(sessionStorage.getItem(SEEN_EXAM_ITEMS_KEY) || '{}');
+    const existing = new Set(all[subject] || []);
+    hashes.forEach(h => { if (h && h.length === 64) existing.add(h); });
+    all[subject] = [...existing].slice(-200);
+    sessionStorage.setItem(SEEN_EXAM_ITEMS_KEY, JSON.stringify(all));
+  } catch (e) { /* ignore */ }
+}
+
+function _syncGuestExamDoneFromStorage() {
+  if (!window.IS_GUEST) return;
+  try {
+    const stored = parseInt(sessionStorage.getItem(GUEST_EXAM_STORAGE_KEY) || '0', 10);
+    if (!isNaN(stored) && stored > 0) {
+      window.GUEST_EXAM_DONE = Math.max(window.GUEST_EXAM_DONE || 0, stored);
+    }
+  } catch (e) { /* ignore */ }
+}
+
+function _markGuestExamConsumed() {
+  if (!window.IS_GUEST) return;
+  window.GUEST_EXAM_DONE = 1;
+  try { sessionStorage.setItem(GUEST_EXAM_STORAGE_KEY, '1'); } catch (e) { /* ignore */ }
+}
+
+_syncGuestExamDoneFromStorage();
+
+_syncGuestExamDoneFromStorage();
+
+var _zenMode = false;
+var _mauPanelOpen = false;
+var currentExamData = null;
+var examAttemptId = null;
+
+function parseDurationToSec(durationStr) {
+  if (!durationStr) return 3600;
+  const s = String(durationStr).toLowerCase();
+  let total = 0;
+  const hMatch = s.match(/(\d+)\s*h/);
+  const mMatch = s.match(/(\d+)\s*(?:min|m\b)/);
+  if (hMatch) total += parseInt(hMatch[1], 10) * 3600;
+  if (mMatch) total += parseInt(mMatch[1], 10) * 60;
+  if (!total) {
+    const nums = s.match(/\d+/g);
+    if (nums && nums.length >= 2) total = parseInt(nums[0], 10) * 3600 + parseInt(nums[1], 10) * 60;
+    else if (nums) total = parseInt(nums[0], 10) * 3600;
+  }
+  return total > 0 ? total : 3600;
+}
+
+function toggleZenMode() {
+  _zenMode = !_zenMode;
+  document.body.classList.toggle('exam-zen', _zenMode);
+  const btn = document.getElementById('zenModeBtn');
+  if (btn) {
+    btn.classList.toggle('on', _zenMode);
+    btn.innerHTML = _zenMode
+      ? '<i class="fas fa-compress"></i> Quitter Zen'
+      : '<i class="fas fa-expand"></i> Zen';
+  }
+}
+
+function toggleMauPanel(forceOpen) {
+  const panel = document.getElementById('miseAuNetFace');
+  const mauBtn = document.getElementById('eibMauBtn');
+  const fab = document.getElementById('flipFab');
+  if (!panel) return;
+  _mauPanelOpen = typeof forceOpen === 'boolean' ? forceOpen : !_mauPanelOpen;
+  panel.classList.toggle('mau-open', _mauPanelOpen);
+  document.body.classList.toggle('mau-open', _mauPanelOpen);
+  if (mauBtn) mauBtn.classList.toggle('open', _mauPanelOpen);
+  _isOnMiseAuNet = _mauPanelOpen;
+  updateFabLabel();
+  if (fab) fab.style.display = _mauPanelOpen ? 'none' : 'flex';
+  if (_mauPanelOpen) {
+    setTimeout(() => {
+      const ed = document.querySelector('#mauPagesContainer .mau-editor');
+      if (ed) ed.focus();
+    }, 350);
+  }
+}
+
+function flipCard() { toggleMauPanel(); }
+
+function launchConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  if (!canvas) return;
+  canvas.style.display = 'block';
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const colors = ['#22c55e','#3b82f6','#f59e0b','#a78bfa','#f472b6'];
+  const pieces = Array.from({length: 80}, () => ({
+    x: Math.random() * canvas.width, y: -10 - Math.random() * 100,
+    w: 6 + Math.random() * 6, h: 10 + Math.random() * 8,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    vy: 2 + Math.random() * 4, vx: -2 + Math.random() * 4, rot: Math.random() * 360, vr: -5 + Math.random() * 10,
+  }));
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.color; ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    frame++;
+    if (frame < 120) requestAnimationFrame(draw);
+    else { canvas.style.display = 'none'; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+  }
+  draw();
+}
+
+function showCorrectionLoader() {
+  const loader = document.getElementById('corrLoader');
+  const hero = document.getElementById('resultsHero');
+  if (loader) loader.style.display = 'block';
+  if (hero) hero.style.display = 'none';
+  document.getElementById('resultsBars').style.display = 'none';
+  document.getElementById('resultsReco').style.display = 'none';
+  document.getElementById('corrAccordion').innerHTML = '';
+  ['corrStep1','corrStep2','corrStep3'].forEach((id, i) => {
+    setTimeout(() => {
+      for (let j = 0; j < 3; j++) {
+        const el = document.getElementById('corrStep' + (j+1));
+        if (!el) continue;
+        el.classList.remove('active','done');
+        if (j < i) el.classList.add('done');
+        else if (j === i) el.classList.add('active');
+      }
+    }, i * 1200);
+  });
+}
+
+function renderResultsDashboard(data, partA_earned, partA_max, partB_scaled, partB_effMax, grandScore) {
+  const loader = document.getElementById('corrLoader');
+  const hero = document.getElementById('resultsHero');
+  const bars = document.getElementById('resultsBars');
+  const reco = document.getElementById('resultsReco');
+  const acc = document.getElementById('corrAccordion');
+  if (loader) loader.style.display = 'none';
+
+  const pct = Math.round(grandScore);
+  const mention = pct >= 80 ? 'Mention Très Bien' : pct >= 70 ? 'Mention Bien' : pct >= 60 ? 'Mention Passable' : 'À retravailler';
+  const mentionColor = pct >= 80 ? 'var(--green)' : pct >= 70 ? '#34d399' : pct >= 60 ? 'var(--blue2)' : 'var(--orange)';
+  const emoji = pct >= 80 ? '🏆' : pct >= 70 ? '🥇' : pct >= 60 ? '📊' : '📚';
+
+  if (hero) {
+    hero.style.display = 'block';
+    document.getElementById('resEmoji').textContent = emoji;
+    document.getElementById('resMention').textContent = mention;
+    document.getElementById('resMention').style.color = mentionColor;
+    const scoreEl = document.getElementById('resScore');
+    scoreEl.textContent = grandScore + '/100';
+    scoreEl.style.color = mentionColor;
+    document.getElementById('resSub').innerHTML =
+      `Partie A : <strong>${partA_earned}/${partA_max}</strong> pts · Partie B : <strong>${partB_scaled}/${partB_effMax}</strong> pts<br>` +
+      esc(data.global_feedback || '');
+  }
+  if (pct >= 60) launchConfetti();
+
+  if (bars) {
+    const pctA = partA_max ? Math.round(partA_earned / partA_max * 100) : 0;
+    const pctB = partB_effMax ? Math.round(partB_scaled / partB_effMax * 100) : 0;
+    bars.style.display = 'grid';
+    bars.innerHTML =
+      `<div class="results-bar-card"><div class="results-bar-label">Partie A — Auto-correction</div>`
+      + `<div class="results-bar-val" style="color:#60a5fa">${partA_earned}/${partA_max} pts</div>`
+      + `<div class="results-bar-track"><div class="results-bar-fill-a" style="width:${pctA}%"></div></div></div>`
+      + `<div class="results-bar-card"><div class="results-bar-label">Partie B — Correction IA</div>`
+      + `<div class="results-bar-val" style="color:#a78bfa">${partB_scaled}/${partB_effMax} pts</div>`
+      + `<div class="results-bar-track"><div class="results-bar-fill-b" style="width:${pctB}%"></div></div></div>`;
+  }
+
+  const recs = data.recommendations || [];
+  if (reco && recs.length) {
+    reco.style.display = 'block';
+    document.getElementById('resultsRecoList').innerHTML = recs.map(r =>
+      `<li>${esc(r)} — <a href="/cours/?subject=${encodeURIComponent(currentSubject)}" style="color:var(--blue2)">Réviser</a></li>`
+    ).join('');
+  }
+
+  const corrs = data.corrections || [];
+  const items = document.querySelectorAll('.exam-open-item');
+  if (acc) {
+    acc.innerHTML = corrs.map((corr, i) => {
+      const st = corr.status || 'empty';
+      const icon = st === 'correct' ? '✅' : st === 'partial' ? '⚠️' : st === 'wrong' ? '❌' : '⏳';
+      const col = st === 'correct' ? 'var(--green)' : st === 'partial' ? 'var(--orange)' : st === 'wrong' ? 'var(--red)' : 'var(--t3)';
+      const itemEl = items[i];
+      const modelAns = itemEl ? (itemEl.dataset.model || '') : '';
+      return `<div class="corr-acc-item" id="corrAcc${i}">
+        <div class="corr-acc-header" onclick="this.parentElement.classList.toggle('open')">
+          <span style="color:${col}">${icon}</span>
+          <span>Question ${i+1}</span>
+          <span style="color:${col};font-weight:900;margin-left:.35rem">${corr.scored_pts}/${corr.max_pts} pt${corr.max_pts>1?'s':''}</span>
+          <i class="fas fa-chevron-down corr-acc-chevron"></i>
+        </div>
+        <div class="corr-acc-body">
+          <div style="margin-bottom:.65rem"><strong style="color:var(--t1)">Ta réponse :</strong><br>${esc(corr.student_answer || '(vide)')}</div>
+          ${modelAns ? `<div style="margin-bottom:.65rem"><strong style="color:var(--green)">Corrigé :</strong><br>${esc(modelAns)}</div>` : ''}
+          <div style="padding:.65rem .85rem;background:rgba(37,99,235,.06);border-radius:8px;border-left:3px solid var(--blue2)">${esc(corr.feedback || '')}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  corrs.forEach((corr, i) => {
+    const itemEl = items[i];
+    if (!itemEl) return;
+    const airEl = document.getElementById('air_' + (itemEl.dataset.idx || ''));
+    if (!airEl) return;
+    const st = corr.status || 'empty';
+    const icon = st === 'correct' ? '✅' : st === 'partial' ? '⚠️' : st === 'wrong' ? '❌' : '⏳';
+    const col = st === 'correct' ? 'var(--green)' : st === 'partial' ? 'var(--orange)' : st === 'wrong' ? 'var(--red)' : 'var(--t3)';
+    airEl.className = 'ai-corr-result status-' + st;
+    airEl.style.display = 'block';
+    airEl.innerHTML = `<div class="ai-corr-badge" style="color:${col}">${icon} ${corr.scored_pts}/${corr.max_pts} pts</div><div>${esc(corr.feedback||'')}</div>`;
+  });
+}
 
 var currentSubject = '';
 var examSubmitted  = false;
@@ -759,6 +1200,13 @@ function _isDailyLimit(resp, data) {
 }
 
 function _handleDailyLimit(resp, data) {
+  if (data && data.error === 'guest_limit') {
+    _markGuestExamConsumed();
+    const modal = document.getElementById('examGuestModal');
+    if (modal) modal.style.display = 'flex';
+    else showToast('Examen gratuit déjà utilisé. Crée un compte pour continuer.', 'error');
+    return true;
+  }
   if (_isDailyLimit(resp, data)) {
     showToast(_limitMsg(data), 'error');
     return true;
@@ -782,21 +1230,23 @@ function _resetMauPages() {
   }
 }
 function clearExamResults() {
+  ['resultsHero','resultsBars','resultsReco','corrLoader'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+  const acc = document.getElementById('corrAccordion');
+  if (acc) acc.innerHTML = '';
   const resEmoji = document.getElementById('resEmoji');
   const resMention = document.getElementById('resMention');
   const resScore = document.getElementById('resScore');
   const resSub = document.getElementById('resSub');
-  
   if (resEmoji) resEmoji.textContent = '';
   if (resMention) resMention.textContent = '';
   if (resScore) { resScore.textContent = ''; resScore.style.color = ''; }
   if (resSub) resSub.textContent = '';
-  
   const resultsSection = document.getElementById('examResults');
   if (resultsSection) resultsSection.style.display = 'none';
-  
   examSubmitted = false;
-  
   const aiPanel = document.getElementById('aiCorrPanel');
   if (aiPanel) { aiPanel.innerHTML = ''; aiPanel.style.display = 'none'; }
 }
@@ -910,6 +1360,10 @@ function _updateExamProgress() {
   wrap.style.display = 'block';
   if (fill) fill.style.width = pct + '%';
   if (pctEl) pctEl.textContent = done + '/' + total + ' · ' + pct + '%';
+  const eibFill = document.getElementById('eibAnswerFill');
+  const eibPct = document.getElementById('eibAnswerPct');
+  if (eibFill) eibFill.style.width = pct + '%';
+  if (eibPct) eibPct.textContent = pct + '%';
 }
 
 function _bindExamAutosave() {
@@ -936,32 +1390,6 @@ function updateFabLabel() {
     icon.className  = 'fas fa-file-alt';
     label.textContent = 'Mise au net';
   }
-}
-
-function flipCard() {
-  const examFace = document.getElementById('examFace');
-  const mauFace  = document.getElementById('miseAuNetFace');
-  if (!examFace || !mauFace) return;
-
-  const exitCls  = _isOnMiseAuNet ? 'flip-exit-right' : 'flip-exit-left';
-  const enterCls = _isOnMiseAuNet ? 'flip-enter-left'  : 'flip-enter-right';
-  const currentEl = _isOnMiseAuNet ? mauFace : examFace;
-  const nextEl    = _isOnMiseAuNet ? examFace : mauFace;
-
-  currentEl.classList.add(exitCls);
-  setTimeout(() => {
-    currentEl.style.display = 'none';
-    currentEl.classList.remove(exitCls);
-    nextEl.style.display = 'block';
-    nextEl.classList.add(enterCls);
-    setTimeout(() => {
-      nextEl.classList.remove(enterCls);
-      nextEl.style.opacity = '1';
-    }, 300);
-  }, 280);
-
-  _isOnMiseAuNet = !_isOnMiseAuNet;
-  updateFabLabel();
 }
 
 function _getActiveMauEditor() {
@@ -1054,7 +1482,11 @@ function startCountdown() {
   _timerSec = EXAM_DURATION;
   clearInterval(_timerInterval);
   const stick  = document.getElementById('stickyTimer');
-  stick.style.display = 'flex';
+  if (stick) stick.style.display = 'none';
+  const eib = document.getElementById('examImmersiveBar');
+  if (eib) eib.classList.add('active');
+  const sheet = document.getElementById('examSheet');
+  if (sheet) sheet.classList.add('exam-active');
 
   _timerInterval = setInterval(() => {
     _timerSec--;
@@ -1074,6 +1506,10 @@ function stopCountdown() {
   clearInterval(_timerInterval);
   const stick = document.getElementById('stickyTimer');
   if (stick) stick.style.display = 'none';
+  const eib = document.getElementById('examImmersiveBar');
+  if (eib) eib.classList.remove('active');
+  const sheet = document.getElementById('examSheet');
+  if (sheet) sheet.classList.remove('exam-active');
 }
 
 function updateCountdownUI() {
@@ -1086,9 +1522,14 @@ function updateCountdownUI() {
   const clockEl = document.getElementById('stickyClockVal');
   const fillEl  = document.getElementById('stickyTimerFill');
   const pctEl   = document.getElementById('stickyTimerPct');
-  if (!clockEl) return;
+  const eibTimer = document.getElementById('eibTimer');
+  if (!clockEl && !eibTimer) return;
 
-  clockEl.textContent = fmt;
+  if (clockEl) clockEl.textContent = fmt;
+  if (eibTimer) {
+    eibTimer.textContent = fmt;
+    eibTimer.className = 'eib-timer' + (danger ? ' danger' : warn ? ' warn' : '');
+  }
   if (pctEl) pctEl.textContent = elapsedPct + '%';
 
   const warn   = _timerSec <= 900;
@@ -1192,7 +1633,10 @@ async function startExamen(subject) {
   document.getElementById('examActionBar').style.display = 'flex';
 
   try {
-    const r = await fetch(`{% url 'api_generate_exam_v2' %}?subject=${subject}`);
+    const seen = _getSeenHashesForSubject(subject);
+    let url = `{% url 'api_generate_exam_v2' %}?subject=${encodeURIComponent(subject)}`;
+    if (seen) url += `&seen_hashes=${encodeURIComponent(seen)}`;
+    const r = await fetch(url);
     const ct = (r.headers.get('content-type') || '').toLowerCase();
     let d = null;
     if (ct.includes('application/json')) {
@@ -1214,9 +1658,16 @@ async function startExamen(subject) {
       throw new Error(d.error);
     }
     if (!d.exam || !d.exam.parts) throw new Error('Données invalides reçues du serveur.');
+    if (d.item_hashes) _recordSeenExamHashes(subject, d.item_hashes);
+    if (IS_GUEST) _markGuestExamConsumed();
     currentExamDraftKey = _examDraftKey(subject, d.exam);
     let hadDraft = false;
     try { hadDraft = !!localStorage.getItem(currentExamDraftKey); } catch(e) {}
+    currentExamData = d.exam;
+    examAttemptId = d.attempt_id || null;
+    EXAM_DURATION = parseDurationToSec(d.exam.duration);
+    const eibSubj = document.getElementById('eibSubject');
+    if (eibSubj) eibSubj.textContent = (d.exam.title || subject).replace(/^BACCALAURÉAT HAÏTI — ÉPREUVE DE /, '');
     renderExam(d.exam);
     hide('examLoading'); show('examSheet');
     const mauSubj = document.getElementById('mauSubject');
@@ -1230,7 +1681,10 @@ async function startExamen(subject) {
     if (hadDraft) _tryRestoreExamDraft();
     else _updateExamProgress();
     document.getElementById('examFace').style.display = 'block';
-    document.getElementById('miseAuNetFace').style.display = 'none';
+    const mauFace = document.getElementById('miseAuNetFace');
+    if (mauFace) { mauFace.classList.remove('mau-open'); }
+    document.body.classList.remove('mau-open');
+    _mauPanelOpen = false;
     _initMauTool(subject);
     const fab = document.getElementById('flipFab');
     if (fab) fab.style.display = 'flex';
@@ -1414,7 +1868,7 @@ function submitExam() {
   const mauNameVal = (document.getElementById('mauName')?.value || '').trim();
   if (!mauNameVal) {
     showToast('⚠️ Vous devez écrire votre nom sur la feuille de mise au net avant de soumettre !', 'error');
-    if (!_isOnMiseAuNet) flipCard();
+    if (!_mauPanelOpen) toggleMauPanel(true);
     setTimeout(() => document.getElementById('mauName')?.focus(), 450);
     return;
   }
@@ -1428,7 +1882,7 @@ function submitExam() {
 
   if (!miseAuNetText && !inlineAnswers) {
     showToast('⚠️ Remplis la mise au net (développements Partie B) ou écris au moins une réponse dans les zones prévues.', 'error');
-    if (!_isOnMiseAuNet) flipCard();
+    if (!_mauPanelOpen) toggleMauPanel(true);
     setTimeout(() => {
       const firstEditor = document.querySelector('#mauPagesContainer .mau-editor');
       if (firstEditor) firstEditor.focus();
@@ -1513,50 +1967,28 @@ function submitExam() {
   document.getElementById('examActionBar').style.display = 'none';
   const fab = document.getElementById('flipFab');
   if (fab) fab.style.display = 'none';
-  if (_isOnMiseAuNet) {
-    document.getElementById('miseAuNetFace').style.display = 'none';
-    document.getElementById('examFace').style.display = 'block';
-    _isOnMiseAuNet = false;
-  }
+  if (_mauPanelOpen) toggleMauPanel(false);
+  document.getElementById('examFace').style.display = 'block';
 
   const openCount = document.querySelectorAll('.exam-open-item').length;
-  const manualCount = document.querySelectorAll('.blank-input[data-ans="___"], .blank-input[data-ans=""]').length;
-  if (openCount > 0) {
-    // Si des questions écrites doivent être corrigées par l'IA, on affiche d'abord un état d'attente propre plutôt qu'un 0% effrayant
-    document.getElementById('resEmoji').textContent   = '⏳';
-    document.getElementById('resMention').textContent = 'Correction IA en cours…';
-    document.getElementById('resScore').textContent   = '…';
-    document.getElementById('resScore').style.color   = 'var(--blue2)';
-    document.getElementById('resSub').textContent     = `${earned}/${total} pts auto-corrigés · Analyse des ${openCount} réponse(s) écrite(s) par l'IA en cours, veuillez patienter…`;
-  } else if (total > 0) {
-    const pct = Math.round((earned/total)*100);
-    const [emoji, mention, color] =
-      pct>=80 ? ['🏆','Mention Très Bien','var(--green)'] :
-      pct>=70 ? ['🥇','Mention Bien','#34d399'] :
-      pct>=60 ? ['📊','Mention Passable','var(--blue2)'] :
-                ['📚','À retravailler','var(--orange)'];
-    document.getElementById('resEmoji').textContent   = emoji;
-    document.getElementById('resMention').textContent = mention;
-    document.getElementById('resScore').textContent   = pct + '%';
-    document.getElementById('resScore').style.color   = color;
-    document.getElementById('resSub').textContent     = `${earned}/${total} pts auto-corrigés`;
-  } else {
-    document.getElementById('resEmoji').textContent   = '⏳';
-    document.getElementById('resMention').textContent = 'Correction IA en cours…';
-    document.getElementById('resScore').textContent   = '…';
-    document.getElementById('resScore').style.color   = 'var(--blue2)';
-    document.getElementById('resSub').textContent     = `${openCount} question(s) ouverte(s) — l'IA analyse vos réponses, veuillez patienter…`;
-  }
   show('examResults');
+  showCorrectionLoader();
   setTimeout(()=>document.getElementById('examResults').scrollIntoView({behavior:'smooth',block:'start'}), 100);
 
   fetch('{% url "api_quiz_save" %}',{method:'POST',
     headers:{'X-CSRFToken':CSRF,'Content-Type':'application/json'},
-    body:JSON.stringify({subject:currentSubject, score:earned, total:total, details:[]})
+    body:JSON.stringify({subject:currentSubject, score:earned, total:total, details:[], attempt_id: examAttemptId})
   }).catch(()=>{});
 
   if (openCount > 0) {
-    setTimeout(() => runAICorrection(), 900);
+    setTimeout(() => runAICorrection(), 400);
+  } else if (total > 0) {
+    const pct = Math.round((earned / total) * 100);
+    const grandScore = Math.min(100, Math.round(earned / total * 100));
+    renderResultsDashboard(
+      { corrections: [], global_feedback: 'Partie A uniquement — pas de questions ouvertes à corriger.', recommendations: [] },
+      earned, total, 0, Math.max(0, 100 - total), grandScore
+    );
   }
 }
 
@@ -1565,6 +1997,9 @@ function confirmRestart() {
 }
 function showPicker() {
   stopCountdown();
+  toggleMauPanel(false);
+  document.body.classList.remove('exam-zen');
+  _zenMode = false;
   const fab = document.getElementById('flipFab');
   if (fab) fab.style.display = 'none';
   hide('examSheet'); show('examPicker'); document.title='Examen Blanc — OU TOU BON';
@@ -1575,14 +2010,12 @@ function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;'
 
 async function runAICorrection() {
   const btn = document.getElementById('btnAiCorr');
-
   const items = document.querySelectorAll('.exam-open-item');
   if (!items.length) return;
 
   const mauPages = document.querySelectorAll('#mauPagesContainer .mau-editor');
   const miseAuNetText = mauPages.length
     ? Array.from(mauPages).map((p, i) => {
-        // contenteditable div: innerText is most reliable for user-typed text
         const txt = (p.innerText || p.textContent || '').trim();
         return txt ? `--- Page ${i+1} ---\n${txt}` : '';
       }).filter(Boolean).join('\n\n')
@@ -1600,23 +2033,28 @@ async function runAICorrection() {
     });
   });
 
-  if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse…'; }
-  const panel = document.getElementById('aiCorrPanel');
-  if (panel) {
-    panel.style.display = 'block';
-    panel.innerHTML = '<div style="padding:1rem .5rem;color:var(--t3);font-size:.84rem;display:flex;align-items:center;gap:.6rem"><i class="fas fa-circle-notch fa-spin" style="color:var(--blue2)"></i>L\'IA analyse vos réponses…</div>';
-  }
+  if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse batch…'; }
+  showCorrectionLoader();
+
+  const partA_earned = window._examPartA_earned || 0;
+  const partA_max    = window._examPartA_max    || 0;
 
   try {
     const resp = await fetch('{% url "api_exam_ai_correct" %}', {
       method: 'POST',
       headers: {'Content-Type':'application/json', 'X-CSRFToken':CSRF},
-      body: JSON.stringify({subject: currentSubject, qa_pairs, mise_au_net: miseAuNetText}),
+      body: JSON.stringify({
+        subject: currentSubject,
+        qa_pairs,
+        mise_au_net: miseAuNetText,
+        part_a_earned: partA_earned,
+        part_a_max: partA_max,
+      }),
     });
     if (!resp.ok) {
       const err = await resp.json().catch(()=>({error:'Erreur réseau '+resp.status}));
       if (_handleDailyLimit(resp, err)) {
-        if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-robot"></i> Correction IA'; }
+        if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-robot"></i> Recorriger'; }
         return;
       }
       throw new Error(err.error || 'Erreur '+resp.status);
@@ -1624,85 +2062,19 @@ async function runAICorrection() {
     const data = await resp.json();
     if (!data.ok) throw new Error(data.error || 'Erreur serveur');
 
-    const corrs    = data.corrections    || [];
-    const estScore = data.estimated_score || 0;
-    const totalPts = data.total_pts       || 0;
+    const partB_scaled  = data.part_b_scaled  ?? 0;
+    const partB_effMax  = data.part_b_eff_max ?? Math.max(0, 100 - partA_max);
+    const grandScore    = data.grand_score    ?? (partA_earned + partB_scaled);
 
-    // ── Combine Part A (auto-corrected) + Part B (AI) → score /100 ────────────
-    const partA_earned  = window._examPartA_earned || 0;
-    const partA_max     = window._examPartA_max    || 0;
-    // Part B effective max = 100 - Part A max (e.g. 100-40=60 for standard Bac)
-    const partB_effMax  = Math.max(0, 100 - partA_max);
-    const partB_scaled  = totalPts > 0 ? Math.round(estScore / totalPts * partB_effMax) : 0;
-    const grandScore    = partA_earned + partB_scaled;   // out of 100
-    const pct           = grandScore;                    // identical since total = 100
-    // ──────────────────────────────────────────────────────────────────────────
+    renderResultsDashboard(data, partA_earned, partA_max, partB_scaled, partB_effMax, grandScore);
 
-    const mention      = pct>=80?'Mention Très Bien':pct>=70?'Mention Bien':pct>=60?'Mention Passable':'À retravailler';
-    const mentionColor = pct>=80?'var(--green)':pct>=70?'#34d399':pct>=60?'var(--blue2)':'var(--orange)';
-    const emoji        = pct>=80?'🏆':pct>=70?'🥇':pct>=60?'📊':'📚';
-
-    const el_emoji   = document.getElementById('resEmoji');
-    const el_mention = document.getElementById('resMention');
-    const el_score   = document.getElementById('resScore');
-    const el_sub     = document.getElementById('resSub');
-    if (el_emoji)   el_emoji.textContent   = emoji;
-    if (el_mention) el_mention.textContent = mention;
-    if (el_score)   { el_score.textContent = grandScore + '/100 pts'; el_score.style.color = mentionColor; }
-    if (el_sub)     el_sub.innerHTML = `Auto: ${partA_earned}/${partA_max} pts · IA: ${partB_scaled}/${partB_effMax} pts · <strong>${grandScore}/100</strong> · ${corrs.length} kesyon evalye`;
-
-    // Révélation progressive des corrections (type Astra)
-    const revealCorr = (i) => {
-      if (i >= corrs.length) {
-        if (panel) {
-          const rawDetail = totalPts > 0 ? `<span style="font-size:.72rem;color:var(--t3);margin-left:.5rem">(A: ${partA_earned}/${partA_max} + B: ${partB_scaled}/${partB_effMax})</span>` : '';
-          panel.innerHTML =
-            '<div class="acp-header"><i class="fas fa-robot"></i> Résultat Correction IA</div>'
-            +'<div style="display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;">'
-            +'<span class="acp-score" style="color:'+mentionColor+'">'+grandScore+'/100 pts</span>'
-            +rawDetail
-            +'<span style="font-size:.8rem;color:'+mentionColor+';font-weight:700">('+pct+'% — '+mention+')</span></div>'
-            +'<div class="acp-feedback">'+esc(data.global_feedback||'')+'</div>';
-        }
-        if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-redo"></i> Recorriger'; }
-        return;
-      }
-      const corr = corrs[i];
-      const itemEl = items[i];
-      if (itemEl) {
-        const airEl = document.getElementById('air_' + (itemEl.dataset.idx || ''));
-        if (airEl) {
-          const st   = corr.status || 'empty';
-          const icon = st==='correct'?'✅':st==='partial'?'⚠️':st==='wrong'?'❌':'⏳';
-          const col  = st==='correct'?'var(--green)':st==='partial'?'var(--orange)':st==='wrong'?'var(--red)':'var(--t3)';
-          airEl.className = 'ai-corr-result status-' + st;
-          airEl.style.display = 'block';
-          airEl.innerHTML =
-            '<div class="ai-corr-badge" style="color:'+col+'">'+icon+' Correction IA'
-            +'<span class="ai-corr-pts" style="color:'+col+'"> '+corr.scored_pts+'/'+corr.max_pts+' pt'+(corr.max_pts>1?'s':'')+'</span></div>'
-            +'<div style="color:var(--t2);font-size:.84rem">'+esc(corr.feedback||'')+'</div>';
-          airEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }
-      if (panel) {
-        panel.innerHTML = '<div style="padding:.75rem .5rem;color:var(--t3);font-size:.84rem;display:flex;align-items:center;gap:.6rem">'
-          +'<i class="fas fa-circle-notch fa-spin" style="color:var(--blue2)"></i>'
-          +'Analyse question '+(i+1)+'/'+corrs.length+'…</div>';
-      }
-      setTimeout(() => revealCorr(i + 1), 380);
-    };
-    revealCorr(0);
-    return;
+    if (btn) { btn.disabled = false; btn.style.display = 'inline-flex'; btn.innerHTML = '<i class="fas fa-redo"></i> Recorriger'; }
+    if (IS_GUEST) _markGuestExamConsumed();
   } catch(err) {
     console.error('AI correction error:', err);
-    if (panel) panel.innerHTML = '<div style="color:var(--orange);font-size:.84rem;padding:.5rem"><i class="fas fa-exclamation-triangle"></i> ' + esc(err.message) + ' — <a href="#" onclick="runAICorrection();return false;" style="color:var(--blue2)">Réessayer</a></div>';
-    const el_emoji2   = document.getElementById('resEmoji');
-    const el_mention2 = document.getElementById('resMention');
-    const el_score2   = document.getElementById('resScore');
-    if (el_emoji2 && el_emoji2.textContent==='⏳') el_emoji2.textContent = '⏳';
-    if (el_mention2 && el_mention2.textContent.includes('cours')) el_mention2.textContent = 'Correction manuelle';
-    if (el_score2 && el_score2.textContent==='…') { el_score2.textContent='N/A'; el_score2.style.color='var(--t2)'; }
-    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-robot"></i> Réessayer'; }
+    const loader = document.getElementById('corrLoader');
+    if (loader) loader.innerHTML = '<div style="color:var(--orange);padding:1rem"><i class="fas fa-exclamation-triangle"></i> ' + esc(err.message) + ' — <a href="#" onclick="runAICorrection();return false;" style="color:var(--blue2)">Réessayer</a></div>';
+    if (btn) { btn.disabled = false; btn.style.display = 'inline-flex'; btn.innerHTML = '<i class="fas fa-robot"></i> Réessayer'; }
   }
 }
 

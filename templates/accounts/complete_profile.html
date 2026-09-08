@@ -1,8 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Compléter mon profil – OU TOU BON{% endblock %}
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/auth.css' %}">
+{% endblock %}
 {% block body %}
-<div class="auth-page">
-  <div class="auth-card" style="max-width:460px;">
+<div class="auth-page v2-auth">
+  <div class="auth-card v2-auth-card" style="max-width:460px;">
     <div class="auth-logo"><div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div></div>
     <div class="auth-title">Encore une étape 🎯</div>
     <div class="auth-subtitle">

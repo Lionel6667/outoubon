@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Kreyòl).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "1",
+    "question": "Le titre qui est approprié au texte est :",
+    "options": [
+      "Se nourrir b",
+      "Vivre en bonne santé",
+      "Consommez de l’énergie c",
+      "Se concentrer"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Selon le texte, on se nourrit pour :",
+    "options": [
+      "Avoir une forte corpulence 1",
+      "Protéger le corps humain",
+      "Avoir une hygiène agréable a",
+      "Avoir une bonne respiration °"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Pour bien fonctionner, le corps humain a besoin : :",
+    "options": [
+      "Uniquement de féculents _",
+      "De la viande ou du poisson b",
+      "De l’eau ou de féculents | 4",
+      "Des aliments de chaque famille"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Il est nécesssaire de prendre notre dose quotidienne de vitamine C parce qu’elle :",
+    "options": [
+      "empêche la formation du collagène",
+      "provoque des problèmes dentaires",
+      "élimine les douleurs abdominales",
+      "réduit la durée du rhume. 1"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "D’après le texte, une surdose de vitamine C entraîne :",
+    "options": [
+      "des malaises abdominaux",
+      "la guérison de la diarhée",
+      "une amélioration de la santé",
+      "des maux de tête"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "18",
+    "question": "Écris correctement les mots entre parenthèses si nécessaire",
+    "options": [
+      "Ce fut une journée sans (fin). 7",
+      "Un enfant sans (chaussure) s'avançait",
+      "J'aimerais louer un minibus sans ( chauffeur)",
+      "Il y avait plus de (feuille) sur le gazon"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Maître Casséus renvoyait les cuisinières parce qu’",
+    "options": [
+      "il se méfiait souvent d’elles ,",
+      "il n’aimait pas leur nourriture L",
+      "elles l’insultaient chaque jour",
+      "elles étaient très en retard"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "18",
+    "question": "Complète avec : dans —dent-d'en—sans—sent-—s'en",
+    "options": [
+      "Une pièce . rideaux est plus lumineuse, mais beaucoup moins intime",
+      "Cette eau n’est pas potable, il est dagereux .… boire",
+      "Le civet de lièvre … le thym et le laurier",
+      "Le peintre a posé son chevalet … un champ de lavande"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "«Son père l'aurait grondée» Cette expression peut être 9: remplacé par",
+    "options": [
+      "Son père l’aurait réprimandée",
+      "Son père l’aurait recommandée",
+      "Son père l’aurait pardonnée",
+      "Son père l’aurait rassurée"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "13",
+    "question": "Complète ces phrases par : en, y, lui",
+    "options": [
+      "Le temps passe très vite, penser l",
+      "As-tu écrit à Pascal? oui, je 2° ai écrit. 3",
+      "Des problèmes, il y aura toujours. 4",
+      "Je ai dit de m'’attendre ici. 5 II. Vocabulaire V"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "14",
+    "question": "Remplis les espaces vides par des mots qui convien- | 2, nent aux phrases suivantes",
+    "options": [
+      "Les de la vie augmente",
+      "Le fabrique des gâteaux",
+      "La est une qualité",
+      "On ne connait pas les de l’accident"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "À 19 ans, Ron commençait ses recherches en examinant les cultures de",
+    "options": [
+      "Java — Japon — Chili — Inde 9",
+      "Java — Japon — l’Inde — Nebraska",
+      "Inde — Japon — Philippine — Java",
+      "Inde — Philippine — Java — États-Unis"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "13",
+    "question": "Choisis le temps des verbes qui convient pour chacune des phrases ci-dessous",
+    "options": [
+      "Il faut qu’ils (vint / viennent)",
+      "Brusquement, il (frendra / freine)",
+      "Nous souhaitons qu’elle (obtint / obtienne) justice",
+      "Il arrivait / arrive) que nous oubilions nos rendez-vous. IL. Vocabulaire"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "17",
+    "question": "Remplis les espaces vides avec un mot tiré de cette liste: martyr — martyre — fond — fonds",
+    "options": [
+      "Des ressources:",
+      "C’est un supplice:",
+      "La partie la plus basse:",
+      "Une personne qui souffre: IV. Orthographe 16"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "16",
+    "question": "Forme des noms dérivés des adjectifs suivants",
+    "options": [
+      "faux:",
+      "gentil:",
+      "frais:",
+      "apte:"
+    ],
+    "source": "exam_francais_francais-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

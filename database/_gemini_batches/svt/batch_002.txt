@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Sciences exp.).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "2",
+    "question": "L'un des effets ci-dessous explique la décomposition d’un corps. Lequel ?",
+    "options": [
+      "Physique",
+      "Magnétique —",
+      "Calorifique —",
+      "Chimique —"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Quelle est l’énergie potentielle d’une balle de ping- HE pong de masse 20 g qui tombe d’une hauteur de 3 m en un lieu où g = 10 N/kg ?",
+    "options": [
+      "60 joules",
+      "600 joules",
+      "0,6 joules",
+      "0,06 joules"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "L’une des grandeurs ci-dessous permet d’augmenter ou de réduire la poussée d’Archimède. Laquelle ?",
+    "options": [
+      "Volume",
+      "Poids",
+      "Masse",
+      "Température Réponds à la question 5"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Le système nerveux central est constitué",
+    "options": [
+      "de la moelle épinière et du cerveau",
+      "de l’encéphale et de la moelle épinière",
+      "de la moele épinière et du cervelet",
+      "du cerveau et du cervelet. 1"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Le chyme est un liquide qui résulte de la",
+    "options": [
+      "digestion gastrique",
+      "digestion intestimale",
+      "sécrétion des glandes parotiques",
+      "sécrétion du pancréas"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "L'air qui sort des poumons suit le trajet suivant",
+    "options": [
+      "Fosses nasales — bronches — trachée 1",
+      "Trachée — pharynx — bronches",
+      "Bronches — trachée — fosses nasales",
+      "Fosses nasales — trachée — bronches"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "Les tubes urinifères ont pour rôle d’assurer",
+    "options": [
+      "l’évacuation de l’urine de la vessie",
+      "La filtration du sang",
+      "Le transport de l’urine des reins à la vessie",
+      "La purification de l’urine"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Les tendons sont des capsules résistances qui ont pour rôle de:",
+    "options": [
+      "relier solidement les os entre eux",
+      "ratacher les muscles entre eux",
+      "faciliter les mouvements des os",
+      "fixer les muscles sur les os"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "4",
+    "question": "L'’inspiration est un mouvement respiratoire qui L entraine l’une des actions suivantes. Laquelle ?",
+    "options": [
+      "L’abaissement du sternum",
+      "Le relâchement du diaphragme",
+      "Le rejet du gaz carbonique",
+      "La dilatation des poumons"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "On parle de ‘tendinie’ dans l’un des cas suivants. Lequel?",
+    "options": [
+      "Un muscle est étiré accidentellement",
+      "Des ligaments sont déchirés",
+      "L’inflammation des extrémités d’un muscle",
+      "Le muscle est meurtri"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "6",
+    "question": "Le sapin est classé parmi les phanérogames parce que la plante:",
+    "options": [
+      "produit des fleurs",
+      "produit des graines nues",
+      "possède des racines",
+      "est pourvue de chlorophylle"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Laquelle des affirmations suivantes est fausse dans le cas des bryophytes?",
+    "options": [
+      "Ils possèdent de la chlorophylle",
+      "Ils possèdent une tige",
+      "Ils possèdent des racines",
+      "Ils possèdnt des feuilles"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "La symbiose est une forme de vie observée dans l’un des cas suivants. Lequel ?",
+    "options": [
+      "Un organisme vit au dépend d’un autre",
+      "Deux organismes vivent séparement",
+      "Deux organismes dépendent profitablement l’un de l’autre",
+      "Un organisme vit de déchets en décomposition"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "L'une des affirmations suivantes est vraie. Laquelle ? l",
+    "options": [
+      "Un sol perméable convient à la riz culture",
+      "Les sols sablonneux sont de nature imperméable",
+      "Un sol marécageux est bien adapté à la culture du riz",
+      "Les sols marécageux sont perméables à l’eau. P"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "L’utérus est un organe de l’un des appareils suivants. Lequel? 3p",
+    "options": [
+      "L'appareil respiratoire",
+      "L'appareil urinaire L",
+      "L'appareil reproducteur masculin ‘",
+      "L'appareil reproducteur féminin"
+    ],
+    "source": "exam_svt_sciences-experimentales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

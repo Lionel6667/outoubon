@@ -160,6 +160,11 @@
                   <input type="text" name="last_name" class="form-control" value="{{ request.user.last_name }}" placeholder="Nom de famille">
                 </div>
               </div>
+              <div class="form-group" style="margin-bottom:.9rem;">
+                <label class="form-label">Nom de ton assistant IA</label>
+                <input type="text" name="coach_name" class="form-control" value="{{ profile.coach_name|default:'' }}" placeholder="Entrez le nom ici" maxlength="40">
+                <div style="font-size:.72rem;color:var(--t3);margin-top:.35rem;">Le nom de ton assistant sur tout le site.</div>
+              </div>
               <div class="form-group">
                 <label class="form-label">Adresse e-mail</label>
                 <input type="email" class="form-control" value="{{ request.user.email }}" readonly disabled style="opacity:.55;cursor:not-allowed;">
@@ -217,17 +222,8 @@
             
             <div class="profil-section" style="padding-top:1rem;padding-bottom:1rem;">
               <button type="submit" class="profil-save-btn">
-                <i class="fas fa-save"></i> Sauvegarder les modifications
+                <i class="fas fa-save"></i> Sauvegarder
               </button>
-            </div>
-
-            
-            <div class="profil-section" style="padding-top:0;padding-bottom:1.2rem;border-top:1px solid var(--border2);margin-top:.5rem;">
-              <div style="font-size:.78rem;font-weight:700;color:var(--t2);margin-bottom:.6rem;margin-top:1rem;"><i class="fas fa-lightbulb" style="color:var(--yellow);margin-right:.35rem;"></i>Tutoriel</div>
-              <button type="button" onclick="_ONB.relaunchAll()" style="padding:.5rem 1rem;background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;border:none;border-radius:10px;font-size:.78rem;font-weight:700;cursor:pointer;transition:all .15s;">
-                <i class="fas fa-redo"></i> Relancer le tutoriel
-              </button>
-              <div style="font-size:.68rem;color:var(--t3);margin-top:.35rem;">Relance le guide interactif sur toutes les pages.</div>
             </div>
 
           </div>
@@ -293,6 +289,27 @@ async function previewAvatar(input) {
     statusEl.style.color = '#f87171';
   }
 }
+
+(function() {
+  var form = document.querySelector('.profil-form-card') && document.querySelector('.profil-form-card').closest('form');
+  if (!form) return;
+  var fields = form.querySelectorAll('input[name="first_name"], input[name="last_name"], input[name="coach_name"], input[name="new_password1"], input[name="new_password2"]');
+  var initial = {};
+  fields.forEach(function(f) { initial[f.name] = f.value; });
+  function isDirty() {
+    for (var i = 0; i < fields.length; i++) {
+      var f = fields[i];
+      if ((f.value || '') !== (initial[f.name] || '')) return true;
+    }
+    return false;
+  }
+  window.addEventListener('beforeunload', function(e) {
+    if (isDirty()) { e.preventDefault(); e.returnValue = ''; }
+  });
+  form.addEventListener('submit', function() {
+    fields.forEach(function(f) { initial[f.name] = f.value; });
+  });
+})();
 </script>
 {% endblock %}
 

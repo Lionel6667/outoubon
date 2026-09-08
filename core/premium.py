@@ -12,7 +12,7 @@ Limites (non-premium) :
   - Chat amis: visible mais envoi bloqué
 
 Plafond global (tous les utilisateurs, y compris premium) :
-  - 50 requêtes IA / jour
+  - 50 appels API DeepSeek / jour (comptés dans gemini._tracked_create)
 """
 
 from datetime import date
@@ -25,7 +25,7 @@ FREE_QUIZ_PER_DAY = 1
 FREE_EXERCISE_PER_DAY = 1
 FREE_CHAPTERS_PER_SUBJECT = 1
 FREE_EXTRA_BET_PER_DAY = 3
-MAX_AI_REQUESTS_PER_DAY = 50
+MAX_AI_REQUESTS_PER_DAY = 50  # alias — compte les appels API réels (voir core.ai_usage)
 
 
 def is_premium(user):
@@ -47,7 +47,7 @@ def get_ai_requests_today(user):
 
 
 def can_make_ai_request(user):
-    """Plafond journalier de requêtes IA (tous les plans). Retourne (allowed, remaining)."""
+    """Plafond journalier d'appels API DeepSeek. Retourne (allowed, remaining)."""
     usage = _get_today_usage(user)
     remaining = max(0, MAX_AI_REQUESTS_PER_DAY - usage.ai_request_count)
     return remaining > 0, remaining
@@ -58,6 +58,7 @@ def is_daily_ai_limit_reached(user):
 
 
 def increment_ai_request(user):
+    """Incrémente le compteur d'appels API DeepSeek (1 par chat.completions.create)."""
     usage = _get_today_usage(user)
     usage.ai_request_count += 1
     usage.save(update_fields=['ai_request_count'])
@@ -78,8 +79,7 @@ def can_use_chat(user):
 def increment_chat(user):
     usage = _get_today_usage(user)
     usage.chat_count += 1
-    usage.ai_request_count += 1
-    usage.save(update_fields=['chat_count', 'ai_request_count'])
+    usage.save(update_fields=['chat_count'])
 
 
 def can_use_quiz(user):
@@ -96,8 +96,7 @@ def can_use_quiz(user):
 def increment_quiz(user):
     usage = _get_today_usage(user)
     usage.quiz_count += 1
-    usage.ai_request_count += 1
-    usage.save(update_fields=['quiz_count', 'ai_request_count'])
+    usage.save(update_fields=['quiz_count'])
 
 
 def can_use_exercise(user):
@@ -118,8 +117,7 @@ def increment_exercise(user, subject='general'):
     exo_data = usage.exercise_subjects or {}
     exo_data[subject] = exo_data.get(subject, 0) + 1
     usage.exercise_subjects = exo_data
-    usage.ai_request_count += 1
-    usage.save(update_fields=['exercise_subjects', 'ai_request_count'])
+    usage.save(update_fields=['exercise_subjects'])
 
 
 def can_access_chapter(user, subject, chapter_num):
@@ -148,8 +146,7 @@ def increment_extra_bet(user):
     """Incrémente le compteur Extra Bète."""
     usage = _get_today_usage(user)
     usage.extra_bet_count = getattr(usage, 'extra_bet_count', 0) + 1
-    usage.ai_request_count += 1
-    usage.save(update_fields=['extra_bet_count', 'ai_request_count'])
+    usage.save(update_fields=['extra_bet_count'])
 
 
 def get_reset_time():

@@ -1,26 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Historique – OU TOU BON{% endblock %}
-{% block extra_css %}
-.hist-wrap { padding:2rem 1.5rem; max-width:860px; margin:0 auto; }
-.hist-stats-row { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
-.hist-stat { background:var(--card); border:1px solid var(--border2); border-radius:12px; padding:.9rem 1.25rem; flex:1; min-width:120px; text-align:center; }
-.hist-stat .val { font-size:1.5rem; font-weight:800; color:var(--green); }
-.hist-stat .lbl { font-size:.75rem; color:var(--t3); margin-top:.2rem; }
-.search-bar { display:flex; gap:.6rem; margin-bottom:1.5rem; }
-.search-bar input { flex:1; background:var(--card); border:1px solid var(--border2); border-radius:10px; padding:.65rem 1rem; font-size:.875rem; color:var(--t1); }
-.search-bar select { background:var(--card); border:1px solid var(--border2); border-radius:10px; padding:.65rem .75rem; font-size:.875rem; color:var(--t1); }
-.search-bar button { background:var(--green); color:#fff; border-radius:10px; padding:.65rem 1.25rem; font-size:.875rem; font-weight:600; cursor:pointer; }
-.conv-card { background:var(--card); border:1px solid var(--border2); border-radius:12px; padding:1rem 1.25rem; margin-bottom:.75rem; display:flex; align-items:center; gap:1rem; cursor:pointer; transition:border-color .15s; text-decoration:none; }
-.conv-card:hover { border-color:var(--green); }
-.conv-icon { width:40px; height:40px; border-radius:10px; background:rgba(16,185,129,.12); color:var(--green); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
-.conv-info { flex:1; min-width:0; }
-.conv-subject { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--green); margin-bottom:.2rem; }
-.conv-preview { font-size:.875rem; color:var(--t2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.conv-meta { text-align:right; flex-shrink:0; }
-.conv-date { font-size:.75rem; color:var(--t3); }
-.conv-count { font-size:.75rem; background:rgba(16,185,129,.12); color:var(--green); border-radius:20px; padding:.15rem .5rem; margin-top:.25rem; }
-.empty-state { text-align:center; padding:4rem 2rem; color:var(--t3); }
+{% block extra_head_links %}
+<link rel="stylesheet" href="{% static 'css/v2/historique.css' %}">
 {% endblock %}
+{% block extra_css %}{% endblock %}
 {% block body %}
 <div class="app has-topbar">
   {% include "core/_sidebar.html" with active_page="historique" %}

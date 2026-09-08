@@ -156,6 +156,22 @@
       box-shadow: 0 10px 20px -5px rgba(6, 182, 212, 0.15);
     }
 
+    .ai-hero { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.75rem; margin-bottom:1.25rem; }
+    .ai-hero-card { background:linear-gradient(180deg,#1e293b,#162032); border:1px solid var(--border2); border-radius:14px; padding:1.05rem 1.15rem; }
+    .ai-hero-card .k { font-size:.68rem; font-weight:700; color:var(--t3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.35rem; }
+    .ai-hero-card .v { font-size:1.55rem; font-weight:800; line-height:1.15; }
+    .ai-hero-card .s { font-size:.72rem; color:var(--t2); margin-top:.3rem; }
+    .ai-hero-card.ok .v { color:var(--green); }
+    .ai-hero-card.warn .v { color:var(--orange); }
+    .ai-hero-card.bad .v { color:var(--red); }
+    .ai-notice { font-size:.72rem; color:var(--t3); margin:-.5rem 0 1rem; display:flex; gap:.4rem; align-items:flex-start; }
+    .ai-bar-row { display:flex; align-items:center; gap:.6rem; margin:.45rem 0; font-size:.78rem; }
+    .ai-bar-label { width:130px; color:var(--t2); flex-shrink:0; }
+    .ai-bar-track { flex:1; height:8px; background:rgba(255,255,255,.06); border-radius:99px; overflow:hidden; }
+    .ai-bar-fill { height:100%; background:linear-gradient(90deg,#10B981,#06b6d4); border-radius:99px; }
+    .ai-bar-val { width:88px; text-align:right; color:var(--t1); font-weight:700; font-variant-numeric:tabular-nums; }
+    .ai-period-note { font-size:.72rem; color:var(--t3); }
+
     /* Modal Animation */
     @keyframes modalFadeIn {
       from { opacity: 0; transform: scale(0.95); }
@@ -238,6 +254,8 @@
 
 <div class="adm-tabs" id="admTabs">
   <button class="adm-tab active" data-tab="overview" onclick="switchTab('overview',this)"><i class="fas fa-chart-pie"></i> Vue d'ensemble</button>
+  <button class="adm-tab" data-tab="ai" onclick="switchTab('ai',this)"><i class="fas fa-microchip"></i> DeepSeek / IA</button>
+  <button class="adm-tab" data-tab="hall" onclick="switchTab('hall',this)"><i class="fas fa-medal"></i> Vitrine &amp; XP</button>
   <button class="adm-tab" data-tab="users" onclick="switchTab('users',this)"><i class="fas fa-users"></i> Utilisateurs</button>
   <button class="adm-tab" data-tab="groupchat" onclick="switchTab('groupchat',this)"><i class="fas fa-comments"></i> Chat de Groupe</button>
   <button class="adm-tab" data-tab="revenue" onclick="switchTab('revenue',this)"><i class="fas fa-coins"></i> Revenus</button>
@@ -263,9 +281,9 @@
       <div class="stat-sub">{{ premium_pct }}% du total</div>
     </div>
     <div class="stat-card purple">
-      <div class="stat-label">Visiteurs aujourd'hui</div>
-      <div class="stat-value">{{ visits_today }}</div>
-      <div class="stat-sub">{{ unique_today }} uniques · {{ visits_week }} cette semaine</div>
+      <div class="stat-label">Visiteurs uniques (Haïti)</div>
+      <div class="stat-value">{{ unique_visitors_today }}</div>
+      <div class="stat-sub">{{ unique_visitors_week }} cette semaine · {{ unique_visitors_month }} ce mois</div>
     </div>
     <div class="stat-card orange">
       <div class="stat-label">Revenu total</div>
@@ -273,19 +291,24 @@
       <div class="stat-sub">{{ rev_today|floatformat:0 }}G aujourd'hui · {{ rev_month|floatformat:0 }}G ce mois</div>
     </div>
     <div class="stat-card cyan">
-      <div class="stat-label">Utilisateurs actifs</div>
+      <div class="stat-label">Élèves actifs aujourd'hui</div>
       <div class="stat-value">{{ active_today }}</div>
-      <div class="stat-sub">{{ active_week }} cette semaine</div>
+      <div class="stat-sub">{{ active_week }} sur 7 jours (connexion réelle)</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Engagement</div>
       <div class="stat-value" style="font-size:1.2rem;">{{ total_chats }} <span style="font-size:.7rem;color:var(--t3)">chats</span> · {{ total_quizzes }} <span style="font-size:.7rem;color:var(--t3)">quiz</span></div>
       <div class="stat-sub">Total cumulé</div>
     </div>
-    <div class="stat-card cyan" style="cursor:pointer;position:relative;" onclick="showStatsModal('active')" title="Cliquez pour voir les élèves actifs">
-      <div class="stat-label">En temps réel (15 min) <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;float:right;opacity:.5;"></i></div>
-      <div class="stat-value">{{ realtime_active }} <span style="font-size:.7rem;color:var(--t3)">élèves actifs</span></div>
-      <div class="stat-sub">Visiteurs uniques récents</div>
+    <div class="stat-card cyan" style="cursor:pointer;position:relative;" onclick="showStatsModal('active')" title="Cliquez pour voir les élèves en ligne">
+      <div class="stat-label">En ligne maintenant <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;float:right;opacity:.5;"></i></div>
+      <div class="stat-value">{{ students_online }} <span style="font-size:.7rem;color:var(--t3)">élèves</span></div>
+      <div class="stat-sub">{{ visitors_online }} visiteurs Haïti (15 min) · activité &lt; 15 min</div>
+    </div>
+    <div class="stat-card orange" style="cursor:pointer;position:relative;" onclick="switchTab('ai')" title="Ouvrir le module DeepSeek">
+      <div class="stat-label">IA DeepSeek aujourd'hui <i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem;float:right;opacity:.5;"></i></div>
+      <div class="stat-value" id="ovAiCost">—</div>
+      <div class="stat-sub" id="ovAiSub">Chargement de la conso…</div>
     </div>
     <div class="stat-card purple">
       <div class="stat-label">Extra Bèt</div>
@@ -327,7 +350,7 @@
             <td>{{ s.user.first_name }}</td>
             <td>{{ s.user.profile.school|default:"-" }}</td>
             <td>{{ s.user.profile.serie|default:"-" }}</td>
-            <td style="font-weight:700;color:var(--green)">{{ s.xp }}</td>
+            <td style="font-weight:700;color:var(--green)">{{ s.xp_total }}</td>
           </tr>
           {% endfor %}
         </tbody>
@@ -370,6 +393,249 @@
         </tr>
         {% empty %}
         <tr><td colspan="6" style="text-align:center;color:var(--t3);padding:1.5rem">Aucun utilisateur</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="adm-section" id="sec-ai">
+  <p class="ai-notice" id="aiNotice"><i class="fas fa-clock" style="margin-top:.15rem;"></i> <span>Les totaux Outoubon sont presque temps réel. Le solde DeepSeek peut avoir jusqu’à 5 minutes de retard.</span></p>
+
+  <div class="ai-hero">
+    <div class="ai-hero-card ok" id="aiBalCard">
+      <div class="k">Solde restant</div>
+      <div class="v" id="aiBalTotal">—</div>
+      <div class="s" id="aiBalSub">Compte DeepSeek</div>
+    </div>
+    <div class="ai-hero-card">
+      <div class="k">Crédit rechargé</div>
+      <div class="v" id="aiBalTopup" style="color:var(--blue2)">—</div>
+      <div class="s">Topped-up balance</div>
+    </div>
+    <div class="ai-hero-card">
+      <div class="k">Crédit offert</div>
+      <div class="v" id="aiBalGranted" style="color:var(--purple)">—</div>
+      <div class="s">Granted balance</div>
+    </div>
+    <div class="ai-hero-card warn">
+      <div class="k" id="aiSpendLabel">Dépense période</div>
+      <div class="v" id="aiSpend">—</div>
+      <div class="s" id="aiSpendSub">Estimé aux tarifs Flash</div>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card orange">
+      <div class="stat-label">Aujourd'hui</div>
+      <div class="stat-value" id="aiTodayCost">—</div>
+      <div class="stat-sub" id="aiTodaySub">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">7 derniers jours</div>
+      <div class="stat-value" id="aiWeekCost">—</div>
+      <div class="stat-sub" id="aiWeekSub">—</div>
+    </div>
+    <div class="stat-card cyan">
+      <div class="stat-label">Cache DeepSeek</div>
+      <div class="stat-value" id="aiCachePct">—</div>
+      <div class="stat-sub" id="aiCacheSub">Tokens d'entrée déjà payés une fois</div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-label">Plafond du jour</div>
+      <div class="stat-value" id="aiLimitPct">—</div>
+      <div class="stat-sub" id="aiLimitSub">Tokens / appels globaux</div>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-header">
+      <div class="chart-title">Coût estimé (USD)</div>
+      <div class="chart-periods">
+        <button class="chart-period" data-days="1" onclick="loadAiUsage(1,this)">1j</button>
+        <button class="chart-period" data-days="7" onclick="loadAiUsage(7,this)">7j</button>
+        <button class="chart-period active" data-days="30" onclick="loadAiUsage(30,this)">30j</button>
+      </div>
+    </div>
+    <p class="ai-period-note" id="aiPriceNote">Tarifs Flash : entrée 0,14 $ / M · cache 0,0028 $ / M · sortie 0,28 $ / M</p>
+    <canvas id="aiCostChart" height="110"></canvas>
+  </div>
+
+  <div class="dashboard-secondary-grid">
+    <div class="chart-wrap">
+      <div class="chart-title" style="margin-bottom:.85rem;">Par fonctionnalité</div>
+      <div id="aiFeatureBars"><div style="color:var(--t3);font-size:.8rem;">Chargement…</div></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title" style="margin-bottom:.85rem;">Appels / jour</div>
+      <canvas id="aiCallsChart" height="110"></canvas>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <div class="tbl-title">Plus gros utilisateurs
+      <span style="font-size:.72rem;font-weight:500;color:var(--t3);">Coût estimé sur la période affichée</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Élève</th>
+          <th>Appels</th>
+          <th>Tokens</th>
+          <th>Cache</th>
+          <th>Coût</th>
+        </tr>
+      </thead>
+      <tbody id="aiTopUsers">
+        <tr><td colspan="6" style="text-align:center;color:var(--t3);padding:1.5rem;">Chargement…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tbl-wrap" id="aiGuestWrap" style="display:none;">
+    <div class="tbl-title">Invités (sans compte)</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Clé</th>
+          <th>Appels</th>
+          <th>Tokens</th>
+          <th>Cache</th>
+          <th>Coût</th>
+        </tr>
+      </thead>
+      <tbody id="aiTopGuests"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="adm-section" id="sec-hall">
+  <div class="chart-wrap">
+    <div class="chart-title" style="margin-bottom:.35rem;">Choix automatique (accueil)</div>
+    <p style="font-size:.78rem;color:var(--t3);margin:0 0 .85rem;line-height:1.45;">L’<strong>équipe championne</strong> et l’<strong>élève de la semaine</strong> sont calculés par le site. Le <strong>lauréat</strong> est l’élève OU TOU BON avec la meilleure note BAC estimée — affiché 1 an. Tu peux forcer le portrait du lauréat ci-dessous (photo, école…).</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.65rem;margin-bottom:1rem;">
+      <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:.75rem .85rem;">
+        <div style="font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem;">Lauréat du site</div>
+        <div style="font-weight:800;color:var(--t1);">{{ hall_live.laureate.name|default:"—" }}</div>
+        <div style="font-size:.75rem;color:var(--t3);margin-top:.2rem;">{{ hall_live.laureate.meta|default:"Pas encore assez de notes" }}</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:.75rem .85rem;">
+        <div style="font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem;">Équipe championne</div>
+        <div style="font-weight:800;color:var(--t1);">{{ hall_live.team_week.name|default:"—" }}</div>
+        <div style="font-size:.75rem;color:var(--t3);margin-top:.2rem;">{{ hall_live.team_week.meta|default:"Aucun Groupe de Génies classé" }}</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:.75rem .85rem;">
+        <div style="font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#22d3ee;margin-bottom:.35rem;">Élève de la semaine</div>
+        <div style="font-weight:800;color:var(--t1);">{{ hall_live.student_week.name|default:"—" }}</div>
+        <div style="font-size:.75rem;color:var(--t3);margin-top:.2rem;">{{ hall_live.student_week.meta|default:"Pas assez d’activité cette semaine" }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title" style="margin-bottom:.35rem;">Forcer le portrait du lauréat (optionnel)</div>
+    <form id="hallForm" onsubmit="submitSpotlight(event)" enctype="multipart/form-data">
+      <input type="hidden" name="kind" value="laureate">
+      <div class="form-row">
+        <label class="form-label">Nom</label>
+        <input class="form-input" name="title" placeholder="ex. Marie Jean" required>
+      </div>
+      <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+        <div>
+          <label class="form-label">École / lycée</label>
+          <input class="form-input" name="school" placeholder="ex. Lycée Toussaint Louverture">
+        </div>
+        <div>
+          <label class="form-label">Série</label>
+          <input class="form-input" name="serie" placeholder="ex. SVT, SMP">
+        </div>
+      </div>
+      <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+        <div>
+          <label class="form-label">Note /1900 (sur le site)</label>
+          <input class="form-input" name="score" placeholder="ex. 1450/1900">
+        </div>
+        <div>
+          <label class="form-label">Année (affichée 12 mois)</label>
+          <input class="form-input" name="academic_year" value="2026-2027">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Sous-titre (optionnel)</label>
+        <input class="form-input" name="subtitle" placeholder="Ligne courte sous le nom">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Texte affiché sur la carte</label>
+        <textarea class="form-textarea" name="body" placeholder="Meilleure note parmi les élèves OU TOU BON…"></textarea>
+      </div>
+      <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+        <div>
+          <label class="form-label">Photo</label>
+          <input class="form-input" type="file" name="photo" accept="image/*">
+        </div>
+        <div>
+          <label class="form-label">Ordre</label>
+          <input class="form-input" name="pin_order" type="number" min="0" value="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label" style="display:flex;align-items:center;gap:.45rem;cursor:pointer;">
+          <input type="checkbox" name="is_published" value="1" checked> Remplacer le lauréat automatique
+        </label>
+      </div>
+      <button class="btn-send" type="submit"><i class="fas fa-plus"></i> Publier le lauréat</button>
+    </form>
+  </div>
+  <div class="tbl-wrap">
+    <div class="tbl-title">Portraits publiés</div>
+    <table>
+      <thead><tr><th>Photo</th><th>Type</th><th>Nom</th><th>École</th><th>Série</th><th>Note</th><th>Année</th><th>Texte</th><th>Visible</th><th></th></tr></thead>
+      <tbody>
+        {% for s in spotlights %}
+        <tr>
+          <td>{% if s.photo %}<img src="{{ s.photo.url }}" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:8px;border:1px solid var(--border2);">{% else %}<span style="color:var(--t3);">—</span>{% endif %}</td>
+          <td>{{ s.get_kind_display }}</td>
+          <td>{{ s.title }}{% if s.subtitle %}<div style="font-size:.7rem;color:var(--t3);">{{ s.subtitle }}</div>{% endif %}{% if s.week_label %}<div style="font-size:.7rem;color:var(--t3);">{{ s.week_label }}</div>{% endif %}</td>
+          <td>{{ s.school|default:"—" }}</td>
+          <td>{{ s.serie|default:"—" }}</td>
+          <td>{{ s.score|default:"—" }}</td>
+          <td>{{ s.academic_year|default:"—" }}</td>
+          <td style="max-width:180px;white-space:normal;font-size:.75rem;color:var(--t2);">{{ s.body|truncatechars:80|default:"—" }}</td>
+          <td>{% if s.is_published %}<span class="badge green">Oui</span>{% else %}<span class="badge orange">Non</span>{% endif %}</td>
+          <td>
+            <button class="act-btn" onclick="toggleSpotlight({{ s.id }})">Masquer/afficher</button>
+            <button class="act-btn reject" onclick="deleteSpotlight({{ s.id }})">Supprimer</button>
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="10" style="text-align:center;color:var(--t3);padding:1.2rem;">Aucun portrait pour l’instant</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl-wrap">
+    <div class="tbl-title">Retraits XP élèves
+      {% if pending_xp_withdrawals %}<span class="badge orange">{{ pending_xp_withdrawals|length }} en attente</span>{% endif %}
+    </div>
+    <table>
+      <thead><tr><th>Élève</th><th>Gourdes</th><th>XP</th><th>MonCash</th><th>Statut</th><th></th></tr></thead>
+      <tbody>
+        {% for w in xp_withdrawals %}
+        <tr>
+          <td>{{ w.user.get_full_name|default:w.user.username }}</td>
+          <td>{{ w.amount_htg }} G</td>
+          <td>{{ w.xp_amount }}</td>
+          <td>{{ w.moncash }}</td>
+          <td>{{ w.get_status_display }}</td>
+          <td>
+            {% if w.status == 'pending' %}
+            <button class="act-btn approve" onclick="settleXpWd({{ w.id }},'approve')">Verser</button>
+            <button class="act-btn reject" onclick="settleXpWd({{ w.id }},'reject')">Refuser</button>
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6" style="text-align:center;color:var(--t3);padding:1.2rem;">Aucun retrait</td></tr>
         {% endfor %}
       </tbody>
     </table>
@@ -673,7 +939,7 @@
             <option value="physique">Physique</option>
             <option value="chimie">Chimie</option>
             <option value="svt">SVT</option>
-            <option value="francais">Français / Kreyòl</option>
+            <option value="francais">Kreyòl</option>
             <option value="anglais">Anglais</option>
             <option value="espagnol">Espagnol</option>
             <option value="histoire">Histoire-Géo</option>
@@ -788,20 +1054,66 @@ let _admGroupPollTimer = null;
 function switchTab(tab, btn) {
   document.querySelectorAll('.adm-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.adm-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('sec-' + tab).classList.add('active');
-  btn.classList.add('active');
+  const sec = document.getElementById('sec-' + tab);
+  if (sec) sec.classList.add('active');
+  const tabBtn = btn || document.querySelector('.adm-tab[data-tab="' + tab + '"]');
+  if (tabBtn) tabBtn.classList.add('active');
 
-  // Arrêter le polling dans tous les cas
   if (_admGroupPollTimer) {
     clearInterval(_admGroupPollTimer);
     _admGroupPollTimer = null;
   }
 
-  // Démarrer le polling si onglet groupchat sélectionné
   if (tab === 'groupchat') {
     loadAdmGroupMessages();
     _admGroupPollTimer = setInterval(loadAdmGroupMessages, 3000);
   }
+  if (tab === 'ai') loadAiUsage(_aiDays);
+}
+
+function submitSpotlight(ev) {
+  ev.preventDefault();
+  const fd = new FormData(document.getElementById('hallForm'));
+  fetch('/dashboard/otb-ctrl-9x7k/api/spotlight/', {
+    method: 'POST',
+    headers: { 'X-CSRFToken': CSRF },
+    body: fd,
+    credentials: 'same-origin'
+  }).then(r => r.json()).then(d => {
+    if (d.ok) location.reload();
+    else showToast(d.error || 'Erreur', 'error');
+  }).catch(() => showToast('Erreur réseau', 'error'));
+}
+
+function toggleSpotlight(id) {
+  fetch('/dashboard/otb-ctrl-9x7k/api/spotlight/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+    credentials: 'same-origin',
+    body: JSON.stringify({ action: 'toggle', id: id })
+  }).then(r => r.json()).then(d => { if (d.ok) location.reload(); });
+}
+
+function deleteSpotlight(id) {
+  if (!confirm('Supprimer ce portrait ?')) return;
+  fetch('/dashboard/otb-ctrl-9x7k/api/spotlight/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+    credentials: 'same-origin',
+    body: JSON.stringify({ action: 'delete', id: id })
+  }).then(r => r.json()).then(d => { if (d.ok) location.reload(); });
+}
+
+function settleXpWd(id, action) {
+  fetch('/dashboard/otb-ctrl-9x7k/api/xp-withdrawal/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+    credentials: 'same-origin',
+    body: JSON.stringify({ id: id, action: action })
+  }).then(r => r.json()).then(d => {
+    if (d.ok) location.reload();
+    else showToast(d.error || 'Erreur', 'error');
+  });
 }
 
 function showToast(msg, type) {
@@ -1104,7 +1416,7 @@ async function showStatsModal(type) {
           <td style="padding:.9rem .75rem;font-size:.8rem;color:var(--t2);font-weight:700;">${escHtml(u.serie || '-')}</td>
           <td style="padding:.9rem .75rem;">${statusBadge}</td>
           <td style="padding:.9rem .75rem;font-size:.78rem;color:var(--t3);">${escHtml(u.joined)}</td>
-          <td style="padding:.9rem .75rem;font-size:.78rem;color:var(--t3);">${u.last_active ? escHtml(u.last_active) : '<span style="color:rgba(239,68,68,.6);">Inactif</span>'}</td>
+          <td style="padding:.9rem .75rem;font-size:.78rem;color:var(--t3);">${u.is_online ? '<span style="color:#34d399;font-weight:700;"><i class="fas fa-circle" style="font-size:.55rem;"></i> En ligne</span>' : (u.last_active ? escHtml(u.last_active) : '<span style="color:rgba(239,68,68,.6);">—</span>')}</td>
         </tr>
       `;
     }).join('');
@@ -1442,7 +1754,204 @@ async function publishAdmQuiz() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initCharts);
+document.addEventListener('DOMContentLoaded', () => {
+  initCharts();
+  loadAiUsage(30);
+});
+
+let _aiDays = 30;
+let aiCostChart, aiCallsChart;
+
+function _aiMoney(n) {
+  if (n == null || Number.isNaN(n)) return '—';
+  const v = Number(n);
+  const abs = Math.abs(v);
+  if (abs >= 100) return '$' + v.toFixed(2);
+  if (abs >= 1) return '$' + v.toFixed(2);
+  if (abs >= 0.01) return '$' + v.toFixed(3);
+  return '$' + v.toFixed(4);
+}
+function _aiTok(n) {
+  n = Number(n) || 0;
+  if (n >= 1e6) return (n / 1e6).toFixed(2) + ' M';
+  if (n >= 1e3) return (n / 1e3).toFixed(1) + ' k';
+  return String(n);
+}
+function _aiSet(id, text) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text;
+}
+
+function loadAiUsage(days, btn) {
+  _aiDays = days || _aiDays || 30;
+  if (btn) {
+    document.querySelectorAll('#sec-ai .chart-period').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  fetch('/dashboard/otb-ctrl-9x7k/api/ai-usage/?days=' + _aiDays)
+    .then(r => r.json())
+    .then(renderAiUsage)
+    .catch(() => {
+      _aiSet('ovAiSub', 'Impossible de charger la conso IA');
+      _aiSet('aiNotice', 'Erreur de chargement du module IA.');
+    });
+}
+
+function renderAiUsage(d) {
+  if (!d) return;
+  const bal = d.balance || {};
+  const today = d.today || {};
+  const week = d.last_7d || {};
+  const period = d.period || {};
+  const prices = d.prices || {};
+  const limits = d.limits || {};
+
+  if (d.delay_notice) {
+    const n = document.getElementById('aiNotice');
+    if (n) n.innerHTML = '<i class="fas fa-clock" style="margin-top:.15rem;"></i> <span>' + d.delay_notice + '</span>';
+  }
+
+  _aiSet('ovAiCost', _aiMoney(today.cost_usd));
+  _aiSet('ovAiSub', _aiTok(today.total_tokens) + ' tokens · ' + (today.api_calls || 0) + ' appels · cache ' + (today.cache_hit_pct || 0) + '%');
+
+  const card = document.getElementById('aiBalCard');
+  if (bal.ok) {
+    const total = bal.total_balance;
+    _aiSet('aiBalTotal', total == null ? '—' : _aiMoney(total) + ' ' + (bal.currency || 'USD'));
+    _aiSet('aiBalTopup', bal.topped_up_balance == null ? '—' : _aiMoney(bal.topped_up_balance));
+    _aiSet('aiBalGranted', bal.granted_balance == null ? '—' : _aiMoney(bal.granted_balance));
+    let sub = bal.available ? 'API disponible' : 'Compte indisponible';
+    if (total != null && total <= 0) {
+      sub = 'Solde épuisé — recharger sur platform.deepseek.com';
+      if (card) { card.classList.remove('ok'); card.classList.add('bad'); }
+    } else if (total != null && total < 1) {
+      sub = 'Solde bas';
+      if (card) { card.classList.remove('ok','bad'); card.classList.add('warn'); }
+    } else if (card) {
+      card.classList.remove('warn','bad'); card.classList.add('ok');
+    }
+    _aiSet('aiBalSub', sub);
+  } else {
+    _aiSet('aiBalTotal', '—');
+    const err = bal.error === 'missing_key' ? 'Clé DEEPSEEK_API_KEY absente' : ('Erreur solde' + (bal.error ? ' (' + bal.error + ')' : ''));
+    _aiSet('aiBalSub', err);
+    _aiSet('aiBalTopup', '—');
+    _aiSet('aiBalGranted', '—');
+    if (card) { card.classList.remove('ok'); card.classList.add('warn'); }
+  }
+
+  _aiSet('aiSpendLabel', 'Dépense ' + (period.days || _aiDays) + ' j');
+  _aiSet('aiSpend', _aiMoney(period.cost_usd));
+  _aiSet('aiSpendSub', (period.api_calls || 0) + ' req · ' + _aiTok(period.total_tokens) + ' tokens');
+  _aiSet('aiTodayCost', _aiMoney(today.cost_usd));
+  _aiSet('aiTodaySub', (today.api_calls || 0) + ' req · ' + _aiTok(today.total_tokens) + ' tok');
+  _aiSet('aiWeekCost', _aiMoney(week.cost_usd));
+  _aiSet('aiWeekSub', (week.api_calls || 0) + ' req · ' + _aiTok(week.total_tokens) + ' tok');
+  _aiSet('aiCachePct', (period.cache_hit_pct || 0) + '%');
+  _aiSet('aiCacheSub', _aiTok(period.cache_hit_tokens) + ' tokens en cache / ' + _aiTok(period.prompt_tokens) + ' entrée');
+
+  const tokMax = limits.max_global_tokens_per_day || 0;
+  const tokUsed = limits.tokens_used_today || 0;
+  const tokPct = tokMax ? Math.min(100, Math.round(100 * tokUsed / tokMax)) : 0;
+  _aiSet('aiLimitPct', tokPct + '%');
+  _aiSet('aiLimitSub', _aiTok(tokUsed) + ' / ' + _aiTok(tokMax) + ' tok · ' + (limits.calls_used_today || 0) + '/' + (limits.max_global_calls_per_day || 0) + ' appels');
+
+  if (prices.input_per_m != null) {
+    _aiSet('aiPriceNote', 'Tarifs ' + (prices.model || 'Flash') + ' : entrée ' + prices.input_per_m + ' $ / M · cache ' + prices.cache_hit_per_m + ' $ / M · sortie ' + prices.output_per_m + ' $ / M');
+  }
+
+  const daily = d.daily || [];
+  const chartOpts = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {legend:{display:false}},
+    scales: {
+      x: {grid:{color:'rgba(45,55,72,.4)'},ticks:{color:'#64748b',font:{size:10}}},
+      y: {grid:{color:'rgba(45,55,72,.4)'},ticks:{color:'#64748b',font:{size:10}}}
+    }
+  };
+  const costCtx = document.getElementById('aiCostChart');
+  if (costCtx && window.Chart) {
+    if (aiCostChart) aiCostChart.destroy();
+    aiCostChart = new Chart(costCtx, {
+      type: 'line',
+      data: {
+        labels: daily.map(x => x.label),
+        datasets: [{
+          data: daily.map(x => x.cost_usd),
+          borderColor: '#f59e0b',
+          backgroundColor: 'rgba(245,158,11,.12)',
+          fill: true, tension: .35, pointRadius: 2, borderWidth: 2
+        }]
+      },
+      options: chartOpts
+    });
+  }
+  const callsCtx = document.getElementById('aiCallsChart');
+  if (callsCtx && window.Chart) {
+    if (aiCallsChart) aiCallsChart.destroy();
+    aiCallsChart = new Chart(callsCtx, {
+      type: 'bar',
+      data: {
+        labels: daily.map(x => x.label),
+        datasets: [{
+          data: daily.map(x => x.api_calls),
+          backgroundColor: 'rgba(6,182,212,.45)',
+          borderRadius: 4
+        }]
+      },
+      options: chartOpts
+    });
+  }
+
+  const maxCost = Math.max(0.0001, ...(d.by_feature || []).map(f => f.cost_usd || 0));
+  const feat = document.getElementById('aiFeatureBars');
+  if (feat) {
+    if (!(d.by_feature || []).length) {
+      feat.innerHTML = '<div style="color:var(--t3);font-size:.8rem;">Aucune conso sur cette période.</div>';
+    } else {
+      feat.innerHTML = d.by_feature.map(f => {
+        const w = Math.max(4, Math.round(100 * (f.cost_usd || 0) / maxCost));
+        return '<div class="ai-bar-row"><div class="ai-bar-label">' + (f.label || f.feature) + '</div>'
+          + '<div class="ai-bar-track"><div class="ai-bar-fill" style="width:' + w + '%"></div></div>'
+          + '<div class="ai-bar-val">' + _aiMoney(f.cost_usd) + '</div></div>'
+          + '<div style="font-size:.68rem;color:var(--t3);margin:-.2rem 0 .4rem 136px;">'
+          + (f.api_calls || 0) + ' req · ' + _aiTok(f.total_tokens) + ' tok · cache ' + (f.cache_hit_pct || 0) + '%</div>';
+      }).join('');
+    }
+  }
+
+  const tb = document.getElementById('aiTopUsers');
+  if (tb) {
+    const users = d.top_users || [];
+    if (!users.length) {
+      tb.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--t3);padding:1.5rem;">Aucun usage identifié</td></tr>';
+    } else {
+      tb.innerHTML = users.map((u, i) => {
+        const who = u.name || u.username || ('#' + u.user_id);
+        return '<tr>'
+          + '<td>' + (i + 1) + '</td>'
+          + '<td onclick="openGlobalProfileModal(' + u.user_id + ')" style="cursor:pointer;color:var(--green);font-weight:600;">' + who + '<div style="font-size:.68rem;color:var(--t3);font-weight:500;">@' + (u.username || '') + '</div></td>'
+          + '<td>' + u.api_calls + '</td>'
+          + '<td>' + _aiTok(u.total_tokens) + '</td>'
+          + '<td>' + (u.cache_hit_pct || 0) + '%</td>'
+          + '<td style="color:var(--orange);font-weight:700;">' + _aiMoney(u.cost_usd) + '</td>'
+          + '</tr>';
+      }).join('');
+    }
+  }
+
+  const guests = d.top_guests || [];
+  const wrap = document.getElementById('aiGuestWrap');
+  const gtb = document.getElementById('aiTopGuests');
+  if (wrap && gtb) {
+    if (!guests.length) { wrap.style.display = 'none'; }
+    else {
+      wrap.style.display = '';
+      gtb.innerHTML = guests.map(g => '<tr><td>' + (g.guest_key || '') + '</td><td>' + g.api_calls + '</td><td>' + _aiTok(g.total_tokens) + '</td><td>' + (g.cache_hit_pct || 0) + '%</td><td style="color:var(--orange);font-weight:700;">' + _aiMoney(g.cost_usd) + '</td></tr>').join('');
+    }
+  }
+}
 </script>
 <!-- Modal Global Profil Utilisateur -->
 <div id="globalUserProfileModal" style="display:none;position:fixed;inset:0;z-index:9990;background:rgba(2,6,23,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);align-items:center;justify-content:center;" onclick="if(event.target===this){closeGlobalProfileModal();}"></div>

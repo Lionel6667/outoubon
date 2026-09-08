@@ -1,0 +1,191 @@
+Tu es professeur Haïti 9e AF (Sciences sociales).
+
+Pour chaque QCM OFFICIEL ci-dessous (extrait d'examen, sans corrigé), donne la bonne réponse
+UNIQUEMENT si tu es certain à 100%. Sinon OMET la question.
+
+Réponds SEULEMENT un JSON array:
+[{"question":"...","options":["..","..","..",".."],"correct":"B","explanation":"...","category":"...","difficulty":"moyen","timer_seconds":30}]
+
+QCM:
+[
+  {
+    "n": "1",
+    "question": "Dans l’une des villes suivantes à eu lieu un krach boursier qui a donné naissance à la crise de 1929. Laquelle ?",
+    "options": [
+      "Berlin",
+      "Londres",
+      "New York",
+      "Paris 9"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "L’un des personnages suivants fut le secrétaire particulier de Jean Jacques Dessalines. Lequel ?",
+    "options": [
+      "Charlotin Marcadieu",
+      "Boisrond Tonnerre",
+      "Juste chanlatte",
+      "André Vernet 1"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Tirésias Simon Sam a succédé à l’un des chefs d’État suivants. Lequel ?",
+    "options": [
+      "Florvil Hyppolite",
+      "François Denys Légitime",
+      "Nord Alexis",
+      "Lysius Salomon"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "L’un des pays membres de la CARICOM est situé en Amérique centrale. Lequel ? I",
+    "options": [
+      "Barbade",
+      "Guyane",
+      "Belize",
+      "StKitts et Nevis !"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Au cours de la Première Guerre Mondiale, le Traité de Versailles avait lié l'un des groupes de pays suivants. Lequel?",
+    "options": [
+      "Autriche-Hongrie — Italie",
+      "Autriche-Hongrie — Allemagne 1",
+      "Autriche-Hongrie — France",
+      "Autriche-Hongrie — Angleterre"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "8",
+    "question": "Le secteur tertiaire en Haïti correspond à l'un des F groupes d'activités suivants. Lequel ? L",
+    "options": [
+      "Banques — Usines — églises L",
+      "Banques — Ecoles — Cabinets d'avocat ü",
+      "Banques — Ecoles — Culture de la canne à sucre r",
+      "Ecoles — Mines — Magasins P"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Au nom des Piquets, Jean Jacques Acaau a formulé l’une des revendications suivantes. Laquelle ?",
+    "options": [
+      "Une égalité sans ambiguité",
+      "Une justice sociale pour tous",
+      "Un noir à la présidence",
+      "Un partage équitable des terres"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Lequel de ces événements a contribueé à mettre fin | 1 à la deuxième guerre mondiale?",
+    "options": [
+      "L’aasinat d’Ernesto Che Guevara",
+      "Le bombardement d’Hiroshima le 6 août 1945",
+      "La crise économique de 1929",
+      "L'’assissinat de François Ferdinand à Sarajevo"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "1",
+    "question": "L’une des affirmations suivantes correspond l’objectif de la révolution bolchévique en octobre 1917. Laquelle? 8",
+    "options": [
+      "Elle avait pour but d’instaurer le libéralisme économique en Russie",
+      "Elle avait pour objectif d’étendre le pouvoir du Tsar Nicolas IT sur toute l’Europe. L",
+      "Elle avait pour objectif d’instaurer un régime s socialiste en Russie. ©",
+      "Elle avait pour but de renforcer le système capitaliste. q"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "3",
+    "question": "Tous les faits suivants relèvent de l’occupation américaine d’Haiti de 1915 à 1934, saufun. Lequel?",
+    "options": [
+      "La mise en place de gouvernements fantôches",
+      "La création de la Gendarmerie d'Haïti",
+      "La séquestration de la réserve d’or du pays",
+      "L’élection de Dumarsais Estimé à la Présidence. J"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "Tous les faits énumérés ci-dessous sont vrais, sauf un; lequel?",
+    "options": [
+      "C’est à New York que la crise économique de 1929 a débuté",
+      "Benito Mussolini a été le principal fondateur du parti Nazi",
+      "Une crise est dite « surproduction » si l’offre est supérieure à la demande",
+      "Durant la 2° Guerre Mondiale, six millions de Juifs ont été exterminés"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "7",
+    "question": "Toutes les actions suivantes peuvent faire partie d’un programme d’aménagement du territoir en Haiti, saus une, laquelle?",
+    "options": [
+      "La protection des sources et des forêts",
+      "Le ramassage d’ordure",
+      "Le recyclage des déchets",
+      "L’Utilisation du bois comme combustible ,"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "2",
+    "question": "Toutes les définitions suivantes sont liées à l’agriculture commerciale, sauf une, laquelle? 1",
+    "options": [
+      "Une agriculture de subsistance",
+      "Une agriculture spécialisée dans la monoculture",
+      "Une agriculture mécanisée",
+      "Une agriculture ouverte à l’explortation"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "5",
+    "question": "Lequel des commissaires civils français suivants fut à la base de l’affranchissement général des esclaves de St Domingue? 1",
+    "options": [
+      "Léger Félicité Sonthonax",
+      "Étienne de Polvérel",
+      "Roume de Saint-Laurent",
+      "Ignace Frédéric de Mirbeck"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  },
+  {
+    "n": "6",
+    "question": "L’un des groupes de personnages suivants dest constitué uniquement de fondateurs de la République d’Argentine, lequel?",
+    "options": [
+      "Simon Bolivar — Bernado O’Higgins",
+      "José de San Martin — Manuel Belgrano",
+      "José Gabriel Tupac Amaru — José Maria Morelos",
+      "Antonio Mariño — Juan José FLorès"
+    ],
+    "source": "exam_histoire_science-sociales-2010-2023-9e-af.pdf",
+    "year": "2010-2023"
+  }
+]

@@ -1,0 +1,107 @@
+/* Visitor demo Q&A — kept outside template so SPA navigation keeps styles */
+.v2-demo-qa {
+  max-width: min(760px, 100%);
+  margin: 1rem auto 0;
+  padding: 0.35rem 0.15rem 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+.v2-demo-qa__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.v2-demo-qa__tab {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--t2);
+}
+.v2-demo-qa__row {
+  display: flex;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.v2-demo-qa__row--user {
+  justify-content: flex-end;
+}
+.v2-demo-qa__av {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+.v2-demo-qa__av--ai {
+  background: linear-gradient(135deg, #10b981, #0d9488);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+.v2-demo-qa__bubble {
+  max-width: min(88%, 520px);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+.v2-demo-qa__bubble--user {
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  border-radius: 18px 4px 18px 18px;
+  color: #e2e8f0;
+}
+.v2-demo-qa__bubble--ai {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 4px 18px 18px 18px;
+  color: var(--t2);
+}
+.v2-demo-qa__cta {
+  text-align: center;
+  padding: 1.1rem 0.85rem;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px dashed rgba(16, 185, 129, 0.2);
+  border-radius: 14px;
+  margin-top: 0.35rem;
+}
+.v2-demo-qa__cta-text {
+  font-size: 0.85rem;
+  color: var(--t2);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+.v2-demo-qa__cta-btn {
+  display: inline-block;
+  background: #10b981;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.6rem 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.86rem;
+}
+@media (max-width: 640px) {
+  .v2-demo-qa__bubble {
+    max-width: 86%;
+    font-size: 0.82rem;
+    padding: 0.6rem 0.75rem;
+  }
+  .v2-demo-qa {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}

@@ -3,6 +3,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"/>
+  {% if not spa_mode %}
   <meta name="csrf-token" content="{{ csrf_token }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
   <meta name="theme-color" content="#0f172a"/>
@@ -34,7 +35,9 @@
       }
     })();
   </script>
+  {% endif %}
   <title>{% block title %}OU TOU BON{% endblock %}</title>
+  {% if not spa_mode %}
   <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}"/>
   <link rel="apple-touch-icon" href="{% static 'img/logo.png' %}"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -43,6 +46,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/></noscript>
+  <link rel="stylesheet" href="{% static 'css/v2/design-system.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/v2/layout.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/v2/page-shell.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/v2/components.css' %}"/>
   <script>
     window._mathJaxQueue = [];
     window.MathJax = {
@@ -73,7 +80,7 @@
     };
   </script>
   <script id="MathJax-script" async src="https://unpkg.com/mathjax@3.2.2/es5/tex-svg-full.js" crossorigin="anonymous"></script>
-  <style>
+  <style id="otb-base-css">
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { background: var(--bg2); }
     :root {
@@ -413,6 +420,7 @@
       :root { --sidebar-w: 0px; }
 
       
+      .sidebar .msg-badge { display: none !important; }
       .sidebar {
         position: fixed;
         top: 0; left: 0; bottom: 0;
@@ -925,12 +933,15 @@
     .foreign-lang-btn { border:1px solid rgba(148,163,184,.3); border-radius:999px; background:rgba(255,255,255,.08); color:inherit; padding:.28rem .65rem; font-size:.78rem; cursor:pointer; transition:all .2s ease; }
     .foreign-lang-btn:hover { background:rgba(255,255,255,.16); }
 
-    {% block extra_css %}{% endblock %}
   </style>
+  {% endif %}
+  {% block extra_css %}{% endblock %}
+  {% block extra_head_links %}{% endblock %}
 </head>
-<body data-myid="{{ request.user.id|default:0 }}">
+<body{% if not spa_mode %} data-myid="{{ request.user.id|default:0 }}"{% endif %}>
 {% block body %}{% endblock %}
 
+{% if not spa_mode %}
 <div id="guestBlockedToast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(120px);opacity:0;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s;z-index:9999;pointer-events:none;min-width:320px;max-width:90vw">
   <div style="background:rgba(15,23,42,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(16,185,129,.3);border-radius:18px;padding:1rem 1.25rem;display:flex;align-items:center;gap:.85rem;box-shadow:0 20px 60px rgba(0,0,0,.5)">
     <div style="width:36px;height:36px;border-radius:10px;background:rgba(16,185,129,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
@@ -1000,6 +1011,14 @@ function _getCsrfToken() {
 }
 // Make CSRF a live getter so stale tokens are never used
 Object.defineProperty(window, 'CSRF', { get: _getCsrfToken, configurable: true });
+window.OTB_SUBJECT_LABELS = {{ subject_labels_json|default:"{}"|safe }};
+window.otbSubjectLabel = function (key) {
+  var raw = String(key || '').trim();
+  var k = raw.toLowerCase();
+  if ((k.indexOf('français') !== -1 || k === 'francais') && k.indexOf('krey') === -1) return 'Kreyòl';
+  var map = window.OTB_SUBJECT_LABELS || {};
+  return map[k] || map[raw] || raw;
+};
 const IS_PREMIUM = {% if user.is_authenticated and user.profile.is_premium %}true{% else %}false{% endif %};
 const URL_TRANSLATE  = '{% url "api_translate" %}';
 const URL_USER_LANG  = '{% url "api_user_lang" %}';
@@ -1117,11 +1136,17 @@ function closePremiumGate(){
 
 (function() {
   function initMobileSidebar() {
-    const overlay = document.createElement('div');
-    overlay.className = 'mob-overlay';
-    overlay.setAttribute('aria-hidden', 'true');
-    overlay.addEventListener('click', closeSidebar);
-    (document.querySelector('.app') || document.body).appendChild(overlay);
+    const app = document.querySelector('.app');
+    if (!app) return;
+
+    let overlay = app.querySelector('.mob-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'mob-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      overlay.addEventListener('click', closeSidebar);
+      app.appendChild(overlay);
+    }
 
     document.querySelectorAll('.topbar').forEach(function(topbar) {
       if (topbar.querySelector('.hamburger-btn')) return;
@@ -1134,6 +1159,8 @@ function closePremiumGate(){
     });
 
     document.querySelectorAll('.nav-item').forEach(function(item) {
+      if (item.dataset.otbNavBound) return;
+      item.dataset.otbNavBound = '1';
       item.addEventListener('click', function() {
         if (window.innerWidth <= 768) closeSidebar();
       });
@@ -1146,6 +1173,10 @@ function closePremiumGate(){
   function closeSidebar() {
     document.body.classList.remove('sidebar-open');
   }
+
+  window.OTB_initMobileSidebar = initMobileSidebar;
+  window.OTB_closeSidebar = closeSidebar;
+  window.OTB_toggleSidebar = toggleSidebar;
 
   if (window.innerWidth <= 768) {
     if (document.readyState === 'loading') {
@@ -1586,7 +1617,7 @@ const I18N = {
     profil_mdp_actuel: 'Mot de passe actuel',
     profil_mdp_new: 'Nouveau mot de passe',
     profil_mdp_confirm: 'Confirmer',
-    profil_btn_save: 'Sauvegarder les modifications',
+    profil_btn_save: 'Sauvegarder',
     fiches_title: 'Fiches Mémo',
     fiches_generate: 'Générer des fiches',
     fiches_select_subject: 'Choisir une matière',
@@ -2362,8 +2393,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+{% endif %}
 
+<div id="otb-page-scripts" data-otb-page-scripts>
 {% block extra_js %}{% endblock %}
+</div>
+{% if not spa_mode %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.5/purify.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <!-- Modal Global Profil Utilisateur -->
 <style>
@@ -2389,6 +2424,14 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
   <div id="gpm-scores" style="display:none;margin-bottom:1rem;"></div>
+  <div id="gpm-alias-wrap" style="display:none;margin:0 0 1rem;padding:.75rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;">
+    <label for="gpm-alias-input" style="display:block;font-size:.68rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem;">Surnom (pour toi seulement)</label>
+    <div style="display:flex;gap:.4rem;">
+      <input id="gpm-alias-input" maxlength="40" placeholder="Ex. Doudou, Coach…" style="flex:1;min-width:0;background:#0f172a;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#f1f5f9;padding:.45rem .65rem;font-size:.85rem;">
+      <button type="button" id="gpm-alias-save" style="background:#10b981;color:#fff;border:none;border-radius:8px;padding:.45rem .75rem;font-weight:800;font-size:.78rem;cursor:pointer;">OK</button>
+    </div>
+    <div id="gpm-real-name" style="display:none;font-size:.72rem;color:#64748b;margin-top:.4rem;"></div>
+  </div>
   <div id="gpm-actions" style="display:flex;flex-direction:column;gap:.5rem;"></div>
 </div>
 
@@ -2430,6 +2473,8 @@ function openGlobalProfileModal(userId) {
   const scoresEl = document.getElementById('gpm-scores');
   scoresEl.style.display = 'none';
   scoresEl.innerHTML = '';
+  const aliasWrap = document.getElementById('gpm-alias-wrap');
+  if (aliasWrap) aliasWrap.style.display = 'none';
 
   fetch('/dashboard/api/user-profile-summary/' + userId + '/', { headers: { 'X-CSRFToken': typeof CSRF !== 'undefined' ? CSRF : '' } })
     .then(r => r.json())
@@ -2457,10 +2502,71 @@ function openGlobalProfileModal(userId) {
       }
 
       // Charger le texte
-      const fullName = [d.prenom, d.nom].filter(Boolean).join(' ') || 'Utilisateur';
-      nameEl.innerHTML = fullName + (d.statut_premium ? ' <span style="font-size:.58rem;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1e293b;padding:.1rem .35rem;border-radius:5px;font-weight:800;margin-left:.3rem;">PRO</span>' : '');
+      const realName = [d.prenom, d.nom].filter(Boolean).join(' ') || d.real_name || d.username || 'Utilisateur';
+      const fullName = d.display_name || d.alias || realName;
+      const proBadge = (d.is_premium || d.statut_premium) ? ' <span style="font-size:.58rem;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1e293b;padding:.1rem .35rem;border-radius:5px;font-weight:800;margin-left:.3rem;">PRO</span>' : '';
+      nameEl.innerHTML = '';
+      nameEl.appendChild(document.createTextNode(fullName));
+      if (proBadge) nameEl.insertAdjacentHTML('beforeend', proBadge);
       schoolEl.textContent = d.ecole || 'OU TOU BON';
       serieEl.textContent = d.serie ? 'Série ' + d.serie : '';
+
+      if (aliasWrap) {
+        if (d.relation === 'ami') {
+          aliasWrap.style.display = 'block';
+          const aliasInput = document.getElementById('gpm-alias-input');
+          const realEl = document.getElementById('gpm-real-name');
+          const saveBtn = document.getElementById('gpm-alias-save');
+          if (aliasInput) aliasInput.value = d.alias || '';
+          if (realEl) {
+            if (d.alias) {
+              realEl.style.display = 'block';
+              realEl.textContent = 'Nom réel : ' + realName;
+            } else {
+              realEl.style.display = 'none';
+              realEl.textContent = '';
+            }
+          }
+          if (saveBtn) {
+            saveBtn.onclick = function() {
+              const next = ((aliasInput && aliasInput.value) || '').trim();
+              saveBtn.disabled = true;
+              fetch('/dashboard/api/amis/alias/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': typeof CSRF !== 'undefined' ? CSRF : '' },
+                body: JSON.stringify({ friend_id: d.user_id, alias: next })
+              }).then(function(r){ return r.json(); }).then(function(res){
+                saveBtn.disabled = false;
+                if (!res.ok) { alert(res.error || 'Erreur'); return; }
+                if (typeof otbApplyAlias === 'function') otbApplyAlias(d.user_id, res.alias || '', res.real_name || realName);
+                d.alias = res.alias || '';
+                d.display_name = res.display_name || realName;
+                nameEl.innerHTML = '';
+                nameEl.appendChild(document.createTextNode(d.display_name));
+                if (proBadge) nameEl.insertAdjacentHTML('beforeend', proBadge);
+                if (realEl) {
+                  if (d.alias) {
+                    realEl.style.display = 'block';
+                    realEl.textContent = 'Nom réel : ' + (res.real_name || realName);
+                  } else {
+                    realEl.style.display = 'none';
+                  }
+                }
+              }).catch(function(){ saveBtn.disabled = false; });
+            };
+          }
+          if (aliasInput) {
+            aliasInput.onkeydown = function(ev) {
+              if (ev.key === 'Enter') {
+                ev.preventDefault();
+                if (saveBtn) saveBtn.click();
+              }
+            };
+          }
+        } else {
+          aliasWrap.style.display = 'none';
+        }
+      }
 
       // Charger les scores (point fort / point faible)
       let scoresHtml = '';
@@ -2580,6 +2686,123 @@ function closeGlobalProfileModal() {
   if (overlay) overlay.style.display = 'none';
 }
 </script>
+{% include "partials/v2/_bottom_nav.html" %}
+
+{% if request.user.is_authenticated %}
+<div id="otbPushModal" class="otb-push-modal" hidden>
+  <div class="otb-push-modal__backdrop"></div>
+  <div class="otb-push-modal__box" role="dialog" aria-labelledby="otbPushTitle" aria-modal="true">
+    <div class="otb-push-modal__icon"><i class="fas fa-bell"></i></div>
+    <h2 id="otbPushTitle">Ne rate plus tes messages</h2>
+    <p class="otb-push-modal__lead">On t’avertit même si OU TOU BON est fermé — comme WhatsApp, mais pour tes études.</p>
+    <ul class="otb-push-modal__list">
+      <li><i class="fas fa-comment-dots"></i><span>Un ami t’écrit ou te tague</span></li>
+      <li><i class="fas fa-fire"></i><span>Ta série de jours va se briser</span></li>
+      <li><i class="fas fa-trophy"></i><span>Un match ou un duel t’attend</span></li>
+    </ul>
+    <p id="otbPushHint" class="otb-push-modal__hint"></p>
+    <div class="otb-push-modal__actions">
+      <button type="button" class="otb-push-modal__go" id="otbPushGo">Activer les notifications</button>
+      <button type="button" class="otb-push-modal__later" id="otbPushLater">Plus tard</button>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if coach_name_required and request.user.is_authenticated %}
+<div id="coachNameModal" style="position:fixed;inset:0;z-index:10050;background:rgba(2,6,23,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:1.5rem;max-width:400px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.45);">
+    <div style="width:48px;height:48px;border-radius:14px;background:rgba(139,92,246,.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.4rem;">🤖</div>
+    <h2 style="font-size:1.15rem;font-weight:800;margin-bottom:.4rem;">Ton assistant IA</h2>
+    <p style="font-size:.84rem;color:var(--t2);line-height:1.55;margin-bottom:1rem;">Choisis le nom de ton assistant — il apparaîtra partout sur le site.</p>
+    <input type="text" id="coachNameInput" maxlength="40" placeholder="Entrez le nom ici" class="form-control" style="margin-bottom:.75rem;">
+    <button type="button" id="coachNameSaveBtn" class="btn-primary" style="width:100%;padding:.7rem;font-weight:700;">Continuer</button>
+  </div>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('coachNameSaveBtn');
+  var input = document.getElementById('coachNameInput');
+  if (!btn || !input) return;
+  btn.addEventListener('click', function(){
+    var name = (input.value || '').trim();
+    if (!name) { input.focus(); return; }
+    btn.disabled = true;
+    fetch('{% url "api_set_coach_name" %}', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': typeof CSRF !== 'undefined' ? CSRF : '' },
+      body: JSON.stringify({ coach_name: name })
+    }).then(function(r){ return r.json(); }).then(function(d){
+      if (d.ok) {
+        window.OTB_COACH_NAME = d.coach_name;
+        window.OTB_COACH_NAME_REQUIRED = false;
+        document.querySelectorAll('.otb-coach-name').forEach(function(el){ el.textContent = d.coach_name; });
+        var navLabel = d.coach_name && d.coach_name.length <= 10 ? d.coach_name : 'Chat IA';
+        document.querySelectorAll('.otb-coach-nav-label').forEach(function(el){ el.textContent = navLabel; });
+        var modal = document.getElementById('coachNameModal');
+        if (modal) modal.remove();
+      } else {
+        alert(d.error || 'Erreur');
+        btn.disabled = false;
+      }
+    }).catch(function(){ btn.disabled = false; });
+  });
+})();
+</script>
+{% endif %}
+<script>
+  window.OTB_USER_XP = {{ user_xp|default:0 }};
+  window.OTB_XP_TIER_PCT = {{ user_xp_tier_pct|default:0 }};
+  window.OTB_COACH_NAME = '{{ coach_name|escapejs }}';
+  window.OTB_COACH_NAME_REQUIRED = {{ coach_name_required|yesno:"true,false" }};
+  window.OTB_UNREAD_MSG_COUNT = {{ unread_msg_count|default:0 }};
+  window.OTB_UNREAD_MSG_DOT = {{ unread_msg_dot|yesno:"true,false" }};
+  window.OTB_FIREBASE = {{ firebase_web_config_json|default:"{}"|safe }};
+  window.OTB_VAPID = '{{ firebase_vapid_key|default:""|escapejs }}';
+  window.OTB_FRIEND_ALIASES = {{ friend_aliases_json|default:"{}"|safe }};
+  window.otbDisplayName = function(userId, fallback) {
+    var map = window.OTB_FRIEND_ALIASES || {};
+    var nick = map[String(userId)];
+    return nick || fallback || 'Utilisateur';
+  };
+  window.otbApplyAlias = function(userId, alias, fallbackName) {
+    var map = window.OTB_FRIEND_ALIASES || {};
+    var key = String(userId);
+    if (alias) map[key] = alias;
+    else delete map[key];
+    window.OTB_FRIEND_ALIASES = map;
+    var shown = alias || fallbackName || window.otbDisplayName(userId, fallbackName);
+    document.querySelectorAll('[data-otb-user-id="' + userId + '"]').forEach(function(el) {
+      if (el.classList && el.classList.contains('am-conv-row')) {
+        el.dataset.name = shown;
+        return;
+      }
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+      el.textContent = shown;
+    });
+    document.querySelectorAll('.am-conv-row[data-friend-id="' + userId + '"]').forEach(function(row) {
+      row.dataset.name = shown;
+      var nameEl = row.querySelector('.am-conv-name');
+      if (nameEl) nameEl.textContent = shown;
+    });
+    if (typeof _friendId !== 'undefined' && String(_friendId) === String(userId)) {
+      var chatName = document.getElementById('chatName');
+      if (chatName) chatName.textContent = shown;
+    }
+    if (typeof GROUP_MENTION_CANDIDATES !== 'undefined' && Array.isArray(GROUP_MENTION_CANDIDATES)) {
+      GROUP_MENTION_CANDIDATES.forEach(function(u) {
+        if (Number(u.id) === Number(userId)) {
+          u.name = shown;
+          u.initial = (shown || 'U')[0].toUpperCase();
+        }
+      });
+    }
+  };
+</script>
+<script src="{% static 'js/v2/msg-cache.js' %}" defer></script>
+<script src="{% static 'js/v2/app.js' %}" defer></script>
+<script src="{% static 'js/v2/gamification.js' %}" defer></script>
+<script src="{% static 'js/v2/push.js' %}" defer></script>
+{% endif %}
 </body>
 </html>
-

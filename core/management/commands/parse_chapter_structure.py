@@ -43,7 +43,7 @@ SUBJECT_LABELS = {
     'physique':    'Physique',
     'chimie':      'Chimie',
     'svt':         'SVT (Biologie & Géologie)',
-    'francais':    'Français / Créole',
+    'francais':    'Kreyòl',
     'philosophie': 'Philosophie',
     'histoire':    'Histoire & Sciences Sociales',
     'anglais':     'Anglais',

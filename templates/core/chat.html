@@ -1,11 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Chat IA · OU TOU BON{% endblock %}
+{% block title %}{{ coach_nav_label|default:"Chat IA" }} · OU TOU BON{% endblock %}
+
+{% block extra_head_links %}{% include "partials/v2/_v2_chat_css.html" %}{% endblock %}
+
 {% block extra_css %}
 <style>
 
-html, body { height:100%; overflow:hidden; }
-.app {
+.app.v2-astra {
   height:calc(var(--vh, 1vh) * 100);
+  max-height:100dvh;
   overflow:hidden;
   background:
     radial-gradient(1000px 520px at 18% -8%, rgba(34,197,94,.18), transparent 56%),
@@ -13,12 +16,14 @@ html, body { height:100%; overflow:hidden; }
     linear-gradient(180deg, #020617 0%, #081226 42%, #020617 100%);
 }
 
-.main {
+.app.v2-astra .main {
   flex:1;
   min-width:0;
   display:flex;
   flex-direction:column;
-  height:calc(var(--vh, 1vh) * 100);
+  height:100%;
+  min-height:0;
+  box-sizing:border-box;
   overflow:hidden;
 }
 
@@ -38,73 +43,6 @@ html, body { height:100%; overflow:hidden; }
   box-shadow:0 6px 20px rgba(2,6,23,.35);
 }
 
-.chat-subj-bar {
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.72rem 1.15rem;
-  flex-shrink:0;
-  overflow-x:auto;
-  scrollbar-width:none;
-  background:linear-gradient(180deg, rgba(8,15,34,.92), rgba(8,16,35,.7));
-  border-bottom:1px solid rgba(148,163,184,.16);
-}
-
-.chat-subj-bar::-webkit-scrollbar { display:none; }
-
-.subj-pill {
-  padding:.42rem .95rem;
-  border-radius:999px;
-  font-size:.76rem;
-  letter-spacing:.01em;
-  font-weight:700;
-  background:rgba(15,23,42,.72);
-  border:1px solid rgba(148,163,184,.28);
-  color:#cbd5e1;
-  cursor:pointer;
-  white-space:nowrap;
-  transition:all .15s cubic-bezier(0.4, 0, 0.2, 1);
-  flex-shrink:0;
-  transform: scale(1);
-}
-
-.subj-pill:hover {
-  color:#f8fafc;
-  border-color:rgba(56,189,248,.62);
-  transform:translateY(-1px);
-}
-
-.subj-pill.active {
-  color:#e0f2fe;
-  border-color:rgba(34,197,94,.62);
-  background:linear-gradient(135deg, rgba(34,197,94,.22), rgba(14,165,233,.24));
-  box-shadow:0 8px 24px rgba(14,165,233,.22), inset 0 1px 0 rgba(255,255,255,.12);
-}
-
-.chat-subj-bar.needs-subject .subj-pill { animation:subjPulse 1.35s ease-in-out infinite; }
-.chat-subj-bar.needs-subject .subj-pill.active { animation:none; }
-
-@keyframes subjPulse {
-  0%,100% { transform:translateY(0); box-shadow:0 0 0 0 rgba(34,197,94,0); }
-  50% { transform:translateY(-1px); box-shadow:0 0 0 8px rgba(34,197,94,.08); }
-}
-
-.subject-focus-hint {
-  margin:.5rem 1.15rem 0;
-  padding:.58rem .82rem;
-  border-radius:11px;
-  border:1px dashed rgba(34,197,94,.48);
-  background:linear-gradient(135deg, rgba(34,197,94,.1), rgba(14,165,233,.08));
-  color:#86efac;
-  font-size:.76rem;
-  font-weight:700;
-  display:none;
-  animation:hintIn .26s ease-out;
-}
-
-.subject-focus-hint.show { display:block; }
-@keyframes hintIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
-
 .chat-shell {
   flex:1;
   min-height:0;
@@ -113,12 +51,13 @@ html, body { height:100%; overflow:hidden; }
   overflow:hidden;
 }
 
+/* dock styles → chat-dock.css */
+
 .msgs-area {
   flex:1;
   min-height:0;
   overflow-y:auto;
   overflow-x:hidden;
-  padding:1.2rem 1rem 1.45rem;
   scroll-behavior:smooth;
 }
 
@@ -127,7 +66,6 @@ html, body { height:100%; overflow:hidden; }
 .msgs-area::-webkit-scrollbar-thumb { background:rgba(148,163,184,.24); border-radius:6px; }
 
 .msgs-inner {
-  max-width:900px;
   margin:0 auto;
   display:flex;
   flex-direction:column;
@@ -421,10 +359,6 @@ html, body { height:100%; overflow:hidden; }
 
 .input-wrap {
   flex-shrink:0;
-  padding:.74rem 1rem 1rem;
-  background:linear-gradient(180deg, rgba(2,6,23,.38), rgba(2,6,23,.86));
-  border-top:1px solid rgba(148,163,184,.2);
-  backdrop-filter:blur(7px);
 }
 
 .input-inner {
@@ -598,14 +532,34 @@ html, body { height:100%; overflow:hidden; }
   transform:translateY(-1px);
 }
 
+.hist-search {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 .85rem;
+  padding: .62rem .8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.26);
+  background: rgba(15,23,42,.84);
+  color: #e2e8f0;
+  font-size: .82rem;
+}
+.hist-search::placeholder { color: #64748b; }
+.hist-search:focus {
+  outline: none;
+  border-color: rgba(34,197,94,.5);
+}
+#histList { min-height: 2rem; }
+
 .hist-title {
   font-size:.82rem;
   font-weight:700;
   color:#e2e8f0;
   margin-bottom:.22rem;
-  white-space:nowrap;
+  line-height:1.35;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
   overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .hist-meta { display:flex; gap:.42rem; align-items:center; }
@@ -617,68 +571,13 @@ html, body { height:100%; overflow:hidden; }
 }
 
 @media (max-width: 768px) {
-  /* base.html uses a hardcoded 52px padding-top for all pages.
-     Here we compute the real topbar height at runtime (see JS) and use it. */
   .app.has-topbar .main { padding-top: var(--chat-topbar-h, 52px) !important; }
-  .topbar { 
-    margin-bottom:0 !important; 
-    padding-bottom:0 !important;
-    border-bottom:1px solid rgba(148,163,184,.18) !important;
-  }
-  .chat-subj-bar { 
-    position: fixed !important;
-    top: var(--chat-topbar-h, 52px) !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 150 !important;
-    padding:.62rem .72rem; 
-    gap:.42rem; 
-    margin-top:0 !important;
-    margin-bottom:0 !important;
-    border-top:none !important;
-    border-bottom:1px solid rgba(148,163,184,.16) !important;
-    background:linear-gradient(180deg, rgba(8,15,34,.92), rgba(8,16,35,.7)) !important;
-  }
-  .topbar + .chat-subj-bar { 
-    margin-top:0 !important; 
-    border-top:none !important;
-  }
-  .subject-focus-hint { 
-    position: fixed !important;
-    top: calc(var(--chat-subj-bar-h, 3rem) + var(--chat-topbar-h, 52px)) !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 140 !important;
-    margin:.46rem .72rem 0; 
-    background:linear-gradient(135deg, rgba(34,197,94,.1), rgba(14,165,233,.08)) !important;
-    border:1px dashed rgba(34,197,94,.48) !important;
-    border-radius:11px !important;
-    color:#86efac !important;
-    font-size:.76rem !important;
-    font-weight:700 !important;
-    padding:.58rem .82rem !important;
-    animation:hintIn .26s ease-out !important;
-  }
-  .msgs-area { 
-    padding-top: calc(var(--chat-subj-offset, 0px) + .96rem) !important;
-    padding-left: .66rem !important;
-    padding-right: .66rem !important;
-    padding-bottom: 1.35rem !important;
-    margin-top: 0 !important;
-  }
   .msg-bubble { font-size:.86rem; padding:.7rem .86rem; }
   .msg-content { max-width:91%; }
   .msg-av { width:30px; height:30px; }
-  .input-wrap {
-    padding:.58rem .68rem .82rem;
-    padding-bottom:calc(.82rem + env(safe-area-inset-bottom, 0px));
-  }
-  .chat-welcome-title { font-size:2rem; }
-  .chat-welcome-sub { font-size:1.2rem; }
 }
 
 @media (max-width: 480px) {
-  .subj-pill { font-size:.72rem; padding:.4rem .85rem; }
   .msg-content { max-width:94%; }
   .msg-bubble { line-height:1.65; }
   .send-btn { width:36px; height:36px; }
@@ -687,20 +586,17 @@ html, body { height:100%; overflow:hidden; }
 {% endblock %}
 
 {% block body %}
-<div class="app has-topbar">
+<div class="app has-topbar v2-astra">
   {% include "core/_sidebar.html" with active_page="chat" %}
   <div class="main">
 
     
-    <div class="topbar">
-      <div style="display:flex;align-items:center;gap:.45rem;margin-left:auto;">
-        <button onclick="newConversation()" title="Nouvelle conversation"
-          style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.35rem .75rem;cursor:pointer;font-size:.8rem;color:var(--t2);display:flex;align-items:center;gap:.4rem;transition:all .15s;"
-          onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border2)'">
+    <div class="topbar v2-astra-topbar">
+      <div class="v2-astra-topbar__actions">
+        <button type="button" class="v2-astra-btn" onclick="newConversation()" title="Nouvelle conversation">
           <i class="fas fa-plus"></i><span>Nouveau</span>
         </button>
-        <button onclick="toggleHistory()" id="histBtn" title="Historique"
-          style="background:var(--card);border:1px solid var(--border2);border-radius:8px;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--t2);font-size:.88rem;transition:all .15s;">
+        <button type="button" class="v2-astra-btn v2-astra-btn--icon" onclick="toggleHistory()" id="histBtn" title="Historique">
           <i class="fas fa-clock-rotate-left"></i>
         </button>
       </div>
@@ -717,42 +613,30 @@ html, body { height:100%; overflow:hidden; }
           <i class="fas fa-times"></i>
         </button>
       </div>
+      <input type="search" id="histSearch" class="hist-search" placeholder="Chercher dans tes messages…" autocomplete="off" oninput="onHistSearchInput()">
+      <div id="histList">
       {% if conversations %}
         {% for conv in conversations %}
         <button
           type="button"
           class="hist-entry"
+          data-session="{{ conv.session_key }}"
           onclick="openHistorySession('{{ conv.session_key|escapejs }}')"
           style="width:100%;text-align:left;cursor:pointer;color:inherit;">
           <div class="hist-title">{{ conv.preview }}</div>
           <div class="hist-meta" style="color:var(--t3);font-size:.75rem;justify-content:space-between;">
-            <span>{{ conv.subject|default:"general"|capfirst }}</span>
-            <span>{{ conv.last_msg|date:"d/m H:i" }}</span>
+            <span>{{ conv.label|default:conv.subject|capfirst }}</span>
+            <span>{{ conv.msg_count }} msg · {{ conv.last_msg|date:"d/m H:i" }}</span>
           </div>
         </button>
         {% endfor %}
-        <a href="{% url 'historique' %}" class="hist-entry" style="display:block;margin-top:.75rem;border-style:dashed;">
-          <div class="hist-title">Voir tout l'historique</div>
-          <div class="hist-meta" style="color:var(--t3);font-size:.75rem;">
-            <i class="fas fa-comments"></i>
-            <span>Ouvrir la page complète</span>
-          </div>
-        </a>
       {% else %}
-      <div style="padding:.85rem .9rem;background:rgba(15,23,42,.84);border:1px solid rgba(148,163,184,.2);border-radius:12px;color:var(--t3);font-size:.82rem;line-height:1.55;">
+      <div class="hist-empty" style="padding:.85rem .9rem;background:rgba(15,23,42,.84);border:1px solid rgba(148,163,184,.2);border-radius:12px;color:var(--t3);font-size:.82rem;line-height:1.55;">
         Aucune conversation enregistrée pour le moment.
       </div>
       {% endif %}
+      </div>
     </aside>
-    <div class="chat-subj-bar">
-      {% for key, mat in mats.items %}
-      <button class="subj-pill" data-subj="{{ key }}" onclick="setSubject('{{ key }}',this)">{{ mat.label }}</button>
-      {% endfor %}
-    </div>
-    <div class="subject-focus-hint" id="subjectFocusHint">
-      <i class="fas fa-crosshairs" style="margin-right:.35rem;"></i>
-      Choisis ta matiere pour lancer la recherche dans ses notes.
-    </div>
 
     
     <div class="chat-shell">
@@ -761,23 +645,25 @@ html, body { height:100%; overflow:hidden; }
       <div class="msgs-area" id="msgsArea">
         <div class="msgs-inner" id="msgsInner">
           
-          <div class="chat-welcome" id="chatWelcome">
-            <div class="chat-welcome-title">{% if is_guest %}APERÇU{% else %}BIENVENUE{% endif %}</div>
-            <div class="chat-welcome-sub">{% if is_guest %}Coach IA BAC{% else %}{{ request.user.first_name|default:request.user.username }} 👋{% endif %}</div>
-            <p>{% if is_guest %}Découvrez le coach IA BAC. Créez un compte pour poser toutes vos questions.{% else %}Ton coach IA personnel pour le Baccalauréat Haïtien. Pose toutes tes questions.{% endif %}</p>
+          <div class="chat-welcome v2-chat-hero" id="chatWelcome">
+            {% if is_guest %}
+            <div class="v2-chat-hero__greeting" id="chatHeroGreeting">Coach IA BAC</div>
+            <p class="v2-chat-hero__lead">Découvre le coach IA BAC. Crée un compte pour poser toutes tes questions.</p>
+            {% else %}
+            <div class="v2-chat-hero__greeting" id="chatHeroGreeting">{{ chat_greeting|default:"" }}</div>
+            {% endif %}
           </div>
           {% if is_guest %}
           {% if demo_qa %}
           
-          <div style="max-width:760px;margin:1.5rem auto 0;padding:.5rem 0;" id="demoQaBlock">
+          <div class="v2-demo-qa" id="demoQaBlock">
 
             
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.25rem;">
+            <div class="v2-demo-qa__tabs">
               {% for qa in demo_qa %}
-              <button onclick="showDemoQA('dqa-{{ forloop.counter0 }}')"
+              <button type="button" onclick="showDemoQA('dqa-{{ forloop.counter0 }}')"
                 id="dqa-tab-{{ forloop.counter0 }}"
-                style="font-size:.78rem;font-weight:700;padding:.35rem .85rem;border-radius:99px;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--t2);transition:all .18s;"
-                {% if forloop.first %}class="dqa-tab-active"{% endif %}>
+                class="v2-demo-qa__tab{% if forloop.first %} dqa-tab-active{% endif %}">
                 {{ qa.matiere|capfirst }}
               </button>
               {% endfor %}
@@ -787,14 +673,14 @@ html, body { height:100%; overflow:hidden; }
             {% for qa in demo_qa %}
             <div id="dqa-{{ forloop.counter0 }}" class="dqa-panel" style="{% if not forloop.first %}display:none;{% endif %}">
               
-              <div style="display:flex;gap:.65rem;margin-bottom:1rem;justify-content:flex-end;">
-                <div style="background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.25);border-radius:18px 4px 18px 18px;padding:.7rem 1rem;max-width:82%;font-size:.88rem;color:#e2e8f0;">{{ qa.question }}</div>
-                <div style="width:30px;height:30px;border-radius:50%;background:rgba(37,99,235,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem;">👤</div>
+              <div class="v2-demo-qa__row v2-demo-qa__row--user">
+                <div class="v2-demo-qa__bubble v2-demo-qa__bubble--user">{{ qa.question }}</div>
+                <div class="v2-demo-qa__av">👤</div>
               </div>
               
-              <div style="display:flex;gap:.65rem;margin-bottom:1.25rem;">
-                <div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#10B981,#0d9488);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;font-weight:700;color:#fff;">IA</div>
-                <div style="background:var(--card);border:1px solid var(--border2);border-radius:4px 18px 18px 18px;padding:.75rem 1rem;max-width:88%;font-size:.86rem;color:var(--t2);line-height:1.7;">
+              <div class="v2-demo-qa__row v2-demo-qa__row--ai">
+                <div class="v2-demo-qa__av v2-demo-qa__av--ai">IA</div>
+                <div class="v2-demo-qa__bubble v2-demo-qa__bubble--ai">
                   {{ qa.answer|linebreaksbr }}
                 </div>
               </div>
@@ -802,13 +688,16 @@ html, body { height:100%; overflow:hidden; }
             {% endfor %}
 
             
-            <div style="text-align:center;padding:1.5rem;background:rgba(16,185,129,.05);border:1px dashed rgba(16,185,129,.2);border-radius:14px;margin-top:.5rem;">
-              <div style="font-size:.88rem;color:var(--t2);margin-bottom:.75rem;">Crée un compte gratuit pour poser <strong>tes propres questions</strong> au coach IA</div>
-              <a href="/signup/" style="display:inline-block;background:#10B981;color:#fff;border-radius:10px;padding:.6rem 1.5rem;font-weight:700;text-decoration:none;font-size:.88rem;">Créer mon compte →</a>
+            <div class="v2-demo-qa__cta">
+              <div class="v2-demo-qa__cta-text">Crée un compte gratuit pour poser <strong>tes propres questions</strong> au coach IA</div>
+              <a href="/signup/" class="v2-demo-qa__cta-btn">Créer mon compte →</a>
             </div>
           </div>
           <style>
             .dqa-tab-active { border-color:var(--green) !important; background:rgba(16,185,129,.12) !important; color:#10b981 !important; }
+            @media (max-width: 640px) {
+              .v2-astra .msgs-inner { max-width: 100%; padding: 0 .15rem; }
+            }
           </style>
           <script>
           function showDemoQA(id) {
@@ -834,29 +723,69 @@ html, body { height:100%; overflow:hidden; }
           </div>
           {% endif %}
           {% endif %}
+          <div class="v2-chat-scroll-end" id="chatScrollEnd" aria-hidden="true"></div>
         </div>
       </div>
 
       
-      <div class="input-wrap" style="{% if is_guest %}position:relative{% endif %}">
+      <div class="input-wrap v2-chat-dock" id="chatDock">
         {% if is_guest %}
         <div onclick="showGuestBlockedToast('Créez un compte pour utiliser le coach IA')"
           style="position:absolute;inset:0;z-index:10;cursor:pointer;border-radius:inherit;"></div>
         {% endif %}
-        <div class="input-inner" style="{% if is_guest %}opacity:.45;pointer-events:none{% endif %}">
-          <div class="files-preview" id="filesPreview"></div>
-          <div class="input-field">
-            <textarea id="chatInput" class="chat-ta" rows="1"
-              placeholder="{% if is_guest %}Créez un compte pour poser vos questions…{% else %}Pose ta question…{% endif %}"
-              {% if not is_guest %}onkeydown="chatKeydown(event)" oninput="autoResize(this)"{% else %}readonly{% endif %}></textarea>
-            <div class="input-actions">
-              <label class="icon-btn" title="Joindre une image ou PDF">
-                <i class="fas fa-paperclip"></i>
-                <input type="file" id="fileInput" accept="image/*,.pdf,application/pdf" multiple style="display:none" onchange="handleFiles(event)">
-              </label>
-              <button class="send-btn" id="sendBtn" onclick="sendMessage()" {% if is_guest %}disabled{% endif %}>
-                <i class="fas fa-paper-plane"></i>
+        <div class="input-inner v2-chat-dock__inner" style="{% if is_guest %}opacity:.45;pointer-events:none{% endif %}">
+          <div class="v2-chat-dock__frame">
+            <div class="v2-chat-dock__crest">
+              <div class="v2-chat-dock__notch" aria-hidden="true">
+                <svg class="v2-chat-dock__notch-svg" viewBox="0 0 320 48" preserveAspectRatio="none" focusable="false">
+                  <path class="v2-chat-dock__notch-fill" d="M0 48 C38 48 46 48 62 32 C78 14 96 6 124 5 H196 C224 6 242 14 258 32 C274 48 282 48 320 48 L320 54 L0 52 Z"/>
+                  <path class="v2-chat-dock__notch-line" d="M0 48 C38 48 46 48 62 32 C78 14 96 6 124 5 H196 C224 6 242 14 258 32 C274 48 282 48 320 48"/>
+                </svg>
+                <span class="v2-chat-dock__notch-cover"></span>
+              </div>
+              <button type="button" class="v2-chat-dock__subject" id="chatDockSubjectBtn" onclick="toggleSubjectPicker()" aria-expanded="false">
+                <span id="chatDockSubjectLabel">Matière ↕</span>
               </button>
+            </div>
+            <div class="v2-chat-dock__body">
+              <div class="files-preview" id="filesPreview"></div>
+              <textarea id="chatInput" class="chat-ta v2-chat-dock__input" rows="1"
+                placeholder="{% if is_guest %}Créez un compte pour poser vos questions…{% else %}Pose ta question ou envoie un fichier…{% endif %}"
+                {% if not is_guest %}onkeydown="chatKeydown(event)" oninput="autoResize(this)"{% else %}readonly{% endif %}></textarea>
+              <div class="v2-chat-dock__actions">
+                <label class="v2-chat-dock__btn v2-chat-dock__btn--ghost" title="Joindre un fichier">
+                  <i class="fas fa-plus"></i>
+                  <input type="file" id="fileInput" accept="image/*,.pdf,application/pdf" multiple style="display:none" onchange="handleFiles(event)">
+                </label>
+                <label class="v2-chat-dock__btn v2-chat-dock__btn--cam" title="Joindre une image">
+                  <i class="fas fa-camera"></i>
+                  <input type="file" id="fileInputImg" accept="image/*" multiple style="display:none" onchange="handleFiles(event)">
+                </label>
+                <div class="v2-chat-dock__actions-right">
+                  <button type="button" class="v2-chat-dock__send send-btn" id="sendBtn" onclick="sendMessage()" {% if is_guest %}disabled{% endif %} title="Envoyer">
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="v2-chat-subj" id="chatDockSubjects">
+          <button type="button" class="v2-chat-subj__backdrop" onclick="toggleSubjectPicker()" aria-label="Fermer"></button>
+          <div class="v2-chat-subj__sheet" role="dialog" aria-labelledby="chatSubjTitle">
+            <div class="v2-chat-subj__grab"></div>
+            <div class="v2-chat-subj__head">
+              <h3 id="chatSubjTitle">Choisir une matière</h3>
+              <p>Le coach répond dans cette matière</p>
+            </div>
+            <div class="v2-chat-subj__grid">
+              {% for key, mat in mats.items %}
+              <button type="button" class="subj-pill v2-chat-subj__item" data-subj="{{ key }}" onclick="setSubject('{{ key }}', this)">
+                <span class="v2-chat-subj__icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></span>
+                <span class="v2-chat-subj__name">{{ mat.label }}</span>
+              </button>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -870,6 +799,8 @@ let pdfTextsCache = {};
 const userInitial = '{{ request.user.first_name|first|upper|default:"U" }}';
 const IS_GUEST_CHAT = {{ is_guest|yesno:"true,false" }};
 const PRELOAD_SUBJECT = '{{ preload_subject|default:""|escapejs }}';
+const LAST_CHAT_SUBJECT = '{{ last_chat_subject|default:"svt"|escapejs }}';
+const CHAT_SUBJECT_KEY = 'otb_chat_subject';
 let histOpen = false;
 
 {% if pdf_text %}
@@ -878,7 +809,7 @@ let histOpen = false;
   const PDF_TEXT = '{{ pdf_text|escapejs }}';
   
   const fakeKey = PDF_NAME + '_0';
-  pdfTextsCache[fakeKey] = PDF_TEXT.replace(/\s+/g,' ').trim().substring(0,8000);
+  pdfTextsCache[fakeKey] = PDF_TEXT.replace(/\s+/g,' ').trim().substring(0,2000);
   
   pdfFiles.push(new File([''], PDF_NAME, {type:'application/pdf'}));
   
@@ -925,7 +856,7 @@ let histOpen = false;
     const _pdfText = _pd.text || '';
     if (!_pdfText) return;
     const _fakeKey = _pdfName + '_0';
-    pdfTextsCache[_fakeKey] = _pdfText.replace(/\s+/g,' ').trim().substring(0, 8000);
+    pdfTextsCache[_fakeKey] = _pdfText.replace(/\s+/g,' ').trim().substring(0, 2000);
     pdfFiles.push(new File([''], _pdfName, {type: 'application/pdf'}));
     function _setInpPdf() {
       const inp = document.getElementById('chatInput');
@@ -958,55 +889,160 @@ let histOpen = false;
 })();
 {% endif %}
 
-function renderSuggestions() {  }
+let _astraQuotaRemaining = {% if not is_guest and chat_remaining is not None %}{{ chat_remaining }}{% else %}null{% endif %};
 
-function useSuggestion(text) {
-  if (IS_GUEST_CHAT) {
-    if (typeof showGuestBlockedToast === 'function') {
-      showGuestBlockedToast('Créez un compte pour poser vos questions au coach IA');
-    }
+function _updateQuotaBadge(decrement) {
+  if (_astraQuotaRemaining === null) return;
+  if (decrement) _astraQuotaRemaining = Math.max(0, _astraQuotaRemaining - 1);
+}
+
+function upsertHistEntry(sessionKey, title, subjectLabel) {
+  const list = document.getElementById('histList') || document.getElementById('histPanel');
+  if (!list || !sessionKey || !title) return;
+  const existing = list.querySelector('.hist-entry[data-session="' + sessionKey.replace(/"/g, '') + '"]');
+  if (existing) {
+    const t = existing.querySelector('.hist-title');
+    if (t && title) t.textContent = title;
+    existing.dataset.titled = '1';
+    list.insertBefore(existing, list.firstChild);
     return;
   }
-  document.getElementById('chatInput').value = text;
-  sendMessage();
+  const empty = list.querySelector('.hist-empty');
+  if (empty) empty.remove();
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'hist-entry';
+  btn.dataset.session = sessionKey;
+  btn.dataset.titled = '1';
+  btn.style.cssText = 'width:100%;text-align:left;cursor:pointer;color:inherit;';
+  btn.onclick = function () { openHistorySession(sessionKey); };
+  const subj = subjectLabel || (typeof currentSubject !== 'undefined' ? currentSubject : '');
+  btn.innerHTML =
+    '<div class="hist-title"></div>' +
+    '<div class="hist-meta" style="color:var(--t3);font-size:.75rem;justify-content:space-between;">' +
+      '<span></span><span>nouveau</span></div>';
+  btn.querySelector('.hist-title').textContent = title;
+  const metaSpan = btn.querySelector('.hist-meta span');
+  if (metaSpan) metaSpan.textContent = subj;
+  list.insertBefore(btn, list.firstChild);
+}
+
+let _histSearchTimer = null;
+let _histBaselineHTML = null;
+function onHistSearchInput() {
+  clearTimeout(_histSearchTimer);
+  _histSearchTimer = setTimeout(runHistSearch, 280);
+}
+function _paintHistConversations(convs) {
+  const list = document.getElementById('histList');
+  if (!list) return;
+  if (!convs || !convs.length) {
+    list.innerHTML = '<div class="hist-empty" style="padding:.85rem .9rem;background:rgba(15,23,42,.84);border:1px solid rgba(148,163,184,.2);border-radius:12px;color:var(--t3);font-size:.82rem;line-height:1.55;">Aucune conversation trouvée.</div>';
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  convs.forEach(function (c) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'hist-entry';
+    btn.dataset.session = c.session_key || '';
+    btn.style.cssText = 'width:100%;text-align:left;cursor:pointer;color:inherit;';
+    btn.onclick = function () { openHistorySession(c.session_key); };
+    const title = document.createElement('div');
+    title.className = 'hist-title';
+    title.textContent = c.preview || 'Conversation';
+    const meta = document.createElement('div');
+    meta.className = 'hist-meta';
+    meta.style.cssText = 'color:var(--t3);font-size:.75rem;justify-content:space-between;';
+    const left = document.createElement('span');
+    left.textContent = c.label || c.subject || '';
+    const right = document.createElement('span');
+    right.textContent = (c.msg_count || 0) + ' msg' + (c.when ? ' · ' + c.when : '');
+    meta.appendChild(left);
+    meta.appendChild(right);
+    btn.appendChild(title);
+    btn.appendChild(meta);
+    frag.appendChild(btn);
+  });
+  list.innerHTML = '';
+  list.appendChild(frag);
+}
+async function runHistSearch() {
+  const inp = document.getElementById('histSearch');
+  const list = document.getElementById('histList');
+  if (!inp || !list) return;
+  const q = (inp.value || '').trim();
+  if (_histBaselineHTML === null) _histBaselineHTML = list.innerHTML;
+  if (q.length < 2) {
+    list.innerHTML = _histBaselineHTML;
+    return;
+  }
+  try {
+    const r = await fetch('{% url "api_chat_conversations" %}?q=' + encodeURIComponent(q), {
+      headers: { 'X-CSRFToken': CSRF }
+    });
+    const d = await r.json();
+    if (!d.ok) throw new Error('fail');
+    _paintHistConversations(d.conversations || []);
+  } catch (e) {
+    list.innerHTML = '<div class="hist-empty" style="padding:.85rem .9rem;color:#f87171;font-size:.82rem;">Recherche impossible pour le moment.</div>';
+  }
+}
+
+function _ensureChatScrollEnd() {
+  const inner = document.getElementById('msgsInner');
+  if (!inner) return null;
+  let end = document.getElementById('chatScrollEnd');
+  if (!end) {
+    end = document.createElement('div');
+    end.id = 'chatScrollEnd';
+    end.className = 'v2-chat-scroll-end';
+    end.setAttribute('aria-hidden', 'true');
+  }
+  if (inner.lastElementChild !== end) inner.appendChild(end);
+  return end;
+}
+function _appendChatNode(node) {
+  const inner = document.getElementById('msgsInner');
+  if (!inner || !node) return;
+  const end = _ensureChatScrollEnd();
+  inner.insertBefore(node, end);
+}
+
+function scrollChatToBottom() {
+  const area = document.getElementById('msgsArea');
+  if (!area) return;
+  if (typeof _syncChatTopbarOffset === 'function') _syncChatTopbarOffset();
+  const prev = area.style.scrollBehavior;
+  area.style.scrollBehavior = 'auto';
+  const run = () => {
+    area.scrollTop = area.scrollHeight;
+    area.style.scrollBehavior = prev;
+  };
+  requestAnimationFrame(() => requestAnimationFrame(run));
+}
+
+function typewriteWelcome() {
+  buildHeroGreeting();
 }
 
 setTimeout(typewriteWelcome, 80);
+if (document.readyState !== 'loading') buildHeroGreeting();
+(function initChatSubjectNow() {
+  try {
+    const initialSubj = resolveInitialSubject();
+    if (initialSubj) setSubject(initialSubj);
+    updateSubjectFocusUI();
+  } catch (e) {}
+})();
 
 function updateSubjectFocusUI() {
-  const bar = document.querySelector('.chat-subj-bar');
-  const hint = document.getElementById('subjectFocusHint');
-  const needs = !currentSubject;
-  if (bar) bar.classList.toggle('needs-subject', needs);
-  if (hint) {
-    hint.classList.toggle('show', needs);
-    // Force display on mobile when no subject selected
-    if (needs && window.innerWidth <= 768) {
-      hint.style.display = 'block';
-      hint.style.opacity = '1';
-      hint.style.transform = 'translateY(0) scale(1)';
-    } else if (!needs) {
-      // Hide when subject is selected
-      hint.style.opacity = '0';
-      hint.style.transform = 'translateY(-10px) scale(0.98)';
-      setTimeout(() => {
-        hint.style.display = 'none';
-        // Recalculate after hint is fully hidden
-        if (typeof _syncChatTopbarOffset === 'function') _syncChatTopbarOffset();
-      }, 300);
-    }
-  }
-  // Recalculate layout offset after hint visibility change
-  if (typeof _syncChatTopbarOffset === 'function') _syncChatTopbarOffset();
+  updateDockSubjectLabel();
 }
 
 function ensureSubjectSelected() {
   if (currentSubject) return true;
-  updateSubjectFocusUI();
-  const bar = document.querySelector('.chat-subj-bar');
-  if (bar) {
-    bar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+  toggleSubjectPicker();
   if (typeof showToast === 'function') {
     showToast('Choisis d’abord une matière pour envoyer ton message.', 'error');
   }
@@ -1014,21 +1050,18 @@ function ensureSubjectSelected() {
 }
 
 function setSubject(subj, btn) {
+  const same = currentSubject === subj;
   currentSubject = subj;
-  currentSessionKey = '';
+  if (!same) currentSessionKey = '';
+  try { localStorage.setItem(CHAT_SUBJECT_KEY, subj); } catch (e) {}
   document.querySelectorAll('.subj-pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  
-  // Animation de sélection
-  btn.style.transform = 'scale(0.95)';
-  setTimeout(() => {
-    btn.style.transform = 'scale(1.05)';
-    setTimeout(() => {
-      btn.style.transform = 'scale(1)';
-    }, 150);
-  }, 100);
-  
-  updateSubjectFocusUI();
+  const el = btn || document.querySelector('.subj-pill[data-subj="' + subj + '"]');
+  if (el) el.classList.add('active');
+  updateDockSubjectLabel();
+  const panel = document.getElementById('chatDockSubjects');
+  if (panel) panel.classList.remove('is-open');
+  const btnSubj = document.getElementById('chatDockSubjectBtn');
+  if (btnSubj) btnSubj.setAttribute('aria-expanded', 'false');
 }
 
 function chatKeydown(e) {
@@ -1037,6 +1070,7 @@ function chatKeydown(e) {
 function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 130) + 'px';
+  if (typeof _syncChatTopbarOffset === 'function') _syncChatTopbarOffset();
 }
 
 function handleFiles(e) {
@@ -1062,7 +1096,7 @@ async function extractPdfText(file) {
       const content = await page.getTextContent();
       text += content.items.map(it => it.str||'').join(' ') + '\n';
     }
-    pdfTextsCache[key] = text.replace(/\s+/g,' ').trim().substring(0,8000);
+    pdfTextsCache[key] = text.replace(/\s+/g,' ').trim().substring(0,2000);
   } catch(err) {
     pdfTextsCache[file.name+'_'+file.size] = `[Erreur PDF: ${err.message}]`;
   }
@@ -1103,40 +1137,72 @@ function renderFilePreviews() {
   wrap.innerHTML = html;
 }
 
-function typewriteWelcome() {
-  const titleEl = document.querySelector('.chat-welcome-title');
-  const subEl   = document.querySelector('.chat-welcome-sub');
-  if (!titleEl || !subEl) return;
-  const titleTxt = titleEl.textContent.trim();
-  const subTxt   = subEl.textContent.trim();
-  titleEl.textContent = ''; subEl.textContent = '';
-  let ti = 0, si = 0;
-  function revT() {
-    if (ti < titleTxt.length) { titleEl.textContent = titleTxt.slice(0,++ti); setTimeout(revT,70); }
-    else setTimeout(revS, 180);
+function buildHeroGreeting() {
+  const el = document.getElementById('chatHeroGreeting');
+  if (!el || IS_GUEST_CHAT) return;
+  const name = '{{ request.user.first_name|default:request.user.username|escapejs }}'.trim() || 'Élève';
+  const h = new Date().getHours();
+  const bonsoir = h >= 18 || h < 5;
+  const salut = bonsoir ? 'bonsoir' : 'bonjour';
+  const icon = bonsoir ? ' 🌙' : '';
+  el.textContent = name + ', ' + salut + ' !' + icon;
+}
+
+function updateDockSubjectLabel() {
+  const label = document.getElementById('chatDockSubjectLabel');
+  if (!label) return;
+  const active = document.querySelector('.subj-pill.active .v2-chat-subj__name');
+  const name = (active && active.textContent.trim())
+    || (typeof otbSubjectLabel === 'function' ? otbSubjectLabel(currentSubject) : '')
+    || 'Matière';
+  label.textContent = name + ' ↕';
+}
+
+function toggleSubjectPicker() {
+  const panel = document.getElementById('chatDockSubjects');
+  const btn = document.getElementById('chatDockSubjectBtn');
+  if (!panel) return;
+  const open = panel.classList.toggle('is-open');
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+function resolveInitialSubject() {
+  if (PRELOAD_SUBJECT && document.querySelector('.subj-pill[data-subj="' + PRELOAD_SUBJECT + '"]')) {
+    return PRELOAD_SUBJECT;
   }
-  function revS() {
-    if (si < subTxt.length) { subEl.textContent = subTxt.slice(0,++si); setTimeout(revS,65); }
+  try {
+    const loc = localStorage.getItem(CHAT_SUBJECT_KEY);
+    if (loc && document.querySelector('.subj-pill[data-subj="' + loc + '"]')) return loc;
+  } catch (e) {}
+  if (LAST_CHAT_SUBJECT && document.querySelector('.subj-pill[data-subj="' + LAST_CHAT_SUBJECT + '"]')) {
+    return LAST_CHAT_SUBJECT;
   }
-  revT();
+  if (document.querySelector('.subj-pill[data-subj="svt"]')) return 'svt';
+  const first = document.querySelector('.subj-pill');
+  return first ? first.dataset.subj : '';
+}
+
+function focusChatStart() {
+  const ta = document.getElementById('chatInput');
+  if (ta) ta.focus();
 }
 
 function newConversation() {
   currentSessionKey = '';
   imgFiles = []; pdfFiles = []; pdfTextsCache = {};
   document.getElementById('msgsInner').innerHTML = `
-    <div class="chat-welcome" id="chatWelcome">
-      <div class="chat-welcome-title">BIENVENUE</div>
-      <div class="chat-welcome-sub">{{ request.user.first_name|default:request.user.username }} 👋</div>
-      <p>Ton coach IA personnel pour le Baccalauréat Haïtien.</p>
+    <div class="chat-welcome v2-chat-hero" id="chatWelcome">
+      <div class="v2-chat-hero__greeting" id="chatHeroGreeting"></div>
     </div>`;
+  _ensureChatScrollEnd();
+  buildHeroGreeting();
   typewriteWelcome();
   const ta = document.getElementById('chatInput');
   ta.value = ''; ta.style.height = 'auto';
   renderFilePreviews();
   if (!currentSubject) {
-    const firstPill = document.querySelector('.subj-pill');
-    if (firstPill) setSubject(firstPill.dataset.subj, firstPill);
+    const key = resolveInitialSubject();
+    if (key) setSubject(key);
   }
 }
 
@@ -1158,8 +1224,8 @@ function _showChatRetry() {
       <div class="retry-error-text"><strong>Oups ! Connexion instable</strong>L'IA n'a pas pu répondre. Vérifie ta connexion et réessaie.</div>
       <button class="retry-btn" onclick="this.closest('.msg').remove();_retryChatSend()">🔄 Réessayer</button>
     </div></div></div>`;
-  inner.appendChild(div);
-  area.scrollTop = area.scrollHeight;
+  _appendChatNode(div);
+  scrollChatToBottom();
 }
 
 function _showChatError(message, allowRetry) {
@@ -1177,8 +1243,8 @@ function _showChatError(message, allowRetry) {
       <div class="retry-error-text"><strong>Echec de la requete</strong>${safeMsg}</div>
       ${retryHtml}
     </div></div></div>`;
-  inner.appendChild(div);
-  area.scrollTop = area.scrollHeight;
+  _appendChatNode(div);
+  scrollChatToBottom();
 }
 
 async function _safeParseApiResponse(resp) {
@@ -1221,11 +1287,23 @@ function _retryChatSend() {
     const data = await _safeParseApiResponse(r);
     removeTyping(typId);
     if (data.session_key) currentSessionKey = data.session_key;
+    _updateQuotaBadge(true);
     appendMsg('ai', data.reply, null, data.followups||[], false, []);
+    if (data.title) {
+      const lbl = document.getElementById('chatDockSubjectLabel');
+      upsertHistEntry(currentSessionKey, data.title, lbl ? lbl.textContent : currentSubject);
+    }
   }).catch((err) => {
     removeTyping(typId);
     _showChatError(err?.message || 'Reessaye dans un instant.', true);
   });
+}
+
+function _hideContinueHint() {
+  const hint = document.getElementById('chatContinueHint');
+  if (hint) hint.remove();
+  const hdr = document.getElementById('chatHistBanner');
+  if (hdr) hdr.remove();
 }
 
 async function sendMessage() {
@@ -1236,6 +1314,7 @@ async function sendMessage() {
 
   const welcome = document.getElementById('chatWelcome');
   if (welcome) welcome.remove();
+  _hideContinueHint();
 
   ta.value = ''; ta.style.height = 'auto';
   document.getElementById('sendBtn').disabled = true;
@@ -1299,7 +1378,12 @@ async function sendMessage() {
     const data = await _safeParseApiResponse(resp);
     removeTyping(typId);
     if (data.session_key) currentSessionKey = data.session_key;
+    _updateQuotaBadge(true);
     appendMsg('ai', data.reply, null, data.followups||[], false, []);
+    if (data.title) {
+      const lbl = document.getElementById('chatDockSubjectLabel');
+      upsertHistEntry(currentSessionKey, data.title, lbl ? lbl.textContent : currentSubject);
+    }
   } catch(e) {
     removeTyping(typId);
     _showChatError(e?.message || 'Reessaye dans un instant.', true);
@@ -1356,20 +1440,28 @@ function appendMsg(role, text, imageUrl, followups, instant, attNames) {
   </div>`;
 
   const bubble = div.querySelector('.msg-bubble');
-  inner.appendChild(div);
+  _appendChatNode(div);
 
   if (window.renderMathInElement) {
   }
-  area.scrollTop = area.scrollHeight;
+  scrollChatToBottom();
 
   if (role === 'ai' && !instant) {
-      _typewrite(bubble, bContent, () => { 
-        setTimeout(() => { renderKatex(bubble); area.scrollTop = area.scrollHeight; }, 75); 
+      _typewrite(bubble, bContent, () => {
+        setTimeout(() => {
+          if (typeof renderKatex === 'function') renderKatex(bubble);
+          scrollChatToBottom();
+        }, 75);
       });
   } else {
     bubble.innerHTML = bContent;
       if (role === 'ai') {
-        setTimeout(() => renderKatex(bubble), 50);
+        setTimeout(() => {
+          if (typeof renderKatex === 'function') renderKatex(bubble);
+          scrollChatToBottom();
+        }, 50);
+      } else {
+        scrollChatToBottom();
       }
   }
   return div;
@@ -1445,8 +1537,8 @@ function appendTyping() {
       </div>
       <div class="thinking-lbl" id="${id}-lbl">Réflexion…</div>
     </div>`;
-  inner.appendChild(div);
-  area.scrollTop = area.scrollHeight;
+  _appendChatNode(div);
+  scrollChatToBottom();
   _timers[id] = setTimeout(() => {
     const lbl = document.getElementById(id+'-lbl');
     if (lbl) lbl.textContent = 'Génération…';
@@ -1490,9 +1582,9 @@ function _typewrite(bubble, html, onDone) {
     lastT = t;
     revealed = Math.min(revealed + cPerFrame, total);
     bubble.innerHTML = revealTo(revealed);
-    area.scrollTop = area.scrollHeight;
+    scrollChatToBottom();
     if (revealed < total) { requestAnimationFrame(tick); }
-    else { bubble.classList.remove('streaming'); bubble.innerHTML = html; if (onDone) onDone(); }
+    else { bubble.classList.remove('streaming'); bubble.innerHTML = html; scrollChatToBottom(); if (onDone) onDone(); }
   }
   requestAnimationFrame(tick);
 }
@@ -1519,19 +1611,22 @@ async function loadSessionHistory(sessionKey) {
     }
     updateSubjectFocusUI();
     inner.innerHTML = '';
+    _ensureChatScrollEnd();
     const hdr = document.createElement('div');
+    hdr.id = 'chatHistBanner';
     hdr.style.cssText = 'text-align:center;font-size:.73rem;color:var(--t3);padding:.7rem;margin-bottom:.5rem;background:rgba(16,185,129,.04);border:1px solid rgba(16,185,129,.1);border-radius:12px;';
     hdr.innerHTML = `<i class="fas fa-history" style="color:var(--green);margin-right:.3rem;"></i>Conversation historique`;
-    inner.appendChild(hdr);
+    _appendChatNode(hdr);
     for (const msg of data.messages) {
       const clean = msg.role==='ai' ? cleanFollowupMarkers(msg.content) : msg.content;
       appendMsg(msg.role==='user'?'user':'ai', clean, null, [], true, []);
     }
     const sep = document.createElement('div');
+    sep.id = 'chatContinueHint';
     sep.style.cssText = 'text-align:center;font-size:.7rem;color:var(--green);padding:.5rem;border-top:1px solid rgba(16,185,129,.12);margin-top:.7rem;';
     sep.innerHTML = '<i class="fas fa-arrow-down" style="margin-right:.3rem"></i>Continue cette conversation ci-dessous';
-    inner.appendChild(sep);
-    setTimeout(() => { area.scrollTop = area.scrollHeight; }, 80);
+    _appendChatNode(sep);
+    setTimeout(() => scrollChatToBottom(), 80);
       setTimeout(() => { 
         document.querySelectorAll('.msg.ai .msg-bubble').forEach(bubble => renderKatex(bubble)); 
       }, 100);
@@ -1568,23 +1663,33 @@ function toggleHistory() {
 function _syncChatTopbarOffset() {
   try {
     const tb = document.querySelector('.topbar');
-    if (!tb) return;
-    const h = tb.getBoundingClientRect().height;
-    if (h && isFinite(h)) {
-      document.documentElement.style.setProperty('--chat-topbar-h', Math.ceil(h) + 'px');
-    }
-    // Measure subject bar height for mobile offset calculations
-    const subjBar = document.querySelector('.chat-subj-bar');
-    const hint = document.getElementById('subjectFocusHint');
-    if (subjBar && window.innerWidth <= 768) {
-      const subjH = subjBar.getBoundingClientRect().height;
-      if (subjH && isFinite(subjH)) {
-        document.documentElement.style.setProperty('--chat-subj-bar-h', Math.ceil(subjH) + 'px');
+    if (tb) {
+      const h = tb.getBoundingClientRect().height;
+      if (h && isFinite(h)) {
+        document.documentElement.style.setProperty('--chat-topbar-h', Math.ceil(h) + 'px');
       }
-      // Calculate total offset for msgs-area: subject bar + hint (if visible)
-      const hintH = (hint && hint.classList.contains('show')) ? hint.getBoundingClientRect().height : 0;
-      const totalOffset = Math.ceil(subjH) + Math.ceil(hintH) + 8; // 8px extra margin
-      document.documentElement.style.setProperty('--chat-subj-offset', totalOffset + 'px');
+    }
+    document.documentElement.style.setProperty('--chat-subj-bar-h', '0px');
+    document.documentElement.style.setProperty('--chat-subj-offset', '0px');
+    const dock = document.getElementById('chatDock');
+    const area = document.getElementById('msgsArea');
+    if (dock && area) {
+      const dr = dock.getBoundingClientRect();
+      const ar = area.getBoundingClientRect();
+      const tops = [dr.top];
+      const crest = dock.querySelector('.v2-chat-dock__crest, .v2-chat-dock__subject');
+      if (crest) tops.push(crest.getBoundingClientRect().top);
+      const notch = dock.querySelector('.v2-chat-dock__notch');
+      if (notch) tops.push(notch.getBoundingClientRect().top);
+      const visualTop = Math.min.apply(null, tops);
+      const overlap = Math.max(0, Math.ceil(ar.bottom - visualTop));
+      const gap = overlap + 32;
+      document.documentElement.style.setProperty('--v2-chat-dock-h', Math.max(gap, 28) + 'px');
+    } else if (dock) {
+      const dh = dock.getBoundingClientRect().height;
+      if (dh && isFinite(dh)) {
+        document.documentElement.style.setProperty('--v2-chat-dock-h', Math.ceil(dh) + 'px');
+      }
     }
   } catch(e) {}
 }
@@ -1592,32 +1697,57 @@ function _syncChatTopbarOffset() {
 document.addEventListener('DOMContentLoaded', function() {
   _syncChatTopbarOffset();
   window.addEventListener('resize', _syncChatTopbarOffset);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', _syncChatTopbarOffset);
+  }
+  try {
+    const dock = document.getElementById('chatDock');
+    if (dock && window.ResizeObserver) {
+      new ResizeObserver(function () { _syncChatTopbarOffset(); }).observe(dock);
+    }
+  } catch (e) {}
+  document.addEventListener('otb:spa-navigate', function(e) {
+    const p = e.detail && e.detail.path;
+    if (!p || p.indexOf('/chat') === -1) return;
+    setTimeout(function() {
+      _syncChatTopbarOffset();
+      scrollChatToBottom();
+      if (typeof buildHeroGreeting === 'function') buildHeroGreeting();
+    }, 0);
+    setTimeout(scrollChatToBottom, 150);
+  });
   
   // Initialize subject selection
-  if (PRELOAD_SUBJECT) {
-    const preloadPill = document.querySelector(`.subj-pill[data-subj="${PRELOAD_SUBJECT}"]`);
-    if (preloadPill) {
-      setSubject(PRELOAD_SUBJECT, preloadPill);
-    }
-  } else {
-    // Don't auto-select first subject on mobile, show the hint instead
-    if (window.innerWidth > 768) {
-      const firstPill = document.querySelector('.subj-pill');
-      if (firstPill) {
-        setSubject(firstPill.dataset.subj, firstPill);
-      }
-    }
-  }
+  const initialSubj = resolveInitialSubject();
+  if (initialSubj) setSubject(initialSubj);
   
-  // Always update focus UI to show/hide hint appropriately
   updateSubjectFocusUI();
   
   const preloadSession = '{{ preload_session|default:""|escapejs }}';
   if (preloadSession) {
     loadSessionHistory(preloadSession);
   }
+  const histList = document.getElementById('histList');
+  if (histList) _histBaselineHTML = histList.innerHTML;
+  try {
+    const sp = new URLSearchParams(window.location.search);
+    const histQ = sp.get('hist_q') || '';
+    if (histQ) {
+      const inp = document.getElementById('histSearch');
+      if (inp) { inp.value = histQ; runHistSearch(); }
+    }
+    if (sp.get('hist') === '1' || histQ) {
+      if (!histOpen) toggleHistory();
+    }
+  } catch (e) {}
+  if (typeof buildHeroGreeting === 'function') buildHeroGreeting();
   
   setTimeout(_syncChatTopbarOffset, 50);
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape') return;
+  const panel = document.getElementById('chatDockSubjects');
+  if (panel && panel.classList.contains('is-open')) toggleSubjectPicker();
 });
 </script>
 {% endblock %}

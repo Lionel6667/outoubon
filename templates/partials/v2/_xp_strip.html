@@ -1,0 +1,22 @@
+{% if user.is_authenticated and not is_guest %}
+<div class="v2-xp-strip">
+  <a href="{% url 'gains' %}" class="v2-xp-strip__main" aria-label="Parrainage et XP">
+    <div class="v2-xp-strip__icon" aria-hidden="true"><i class="fas fa-star"></i></div>
+    <div class="v2-xp-strip__body">
+      <div class="v2-xp-strip__row">
+        <span class="v2-xp-strip__xp" data-v2-xp>{{ user_xp|default:0 }} XP</span>
+        {% if user_streak %}
+        <span class="v2-xp-strip__streak"><i class="fas fa-fire"></i> {{ user_streak }}</span>
+        {% endif %}
+      </div>
+      <div class="v2-xp-strip__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ user_xp_tier_pct|default:0 }}">
+        <div class="v2-xp-strip__bar-fill" style="width: {{ user_xp_tier_pct|default:0 }}%;"></div>
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'gains' %}#retrait" class="v2-xp-strip__cash" title="Retirer tes XP">
+    <i class="fas fa-wallet"></i>
+    <span>Retrait</span>
+  </a>
+</div>
+{% endif %}
