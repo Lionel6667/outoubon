@@ -561,27 +561,6 @@
 
           <div id="exoSheetOverlay" class="v2-exo-sheet-overlay" onclick="closeExoSheet()"></div>
 
-          <div id="exoHistOverlay" class="v2-exo-hist-overlay" onclick="closeExoHistory()"></div>
-          <aside id="exoHistPanel" class="v2-exo-hist-panel" aria-hidden="true" aria-label="Historique des exercices">
-            <div class="v2-exo-hist-panel__head">
-              <div class="v2-exo-hist-panel__title" id="exoHistTitle"><i class="fas fa-clock-rotate-left"></i> Historique</div>
-              <button type="button" class="v2-exo-hist-panel__close" onclick="closeExoHistory()" aria-label="Fermer">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-            <div class="v2-exo-hist-tabs">
-              <button type="button" class="v2-exo-hist-tab active" data-tab="history" onclick="switchExoHistTab('history')">
-                <i class="fas fa-clock-rotate-left"></i> Historique
-              </button>
-              <button type="button" class="v2-exo-hist-tab" data-tab="favorites" onclick="switchExoHistTab('favorites')">
-                <i class="fas fa-star"></i> Favoris
-              </button>
-            </div>
-            <div class="v2-exo-hist-list" id="exoHistList">
-              <div class="v2-exo-hist-empty" id="exoHistEmpty" style="display:none;"></div>
-            </div>
-          </aside>
-
           <div id="exoSheet" class="v2-exo-sheet" role="dialog" aria-label="Énoncé complet">
             <button type="button" class="v2-exo-sheet__close" onclick="closeExoSheet()" aria-label="Fermer">
               <i class="fas fa-times"></i>
@@ -590,6 +569,27 @@
             <div class="v2-exo-sheet__body" id="exoSheetBody"></div>
           </div>
         </div>
+
+      <div id="exoHistOverlay" class="v2-exo-hist-overlay" onclick="closeExoHistory()"></div>
+      <aside id="exoHistPanel" class="v2-exo-hist-panel" aria-hidden="true" aria-label="Historique des exercices">
+        <div class="v2-exo-hist-panel__head">
+          <div class="v2-exo-hist-panel__title" id="exoHistTitle"><i class="fas fa-clock-rotate-left"></i> Historique</div>
+          <button type="button" class="v2-exo-hist-panel__close" onclick="closeExoHistory()" aria-label="Fermer">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="v2-exo-hist-tabs">
+          <button type="button" class="v2-exo-hist-tab active" data-tab="history" onclick="switchExoHistTab('history')">
+            <i class="fas fa-clock-rotate-left"></i> Historique
+          </button>
+          <button type="button" class="v2-exo-hist-tab" data-tab="favorites" onclick="switchExoHistTab('favorites')">
+            <i class="fas fa-star"></i> Favoris
+          </button>
+        </div>
+        <div class="v2-exo-hist-list" id="exoHistList">
+          <div class="v2-exo-hist-empty" id="exoHistEmpty" style="display:none;"></div>
+        </div>
+      </aside>
 
 <script>
 const CHAPTERS_BY_SUBJECT = JSON.parse(`{{ chapters_by_subject|default:'{}'|escapejs }}`);
