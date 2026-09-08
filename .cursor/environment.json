@@ -1,0 +1,11 @@
+{
+  "name": "BacIA Django",
+  "install": "bash scripts/cloud-agent-install.sh",
+  "terminals": [
+    {
+      "name": "django-server",
+      "command": ". .venv/bin/activate && python manage.py runserver 0.0.0.0:8001"
+    }
+  ],
+  "ports": [8001]
+}
