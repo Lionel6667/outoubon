@@ -395,7 +395,17 @@
         
         <div id="stepSubject" class="v2-exo-step" style="display:block;">
           <div class="v2-exo-hero-panel">
-            <div class="v2-exo-eyebrow"><i class="fas fa-pen-fancy"></i> Exercices BAC · vrais examens Haïti</div>
+            <div class="v2-exo-hero-topbar">
+              <div class="v2-exo-eyebrow"><i class="fas fa-pen-fancy"></i> Exercices BAC · vrais examens Haïti</div>
+              <div class="v2-exo-hist-actions">
+                <button type="button" class="v2-exo-hist-launch" onclick="openExoHistory('history')" title="Reprendre un exercice commencé">
+                  <i class="fas fa-clock-rotate-left"></i> <span>Historique</span>
+                </button>
+                <button type="button" class="v2-exo-hist-launch v2-exo-hist-launch--fav" onclick="openExoHistory('favorites')" title="Mes exercices favoris">
+                  <i class="fas fa-star"></i> <span>Favoris</span>
+                </button>
+              </div>
+            </div>
             <h1 class="v2-exo-hero__title">Choisis une matière</h1>
             <div class="v2-exo-pills">
               <span class="v2-exo-pill"><i class="fas fa-robot"></i> Tuteur {{ coach_name|default:"Chat IA" }}</span>
@@ -424,6 +434,9 @@
               <div class="v2-exo-chapter-kicker">Matière</div>
               <div id="chapterSubjectLabel" class="v2-exo-chapter-title"></div>
             </div>
+            <button type="button" class="v2-exo-hist-launch v2-exo-hist-launch--corner" onclick="openExoHistory('history')" title="Reprendre un exercice commencé">
+              <i class="fas fa-clock-rotate-left"></i> <span>Historique</span>
+            </button>
           </div>
           <div class="v2-exo-chapter-card">
             <h3 class="v2-exo-chapter-card__title">Choisis un chapitre</h3>
@@ -448,6 +461,9 @@
                 <i class="fas fa-chevron-left"></i>
               </button>
               <h1 class="v2-exo-astra-head__title" id="exerciseTitleBar">Exercice</h1>
+              <button type="button" class="v2-exo-astra-head__fav" id="exoFavBtn" onclick="toggleCurrentFavorite()" aria-label="Ajouter aux favoris" title="Mettre en favori pour le refaire plus tard">
+                <i class="far fa-star"></i>
+              </button>
             </header>
 
             <button type="button" class="v2-exo-fab" id="exoSheetFab" onclick="openExoSheet()" aria-label="Voir l'énoncé complet" title="Énoncé complet">
@@ -479,11 +495,11 @@
               <div id="exoFeedbackBanner" class="v2-exo-astra-feedback" style="display:none;"></div>
 
               <div class="v2-exo-astra-actions" id="v2ExoActions">
-                <button type="button" class="v2-exo-astra-chip v2-exo-astra-chip--hint" onclick="askHint()" title="Indice">
-                  <i class="fas fa-lightbulb"></i>
+                <button type="button" class="v2-exo-astra-chip v2-exo-astra-chip--hint" onclick="askHint()" title="Obtenir un indice pour t'aider">
+                  <i class="fas fa-lightbulb"></i> <span>Indice</span>
                 </button>
-                <button type="button" class="v2-exo-astra-chip" id="exFinishBtn" onclick="finishSession()">
-                  <i class="fas fa-check"></i> Terminer
+                <button type="button" class="v2-exo-astra-chip" id="exFinishBtn" onclick="finishSession()" title="Terminer et voir ta note">
+                  <i class="fas fa-check"></i> <span>Terminer</span>
                 </button>
               </div>
             </div>
@@ -544,6 +560,28 @@
           </div>
 
           <div id="exoSheetOverlay" class="v2-exo-sheet-overlay" onclick="closeExoSheet()"></div>
+
+          <div id="exoHistOverlay" class="v2-exo-hist-overlay" onclick="closeExoHistory()"></div>
+          <aside id="exoHistPanel" class="v2-exo-hist-panel" aria-hidden="true" aria-label="Historique des exercices">
+            <div class="v2-exo-hist-panel__head">
+              <div class="v2-exo-hist-panel__title" id="exoHistTitle"><i class="fas fa-clock-rotate-left"></i> Historique</div>
+              <button type="button" class="v2-exo-hist-panel__close" onclick="closeExoHistory()" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="v2-exo-hist-tabs">
+              <button type="button" class="v2-exo-hist-tab active" data-tab="history" onclick="switchExoHistTab('history')">
+                <i class="fas fa-clock-rotate-left"></i> Historique
+              </button>
+              <button type="button" class="v2-exo-hist-tab" data-tab="favorites" onclick="switchExoHistTab('favorites')">
+                <i class="fas fa-star"></i> Favoris
+              </button>
+            </div>
+            <div class="v2-exo-hist-list" id="exoHistList">
+              <div class="v2-exo-hist-empty" id="exoHistEmpty" style="display:none;"></div>
+            </div>
+          </aside>
+
           <div id="exoSheet" class="v2-exo-sheet" role="dialog" aria-label="Énoncé complet">
             <button type="button" class="v2-exo-sheet__close" onclick="closeExoSheet()" aria-label="Fermer">
               <i class="fas fa-times"></i>
@@ -555,6 +593,8 @@
 
 <script>
 const CHAPTERS_BY_SUBJECT = JSON.parse(`{{ chapters_by_subject|default:'{}'|escapejs }}`);
+const SUBJECT_LABELS = { {% for k, m in mats.items %}'{{ k }}': '{{ m.label|escapejs }}',{% endfor %} };
+const EXO_AUTHED = {{ request.user.is_authenticated|yesno:"true,false" }};
 const STUDENT_NAME = '{{ request.user.first_name|default:"Élève"|escapejs }}' || 'Élève';
 const COACH_NAME = (function() {
   var w = (typeof window !== 'undefined' && window.OTB_COACH_NAME) ? String(window.OTB_COACH_NAME).trim() : '';
@@ -574,6 +614,233 @@ let exoSessionView = null;
 let exoStreak = 0;
 let tutorHistory = [];
 let stepperVerifying = false;
+let currentSessionId = null;
+let currentSessionFavorite = false;
+let _exoSaveTimer = null;
+
+function _exoSubjectLabel(subject) {
+  return SUBJECT_LABELS[subject] || (subject ? subject.charAt(0).toUpperCase() + subject.slice(1) : 'Exercice');
+}
+
+/* ── Historique & favoris : persistance ──────────────────────── */
+function _exoSavePayload(status) {
+  return {
+    subject: currentSubject,
+    chapter: (function() {
+      const chaps = CHAPTERS_BY_SUBJECT[currentSubject] || [];
+      const c = (currentChapter === 'random') ? null : chaps.find(x => x.id == currentChapter);
+      return c ? (c.display || c.title) : (currentChapter === 'random' ? 'Aléatoire' : '');
+    })(),
+    chapter_id: currentChapter == null ? '' : String(currentChapter),
+    exercise: currentExercise || {},
+    messages: chatHistory.slice(-60),
+    session_state: exoSessionState || {},
+    status: status || 'active',
+    is_favorite: currentSessionFavorite,
+    title: (currentExercise && (currentExercise.theme || currentExercise.matiere)) || _exoSubjectLabel(currentSubject),
+    preview: (currentExercise && (currentExercise.intro || currentExercise.enonce)) || '',
+  };
+}
+
+async function saveExoSession(status) {
+  if (!EXO_AUTHED || !currentExercise) return;
+  try {
+    const resp = await fetch('{% url "api_exercise_session_save" %}', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
+      body: JSON.stringify(_exoSavePayload(status)),
+    });
+    const data = await resp.json();
+    if (data && data.ok && data.id) {
+      currentSessionId = data.id;
+      currentSessionFavorite = !!data.is_favorite;
+      updateFavBtn();
+    }
+  } catch(e) { /* silencieux — sauvegarde best-effort */ }
+}
+
+function scheduleExoSave(status) {
+  if (!EXO_AUTHED) return;
+  clearTimeout(_exoSaveTimer);
+  _exoSaveTimer = setTimeout(() => saveExoSession(status || 'active'), 700);
+}
+
+function updateFavBtn() {
+  const btn = document.getElementById('exoFavBtn');
+  if (!btn) return;
+  const icon = btn.querySelector('i');
+  btn.classList.toggle('is-fav', currentSessionFavorite);
+  if (icon) icon.className = (currentSessionFavorite ? 'fas' : 'far') + ' fa-star';
+  btn.setAttribute('aria-label', currentSessionFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris');
+}
+
+async function toggleCurrentFavorite() {
+  if (!EXO_AUTHED) { showToast('Connecte-toi pour enregistrer tes favoris.', 'info'); return; }
+  if (!currentExercise) return;
+  currentSessionFavorite = !currentSessionFavorite;
+  updateFavBtn();
+  if (currentSessionFavorite) showToast('Ajouté à tes favoris ⭐', 'success');
+  await saveExoSession(exoSessionView && exoSessionView.completed ? 'completed' : 'active');
+}
+
+/* ── Panneau historique / favoris (style chat) ───────────────── */
+let _exoHistTab = 'history';
+
+function openExoHistory(tab) {
+  if (!EXO_AUTHED) { showToast('Connecte-toi pour retrouver ton historique.', 'info'); return; }
+  document.getElementById('exoHistOverlay')?.classList.add('open');
+  document.getElementById('exoHistPanel')?.classList.add('open');
+  document.getElementById('exoHistPanel')?.setAttribute('aria-hidden', 'false');
+  switchExoHistTab(tab || 'history');
+}
+
+function closeExoHistory() {
+  document.getElementById('exoHistOverlay')?.classList.remove('open');
+  document.getElementById('exoHistPanel')?.classList.remove('open');
+  document.getElementById('exoHistPanel')?.setAttribute('aria-hidden', 'true');
+}
+
+function switchExoHistTab(tab) {
+  _exoHistTab = tab;
+  document.querySelectorAll('.v2-exo-hist-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  const title = document.getElementById('exoHistTitle');
+  if (title) title.innerHTML = tab === 'favorites'
+    ? '<i class="fas fa-star"></i> Favoris'
+    : '<i class="fas fa-clock-rotate-left"></i> Historique';
+  loadExoHistory(tab);
+}
+
+function _exoTimeAgo(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  const diff = (Date.now() - d.getTime()) / 1000;
+  if (diff < 60) return "à l'instant";
+  if (diff < 3600) return Math.floor(diff / 60) + ' min';
+  if (diff < 86400) return Math.floor(diff / 3600) + ' h';
+  if (diff < 604800) return Math.floor(diff / 86400) + ' j';
+  return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+}
+
+async function loadExoHistory(tab) {
+  const list = document.getElementById('exoHistList');
+  if (!list) return;
+  list.innerHTML = '<div class="v2-exo-hist-empty"><i class="fas fa-spinner fa-spin"></i>Chargement…</div>';
+  try {
+    const params = tab === 'favorites' ? '?favorites=1' : '';
+    const resp = await fetch('{% url "api_exercise_sessions" %}' + params, { headers: {'X-CSRFToken': CSRF} });
+    const data = await resp.json();
+    renderExoHistory((data && data.sessions) || [], tab);
+  } catch(e) {
+    list.innerHTML = '<div class="v2-exo-hist-empty"><i class="fas fa-triangle-exclamation"></i>Problème réseau. Réessaie.</div>';
+  }
+}
+
+function renderExoHistory(sessions, tab) {
+  const list = document.getElementById('exoHistList');
+  if (!list) return;
+  if (!sessions.length) {
+    list.innerHTML = tab === 'favorites'
+      ? '<div class="v2-exo-hist-empty"><i class="fas fa-star"></i>Aucun favori pour le moment.<br>Touche l\'étoile ⭐ pendant un exercice pour le retrouver ici.</div>'
+      : '<div class="v2-exo-hist-empty"><i class="fas fa-clock-rotate-left"></i>Aucun exercice commencé.<br>Lance un exercice — il apparaîtra ici pour le continuer plus tard.</div>';
+    return;
+  }
+  list.innerHTML = sessions.map(s => {
+    const statusLabel = s.status === 'completed' ? 'Terminé' : 'En cours';
+    const resumeLabel = s.status === 'completed' ? 'Refaire' : 'Continuer';
+    return `<div class="v2-exo-hist-entry" onclick="resumeExoSession(${s.id})">
+      <div class="v2-exo-hist-entry__top">
+        <span class="v2-exo-hist-entry__subject">${escapeHtml(_exoSubjectLabel(s.subject))}</span>
+        <span class="v2-exo-hist-entry__status ${s.status}">${statusLabel}</span>
+        <span class="v2-exo-hist-entry__time">${_exoTimeAgo(s.updated_at)}</span>
+      </div>
+      <div class="v2-exo-hist-entry__title">${escapeHtml(s.title || s.chapter || 'Exercice')}</div>
+      ${s.preview ? `<div class="v2-exo-hist-entry__preview">${escapeHtml(s.preview.slice(0, 140))}</div>` : ''}
+      <div class="v2-exo-hist-entry__actions" onclick="event.stopPropagation()">
+        <button type="button" class="v2-exo-hist-entry__btn fav ${s.is_favorite ? 'is-fav' : ''}" title="Favori"
+          onclick="toggleExoSessionFav(${s.id}, this)"><i class="${s.is_favorite ? 'fas' : 'far'} fa-star"></i></button>
+        <button type="button" class="v2-exo-hist-entry__btn del" title="Supprimer"
+          onclick="deleteExoSession(${s.id}, this)"><i class="fas fa-trash"></i></button>
+        <span class="v2-exo-hist-entry__resume" onclick="resumeExoSession(${s.id})">${resumeLabel} <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function toggleExoSessionFav(id, btn) {
+  try {
+    const resp = await fetch(`/dashboard/api/exercices/sessions/${id}/favorite/`, {
+      method: 'POST', headers: {'Content-Type':'application/json','X-CSRFToken':CSRF}, body: '{}',
+    });
+    const data = await resp.json();
+    if (data && data.ok) {
+      const icon = btn.querySelector('i');
+      btn.classList.toggle('is-fav', data.is_favorite);
+      if (icon) icon.className = (data.is_favorite ? 'fas' : 'far') + ' fa-star';
+      if (id === currentSessionId) { currentSessionFavorite = data.is_favorite; updateFavBtn(); }
+      if (_exoHistTab === 'favorites' && !data.is_favorite) btn.closest('.v2-exo-hist-entry')?.remove();
+    }
+  } catch(e) { showToast('Problème réseau.', 'error'); }
+}
+
+async function deleteExoSession(id, btn) {
+  if (!confirm('Supprimer cet exercice de ton historique ?')) return;
+  try {
+    const resp = await fetch(`/dashboard/api/exercices/sessions/${id}/delete/`, {
+      method: 'POST', headers: {'Content-Type':'application/json','X-CSRFToken':CSRF}, body: '{}',
+    });
+    const data = await resp.json();
+    if (data && data.ok) {
+      btn.closest('.v2-exo-hist-entry')?.remove();
+      const list = document.getElementById('exoHistList');
+      if (list && !list.querySelector('.v2-exo-hist-entry')) renderExoHistory([], _exoHistTab);
+    }
+  } catch(e) { showToast('Problème réseau.', 'error'); }
+}
+
+function _renderExoMessages(messages) {
+  const msgs = document.getElementById('exMsgs');
+  if (msgs) msgs.innerHTML = '';
+  (messages || []).forEach(m => {
+    if (m.role === 'user') appendUserMessage(m.content);
+    else appendAIMessage(m.content);
+  });
+  setTimeout(scrollExoBottom, 120);
+}
+
+async function resumeExoSession(id) {
+  try {
+    _showExoLoading(true);
+    const resp = await fetch(`/dashboard/api/exercices/sessions/${id}/`, { headers: {'X-CSRFToken': CSRF} });
+    const data = await resp.json();
+    if (!data || !data.ok || !data.session) throw new Error('Introuvable');
+    const s = data.session;
+    currentSubject = s.subject;
+    currentSubjectLabel = _exoSubjectLabel(s.subject);
+    currentChapter = s.chapter_id || 'random';
+    currentExercise = s.exercise || {};
+    exoSessionState = s.session_state || null;
+    exoSessionView = null;
+    chatHistory = (s.messages || []).slice();
+    tutorHistory = [];
+    currentSessionId = s.id;
+    currentSessionFavorite = !!s.is_favorite;
+    closeExoHistory();
+    _showStep(3);
+    document.getElementById('exoSummaryScreen')?.classList.remove('active');
+    document.getElementById('exContent').style.display = 'none';
+    document.getElementById('exerciseTitleBar').textContent = (currentExercise.theme || currentSubjectLabel);
+    displayExercise(currentExercise);
+    _renderExoMessages(chatHistory);
+    updateFavBtn();
+    const input = document.getElementById('exInput');
+    if (input) { input.disabled = false; }
+    updateExSendBtnState();
+  } catch(e) {
+    showToast('Impossible de reprendre cet exercice.', 'error');
+  } finally {
+    _showExoLoading(false);
+  }
+}
 
 function _chapterParam(chap) {
   if (!chap) return 'Aléatoire';
@@ -984,11 +1251,15 @@ async function loadExercise(chapterId) {
     exoSessionView = data.session || null;
     chatHistory = [];
     tutorHistory = [];
+    currentSessionId = null;
+    currentSessionFavorite = false;
+    updateFavBtn();
     displayExercise(currentExercise);
     initStepper(currentExercise, data.opening);
+    saveExoSession('active');
   } catch(e) {
     _showStep(2);
-    showToast('? ' + e.message, 'error');
+    showToast('Problème réseau. ' + (e.message || ''), 'error');
   }
 }
 
@@ -1026,11 +1297,15 @@ async function generateNewExercise() {
     exoSessionView = data.session || null;
     chatHistory = [];
     tutorHistory = [];
+    currentSessionId = null;
+    currentSessionFavorite = false;
+    updateFavBtn();
     document.getElementById('exoSummaryScreen').classList.remove('active');
     displayExercise(currentExercise);
     initStepper(currentExercise, data.opening);
+    saveExoSession('active');
   } catch(e) {
-    showToast('? ' + e.message, 'error');
+    showToast('Problème réseau. ' + (e.message || ''), 'error');
   }
   _showExoLoading(false);
   btn.innerHTML = '<i class="fas fa-sync-alt"></i> Nouvel exercice';
@@ -1292,11 +1567,13 @@ function _handleExoResponse(data, resp) {
     chatHistory.push({role: 'assistant', content: data.response});
     _applySessionFromResponse(data);
     if (!data.meta || data.meta.note == null) _showSessionNote(note);
+    saveExoSession('completed');
     return true;
   }
   appendAIMessage(response);
   chatHistory.push({role: 'assistant', content: data.response});
   _applySessionFromResponse(data);
+  scheduleExoSave('active');
   return true;
 }
 
@@ -1308,9 +1585,9 @@ function _showExRetry() {
   div.className = 'v2-exo-astra-msg v2-exo-astra-msg--ai';
   div.innerHTML = `<div class="v2-exo-astra-avatar"><i class="fas fa-robot"></i></div>
     <div class="v2-exo-astra-msg__text"><div class="retry-error-card">
-      <div class="retry-error-icon">⚠️</div>
-      <div class="retry-error-text"><strong>Oups ! Connexion instable</strong>
-        L'IA n'a pas pu répondre. Réessaie dans un instant.</div>
+      <div class="retry-error-icon">📡</div>
+      <div class="retry-error-text"><strong>Problème réseau</strong>
+        Le tuteur n'est pas joignable pour le moment. Vérifie ta connexion et réessaie.</div>
       <button type="button" class="retry-btn" onclick="this.closest('.v2-exo-astra-msg').remove();_retrySendExMsg()">🔄 Réessayer</button>
     </div></div>`;
   msgs.appendChild(div);
@@ -1376,6 +1653,7 @@ function _showSessionNote(note) {
     headers: {'Content-Type':'application/json','X-CSRFToken':CSRF},
     body: JSON.stringify({score: note, subject: currentSubject, activity_token: exoActivityToken}),
   }).catch(() => {});
+  saveExoSession('completed');
 }
 
 async function askHint() {
@@ -1427,13 +1705,9 @@ async function _exoQuickAction(message, silent) {
       if (data.response) chatHistory.push({role:'assistant', content:data.response});
       return data;
     }
-    if (!_handleExoResponse(data, resp)) {
-      const fallback = '💡 Continue étape par étape.';
-      appendAIMessage(fallback);
-      chatHistory.push({role: 'assistant', content: fallback});
-    }
+    _handleExoResponse(data, resp);
   } catch(e) {
-    if (!silent) showToast('Connexion instable. Réessaie.', 'error');
+    if (!silent) { showToast('Problème réseau. Réessaie.', 'error'); _showExRetry(); }
   }
   return null;
 }
