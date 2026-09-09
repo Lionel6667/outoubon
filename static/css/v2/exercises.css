@@ -1342,6 +1342,51 @@ body.v2-exo-session-active .app.has-topbar .main {
   margin: 0 auto;
 }
 
+@media (min-width: 769px) {
+  .v2-exo-page--session .exo-step3.active {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  .v2-exo-astra-session {
+    max-width: min(760px, 100%);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .v2-exo-page--session .v2-exo-astra-scroll {
+    padding: 0 1.5rem 0.5rem;
+    padding-bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .v2-exo-page--session .v2-exo-astra-compose {
+    left: var(--sidebar-w, 240px);
+    right: 0;
+    z-index: 40;
+    padding: 0.65rem 1.5rem 0.85rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .v2-exo-page--session .v2-exo-astra-compose__pill {
+    max-width: 760px;
+  }
+
+  .v2-exo-page--session .v2-exo-astra-img-preview {
+    left: calc(var(--sidebar-w, 240px) + 1.5rem);
+    right: 1.5rem;
+    max-width: 760px;
+    z-index: 39;
+  }
+
+  .v2-exo-fab {
+    position: absolute;
+    right: 0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+}
+
 .v2-exo-astra-compose__pill {
   display: flex;
   align-items: center;

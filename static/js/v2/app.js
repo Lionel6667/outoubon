@@ -54,7 +54,8 @@
     'v2-exo-session-active',
     'sidebar-open',
     'exam-zen',
-    'mau-open'
+    'mau-open',
+    'otb-info-open'
   ];
 
   var PERMANENT_SCRIPT_MARKERS = [
@@ -418,14 +419,38 @@
       .trim();
   }
 
+  function isProtectedHeadStyle(style) {
+    if (!style) return true;
+    var id = String(style.id || '').toLowerCase();
+    if (id === 'otb-base-css') return true;
+    if (id.indexOf('mjx') >= 0 || id.indexOf('mathjax') >= 0 || id.indexOf('katex') >= 0) return true;
+    var cls = String(style.className || '').toLowerCase();
+    if (cls.indexOf('mjx') >= 0 || cls.indexOf('katex') >= 0) return true;
+    return false;
+  }
+
   function collectPageInlineCss(doc) {
     var chunks = [];
     doc.querySelectorAll('head style').forEach(function (style) {
-      if (style.id === 'otb-base-css') return;
+      if (isProtectedHeadStyle(style)) return;
       var text = scrubDangerousInlineCss((style.textContent || '').trim());
       if (text) chunks.push(text);
     });
     return chunks.join('\n');
+  }
+
+  function stripPageInlineCss() {
+    document.querySelectorAll('head style').forEach(function (style) {
+      if (isProtectedHeadStyle(style)) return;
+      style.remove();
+    });
+  }
+
+  function tagInitialPageCss() {
+    document.querySelectorAll('head style').forEach(function (style) {
+      if (isProtectedHeadStyle(style)) return;
+      style.setAttribute('data-otb-spa', 'page');
+    });
   }
 
   function findStylesheetLink(key) {
@@ -460,10 +485,8 @@
   }
 
   function injectInlinePageCss(pkg) {
-    document.querySelectorAll('head style[data-otb-spa="page"]').forEach(function (style) {
-      style.remove();
-    });
-    if (pkg.inlineCss) {
+    stripPageInlineCss();
+    if (pkg && pkg.inlineCss) {
       var s = document.createElement('style');
       s.setAttribute('data-otb-spa', 'page');
       s.textContent = scrubDangerousInlineCss(pkg.inlineCss);
@@ -509,6 +532,21 @@
     SPA_BODY_CLASSES.forEach(function (cls) {
       document.body.classList.remove(cls);
     });
+    if (typeof window.OTB_closeSidebar === 'function') {
+      window.OTB_closeSidebar();
+    }
+    var overlay = document.querySelector('.mob-overlay');
+    if (overlay) overlay.style.removeProperty('display');
+    var sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+      sidebar.style.removeProperty('transform');
+      sidebar.style.removeProperty('position');
+      sidebar.style.removeProperty('top');
+      sidebar.style.removeProperty('left');
+      sidebar.style.removeProperty('bottom');
+      sidebar.style.removeProperty('width');
+      sidebar.style.removeProperty('z-index');
+    }
     resetBottomNav();
     ensureBottomNavVisible();
   }
@@ -727,8 +765,9 @@
       if (isSpaPageStylesheet(href)) hrefs.push(href);
     });
     var inlineChunks = [];
-    document.querySelectorAll('head style[data-otb-spa="page"]').forEach(function (style) {
-      var text = (style.textContent || '').trim();
+    document.querySelectorAll('head style').forEach(function (style) {
+      if (isProtectedHeadStyle(style)) return;
+      var text = scrubDangerousInlineCss((style.textContent || '').trim());
       if (text) inlineChunks.push(text);
     });
     var scriptNodes = pageScriptsHolder
@@ -1011,9 +1050,7 @@
     }
     app.classList.remove('otb-spa-pending');
     document.body.classList.add('otb-shell');
-    document.querySelectorAll('head style[data-otb-spa="page"]').forEach(function (style) {
-      style.remove();
-    });
+    tagInitialPageCss();
     cacheCurrentPage();
     var mainEl = getAppMain(document);
     if (mainEl && !mainEl.id) mainEl.id = 'app-main';

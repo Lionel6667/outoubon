@@ -135,6 +135,12 @@ CASES = {
     'mention_only': (
         'Dresser un tableau d\'avancement. Calculer le réactif limitant.'
     ),
+    'physique_units_not_table': (
+        'On maintient entre les bornes d’une prise de courant une d.d.p. sinusoïdale '
+        'de valeur efficace \\(U_e = 220\\,\\text{V}\\) et de fréquence \\(50\\,\\text{Hz}\\). '
+        'L’intensité efficace du courant est \\(2\\,\\text{A}\\) et la quantité de chaleur '
+        'dégagée est \\(13\\,200\\,\\text{J}\\). Calculer :'
+    ),
 }
 
 
@@ -145,6 +151,12 @@ def run_cases():
         if name == 'mention_only':
             if '<table' in out.lower():
                 failed.append((name, 'false positive table', out[:200]))
+            continue
+        if name == 'physique_units_not_table':
+            if '<table' in out.lower():
+                failed.append((name, 'physics units became a table', out[:280]))
+            elif r'\text{V}' in out and '|' in out.split('\n')[0]:
+                failed.append((name, 'broken latex cells', out[:280]))
             continue
         if name == 'html_passthrough':
             if '<table' not in out.lower():
@@ -210,6 +222,17 @@ if __name__ == '__main__':
             print()
         sys.exit(1)
     print(f'OK {len(CASES)} synthetic formats')
+
+    from core.exercise_tutor import opening_message
+    one = opening_message({'theme': 'T', 'questions': ['q1']}, 'Herby')
+    four = opening_message({'theme': 'T', 'questions': ['a', 'b', 'c', 'd']}, 'Herby')
+    if 'Il y a **4 questions** (a, b, c, d)' not in four:
+        print('FAILED opening_message 4q:', four)
+        sys.exit(1)
+    if 'Il y a **' in one:
+        print('FAILED opening_message 1q should not count:', one)
+        sys.exit(1)
+    print('OK opening_message is dynamic')
 
     scanned, converted, leftover = run_real_json()
     print(f'Real JSON: scanned={scanned} converted_to_html={converted} leftover_pipe_blocks={len(leftover)}')

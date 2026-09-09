@@ -709,9 +709,10 @@ function switchExoHistTab(tab) {
   _exoHistTab = tab;
   document.querySelectorAll('.v2-exo-hist-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
   const title = document.getElementById('exoHistTitle');
+  const subj = currentSubject ? ' · ' + _exoSubjectLabel(currentSubject) : '';
   if (title) title.innerHTML = tab === 'favorites'
-    ? '<i class="fas fa-star"></i> Favoris'
-    : '<i class="fas fa-clock-rotate-left"></i> Historique';
+    ? '<i class="fas fa-star"></i> Favoris' + subj
+    : '<i class="fas fa-clock-rotate-left"></i> Historique' + subj;
   loadExoHistory(tab);
 }
 
@@ -726,13 +727,20 @@ function _exoTimeAgo(iso) {
   return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
 }
 
+function _exoHistQuery(tab) {
+  const p = new URLSearchParams();
+  if (tab === 'favorites') p.set('favorites', '1');
+  if (currentSubject) p.set('subject', currentSubject);
+  const qs = p.toString();
+  return qs ? ('?' + qs) : '';
+}
+
 async function loadExoHistory(tab) {
   const list = document.getElementById('exoHistList');
   if (!list) return;
   list.innerHTML = '<div class="v2-exo-hist-empty"><i class="fas fa-spinner fa-spin"></i>Chargement…</div>';
   try {
-    const params = tab === 'favorites' ? '?favorites=1' : '';
-    const resp = await fetch('{% url "api_exercise_sessions" %}' + params, { headers: {'X-CSRFToken': CSRF} });
+    const resp = await fetch('{% url "api_exercise_sessions" %}' + _exoHistQuery(tab), { headers: {'X-CSRFToken': CSRF} });
     const data = await resp.json();
     renderExoHistory((data && data.sessions) || [], tab);
   } catch(e) {
@@ -744,9 +752,16 @@ function renderExoHistory(sessions, tab) {
   const list = document.getElementById('exoHistList');
   if (!list) return;
   if (!sessions.length) {
-    list.innerHTML = tab === 'favorites'
-      ? '<div class="v2-exo-hist-empty"><i class="fas fa-star"></i>Aucun favori pour le moment.<br>Touche l\'étoile ⭐ pendant un exercice pour le retrouver ici.</div>'
-      : '<div class="v2-exo-hist-empty"><i class="fas fa-clock-rotate-left"></i>Aucun exercice commencé.<br>Lance un exercice — il apparaîtra ici pour le continuer plus tard.</div>';
+    const subj = currentSubject ? _exoSubjectLabel(currentSubject) : '';
+    if (tab === 'favorites') {
+      list.innerHTML = subj
+        ? `<div class="v2-exo-hist-empty"><i class="fas fa-star"></i>Aucun favori en ${escapeHtml(subj)}.<br>Touche l'étoile ⭐ pendant un exercice pour le retrouver ici.</div>`
+        : '<div class="v2-exo-hist-empty"><i class="fas fa-star"></i>Aucun favori pour le moment.<br>Touche l\'étoile ⭐ pendant un exercice pour le retrouver ici.</div>';
+    } else {
+      list.innerHTML = subj
+        ? `<div class="v2-exo-hist-empty"><i class="fas fa-clock-rotate-left"></i>Aucun exercice de ${escapeHtml(subj)} commencé.<br>Lance un exercice — il apparaîtra ici pour le continuer plus tard.</div>`
+        : '<div class="v2-exo-hist-empty"><i class="fas fa-clock-rotate-left"></i>Aucun exercice commencé.<br>Lance un exercice — il apparaîtra ici pour le continuer plus tard.</div>';
+    }
     return;
   }
   list.innerHTML = sessions.map(s => {
@@ -1204,6 +1219,8 @@ function _showStep(step) {
 }
 
 function backToSubject() {
+  currentSubject = '';
+  currentSubjectLabel = '';
   _showStep(1);
 }
 
@@ -1715,7 +1732,7 @@ async function _exoQuickAction(message, silent) {
     }
     _handleExoResponse(data, resp);
   } catch(e) {
-    if (!silent) { showToast('Problème réseau. Réessaie.', 'error'); _showExRetry(); }
+    if (!silent) { _showExRetry(); }
   }
   return null;
 }

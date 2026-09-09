@@ -430,7 +430,11 @@ def opening_message(exercise: dict, student_name: str, coach_name: str = '') -> 
         "On travaille **question par question**, sans donner la réponse toute faite.",
     ]
     if n > 1:
-        parts.append(f"\nIl y a **{n} questions** (a, b, c…). On commence par la **première**.")
+        shown = min(n, 6)
+        letters = ', '.join(chr(ord('a') + i) for i in range(shown))
+        if n > shown:
+            letters += '…'
+        parts.append(f"\nIl y a **{n} questions** ({letters}). On commence par la **première**.")
     elif n == 1:
         parts.append("\nOn commence par la **première partie**.")
     parts.append("\n**Quelle est ton approche ?**")

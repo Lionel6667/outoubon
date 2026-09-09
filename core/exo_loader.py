@@ -220,13 +220,44 @@ def _sanitize_exercise(exo: dict) -> dict:
 # SERIES → TABLE  (statistics / probability exercises)
 # ─────────────────────────────────────────────────────────────────────────────
 
+# LaTeX thin space (\,) must not be treated as a CSV separator.
+_LATEX_THIN = '\x1eTHIN\x1e'
+_SERIES_ATOM = re.compile(r'^-?\d+(?:[.,]\d+)?(?:/\d+(?:[.,]\d+)?)?$')
+
+
+def _protect_latex_thinspaces(text: str) -> str:
+    return (text or '').replace(r'\,', _LATEX_THIN)
+
+
+def _restore_latex_thinspaces(text: str) -> str:
+    return (text or '').replace(_LATEX_THIN, r'\,')
+
+
+def _is_numeric_series_atom(value: str) -> bool:
+    """True for stats numbers like 12, 0,5, 3.2, 1/2 — not LaTeX units."""
+    raw = (value or '').strip()
+    if re.search(r'\\[A-Za-z]', raw):
+        return False
+    compact = raw.replace(r'\,', '').replace(' ', '')
+    return bool(_SERIES_ATOM.fullmatch(compact))
+
+
+def _usable_series_values(vals: list[str]) -> bool:
+    return len(vals) >= 2 and all(_is_numeric_series_atom(v) for v in vals)
+
+
 def _split_series_values(vals_str: str, expected_n: int = 0) -> list[str]:
     """
     Split a French stats values string into a list.
     Try to match expected_n values if given, choosing ';' or ',' accordingly.
     French convention: commas can be decimal points, semicolons list separators.
+    LaTeX thin spaces (\\,) are never list separators (e.g. 220\\,\\text{V}).
     """
-    vals_str = vals_str.strip()
+    vals_str = _protect_latex_thinspaces(vals_str.strip())
+
+    def _restore(items: list[str]) -> list[str]:
+        return [_restore_latex_thinspaces(v) for v in items]
+
     range_m = re.fullmatch(r'(\d+)\s*\.{2,}\s*(\d+)', vals_str)
     if range_m:
         a, b = int(range_m.group(1)), int(range_m.group(2))
@@ -238,11 +269,12 @@ def _split_series_values(vals_str: str, expected_n: int = 0) -> list[str]:
     by_comma = [v.strip() for v in vals_str.split(',')  if v.strip()]
     if expected_n:
         if len(by_semi)  == expected_n:
-            return by_semi
+            return _restore(by_semi)
         if len(by_comma) == expected_n:
-            return by_comma
+            return _restore(by_comma)
     # Default: if the string contains ';', use it; otherwise ','
-    return by_semi if ';' in vals_str else by_comma
+    chosen = by_semi if ';' in vals_str else by_comma
+    return _restore(chosen)
 
 
 def _series_to_md_table(text: str) -> str:
@@ -287,7 +319,7 @@ def _series_to_md_table(text: str) -> str:
         var      = m.group(1)
         vals_str = m.group(2).strip()
         vals     = _split_series_values(vals_str)
-        if len(vals) >= 2:
+        if _usable_series_values(vals):
             rows.append((var, vals, m.start(), m.end()))
 
     # ── Pass 2: \\(var\\) : values — colon outside LaTeX ────────────────────
@@ -299,7 +331,7 @@ def _series_to_md_table(text: str) -> str:
             var      = m.group(1)
             vals_str = m.group(2).strip()
             vals     = _split_series_values(vals_str)
-            if len(vals) >= 2:
+            if _usable_series_values(vals):
                 rows.append((var, vals, m.start(), m.end()))
 
     # ── Pass 2b: \\(var\\) (optional unit) = values — equals outside LaTeX ──
@@ -319,7 +351,7 @@ def _series_to_md_table(text: str) -> str:
             var      = m.group(1)
             vals_raw = m.group(2).strip(' ;.')
             vals     = _split_series_values(vals_raw)
-            if len(vals) >= 2:
+            if _usable_series_values(vals):
                 rows_2b.append((var, vals, m.start(), m.end()))
         if len(rows_2b) >= 2:
             rows = rows_2b
@@ -340,7 +372,7 @@ def _series_to_md_table(text: str) -> str:
                 var      = label_m.group(1) if label_m else 'val'
                 vals_str = expr
             vals = _split_series_values(vals_str)
-            if len(vals) >= 2:
+            if _usable_series_values(vals):
                 rows.append((var, vals, m.start(), m.end()))
 
     if len(rows) < 2:
@@ -366,7 +398,7 @@ def _series_to_md_table(text: str) -> str:
             else:
                 vals_str = raw_expr.lstrip('\\(').rstrip('\\)')
             new_vals = _split_series_values(vals_str.strip(), expected_n=best_n)
-            if len(new_vals) == best_n:
+            if len(new_vals) == best_n and _usable_series_values(new_vals):
                 valid_rows.append((var, new_vals, s, e))
 
     if len(valid_rows) < 2:
