@@ -166,7 +166,7 @@ def build_exercise_context(exercise: dict, subject: str, current_index: int | No
     intro = exercise.get('intro') or exercise.get('enonce', '')
     questions = normalize_questions(exercise)
     texte = exercise.get('texte', '')
-    parts = [f"Énoncé:\n{intro[:800]}"]
+    parts = [f"Énoncé:\n{intro[:1800]}"]
     if texte:
         parts.append(f"Texte:\n{texte[:500]}")
     total = len(questions)
