@@ -640,8 +640,10 @@ def api_admin_spotlight(request):
     from core.models import SiteSpotlight
     from core.spotlights import bust_spotlight_cache
     if request.method == 'POST':
-        action = request.POST.get('action') or ''
-        if not action:
+        is_json = 'application/json' in (request.content_type or '')
+        if is_json:
+            # Requête JSON (toggle / delete) — lire le corps JSON sans toucher à POST
+            # (sinon RawPostDataException sur les formulaires multipart).
             try:
                 payload = json.loads(request.body or '{}')
             except (json.JSONDecodeError, ValueError):
@@ -649,9 +651,13 @@ def api_admin_spotlight(request):
             action = payload.get('action') or ''
             sid = payload.get('id')
         else:
-            payload = {'id': request.POST.get('id')}
+            action = request.POST.get('action') or ''
             sid = request.POST.get('id')
-        if not action and request.POST.get('title'):
+        if not action and (
+            request.POST.get('title')
+            or request.POST.get('student')
+            or request.POST.get('student_email')
+        ):
             action = 'create'
         if action == 'delete':
             SiteSpotlight.objects.filter(pk=sid).delete()
@@ -668,14 +674,35 @@ def api_admin_spotlight(request):
         # create
         kind = request.POST.get('kind') or ''
         title = (request.POST.get('title') or '').strip()
+
+        # Compte élève à mettre en avant (email ou username) — optionnel.
+        linked_user = None
+        student_ref = (request.POST.get('student') or request.POST.get('student_email') or '').strip()
+        if student_ref:
+            from django.contrib.auth.models import User
+            from django.db.models import Q
+            linked_user = User.objects.filter(
+                Q(email__iexact=student_ref) | Q(username__iexact=student_ref)
+            ).first()
+            if not linked_user:
+                return JsonResponse({'error': f"Aucun compte trouvé pour « {student_ref} »."}, status=404)
+            # Si aucun titre saisi, on prend le nom du compte.
+            if not title:
+                prof = getattr(linked_user, 'profile', None)
+                full = ''
+                if prof:
+                    full = f"{(prof.first_name or '').strip()} {(prof.last_name or '').strip()}".strip()
+                title = full or linked_user.get_full_name() or linked_user.username
+
         if kind != SiteSpotlight.KIND_LAUREATE or not title:
-            return JsonResponse({'error': 'Le portrait manuel sert uniquement au lauréat du site (1 an).'}, status=400)
+            return JsonResponse({'error': 'Le portrait manuel sert uniquement au lauréat du site (1 an). Renseigne un titre ou un compte élève.'}, status=400)
         try:
             pin_order = max(0, int(request.POST.get('pin_order') or 0))
         except (TypeError, ValueError):
             pin_order = 0
         s = SiteSpotlight(
             kind=kind,
+            user=linked_user,
             title=title[:140],
             subtitle=(request.POST.get('subtitle') or '')[:180],
             school=(request.POST.get('school') or '')[:180],
