@@ -1,9 +1,14 @@
 """
-MonCash payment integration via PeyemAPI.
+Intégration paiement MonCash via MonCash Connect (api.moncashconnect.com).
 
 Plans:
   - Mensuel:  750G / mois  (prix barré: 1000G → -25%)
   - Annuel:   500G / mois  → 6 000G facturé en une fois
+
+API MonCash Connect :
+  - POST {MONCASH_API_URL}/pay-create   body {amount, referenceId, returnUrl} → {paymentUrl}
+  - GET  {MONCASH_API_URL}/pay-status?referenceId=...                          → {status, amount, completedAt}
+  - Auth : header  Authorization: Bearer <MONCASH_SECRET_KEY>
 """
 
 import hashlib
@@ -36,6 +41,51 @@ PLANS = {
 # Numéro WhatsApp support (NatCash)
 WHATSAPP_SUPPORT = '50936200585'
 NATCASH_NUMBER   = '40615883'
+
+# Statuts renvoyés par MonCash Connect qui signifient "payé".
+_PAID_STATUSES = {'completed', 'complete', 'paid', 'success', 'successful', 'succeeded'}
+
+
+def _is_paid_status(status) -> bool:
+    return str(status or '').strip().lower() in _PAID_STATUSES
+
+
+def _moncash_headers() -> dict:
+    return {
+        'Authorization': f'Bearer {settings.MONCASH_SECRET_KEY}',
+        'Content-Type': 'application/json',
+    }
+
+
+def _moncash_create_payment(amount: int, reference_id: str, return_url: str) -> str:
+    """POST /pay-create → renvoie l'URL de paiement (paymentUrl). Lève en cas d'échec."""
+    resp = requests.post(
+        f"{settings.MONCASH_API_URL}/pay-create",
+        json={'amount': amount, 'referenceId': reference_id, 'returnUrl': return_url},
+        headers=_moncash_headers(),
+        timeout=15,
+    )
+    data = {}
+    try:
+        data = resp.json()
+    except ValueError:
+        pass
+    # Accepte camelCase (nouveau) et snake_case (ancien) pour robustesse.
+    return data.get('paymentUrl') or data.get('payment_url') or ''
+
+
+def _moncash_get_status(reference_id: str) -> dict:
+    """GET /pay-status?referenceId=... → dict {status, amount, completedAt}."""
+    resp = requests.get(
+        f"{settings.MONCASH_API_URL}/pay-status",
+        params={'referenceId': reference_id},
+        headers=_moncash_headers(),
+        timeout=10,
+    )
+    try:
+        return resp.json() or {}
+    except ValueError:
+        return {}
 
 
 # ── Helper: activer abonnement + payer commission agent (1er mois) ──────────
@@ -109,14 +159,14 @@ def pricing_view(request):
 @login_required
 @require_POST
 def create_payment(request):
-    """Appelle PeyemAPI /pay et redirige vers MonCash."""
+    """Appelle MonCash Connect /pay-create et redirige vers MonCash."""
     plan_key = request.POST.get('plan', 'monthly')
     plan = PLANS.get(plan_key)
     if not plan:
         return JsonResponse({'ok': False, 'error': 'Plan invalide'}, status=400)
 
     ref_id = f"BACIA-{request.user.pk}-{plan_key}-{uuid.uuid4().hex[:8].upper()}"
-    return_url = request.build_absolute_uri('/payment-success/')
+    return_url = request.build_absolute_uri(f'/payment-success/?ref={ref_id}')
 
     # Sauvegarder le paiement en attente
     Payment.objects.create(
@@ -127,31 +177,17 @@ def create_payment(request):
         status='pending',
     )
 
-    # Appeler PeyemAPI
+    # Appeler MonCash Connect
     try:
-        resp = requests.post(
-            f"{settings.PEYEM_API_URL}/pay",
-            json={
-                'amount': plan['amount'],
-                'referenceId': ref_id,
-                'returnUrl': return_url,
-            },
-            headers={
-                'Authorization': f'Bearer {settings.PEYEM_SECRET_KEY}',
-                'Content-Type': 'application/json',
-            },
-            timeout=15,
-        )
-        data = resp.json()
+        payment_url = _moncash_create_payment(plan['amount'], ref_id, return_url)
     except requests.RequestException as e:
-        logger.error('PeyemAPI /pay error: %s', e)
+        logger.error('MonCash /pay-create error: %s', e)
         return render(request, 'accounts/payment_error.html', {
             'error': 'Erreur de connexion au service de paiement. Réessaie.',
         })
 
-    payment_url = data.get('payment_url')
     if not payment_url:
-        logger.error('PeyemAPI no payment_url: %s', data)
+        logger.error('MonCash no paymentUrl for %s', ref_id)
         return render(request, 'accounts/payment_error.html', {
             'error': 'Le service de paiement n\'a pas retourné de lien. Réessaie.',
         })
@@ -171,21 +207,21 @@ def payment_success(request):
 
 @csrf_exempt
 @require_POST
-@csrf_exempt
-@require_POST
-def peyem_webhook(request):
-    """Reçoit la notification PeyemAPI quand le paiement est confirmé."""
-    signature = request.headers.get('X-Webhook-Signature', '')
+def moncash_webhook(request):
+    """Reçoit la notification MonCash Connect quand le paiement est confirmé."""
     payload = request.body
 
-    # Vérifier la signature HMAC-SHA256
-    expected = hmac.new(
-        settings.PEYEM_WEBHOOK_SECRET.encode(),
-        payload,
-        hashlib.sha256,
-    ).hexdigest()
+    # Vérifier la signature HMAC-SHA256 (plusieurs noms d'en-tête possibles).
+    signature = (
+        request.headers.get('X-Webhook-Signature')
+        or request.headers.get('X-Moncash-Signature')
+        or request.headers.get('X-Signature')
+        or ''
+    )
+    secret = settings.MONCASH_WEBHOOK_SECRET or ''
+    expected = hmac.new(secret.encode(), payload, hashlib.sha256).hexdigest()
 
-    if not hmac.compare_digest(signature, expected):
+    if not secret or not hmac.compare_digest(signature, expected):
         logger.warning('Webhook signature mismatch')
         return JsonResponse({'error': 'Invalid signature'}, status=401)
 
@@ -194,10 +230,10 @@ def peyem_webhook(request):
     except (json.JSONDecodeError, ValueError):
         return JsonResponse({'error': 'Invalid JSON'}, status=400)
 
-    ref_id = data.get('referenceId', '')
+    ref_id = data.get('referenceId') or data.get('reference_id') or ''
     status = data.get('status', '')
 
-    if status != 'completed':
+    if not _is_paid_status(status):
         return JsonResponse({'ok': True, 'info': 'Status noted'})
 
     with transaction.atomic():
@@ -244,17 +280,11 @@ def check_payment_status(request):
     except Payment.DoesNotExist:
         return JsonResponse({'ok': False, 'error': 'Not found'}, status=404)
 
-    # Optionnel: interroger PeyemAPI pour mise à jour
+    # Optionnel: interroger MonCash Connect pour mise à jour
     if payment.status == 'pending':
         try:
-            resp = requests.get(
-                f"{settings.PEYEM_API_URL}/status",
-                params={'referenceId': ref_id},
-                headers={'Authorization': f'Bearer {settings.PEYEM_SECRET_KEY}'},
-                timeout=10,
-            )
-            data = resp.json()
-            if data.get('status') == 'completed' and payment.status != 'completed':
+            data = _moncash_get_status(ref_id)
+            if _is_paid_status(data.get('status')) and payment.status != 'completed':
                 had_prior_paid = Payment.objects.filter(
                     user=payment.user, status='completed',
                 ).exclude(pk=payment.pk).exists()
@@ -378,7 +408,7 @@ def create_gift_payment(request, token):
         return JsonResponse({'ok': False, 'error': 'Plan invalide'}, status=400)
 
     ref_id = f"GIFT-{gift.student.pk}-{plan_key}-{uuid.uuid4().hex[:8].upper()}"
-    return_url = request.build_absolute_uri(f'/cadeau/{token}/merci/')
+    return_url = request.build_absolute_uri(f'/cadeau/{token}/merci/?ref={ref_id}')
 
     Payment.objects.create(
         user=gift.student,
@@ -390,29 +420,15 @@ def create_gift_payment(request, token):
     )
 
     try:
-        resp = requests.post(
-            f"{settings.PEYEM_API_URL}/pay",
-            json={
-                'amount': plan['amount'],
-                'referenceId': ref_id,
-                'returnUrl': return_url,
-            },
-            headers={
-                'Authorization': f'Bearer {settings.PEYEM_SECRET_KEY}',
-                'Content-Type': 'application/json',
-            },
-            timeout=15,
-        )
-        data = resp.json()
+        payment_url = _moncash_create_payment(plan['amount'], ref_id, return_url)
     except requests.RequestException as e:
-        logger.error('PeyemAPI gift /pay error: %s', e)
+        logger.error('MonCash gift /pay-create error: %s', e)
         return render(request, 'accounts/payment_error.html', {
             'error': 'Erreur de connexion au service de paiement. Réessayez.',
         })
 
-    payment_url = data.get('payment_url')
     if not payment_url:
-        logger.error('PeyemAPI gift no payment_url: %s', data)
+        logger.error('MonCash gift no paymentUrl for %s', ref_id)
         return render(request, 'accounts/payment_error.html', {
             'error': 'Le service de paiement n\'a pas retourné de lien. Réessayez.',
         })
@@ -454,31 +470,22 @@ def check_gift_payment_status(request):
 
     if payment.status == 'pending':
         try:
-            resp = requests.get(
-                f"{settings.PEYEM_API_URL}/status",
-                params={'referenceId': ref_id},
-                headers={'Authorization': f'Bearer {settings.PEYEM_SECRET_KEY}'},
-                timeout=10,
-            )
-            data = resp.json()
-            if data.get('status') == 'completed' and payment.status != 'completed':
+            data = _moncash_get_status(ref_id)
+            if _is_paid_status(data.get('status')) and payment.status != 'completed':
+                had_prior_paid = Payment.objects.filter(
+                    user=payment.user, status='completed',
+                ).exclude(pk=payment.pk).exists()
                 payment.status = 'completed'
                 payment.paid_at = timezone.now()
                 payment.save(update_fields=['status', 'paid_at'])
-                # Activer plan pour l'élève
+                # Activer le plan + commissions (comme pour un paiement normal)
                 plan = PLANS.get(payment.plan, PLANS['monthly'])
-                profile, _ = UserProfile.objects.get_or_create(user=payment.user)
-                today = date.today()
-                start = profile.plan_expiration if (profile.plan_expiration and profile.plan_expiration > today) else today
-                profile.plan_expiration = start + timedelta(days=plan['days'])
-                profile.save(update_fields=['plan_expiration'])
-                try:
-                    from core.push_events import push_premium_activated
-                    push_premium_activated(payment.user, profile.plan_expiration.strftime('%d/%m/%Y'))
-                except Exception:
-                    pass
+                _activate_subscription_and_pay_commission(
+                    payment.user, plan['days'],
+                    is_first_paid_subscription=not had_prior_paid,
+                )
                 # Marquer le gift link comme utilisé
-                if payment.gift_link:
+                if payment.gift_link and not payment.gift_link.is_used:
                     payment.gift_link.is_used = True
                     payment.gift_link.save(update_fields=['is_used'])
         except requests.RequestException:
@@ -514,3 +521,7 @@ def natcash_notify_view(request):
     import urllib.parse
     wa_url = f"https://wa.me/{WHATSAPP_SUPPORT}?text={urllib.parse.quote(msg)}"
     return JsonResponse({'ok': True, 'wa_url': wa_url, 'contact': contact})
+
+
+# Alias de compatibilité descendante (ancien nom PeyemAPI).
+peyem_webhook = moncash_webhook

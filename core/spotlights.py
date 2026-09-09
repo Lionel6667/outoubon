@@ -166,22 +166,45 @@ def _pinned_laureate(year: str):
     )
     if not s:
         return None
-    photo = None
+
+    manual_photo = None
     if s.photo:
         try:
-            photo = s.photo.url
+            manual_photo = s.photo.url
         except Exception:
-            photo = None
-    meta_bits = [s.school, s.serie, s.subtitle]
+            manual_photo = None
+
+    # Si un compte élève est lié, le nom / la photo / l'école / la série viennent
+    # de SON profil (on met en avant son compte, pas un portrait saisi à la main).
+    linked = s.user
+    if linked:
+        prof = getattr(linked, 'profile', None)
+        name = _display_name(linked, prof)
+        photo = _avatar_url(prof) or manual_photo
+        school = (getattr(prof, 'school', '') if prof else '') or s.school
+        try:
+            serie = (prof.get_serie_display() if (prof and prof.serie) else '') or s.serie
+        except Exception:
+            serie = s.serie
+    else:
+        name = s.title
+        photo = manual_photo
+        school = s.school
+        serie = s.serie
+
+    # La note reste facultative : affichée seulement si saisie à la main (score).
+    real_note = (s.score or '').strip()
+    year_label = s.academic_year or year
+    meta_bits = [school, serie, s.subtitle]
     return _card(
-        name=s.title,
+        name=name,
         meta=' · '.join(p for p in meta_bits if p),
-        school=s.school,
-        serie=s.serie,
-        score='',
-        body=s.body or 'Lauréat du site — meilleure note parmi les élèves OU TOU BON.',
+        school=school,
+        serie=serie,
+        score=real_note,
+        body=s.body or f'Lauréat du site · année académique {year_label}.',
         photo_url=photo,
-        year=s.academic_year or year,
+        year=year_label,
     )
 
 

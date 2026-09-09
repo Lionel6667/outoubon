@@ -24,6 +24,7 @@
         </div>
         <div class="v2-hall-hero__copy">
           <div class="v2-hall-hero__name">{{ laureate.name }}</div>
+          {% if laureate.score %}<div class="v2-hall-hero__realnote"><i class="fas fa-award"></i> Note au BAC : <strong>{{ laureate.score }}</strong></div>{% endif %}
           {% if laureate.meta %}<div class="v2-hall-hero__meta">{{ laureate.meta }}</div>{% endif %}
           {% if laureate.body %}<p class="v2-hall-hero__note">{{ laureate.body }}</p>{% endif %}
         </div>

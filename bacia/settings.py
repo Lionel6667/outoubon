@@ -223,10 +223,21 @@ AI_PRICE_INPUT_PER_M = float(os.getenv('AI_PRICE_INPUT_PER_M', '0.14'))
 AI_PRICE_OUTPUT_PER_M = float(os.getenv('AI_PRICE_OUTPUT_PER_M', '0.28'))
 AI_PRICE_CACHE_HIT_PER_M = float(os.getenv('AI_PRICE_CACHE_HIT_PER_M', '0.0028'))
 
-# PeyemAPI (MonCash)
-PEYEM_API_URL        = 'https://fyxmoljbnionrylsmfoo.supabase.co/functions/v1/bazik-api'
-PEYEM_SECRET_KEY     = os.getenv('PEYEM_SECRET_KEY', '')
-PEYEM_WEBHOOK_SECRET = os.getenv('PEYEM_WEBHOOK_SECRET', '')
+# ── MonCash Connect (fournisseur de paiement) ──────────────────────────────
+# Base API : https://api.moncashconnect.com/v1  (endpoints /pay-create, /pay-status)
+# La clé secrète et le secret webhook DOIVENT venir des variables d'environnement
+# (Secrets) — ne jamais les committer.
+MONCASH_API_URL        = os.getenv('MONCASH_API_URL', 'https://api.moncashconnect.com/v1').rstrip('/')
+# La clé publique (publishable) n'est pas sensible ; valeur par défaut acceptable.
+MONCASH_PUBLIC_KEY     = os.getenv('MONCASH_PUBLIC_KEY', 'pk_proj_e3ddeadb8406711aa47e42026a301153')
+# Secret : env prioritaire, repli sur l'ancienne variable PEYEM pour compatibilité.
+MONCASH_SECRET_KEY     = os.getenv('MONCASH_SECRET_KEY', os.getenv('PEYEM_SECRET_KEY', ''))
+MONCASH_WEBHOOK_SECRET = os.getenv('MONCASH_WEBHOOK_SECRET', os.getenv('PEYEM_WEBHOOK_SECRET', ''))
+
+# Anciennes variables (compatibilité descendante — dépréciées)
+PEYEM_API_URL        = MONCASH_API_URL
+PEYEM_SECRET_KEY     = MONCASH_SECRET_KEY
+PEYEM_WEBHOOK_SECRET = MONCASH_WEBHOOK_SECRET
 
 # Dossier des examens PDF (535 fichiers dans BacIA_Django/database/)
 COURSE_DB_PATH = os.getenv(

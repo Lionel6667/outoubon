@@ -1072,6 +1072,9 @@ class SiteSpotlight(models.Model):
     ]
 
     kind = models.CharField(max_length=24, choices=KIND_CHOICES, db_index=True)
+    # Compte élève mis en avant (lauréat). Le nom/photo/école/série viennent alors
+    # de son profil. Optionnel : on peut aussi saisir un portrait manuel via `title`.
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     title = models.CharField(max_length=140)
     subtitle = models.CharField(max_length=180, blank=True)
     school = models.CharField(max_length=180, blank=True)
