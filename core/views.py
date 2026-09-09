@@ -451,18 +451,18 @@ def _search_ai_blocks(
 
 def _build_course_ai_context(subject: str, chapter_num: int, user_msg: str, max_chars: int = AI_BLOCK_MAX_OUTPUT_COURSE) -> tuple[str, str]:
     """
-    Contexte IA pour le cours — extraits STABLES par chapitre (cache DeepSeek).
-    user_msg est ignoré exprès : un extrait qui change à chaque question casse le prefix cache.
+    Chapitre complet en RAM (gratuit). L'IA ne reçoit ensuite qu'une fenêtre
+    du concept en cours — voir course_chat / _extract_windowed_notes.
     """
     full = pdf_loader.get_note_chapter_content(subject, chapter_num)
     if full:
-        return full[:max_chars], 'notes_stable'
+        return full[:80_000], 'notes_full'
 
     excerpt = pdf_loader.get_note_chapter_ai_context(
-        subject, chapter_num, max_chars=max_chars, query='',
+        subject, chapter_num, max_chars=8_000, query=user_msg or '',
     )
     if excerpt:
-        return excerpt[:max_chars], 'notes_stable'
+        return excerpt, 'notes_full'
 
     summary = pdf_loader.get_chapter_summary_context(subject, chapter_num, max_chars=max_chars)
     if summary:
@@ -3026,29 +3026,16 @@ def _get_db_context(subject, user_message: str = ''):
                     _extras = [_kr for _fr, _kr in _kr_synonyms.items() if _fr in _qry_l]
                     if _extras:
                         _note_query = user_message + ' ' + ' '.join(_extras)
-                note_context = _extract_relevant_note_section(_note_raw, _note_query, max_chars=5000)
+                note_context = _extract_relevant_note_section(_note_raw, _note_query, max_chars=2200)
             except Exception as _ne:
                 print(f"[NOTE_LOAD_ERROR] {subject}: {_ne}")
 
-    # 1. Contenu extrait des PDFs de cours (limité à 1500 chars si on a déjà des notes)
-    _pdf_max = 1500 if note_context else 2000
-    pdf_context = pdf_loader.get_course_context(subject, max_chars=_pdf_max)
-
-    # 2. Exercices déjà en base (enrichissement complémentaire)
-    qs = QuizQuestion.objects.filter(subject=subject)[:4]
-    db_lines = []
-    for q in qs:
-        db_lines.append(f"[Exercice] {q.enonce}" + (f" → {q.explication}" if q.explication else ''))
-    db_context = '\n'.join(db_lines)
-
-    parts = []
     if note_context:
-        parts.append(f"[Notes officielles du programme BAC — {subject}]\n{note_context}")
-    if pdf_context:
-        parts.append(pdf_context)
-    if db_lines:
-        parts.append(db_context)
-    return '\n\n'.join(parts)
+        return f"[Notes officielles du programme BAC — {subject}]\n{note_context}"
+
+    _pdf_max = 1500
+    pdf_context = pdf_loader.get_course_context(subject, max_chars=_pdf_max)
+    return pdf_context or ''
 
 
 # ─────────────────────────────────────────────
@@ -5130,7 +5117,9 @@ def api_analyze_exercise(request):
         questions = body.get('questions', [])
         # Load relevant note context (same mechanism as chat AI)
         user_message = f"{intro} {enonce} {' '.join(str(q) for q in questions)}"
-        note_context = _get_db_context(subject, user_message)
+        note_context = ''
+        if subject in ('svt', 'chimie', 'physique'):
+            note_context = _get_db_context(subject, user_message)
         result = gemini.analyze_exercise_for_interactive(subject, intro, enonce, questions, note_context=note_context)
         return JsonResponse({'ok': True, **result})
     except Exception as e:

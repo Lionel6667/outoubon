@@ -162,31 +162,46 @@ def parse_ai_directives(response: str, session: dict) -> tuple[str, dict, dict]:
     return text, session, meta
 
 
-def build_exercise_context(exercise: dict, subject: str) -> str:
+def build_exercise_context(exercise: dict, subject: str, current_index: int | None = None) -> str:
     intro = exercise.get('intro') or exercise.get('enonce', '')
     questions = normalize_questions(exercise)
     texte = exercise.get('texte', '')
-    parts = [f"Énoncé:\n{intro[:1200]}"]
+    parts = [f"Énoncé:\n{intro[:800]}"]
     if texte:
-        parts.append(f"Texte:\n{texte[:800]}")
-    if questions:
+        parts.append(f"Texte:\n{texte[:500]}")
+    total = len(questions)
+    if current_index is not None and 0 <= current_index < total:
+        parts.append(f"Question active ({current_index + 1}/{total}):\n{questions[current_index]}")
+    elif questions:
         parts.append('Questions:\n' + '\n'.join(f"  {i+1}. {q}" for i, q in enumerate(questions)))
-    sol = exercise.get('solution', '')
-    if sol:
-        parts.append(f"Solution (secrète): {sol[:600]}")
+
     reponses = exercise.get('reponses')
+    secret_bits: list[str] = []
     if reponses:
         if isinstance(reponses, dict):
-            rep_lines = [f"  {k}) {v}" for k, v in reponses.items() if v]
+            if current_index is not None:
+                keys = [chr(ord('a') + current_index), str(current_index + 1), f'q{current_index + 1}']
+                for k in keys:
+                    if reponses.get(k):
+                        secret_bits.append(f"  {k}) {reponses[k]}")
+                        break
+            if not secret_bits:
+                secret_bits = [f"  {k}) {v}" for k, v in list(reponses.items())[:4] if v]
         elif isinstance(reponses, list):
-            rep_lines = [f"  - {r}" for r in reponses if r]
-        else:
-            rep_lines = [str(reponses)]
-        if rep_lines:
-            parts.append(
-                "Réponses officielles (SECRET — ne jamais donner telles quelles, guider l'élève vers elles):\n"
-                + '\n'.join(rep_lines)[:1200]
-            )
+            if current_index is not None and current_index < len(reponses) and reponses[current_index]:
+                secret_bits = [f"  - {reponses[current_index]}"]
+            else:
+                secret_bits = [f"  - {r}" for r in reponses[:4] if r]
+        elif reponses:
+            secret_bits = [str(reponses)[:400]]
+    if secret_bits:
+        parts.append(
+            "Réponse officielle de la question active (SECRET — guider, ne jamais coller tel quel):\n"
+            + '\n'.join(secret_bits)[:700]
+        )
+    sol = exercise.get('solution', '')
+    if sol and current_index is None:
+        parts.append(f"Solution (secrète): {sol[:400]}")
     return '\n\n'.join(parts)
 
 
@@ -205,7 +220,9 @@ def build_system_prompt(
     total = len(questions)
     idx = _clamp_index(session, int(session.get('current_index') or 0))
     current_q = questions[idx] if idx < len(questions) else ''
-    ctx = build_exercise_context(exercise, subject)
+    ctx = build_exercise_context(
+        exercise, subject, current_index=None if mode == 'intro' else idx,
+    )
     hints_used = (session.get('hints_used') or [0] * total)[idx] if idx < total else 0
     statuses = session.get('statuses') or []
 
@@ -389,7 +406,7 @@ def build_tutor_prompt_short(
     questions = normalize_questions(exercise)
     idx = _clamp_index(session, int(session.get('current_index') or 0))
     current_q = questions[idx] if idx < len(questions) else ''
-    ctx = build_exercise_context(exercise, subject)
+    ctx = build_exercise_context(exercise, subject, current_index=idx)
     return (
         f"Tuteur BAC Haïti — {student_name}. {user_lang_rule}"
         f"Réponds en 2-3 phrases MAX. Guide sans donner la réponse finale.\n"

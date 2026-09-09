@@ -8452,7 +8452,7 @@ def _extract_windowed_notes(
     This turns ~6 000 tokens into ~1 500 for a typical maths chapter.
     """
     if not full_notes or teach_idx >= total or not concepts:
-        return full_notes or '', 'chapitre complet'
+        return (full_notes or '')[:1_600], 'chapitre complet'
 
     parts: list[str] = []
     label_parts: list[str] = []
@@ -9607,29 +9607,15 @@ def course_chat(
 
     if image_data:
         image_data, image_mime = prepare_image_bytes(image_data, image_mime)
-    note_content = _sanitize_source_math_artifacts((exam_excerpts or '').strip())[:4000]
-    has_notes = bool(note_content and len(note_content) > 100)
-
-    # ── Notes block — PRIMARY source of truth ────────────────────────────────
-    if has_notes:
-        notes_block = f"""╔══════════════════════════════════════════════════════════════╗
-  CONTENU OFFICIEL DU COURS — EXTRAIT DE note_*.json
-  Matière : {subject_label} | Chapitre : {chapter_title}
-╚══════════════════════════════════════════════════════════════╝
-
-{note_content}
-
-╔══════════════════════════════════════════════════════════════╗
-  FIN DU CONTENU OFFICIEL
-╚══════════════════════════════════════════════════════════════╝"""
-    else:
-        notes_block = f"⚠️ Contenu des notes non disponible pour ce chapitre.\nEnseigne à partir du programme officiel BAC Haïti pour {subject_label}.\nUtilise tes connaissances du programme officiel, mais reste fidèle au curriculum BAC Haïti.\nSignale à l'élève : « Je n'ai pas les notes complètes pour ce chapitre, mais je vais t'enseigner à partir du programme officiel. »"
+    full_notes = _sanitize_source_math_artifacts((exam_excerpts or '').strip())
+    # Les concepts se lisent sur le chapitre COMPLET (RAM, 0 token IA).
+    # Seule une fenêtre du concept en cours partira ensuite dans le prompt.
 
     # ── Concept plan ──────────────────────────────────────────────────────────
     concepts = (
         chapter_task_list
         if isinstance(chapter_task_list, list) and len(chapter_task_list) >= 2
-        else _extract_concepts_from_notes(note_content, chapter_title, limit=40)
+        else _extract_concepts_from_notes(full_notes, chapter_title, limit=40)
     )
     concepts = [str(c).strip() for c in concepts if str(c).strip()]
     if not concepts:
@@ -9690,6 +9676,28 @@ def course_chat(
         new_step = 0
         concept_to_teach = concepts[0]
         concept_validated = False  # prevent accidental jump
+
+    # Fenêtre de notes pour CE concept seulement (RAM chapitre complet, prompt court).
+    # Identique tant que l'élève reste sur le même concept → cache prefix DeepSeek.
+    if full_notes and 0 <= teach_idx < total:
+        note_content, _win_label = _extract_windowed_notes(
+            full_notes, concepts, teach_idx, total, max_chars_per_concept=1_400,
+        )
+    elif full_notes:
+        note_content = full_notes[:1_600]
+    else:
+        note_content = ''
+    has_notes = bool(note_content and len(note_content) > 100)
+    if has_notes:
+        notes_block = (
+            f"CONTENU OFFICIEL — {subject_label} | {chapter_title}\n\n"
+            f"{note_content}"
+        )
+    else:
+        notes_block = (
+            f"Notes indisponibles pour ce chapitre. Enseigne le programme BAC Haïti "
+            f"({subject_label}) sans inventer de méthode hors curriculum."
+        )
 
     # ── Student communication style / repeated confusion signals ─────────────
     _msg_norm = re.sub(r'[^a-z0-9]+', '', (user_message or '').lower())
@@ -9891,8 +9899,7 @@ def course_chat(
     }
     level_block = _level_instructions.get(detected_level, '')
 
-    # Notes figées (même octets pour tout le chapitre) → cache DeepSeek sur le préfixe.
-    # Ne PAS recouper selon le concept / le message : ça cassait le cache à chaque tour.
+    # Notes : fenêtre du concept actuel (stable tant que teach_idx ne change pas).
 
     # ── Extra directive for sciences ──────────────────────────────────────────
     science_extra = ''
