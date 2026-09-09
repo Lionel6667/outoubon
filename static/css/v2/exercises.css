@@ -1160,6 +1160,42 @@ body.v2-exo-session-active .app.has-topbar .main {
   color: var(--t1);
 }
 
+.v2-exo-astra-card__text .chem,
+.exo-text .chem {
+  font-family: "Cambria Math", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 1.12em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--t1);
+}
+.v2-exo-astra-card__text .chem .chem-e,
+.exo-text .chem .chem-e,
+.v2-exo-astra-card__text .chem-e,
+.exo-text .chem-e {
+  font-style: italic;
+}
+.v2-exo-astra-card__text .chem sup,
+.exo-text .chem sup,
+.v2-exo-astra-card__text sup,
+.exo-text sup {
+  font-style: normal;
+  font-size: 0.68em;
+  font-weight: 700;
+  vertical-align: super;
+  line-height: 0;
+}
+.v2-exo-astra-card__text .chem sub,
+.exo-text .chem sub,
+.v2-exo-astra-card__text sub,
+.exo-text sub {
+  font-style: normal;
+  font-size: 0.68em;
+  font-weight: 700;
+  vertical-align: sub;
+  line-height: 0;
+}
+
 .v2-exo-card-lead {
   color: var(--t2);
   font-size: 0.86rem;

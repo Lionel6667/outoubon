@@ -5118,7 +5118,7 @@ def api_analyze_exercise(request):
         # Load relevant note context (same mechanism as chat AI)
         user_message = f"{intro} {enonce} {' '.join(str(q) for q in questions)}"
         note_context = ''
-        if subject in ('svt', 'chimie', 'physique'):
+        if subject == 'svt':
             note_context = _get_db_context(subject, user_message)
         result = gemini.analyze_exercise_for_interactive(subject, intro, enonce, questions, note_context=note_context)
         return JsonResponse({'ok': True, **result})

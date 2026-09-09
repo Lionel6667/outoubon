@@ -880,14 +880,34 @@ function getLocalHint(ex, idx, level) {
   return `💡 Niveau 3 — ${official.slice(0, 160)}${official.length > 160 ? '…' : ''}`;
 }
 
+function extractSubQuestions(text) {
+  const src = String(text || '').trim();
+  if (!src) return { intro: '', questions: [] };
+  const lineRe = /^(?:[a-zA-Z]\s*[).]|[1-9]\d*\s*[).]|Q\s*\d+\s*[:.)])\s+\S.+/gm;
+  const lineHits = [];
+  let m;
+  while ((m = lineRe.exec(src)) !== null) lineHits.push(m);
+  if (lineHits.length >= 2 && !(lineHits[0].index < 12 && lineHits.length < 3)) {
+    const intro = src.slice(0, lineHits[0].index).trim();
+    const questions = lineHits.map(function(h) { return h[0].trim(); }).filter(function(q) { return q.length > 5; });
+    if (questions.length >= 2) return { intro: intro, questions: questions };
+  }
+  const inlineSplit = /(?:(?<=[.!?;:)\]])\s+)(?=(?:[a-zA-Z]|[1-9]\d*)[).]\s+\S)/;
+  const parts = src.split(inlineSplit);
+  const inlineQs = parts.slice(1).map(function(p) { return p.trim(); }).filter(function(p) {
+    return /^(?:[a-zA-Z]|[1-9]\d*)[).]\s+\S/.test(p);
+  });
+  if (inlineQs.length >= 2) return { intro: (parts[0] || '').trim(), questions: inlineQs };
+  return { intro: src, questions: [] };
+}
+
 function getExerciseQuestions(ex) {
-  const qs = (ex.questions || []).filter(function(q) { return q && String(q).trim(); });
-  if (qs.length) return qs;
+  const listed = (ex.questions || []).filter(function(q) { return q && String(q).trim(); });
   const blob = ((ex.intro || ex.enonce || '') + '\n' + (ex.enonce || '')).trim();
-  const parsed = blob.split(/(?=\b[a-z]\)\s)/i).filter(function(s) {
-    return /^\s*[a-z]\)\s/i.test(s);
-  }).map(function(s) { return s.trim(); }).filter(Boolean);
-  if (parsed.length) return parsed;
+  const split = extractSubQuestions(blob);
+  if (listed.length >= 2) return listed;
+  if (split.questions.length) return split.questions;
+  if (listed.length) return listed;
   if (blob) return ['Résous cet exercice en expliquant ta démarche étape par étape.'];
   return [];
 }
@@ -1370,8 +1390,11 @@ function displayExercise(ex) {
   if (titleEl) titleEl.textContent = theme;
 
   const bodyEl = document.getElementById('exerciseText');
-  const introRaw = ((ex.intro || ex.enonce || '').trim());
+  let introRaw = ((ex.intro || ex.enonce || '').trim());
   const textPassage = (ex.texte || '').trim();
+  const qs = getExerciseQuestions(ex);
+  const splitIntro = extractSubQuestions(introRaw);
+  if (splitIntro.questions.length >= 2) introRaw = splitIntro.intro;
   let bodyHTML = '';
   if (introRaw) {
     bodyHTML = renderExoRichHtml(introRaw);
@@ -1389,7 +1412,6 @@ function displayExercise(ex) {
 
   const qEl = document.getElementById('exerciseQuestions');
   let qHtml = '';
-  const qs = getExerciseQuestions(ex);
   if (qs.length) {
     qHtml = '<div class="v2-exo-questions__label">Questions</div>' +
       qs.map(function(q, i) {
@@ -1441,20 +1463,26 @@ function displayExercise(ex) {
 
   let showTool = false;
   let toolType = '';
+  const exoBlob = ((ex.intro || '') + ' ' + (ex.enonce || '') + ' ' + (ex.questions || []).join(' '))
+    .toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   if (currentSubject === 'svt') {
-    showTool = true; toolType = 'punnett';
-    toolIcon.className = 'fas fa-th'; toolIcon.style.color = 'var(--green)';
-    toolLabel.textContent = 'Échiquier de Punnett';
-    toolBtn.style.borderColor = 'rgba(16,185,129,.35)';
-    toolBtn.style.color = 'var(--green)';
+    const punnettKw = ['echiquier','croisement','genotype','phenotype','allele','dominant','recessif','hybride','punnet','gamete'];
+    if (punnettKw.some(kw => exoBlob.includes(kw))) {
+      showTool = true; toolType = 'punnett';
+      toolIcon.className = 'fas fa-th'; toolIcon.style.color = 'var(--green)';
+      toolLabel.textContent = 'Échiquier de Punnett';
+      toolBtn.style.borderColor = 'rgba(16,185,129,.35)';
+      toolBtn.style.color = 'var(--green)';
+    }
   } else if (currentSubject === 'chimie') {
-    const chapName = (() => {
-      const chapters = CHAPTERS_BY_SUBJECT['chimie'] || [];
-      const chap = (currentChapter === 'random') ? null : chapters.find(c => c.id == currentChapter);
-      return (chap ? chap.title : '').toLowerCase();
-    })();
-    const avancKw = ['avancement','r\u00e9action','r\u00e9actif','oxydor\u00e9duction','oxydor','redox','neutralisation','acide','base','st\u0153chiom','stoich','dissociation','solution'];
-    if (avancKw.some(kw => chapName.includes(kw))) {
+    const avancKw = [
+      "tableau d'avancement", 'tableau d avancement',
+      'avancement de la reaction', 'avancement maximum', 'avancement maximal',
+      'reactif limitant', 'reactif en exces',
+      'quantite de matiere initiale', "etat d'avancement", 'etat d avancement',
+      'dressez le tableau', 'etablissez le tableau', 'dresser le tableau',
+    ];
+    if (avancKw.some(kw => exoBlob.includes(kw))) {
       showTool = true; toolType = 'avancement';
       toolIcon.className = 'fas fa-flask'; toolIcon.style.color = '#fca5a5';
       toolLabel.textContent = 'Tableau d\'avancement';
@@ -1891,14 +1919,18 @@ async function analyzeExercise(exo) {
       })
     });
     const data = await resp.json();
-    if (!data.ok) { section.style.display = 'none'; section.innerHTML = ''; return; }
-    _toolLoaded = true;
+    if (!data.ok) {
+      section.style.display = 'none';
+      section.innerHTML = '';
+      return;
+    }
 
     if (data.punnett) {
       _punnettConfig = data.punnett;
       section.innerHTML = buildPunnettHTML(data.punnett);
       section.style.display = 'block';
       renderKatex(section);
+      _toolLoaded = true;
       if (data.note_advice) {
         const advBox = document.createElement('div');
         advBox.className = 'hint-box';
@@ -1906,14 +1938,12 @@ async function analyzeExercise(exo) {
         advBox.innerHTML = `<i class="fas fa-book-open" style="color:#93c5fd;margin-right:.4rem;"></i><strong style="color:#93c5fd;">Rappel de cours :</strong><br>${renderMarkdown(data.note_advice)}`;
         section.insertBefore(advBox, section.firstChild);
       }
-    } else if (data.avancement) {
+    } else if (data.avancement && data.avancement.reactants && data.avancement.reactants.length) {
       _avancementConfig = data.avancement;
-      const av = data.avancement;
-      if (av.reactants && av.reactants.length) {
-        section.innerHTML = buildAvancementHTML(av);
-        section.style.display = 'block';
-        renderKatex(section);
-      }
+      section.innerHTML = buildAvancementHTML(data.avancement);
+      section.style.display = 'block';
+      renderKatex(section);
+      _toolLoaded = true;
     } else if (data.table) {
       const bodyEl = document.getElementById('exerciseText');
       if (bodyEl && !bodyEl.querySelector('table')) {

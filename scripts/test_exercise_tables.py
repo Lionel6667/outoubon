@@ -141,6 +141,10 @@ CASES = {
         'L’intensité efficace du courant est \\(2\\,\\text{A}\\) et la quantité de chaleur '
         'dégagée est \\(13\\,200\\,\\text{J}\\). Calculer :'
     ),
+    'chimie_pile_ions': (
+        'On considère la pile Zn/Zn²⁺ et Cu²⁺/Cu (E°(Cu²⁺/Cu)=+0,34V ; E°(Zn²⁺/Zn)=−0,76V). '
+        'Calculer la force électromotrice.'
+    ),
 }
 
 
@@ -157,6 +161,15 @@ def run_cases():
                 failed.append((name, 'physics units became a table', out[:280]))
             elif r'\text{V}' in out and '|' in out.split('\n')[0]:
                 failed.append((name, 'broken latex cells', out[:280]))
+            continue
+        if name == 'chimie_pile_ions':
+            out = format_exercise_display_local('chimie', src, [])['intro']
+            if '<table' in out.lower():
+                failed.append((name, 'pile became a table', out[:280]))
+            elif '<sup>2+</sup>' not in out:
+                failed.append((name, 'ions not converted to html', out[:280]))
+            elif re.search(r'\ba\)\s', out):
+                failed.append((name, 'questions still in intro', out[:280]))
             continue
         if name == 'html_passthrough':
             if '<table' not in out.lower():
@@ -233,6 +246,19 @@ if __name__ == '__main__':
         print('FAILED opening_message 1q should not count:', one)
         sys.exit(1)
     print('OK opening_message is dynamic')
+
+    from core.exo_loader import _extract_sub_questions
+    pile = (
+        'On considère la pile Zn/Zn²⁺ et Cu²⁺/Cu (E°(Cu²⁺/Cu)=+0,34V). '
+        'a) Donner le schéma conventionnel et la polarité. '
+        'b) Écrire l\'équation de la réaction d\'oxydoréduction. '
+        'c) Calculer la force électromotrice.'
+    )
+    intro, qs = _extract_sub_questions(pile)
+    if len(qs) != 3 or 'a) Donner' in intro or 'schéma' not in qs[0].lower():
+        print('FAILED inline question split:', intro, qs)
+        sys.exit(1)
+    print('OK inline a) b) c) stripped from intro')
 
     scanned, converted, leftover = run_real_json()
     print(f'Real JSON: scanned={scanned} converted_to_html={converted} leftover_pipe_blocks={len(leftover)}')

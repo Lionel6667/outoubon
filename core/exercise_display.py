@@ -71,21 +71,42 @@ def _fix_decimal_commas_in_math(text: str) -> str:
     ATTENTION : ne jamais toucher aux virgules qui séparent une liste de
     nombres (ex : ensemble \\{1,2,3,4\\} ou liste x=25,40,42) — ce sont des
     séparateurs, pas des décimales. Sinon l'énoncé devient faux.
+    Les accolades LaTeX (charges ^{2+}, E^{\\circ}) n'empêchent plus
+    de corriger une décimale française hors des groupes {...}.
     """
     if not text or '$' not in text:
         return text
 
-    def _fix_block(m: re.Match) -> str:
-        inner = m.group(1)
-        # Ensembles / arguments entre accolades : virgule = séparateur → intact.
-        if '{' in inner or '}' in inner:
-            return '$' + inner + '$'
-        # Liste de 3 nombres ou plus séparés par des virgules → séparateur → intact.
+    def _fix_outside_braces(inner: str) -> str:
         if re.search(r'\d\s*,\s*\d+\s*,\s*\d', inner):
-            return '$' + inner + '$'
-        # Décimale française isolée : 0,12 → 0.12
-        inner = re.sub(r'(?<=\d),(?=\d)', '.', inner)
-        return '$' + inner + '$'
+            return inner
+        out: list[str] = []
+        depth = 0
+        i = 0
+        while i < len(inner):
+            ch = inner[i]
+            if ch == '{':
+                depth += 1
+                out.append(ch)
+            elif ch == '}':
+                depth = max(0, depth - 1)
+                out.append(ch)
+            elif (
+                ch == ','
+                and depth == 0
+                and i > 0
+                and i + 1 < len(inner)
+                and inner[i - 1].isdigit()
+                and inner[i + 1].isdigit()
+            ):
+                out.append('.')
+            else:
+                out.append(ch)
+            i += 1
+        return ''.join(out)
+
+    def _fix_block(m: re.Match) -> str:
+        return '$' + _fix_outside_braces(m.group(1)) + '$'
 
     return re.sub(r'\$([^$]+)\$', _fix_block, text)
 
@@ -97,6 +118,84 @@ def _plain_urn_labels(text: str) -> str:
     text = re.sub(r'\\?\(U_(\d+)\\?\)', r'U\1', text)
     text = re.sub(r'\$U_(\d+)\$', r'U\1', text)
     return text
+
+
+_SUPER_TRANS = str.maketrans('⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻', '0123456789+-')
+_SUB_TRANS = str.maketrans('₀₁₂₃₄₅₆₇₈₉', '0123456789')
+_CHEM_ELEMENTS = sorted(
+    (
+        'He', 'Li', 'Be', 'Ne', 'Na', 'Mg', 'Al', 'Si', 'Cl', 'Ar', 'Ca', 'Sc',
+        'Ti', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga', 'Ge', 'As', 'Se',
+        'Br', 'Kr', 'Rb', 'Sr', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag',
+        'Cd', 'In', 'Sn', 'Sb', 'Te', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Hf', 'Ta',
+        'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg', 'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn',
+        'Fr', 'Ra', 'Np', 'Pu', 'C', 'N', 'O', 'F', 'P', 'S', 'K', 'V', 'Y',
+        'I', 'B', 'H', 'W', 'U',
+    ),
+    key=len,
+    reverse=True,
+)
+_CHEM_EL = '(?:' + '|'.join(_CHEM_ELEMENTS) + ')'
+_MATH_CHUNK = re.compile(
+    r'\$\$[\s\S]+?\$\$|\$[^$]+\$|\\\([\s\S]+?\\\)|\\\[[\s\S]+?\\\]'
+)
+
+
+def _map_outside_math(text: str, fn) -> str:
+    parts: list[str] = []
+    last = 0
+    for m in _MATH_CHUNK.finditer(text or ''):
+        if m.start() > last:
+            parts.append(fn(text[last:m.start()]))
+        parts.append(m.group(0))
+        last = m.end()
+    parts.append(fn(text[last:]))
+    return ''.join(parts)
+
+
+_CHEM_ATOM_HTML = _CHEM_EL + r'(?:<su[pb]>[^<]+</su[pb]>)?'
+_CHEM_FORMULA_HTML = re.compile(
+    r'(?:' + _CHEM_ATOM_HTML + r'){1,8}(?:/(?:' + _CHEM_ATOM_HTML + r'){1,8})?'
+)
+_CHEM_E0_HTML = re.compile(
+    r'<span class="chem-e">E</span><sup>∘</sup>\([^)]+\)(?:\s*=\s*[+\u2212\-]?\d+(?:[.,]\d+)?\s*V?)?'
+)
+
+
+def _upgrade_chem_notation(text: str) -> str:
+    """Unicode chimie (Zn²⁺, E°, H₂O) → HTML <sup>/<sub> lisible (sans dépendre de MathJax)."""
+    if not text:
+        return text
+
+    def _scripts(chunk: str) -> str:
+        chunk = re.sub(
+            r'[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+',
+            lambda m: '<sup>' + m.group(0).translate(_SUPER_TRANS) + '</sup>',
+            chunk,
+        )
+        chunk = re.sub(
+            r'[₀₁₂₃₄₅₆₇₈₉]+',
+            lambda m: '<sub>' + m.group(0).translate(_SUB_TRANS) + '</sub>',
+            chunk,
+        )
+        chunk = re.sub(r'\bE[°˚º]', r'<span class="chem-e">E</span><sup>∘</sup>', chunk)
+        return chunk
+
+    def _wrap(chunk: str) -> str:
+        chunk = _CHEM_E0_HTML.sub(lambda m: '<span class="chem">' + m.group(0) + '</span>', chunk)
+
+        def _maybe(m: re.Match) -> str:
+            s = m.group(0)
+            if '<su' not in s and '/' not in s:
+                return s
+            if s.startswith('<span'):
+                return s
+            return '<span class="chem">' + s + '</span>'
+
+        return _CHEM_FORMULA_HTML.sub(_maybe, chunk)
+
+    text = _map_outside_math(text, _scripts)
+    return _map_outside_math(text, _wrap)
 
 
 def _wrap_inline_math(text: str) -> str:
@@ -530,6 +629,7 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
     intro = _tabularize(intro).strip()
     intro = _normalize_math_delims(intro)
     intro = _plain_urn_labels(intro)
+    intro = _upgrade_chem_notation(intro)
     intro = _wrap_inline_math(intro)
     intro = _fix_decimal_commas_in_math(intro)
 
@@ -539,6 +639,7 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
         q = _tabularize(q).strip()
         q = _normalize_math_delims(q)
         q = _plain_urn_labels(q)
+        q = _upgrade_chem_notation(q)
         q = _wrap_inline_math(q)
         q = _fix_decimal_commas_in_math(q)
         cleaned_qs.append(q)

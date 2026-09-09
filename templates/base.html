@@ -1456,6 +1456,7 @@ function renderMarkdown(raw) {
   text = restoreCollapsedPipeTable(text);
   text = text.replace(/(\d)\uFE0F?\u20E3/g, '<span class="sec-badge">$1</span>');
   text = fixLatexControls(text);
+  text = upgradeChemNotation(text);
   text = autoMathWrap(text);
   text = text.replace(/(\$[^$]+?\$)\s+([a-zA-Z_àáâèéêëîïôùûü][a-zA-Z_0-9àáâèéêëîïôùûü]*)/g, (match, latex, word) => {
     const latexInner = latex.slice(1, -1).replace(/\\[a-zA-Z]+\{?/g, '').replace(/\}/g, '').replace(/[^a-zA-Z0-9_]/g, '');
@@ -1575,6 +1576,50 @@ function fixLatexControls(s) {
     .replace(/cdots/g, '\\cdots')
     .replace(/cdot([^s])/g, '\\cdot$1')
     .replace(/\\frac([a-zA-Z])/g, '\\frac{$1}');
+}
+
+function upgradeChemNotation(text) {
+  if (!text) return text;
+  const SUPER = {'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁺':'+','⁻':'-'};
+  const SUB = {'₀':'0','₁':'1','₂':'2','₃':'3','₄':'4','₅':'5','₆':'6','₇':'7','₈':'8','₉':'9'};
+  const EL = 'He|Li|Be|Ne|Na|Mg|Al|Si|Cl|Ar|Ca|Sc|Ti|Cr|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|Xe|Cs|Ba|La|Ce|Hf|Ta|Re|Os|Ir|Pt|Au|Hg|Tl|Pb|Bi|Po|At|Rn|Fr|Ra|Np|Pu|C|N|O|F|P|S|K|V|Y|I|B|H|W|U';
+  const atom = '(?:' + EL + ')(?:<su[pb]>[^<]+</su[pb]>)?';
+  const formulaRe = new RegExp('(?:' + atom + '){1,8}(?:/(?:' + atom + '){1,8})?', 'g');
+  const e0Re = /<span class="chem-e">E<\/span><sup>∘<\/sup>\([^)]+\)(?:\s*=\s*[+\u2212\-]?\d+(?:[.,]\d+)?\s*V?)?/g;
+  const mathRe = /\$\$[\s\S]+?\$\$|\$[^$]+\$|\\\([\s\S]+?\\\)|\\\[[\s\S]+?\\\]/g;
+  function mapOutside(src, fn) {
+    let out = '', last = 0, m;
+    mathRe.lastIndex = 0;
+    while ((m = mathRe.exec(src)) !== null) {
+      if (m.index > last) out += fn(src.slice(last, m.index));
+      out += m[0];
+      last = m.index + m[0].length;
+    }
+    return out + fn(src.slice(last));
+  }
+  function trans(run, map) {
+    return run.split('').map(function(c) { return map[c] || c; }).join('');
+  }
+  function scripts(chunk) {
+    chunk = chunk.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+/g, function(run) {
+      return '<sup>' + trans(run, SUPER) + '</sup>';
+    });
+    chunk = chunk.replace(/[₀₁₂₃₄₅₆₇₈₉]+/g, function(run) {
+      return '<sub>' + trans(run, SUB) + '</sub>';
+    });
+    return chunk.replace(/\bE[°˚º]/g, '<span class="chem-e">E</span><sup>∘</sup>');
+  }
+  function wrap(chunk) {
+    e0Re.lastIndex = 0;
+    formulaRe.lastIndex = 0;
+    chunk = chunk.replace(e0Re, function(s) { return '<span class="chem">' + s + '</span>'; });
+    return chunk.replace(formulaRe, function(s) {
+      if (s.indexOf('<su') < 0 && s.indexOf('/') < 0) return s;
+      if (s.indexOf('<span') === 0) return s;
+      return '<span class="chem">' + s + '</span>';
+    });
+  }
+  return mapOutside(mapOutside(text, scripts), wrap);
 }
 
 function autoMathWrap(text) {

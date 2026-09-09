@@ -83,27 +83,44 @@ def _source_display(source: str) -> str:
     return f"Bac Haïti {year}" if year else source.replace('.pdf', '')
 
 
+_LINE_Q = re.compile(
+    r'^(?:[a-zA-Z]\s*[\)\.]|[1-9]\d*\s*[\)\.]|Q\s*\d+\s*[:.)])\s+\S.+',
+    re.MULTILINE,
+)
+_INLINE_Q_SPLIT = re.compile(
+    r'(?:(?<=[.!?;:)\]])\s+)(?=(?:[a-zA-Z]|[1-9]\d*)[).]\s+\S)'
+)
+_INLINE_Q_ITEM = re.compile(r'^(?:[a-zA-Z]|[1-9]\d*)[).]\s+\S')
+
+
 def _extract_sub_questions(text: str) -> tuple[str, list[str]]:
     """
     Split text into (intro, questions[]).
-    Questions are lines starting with: a) b) 1) 2) 1. 2. a. b. etc.
-    Returns original intro (before first question) and question list.
-    """
-    q_re = re.compile(
-        r'^(?:[a-zA-Z]\s*[\)\.]|[1-9]\d*\s*[\)\.]|Q\s*\d+\s*[:.)])\s+\S.+',
-        re.MULTILINE,
-    )
-    matches = list(q_re.finditer(text))
-    if len(matches) < 2:
-        return text.strip(), []
 
-    first_pos = matches[0].start()
-    # Un "1." trop tôt est souvent un titre, pas une question
-    if first_pos < 12 and len(matches) < 3:
-        return text.strip(), []
-    intro = text[:first_pos].strip()
-    questions = [m.group().strip() for m in matches if len(m.group().strip()) > 5]
-    return intro, questions
+    Handles:
+      - questions on their own lines: a) … / 1. …
+      - questions inline in the same paragraph: « …). a) … b) … c) … »
+    """
+    text = (text or '').strip()
+    if not text:
+        return '', []
+
+    matches = list(_LINE_Q.finditer(text))
+    if len(matches) >= 2:
+        first_pos = matches[0].start()
+        if not (first_pos < 12 and len(matches) < 3):
+            intro = text[:first_pos].strip()
+            questions = [m.group().strip() for m in matches if len(m.group().strip()) > 5]
+            if len(questions) >= 2:
+                return intro, questions
+
+    parts = _INLINE_Q_SPLIT.split(text)
+    inline_qs = [p.strip() for p in parts[1:] if _INLINE_Q_ITEM.match(p.strip() or '')]
+    if len(inline_qs) >= 2:
+        intro = parts[0].strip()
+        return intro, inline_qs
+
+    return text, []
 
 
 # ─────────────────────────────────────────────────────────────────────────────
