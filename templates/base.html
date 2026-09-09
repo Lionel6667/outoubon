@@ -496,6 +496,7 @@
       .app { position: fixed; top: 0; left: 0; right: 0; bottom: 0; flex-direction: column; overflow: hidden; }
       
       .app.has-topbar .main { width: 100%; min-width: 0; padding-top: calc(52px + env(safe-area-inset-top, 0px)); }
+      .app.has-topbar .view-area { padding-top: 0; }
       
       .app:not(.has-topbar) .main { width: 100%; min-width: 0; padding-top: 0; }
 
@@ -597,12 +598,16 @@
     }
 
     @media (min-width: 769px) {
+      :root { --sidebar-w: 240px; }
       .sidebar {
+        display: flex !important;
         position: relative !important;
         transform: none !important;
+        visibility: visible !important;
         width: var(--sidebar-w, 240px) !important;
         top: auto !important;
         left: auto !important;
+        right: auto !important;
         bottom: auto !important;
         z-index: 80;
         padding-top: 0;

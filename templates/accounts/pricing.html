@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Abonnement · OU TOU BON{% endblock %}
 
-{% block body %}
+{% block extra_css %}
 <style>
 
 .pricing-page { padding:2rem 1.5rem; max-width:840px; margin:0 auto; }
@@ -131,18 +131,15 @@
   .plan-amount { font-size:2rem; }
 }
 </style>
+{% endblock %}
 
-<div class="app">
+{% block body %}
+<div class="app has-topbar">
   {% include "core/_sidebar.html" with active_page="pricing" %}
   <div class="main">
     <div class="topbar"><div class="topbar-title">💳 Abonnement</div></div>
     <div class="view-area">
       <div class="pricing-page">
-
-        <div class="pricing-page-header">
-          <h1>Choisis ton plan</h1>
-          <p>Accès complet à tous les outils IA — quota journalier plus élevé qu'en gratuit.</p>
-        </div>
 
         {% if is_premium %}
         <div class="plan-active-banner">
@@ -167,11 +164,11 @@
             </div>
             <div class="plan-sub">25% de réduction — sans engagement</div>
             <ul class="plan-features">
-              <li><i class="fas fa-check"></i> Chat IA — <strong>quota journalier plus élevé</strong></li>
-              <li><i class="fas fa-check"></i> Quiz + Exercices corrigés — <strong>quota plus élevé</strong></li>
-              <li><i class="fas fa-check"></i> Examens blancs avec note / 100 — <strong>quota plus élevé</strong></li>
-              <li><i class="fas fa-check"></i> Cours interactifs + Fiches mémo — <strong>quota plus élevé</strong></li>
-              <li><i class="fas fa-check"></i> Plans de révision IA — <strong>quota plus élevé</strong></li>
+              <li><i class="fas fa-check"></i> Chat IA — <strong>illimité</strong></li>
+              <li><i class="fas fa-check"></i> Quiz + Exercices corrigés — <strong>illimités</strong></li>
+              <li><i class="fas fa-check"></i> Examens blancs avec note / 100 — <strong>illimités</strong></li>
+              <li><i class="fas fa-check"></i> Cours interactifs + Fiches mémo — <strong>illimités</strong></li>
+              <li><i class="fas fa-check"></i> Plans de révision IA — <strong>illimités</strong></li>
               <li><i class="fas fa-check"></i> Bibliothèque + Favoris + Amis débloqués</li>
             </ul>
             {# ── Choix de méthode ── #}
@@ -238,7 +235,7 @@
             </div>
             <div class="plan-sub">Soit <strong>500G / mois</strong> — tu économises 6 000G</div>
             <ul class="plan-features">
-              <li><i class="fas fa-check"></i> Tout le plan mensuel inclus</li>
+              <li><i class="fas fa-check"></i> Tout illimité — chat, quiz, exercices, examens</li>
               <li><i class="fas fa-check"></i> 50% d'économie vs mensuel</li>
               <li><i class="fas fa-check"></i> 12 mois d'accès continu</li>
               <li><i class="fas fa-check"></i> Priorité nouvelles fonctionnalités IA</li>

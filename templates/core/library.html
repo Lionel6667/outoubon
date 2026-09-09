@@ -13,24 +13,25 @@
       <div class="topbar-title">Bibliothèque PDF</div>
     </div>
     <div class="view-area">
-      <div class="lib-wrap v2-page-shell">
+      <div class="lib-page">
 
         {% if library_all %}
         <div class="lib-subject-bar">
           <div class="lib-subject-bar__label">Matière</div>
           <div class="lib-pills" id="libPills">
             {% for section in library_all %}
-            <a href="?subject={{ section.subject }}" class="lib-pill {% if section.subject == active_subject %}active{% endif %}" data-subject="{{ section.subject }}">
+            <button type="button" class="lib-pill {% if section.subject == active_subject %}active{% endif %}" data-subject="{{ section.subject }}">
               {{ section.label }} <span style="opacity:.65;font-weight:600;">({{ section.count }})</span>
-            </a>
+            </button>
             {% endfor %}
           </div>
         </div>
         {% endif %}
 
+        <div class="lib-wrap v2-page-shell">
         {% if library %}
           {% for section in library %}
-          <div class="lib-section" data-subject="{{ section.subject }}">
+          <div class="lib-section" data-subject="{{ section.subject }}" {% if section.subject != active_subject %}hidden{% endif %}>
             <div class="lib-section-header">
               <div class="lib-section-icon" style="background:{{ section.color }}18;color:{{ section.color }};">
                 <i class="fas {{ section.icon|default:'fa-file-pdf' }}"></i>
@@ -78,11 +79,38 @@
         </div>
         {% endif %}
 
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<script>
+function showLibSubject(key) {
+  if (!key) return;
+  document.querySelectorAll('#libPills .lib-pill').forEach(function(p) {
+    p.classList.toggle('active', p.getAttribute('data-subject') === key);
+  });
+  document.querySelectorAll('.lib-section[data-subject]').forEach(function(sec) {
+    var show = sec.getAttribute('data-subject') === key;
+    sec.hidden = !show;
+    sec.style.display = show ? '' : 'none';
+  });
+}
+function bootLibrary() {
+  var pills = document.getElementById('libPills');
+  if (pills && !pills.dataset.otbBound) {
+    pills.dataset.otbBound = '1';
+    pills.addEventListener('click', function(e) {
+      var pill = e.target.closest('[data-subject]');
+      if (!pill) return;
+      showLibSubject(pill.getAttribute('data-subject'));
+    });
+  }
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootLibrary);
+else bootLibrary();
+</script>
 {% if is_guest %}
 <div id="serieModal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,.92);backdrop-filter:blur(12px);z-index:2000;align-items:flex-end;justify-content:center;">
   <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:24px 24px 0 0;padding:1.75rem 1.5rem 2rem;width:100%;max-width:500px;">
@@ -119,19 +147,25 @@
       const subj = pill.dataset.subject;
       pill.style.display = (subj && subjects.includes(subj)) ? '' : 'none';
     });
-    const firstVisible = document.querySelector('#libPills .lib-pill[style=""], #libPills .lib-pill:not([style])');
-    if (firstVisible && !window.location.search.includes('subject=')) firstVisible.click();
+    const firstVisible = Array.from(document.querySelectorAll('#libPills .lib-pill')).find(function(p) {
+      return p.style.display !== 'none';
+    });
+    if (firstVisible) showLibSubject(firstVisible.dataset.subject);
   }
   window.selectGuestSerie = function(serie) {
     localStorage.setItem('guest_lib_serie', serie);
     document.getElementById('serieModal').style.display = 'none';
     applySerieFilter(serie);
   };
-  document.addEventListener('DOMContentLoaded', function() {
+  function bootGuestLib() {
     const saved = localStorage.getItem('guest_lib_serie');
-    if (!saved) document.getElementById('serieModal').style.display = 'flex';
-    else applySerieFilter(saved);
-  });
+    if (!saved) {
+      var modal = document.getElementById('serieModal');
+      if (modal) modal.style.display = 'flex';
+    } else applySerieFilter(saved);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootGuestLib);
+  else bootGuestLib();
 })();
 </script>
 {% endif %}

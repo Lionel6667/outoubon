@@ -3,15 +3,24 @@
   /* sizing handled by page-shell.css */
 }
 
+.lib-page {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .lib-subject-bar {
   position: sticky;
   top: 0;
   z-index: 5;
+  width: 100%;
+  box-sizing: border-box;
   background: var(--bg2, var(--card));
-  padding: 0.35rem 0 0.75rem;
-  margin-bottom: 0.5rem;
-  margin-left: 0;
-  margin-right: 0;
+  padding: 0.55rem 0 0.75rem;
+  margin: 0;
+  border-bottom: 1px solid var(--border, var(--border2));
 }
 
 .lib-subject-bar__label {
@@ -29,6 +38,9 @@
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .lib-pills::-webkit-scrollbar { display: none; }
@@ -43,6 +55,7 @@
   border: 1px solid var(--border2);
   color: var(--t2);
   text-decoration: none;
+  cursor: pointer;
   transition: all 0.15s;
 }
 
@@ -142,6 +155,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.78rem;
+  font-family: inherit;
   cursor: pointer;
   transition: all 0.15s;
   text-decoration: none;

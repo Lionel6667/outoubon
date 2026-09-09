@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Demander à un proche · OU TOU BON{% endblock %}
 
-{% block body %}
+{% block extra_css %}
 <style>
 .gift-page { padding:2rem 1.5rem; max-width:640px; margin:0 auto; }
 .gift-header { text-align:center; margin-bottom:2rem; }
@@ -76,8 +76,10 @@
   .gift-page { padding:1rem .75rem; }
 }
 </style>
+{% endblock %}
 
-<div class="app">
+{% block body %}
+<div class="app has-topbar">
   {% include "core/_sidebar.html" with active_page="pricing" %}
   <div class="main">
     <div class="topbar"><div class="topbar-title">🎁 Demander à un proche</div></div>

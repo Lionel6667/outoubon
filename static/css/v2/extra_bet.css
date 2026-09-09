@@ -248,6 +248,7 @@
   border: 1px solid var(--border2);
   background: var(--card);
   color: var(--t2);
+  font-family: inherit;
   cursor: pointer;
   transition: all 0.15s;
   text-decoration: none;

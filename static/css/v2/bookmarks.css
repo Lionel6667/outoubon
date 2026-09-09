@@ -4,7 +4,7 @@
 .bm-filter-row::-webkit-scrollbar { height:4px; }
 .bm-filter-row::-webkit-scrollbar-track { background:transparent; }
 .bm-filter-row::-webkit-scrollbar-thumb { background:rgba(16,185,129,.3); border-radius:2px; }
-.bm-pill { padding:.4rem .9rem; border-radius:20px; font-size:.8rem; font-weight:600; background:var(--card); border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; text-decoration:none; white-space:nowrap; flex-shrink:0; }
+.bm-pill { padding:.4rem .9rem; border-radius:20px; font-size:.8rem; font-weight:600; background:var(--card); border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; text-decoration:none; white-space:nowrap; flex-shrink:0; font-family:inherit; }
 .bm-pill.active,.bm-pill:hover { background:rgba(16,185,129,.15); border-color:var(--green); color:var(--green); }
 .bm-card { background:var(--card); border:1px solid var(--border2); border-radius:14px; padding:1.25rem; margin-bottom:.9rem; }
 .bm-subj { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--green); margin-bottom:.5rem; }

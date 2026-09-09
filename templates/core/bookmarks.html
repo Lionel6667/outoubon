@@ -13,11 +13,11 @@
     <div class="view-area" style="overflow-y:auto">
       <div class="bm-wrap">
         
-        <div class="bm-filter-row">
-          <a href="{% url 'bookmarks' %}" class="bm-pill {% if not subject_filter %}active{% endif %}">Toutes</a>
+        <div class="bm-filter-row" id="bmPills">
+          <button type="button" class="bm-pill {% if not subject_filter %}active{% endif %}" data-subject="all">Toutes</button>
           {% for key, mat in mats.items %}
           {% if key in user_serie_subjects %}
-          <a href="?subject={{ key }}" class="bm-pill {% if subject_filter == key %}active{% endif %}">{{ mat.label }}</a>
+          <button type="button" class="bm-pill {% if subject_filter == key %}active{% endif %}" data-subject="{{ key }}">{{ mat.label }}</button>
           {% endif %}
           {% endfor %}
         </div>
@@ -25,7 +25,7 @@
         
         {% if bookmarks %}
           {% for bm in bookmarks %}
-          <div class="bm-card" id="bm-{{ bm.pk|default:forloop.counter }}">
+          <div class="bm-card" id="bm-{{ bm.pk|default:forloop.counter }}" data-subject="{{ bm.subject }}">
             <div class="bm-subj"><i class="fas fa-bookmark"></i> {{ bm.subject|capfirst }}</div>
             <div class="bm-enonce">{{ bm.enonce }}</div>
             <div class="bm-options">
@@ -49,6 +49,10 @@
             </div>
           </div>
           {% endfor %}
+          <div class="empty-bm" id="bmEmptyFilter" style="display:none">
+            <i class="fas fa-bookmark" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:.2"></i>
+            <div style="font-weight:600;font-size:1.05rem;color:var(--t2)">Aucune question pour cette matière</div>
+          </div>
         {% else %}
           <div class="empty-bm">
             <i class="fas fa-bookmark" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:.2"></i>
@@ -73,7 +77,43 @@ async function removeBookmark(enonce, pk) {
     body: JSON.stringify({enonce})
   });
   showToast('Question retirée des favoris');
+  if (window.applyBookmarkSubject) window.applyBookmarkSubject(window.BM_SUBJECT || 'all');
 }
+
+function applyBookmarkSubject(key) {
+  window.BM_SUBJECT = key || 'all';
+  document.querySelectorAll('#bmPills .bm-pill').forEach(function(p) {
+    p.classList.toggle('active', (p.getAttribute('data-subject') || 'all') === window.BM_SUBJECT);
+  });
+  var visible = 0;
+  document.querySelectorAll('.bm-card[data-subject]').forEach(function(card) {
+    var show = window.BM_SUBJECT === 'all' || card.getAttribute('data-subject') === window.BM_SUBJECT;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  var empty = document.getElementById('bmEmptyFilter');
+  if (empty) empty.style.display = visible ? 'none' : '';
+}
+
+function bootBookmarks() {
+  var pills = document.getElementById('bmPills');
+  if (pills && !pills.dataset.otbBound) {
+    pills.dataset.otbBound = '1';
+    pills.addEventListener('click', function(e) {
+      var pill = e.target.closest('[data-subject]');
+      if (!pill) return;
+      applyBookmarkSubject(pill.getAttribute('data-subject') || 'all');
+    });
+  }
+  applyBookmarkSubject('{{ subject_filter|default:"all" }}' || 'all');
+  if (window.renderMathInElement) {
+    document.querySelectorAll('.bm-card').forEach(function(el) {
+      try { window.renderMathInElement(el, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]}); } catch (e) {}
+    });
+  }
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootBookmarks);
+else bootBookmarks();
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

@@ -142,8 +142,8 @@
             <h2 class="eb-feed-title">À étudier par matière</h2>
             <p class="eb-feed-sub">Filtrage matière · correction instantanée (sans IA)</p>
           </div>
-          <form method="get" action="{% url 'extra_bet' %}" id="ebFilterForm" style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;">
-            <select name="subject" onchange="this.form.submit()" style="background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:.45rem .6rem;color:var(--t1)">
+          <form method="get" action="{% url 'extra_bet' %}" id="ebFilterForm" style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;" onsubmit="return false;">
+            <select id="ebSubjectFilter" name="subject" onchange="ebApplyFilters()" style="background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:.45rem .6rem;color:var(--t1)">
               <option value="">Toutes</option>
               {% for key, mat in mats.items %}
               <option value="{{ key }}" {% if active_subject == key %}selected{% endif %}>{{ mat.label }}</option>
@@ -154,16 +154,16 @@
         </div>
 
         
-        <div style="display:flex;gap:.3rem;margin-bottom:.8rem;flex-wrap:wrap;">
-          <a href="{% url 'extra_bet' %}?subject={{ active_subject }}&sort=recent" class="eb-sort-btn {% if active_sort == 'recent' or not active_sort %}active{% endif %}"><i class="fas fa-clock"></i> Recents</a>
-          <a href="{% url 'extra_bet' %}?subject={{ active_subject }}&sort=likes" class="eb-sort-btn {% if active_sort == 'likes' %}active{% endif %}"><i class="fas fa-heart"></i> Plus aimes</a>
-          <a href="{% url 'extra_bet' %}?subject={{ active_subject }}&sort=unanswered" class="eb-sort-btn {% if active_sort == 'unanswered' %}active{% endif %}"><i class="fas fa-question-circle"></i> Moins repondus</a>
+        <div style="display:flex;gap:.3rem;margin-bottom:.8rem;flex-wrap:wrap;" id="ebSortRow">
+          <button type="button" data-sort="recent" class="eb-sort-btn {% if active_sort == 'recent' or not active_sort %}active{% endif %}"><i class="fas fa-clock"></i> Recents</button>
+          <button type="button" data-sort="likes" class="eb-sort-btn {% if active_sort == 'likes' %}active{% endif %}"><i class="fas fa-heart"></i> Plus aimes</button>
+          <button type="button" data-sort="unanswered" class="eb-sort-btn {% if active_sort == 'unanswered' %}active{% endif %}"><i class="fas fa-question-circle"></i> Moins repondus</button>
         </div>
 
         
         <div id="ebFeed" style="display:grid;gap:.7rem;">
           {% for p in posts %}
-          <article class="eb-post-card" data-post-id="{{ p.id }}" data-question-type="{{ p.question_type }}">
+          <article class="eb-post-card" data-post-id="{{ p.id }}" data-question-type="{{ p.question_type }}" data-subject="{{ p.subject }}" data-likes="{{ p.likes_count|default:0 }}" data-attempts="{{ p.attempts_count|default:0 }}" data-ts="{{ p.created_at|date:'U' }}">
             
             <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem;">
               <div style="display:flex;gap:.55rem;align-items:center;">
@@ -257,12 +257,16 @@
             <div class="eb-ai-reply" style="margin-top:.45rem;font-size:.8rem;color:var(--t2);"></div>
           </article>
           {% empty %}
-          <div style="text-align:center;padding:2rem;color:var(--t3);">
+          <div id="ebEmptyNone" style="text-align:center;padding:2rem;color:var(--t3);">
             <i class="fas fa-layer-group" style="font-size:2.5rem;opacity:.3;margin-bottom:.6rem;display:block;"></i>
             <div style="font-size:.95rem;font-weight:600;margin-bottom:.3rem;">Aucune publication pour le moment</div>
             <div style="font-size:.82rem;">Cliquez sur <strong>Creer une publication</strong> pour etre le premier !</div>
           </div>
           {% endfor %}
+          <div id="ebEmptyFilter" style="display:none;text-align:center;padding:2rem;color:var(--t3);">
+            <i class="fas fa-layer-group" style="font-size:2.5rem;opacity:.3;margin-bottom:.6rem;display:block;"></i>
+            <div style="font-size:.95rem;font-weight:600;">Aucune publication pour cette matière</div>
+          </div>
         </div>
       </section>
 
@@ -275,6 +279,49 @@
 <script>
 const IS_GUEST = {{ is_guest|yesno:"true,false" }};
 const CURRENT_USER_ID = {{ current_user_id|default:"null" }};
+
+function ebApplyFilters() {
+  var sel = document.getElementById('ebSubjectFilter');
+  var subj = sel ? (sel.value || '') : '';
+  var sortBtn = document.querySelector('#ebSortRow .eb-sort-btn.active');
+  var sort = sortBtn ? (sortBtn.getAttribute('data-sort') || 'recent') : 'recent';
+  var feed = document.getElementById('ebFeed');
+  if (!feed) return;
+  var cards = Array.prototype.slice.call(feed.querySelectorAll('.eb-post-card'));
+  cards.forEach(function(c) {
+    var show = !subj || c.getAttribute('data-subject') === subj;
+    c.style.display = show ? '' : 'none';
+  });
+  var visible = cards.filter(function(c) { return c.style.display !== 'none'; });
+  visible.sort(function(a, b) {
+    if (sort === 'likes') return (Number(b.getAttribute('data-likes')) || 0) - (Number(a.getAttribute('data-likes')) || 0);
+    if (sort === 'unanswered') return (Number(a.getAttribute('data-attempts')) || 0) - (Number(b.getAttribute('data-attempts')) || 0);
+    return (Number(b.getAttribute('data-ts')) || 0) - (Number(a.getAttribute('data-ts')) || 0);
+  });
+  visible.forEach(function(c) { feed.appendChild(c); });
+  cards.filter(function(c) { return c.style.display === 'none'; }).forEach(function(c) { feed.appendChild(c); });
+  var empty = document.getElementById('ebEmptyFilter');
+  if (empty) {
+    empty.style.display = (cards.length && !visible.length) ? '' : 'none';
+    feed.appendChild(empty);
+  }
+}
+
+function bootExtraBetFilters() {
+  var row = document.getElementById('ebSortRow');
+  if (row && !row.dataset.otbBound) {
+    row.dataset.otbBound = '1';
+    row.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-sort]');
+      if (!btn) return;
+      row.querySelectorAll('.eb-sort-btn').forEach(function(b) { b.classList.toggle('active', b === btn); });
+      ebApplyFilters();
+    });
+  }
+  ebApplyFilters();
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootExtraBetFilters);
+else bootExtraBetFilters();
 
 function showGuestSignupModal(msg) {
   let modal = document.getElementById('ebGuestModal');

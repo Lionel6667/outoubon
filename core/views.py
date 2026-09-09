@@ -3119,9 +3119,6 @@ def extra_bet_view(request):
         correct_count=Count('attempts', filter=Q(attempts__is_correct=True), distinct=True),
         user_liked=Count('likes', filter=Q(likes=request.user)),
     )
-    if active_subject and active_subject in filtered_mats:
-        posts_qs = posts_qs.filter(subject=active_subject)
-
     sort_map = {
         'recent': '-created_at',
         'likes': '-likes_count',
@@ -6265,125 +6262,142 @@ def conversation_detail(request, session_key):
 # ─────────────────────────────────────────────
 # FICHES MÉMO (FLASHCARDS)
 # ─────────────────────────────────────────────
-def fiches_view(request):
-    from django.utils import timezone
-    subject = request.GET.get('subject', 'maths')
+def _fiche_card_dict(fc, status='new', source='flashcard'):
+    return {
+        'id': fc.id,
+        'subject': fc.subject,
+        'question': fc.question,
+        'answer': fc.answer,
+        'hint': fc.hint,
+        'difficulty': fc.difficulty,
+        'status': status,
+        'source': source,
+    }
 
-    # ── Premium gate (RETIRED: Now unlocked for free users) ──
-    # if request.user.is_authenticated:
-    #     from core.premium import is_premium
-    #     if not is_premium(request.user):
-    #         profile, _ = UserProfile.objects.get_or_create(user=request.user)
-    #         return render(request, 'core/premium_required.html', {
-    #             'profile': profile,
-    #             'feature': 'Fiches Mémo',
-    #             'message': 'Les fiches mémo sont réservées aux abonnés premium.',
-    #         })
+
+def fiches_view(request):
+    from collections import defaultdict
+    from django.utils import timezone
+
+    requested = (request.GET.get('subject') or '').strip().lower()
 
     if not request.user.is_authenticated:
         if _is_guest(request):
-            # Show real flashcards (no progress tracking) — limited to 6 visible
-            flashcards = list(Flashcard.objects.filter(subject=subject).order_by('?')[:6])
-            if flashcards:
-                cards_data = [{
-                    'id': fc.id, 'question': fc.question, 'answer': fc.answer,
-                    'hint': fc.hint, 'difficulty': fc.difficulty, 'status': 'new', 'source': 'flashcard',
-                } for fc in flashcards]
-            else:
-                # Fallback: use hardcoded demo flashcards for this subject
-                demo_fcs = _GUEST_DEMO['demo_flashcards'].get(subject,
-                    _GUEST_DEMO['demo_flashcards'].get('maths', []))
-                cards_data = [{
-                    'id': f'demo_{i}', 'question': fc['question'], 'answer': fc['answer'],
-                    'hint': fc['hint'], 'difficulty': fc['difficulty'], 'status': 'new', 'source': 'flashcard',
-                } for i, fc in enumerate(demo_fcs)]
+            user_subjs = list(MATS.keys())
+            subject = requested if requested in MATS else (user_subjs[0] if user_subjs else 'maths')
+            grouped = defaultdict(list)
+            for fc in Flashcard.objects.filter(subject__in=user_subjs):
+                if len(grouped[fc.subject]) < 6:
+                    grouped[fc.subject].append(fc)
+            cards_data = []
+            stats = {}
+            for subj in user_subjs:
+                pool = grouped.get(subj) or []
+                subj_cards = [_fiche_card_dict(fc) for fc in pool]
+                if not subj_cards:
+                    demo_fcs = _GUEST_DEMO['demo_flashcards'].get(subj, [])
+                    subj_cards = [{
+                        'id': f'demo_{subj}_{i}',
+                        'subject': subj,
+                        'question': fc['question'],
+                        'answer': fc['answer'],
+                        'hint': fc.get('hint', ''),
+                        'difficulty': fc.get('difficulty', 2),
+                        'status': 'new',
+                        'source': 'flashcard',
+                    } for i, fc in enumerate(demo_fcs)]
+                stats[subj] = {
+                    'total': len(subj_cards), 'known': 0, 'review': 0, 'mistakes': 0,
+                }
+                cards_data.extend(subj_cards)
+            cur = stats.get(subject) or {'total': 0, 'known': 0, 'review': 0, 'mistakes': 0}
             return render(request, 'core/fiches.html', {
                 'subject': subject, 'mats': MATS,
                 'cards': cards_data, 'cards_json': json.dumps(cards_data),
-                'known': 0, 'review': 0, 'total': len(cards_data),
+                'stats_by_subject': json.dumps(stats),
+                'known': cur['known'], 'review': cur['review'], 'total': cur['total'],
                 'mistakes_count': 0, 'is_guest': True,
-                'user_serie_subjects': list(MATS.keys()),
+                'user_serie_subjects': user_subjs,
             })
         return redirect('/login/?next=' + request.get_full_path())
 
-    # Load existing flashcards for this subject (Limit to 100 for performance)
-    flashcards = list(Flashcard.objects.filter(subject=subject).order_by('-id')[:100])
+    user_subjs = list(_get_user_serie_subjects(request.user))
+    subject = requested if requested in user_subjs else (user_subjs[0] if user_subjs else 'maths')
 
-    # Get user progress for these cards
-    progress_qs = FlashcardProgress.objects.filter(
-        user=request.user, flashcard__subject=subject
-    ).select_related('flashcard')
-    progress_map = {p.flashcard_id: p.status for p in progress_qs}
+    grouped = defaultdict(list)
+    for fc in Flashcard.objects.filter(subject__in=user_subjs).order_by('-id'):
+        if len(grouped[fc.subject]) < 80:
+            grouped[fc.subject].append(fc)
 
-    # Stats (calculated on full queryset for accuracy, but view only shows subset)
-    known  = FlashcardProgress.objects.filter(user=request.user, flashcard__subject=subject, status='known').count()
-    review = FlashcardProgress.objects.filter(user=request.user, flashcard__subject=subject, status='review').count()
+    progress_map = {
+        p.flashcard_id: p.status
+        for p in FlashcardProgress.objects.filter(
+            user=request.user, flashcard__subject__in=user_subjs
+        )
+    }
 
-    cards_data = [{
-        'id':         fc.id,
-        'question':   fc.question,
-        'answer':     fc.answer,
-        'hint':       fc.hint,
-        'difficulty': fc.difficulty,
-        'status':     progress_map.get(fc.id, 'new'),
-        'source':     'flashcard',
-    } for fc in flashcards]
-
-    # Add MistakeTracker cards (failed quiz questions as review cards)
     today = timezone.now().date()
-    mistakes = MistakeTracker.objects.filter(
-        user=request.user,
-        subject=subject,
-        mastered=False,
-    ).order_by('next_review', '-wrong_count')[:30]
+    mistakes_by_subj = defaultdict(list)
+    for m in MistakeTracker.objects.filter(
+        user=request.user, subject__in=user_subjs, mastered=False,
+    ).order_by('next_review', '-wrong_count'):
+        if len(mistakes_by_subj[m.subject]) < 30:
+            mistakes_by_subj[m.subject].append(m)
 
-    mistake_cards = []
-    for m in mistakes:
-        opts = m.options if isinstance(m.options, list) else []
-        correct_opt = ''
-        if opts and isinstance(m.reponse_correcte, int) and 0 <= m.reponse_correcte < len(opts):
-            correct_opt = opts[m.reponse_correcte]
-        # Use explanation as answer; show correct option as header if available
-        if m.explication:
-            answer_text = m.explication
-            hint_text = correct_opt  # correct option shown as hint/header
-        elif correct_opt:
-            answer_text = correct_opt
-            hint_text = ''
-        else:
-            answer_text = f'Option {m.reponse_correcte + 1}'
-            hint_text = ''
+    cards_data = []
+    stats = {}
+    for subj in user_subjs:
+        subj_cards = [
+            _fiche_card_dict(fc, progress_map.get(fc.id, 'new'))
+            for fc in grouped.get(subj, [])
+        ]
+        mistake_cards = []
+        for m in mistakes_by_subj.get(subj, []):
+            opts = m.options if isinstance(m.options, list) else []
+            correct_opt = ''
+            if opts and isinstance(m.reponse_correcte, int) and 0 <= m.reponse_correcte < len(opts):
+                correct_opt = opts[m.reponse_correcte]
+            if m.explication:
+                answer_text, hint_text = m.explication, correct_opt
+            elif correct_opt:
+                answer_text, hint_text = correct_opt, ''
+            else:
+                answer_text, hint_text = f'Option {m.reponse_correcte + 1}', ''
+            mistake_cards.append({
+                'id': f'mistake_{m.id}',
+                'subject': subj,
+                'question': m.enonce,
+                'answer': answer_text,
+                'hint': hint_text,
+                'difficulty': 'difficile',
+                'status': 'review',
+                'source': 'mistake',
+                'wrong_count': m.wrong_count,
+                'due': m.next_review <= today,
+            })
+        all_subj = subj_cards + mistake_cards
+        known_n = sum(1 for c in all_subj if c.get('status') == 'known')
+        review_n = sum(1 for c in all_subj if c.get('status') == 'review')
+        stats[subj] = {
+            'total': len(all_subj),
+            'known': known_n,
+            'review': review_n,
+            'mistakes': len(mistake_cards),
+        }
+        cards_data.extend(all_subj)
 
-        mistake_cards.append({
-            'id':          f'mistake_{m.id}',
-            'question':    m.enonce,
-            'answer':      answer_text,
-            'hint':        hint_text,
-            'difficulty':  'difficile',
-            'status':      'review',
-            'source':      'mistake',
-            'wrong_count': m.wrong_count,
-            'due':         m.next_review <= today,
-        })
-
-    # Count unmastered mistakes for the "generate from errors" button
-    mistakes_count = MistakeTracker.objects.filter(
-        user=request.user, subject=subject, mastered=False
-    ).count()
-
-    all_cards = cards_data + mistake_cards
-
-    _fiches_user_subjs = _get_user_serie_subjects(request.user)
+    cur = stats.get(subject) or {'total': 0, 'known': 0, 'review': 0, 'mistakes': 0}
     return render(request, 'core/fiches.html', {
-        'subject':        subject,
-        'mats':           MATS,
-        'cards':          all_cards,
-        'cards_json':     json.dumps(all_cards),
-        'known':          known,
-        'review':         review + len(mistake_cards),
-        'total':          len(all_cards),
-        'mistakes_count': mistakes_count,
-        'user_serie_subjects': list(_fiches_user_subjs),
+        'subject': subject,
+        'mats': MATS,
+        'cards': cards_data,
+        'cards_json': json.dumps(cards_data),
+        'stats_by_subject': json.dumps(stats),
+        'known': cur['known'],
+        'review': cur['review'],
+        'total': cur['total'],
+        'mistakes_count': cur['mistakes'],
+        'user_serie_subjects': user_subjs,
     })
 
 
@@ -6845,8 +6859,6 @@ def bookmarks_view(request):
         return redirect('/login/?next=' + request.get_full_path())
     bookmarks = BookmarkedQuestion.objects.filter(user=request.user).order_by('-created_at')
     subject_filter = request.GET.get('subject', '')
-    if subject_filter:
-        bookmarks = bookmarks.filter(subject=subject_filter)
     _bm_user_subjs = _get_user_serie_subjects(request.user)
     return render(request, 'core/bookmarks.html', {
         'bookmarks': bookmarks,
@@ -12242,7 +12254,6 @@ def library_view(request):
                 'count': len(files),
             })
 
-    # Matière active (filtre) — une seule section affichée
     all_sections = list(library)
     user_subjs = set()
     if request.user.is_authenticated:
@@ -12251,11 +12262,9 @@ def library_view(request):
     available = [s for s in all_sections if not user_subjs or s['subject'] in user_subjs]
     if not available:
         available = all_sections
-    if active_subject and any(s['subject'] == active_subject for s in available):
-        library_display = [s for s in available if s['subject'] == active_subject]
-    else:
+    if not active_subject or not any(s['subject'] == active_subject for s in available):
         active_subject = available[0]['subject'] if available else ''
-        library_display = available[:1] if available else []
+    library_display = available
 
     user_is_premium = False
     if request.user.is_authenticated:

@@ -10,7 +10,7 @@
 .mat-pills::-webkit-scrollbar-track { background:transparent; }
 .mat-pills::-webkit-scrollbar-thumb { background:rgba(16,185,129,.3); border-radius:2px; }
 .mat-pills::-webkit-scrollbar-thumb:hover { background:rgba(16,185,129,.5); }
-.mat-pill { padding:.4rem .9rem; border-radius:20px; font-size:.8rem; font-weight:600; background:var(--card); border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; text-decoration:none; white-space:nowrap; flex-shrink:0; }
+.mat-pill { padding:.4rem .9rem; border-radius:20px; font-size:.8rem; font-weight:600; background:var(--card); border:1px solid var(--border2); color:var(--t2); cursor:pointer; transition:all .15s; text-decoration:none; white-space:nowrap; flex-shrink:0; font-family:inherit; }
 .mat-pill.active { background:rgba(16,185,129,.15); border-color:var(--green); color:var(--green); }
 .fiches-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem; flex-wrap:wrap; gap:.75rem; }
 .fc-stats { display:flex; gap:.75rem; }
@@ -56,10 +56,10 @@
     <div class="view-area" style="overflow-y:auto">
       <div class="fiches-wrap">
         
-        <div class="mat-pills" style="margin-bottom:1.25rem">
+        <div class="mat-pills" id="fichePills" style="margin-bottom:1.25rem">
           {% for key, mat in mats.items %}
           {% if key in user_serie_subjects %}
-          <a href="?subject={{ key }}" class="mat-pill {% if subject == key %}active{% endif %}">{{ mat.label }}</a>
+          <button type="button" class="mat-pill {% if subject == key %}active{% endif %}" data-subject="{{ key }}">{{ mat.label }}</button>
           {% endif %}
           {% endfor %}
         </div>
@@ -67,18 +67,18 @@
         
         <div class="fiches-header">
           <div class="fc-stats">
-            <div class="fc-stat"><div class="n">{{ total }}</div><div class="l">Total</div></div>
-            <div class="fc-stat"><div class="n known">{{ known }}</div><div class="l">Connus</div></div>
-            <div class="fc-stat"><div class="n review">{{ review }}</div><div class="l">À revoir</div></div>
+            <div class="fc-stat"><div class="n" id="fcStatTotal">{{ total }}</div><div class="l">Total</div></div>
+            <div class="fc-stat"><div class="n known" id="fcStatKnown">{{ known }}</div><div class="l">Connus</div></div>
+            <div class="fc-stat"><div class="n review" id="fcStatReview">{{ review }}</div><div class="l">À revoir</div></div>
           </div>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
             <div style="font-size:.78rem;color:var(--t3);display:flex;align-items:center;gap:.35rem;">
               <i class="fas fa-sync-alt" style="color:var(--green)"></i>
               Les questions ratées en quiz apparaissent ici automatiquement
             </div>
-            {% if mistakes_count %}
-            <button class="btn-gen" id="btnGenMistakes" onclick="generateFromMistakes()" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);">
-              <i class="fas fa-exclamation-circle"></i> Réviser mes erreurs ({{ mistakes_count }})
+            {% if not is_guest %}
+            <button class="btn-gen" id="btnGenMistakes" onclick="generateFromMistakes()" style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);{% if not mistakes_count %}display:none;{% endif %}">
+              <i class="fas fa-exclamation-circle"></i> Réviser mes erreurs (<span id="fcMistakesN">{{ mistakes_count|default:0 }}</span>)
             </button>
             {% endif %}
           </div>
@@ -88,7 +88,7 @@
         <div class="fc-grid" id="fcGrid">
           {% if cards %}
             {% for card in cards %}
-            <div class="fc-card {% if card.status == 'known' %}known-card{% endif %}" id="fc-{{ card.id }}" onclick="flipCard(this)">
+            <div class="fc-card {% if card.status == 'known' %}known-card{% endif %}" id="fc-{{ card.id }}" data-subject="{{ card.subject }}" data-status="{{ card.status }}" onclick="flipCard(this)">
               <div class="fc-card-inner">
                 <div class="fc-face fc-front">
                   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;">
@@ -118,14 +118,13 @@
               </div>
             </div>
             {% endfor %}
-          {% else %}
-          <div class="empty-cards">
+          {% endif %}
+          <div class="empty-cards" id="fcEmpty" style="display:none">
             <i class="fas fa-layer-group" style="font-size:3rem;margin-bottom:1rem;display:block;opacity:.25"></i>
             <div style="font-weight:600;font-size:1.05rem;color:var(--t2)">Aucune fiche pour cette matière.</div>
             <div style="margin-top:.5rem;font-size:.875rem">Fais des quiz — les questions que tu rates deviennent des fiches ici.</div>
             <a href="{% url 'quiz' %}" style="display:inline-block;margin-top:1.25rem;background:var(--green);color:#fff;padding:.7rem 1.35rem;border-radius:10px;font-weight:700;text-decoration:none;font-size:.875rem"><i class="fas fa-bolt"></i> Faire un quiz</a>
           </div>
-          {% endif %}
         </div>
       </div>
     </div>
@@ -134,13 +133,58 @@
 {% endblock %}
 {% block extra_js %}
 <script>
-const CURRENT_SUBJECT = '{{ subject }}';
+var CURRENT_SUBJECT = '{{ subject }}';
+var FICHES_STATS = {{ stats_by_subject|default:"{}"|safe }};
 
 function initFcMath() {
   const grid = document.getElementById('fcGrid');
   if (grid && typeof renderKatex !== 'undefined') renderKatex(grid);
 }
-document.addEventListener('DOMContentLoaded', initFcMath);
+
+function applyFichesSubject(key) {
+  if (!key) return;
+  CURRENT_SUBJECT = key;
+  document.querySelectorAll('#fichePills .mat-pill').forEach(function(p) {
+    p.classList.toggle('active', p.getAttribute('data-subject') === key);
+  });
+  var visible = 0;
+  document.querySelectorAll('#fcGrid .fc-card').forEach(function(card) {
+    var show = card.getAttribute('data-subject') === key;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  var empty = document.getElementById('fcEmpty');
+  if (empty) empty.style.display = visible ? 'none' : '';
+  var st = (FICHES_STATS && FICHES_STATS[key]) || { total: visible, known: 0, review: 0, mistakes: 0 };
+  var t = document.getElementById('fcStatTotal');
+  var k = document.getElementById('fcStatKnown');
+  var r = document.getElementById('fcStatReview');
+  if (t) t.textContent = st.total;
+  if (k) k.textContent = st.known;
+  if (r) r.textContent = st.review;
+  var btn = document.getElementById('btnGenMistakes');
+  if (btn) {
+    var nEl = document.getElementById('fcMistakesN');
+    if (nEl) nEl.textContent = st.mistakes || 0;
+    btn.style.display = st.mistakes ? '' : 'none';
+  }
+}
+
+function bootFiches() {
+  var pills = document.getElementById('fichePills');
+  if (pills && !pills.dataset.otbBound) {
+    pills.dataset.otbBound = '1';
+    pills.addEventListener('click', function(e) {
+      var pill = e.target.closest('[data-subject]');
+      if (!pill) return;
+      applyFichesSubject(pill.getAttribute('data-subject'));
+    });
+  }
+  applyFichesSubject(CURRENT_SUBJECT);
+  initFcMath();
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootFiches);
+else bootFiches();
 
 function flipCard(el) {
   el.classList.toggle('flipped');
