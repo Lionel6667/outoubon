@@ -14,16 +14,30 @@ def dedupe_visits(apps, schema_editor):
     """Ancien tracking : plusieurs lignes / jour pour le même ip_hash."""
     from django.db import connection
     with connection.cursor() as cursor:
-        cursor.execute(
-            """
-            DELETE FROM accounts_sitevisit a
-            USING accounts_sitevisit b
-            WHERE a.id > b.id
-              AND a.ip_hash = b.ip_hash
-              AND a.visit_date IS NOT NULL
-              AND a.visit_date = b.visit_date
-            """
-        )
+        if connection.vendor == 'postgresql':
+            cursor.execute(
+                """
+                DELETE FROM accounts_sitevisit a
+                USING accounts_sitevisit b
+                WHERE a.id > b.id
+                  AND a.ip_hash = b.ip_hash
+                  AND a.visit_date IS NOT NULL
+                  AND a.visit_date = b.visit_date
+                """
+            )
+        else:
+            # SQLite (et autres) : pas de DELETE ... USING.
+            cursor.execute(
+                """
+                DELETE FROM accounts_sitevisit
+                WHERE id NOT IN (
+                    SELECT MIN(id) FROM accounts_sitevisit
+                    WHERE visit_date IS NOT NULL
+                    GROUP BY ip_hash, visit_date
+                )
+                AND visit_date IS NOT NULL
+                """
+            )
 
 
 class Migration(migrations.Migration):

@@ -68,8 +68,15 @@
     z-index: 500;
   }
 
-  body.v2-exo-session-active #v2BottomNav {
+  body.v2-exo-session-active #v2BottomNav,
+  body:has(.v2-exo-page--session) #v2BottomNav {
     display: none !important;
+  }
+
+  /* When an exercise session is open, the app shell must fill the screen
+     (no reserved bottom-nav gap) so the fixed compose bar sits flush. */
+  body:has(.v2-exo-page--session) .app {
+    bottom: 0 !important;
   }
 }
 

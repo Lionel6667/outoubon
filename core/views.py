@@ -6795,6 +6795,16 @@ def api_exercise_session_favorite(request, pk: int):
     return JsonResponse({'ok': True, **_exercise_session_public(row)})
 
 
+@login_required
+@require_POST
+def api_exercise_session_delete(request, pk: int):
+    row = ExerciseSession.objects.filter(user=request.user, pk=pk).first()
+    if not row:
+        return JsonResponse({'error': 'Session introuvable.'}, status=404)
+    row.delete()
+    return JsonResponse({'ok': True})
+
+
 def bookmarks_view(request):
     # ── Premium gate (RETIRED: Now unlocked for free users) ──
     # if request.user.is_authenticated:

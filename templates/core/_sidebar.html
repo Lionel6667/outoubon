@@ -37,7 +37,7 @@
   <div class="sidebar-hub-label sidebar-hub-label--accueil"><i class="fas fa-home"></i> Accueil</div>
   <a href="{% url 'dashboard' %}" class="nav-item {% if active_page == 'dashboard' %}active{% endif %}"><i class="fas fa-home"></i> <span data-i18n="nav_accueil">Accueil</span></a>
 
-  <div class="sidebar-hub-label sidebar-hub-label--apprendre"><i class="fas fa-graduation-cap"></i> Apprendre</div>
+  <div class="sidebar-hub-label sidebar-hub-label--apprendre"><i class="fas fa-graduation-cap"></i> Cours</div>
   <a href="{% url 'cours' %}" class="nav-item nav-item--hub-child {% if active_page == 'cours' %}active{% endif %}"><i class="fas fa-graduation-cap"></i> <span data-i18n="nav_cours">Cours Interactif</span></a>
   <a href="{% url 'exercices' %}" class="nav-item nav-item--hub-child {% if active_page == 'exercices' %}active{% endif %}"><i class="fas fa-table-list"></i> <span data-i18n="nav_exercices">Exercices</span></a>
   <a href="{% url 'extra_bet' %}" class="nav-item nav-item--hub-child {% if active_page == 'extra_bet' %}active{% endif %}"><i class="fas fa-layer-group"></i> <span>Extra bèt</span></a>

@@ -264,7 +264,13 @@ def _series_to_md_table(text: str) -> str:
         r'\\\([a-zA-Z_]\w*\\\)\s*(?:\([^)]{0,30}\)\s*)?[=:]\s*[-\d,;. ]',
         text
     ))
-    if not has_keywords and not has_series_pattern:
+    # Also activate on the inline form where the variable AND its values sit
+    # inside the same LaTeX group, e.g. \(x=0,25;0,5;0,75;1\).
+    has_inline_series = bool(re.search(
+        r'\\\([a-zA-Z_]\w*\s*=\s*[-\d][-\d,;. ]*\\\)',
+        text
+    ))
+    if not has_keywords and not has_series_pattern and not has_inline_series:
         return text
 
     rows: list[tuple[str, list[str], int, int]] = []  # (var, values, start, end)
