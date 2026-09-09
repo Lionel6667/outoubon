@@ -123,6 +123,25 @@ def _extract_sub_questions(text: str) -> tuple[str, list[str]]:
     return text, []
 
 
+def _prefer_fuller_questions(stored: list[str], extracted: list[str]) -> list[str]:
+    """Garde le libellé le plus complet (énoncé original vs titre court du JSON)."""
+    stored = [str(q).strip() for q in (stored or []) if str(q).strip()]
+    extracted = [str(q).strip() for q in (extracted or []) if str(q).strip()]
+    if not extracted:
+        return stored
+    if not stored:
+        return extracted
+    if len(extracted) > len(stored):
+        return extracted
+    out: list[str] = []
+    n = max(len(stored), len(extracted))
+    for i in range(n):
+        s = stored[i] if i < len(stored) else ''
+        e = extracted[i] if i < len(extracted) else ''
+        out.append(e if len(e) > len(s) else s)
+    return [q for q in out if q]
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # VALIDATION & CLEANING
 # ─────────────────────────────────────────────────────────────────────────────
@@ -215,19 +234,28 @@ def _sanitize_exercise(exo: dict) -> dict:
             if isinstance(q, str) and q.strip()
         ]
 
-    intro = (exo.get('intro') or exo.get('enonce') or '').strip()
+    intro = (exo.get('intro') or '').strip()
+    enonce = (exo.get('enonce') or '').strip()
     questions = list(exo.get('questions') or [])
-    intro_clean, extracted = _extract_sub_questions(intro)
+    extracted: list[str] = []
+    for blob in (enonce, intro):
+        _, qs = _extract_sub_questions(blob)
+        if not qs:
+            continue
+        extracted = _prefer_fuller_questions(extracted, qs)
     if extracted:
-        if intro_clean:
+        exo['questions'] = _prefer_fuller_questions(questions, extracted)
+        intro_clean, from_intro = _extract_sub_questions(intro or enonce)
+        if from_intro and intro_clean:
             exo['intro'] = intro_clean
-            if not exo.get('enonce') or exo.get('enonce') == intro:
-                exo['enonce'] = intro_clean
-        if not questions or len(extracted) > len(questions):
-            exo['questions'] = extracted
+        enonce_clean, from_enonce = _extract_sub_questions(enonce)
+        if from_enonce and enonce_clean:
+            exo['enonce'] = enonce_clean
+        elif from_intro and intro_clean and (not enonce or enonce == intro):
+            exo['enonce'] = intro_clean
     elif not questions:
         # Keep a single working question rather than an empty list
-        if intro:
+        if intro or enonce:
             exo['questions'] = ['Résous cet exercice en expliquant ta démarche étape par étape.']
 
     return exo
@@ -454,8 +482,7 @@ def _load_json_list(path: Path, subject: str) -> list[dict]:
         source    = item.get('source', '')
         theme     = item.get('theme', '').strip()
         intro, qs_inline = _extract_sub_questions(enonce)
-        if not questions:
-            questions = qs_inline
+        questions = _prefer_fuller_questions(questions, qs_inline)
         
         exo_dict = {
             'source':         source,
@@ -706,6 +733,9 @@ def _load_json_chapitres(path: Path, subject: str) -> list[dict]:
                 ]
                 if not questions:
                     _, questions = _extract_sub_questions(enonce)
+                else:
+                    _, extracted = _extract_sub_questions(enonce)
+                    questions = _prefer_fuller_questions(questions, extracted)
                 if not questions:
                     questions = [enonce]  # questions embedded inline in enonce
                 source = exo.get('source') or ''
@@ -741,6 +771,9 @@ def _load_json_chapitres(path: Path, subject: str) -> list[dict]:
             ]
             if not questions:
                 _, questions = _extract_sub_questions(enonce)
+            else:
+                _, extracted = _extract_sub_questions(enonce)
+                questions = _prefer_fuller_questions(questions, extracted)
             if not questions:
                 questions = [enonce]  # questions embedded inline in enonce
             source = exo.get('source') or ''
@@ -852,8 +885,8 @@ def _load_json_economie(path: Path, subject: str) -> list[dict]:
         if not enonce:
             return
         questions = [str(q).strip() for q in (exo.get('questions') or []) if str(q).strip()]
-        if not questions:
-            _, questions = _extract_sub_questions(enonce)
+        _, extracted = _extract_sub_questions(enonce)
+        questions = _prefer_fuller_questions(questions, extracted)
         ch = (chapter or exo.get('chapitre') or exo.get('theme') or 'Économie').strip()
         item = {
             'source': exo.get('source', ''),

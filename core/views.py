@@ -5017,20 +5017,29 @@ def api_get_exercise(request):
         src = _re.sub(r'exam_[a-z]+_[a-z]+-(\d{4})', r'Bac Haïti \1', src, flags=_re.IGNORECASE)
         exercise_data['source'] = src.strip()
 
-        # 2. Si questions manquantes, extraire a)/1. depuis l'énoncé (sans IA)
+        # 2. Extraire a)/1. depuis l'énoncé et garder le libellé le plus complet
         questions = [str(q).strip() for q in (exercise_data.get('questions') or []) if str(q).strip()]
-        if len(questions) < 2:
-            try:
-                from .exo_loader import _extract_sub_questions
-                intro = exercise_data.get('intro') or exercise_data.get('enonce', '')
-                intro_clean, extracted = _extract_sub_questions(intro)
-                if extracted:
-                    if intro_clean:
-                        exercise_data['intro'] = intro_clean
-                        exercise_data['enonce'] = intro_clean
-                    exercise_data['questions'] = extracted
-            except Exception:
-                pass
+        try:
+            from .exo_loader import _extract_sub_questions, _prefer_fuller_questions
+            intro = exercise_data.get('intro') or exercise_data.get('enonce', '')
+            enonce = exercise_data.get('enonce') or intro
+            extracted: list[str] = []
+            for blob in (enonce, intro):
+                _, qs = _extract_sub_questions(blob)
+                if qs:
+                    extracted = _prefer_fuller_questions(extracted, qs)
+            if extracted:
+                intro_clean, from_intro = _extract_sub_questions(intro)
+                if from_intro and intro_clean:
+                    exercise_data['intro'] = intro_clean
+                enonce_clean, from_enonce = _extract_sub_questions(enonce)
+                if from_enonce and enonce_clean:
+                    exercise_data['enonce'] = enonce_clean
+                elif from_intro and intro_clean:
+                    exercise_data['enonce'] = intro_clean
+                exercise_data['questions'] = _prefer_fuller_questions(questions, extracted)
+        except Exception:
+            pass
         try:
             from .exercise_display import format_exercise_display_local
             _fmt = format_exercise_display_local(

@@ -260,6 +260,34 @@ if __name__ == '__main__':
         sys.exit(1)
     print('OK inline a) b) c) stripped from intro')
 
+    from core.exo_loader import _prefer_fuller_questions, _sanitize_exercise
+    from core.exercise_display import format_exercise_display_local
+    short = ['a) Schéma et polarité.', 'b) Équation.', 'c) FEM.']
+    fuller = _prefer_fuller_questions(short, qs)
+    if 'Donner le schéma' not in fuller[0] or 'Équation.' in fuller[1]:
+        print('FAILED prefer fuller questions:', fuller)
+        sys.exit(1)
+    sanitized = _sanitize_exercise({
+        'theme': 'Oxydoréduction',
+        'intro': pile,
+        'enonce': pile,
+        'questions': short,
+    })
+    if 'Donner le schéma' not in sanitized['questions'][0]:
+        print('FAILED sanitize fuller questions:', sanitized['questions'])
+        sys.exit(1)
+    if 'a) Donner' in sanitized.get('intro', '') or 'a) Donner' in sanitized.get('enonce', ''):
+        print('FAILED sanitize still has questions in stem:', sanitized.get('intro'))
+        sys.exit(1)
+    formatted = format_exercise_display_local('chimie', pile, short)
+    if 'Donner le schéma' not in formatted['questions'][0]:
+        print('FAILED format_exercise_display fuller questions:', formatted['questions'])
+        sys.exit(1)
+    if 'a) Donner' in formatted['intro']:
+        print('FAILED format still has questions in intro:', formatted['intro'])
+        sys.exit(1)
+    print('OK full BAC wording preferred over short JSON titles')
+
     scanned, converted, leftover = run_real_json()
     print(f'Real JSON: scanned={scanned} converted_to_html={converted} leftover_pipe_blocks={len(leftover)}')
     if leftover:

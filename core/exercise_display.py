@@ -614,7 +614,7 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
     - Déduplication légère
     - Enveloppement LaTeX inline basique
     """
-    from core.exo_loader import _extract_sub_questions
+    from core.exo_loader import _extract_sub_questions, _prefer_fuller_questions
 
     intro = (intro or '').strip()
     questions = [str(q).strip() for q in (questions or []) if str(q).strip()]
@@ -622,8 +622,7 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
     if extracted:
         if intro_clean:
             intro = intro_clean
-        if not questions or len(extracted) > len(questions):
-            questions = extracted
+        questions = _prefer_fuller_questions(questions, extracted)
 
     intro = _dedupe_obvious_repeats(intro)
     intro = _tabularize(intro).strip()

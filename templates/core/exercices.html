@@ -901,13 +901,28 @@ function extractSubQuestions(text) {
   return { intro: src, questions: [] };
 }
 
+function preferFullerQuestions(listed, extracted) {
+  listed = (listed || []).filter(Boolean);
+  extracted = (extracted || []).filter(Boolean);
+  if (!extracted.length) return listed;
+  if (!listed.length) return extracted;
+  if (extracted.length > listed.length) return extracted;
+  const n = Math.max(listed.length, extracted.length);
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const s = listed[i] || '';
+    const e = extracted[i] || '';
+    out.push(e.length > s.length ? e : s);
+  }
+  return out.filter(Boolean);
+}
+
 function getExerciseQuestions(ex) {
-  const listed = (ex.questions || []).filter(function(q) { return q && String(q).trim(); });
+  const listed = (ex.questions || []).filter(function(q) { return q && String(q).trim(); }).map(function(q) { return String(q).trim(); });
   const blob = ((ex.intro || ex.enonce || '') + '\n' + (ex.enonce || '')).trim();
   const split = extractSubQuestions(blob);
-  if (listed.length >= 2) return listed;
-  if (split.questions.length) return split.questions;
-  if (listed.length) return listed;
+  const qs = preferFullerQuestions(listed, split.questions);
+  if (qs.length) return qs;
   if (blob) return ['Résous cet exercice en expliquant ta démarche étape par étape.'];
   return [];
 }
