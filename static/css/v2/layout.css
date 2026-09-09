@@ -642,3 +642,95 @@ a.v2-xp-strip__main:hover .v2-xp-strip__xp {
 @media (prefers-reduced-motion: reduce) {
   .otb-push-modal__box, .otb-push-modal__icon { animation: none; }
 }
+
+/* Persistent sidebar: ignore page CSS that leaks during SPA swaps */
+.app > .sidebar {
+  isolation: isolate;
+}
+.app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::before,
+.app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::after {
+  content: none !important;
+}
+.app > .sidebar i.fa,
+.app > .sidebar i.fas,
+.app > .sidebar i.far,
+.app > .sidebar i.fab {
+  font-family: "Font Awesome 6 Free" !important;
+  font-style: normal !important;
+  font-weight: 900 !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  -webkit-font-smoothing: antialiased !important;
+  display: inline-block !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+}
+.app > .sidebar .v2-xp-strip {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  margin: 0.35rem 0.5rem 0.5rem !important;
+  padding: 0.4rem 0.4rem 0.4rem 0.55rem !important;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(37, 99, 235, 0.08)) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  border-radius: var(--v2-radius-md, 12px) !important;
+  color: var(--t1) !important;
+}
+.app > .sidebar .v2-xp-strip__main {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.app > .sidebar .v2-xp-strip__icon {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 8px !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--green) !important;
+  font-size: 0.75rem !important;
+  flex-shrink: 0 !important;
+}
+.app > .sidebar .v2-xp-strip__cash {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.28rem !important;
+  color: var(--green) !important;
+  text-decoration: none !important;
+}
+.app > .sidebar .sidebar-hub-label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  position: relative !important;
+  color: var(--t3) !important;
+}
+.app > .sidebar .sidebar-hub-label i {
+  width: 14px !important;
+  font-size: 0.72rem !important;
+  position: static !important;
+}
+.app > .sidebar .sidebar-hub-label--accueil i { color: var(--green) !important; }
+.app > .sidebar .sidebar-hub-label--apprendre i { color: var(--blue2) !important; }
+.app > .sidebar .sidebar-hub-label--match i { color: var(--orange) !important; }
+.app > .sidebar .sidebar-hub-label--astra i { color: var(--purple) !important; }
+.app > .sidebar .sidebar-hub-label--profil i { color: var(--yellow) !important; }
+.app > .sidebar .nav-item {
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  text-decoration: none !important;
+}
+.app > .sidebar .nav-item i {
+  width: 18px !important;
+  font-size: 0.875rem !important;
+  position: static !important;
+}

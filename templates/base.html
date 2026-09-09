@@ -181,6 +181,11 @@
     .nav-item:hover { background: var(--card); color: var(--t1); }
     .nav-item.active { background: rgba(16,185,129,.15); color: var(--green); }
     .nav-item i { width: 18px; text-align: center; font-size: .875rem; }
+    .app > .sidebar { isolation: isolate; }
+    .app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::before,
+    .app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::after {
+      content: none !important;
+    }
     .msg-badge { background:#ef4444; color:#fff; font-size:.6rem; font-weight:800; min-width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; border-radius:99px; padding:0 4px; margin-left:auto; }
     .sidebar-footer { margin-top: auto; padding: 1rem; border-top: 1px solid var(--border); }
     .logout-btn { display: flex; align-items: center; gap: .75rem; color: var(--t3); font-size: .875rem; padding: .5rem; border-radius: 8px; width: 100%; background: none; transition: color .15s; }

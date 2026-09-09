@@ -414,6 +414,8 @@
     return root.querySelectorAll('head style, body > style');
   }
 
+  var MAIN_CSS_SCOPE = '.app > .main';
+
   function scrubDangerousInlineCss(css) {
     if (!css) return '';
     return css
@@ -423,7 +425,139 @@
       .replace(/\.v2-bottom-nav\s*\{[^}]*display\s*:\s*none[^}]*\}/gi, '')
       .replace(/\.sidebar[^{]*\{[^}]*\}/gi, '')
       .replace(/body\.sidebar-open[^{]*\{[^}]*\}/gi, '')
+      .replace(/[^{}]*?(?:\.v2-xp-strip|\.sidebar-hub-label|\.nav-item)[^{]*\{[^}]*\}/gi, '')
       .trim();
+  }
+
+  function extractBraceBlock(css, openIdx) {
+    var depth = 0;
+    for (var j = openIdx; j < css.length; j++) {
+      var ch = css.charAt(j);
+      if (ch === '{') depth++;
+      else if (ch === '}') {
+        depth--;
+        if (depth === 0) return { body: css.slice(openIdx + 1, j), end: j + 1 };
+      }
+    }
+    return { body: css.slice(openIdx + 1), end: css.length };
+  }
+
+  function prefixCssSelectors(selectors, scope) {
+    return selectors.split(',').map(function (sel) {
+      sel = sel.trim();
+      if (!sel) return sel;
+      if (/^(from|to|\d+%)$/i.test(sel)) return sel;
+      if (/^(html|body|:root)\b/i.test(sel)) return sel;
+      if (sel.indexOf(scope) === 0) return sel;
+      if (/^\.app\b/.test(sel)) {
+        return sel.replace(/^(\.app(?:\.[a-zA-Z0-9_-]+)*)(?!\s*>\s*\.main)/, '$1 > .main');
+      }
+      if (/^\.sidebar\b/.test(sel) || /^#v2BottomNav\b/.test(sel) || /^\.v2-bottom-nav\b/.test(sel)) {
+        return sel;
+      }
+      return scope + ' ' + sel;
+    }).join(', ');
+  }
+
+  function scopeCssBlock(css, scope) {
+    var out = '';
+    var i = 0;
+    css = String(css || '');
+    while (i < css.length) {
+      if (css.charAt(i) === '/' && css.charAt(i + 1) === '*') {
+        var endc = css.indexOf('*/', i + 2);
+        if (endc < 0) break;
+        out += css.slice(i, endc + 2);
+        i = endc + 2;
+        continue;
+      }
+      if (css.charAt(i) === '@') {
+        var rest = css.slice(i);
+        var nest = rest.match(/^@(media|supports|layer|container)[^{]*\{/i);
+        if (nest) {
+          var inner = extractBraceBlock(css, i + nest[0].length - 1);
+          out += nest[0].slice(0, -1) + '{' + scopeCssBlock(inner.body, scope) + '}';
+          i = inner.end;
+          continue;
+        }
+        var atBrace = css.indexOf('{', i);
+        var atSemi = css.indexOf(';', i);
+        if (atBrace !== -1 && (atSemi === -1 || atBrace < atSemi) &&
+            /^@(keyframes|font-face|-webkit-keyframes)/i.test(rest)) {
+          var kf = extractBraceBlock(css, atBrace);
+          out += css.slice(i, kf.end);
+          i = kf.end;
+          continue;
+        }
+        if (atSemi >= 0 && (atBrace === -1 || atSemi < atBrace)) {
+          out += css.slice(i, atSemi + 1);
+          i = atSemi + 1;
+          continue;
+        }
+      }
+      var brace = css.indexOf('{', i);
+      if (brace < 0) {
+        out += css.slice(i);
+        break;
+      }
+      var selectors = css.slice(i, brace).trim();
+      var block = extractBraceBlock(css, brace);
+      if (selectors && selectors.charAt(0) !== '@') {
+        out += prefixCssSelectors(selectors, scope) + '{' + block.body + '}';
+      } else if (selectors) {
+        out += css.slice(i, block.end);
+      }
+      i = block.end;
+    }
+    return out;
+  }
+
+  function scopeCssToMain(css) {
+    return scopeCssBlock(scrubDangerousInlineCss(css), MAIN_CSS_SCOPE);
+  }
+
+  function absolutizeCssUrls(css, href) {
+    if (!css || !href) return css || '';
+    var base;
+    try {
+      base = new URL(href, window.location.origin);
+      base = base.href.replace(/[^\/]*$/, '');
+    } catch (e) {
+      return css;
+    }
+    return css.replace(/url\(\s*(['"]?)(?!data:|https?:|\/\/|\/)([^'")]+)\1\s*\)/gi, function (_, q, path) {
+      return 'url(' + q + base + path + q + ')';
+    });
+  }
+
+  function extractEmbeddedStyles(html) {
+    var chunks = [];
+    var cleaned = String(html || '').replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, function (_, css) {
+      if (css && css.trim()) chunks.push(css);
+      return '';
+    });
+    return { html: cleaned, css: chunks.join('\n') };
+  }
+
+  function appendScopedPageCss(css) {
+    var scoped = scopeCssToMain(css);
+    if (!scoped) return;
+    var s = document.querySelector('head style[data-otb-spa="page"]:not([data-otb-href])');
+    if (!s) {
+      s = document.createElement('style');
+      s.setAttribute('data-otb-spa', 'page');
+      document.head.appendChild(s);
+    }
+    s.textContent = ((s.textContent || '') + '\n' + scoped).trim();
+  }
+
+  function dedupeSidebars() {
+    var app = document.querySelector('.app');
+    if (!app) return;
+    var keep = app.querySelector(':scope > .sidebar');
+    document.querySelectorAll('.sidebar').forEach(function (el) {
+      if (el !== keep) el.remove();
+    });
   }
 
   function isProtectedHeadStyle(style) {
@@ -447,7 +581,7 @@
   }
 
   function stripPageInlineCss() {
-    pageStyleNodes(document).forEach(function (style) {
+    document.querySelectorAll('head style[data-otb-spa]:not([data-otb-href]), body > style').forEach(function (style) {
       if (isProtectedHeadStyle(style)) return;
       style.remove();
     });
@@ -456,7 +590,13 @@
   function tagInitialPageCss() {
     pageStyleNodes(document).forEach(function (style) {
       if (isProtectedHeadStyle(style)) return;
-      style.setAttribute('data-otb-spa', 'page');
+      if (style.getAttribute('data-otb-href')) return;
+      var scoped = scopeCssToMain(style.textContent || '');
+      var s = document.createElement('style');
+      s.setAttribute('data-otb-spa', 'page');
+      s.textContent = scoped;
+      document.head.appendChild(s);
+      style.remove();
     });
   }
 
@@ -465,29 +605,36 @@
     document.querySelectorAll('head link[rel="stylesheet"]').forEach(function (link) {
       if (assetHrefKey(link.getAttribute('href') || '') === key) found = link;
     });
+    if (found) return found;
+    document.querySelectorAll('head style[data-otb-href]').forEach(function (style) {
+      if (style.getAttribute('data-otb-href') === key) found = style;
+    });
     return found;
   }
 
   function loadStylesheet(href) {
     var key = assetHrefKey(href);
-    var existing = findStylesheetLink(key);
-    if (existing) {
-      try {
-        if (existing.sheet) return Promise.resolve();
-      } catch (e) {}
+    if (findStylesheetLink(key)) return Promise.resolve();
+    return fetch(href, { credentials: 'same-origin' }).then(function (res) {
+      if (!res.ok) throw new Error('css ' + res.status);
+      return res.text();
+    }).then(function (css) {
+      if (findStylesheetLink(key)) return;
+      var s = document.createElement('style');
+      s.setAttribute('data-otb-spa', 'page');
+      s.setAttribute('data-otb-href', key);
+      s.textContent = scopeCssToMain(absolutizeCssUrls(css, href));
+      document.head.appendChild(s);
+    }).catch(function () {
       return new Promise(function (resolve) {
-        existing.addEventListener('load', resolve, { once: true });
-        existing.addEventListener('error', resolve, { once: true });
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        l.setAttribute('data-otb-spa', 'page');
+        l.addEventListener('load', resolve, { once: true });
+        l.addEventListener('error', resolve, { once: true });
+        document.head.appendChild(l);
       });
-    }
-    return new Promise(function (resolve) {
-      var l = document.createElement('link');
-      l.rel = 'stylesheet';
-      l.href = href;
-      l.setAttribute('data-otb-spa', 'page');
-      l.addEventListener('load', resolve, { once: true });
-      l.addEventListener('error', resolve, { once: true });
-      document.head.appendChild(l);
     });
   }
 
@@ -496,7 +643,7 @@
     if (pkg && pkg.inlineCss) {
       var s = document.createElement('style');
       s.setAttribute('data-otb-spa', 'page');
-      s.textContent = scrubDangerousInlineCss(pkg.inlineCss);
+      s.textContent = scopeCssToMain(pkg.inlineCss);
       document.head.appendChild(s);
     }
   }
@@ -521,15 +668,13 @@
       if (!isSpaPageStylesheet(href)) return;
       if (!keep[assetHrefKey(href)]) link.remove();
     });
+    document.querySelectorAll('head style[data-otb-href]').forEach(function (style) {
+      var key = style.getAttribute('data-otb-href') || '';
+      if (!keep[key]) style.remove();
+    });
 
     newHrefs.forEach(function (href) {
-      var key = assetHrefKey(href);
-      if (findStylesheetLink(key)) return;
-      var l = document.createElement('link');
-      l.rel = 'stylesheet';
-      l.href = href;
-      l.setAttribute('data-otb-spa', 'page');
-      document.head.appendChild(l);
+      loadStylesheet(href);
     });
 
     injectInlinePageCss(pkg);
@@ -550,7 +695,8 @@
   }
 
   function lockDesktopSidebar() {
-    var sidebar = document.querySelector('.sidebar');
+    dedupeSidebars();
+    var sidebar = document.querySelector('.app > .sidebar') || document.querySelector('.sidebar');
     if (!sidebar) return;
     sidebar.style.removeProperty('transform');
     sidebar.style.removeProperty('position');
@@ -662,17 +808,20 @@
     var main = getAppMain(app);
     var pageScriptsHolder = doc.getElementById('otb-page-scripts');
     var badge = doc.querySelector('[data-otb-nav-badge="messages"]');
+    var inlineCss = collectPageInlineCss(doc);
+    var mainExtract = extractEmbeddedStyles(main ? main.innerHTML : '');
+    if (mainExtract.css) inlineCss = (inlineCss + '\n' + mainExtract.css).trim();
 
     return {
       appClass: app.className,
       appHTML: app.innerHTML,
-      mainHTML: main ? main.innerHTML : app.innerHTML,
+      mainHTML: main ? mainExtract.html : app.innerHTML,
       hasMain: !!main,
       title: doc.title || '',
       scripts: serializeScripts(collectPageScripts(doc)),
       pageScriptsHtml: pageScriptsHolder ? pageScriptsHolder.innerHTML : '',
       stylesheetHrefs: collectPageStylesheetHrefs(doc),
-      inlineCss: collectPageInlineCss(doc),
+      inlineCss: inlineCss,
       unreadMsg: badge && !badge.hidden ? (badge.textContent || '').trim() : '0',
       unreadDot: !!(doc.querySelector('[data-otb-nav-dot="messages"]') && !doc.querySelector('[data-otb-nav-dot="messages"]').hidden)
     };
@@ -780,18 +929,25 @@
       if (isSpaPageStylesheet(href)) hrefs.push(href);
     });
     var inlineChunks = [];
-    document.querySelectorAll('head style').forEach(function (style) {
+    document.querySelectorAll('head style, body > style').forEach(function (style) {
       if (isProtectedHeadStyle(style)) return;
+      if (style.getAttribute('data-otb-href')) return;
       var text = scrubDangerousInlineCss((style.textContent || '').trim());
       if (text) inlineChunks.push(text);
     });
     var scriptNodes = pageScriptsHolder
       ? Array.prototype.slice.call(pageScriptsHolder.querySelectorAll('script'))
       : [];
+    var storedMain = main ? main.innerHTML : app.innerHTML;
+    if (main) {
+      var extracted = extractEmbeddedStyles(storedMain);
+      storedMain = extracted.html;
+      if (extracted.css) inlineChunks.push(extracted.css);
+    }
     _pagePackages[path] = {
       appClass: app.className,
       appHTML: app.innerHTML,
-      mainHTML: main ? main.innerHTML : app.innerHTML,
+      mainHTML: storedMain,
       hasMain: !!main,
       title: document.title || '',
       scripts: serializeScripts(scriptNodes),
@@ -856,16 +1012,24 @@
 
       var main = getAppMain(app);
       if (main && pkg.mainHTML != null) {
-        main.innerHTML = pkg.mainHTML;
+        var extracted = extractEmbeddedStyles(pkg.mainHTML);
+        main.innerHTML = extracted.html;
+        if (extracted.css) appendScopedPageCss(extracted.css);
       } else if (sidebar) {
         var kept = sidebar;
-        app.innerHTML = pkg.appHTML || '';
+        var incoming = extractEmbeddedStyles(pkg.appHTML || '');
+        app.innerHTML = incoming.html;
+        if (incoming.css) appendScopedPageCss(incoming.css);
         var incomingSidebar = app.querySelector('.sidebar');
         if (incomingSidebar) incomingSidebar.replaceWith(kept);
         else app.insertBefore(kept, app.firstChild);
       } else {
-        app.innerHTML = pkg.appHTML || '';
+        var raw = extractEmbeddedStyles(pkg.appHTML || '');
+        app.innerHTML = raw.html;
+        if (raw.css) appendScopedPageCss(raw.css);
       }
+      dedupeSidebars();
+      lockDesktopSidebar();
 
       syncPageScriptsHolderFromPackage(pkg);
 
