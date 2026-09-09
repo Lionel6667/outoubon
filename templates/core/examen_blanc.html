@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Examen Blanc  OU TOU BON{% endblock %}
 
-{% block body %}
+{% block extra_css %}
 <style>
 
 .exam-sheet { background:#0f172a; border:1px solid rgba(37,99,235,.22); border-radius:18px; overflow:hidden; box-shadow:0 12px 60px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.03); }
@@ -716,7 +716,9 @@ body.mau-open #examMainCol { margin-right:min(460px,94vw); transition:margin .35
   .eib-mau-btn i, .eib-submit-btn i { margin-right:0; }
 }
 </style>
+{% endblock %}
 
+{% block body %}
 <div class="app has-topbar">
   {% include "core/_sidebar.html" with active_page="examen_blanc" %}
 
@@ -989,8 +991,6 @@ function _markGuestExamConsumed() {
   window.GUEST_EXAM_DONE = 1;
   try { sessionStorage.setItem(GUEST_EXAM_STORAGE_KEY, '1'); } catch (e) { /* ignore */ }
 }
-
-_syncGuestExamDoneFromStorage();
 
 _syncGuestExamDoneFromStorage();
 
@@ -1518,6 +1518,9 @@ function updateCountdownUI() {
   const s   = _timerSec % 60;
   const fmt = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
   const elapsedPct = Math.min(100, Math.round((1 - _timerSec / EXAM_DURATION) * 100));
+  const warn   = _timerSec <= 900;
+  const danger = _timerSec <= 300;
+  const tone   = danger ? ' danger' : warn ? ' warn' : '';
 
   const clockEl = document.getElementById('stickyClockVal');
   const fillEl  = document.getElementById('stickyTimerFill');
@@ -1525,19 +1528,18 @@ function updateCountdownUI() {
   const eibTimer = document.getElementById('eibTimer');
   if (!clockEl && !eibTimer) return;
 
-  if (clockEl) clockEl.textContent = fmt;
+  if (clockEl) {
+    clockEl.textContent = fmt;
+    clockEl.className = 'timer-clock' + tone;
+  }
   if (eibTimer) {
     eibTimer.textContent = fmt;
-    eibTimer.className = 'eib-timer' + (danger ? ' danger' : warn ? ' warn' : '');
+    eibTimer.className = 'eib-timer' + tone;
   }
   if (pctEl) pctEl.textContent = elapsedPct + '%';
-
-  const warn   = _timerSec <= 900;
-  const danger = _timerSec <= 300;
-  clockEl.className = 'timer-clock' + (danger?' danger':warn?' warn':'');
   if (fillEl) {
     fillEl.style.width = elapsedPct + '%';
-    fillEl.className   = 'timer-progress-fill' + (danger?' danger':warn?' warn':'');
+    fillEl.className   = 'timer-progress-fill' + tone;
   }
 
   if (!examSubmitted) document.title = `[${fmt}] Examen Blanc — OU TOU BON`;
@@ -1669,7 +1671,7 @@ async function startExamen(subject) {
     const eibSubj = document.getElementById('eibSubject');
     if (eibSubj) eibSubj.textContent = (d.exam.title || subject).replace(/^BACCALAURÉAT HAÏTI — ÉPREUVE DE /, '');
     renderExam(d.exam);
-    hide('examLoading'); show('examSheet');
+    hide('examLoading'); hide('examPicker'); show('examSheet');
     const mauSubj = document.getElementById('mauSubject');
     if (mauSubj && d.exam) {
       mauSubj.value = (d.exam.title || '').replace(/^BACCALAURÉAT HAÏTI — ÉPREUVE DE /, '');
@@ -1693,7 +1695,7 @@ async function startExamen(subject) {
     startCountdown();
     document.getElementById('examSheet').scrollIntoView({behavior:'smooth',block:'start'});
   } catch(e) {
-    hide('examLoading'); show('examPicker');
+    hide('examLoading'); hide('examSheet'); show('examPicker');
     showToast('Erreur : ' + e.message, 'error');
   }
 }
