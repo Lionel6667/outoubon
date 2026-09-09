@@ -227,6 +227,13 @@ def _split_series_values(vals_str: str, expected_n: int = 0) -> list[str]:
     French convention: commas can be decimal points, semicolons list separators.
     """
     vals_str = vals_str.strip()
+    range_m = re.fullmatch(r'(\d+)\s*\.{2,}\s*(\d+)', vals_str)
+    if range_m:
+        a, b = int(range_m.group(1)), int(range_m.group(2))
+        if 0 <= b - a <= 40:
+            expanded = [str(i) for i in range(a, b + 1)]
+            if not expected_n or len(expanded) == expected_n:
+                return expanded
     by_semi  = [v.strip() for v in vals_str.split(';')  if v.strip()]
     by_comma = [v.strip() for v in vals_str.split(',')  if v.strip()]
     if expected_n:

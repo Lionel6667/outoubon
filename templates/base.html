@@ -1412,8 +1412,10 @@ function renderMarkdown(raw) {
   text = text.replace(/^##\s+(.+)$/gm, '<h3>$1</h3>');
   text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  if (text.includes('|') && !text.endsWith('\n')) text += '\n';
-  text = text.replace(/((?:^(?:\|.+\||.+\t.+)\s*\n)+)/gm, block => {
+  if (!text.includes('<table')) {
+    text = restoreCollapsedPipeTable(text);
+    if (text.includes('|') && !text.endsWith('\n')) text += '\n';
+    text = text.replace(/((?:^(?:\|.+\||.+\t.+)\s*\n)+)/gm, block => {
     const lines = block.trim().split('\n');
     const hasPipe = lines.some(l => l.trim().startsWith('|'));
     const hasTsv  = lines.some(l => !l.trim().startsWith('|') && l.includes('\t'));
@@ -1426,20 +1428,22 @@ function renderMarkdown(raw) {
     });
     return piped.join('\n') + '\n';
   });
-  text = text.replace(/((?:^\|.+\|\s*\n)+)/gm, tb => {
+    text = text.replace(/((?:^\|.+\|\s*\n)+)/gm, tb => {
     const rows = tb.trim().split('\n').filter(r => !/^\|[-:| ]+\|$/.test(r.trim()));
     if (!rows.length) return tb;
     const toTd = (row, tag) => row.split('|').slice(1,-1).map(c => `<${tag}>${c.trim()}</${tag}>`).join('');
     const [head, ...body] = rows;
     return `<div class="tbl-wrap"><table><thead><tr>${toTd(head,'th')}</tr></thead><tbody>${body.map(r=>`<tr>${toTd(r,'td')}</tr>`).join('')}</tbody></table></div>`;
   });
+  }
   text = text.replace(/^---+$/gm, '<hr>');
   text = text.replace(/((?:^\d+\.\s.+\n?)+)/gm, b => `<ol>${b.trim().split('\n').map(l=>`<li>${l.replace(/^\d+\.\s/,'')}</li>`).join('')}</ol>`);
   text = text.replace(/((?:^[-*•]\s.+\n?)+)/gm, b => `<ul>${b.trim().split('\n').map(l=>`<li>${l.replace(/^[-*•]\s/,'')}</li>`).join('')}</ul>`);
   text = text.split('\n').map(line => {
     const t = line.trim();
     if (!t) return '';
-    if (/^<(h[1-6]|ul|ol|li|pre|table|thead|tbody|tr|th|td|hr|div|figure|blockquote)/.test(t)) return line;
+    if (/^<\/?(h[1-6]|ul|ol|li|pre|table|thead|tbody|tr|th|td|hr|div|figure|blockquote)\b/i.test(t)) return line;
+    if (t.indexOf('<table') !== -1 || t.indexOf('</table') !== -1 || t.indexOf('tbl-wrap') !== -1) return line;
     return `<p>${line}</p>`;
   }).join('\n');
   text = text.replace(/<p><\/p>/g, '');

@@ -47,7 +47,8 @@ def _dedupe_obvious_repeats(text: str) -> str:
     parts = text.split('\n')
     cleaned = []
     for part in parts:
-        if '|' in part:
+        stripped = part.lstrip()
+        if '|' in part or stripped.startswith('<') or 'tbl-wrap' in part:
             cleaned.append(part)
             continue
         part = _DUP_TOKEN_RUN.sub(r'\1', part)
@@ -112,6 +113,216 @@ def _wrap_inline_math(text: str) -> str:
     return _MATH_INLINE_PAT.sub(_wrap, text)
 
 
+def _looks_like_md_table(text: str) -> bool:
+    return bool(re.search(r'\|.+\|\s*\n\s*\|[-:| ]+\|', text or ''))
+
+
+def _restore_collapsed_md_table(text: str) -> str:
+    """Remet les retours à la ligne d'un tableau markdown collé sur une ligne."""
+    if not text or '|' not in text:
+        return text
+    if re.search(r'\n\s*\|', text):
+        return text
+    if not re.search(r'\|[\s:-]*---', text):
+        return text
+    text = re.sub(r'(\|)\s+(\|(?:[\s]*:?-{3,}:?[\s]*\|)+)', r'\1\n\2', text)
+    text = re.sub(r'(\|)\s+(\|\s*[A-Za-zÀ-ÿ_])', r'\1\n\2', text)
+    return text
+
+
+def _md_tables_to_html(text: str) -> str:
+    """Convertit les tableaux markdown (2+ lignes `| ... |`) en HTML."""
+    if not text or '|' not in text or '<table' in text.lower():
+        return text
+
+    def _convert_block(block: str) -> str:
+        lines = [ln.strip() for ln in block.strip().split('\n') if ln.strip()]
+        rows: list[list[str]] = []
+        for ln in lines:
+            if re.match(r'^\|[-:| ]+\|$', ln):
+                continue
+            if not ln.startswith('|'):
+                return block
+            cells = [c.strip() for c in ln.strip('|').split('|')]
+            rows.append(cells)
+        if len(rows) < 2:
+            return block
+        width = max(len(r) for r in rows)
+        rows = [r + [''] * (width - len(r)) for r in rows]
+        head, body = rows[0], rows[1:]
+        th = ''.join(f'<th>{c}</th>' for c in head)
+        trs = ''.join(
+            '<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>'
+            for r in body
+        )
+        return (
+            f'<div class="tbl-wrap"><table><thead><tr>{th}</tr></thead>'
+            f'<tbody>{trs}</tbody></table></div>'
+        )
+
+    padded = text if text.endswith('\n') else text + '\n'
+    return re.sub(
+        r'(?:^[ \t]*\|.+\|[ \t]*\n){1,}(?:^[ \t]*\|.+\|[ \t]*)',
+        lambda m: _convert_block(m.group(0)) + '\n',
+        padded,
+        flags=re.MULTILINE,
+    )
+
+
+def _points_tuples_to_table(text: str) -> str:
+    """(3,3), (5,5), (6,11) ou \\((1,1), (3,2)\\) → tableau x/y."""
+    if not text or _looks_like_md_table(text) or '<table' in text.lower():
+        return text
+    matches = list(re.finditer(r'\(\s*(-?\d+(?:[.,]\d+)?)\s*,\s*(-?\d+(?:[.,]\d+)?)\s*\)', text))
+    if len(matches) < 2:
+        return text
+    xs = [m.group(1) for m in matches]
+    ys = [m.group(2) for m in matches]
+    n = len(xs)
+    header = '| | ' + ' | '.join(str(i) for i in range(1, n + 1)) + ' |'
+    sep = '|---|' + '---|' * n
+    row_x = '| x | ' + ' | '.join(xs) + ' |'
+    row_y = '| y | ' + ' | '.join(ys) + ' |'
+    table = '\n'.join([header, sep, row_x, row_y])
+    start, end = matches[0].start(), matches[-1].end()
+    if start >= 2 and text[start - 2:start] == '\\(':
+        start -= 2
+    if text[end:end + 2] == '\\)':
+        end += 2
+    before = text[:start].rstrip(' :')
+    after = text[end:].lstrip(' .;')
+    return (before + '\n\n' + table + ('\n\n' + after if after else '')).strip()
+
+
+def _classes_effectifs_to_table(text: str) -> str:
+    """classes [4;8[, [8;12[ ; effectifs 8,14 → tableau."""
+    if not text or _looks_like_md_table(text) or '<table' in text.lower():
+        return text
+    m = re.search(
+        r'(?is)classes?\s*((?:\[[^\[\]]+\[\s*,?\s*)+)\s*;\s*effectifs?\s*([-\d][-\d,;.\s]*)',
+        text,
+    )
+    if not m:
+        return text
+    classes = re.findall(r'\[[^\[\]]+\[', m.group(1))
+    from core.exo_loader import _split_series_values
+    effectifs = _split_series_values(m.group(2).strip(' .;'), expected_n=len(classes))
+    if len(classes) < 2 or len(classes) != len(effectifs):
+        return text
+    header = '| Classe | ' + ' | '.join(classes) + ' |'
+    sep = '|---|' + '---|' * len(classes)
+    row = '| Effectif | ' + ' | '.join(effectifs) + ' |'
+    table = '\n'.join([header, sep, row])
+    return text[:m.start()].rstrip() + '\n\n' + table + text[m.end():]
+
+
+def _plain_xy_to_table(text: str) -> str:
+    """heures x = 2,2,6 ; notes y = 5,10  (sans délimiteurs LaTeX)."""
+    if not text or _looks_like_md_table(text) or '<table' in text.lower():
+        return text
+    m = re.search(
+        r'(?is)(?:^|[^\w])x\s*=\s*([-\d.][-\d,;.\s]*?)\s*[,;]\s*y\s*=\s*([-\d][-\d,;.\s]+?)(?=\s*[.!?]|\s*$)',
+        text,
+    )
+    if not m:
+        return text
+    from core.exo_loader import _split_series_values
+    xs = _split_series_values(m.group(1).strip(' .;'))
+    ys = _split_series_values(m.group(2).strip(' .;'), expected_n=len(xs))
+    if len(xs) < 2 or len(xs) != len(ys):
+        return text
+    n = len(xs)
+    header = '| | ' + ' | '.join(str(i) for i in range(1, n + 1)) + ' |'
+    sep = '|---|' + '---|' * n
+    table = '\n'.join([
+        header, sep,
+        '| x | ' + ' | '.join(xs) + ' |',
+        '| y | ' + ' | '.join(ys) + ' |',
+    ])
+    return text[:m.start()].rstrip() + '\n\n' + table + text[m.end():]
+
+
+def _labeled_pair_to_table(text: str) -> str:
+    """année/population, Machine X/Y — deux listes nommées de même longueur."""
+    if not text or _looks_like_md_table(text) or '<table' in text.lower():
+        return text
+    from core.exo_loader import _split_series_values
+    m = re.search(
+        r'(?is)(ann[ée]es?)\s+([-\d][-\d,;.\s]+?)\s*;\s*(population[^\d\n]{0,40})\s*([-\d][-\d,;.\s]+)',
+        text,
+    )
+    if m:
+        lab1, s1, lab2, s2 = m.group(1).strip(), m.group(2), m.group(3).strip(), m.group(4)
+    else:
+        m = re.search(
+            r'(?is)machine\s*x\s*:\s*([-\d][-\d,;.\s]+?)\s*machine\s*y\s*:\s*([-\d][-\d,;.\s]+)',
+            text,
+        )
+        if not m:
+            return text
+        lab1, s1, lab2, s2 = 'X', m.group(1), 'Y', m.group(2)
+    xs = _split_series_values(s1.strip(' .;'))
+    ys = _split_series_values(s2.strip(' .;'), expected_n=len(xs))
+    if len(xs) < 2 or len(xs) != len(ys):
+        return text
+    n = len(xs)
+    header = '| | ' + ' | '.join(str(i) for i in range(1, n + 1)) + ' |'
+    sep = '|---|' + '---|' * n
+    table = '\n'.join([
+        header, sep,
+        f'| {lab1} | ' + ' | '.join(xs) + ' |',
+        f'| {lab2} | ' + ' | '.join(ys) + ' |',
+    ])
+    return text[:m.start()].rstrip() + '\n\n' + table + text[m.end():]
+
+
+def _xy_lists_to_md(xs: list[str], ys: list[str]) -> str:
+    if len(xs) < 2 or len(xs) != len(ys):
+        return ''
+    n = len(xs)
+    header = '| | ' + ' | '.join(str(i) for i in range(1, n + 1)) + ' |'
+    sep = '|---|' + '---|' * n
+    return '\n'.join([
+        header, sep,
+        '| x | ' + ' | '.join(xs) + ' |',
+        '| y | ' + ' | '.join(ys) + ' |',
+    ])
+
+
+def _tabularize(text: str) -> str:
+    """Tous les formats tabulaires → markdown puis HTML."""
+    if not text:
+        return text
+    if '<table' in text.lower():
+        return text
+    text = _restore_collapsed_md_table(text)
+    if not _looks_like_md_table(text):
+        from core.gemini import _global_format_tables
+        from core.exo_loader import _series_to_md_table
+        text = _series_to_md_table(text)
+        if not _looks_like_md_table(text):
+            text = _points_tuples_to_table(text)
+        if not _looks_like_md_table(text):
+            text = _classes_effectifs_to_table(text)
+        if not _looks_like_md_table(text):
+            text = _plain_xy_to_table(text)
+        if not _looks_like_md_table(text):
+            text = _labeled_pair_to_table(text)
+        if not _looks_like_md_table(text):
+            text = _global_format_tables(text)
+            def _xy_ws(m):
+                xs = [v for v in re.split(r'[ \t]+', m.group(1).strip()) if v]
+                ys = [v for v in re.split(r'[ \t]+', m.group(2).strip()) if v]
+                md = _xy_lists_to_md(xs, ys)
+                return '\n' + md + '\n' if md else m.group(0)
+            text = re.sub(
+                r'(?im)^x[ \t]+([\d., \t]+)\s*\n[ \t]*y[ \t]+([\d., \t]+)',
+                _xy_ws,
+                text,
+            )
+    return _md_tables_to_html(text)
+
+
 def format_exercise_display_local(subject: str, intro: str, questions: list) -> dict:
     """
     Nettoie l'affichage d'un exercice sans appel API.
@@ -119,8 +330,7 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
     - Déduplication légère
     - Enveloppement LaTeX inline basique
     """
-    from core.gemini import _global_format_tables  # import paresseux (évite cycle au load)
-    from core.exo_loader import _extract_sub_questions, _series_to_md_table
+    from core.exo_loader import _extract_sub_questions
 
     intro = (intro or '').strip()
     questions = [str(q).strip() for q in (questions or []) if str(q).strip()]
@@ -131,11 +341,8 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
         if not questions or len(extracted) > len(questions):
             questions = extracted
 
-    already_md_table = bool(re.search(r'\|.+\|\s*\n\s*\|[-:| ]+\|', intro))
     intro = _dedupe_obvious_repeats(intro)
-    if not already_md_table:
-        intro = _series_to_md_table(intro)
-        intro = _global_format_tables(intro)
+    intro = _tabularize(intro).strip()
     intro = _normalize_math_delims(intro)
     intro = _plain_urn_labels(intro)
     intro = _wrap_inline_math(intro)
@@ -144,7 +351,7 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
     cleaned_qs: list[str] = []
     for q in questions:
         q = _dedupe_obvious_repeats(q)
-        q = _global_format_tables(q)
+        q = _tabularize(q).strip()
         q = _normalize_math_delims(q)
         q = _plain_urn_labels(q)
         q = _wrap_inline_math(q)
