@@ -106,6 +106,16 @@ def get_subject_coeff(serie_key: str, subject: str) -> int:
     return serie['subjects'].get(subject, DEFAULT_COEF)
 
 
+def get_exam_total_points(serie_key: str, subject: str) -> int:
+    """Note officielle de l'épreuve (200 / 300 / 400), jamais un petit coefficient 2–4."""
+    raw = get_subject_coeff(serie_key, subject)
+    if raw <= 10:
+        return max(100, int(raw) * 100)
+    if raw < 100:
+        return 100
+    return int(raw)
+
+
 def get_priority_subjects(serie_key: str, top_n: int = 3) -> list[str]:
     """
     Retourne les N matières avec les plus forts coefficients pour une série.

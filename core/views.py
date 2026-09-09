@@ -33,7 +33,8 @@ from .models import (
 from . import gemini
 from . import pdf_loader
 from . import local_responses
-from .series_data import get_priority_subjects, get_serie_context_text, SERIES
+from .series_data import get_priority_subjects, get_serie_context_text, SERIES, get_exam_total_points
+from django.db.models import Q
 from .exercise_generator import generate_physics_exercise
 from django.utils import timezone as _timezone
 
@@ -5248,31 +5249,61 @@ def api_exam_ai_correct(request):
         subject  = str(body.get('subject', 'general'))[:50]
         qa_pairs = body.get('qa_pairs', [])
         mise_au_net = str(body.get('mise_au_net', '') or '')[:8000]
-        if not isinstance(qa_pairs, list) or not qa_pairs:
+        part_a_outcomes = body.get('part_a_outcomes') or []
+        if not isinstance(qa_pairs, list):
+            qa_pairs = []
+        if not qa_pairs and not part_a_outcomes:
             return JsonResponse({'error': 'qa_pairs manquants ou vides'}, status=400)
-        # Sanitize each pair
+        # Sanitize each pair — student_answer ici = texte feuille (ignoré à la note)
         safe_pairs = []
         for item in qa_pairs[:20]:  # cap at 20 questions
             if not isinstance(item, dict):
                 continue
+            sheet_ans = str(item.get('sheet_answer') or item.get('student_answer', '') or '')[:1200]
             safe_pairs.append({
-                'question':       str(item.get('question', ''))[:600],
-                'student_answer': str(item.get('student_answer', '') or '')[:1200],
-                'model_answer':   str(item.get('model_answer', '') or '')[:400],
+                'question':       str(item.get('question', ''))[:2500],
+                'student_answer': '',
+                'sheet_answer':   sheet_ans,
+                'wrote_on_sheet': bool(item.get('wrote_on_sheet') or sheet_ans),
+                'model_answer':   str(item.get('model_answer', '') or '')[:800],
                 'pts':            float(item.get('pts', 0) or 0),
                 'section':        str(item.get('section', ''))[:80],
             })
-        if not safe_pairs:
+        if not safe_pairs and not part_a_outcomes:
             return JsonResponse({'error': 'Aucune paire valide'}, status=400)
 
         from .exam_parser import merge_student_answers
-        safe_pairs = merge_student_answers(safe_pairs, mise_au_net)
-
-        # Guest exam usage is counted at launch in api_generate_exam_v2.
+        if safe_pairs:
+            safe_pairs = merge_student_answers(safe_pairs, mise_au_net)
 
         user_lang = _get_user_lang(request)
         part_a_earned = float(body.get('part_a_earned', 0) or 0)
         part_a_max = float(body.get('part_a_max', 0) or 0)
+        official_max = _coerce_official_max(body.get('official_max'), subject, request)
+        if not safe_pairs:
+            scaled = _scale_exam_score(part_a_earned, part_a_max, 0, 0, official_max)
+            succeeded_hashes = _record_exam_item_outcomes(
+                request, subject, [], [], part_a_outcomes,
+            )
+            return JsonResponse({
+                'ok': True,
+                'corrections': [],
+                'estimated_score': 0,
+                'total_pts': 0,
+                'global_feedback': 'Partie A uniquement — pas de questions ouvertes à corriger.',
+                'recommendations': [],
+                'part_a_earned': scaled['part_a_earned'],
+                'part_a_max': scaled['part_a_max'],
+                'part_b_scaled': 0,
+                'part_b_eff_max': 0,
+                'grand_score': scaled['grand_score'],
+                'official_max': official_max,
+                'succeeded_hashes': succeeded_hashes,
+                'skills_breakdown': {
+                    'partie_a': {'earned': scaled['part_a_earned'], 'max': scaled['part_a_max']},
+                    'grand_total': {'earned': scaled['grand_score'], 'max': float(official_max)},
+                },
+            })
         if not getattr(settings, 'DEEPSEEK_API_KEY', ''):
             total_pts = sum(float(q.get('pts', 0) or 0) for q in safe_pairs)
             return JsonResponse({
@@ -5281,6 +5312,7 @@ def api_exam_ai_correct(request):
                 'corrections': [],
                 'estimated_score': 0,
                 'total_pts': total_pts,
+                'official_max': official_max,
                 'global_feedback': (
                     'La correction automatique est temporairement indisponible. '
                     'Compare tes réponses avec le corrigé ou réessaie plus tard.'
@@ -5288,24 +5320,52 @@ def api_exam_ai_correct(request):
             }, status=503)
         try:
             result = gemini.correct_exam_open_answers(subject, safe_pairs, user_lang=user_lang, mise_au_net=mise_au_net)
-            part_b_eff = max(0.0, 100.0 - part_a_max) if part_a_max else float(result.get('total_pts', 0) or 0)
-            part_b_scaled = 0.0
+            _SHEET_ZERO = (
+                "Tu as écrit sur le sujet. Aux examens d'État, seules les copies de mise au net "
+                "sont corrigées — rien de ce qui figure sur la feuille n'est noté."
+            )
+            _SHEET_IGNORED = (
+                "Ce que tu as écrit sur le sujet a été ignoré : seule la mise au net est corrigée."
+            )
+            corrections = list(result.get('corrections') or [])
+            for i, corr in enumerate(corrections):
+                if not isinstance(corr, dict):
+                    continue
+                pair = safe_pairs[i] if i < len(safe_pairs) else {}
+                mau_ans = str(pair.get('student_answer') or '').strip()
+                if pair.get('wrote_on_sheet') and not mau_ans:
+                    corr['scored_pts'] = 0
+                    corr['status'] = 'wrong'
+                    corr['student_answer'] = '(écrit sur le sujet — non corrigé)'
+                    corr['feedback'] = _SHEET_ZERO
+                elif pair.get('wrote_on_sheet'):
+                    extra = _SHEET_IGNORED
+                    fb = str(corr.get('feedback') or '').strip()
+                    if extra not in fb:
+                        corr['feedback'] = (fb + ' ' + extra).strip()
+            result['corrections'] = corrections
+            result['estimated_score'] = round(sum(float(c.get('scored_pts', 0) or 0) for c in corrections if isinstance(c, dict)), 1)
+
             total_pts_b = float(result.get('total_pts', 0) or 0)
             est_b = float(result.get('estimated_score', 0) or 0)
-            if total_pts_b > 0 and part_a_max:
-                part_b_scaled = round(est_b / total_pts_b * part_b_eff, 1)
-            grand_score = round(part_a_earned + part_b_scaled, 1) if part_a_max else est_b
+            scaled = _scale_exam_score(part_a_earned, part_a_max, est_b, total_pts_b, official_max)
             skills = result.get('skills_breakdown') or {}
-            skills['partie_a'] = {'earned': part_a_earned, 'max': part_a_max}
-            skills['grand_total'] = {'earned': grand_score, 'max': 100.0}
+            skills['partie_a'] = {'earned': scaled['part_a_earned'], 'max': scaled['part_a_max']}
+            skills['grand_total'] = {'earned': scaled['grand_score'], 'max': float(official_max)}
+            succeeded_hashes = _record_exam_item_outcomes(
+                request, subject, safe_pairs, corrections,
+                body.get('part_a_outcomes') or [],
+            )
             return JsonResponse({
                 'ok': True,
                 **result,
-                'part_a_earned': part_a_earned,
-                'part_a_max': part_a_max,
-                'part_b_scaled': part_b_scaled,
-                'part_b_eff_max': part_b_eff,
-                'grand_score': grand_score,
+                'part_a_earned': scaled['part_a_earned'],
+                'part_a_max': scaled['part_a_max'],
+                'part_b_scaled': scaled['part_b_earned'],
+                'part_b_eff_max': scaled['part_b_max'],
+                'grand_score': scaled['grand_score'],
+                'official_max': official_max,
+                'succeeded_hashes': succeeded_hashes,
                 'skills_breakdown': skills,
             })
         except Exception:
@@ -5586,12 +5646,109 @@ def api_generate_exam(request):
         return JsonResponse({'error': 'Erreur interne du serveur.'}, status=500)
 
 
+def _user_serie_key(request) -> str:
+    try:
+        return (request.user.profile.serie or '').strip().upper()
+    except Exception:
+        return ''
+
+
+def _coerce_official_max(raw, subject: str, request=None) -> int:
+    try:
+        n = int(float(raw))
+    except (TypeError, ValueError):
+        n = 0
+    if n <= 10 and n > 0:
+        n *= 100
+    if n >= 100:
+        return n
+    serie = _user_serie_key(request) if request is not None else ''
+    return get_exam_total_points(serie, subject)
+
+
+def _scale_exam_score(part_a_earned, part_a_max, part_b_earned, part_b_max, official_max: int) -> dict:
+    """Ramène le barème interne (souvent /100) à la note officielle 200 / 300 / 400."""
+    official_max = int(official_max or 0) or 200
+    a_e = float(part_a_earned or 0)
+    a_m = float(part_a_max or 0)
+    b_e = float(part_b_earned or 0)
+    b_m = float(part_b_max or 0)
+    internal = a_m + b_m
+    if internal <= 0:
+        return {
+            'part_a_earned': 0.0, 'part_a_max': 0.0,
+            'part_b_earned': 0.0, 'part_b_max': float(official_max),
+            'grand_score': 0.0, 'official_max': official_max,
+        }
+    a_off_max = round(a_m / internal * official_max, 1)
+    b_off_max = round(official_max - a_off_max, 1)
+    a_off = round(a_e / a_m * a_off_max, 1) if a_m else 0.0
+    b_off = round(b_e / b_m * b_off_max, 1) if b_m else 0.0
+    return {
+        'part_a_earned': a_off,
+        'part_a_max': a_off_max,
+        'part_b_earned': b_off,
+        'part_b_max': b_off_max,
+        'grand_score': round(a_off + b_off, 1),
+        'official_max': official_max,
+    }
+
+
+def _stamp_exam_scale(exam_data: dict, serie: str, subject: str) -> dict:
+    if not exam_data:
+        return exam_data
+    exam_data = dict(exam_data)
+    official = get_exam_total_points(serie, subject)
+    raw = exam_data.get('coeff')
+    try:
+        raw_n = int(float(raw))
+    except (TypeError, ValueError):
+        raw_n = 0
+    if raw_n <= 10 and raw_n > 0:
+        official = max(official, raw_n * 100)
+    elif raw_n >= 100:
+        official = raw_n
+    exam_data['coeff'] = official
+    exam_data['official_max'] = official
+    return exam_data
+
+
+def _ensure_complete_exam_items(exam_data: dict) -> dict:
+    """Écarte les énoncés trop courts ou visiblement tronqués."""
+    if not exam_data:
+        return exam_data
+    for part in exam_data.get('parts') or []:
+        for section in part.get('sections') or []:
+            items = section.get('items') or []
+            if not items:
+                continue
+            kept = []
+            is_fill = str(section.get('type') or '').lower() == 'fillblank'
+            for it in items:
+                if not isinstance(it, dict):
+                    kept.append(it)
+                    continue
+                if it.get('is_passage'):
+                    kept.append(it)
+                    continue
+                txt = str(it.get('text') or '').strip()
+                min_len = 12 if is_fill else 40
+                if len(txt) < min_len:
+                    continue
+                if txt.endswith(('...', '…')) and len(txt) < 90 and not is_fill:
+                    continue
+                kept.append(it)
+            if kept:
+                section['items'] = kept
+    return exam_data
+
+
 def _get_exam_exclude_hashes(request, subject: str) -> set:
-    """Hashes d'items déjà vus : DB (connecté) ou paramètre seen_hashes (invité)."""
+    """Hashes des items RÉUSSIS uniquement — les exercices ratés peuvent revenir."""
     if request.user.is_authenticated:
         return set(
             UserSeenExamItem.objects
-            .filter(user=request.user, subject=subject)
+            .filter(user=request.user, subject=subject, succeeded=True)
             .values_list('item_hash', flat=True)[:500]
         )
 
@@ -5601,8 +5758,50 @@ def _get_exam_exclude_hashes(request, subject: str) -> set:
     return {h.strip() for h in raw.split(',') if len(h.strip()) == 64}
 
 
+def _parse_exclude_exam_ids(request) -> list:
+    raw = (request.GET.get('exclude_exam_ids') or '').strip()
+    if not raw:
+        return []
+    out = []
+    for part in raw.split(','):
+        part = part.strip()
+        if part.isdigit():
+            out.append(int(part))
+    return out[:80]
+
+
+def _exam_all_items_succeeded(exam_data: dict, succeeded: set) -> bool:
+    from .exam_item_registry import extract_exam_item_hashes
+    hashes = extract_exam_item_hashes(exam_data)
+    if not hashes or not succeeded:
+        return False
+    return all(h in succeeded for h in hashes)
+
+
+def _pick_cached_exam(request, subject: str, serie: str):
+    qs = GeneratedExam.objects.filter(subject=subject)
+    if serie:
+        qs = qs.filter(Q(serie__iexact=serie) | Q(serie=''))
+    exclude_ids = _parse_exclude_exam_ids(request)
+    if exclude_ids:
+        qs = qs.exclude(pk__in=exclude_ids)
+    if request.user.is_authenticated:
+        qs = qs.exclude(seen_by=request.user)
+        succeeded = set(
+            UserSeenExamItem.objects
+            .filter(user=request.user, subject=subject, succeeded=True)
+            .values_list('item_hash', flat=True)[:500]
+        )
+        for exam in qs.order_by('?')[:16]:
+            if _exam_all_items_succeeded(exam.exam_data, succeeded):
+                continue
+            return exam
+        return None
+    return qs.order_by('?').first()
+
+
 def _record_exam_item_hashes(request, subject: str, exam_data: dict) -> list:
-    """Enregistre les hashes des items servis ; retourne la liste pour le client invité."""
+    """Enregistre les hashes des items servis (succeeded=False tant que non réussis)."""
     from .exam_item_registry import extract_exam_item_hashes
 
     hashes = extract_exam_item_hashes(exam_data)
@@ -5612,12 +5811,57 @@ def _record_exam_item_hashes(request, subject: str, exam_data: dict) -> list:
     if request.user.is_authenticated:
         UserSeenExamItem.objects.bulk_create(
             [
-                UserSeenExamItem(user=request.user, subject=subject, item_hash=h)
+                UserSeenExamItem(user=request.user, subject=subject, item_hash=h, succeeded=False)
                 for h in hashes
             ],
             ignore_conflicts=True,
         )
     return hashes
+
+
+def _record_exam_item_outcomes(request, subject: str, safe_pairs: list, corrections: list, part_a_outcomes: list):
+    """Marque réussis les items suffisamment bien notés — les autres restent rejouables."""
+    from .exam_item_registry import hash_item_text
+
+    rows = []
+    succeeded_hashes = []
+    for i, pair in enumerate(safe_pairs or []):
+        txt = str(pair.get('question') or '').strip()
+        if not txt:
+            continue
+        corr = corrections[i] if i < len(corrections) and isinstance(corrections[i], dict) else {}
+        mx = float(corr.get('max_pts') or pair.get('pts') or 0)
+        sc = float(corr.get('scored_pts') or 0)
+        ok = bool(mx > 0 and sc / mx >= 0.6)
+        rows.append((txt, ok))
+    for item in part_a_outcomes or []:
+        if not isinstance(item, dict):
+            continue
+        txt = str(item.get('text') or '').strip()
+        if not txt:
+            continue
+        mx = float(item.get('max') or 0)
+        sc = float(item.get('earned') or 0)
+        ok = bool(mx > 0 and sc / mx >= 0.6)
+        rows.append((txt, ok))
+    authed = request.user.is_authenticated
+    for txt, ok in rows:
+        h = hash_item_text(txt)
+        if ok:
+            succeeded_hashes.append(h)
+        if not authed:
+            continue
+        if ok:
+            UserSeenExamItem.objects.update_or_create(
+                user=request.user, subject=subject, item_hash=h,
+                defaults={'succeeded': True},
+            )
+        else:
+            UserSeenExamItem.objects.get_or_create(
+                user=request.user, subject=subject, item_hash=h,
+                defaults={'succeeded': False},
+            )
+    return succeeded_hashes
 
 
 def api_generate_exam_v2(request):
@@ -5639,34 +5883,29 @@ def api_generate_exam_v2(request):
             if guest_exam_done >= 1:
                 return JsonResponse({'error': 'guest_limit', 'signup_url': '/signup/'}, status=403)
 
-        _user_serie = ''
-        try:
-            _user_serie = request.user.profile.serie or ''
-        except Exception:
-            pass
+        _user_serie = _user_serie_key(request)
 
         _exclude_hashes = _get_exam_exclude_hashes(request, subject)
 
         # ── ÉTAPE 1 : Chercher un examen en cache non encore vu ──────────────
-        _is_authenticated = request.user.is_authenticated
-        if _is_authenticated:
-            cached_exam = (
-                GeneratedExam.objects
-                .filter(subject=subject, serie=_user_serie)
-                .exclude(seen_by=request.user)
-                .order_by('?')
-                .first()
-            )
-            if cached_exam:
+        cached_exam = _pick_cached_exam(request, subject, _user_serie)
+        if cached_exam:
+            if request.user.is_authenticated:
                 cached_exam.seen_by.add(request.user)
-                item_hashes = _record_exam_item_hashes(request, subject, cached_exam.exam_data)
-                _logger.info(f'[exam_cache] Served cached exam #{cached_exam.pk} for {subject}/{_user_serie} to {request.user.username}')
-                return JsonResponse({
-                    'exam': cached_exam.exam_data,
-                    'cached': True,
-                    'item_hashes': item_hashes,
-                    'attempt_id': _exam_attempt_id(request, subject),
-                })
+            exam_payload = _stamp_exam_scale(
+                _ensure_complete_exam_items(dict(cached_exam.exam_data or {})),
+                _user_serie,
+                subject,
+            )
+            item_hashes = _record_exam_item_hashes(request, subject, exam_payload)
+            _logger.info(f'[exam_cache] Served cached exam #{cached_exam.pk} for {subject}/{_user_serie}')
+            return JsonResponse({
+                'exam': exam_payload,
+                'cached': True,
+                'exam_id': cached_exam.pk,
+                'item_hashes': item_hashes,
+                'attempt_id': _exam_attempt_id(request, subject),
+            })
 
         # ── ÉTAPE 2 : Générer un nouvel examen ───────────────────────────────
         # Pull quality quiz questions as thematic reference
@@ -5791,6 +6030,9 @@ def api_generate_exam_v2(request):
                 'error': "L'IA est momentanément indisponible."
             })
 
+        exam_data = _ensure_complete_exam_items(exam_data)
+        exam_data = _stamp_exam_scale(exam_data, _user_serie, subject)
+
         if _is_guest(request):
             guest_exam_done = int(request.session.get('guest_exam_done', 0) or 0)
             request.session['guest_exam_done'] = guest_exam_done + 1
@@ -5801,25 +6043,30 @@ def api_generate_exam_v2(request):
         if ENABLE_EXAM_AI_ENHANCE:
             try:
                 exam_data = gemini.ai_enhance_exam(exam_data, subject)
+                exam_data = _stamp_exam_scale(exam_data, _user_serie, subject)
             except Exception:
                 _tb.print_exc()  # Non-bloquant
 
-        # ── ÉTAPE 4 : Sauvegarder en cache Railway DB ─────────────────────────
-        if _is_authenticated and exam_data and exam_data.get('parts'):
+        # ── ÉTAPE 4 : Sauvegarder en cache (tous les élèves, y compris invités) ─
+        saved_exam = None
+        if exam_data and exam_data.get('parts'):
             try:
                 saved_exam = GeneratedExam.objects.create(
                     subject=subject,
                     serie=_user_serie,
                     exam_data=exam_data,
                 )
-                saved_exam.seen_by.add(request.user)
-                _logger.info(f'[exam_cache] Served new exam #{saved_exam.pk} for {subject}/{_user_serie}')
+                if request.user.is_authenticated:
+                    saved_exam.seen_by.add(request.user)
+                _logger.info(f'[exam_cache] Saved new exam #{saved_exam.pk} for {subject}/{_user_serie}')
             except Exception:
                 _tb.print_exc()  # Non-bloquant — l'examen est quand même servi
 
         item_hashes = _record_exam_item_hashes(request, subject, exam_data)
         return JsonResponse({
             'exam': exam_data,
+            'cached': False,
+            'exam_id': saved_exam.pk if saved_exam else None,
             'item_hashes': item_hashes,
             'attempt_id': _exam_attempt_id(request, subject),
         })

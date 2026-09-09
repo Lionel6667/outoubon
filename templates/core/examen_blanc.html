@@ -4,7 +4,16 @@
 {% block extra_css %}
 <style>
 
-.exam-sheet { background:#0f172a; border:1px solid rgba(37,99,235,.22); border-radius:18px; overflow:hidden; box-shadow:0 12px 60px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.03); }
+.exam-sheet {
+  background:#f7f1df;
+  color:#1e293b;
+  border:1px solid #cbb890;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04);
+  font-family:'Georgia','Times New Roman',serif;
+}
+#examSheet { max-width:920px; width:100%; }
 
 .exam-sheet-header { background:linear-gradient(160deg,#0f2747 0%,#0d1f3c 50%,#111827 100%); border-bottom:2px solid rgba(37,99,235,.3); padding:1.75rem 2rem 1.5rem; position:relative; overflow:hidden; }
 .exam-sheet-header::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 0% 50%,rgba(37,99,235,.08),transparent); pointer-events:none; }
@@ -43,37 +52,39 @@
 .timer-progress-fill.warn   { background:linear-gradient(90deg,var(--yellow),var(--orange)); }
 .timer-progress-fill.danger { background:linear-gradient(90deg,var(--red),#f97316); }
 
-.exam-part { border-top:2px solid rgba(255,255,255,.06); }
-.exam-part-header { background:linear-gradient(90deg,rgba(37,99,235,.07),transparent); padding:.85rem 2rem; border-bottom:1px solid rgba(37,99,235,.12); display:flex; align-items:center; justify-content:space-between; }
-.exam-part-header h3 { font-size:.95rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:#60a5fa; }
-.pts-badge { background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.25); color:var(--green); font-size:.72rem; font-weight:700; padding:.25rem .7rem; border-radius:20px; }
-.choice-notice { display:flex; align-items:flex-start; gap:.5rem; background:rgba(250,204,21,.07); border:1px solid rgba(250,204,21,.25); color:#fbbf24; font-size:.82rem; font-weight:600; padding:.6rem 2rem; line-height:1.5; }
+.exam-part { border-top:2px solid #d9ccaa; }
+.exam-part-header { background:#efe6cc; padding:.85rem 2rem; border-bottom:1px solid #d9ccaa; display:flex; align-items:center; justify-content:space-between; }
+.exam-part-header h3 { font-size:.95rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:#1e3a8a; }
+.pts-badge { background:#ecfdf3; border:1px solid #86efac; color:#166534; font-size:.72rem; font-weight:700; padding:.25rem .7rem; border-radius:20px; }
+.choice-notice { display:flex; align-items:flex-start; gap:.5rem; background:#fff7ed; border:1px solid #fdba74; color:#9a3412; font-size:.82rem; font-weight:600; padding:.6rem 2rem; line-height:1.5; }
 
-.exam-section { padding:1.4rem 2rem; border-bottom:1px solid rgba(255,255,255,.04); }
+.exam-section { padding:1.4rem 2rem; border-bottom:1px solid #e8dcb8; }
 .exam-section:last-child { border-bottom:none; }
-.exam-section-label { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--t3); margin-bottom:1.1rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; min-width:0; }
-.section-pts { color:var(--blue2); font-weight:700; }
+.exam-section-label { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#57534e; margin-bottom:1.1rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; min-width:0; }
+.section-pts { color:#1d4ed8; font-weight:700; }
 
-.exam-fillblank-item { display:flex; align-items:flex-start; gap:.5rem .4rem; padding:.6rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.9rem; }
+.exam-fillblank-item { display:flex; align-items:flex-start; gap:.5rem .4rem; padding:.6rem 0; border-bottom:1px dotted #d6cbb3; font-size:.95rem; }
 .exam-fillblank-item:last-child { border-bottom:none; }
-.fillblank-num { font-weight:700; color:var(--blue2); min-width:1.6rem; flex-shrink:0; padding-top:.15rem; font-size:.88rem; }
-.fillblank-body { flex:1; display:flex; flex-direction:column; gap:.35rem; }
-.fillblank-text { line-height:1.8; color:var(--t1); }
+.fillblank-num { font-weight:700; color:#1e3a8a; min-width:1.6rem; flex-shrink:0; padding-top:.15rem; font-size:.88rem; }
+.fillblank-body { flex:1; display:flex; flex-direction:column; gap:.35rem; min-width:0; }
+.fillblank-text { line-height:1.85; color:#1e293b; }
 .fillblank-answer-row { display:flex; align-items:center; flex-wrap:wrap; gap:.4rem; }
-.fillblank-pts { color:var(--blue2); font-size:.72rem; }
-.blank-line { display:inline-block; min-width:4rem; border-bottom:2px solid rgba(100,116,139,.5); margin:0 .1rem; vertical-align:baseline; }
+.fillblank-pts { color:#1d4ed8; font-size:.72rem; }
+.blank-line { display:inline-block; min-width:4.5rem; border-bottom:1.5px solid #334155; margin:0 .15rem; vertical-align:baseline; }
 .exam-source-badge { display:inline-flex; align-items:center; gap:.25rem; font-size:.68rem; color:var(--t3); background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:4px; padding:.1rem .4rem; margin-left:.45rem; vertical-align:middle; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.blank-input { display:inline-block; min-width:180px; max-width:340px; border:none; border-bottom:2px dashed rgba(100,116,139,.5); background:transparent; color:var(--t1); font-size:.9rem; font-family:inherit; padding:.2rem .5rem; transition:all .2s; outline:none; border-radius:2px; }
-.blank-input:focus { border-bottom-color:var(--green); border-bottom-style:solid; background:rgba(16,185,129,.05); }
-.blank-input.corr { border-bottom:2px solid var(--green); background:rgba(16,185,129,.1); color:var(--green); border-radius:4px; }
-.blank-input.wrong { border-bottom:2px solid var(--red); background:rgba(239,68,68,.08); color:#fca5a5; border-radius:4px; }
-.blank-hint { font-size:.78rem; color:var(--green); font-style:italic; margin-left:.4rem; display:none; }
+.blank-input { display:inline-block; min-width:10rem; max-width:100%; width:14rem; border:none; border-bottom:1.5px solid #64748b; background:transparent; color:#1e293b; font-size:.95rem; font-family:'Georgia',serif; padding:.15rem .15rem .25rem; transition:border-color .2s; outline:none; border-radius:0; }
+.blank-input:focus { border-bottom-color:#1d4ed8; background:transparent; }
+.blank-input.corr { border-bottom:2px solid #15803d; background:transparent; color:#15803d; }
+.blank-input.wrong { border-bottom:2px solid #b91c1c; background:transparent; color:#b91c1c; }
+.blank-input.wrote-on-sheet { border-bottom-color:#c2410c; }
+.blank-hint { font-size:.78rem; color:#15803d; font-style:italic; margin-left:.4rem; display:none; }
 .blank-hint.on { display:inline; }
+.sheet-ignored-note { display:block; margin-top:.35rem; font-size:.72rem; line-height:1.45; color:#c2410c; font-style:italic; }
 
 .exam-matching-grid { display:grid; grid-template-columns:1fr 26px 1fr; gap:.55rem .75rem; align-items:center; }
-.match-left { font-size:.875rem; font-weight:600; color:var(--t1); padding:.4rem .75rem; background:rgba(255,255,255,.04); border-radius:8px; text-align:right; }
+.match-left { font-size:.875rem; font-weight:600; color:#1e293b; padding:.4rem .75rem; background:#efe6cc; border-radius:6px; text-align:right; }
 .match-arrow { color:var(--blue2); text-align:center; }
-.match-select { background:var(--card); border:1px solid var(--border2); color:var(--t1); border-radius:8px; padding:.4rem .6rem; font-size:.82rem; font-family:inherit; cursor:pointer; width:100%; transition:border-color .2s; outline:none; -webkit-appearance:none; appearance:none; padding-right:1.5rem; background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-repeat:no-repeat; background-position:right .4rem center; background-size:1rem; }
+.match-select { background:#fff; border:1px solid #cbd5e1; color:#1e293b; border-radius:8px; padding:.4rem .6rem; font-size:.82rem; font-family:inherit; cursor:pointer; width:100%; transition:border-color .2s; outline:none; -webkit-appearance:none; appearance:none; padding-right:1.5rem; background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-repeat:no-repeat; background-position:right .4rem center; background-size:1rem; }
 .match-select:focus { border-color:var(--green); }
 .match-select.corr { border-color:var(--green); background-color:rgba(16,185,129,.08); }
 .match-select.wrong { border-color:var(--red); background-color:rgba(239,68,68,.06); }
@@ -81,13 +92,14 @@
 .heredity-context { background:rgba(37,99,235,.07); border:1px solid rgba(37,99,235,.2); border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.25rem; font-size:.875rem; line-height:1.7; }
 .heredity-label { font-size:.72rem; font-weight:700; text-transform:uppercase; color:var(--blue2); letter-spacing:.06em; margin-bottom:.5rem; }
 
-.exam-open-item { margin-bottom:1.35rem; padding-bottom:1.35rem; border-bottom:1px dashed rgba(255,255,255,.04); }
+.exam-open-item { margin-bottom:1.35rem; padding-bottom:1.35rem; border-bottom:1px dotted #d6cbb3; }
 .exam-open-item:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
-.exam-q-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:rgba(37,99,235,.18); border:1px solid rgba(37,99,235,.3); color:var(--blue2); font-size:.7rem; font-weight:800; margin-right:.5rem; flex-shrink:0; }
-.exam-q-text { font-size:.9rem; color:var(--t1); margin-bottom:.4rem; line-height:1.75; font-weight:500; display:flex; align-items:baseline; gap:0; }
-.exam-q-pts { font-size:.72rem; color:var(--blue2); font-weight:700; margin-bottom:.45rem; margin-left:1.75rem; }
-.exam-textarea { width:100%; background:rgba(255,255,255,.03); border:1px solid var(--border2); border-radius:10px; color:var(--t1); font-family:inherit; font-size:.875rem; padding:.75rem 1rem; resize:vertical; min-height:80px; transition:border-color .2s,background .2s; outline:none; line-height:1.65; }
-.exam-textarea:focus { border-color:var(--blue2); background:rgba(37,99,235,.04); }
+.exam-q-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#dbeafe; border:1px solid #93c5fd; color:#1d4ed8; font-size:.7rem; font-weight:800; margin-right:.5rem; flex-shrink:0; }
+.exam-q-text { font-size:.95rem; color:#1e293b; margin-bottom:.4rem; line-height:1.8; font-weight:500; display:flex; align-items:baseline; gap:0; }
+.exam-q-pts { font-size:.72rem; color:#1d4ed8; font-weight:700; margin-bottom:.45rem; margin-left:1.75rem; }
+.exam-textarea { width:100%; background:transparent; border:none; border-bottom:1.5px solid #94a3b8; border-radius:0; color:#1e293b; font-family:'Georgia','Times New Roman',serif; font-size:.95rem; padding:.35rem 0 1.6rem; resize:vertical; min-height:5.5rem; outline:none; line-height:1.85; }
+.exam-textarea:focus { border-bottom-color:#1d4ed8; background:transparent; }
+.exam-textarea::placeholder { color:transparent; }
 .model-answer { display:none; margin-top:.65rem; padding:.8rem 1.1rem; background:rgba(16,185,129,.05); border-left:3px solid var(--green); border-radius:0 10px 10px 0; font-size:.83rem; color:var(--t2); line-height:1.65; }
 .model-answer.on { display:block; }
 .model-answer-label { font-size:.7rem; font-weight:800; text-transform:uppercase; color:var(--green); letter-spacing:.06em; margin-bottom:.35rem; display:flex; align-items:center; gap:.35rem; }
@@ -162,7 +174,7 @@
 #aiCorrPanel .acp-score  { font-size:2rem; font-weight:900; color:var(--green); }
 #aiCorrPanel .acp-feedback { font-size:.875rem; color:var(--t2); margin-top:.6rem; line-height:1.65; }
 
-.answer-sheet-notice { background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.2); border-radius:10px; padding:.7rem 1.1rem; font-size:.8rem; color:#fbbf24; display:flex; align-items:center; gap:.55rem; margin-bottom:1.25rem; }
+.answer-sheet-notice { background:#fff7ed; border:1px solid #fdba74; border-radius:8px; padding:.7rem 1.1rem; font-size:.8rem; color:#9a3412; display:flex; align-items:center; gap:.55rem; margin-bottom:1.25rem; }
 
 .view-area { overscroll-behavior: none; }
 
@@ -356,9 +368,10 @@
     gap: 0.25rem;
   }
   .blank-input { 
-    min-width: 50px; 
-    max-width: 120px; 
-    font-size: 0.8rem; 
+    min-width: 0; 
+    max-width: 100%;
+    width: 100%;
+    font-size: 0.9rem; 
   }
   
   
@@ -448,8 +461,9 @@
       font-size: 0.8rem;
     }
     .blank-input { 
-      min-width: 40px; 
-      max-width: 100px; 
+      min-width: 0; 
+      max-width: 100%;
+      width: 100%;
     }
     .exam-textarea { 
       min-height: 50px;
@@ -464,6 +478,16 @@
   border:1px solid var(--border2);
 }
 @media (max-width:768px) { #mauToolPanel { margin:.5rem .5rem .25rem; } }
+
+@media (max-width: 768px) {
+  .exam-matching-grid { grid-template-columns: 1fr; }
+  .match-arrow { display: none; }
+  .match-left { text-align: left; }
+  .mau-page-wrap { border-radius: 10px; min-height: 72vh; }
+  .mau-editor { min-height: 62vh; }
+  .exam-sheet { border-radius: 0; }
+  #examSheet { max-width: 100%; }
+}
 
 .itool-card {
   background:var(--card); border-radius:12px;
@@ -956,23 +980,42 @@ const STUDENT_NAME = '{{ student_name|default:""|escapejs }}';
 window.IS_GUEST = {{ is_guest|yesno:"true,false" }};
 window.GUEST_EXAM_DONE = {{ guest_exam_done|default:"0" }};
 const GUEST_EXAM_STORAGE_KEY = 'outoubon_guest_exam_done';
-const SEEN_EXAM_ITEMS_KEY = 'outoubon_seen_exam_items';
+const SUCCEEDED_EXAM_ITEMS_KEY = 'outoubon_succeeded_exam_items';
+const SERVED_EXAM_IDS_KEY = 'outoubon_served_exam_ids';
 
 function _getSeenHashesForSubject(subject) {
   try {
-    const all = JSON.parse(sessionStorage.getItem(SEEN_EXAM_ITEMS_KEY) || '{}');
+    const all = JSON.parse(sessionStorage.getItem(SUCCEEDED_EXAM_ITEMS_KEY) || '{}');
     return (all[subject] || []).join(',');
   } catch (e) { return ''; }
 }
 
-function _recordSeenExamHashes(subject, hashes) {
+function _recordSucceededExamHashes(subject, hashes) {
   if (!hashes || !hashes.length) return;
   try {
-    const all = JSON.parse(sessionStorage.getItem(SEEN_EXAM_ITEMS_KEY) || '{}');
+    const all = JSON.parse(sessionStorage.getItem(SUCCEEDED_EXAM_ITEMS_KEY) || '{}');
     const existing = new Set(all[subject] || []);
     hashes.forEach(h => { if (h && h.length === 64) existing.add(h); });
     all[subject] = [...existing].slice(-200);
-    sessionStorage.setItem(SEEN_EXAM_ITEMS_KEY, JSON.stringify(all));
+    sessionStorage.setItem(SUCCEEDED_EXAM_ITEMS_KEY, JSON.stringify(all));
+  } catch (e) { /* ignore */ }
+}
+
+function _getServedExamIds(subject) {
+  try {
+    const all = JSON.parse(sessionStorage.getItem(SERVED_EXAM_IDS_KEY) || '{}');
+    return (all[subject] || []).join(',');
+  } catch (e) { return ''; }
+}
+
+function _recordServedExamId(subject, examId) {
+  if (!examId) return;
+  try {
+    const all = JSON.parse(sessionStorage.getItem(SERVED_EXAM_IDS_KEY) || '{}');
+    const existing = new Set(all[subject] || []);
+    existing.add(String(examId));
+    all[subject] = [...existing].slice(-80);
+    sessionStorage.setItem(SERVED_EXAM_IDS_KEY, JSON.stringify(all));
   } catch (e) { /* ignore */ }
 }
 
@@ -1100,7 +1143,7 @@ function showCorrectionLoader() {
   });
 }
 
-function renderResultsDashboard(data, partA_earned, partA_max, partB_scaled, partB_effMax, grandScore) {
+function renderResultsDashboard(data, partA_earned, partA_max, partB_scaled, partB_effMax, grandScore, officialMax) {
   const loader = document.getElementById('corrLoader');
   const hero = document.getElementById('resultsHero');
   const bars = document.getElementById('resultsBars');
@@ -1108,7 +1151,8 @@ function renderResultsDashboard(data, partA_earned, partA_max, partB_scaled, par
   const acc = document.getElementById('corrAccordion');
   if (loader) loader.style.display = 'none';
 
-  const pct = Math.round(grandScore);
+  officialMax = officialMax || data.official_max || _examOfficialMax(currentExamData);
+  const pct = officialMax ? Math.round((grandScore / officialMax) * 100) : Math.round(grandScore);
   const mention = pct >= 80 ? 'Mention Très Bien' : pct >= 70 ? 'Mention Bien' : pct >= 60 ? 'Mention Passable' : 'À retravailler';
   const mentionColor = pct >= 80 ? 'var(--green)' : pct >= 70 ? '#34d399' : pct >= 60 ? 'var(--blue2)' : 'var(--orange)';
   const emoji = pct >= 80 ? '🏆' : pct >= 70 ? '🥇' : pct >= 60 ? '📊' : '📚';
@@ -1119,10 +1163,10 @@ function renderResultsDashboard(data, partA_earned, partA_max, partB_scaled, par
     document.getElementById('resMention').textContent = mention;
     document.getElementById('resMention').style.color = mentionColor;
     const scoreEl = document.getElementById('resScore');
-    scoreEl.textContent = grandScore + '/100';
+    scoreEl.textContent = grandScore + '/' + officialMax;
     scoreEl.style.color = mentionColor;
     document.getElementById('resSub').innerHTML =
-      `Partie A : <strong>${partA_earned}/${partA_max}</strong> pts · Partie B : <strong>${partB_scaled}/${partB_effMax}</strong> pts<br>` +
+      `Partie A : <strong>${partA_earned}/${partA_max}</strong> pts · Partie B : <strong>${partB_scaled}/${partB_effMax}</strong> pts · ${pct}%<br>` +
       esc(data.global_feedback || '');
   }
   if (pct >= 60) launchConfetti();
@@ -1636,8 +1680,10 @@ async function startExamen(subject) {
 
   try {
     const seen = _getSeenHashesForSubject(subject);
+    const excludeIds = _getServedExamIds(subject);
     let url = `{% url 'api_generate_exam_v2' %}?subject=${encodeURIComponent(subject)}`;
     if (seen) url += `&seen_hashes=${encodeURIComponent(seen)}`;
+    if (excludeIds) url += `&exclude_exam_ids=${encodeURIComponent(excludeIds)}`;
     const r = await fetch(url);
     const ct = (r.headers.get('content-type') || '').toLowerCase();
     let d = null;
@@ -1660,7 +1706,7 @@ async function startExamen(subject) {
       throw new Error(d.error);
     }
     if (!d.exam || !d.exam.parts) throw new Error('Données invalides reçues du serveur.');
-    if (d.item_hashes) _recordSeenExamHashes(subject, d.item_hashes);
+    if (d.exam_id) _recordServedExamId(subject, d.exam_id);
     if (IS_GUEST) _markGuestExamConsumed();
     currentExamDraftKey = _examDraftKey(subject, d.exam);
     let hadDraft = false;
@@ -1700,21 +1746,28 @@ async function startExamen(subject) {
   }
 }
 
+function _examOfficialMax(exam) {
+  const src = exam || currentExamData || {};
+  let n = parseFloat(src.official_max != null ? src.official_max : src.coeff);
+  if (!n || isNaN(n)) n = 200;
+  if (n <= 10) n *= 100;
+  if (n < 100) n = 200;
+  return n;
+}
+
 function renderExam(exam) {
   const el = document.getElementById('examSheetContent');
   el.innerHTML = buildExamHTML(exam);
   el.querySelectorAll('.exam-section').forEach(s => renderKatex(s));
   const coeffEl = document.getElementById('_examCoeffStore');
-  if (coeffEl && exam.coeff != null) coeffEl.value = exam.coeff;
+  if (coeffEl) coeffEl.value = _examOfficialMax(exam);
 }
 
 function buildExamHTML(exam) {
   const annee  = exam.annee  || new Date().getFullYear();
   const serie  = exam.serie  || 'Toutes séries';
-  const coeff  = exam.coeff  != null ? exam.coeff : '';
-  const coeffBadge = coeff ? `<span class="detail-pill"><i class="fas fa-weight-hanging"></i> <strong>Coefficient :</strong> ${coeff}</span>` : '';
-  const totalPts   = (exam.parts||[]).reduce((a,p)=>(p.sections||[]).reduce((b,s)=>b+(s.pts||0),a),0);
-  const totalBadge = totalPts ? `<span class="detail-pill" style="color:var(--green);border-color:rgba(16,185,129,.2)"><i class="fas fa-star" style="color:var(--green)"></i> <strong>Total :</strong> ${totalPts} pts</span>` : '';
+  const officialMax = _examOfficialMax(exam);
+  const coeffBadge = `<span class="detail-pill"><i class="fas fa-weight-hanging"></i> <strong>Note sur :</strong> ${officialMax}</span>`;
 
   let h = `
   <div class="exam-sheet-header">
@@ -1731,7 +1784,7 @@ function buildExamHTML(exam) {
       <span class="detail-pill"><i class="fas fa-calendar-alt"></i> <strong>Année :</strong> ${annee}</span>
       <span class="detail-pill"><i class="fas fa-graduation-cap"></i> <strong>Classe :</strong> Terminale</span>
       <span class="detail-pill"><i class="fas fa-layer-group"></i> <strong>Série :</strong> ${esc(serie)}</span>
-      ${coeffBadge}${totalBadge}
+      ${coeffBadge}
     </div>
     <div class="exam-rules-bar">
       <span><i class="fas fa-clock"></i> <strong>Durée :</strong> ${esc(exam.duration||'1 heure')}</span>
@@ -1741,7 +1794,7 @@ function buildExamHTML(exam) {
     </div>
     <div class="answer-sheet-notice" style="margin-top:.85rem;">
       <i class="fas fa-info-circle"></i>
-      <span><strong>Partie A</strong> : réponds ici (cases et listes). <strong>Partie B</strong> : rédige tes développements sur la <strong>Mise au net</strong> (bouton en bas à droite) — indique le numéro de chaque exercice.</span>
+      <span>Ce document est un sujet d'examen. Rédige tes réponses sur la <strong>copie de mise au net</strong>.</span>
     </div>
   </div>`;
 
@@ -1778,12 +1831,12 @@ function buildSection(sec, key, _gqc) {
       const pts   = item.pts ? `<small class="fillblank-pts">(${item.pts}pt${item.pts>1?'s':''})</small>` : '';
       const fbSrc = item.source ? `<span class="exam-source-badge"><i class="fas fa-bookmark"></i> ${esc(item.source)}</span>` : '';
 
-      content += `<div class="exam-fillblank-item">
+      content += `<div class="exam-fillblank-item" data-qtext="${esc(item.text||'')}">
         <span class="fillblank-num">${i+1}.</span>
         <div class="fillblank-body">
           <div class="fillblank-text">${displayText}</div>
           <div class="fillblank-answer-row">
-            <input class="blank-input" type="text" placeholder="Votre réponse…"
+            <input class="blank-input" type="text" placeholder="" autocomplete="off"
               id="${uid}" data-ans="${ans}" data-key="${key}" data-i="${i}" data-pts="${item.pts||2}">
             <span class="blank-hint" id="bh_${uid}">${ans}</span>
             ${pts}${fbSrc}
@@ -1858,10 +1911,43 @@ function buildOpenItem(item, key, i, qNum, secLabel) {
       <div class="model-answer-label"><i class="fas fa-check-circle"></i> Corrig\u00e9 sugg\u00e9r\u00e9</div>
       ${ansText}
     </div>
-    <textarea class="exam-textarea" id="ta_${key}_${i}" rows="3"
-      placeholder="Réponse courte ici (optionnel) — pour les développements, utilise la Mise au net."></textarea>
+    <textarea class="exam-textarea" id="ta_${key}_${i}" rows="4" placeholder="" autocomplete="off"></textarea>
     <div class="ai-corr-result" id="air_${key}_${i}" style="display:none"></div>
   </div>`;
+}
+
+const SHEET_ZERO_MSG = "Tu as écrit sur le sujet. Aux examens d'État, seules les copies de mise au net sont corrigées — rien de ce qui figure sur la feuille n'est noté.";
+
+function _extractMauForNum(text, qNum) {
+  if (!text || !qNum) return '';
+  const re = new RegExp(
+    '(?:^|[\\n\\r])\\s*(?:Q|num(?:ero)?\\s*|exercice\\s*|exo\\s*)?' + qNum +
+    '[\\s\\.\\-\\)\\:]+(?:rep(?:onse)?[\\s\\:]*)?([^\\n\\r]{1,200})',
+    'im'
+  );
+  const m = String(text).match(re);
+  if (!m || !m[1]) return '';
+  return m[1].trim().replace(/\s*\([A-Da-d]\)\s*$/, '').trim();
+}
+
+function _answersMatch(val, cor) {
+  const norm = s => String(s || '').trim().toLowerCase().replace(/^(le|la|les|l')\s/,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const a = norm(val), b = norm(cor);
+  if (!a || !b) return false;
+  return a === b || (b.length > 3 && b.includes(a)) || (a.length > 3 && a.includes(b));
+}
+
+function _markSheetWrite(el, wrote, gradedFromMau) {
+  if (!el || !wrote) return;
+  el.classList.add('wrote-on-sheet');
+  const host = el.closest('.fillblank-body, .exam-open-item') || el.parentElement;
+  if (!host || host.querySelector('.sheet-ignored-note')) return;
+  const note = document.createElement('div');
+  note.className = 'sheet-ignored-note';
+  note.textContent = gradedFromMau
+    ? "Ce que tu as écrit sur le sujet a été ignoré : seule la mise au net est corrigée."
+    : SHEET_ZERO_MSG;
+  host.appendChild(note);
 }
 
 function submitExam() {
@@ -1877,20 +1963,8 @@ function submitExam() {
 
   const mauPages = document.querySelectorAll('#mauPagesContainer .mau-editor');
   const miseAuNetText = mauPages.length
-    ? Array.from(mauPages).map(p => (p.innerText || p.textContent || '').trim()).join(' ').trim()
+    ? Array.from(mauPages).map(p => (p.innerText || p.textContent || '').trim()).join('\n').trim()
     : '';
-  const inlineAnswers = Array.from(document.querySelectorAll('.exam-open-item .exam-textarea'))
-    .map(ta => (ta.value || '').trim()).filter(Boolean).join(' ').trim();
-
-  if (!miseAuNetText && !inlineAnswers) {
-    showToast('⚠️ Remplis la mise au net (développements Partie B) ou écris au moins une réponse dans les zones prévues.', 'error');
-    if (!_mauPanelOpen) toggleMauPanel(true);
-    setTimeout(() => {
-      const firstEditor = document.querySelector('#mauPagesContainer .mau-editor');
-      if (firstEditor) firstEditor.focus();
-    }, 450);
-    return;
-  }
 
   examSubmitted = true;
   _clearExamDraft();
@@ -1898,37 +1972,23 @@ function submitExam() {
   document.title = 'Résultat — Examen Blanc — OU TOU BON';
 
   let earned = 0, total = 0;
+  const partAOutcomes = [];
+  let wroteOnSheet = false;
 
-  // ── Auto-fill Part A blank-inputs from mise au net ──────────────────────────
-  // Students often write all answers in mise au net (like a real exam sheet).
-  // If a blank-input is empty, look for "N." / "N-" / "N:" / "rep: X" in the
-  // mise au net where N matches the displayed question number on that item.
-  if (miseAuNetText) {
-    document.querySelectorAll('.exam-fillblank-item').forEach(item => {
-      const inp = item.querySelector('.blank-input');
-      if (!inp || inp.value.trim()) return; // already filled by student
-      const numSpan = item.querySelector('.fillblank-num');
-      if (!numSpan) return;
-      const qNum = parseInt(numSpan.textContent) || 0;
-      if (!qNum) return;
-      // Match: "8." / "8-" / "8:" / "Q8" / "num 8" followed by optional "rep[onse]: " and the answer
-      const re = new RegExp(
-        '(?:^|[\\n\\r])\\s*(?:Q|num(?:ero)?\\s*)?' + qNum +
-        '[\\s\\.\\-\\)\\:]+(?:rep(?:onse)?[\\s\\:]*)?([^\\n\\r]{1,60})',
-        'im'
-      );
-      const m = miseAuNetText.match(re);
-      if (m && m[1]) {
-        // Strip trailing labels like "(A)", "(B)", trailing spaces
-        let extracted = m[1].trim().replace(/\s*\([A-Da-d]\)\s*$/, '').trim();
-        if (extracted) inp.value = extracted;
-      }
-    });
-  }
-  // ────────────────────────────────────────────────────────────────────────────
-
-  document.querySelectorAll('.blank-input').forEach(inp => {
-    const rawAns = (inp.dataset.ans||'').trim();
+  document.querySelectorAll('.exam-fillblank-item').forEach(item => {
+    const inp = item.querySelector('.blank-input');
+    if (!inp) return;
+    const rawAns = (inp.dataset.ans || '').trim();
+    const pts = parseFloat(inp.dataset.pts || 2) || 2;
+    const sheetVal = (inp.value || '').trim();
+    const numSpan = item.querySelector('.fillblank-num');
+    const qNum = parseInt(numSpan && numSpan.textContent, 10) || 0;
+    const mauVal = _extractMauForNum(miseAuNetText, qNum);
+    inp.disabled = true;
+    if (sheetVal) {
+      wroteOnSheet = true;
+      _markSheetWrite(inp, true, !!mauVal);
+    }
     if (rawAns === '___' || rawAns === '') {
       inp.classList.add('corr');
       const hintEl = inp.nextElementSibling;
@@ -1939,40 +1999,60 @@ function submitExam() {
       }
       return;
     }
-    const cor = rawAns.toLowerCase().replace(/^(le|la|les|l')\s/,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-    const val = inp.value.trim().toLowerCase().replace(/^(le|la|les|l')\s/,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-    inp.disabled = true;
-    const ok = val.length>0 && (val===cor || (cor.length>3 && cor.includes(val)) || (val.length>3 && val.includes(cor)));
-    inp.classList.add(ok?'corr':'wrong');
+    const ok = !!mauVal && _answersMatch(mauVal, rawAns);
+    inp.classList.add(ok ? 'corr' : 'wrong');
     const hintEl = inp.nextElementSibling;
     if (hintEl && hintEl.classList.contains('blank-hint')) hintEl.classList.add('on');
-    if (ok) earned += parseFloat(inp.dataset.pts||2)||2; total += parseFloat(inp.dataset.pts||2)||2;
+    if (ok) earned += pts;
+    total += pts;
+    partAOutcomes.push({
+      text: item.dataset.qtext || '',
+      earned: ok ? pts : 0,
+      max: pts,
+      wrote_on_sheet: !!sheetVal,
+    });
   });
 
-  document.querySelectorAll('.match-select').forEach(sel => {
-    const cor = parseInt(sel.dataset.cor??-1);
-    const val = parseInt(sel.value??-1);
+  document.querySelectorAll('.match-select').forEach((sel, i) => {
+    const cor = parseInt(sel.dataset.cor ?? -1, 10);
     sel.disabled = true;
+    const sheetVal = sel.value;
+    const usedSheet = sheetVal !== '' && sheetVal !== '-1';
+    if (usedSheet) wroteOnSheet = true;
+    const mauVal = _extractMauForNum(miseAuNetText, i + 1);
+    let ok = false;
     if (cor >= 0) {
-      const ok = val === cor;
-      sel.classList.add(ok?'corr':'wrong');
-      if (ok) earned++; total++;
+      const opt = sel.options[cor + 1] || sel.querySelector(`option[value="${cor}"]`);
+      const corLabel = opt ? opt.textContent : '';
+      ok = !!mauVal && (_answersMatch(mauVal, String(cor)) || _answersMatch(mauVal, corLabel));
+      sel.classList.add(ok ? 'corr' : 'wrong');
+      if (ok) earned++;
+      total++;
     }
+    if (usedSheet) _markSheetWrite(sel, true, ok);
   });
 
-  // Store Part A scores so runAICorrection() can combine them for the /100 display
   window._examPartA_earned = earned;
-  window._examPartA_max    = total;
+  window._examPartA_max = total;
+  window._examPartA_outcomes = partAOutcomes;
 
   document.querySelectorAll('.model-answer').forEach(el => { el.classList.add('on'); renderKatex(el); });
-  document.querySelectorAll('.exam-textarea').forEach(el => el.disabled = true);
+  document.querySelectorAll('.exam-textarea').forEach(el => {
+    if ((el.value || '').trim()) {
+      wroteOnSheet = true;
+      _markSheetWrite(el, true, false);
+    }
+    el.disabled = true;
+  });
+  if (wroteOnSheet) {
+    showToast('Seules les réponses de la mise au net sont corrigées.', 'error');
+  }
   document.getElementById('examActionBar').style.display = 'none';
   const fab = document.getElementById('flipFab');
   if (fab) fab.style.display = 'none';
   if (_mauPanelOpen) toggleMauPanel(false);
   document.getElementById('examFace').style.display = 'block';
 
-  const openCount = document.querySelectorAll('.exam-open-item').length;
   show('examResults');
   showCorrectionLoader();
   setTimeout(()=>document.getElementById('examResults').scrollIntoView({behavior:'smooth',block:'start'}), 100);
@@ -1982,16 +2062,7 @@ function submitExam() {
     body:JSON.stringify({subject:currentSubject, score:earned, total:total, details:[], attempt_id: examAttemptId})
   }).catch(()=>{});
 
-  if (openCount > 0) {
-    setTimeout(() => runAICorrection(), 400);
-  } else if (total > 0) {
-    const pct = Math.round((earned / total) * 100);
-    const grandScore = Math.min(100, Math.round(earned / total * 100));
-    renderResultsDashboard(
-      { corrections: [], global_feedback: 'Partie A uniquement — pas de questions ouvertes à corriger.', recommendations: [] },
-      earned, total, 0, Math.max(0, 100 - total), grandScore
-    );
-  }
+  setTimeout(() => runAICorrection(), 400);
 }
 
 function confirmRestart() {
@@ -2013,7 +2084,6 @@ function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;'
 async function runAICorrection() {
   const btn = document.getElementById('btnAiCorr');
   const items = document.querySelectorAll('.exam-open-item');
-  if (!items.length) return;
 
   const mauPages = document.querySelectorAll('#mauPagesContainer .mau-editor');
   const miseAuNetText = mauPages.length
@@ -2026,9 +2096,12 @@ async function runAICorrection() {
   const qa_pairs = [];
   items.forEach(el => {
     const ta = el.querySelector('.exam-textarea');
+    const sheetAns = (ta && ta.value.trim()) ? ta.value.trim() : '';
     qa_pairs.push({
       question:       el.dataset.qtext     || '',
-      student_answer: (ta && ta.value.trim()) ? ta.value.trim() : '',
+      student_answer: '',
+      sheet_answer:   sheetAns,
+      wrote_on_sheet: !!sheetAns,
       model_answer:   el.dataset.model     || '',
       pts:            parseFloat(el.dataset.pts || 0) || 0,
       section:        el.dataset.section   || '',
@@ -2040,6 +2113,7 @@ async function runAICorrection() {
 
   const partA_earned = window._examPartA_earned || 0;
   const partA_max    = window._examPartA_max    || 0;
+  const officialMax  = _examOfficialMax(currentExamData);
 
   try {
     const resp = await fetch('{% url "api_exam_ai_correct" %}', {
@@ -2051,6 +2125,8 @@ async function runAICorrection() {
         mise_au_net: miseAuNetText,
         part_a_earned: partA_earned,
         part_a_max: partA_max,
+        part_a_outcomes: window._examPartA_outcomes || [],
+        official_max: officialMax,
       }),
     });
     if (!resp.ok) {
@@ -2065,10 +2141,12 @@ async function runAICorrection() {
     if (!data.ok) throw new Error(data.error || 'Erreur serveur');
 
     const partB_scaled  = data.part_b_scaled  ?? 0;
-    const partB_effMax  = data.part_b_eff_max ?? Math.max(0, 100 - partA_max);
-    const grandScore    = data.grand_score    ?? (partA_earned + partB_scaled);
+    const partB_effMax  = data.part_b_eff_max ?? 0;
+    const grandScore    = data.grand_score    ?? 0;
+    const maxPts        = data.official_max   || officialMax;
 
-    renderResultsDashboard(data, partA_earned, partA_max, partB_scaled, partB_effMax, grandScore);
+    renderResultsDashboard(data, data.part_a_earned ?? partA_earned, data.part_a_max ?? partA_max, partB_scaled, partB_effMax, grandScore, maxPts);
+    if (Array.isArray(data.succeeded_hashes)) _recordSucceededExamHashes(currentSubject, data.succeeded_hashes);
 
     if (btn) { btn.disabled = false; btn.style.display = 'inline-flex'; btn.innerHTML = '<i class="fas fa-redo"></i> Recorriger'; }
     if (IS_GUEST) _markGuestExamConsumed();

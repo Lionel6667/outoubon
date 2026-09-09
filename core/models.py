@@ -840,6 +840,7 @@ class UserSeenExamItem(models.Model):
     )
     subject = models.CharField(max_length=50, db_index=True)
     item_hash = models.CharField(max_length=64, db_index=True)
+    succeeded = models.BooleanField(default=False, db_index=True)
     seen_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

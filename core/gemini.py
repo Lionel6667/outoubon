@@ -2069,11 +2069,14 @@ def generate_exam_from_db(
 
     def _fmt_exercice(item: dict) -> str:
         """Formate un item exercice : contexte + sous-questions numérotées."""
-        intro = (item.get('intro') or item.get('enonce') or '').strip()
+        intro = (item.get('intro') or '').strip()
+        enonce = (item.get('enonce') or '').strip()
         qs = item.get('questions') or []
         parts_text = []
         if intro:
             parts_text.append(intro)
+        if enonce and enonce not in intro:
+            parts_text.append(enonce)
         for i, q in enumerate(qs, 1):
             if isinstance(q, str) and q.strip():
                 # Garder la lettre si déjà présente (a) b) c)) sinon numéroter
@@ -2119,6 +2122,9 @@ def generate_exam_from_db(
                 if item.get('type', '') in types_wanted:
                     txt = _text(item)
                     if not txt or len(txt.strip()) < min_len:
+                        continue
+                    stripped = txt.strip()
+                    if stripped.endswith(('...', '…')) and len(stripped) < 90:
                         continue
                     key = hash_item_text(txt)
                     if key in seen_hashes:
@@ -2447,7 +2453,7 @@ def generate_exam_from_db(
     _annee   = _dt.date.today().year
 
     # ── Série et coefficient réels selon la série du user ──────────────────
-    from .series_data import SERIES, get_subject_coeff, DEFAULT_COEF
+    from .series_data import SERIES, get_exam_total_points
     # Normalise la clé série
     _user_serie_key = (user_serie or '').strip().upper()
     if _user_serie_key not in SERIES:
@@ -2461,9 +2467,8 @@ def generate_exam_from_db(
         'SES': 'Série SES', 'LLA': 'Série LLA',
     }
     _serie = _serie_label_map.get(_user_serie_key, f'Série {_user_serie_key}')
-    # Coefficient réel (series_data stocks points × 100, e.g. 400→4, 200→2)
-    _raw_coeff = get_subject_coeff(_user_serie_key, subject)
-    _coeff = _raw_coeff // 100 if _raw_coeff >= 100 else max(1, _raw_coeff)
+    from .series_data import get_exam_total_points
+    _coeff = get_exam_total_points(_user_serie_key, subject)
 
     # ════════════════════════════════════════════════════════════════════════
     # MATHÉMATIQUES
@@ -2619,7 +2624,15 @@ def generate_exam_from_db(
 
             _random.shuffle(_quiz_priority)
             _random.shuffle(_quiz_other)
-            _selected_quizzes = (_quiz_priority + _quiz_other)[:10]
+            _selected_quizzes = []
+            for _q in (_quiz_priority + _quiz_other):
+                _qt = str(_q.get('question') or '').strip()
+                if not _qt or len(_qt) < 12 or not _registry.is_available(_qt):
+                    continue
+                _registry.mark_used(_qt)
+                _selected_quizzes.append(_q)
+                if len(_selected_quizzes) >= 10:
+                    break
 
             # Prendre 10 quizzes si disponibles
             if _selected_quizzes:
@@ -2718,7 +2731,7 @@ def generate_exam_from_db(
                 parts = []
                 if intro:
                     parts.append(intro)
-                elif enonce:
+                if enonce and enonce not in (intro or ''):
                     parts.append(enonce)
 
                 if qs:
@@ -2775,11 +2788,17 @@ def generate_exam_from_db(
             used = set()
             def _take_one(cands: list) -> dict | None:
                 c2 = [c for c in cands if id(c) not in used]
-                if not c2:
+                ready = []
+                for c in c2:
+                    txt = _render_maths_exercise(c)
+                    if txt and len(txt.strip()) >= 40 and _registry.is_available(txt):
+                        ready.append((c, txt))
+                if not ready:
                     return None
-                _random.shuffle(c2)
-                pick = c2[0]
+                _random.shuffle(ready)
+                pick, txt = ready[0]
                 used.add(id(pick))
+                _registry.mark_used(txt)
                 return pick
 
             # Exo 1: toujours une analyse (et de préférence 5+ questions)

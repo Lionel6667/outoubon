@@ -74,11 +74,9 @@ def merge_student_answers(
             section_label=str(p.get('section', '') or ''),
             question_text=str(p.get('question', '') or ''),
         )
-        if inline and len(inline) >= len(extracted):
-            p['student_answer'] = inline
-        elif extracted:
-            p['student_answer'] = extracted
-        else:
-            p['student_answer'] = inline
+        sheet_ans = str(p.get('sheet_answer') or inline or '').strip()
+        p['wrote_on_sheet'] = bool(sheet_ans)
+        # Seule la mise au net est corrigée — jamais ce qui est écrit sur le sujet.
+        p['student_answer'] = extracted or ''
         out.append(p)
     return out
