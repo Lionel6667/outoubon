@@ -182,9 +182,25 @@
     .nav-item.active { background: rgba(16,185,129,.15); color: var(--green); }
     .nav-item i { width: 18px; text-align: center; font-size: .875rem; }
     .app > .sidebar { isolation: isolate; }
-    .app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::before,
-    .app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::after {
-      content: none !important;
+    .app > .sidebar i.fa,
+    .app > .sidebar i.fas,
+    .app > .sidebar i.far,
+    .app > .sidebar i.fab {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      display: inline-block !important;
+    }
+    .app > .sidebar i.fas, .app > .sidebar i.fa { font-weight: 900 !important; }
+    .app > .sidebar i.far { font-weight: 400 !important; }
+    .app > .sidebar i.fab { font-family: "Font Awesome 6 Brands" !important; font-weight: 400 !important; }
+    .app > .sidebar i.fa::before,
+    .app > .sidebar i.fas::before,
+    .app > .sidebar i.far::before,
+    .app > .sidebar i.fab::before {
+      font-family: inherit !important;
+      font-weight: inherit !important;
     }
     .msg-badge { background:#ef4444; color:#fff; font-size:.6rem; font-weight:800; min-width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; border-radius:99px; padding:0 4px; margin-left:auto; }
     .sidebar-footer { margin-top: auto; padding: 1rem; border-top: 1px solid var(--border); }

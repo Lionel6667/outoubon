@@ -2000,7 +2000,7 @@ def generate_exam_from_db(
     import os
     from django.conf import settings
 
-    from .exam_item_registry import ExamItemRegistry, hash_item_text
+    from .exam_item_registry import ExamItemRegistry, hash_item_text, item_hashes_from_text
 
     subject_label = MATS.get(subject, subject)
     _registry = ExamItemRegistry(exclude_hashes=exclude_hashes)
@@ -3802,7 +3802,9 @@ def generate_exam_from_db(
                     'type': 'open', 'pts': 40,
                     'items': [{'text': _fix_latex(_global_format_tables(_item_text)),
                                'answer': _it0.get('answer') or 'Répons tann.',
-                               'pts': 40}],
+                               'pts': 40,
+                               'is_passage': True,
+                               'source_hash': hash_item_text(_it0.get('text') or '')}],
                 }],
             })
 
@@ -3860,7 +3862,10 @@ def generate_exam_from_db(
 
         if not parts:
             return {}
-        return {'title': title, 'duration': duration, 'annee': _annee, 'serie': _serie, 'coeff': _coeff, 'parts': parts}
+        _fr_out = {'title': title, 'duration': duration, 'annee': _annee, 'serie': _serie, 'coeff': _coeff, 'parts': parts}
+        if texte_item:
+            _fr_out['passage_hashes'] = item_hashes_from_text(texte_item[0].get('text') or '')
+        return _fr_out
 
     # ════════════════════════════════════════════════════════════════════════
     # ANGLAIS / ESPAGNOL
@@ -4094,9 +4099,13 @@ def generate_exam_from_db(
         _recent_set = set(_recent_list)
         _candidates = [it for it in _pool if _text_key(it.get('texte', '')) not in _recent_set]
         if not _candidates:
-            _candidates = _pool
-        _pick_window = _candidates[:25] if len(_candidates) > 25 else _candidates
-        chosen = _random.choice(_pick_window) if _pick_window else None
+            _candidates = list(_pool)
+        # Jamais le même texte pour un élève (registry) + jamais deux fois dans le process
+        _picked = _registry.pick(_candidates, 1, text_key='texte')
+        chosen = _picked[0] if _picked else None
+        if not chosen:
+            _picked = _registry.pick(_pool, 1, text_key='texte')
+            chosen = _picked[0] if _picked else None
         if chosen:
             _k = _text_key(chosen.get('texte', ''))
             _recent_list.append(_k)
@@ -4147,6 +4156,7 @@ def generate_exam_from_db(
 
         # ── Construction de l'examen ───────────────────────────────────────
         parts = []
+        _lang_passage_hashes = []
 
         if chosen:
             # ── Partie I : texte + 5 questions numérotées + résumé ────────
@@ -4169,6 +4179,8 @@ def generate_exam_from_db(
             _rewritten = (_call_fast(_rewrite_prompt, max_tokens=700) or '').strip()
             if len(_rewritten) >= 500 and not _re.search(r'(?m)^\s*[1-9][.)]\s+', _rewritten):
                 _passage = _rewritten
+            _registry.mark_used(_passage)
+            _lang_passage_hashes = item_hashes_from_text(chosen.get('texte', '')) + item_hashes_from_text(_passage)
 
             # Générer systématiquement 5 questions ancrées dans le texte pour
             # éviter les questions dont la réponse n'est pas présente.
@@ -4260,6 +4272,7 @@ def generate_exam_from_db(
                 'answer': '',
                 'pts': 0,
                 'is_passage': True,
+                'source_hash': hash_item_text(chosen.get('texte', '')),
             })
             # Items 1-5 : questions de compréhension
             for _qi, _qline in enumerate(_q_lines[:5]):
@@ -4358,7 +4371,10 @@ def generate_exam_from_db(
 
         if not parts:
             return {}
-        return {'title': title, 'duration': duration, 'annee': _annee, 'serie': _serie, 'coeff': _coeff, 'parts': parts}
+        _lang_out = {'title': title, 'duration': duration, 'annee': _annee, 'serie': _serie, 'coeff': _coeff, 'parts': parts}
+        if _lang_passage_hashes:
+            _lang_out['passage_hashes'] = list(dict.fromkeys(_lang_passage_hashes))
+        return _lang_out
 
     def _pick_by_keywords(pool: list, keywords: list[str], n: int) -> list:
         """Pick items preferring texts that match requested keywords (sans duplication)."""

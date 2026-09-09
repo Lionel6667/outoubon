@@ -759,7 +759,7 @@ body.mau-open #examMainCol { margin-right:min(460px,94vw); transition:margin .35
         </div>
         <div class="quiz-mat-grid">
           {% for key, mat in mats.items %}
-          <button class="mat-tile" onclick="startExamen('{{ key }}')" style="--color:{{ mat.color }}">
+          <button type="button" class="mat-tile" data-exam-subject="{{ key }}" style="--color:{{ mat.color }}">
             <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
             <div class="mat-tile-label">{{ mat.label }}</div>
           </button>
@@ -950,7 +950,7 @@ body.mau-open #examMainCol { margin-right:min(460px,94vw); transition:margin .35
             <div id="corrAccordion" class="corr-accordion"></div>
             <div id="aiCorrPanel" style="display:none;"></div>
             <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
-              <button class="btn-primary" onclick="startExamen(currentSubject)" style="padding:.65rem 1.5rem;">
+              <button type="button" class="btn-primary" data-exam-restart="1" style="padding:.65rem 1.5rem;">
                 <i class="fas fa-redo"></i> Nouvel examen
               </button>
               <button id="btnAiCorr" onclick="runAICorrection()" style="display:none;padding:.65rem 1.25rem;background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.3);border-radius:10px;font-size:.875rem;font-weight:700;cursor:pointer;">
@@ -982,11 +982,33 @@ window.GUEST_EXAM_DONE = {{ guest_exam_done|default:"0" }};
 const GUEST_EXAM_STORAGE_KEY = 'outoubon_guest_exam_done';
 const SUCCEEDED_EXAM_ITEMS_KEY = 'outoubon_succeeded_exam_items';
 const SERVED_EXAM_IDS_KEY = 'outoubon_served_exam_ids';
+const LANG_EXAM_HASHES_KEY = 'outoubon_lang_exam_hashes';
+const LANG_EXAM_SUBJECTS = ['anglais', 'espagnol', 'francais'];
+
+function _getLangHashes(subject) {
+  try {
+    const all = JSON.parse(sessionStorage.getItem(LANG_EXAM_HASHES_KEY) || '{}');
+    return all[subject] || [];
+  } catch (e) { return []; }
+}
+
+function _recordLangExamHashes(subject, hashes) {
+  if (!LANG_EXAM_SUBJECTS.includes(subject) || !hashes || !hashes.length) return;
+  try {
+    const all = JSON.parse(sessionStorage.getItem(LANG_EXAM_HASHES_KEY) || '{}');
+    const existing = new Set(all[subject] || []);
+    hashes.forEach(h => { if (h && String(h).length === 64) existing.add(h); });
+    all[subject] = [...existing].slice(-400);
+    sessionStorage.setItem(LANG_EXAM_HASHES_KEY, JSON.stringify(all));
+  } catch (e) { /* ignore */ }
+}
 
 function _getSeenHashesForSubject(subject) {
   try {
     const all = JSON.parse(sessionStorage.getItem(SUCCEEDED_EXAM_ITEMS_KEY) || '{}');
-    return (all[subject] || []).join(',');
+    const succeeded = all[subject] || [];
+    const lang = LANG_EXAM_SUBJECTS.includes(subject) ? _getLangHashes(subject) : [];
+    return [...new Set([...succeeded, ...lang])].join(',');
   } catch (e) { return ''; }
 }
 
@@ -1643,6 +1665,7 @@ function sanitizeMath(text) {
 }
 
 async function startExamen(subject) {
+  window.startExamen = startExamen;
   clearExamResults();
   
   if (IS_GUEST && GUEST_EXAM_DONE >= 1) {
@@ -1671,6 +1694,7 @@ async function startExamen(subject) {
     return;
   }
   currentSubject = subject;
+  window.currentSubject = subject;
   examSubmitted  = false;
   stopCountdown();
   document.title = 'Examen Blanc — OU TOU BON';
@@ -1707,6 +1731,7 @@ async function startExamen(subject) {
     }
     if (!d.exam || !d.exam.parts) throw new Error('Données invalides reçues du serveur.');
     if (d.exam_id) _recordServedExamId(subject, d.exam_id);
+    if (Array.isArray(d.item_hashes)) _recordLangExamHashes(subject, d.item_hashes);
     if (IS_GUEST) _markGuestExamConsumed();
     currentExamDraftKey = _examDraftKey(subject, d.exam);
     let hadDraft = false;
@@ -2701,5 +2726,7 @@ var _examObserver = new MutationObserver(() => {
   wrapTablesForResponsive();
 });
 _examObserver.observe(document.body, { childList: true, subtree: true });
+window.startExamen = startExamen;
+window.currentSubject = window.currentSubject || '';
 </script>
 {% endblock %}

@@ -643,13 +643,9 @@ a.v2-xp-strip__main:hover .v2-xp-strip__xp {
   .otb-push-modal__box, .otb-push-modal__icon { animation: none; }
 }
 
-/* Persistent sidebar: ignore page CSS that leaks during SPA swaps */
+/* Persistent sidebar: page CSS must not restyle Font Awesome glyphs */
 .app > .sidebar {
   isolation: isolate;
-}
-.app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::before,
-.app > .sidebar *:not(i):not(.fa):not(.fas):not(.far):not(.fab)::after {
-  content: none !important;
 }
 .app > .sidebar i.fa,
 .app > .sidebar i.fas,
@@ -657,7 +653,6 @@ a.v2-xp-strip__main:hover .v2-xp-strip__xp {
 .app > .sidebar i.fab {
   font-family: "Font Awesome 6 Free" !important;
   font-style: normal !important;
-  font-weight: 900 !important;
   font-variant: normal !important;
   text-rendering: auto !important;
   -webkit-font-smoothing: antialiased !important;
@@ -666,6 +661,26 @@ a.v2-xp-strip__main:hover .v2-xp-strip__xp {
   left: auto !important;
   top: auto !important;
   transform: none !important;
+}
+.app > .sidebar i.fas,
+.app > .sidebar i.fa {
+  font-weight: 900 !important;
+}
+.app > .sidebar i.far {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 400 !important;
+}
+.app > .sidebar i.fab {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+.app > .sidebar i.fa::before,
+.app > .sidebar i.fas::before,
+.app > .sidebar i.far::before,
+.app > .sidebar i.fab::before {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
 }
 .app > .sidebar .v2-xp-strip {
   display: flex !important;

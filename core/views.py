@@ -5743,14 +5743,19 @@ def _ensure_complete_exam_items(exam_data: dict) -> dict:
     return exam_data
 
 
+_LANG_EXAM_SUBJECTS = frozenset({'anglais', 'espagnol', 'francais'})
+
+
 def _get_exam_exclude_hashes(request, subject: str) -> set:
-    """Hashes des items RÉUSSIS uniquement — les exercices ratés peuvent revenir."""
+    """Hashes à exclure au tirage.
+    Matières scientifiques : seulement les items réussis (les ratés peuvent revenir).
+    Langues : tout texte déjà vu, réussi ou non — jamais le même texte deux fois.
+    """
     if request.user.is_authenticated:
-        return set(
-            UserSeenExamItem.objects
-            .filter(user=request.user, subject=subject, succeeded=True)
-            .values_list('item_hash', flat=True)[:500]
-        )
+        qs = UserSeenExamItem.objects.filter(user=request.user, subject=subject)
+        if subject not in _LANG_EXAM_SUBJECTS:
+            qs = qs.filter(succeeded=True)
+        return set(qs.values_list('item_hash', flat=True)[:1200])
 
     raw = (request.GET.get('seen_hashes') or '').strip()
     if not raw:
@@ -5787,12 +5792,17 @@ def _pick_cached_exam(request, subject: str, serie: str):
         qs = qs.exclude(pk__in=exclude_ids)
     if request.user.is_authenticated:
         qs = qs.exclude(seen_by=request.user)
+        exclude_hashes = _get_exam_exclude_hashes(request, subject)
         succeeded = set(
             UserSeenExamItem.objects
             .filter(user=request.user, subject=subject, succeeded=True)
-            .values_list('item_hash', flat=True)[:500]
+            .values_list('item_hash', flat=True)[:800]
         )
-        for exam in qs.order_by('?')[:16]:
+        from .exam_item_registry import extract_exam_item_hashes
+        for exam in qs.order_by('?')[:24]:
+            hashes = extract_exam_item_hashes(exam.exam_data)
+            if subject in _LANG_EXAM_SUBJECTS and hashes and any(h in exclude_hashes for h in hashes):
+                continue
             if _exam_all_items_succeeded(exam.exam_data, succeeded):
                 continue
             return exam
