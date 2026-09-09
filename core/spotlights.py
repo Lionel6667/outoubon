@@ -172,14 +172,17 @@ def _pinned_laureate(year: str):
             photo = s.photo.url
         except Exception:
             photo = None
+    # Note = la VRAIE note obtenue au BAC national (saisie à la main dans l'admin),
+    # pas une estimation OUTOUBON.
+    real_note = (s.score or '').strip()
     meta_bits = [s.school, s.serie, s.subtitle]
     return _card(
         name=s.title,
         meta=' · '.join(p for p in meta_bits if p),
         school=s.school,
         serie=s.serie,
-        score='',
-        body=s.body or 'Lauréat du site — meilleure note parmi les élèves OU TOU BON.',
+        score=real_note,
+        body=s.body or 'Lauréat du site — plus haute note au BAC parmi les élèves OU TOU BON.',
         photo_url=photo,
         year=s.academic_year or year,
     )
