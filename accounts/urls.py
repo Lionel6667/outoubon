@@ -23,7 +23,8 @@ urlpatterns = [
     path('create-payment/',        payments.create_payment,        name='create_payment'),
     path('payment-success/',       payments.payment_success,       name='payment_success'),
     path('payment-status/',        payments.check_payment_status,  name='check_payment_status'),
-    path('webhook/peyem/',         payments.peyem_webhook,         name='peyem_webhook'),
+    path('webhook/moncash/',       payments.moncash_webhook,       name='moncash_webhook'),
+    path('webhook/peyem/',         payments.peyem_webhook,         name='peyem_webhook'),  # alias rétro-compat
     path('natcash-notify/',         payments.natcash_notify_view,   name='natcash_notify'),
     # Cadeau — demander à un proche de payer
     path('cadeau/',                    payments.generate_gift_link,       name='gift_generate'),
