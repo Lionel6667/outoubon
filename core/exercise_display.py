@@ -20,24 +20,39 @@ _MATH_INLINE_PAT = re.compile(
 _DUP_TOKEN_RUN = re.compile(r'(\S+(?:\s+\S+){2,}?)(?:\s+\1)+')
 
 
-def _dedupe_obvious_repeats(text: str) -> str:
-    """Supprime les répétitions évidentes (artefacts OCR/parsing)."""
-    if not text:
-        return text
-    text = _DUP_TOKEN_RUN.sub(r'\1', text)
-    # Phrases dupliquées côte à côte
-    words = text.split()
+def _dedupe_words_in_line(line: str) -> str:
+    """Déduplique les mots d'une ligne sans toucher aux cellules `|` d'un tableau."""
+    if '|' in line:
+        return line
+    words = line.split()
     if len(words) < 6:
-        return text
+        return line
     out: list[str] = []
     i = 0
     while i < len(words):
         out.append(words[i])
-        # Skip immediate duplicate word
-        if i + 1 < len(words) and words[i + 1] == words[i]:
+        if i + 1 < len(words) and words[i + 1] == words[i] and words[i] != '|':
             i += 1
         i += 1
-    return ' '.join(out)
+    leading = line[: len(line) - len(line.lstrip())] if line.strip() else ''
+    return leading + ' '.join(out)
+
+
+def _dedupe_obvious_repeats(text: str) -> str:
+    """Supprime les répétitions évidentes sans écraser les tableaux markdown."""
+    if not text:
+        return text
+    # Traiter ligne par ligne : split() sur tout le texte collait les
+    # lignes d'un tableau (`| x |` + `| y |`) en une seule rangée.
+    parts = text.split('\n')
+    cleaned = []
+    for part in parts:
+        if '|' in part:
+            cleaned.append(part)
+            continue
+        part = _DUP_TOKEN_RUN.sub(r'\1', part)
+        cleaned.append(_dedupe_words_in_line(part))
+    return '\n'.join(cleaned)
 
 
 def _normalize_math_delims(text: str) -> str:
@@ -116,9 +131,11 @@ def format_exercise_display_local(subject: str, intro: str, questions: list) -> 
         if not questions or len(extracted) > len(questions):
             questions = extracted
 
+    already_md_table = bool(re.search(r'\|.+\|\s*\n\s*\|[-:| ]+\|', intro))
     intro = _dedupe_obvious_repeats(intro)
-    intro = _series_to_md_table(intro)
-    intro = _global_format_tables(intro)
+    if not already_md_table:
+        intro = _series_to_md_table(intro)
+        intro = _global_format_tables(intro)
     intro = _normalize_math_delims(intro)
     intro = _plain_urn_labels(intro)
     intro = _wrap_inline_math(intro)

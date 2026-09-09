@@ -76,11 +76,16 @@
 .exo-bubble .katex-display { margin:.4rem 0; overflow-x:auto; max-width:100%; }
 .exo-bubble .katex { color:var(--t1)!important; }
 
-.exo-msg.ai .exo-bubble .tbl-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; margin:.6rem 0; border-radius:8px; border:1px solid var(--border2); }
-.exo-msg.ai .exo-bubble table { width:100%; min-width:0; border-collapse:collapse; font-size:.78rem; }
-.exo-msg.ai .exo-bubble th { background:rgba(16,185,129,.12); color:var(--t1); font-weight:700; padding:.4rem .7rem; text-align:left; font-size:.76rem; border-bottom:1px solid rgba(16,185,129,.25); }
-.exo-msg.ai .exo-bubble td { padding:.35rem .7rem; border-bottom:1px solid var(--border2); color:var(--t2); }
-.exo-msg.ai .exo-bubble tr:last-child td { border-bottom:none; }
+.exo-msg.ai .exo-bubble .tbl-wrap,
+.exo-text .tbl-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; margin:.6rem 0; border-radius:8px; border:1px solid var(--border2); }
+.exo-msg.ai .exo-bubble table,
+.exo-text table { width:100%; min-width:0; border-collapse:collapse; font-size:.78rem; }
+.exo-msg.ai .exo-bubble th,
+.exo-text th { background:rgba(16,185,129,.12); color:var(--t1); font-weight:700; padding:.4rem .7rem; text-align:left; font-size:.76rem; border-bottom:1px solid rgba(16,185,129,.25); }
+.exo-msg.ai .exo-bubble td,
+.exo-text td { padding:.35rem .7rem; border-bottom:1px solid var(--border2); color:var(--t2); }
+.exo-msg.ai .exo-bubble tr:last-child td,
+.exo-text tr:last-child td { border-bottom:none; }
 
 .exo-msg-content { max-width:84%; min-width:0; display:flex; flex-direction:column; gap:.2rem; }
 .exo-msg.user .exo-msg-content { align-items:flex-end; }
@@ -1316,8 +1321,10 @@ async function generateNewExercise() {
 function formatExerciseDisplayLocal(text) {
   if (!text || typeof text !== 'string') return text || '';
   let s = text;
-  // Dédup mots consécutifs identiques
-  s = s.replace(/\b(\S+)(\s+\1\b)+/gi, '$1');
+  if (typeof restoreCollapsedPipeTable === 'function') s = restoreCollapsedPipeTable(s);
+  s = s.replace(/\b(\S+)(\s+\1\b)+/gi, function(all, tok) {
+    return tok === '|' ? all : tok;
+  });
   if (s.includes('|')) return s;
   // x\ty\t... + y\ty\t... → tableau pipe
   const xMatch = s.match(/\bx[\s\t]+([\d,.\s\t]+?)(?=\n|\s*y[\s\t])/i);

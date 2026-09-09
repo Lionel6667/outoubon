@@ -1376,8 +1376,19 @@ function showToast(msg, type='success') {
   setTimeout(() => t.remove(), 3500);
 }
 
+function restoreCollapsedPipeTable(text) {
+  if (!text || text.indexOf('|') === -1) return text;
+  if (/\n\s*\|/.test(text)) return text;
+  if (!/\|[\s:-]*---/.test(text)) return text;
+  return text
+    .replace(/(\|)\s+(\|(?:[\s]*:?-{3,}:?[\s]*\|)+)/g, '$1\n$2')
+    .replace(/(\|)\s+(\|\s*[A-Za-zÀ-ÿ_])/g, '$1\n$2')
+    .replace(/(\S)\s+(\|(?:\s*:?-+:?\s*\|)+)/g, '$1\n$2');
+}
+
 function renderMarkdown(raw) {
   let text = raw;
+  text = restoreCollapsedPipeTable(text);
   text = text.replace(/(\d)\uFE0F?\u20E3/g, '<span class="sec-badge">$1</span>');
   text = fixLatexControls(text);
   text = autoMathWrap(text);
