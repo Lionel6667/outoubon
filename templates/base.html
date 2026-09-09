@@ -1379,11 +1379,58 @@ function showToast(msg, type='success') {
 function restoreCollapsedPipeTable(text) {
   if (!text || text.indexOf('|') === -1) return text;
   if (/\n\s*\|/.test(text)) return text;
-  if (!/\|[\s:-]*---/.test(text)) return text;
   return text
     .replace(/(\|)\s+(\|(?:[\s]*:?-{3,}:?[\s]*\|)+)/g, '$1\n$2')
-    .replace(/(\|)\s+(\|\s*[A-Za-zÀ-ÿ_])/g, '$1\n$2')
+    .replace(/(\|)\s+(\|\s*[A-Za-zÀ-ÿ_$])/g, '$1\n$2')
     .replace(/(\S)\s+(\|(?:\s*:?-+:?\s*\|)+)/g, '$1\n$2');
+}
+
+function splitPipeCells(line) {
+  const s = String(line || '').trim();
+  if (s.indexOf('|') === -1) return null;
+  const cells = s.replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+  return cells.length >= 2 ? cells : null;
+}
+
+function isSepCells(cells) {
+  if (!cells || !cells.length) return false;
+  const nonempty = cells.map(c => c.replace(/\s/g, '')).filter(Boolean);
+  return nonempty.length > 0 && nonempty.every(c => /^:?-{2,}:?$/.test(c));
+}
+
+function normalizeLoosePipeTables(text) {
+  if (!text || text.indexOf('|') === -1 || text.toLowerCase().indexOf('<table') !== -1) return text;
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').replace(/│/g, '|').split('\n');
+  const out = [];
+  for (let i = 0; i < lines.length; ) {
+    const cells = splitPipeCells(lines[i]);
+    if (!cells) { out.push(lines[i]); i++; continue; }
+    const run = [cells];
+    let j = i + 1;
+    while (j < lines.length) {
+      const nxt = splitPipeCells(lines[j]);
+      if (!nxt) break;
+      run.push(nxt);
+      j++;
+    }
+    const dataRows = run.filter(r => !isSepCells(r));
+    if (dataRows.length >= 2) {
+      const width = Math.max(...run.map(r => r.length));
+      for (const row of run) {
+        const padded = row.concat(Array(Math.max(0, width - row.length)).fill(''));
+        if (isSepCells(row)) {
+          out.push('| ' + padded.map(c => (c.replace(/\s/g, '') || '---')).join(' | ') + ' |');
+        } else {
+          out.push('| ' + padded.join(' | ') + ' |');
+        }
+      }
+      i = j;
+    } else {
+      out.push(lines[i]);
+      i++;
+    }
+  }
+  return out.join('\n');
 }
 
 function renderMarkdown(raw) {
@@ -1414,24 +1461,33 @@ function renderMarkdown(raw) {
   text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
   if (!text.includes('<table')) {
     text = restoreCollapsedPipeTable(text);
+    text = normalizeLoosePipeTables(text);
     if (text.includes('|') && !text.endsWith('\n')) text += '\n';
     text = text.replace(/((?:^(?:\|.+\||.+\t.+)\s*\n)+)/gm, block => {
     const lines = block.trim().split('\n');
-    const hasPipe = lines.some(l => l.trim().startsWith('|'));
+    const hasPipe = lines.some(l => l.trim().startsWith('|') || (l.indexOf('|') !== -1 && splitPipeCells(l)));
     const hasTsv  = lines.some(l => !l.trim().startsWith('|') && l.includes('\t'));
     if (!hasPipe && !hasTsv) return block;
     const piped = lines.map(l => {
       const t = l.trim();
       if (t.startsWith('|')) return t;
-      const cells = t.split('\t').map(c => c.trim());
-      return '| ' + cells.join(' | ') + ' |';
+      if (t.includes('\t')) {
+        const cells = t.split('\t').map(c => c.trim());
+        return '| ' + cells.join(' | ') + ' |';
+      }
+      const cells = splitPipeCells(t);
+      if (cells) return '| ' + cells.join(' | ') + ' |';
+      return t;
     });
     return piped.join('\n') + '\n';
   });
-    text = text.replace(/((?:^\|.+\|\s*\n)+)/gm, tb => {
-    const rows = tb.trim().split('\n').filter(r => !/^\|[-:| ]+\|$/.test(r.trim()));
-    if (!rows.length) return tb;
-    const toTd = (row, tag) => row.split('|').slice(1,-1).map(c => `<${tag}>${c.trim()}</${tag}>`).join('');
+    text = text.replace(/((?:^\|.+\|\s*\n){2,})/gm, tb => {
+    const rows = tb.trim().split('\n').filter(r => !isSepCells(splitPipeCells(r.trim()) || []) && !/^\|[-:| ]+\|$/.test(r.trim()));
+    if (rows.length < 2) return tb;
+    const toTd = (row, tag) => {
+      const cells = splitPipeCells(row) || row.split('|').slice(1,-1).map(c => c.trim());
+      return cells.map(c => `<${tag}>${c}</${tag}>`).join('');
+    };
     const [head, ...body] = rows;
     return `<div class="tbl-wrap"><table><thead><tr>${toTd(head,'th')}</tr></thead><tbody>${body.map(r=>`<tr>${toTd(r,'td')}</tr>`).join('')}</tbody></table></div>`;
   });

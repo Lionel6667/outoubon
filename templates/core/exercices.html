@@ -1322,6 +1322,7 @@ function formatExerciseDisplayLocal(text) {
   if (!text || typeof text !== 'string') return text || '';
   let s = text;
   if (typeof restoreCollapsedPipeTable === 'function') s = restoreCollapsedPipeTable(s);
+  if (typeof normalizeLoosePipeTables === 'function') s = normalizeLoosePipeTables(s);
   s = s.replace(/\b(\S+)(\s+\1\b)+/gi, function(all, tok) {
     return tok === '|' ? all : tok;
   });
