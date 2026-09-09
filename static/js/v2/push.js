@@ -1,13 +1,22 @@
 (function () {
-  if (!window.OTB_FIREBASE || !window.OTB_VAPID) return;
-  if (!('Notification' in window) || !('serviceWorker' in navigator)) return;
-
-  const cfg = window.OTB_FIREBASE;
-  const vapid = window.OTB_VAPID;
+  const cfg = window.OTB_FIREBASE || null;
+  const vapid = window.OTB_VAPID || '';
+  // Le navigateur supporte-t-il le push web ? (iOS in-app, vieux navigateurs, HTTP…)
+  const SUPPORTED = ('Notification' in window) && ('serviceWorker' in navigator);
+  const CONFIGURED = !!(cfg && vapid);
   const csrf = function () { return (typeof CSRF !== 'undefined') ? CSRF : ''; };
   const KEY_LATER = 'otb_push_later';
   const KEY_NAGS = 'otb_push_nags';
   const KEY_VISITS = 'otb_push_visits';
+
+  // Notification visible à l'utilisateur (jamais silencieux : le bouton doit réagir).
+  function toast(msg, type) {
+    try {
+      if (typeof window.showToast === 'function') { window.showToast(msg, type || 'info'); return; }
+    } catch (e) {}
+    // Repli minimal si showToast n'est pas chargé.
+    try { console[(type === 'error') ? 'error' : 'log']('[push] ' + msg); } catch (e) {}
+  }
 
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
@@ -41,12 +50,13 @@
     const reg = await navigator.serviceWorker.register('/firebase-messaging-sw.js', { scope: '/' });
     const messaging = firebase.messaging();
     const token = await messaging.getToken({ vapidKey: vapid, serviceWorkerRegistration: reg });
-    if (!token) return;
-    await fetch('/dashboard/api/push/register/', {
+    if (!token) throw new Error('no-token');
+    const resp = await fetch('/dashboard/api/push/register/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
       body: JSON.stringify({ token: token })
     });
+    if (!resp.ok) throw new Error('register-failed');
     try { localStorage.setItem('otb_push_token', token); } catch (e) {}
     messaging.onMessage(function (payload) {
       const d = (payload && payload.data) || {};
@@ -58,7 +68,59 @@
         });
       }
     });
+    return token;
   }
+
+  // Flux complet déclenché par un clic utilisateur — donne TOUJOURS un retour visible.
+  // Exposé globalement pour pouvoir être appelé depuis n'importe quelle page/bouton.
+  var _enabling = false;
+  async function enablePush(opts) {
+    opts = opts || {};
+    if (_enabling) return;
+    if (!SUPPORTED) {
+      toast("Ton navigateur ne supporte pas les notifications. Essaie Chrome (Android) ou installe l'app.", 'error');
+      return;
+    }
+    if (!CONFIGURED) {
+      toast('Notifications momentanément indisponibles. Réessaie plus tard.', 'error');
+      return;
+    }
+    if (Notification.permission === 'denied') {
+      toast("Les notifications sont bloquées dans ton navigateur. Autorise-les dans les réglages du site (icône 🔒 à côté de l'adresse).", 'error');
+      return;
+    }
+    _enabling = true;
+    var go = document.getElementById('otbPushGo');
+    var hint = document.getElementById('otbPushHint');
+    if (go) go.disabled = true;
+    if (hint) { hint.style.display = 'block'; hint.textContent = 'Le navigateur va te demander l’autorisation…'; }
+    try {
+      var perm = await Notification.requestPermission();
+      if (perm === 'granted') {
+        if (hint) hint.textContent = 'Activation en cours…';
+        await registerToken();
+        hideModal();
+        toast('Notifications activées ✅', 'success');
+      } else if (perm === 'denied') {
+        hideModal();
+        markLater();
+        toast("Tu as refusé les notifications. Tu peux les réactiver dans les réglages du navigateur.", 'info');
+      } else {
+        // 'default' : l'utilisateur a fermé la demande sans choisir.
+        markLater();
+        toast('Tu pourras activer les notifications plus tard.', 'info');
+      }
+    } catch (e) {
+      toast("Impossible d'activer les notifications (problème réseau ou navigateur). Réessaie.", 'error');
+      try { console.error('[push] enablePush failed', e); } catch (_) {}
+    } finally {
+      _enabling = false;
+      if (go) go.disabled = false;
+      var el = document.getElementById('otbPushModal');
+      if (el) el.classList.remove('is-asking');
+    }
+  }
+  window.otbEnablePush = enablePush;
 
   function bumpVisits() {
     try {
@@ -110,44 +172,37 @@
     if (el) el.hidden = true;
   }
 
-  function showModal() {
+  // Attache les gestionnaires du modal une seule fois, dès que possible (pas
+  // seulement à l'ouverture) — évite toute course « clic avant binding ».
+  function bindModalHandlers() {
     var el = document.getElementById('otbPushModal');
-    if (!el || !el.hidden) return;
-    el.hidden = false;
+    if (!el) return;
     var go = document.getElementById('otbPushGo');
     var later = document.getElementById('otbPushLater');
-    var hint = document.getElementById('otbPushHint');
     var backdrop = el.querySelector('.otb-push-modal__backdrop');
     if (go && !go._bound) {
       go._bound = true;
-      go.addEventListener('click', function () {
+      go.addEventListener('click', function (ev) {
+        ev.preventDefault();
         el.classList.add('is-asking');
-        go.disabled = true;
-        if (hint) hint.textContent = 'Le navigateur va te demander l’autorisation…';
-        Notification.requestPermission().then(function (p) {
-          hideModal();
-          if (p === 'granted') registerToken().catch(function () {});
-          else markLater();
-        }).catch(function () {
-          go.disabled = false;
-          el.classList.remove('is-asking');
-        });
+        enablePush();
       });
     }
     if (later && !later._bound) {
       later._bound = true;
-      later.addEventListener('click', function () {
-        hideModal();
-        markLater();
-      });
+      later.addEventListener('click', function () { hideModal(); markLater(); });
     }
     if (backdrop && !backdrop._bound) {
       backdrop._bound = true;
-      backdrop.addEventListener('click', function () {
-        hideModal();
-        markLater();
-      });
+      backdrop.addEventListener('click', function () { hideModal(); markLater(); });
     }
+  }
+
+  function showModal() {
+    var el = document.getElementById('otbPushModal');
+    if (!el || !el.hidden) return;
+    bindModalHandlers();
+    el.hidden = false;
   }
 
   function maybeAsk() {
@@ -218,11 +273,17 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    // Toujours attacher les gestionnaires : le bouton du modal doit réagir
+    // même si l'auto-affichage est désactivé sur cette page.
+    bindModalHandlers();
+    if (!SUPPORTED || !CONFIGURED) return;
     bumpVisits();
     scheduleAsk();
   });
 
   document.addEventListener('otb:spa-navigate', function () {
+    bindModalHandlers();
+    if (!SUPPORTED || !CONFIGURED) return;
     scheduleAsk();
   });
 })();

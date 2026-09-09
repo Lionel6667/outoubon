@@ -4,6 +4,37 @@
 <head>
   <meta charset="UTF-8"/>
   {% if not spa_mode %}
+  {# Anti-FOUC : neutralise les transitions/animations d'entrée pendant que le CSS
+     et la mise en page se stabilisent (évite qu'un élément "monte"/saute avant que
+     le CSS soit prêt). Retiré dès la 1re frame après DOMContentLoaded → imperceptible,
+     ne ralentit rien, ne cache aucun contenu. #}
+  <style>
+    html.otb-preload *,
+    html.otb-preload *::before,
+    html.otb-preload *::after {
+      transition: none !important;
+      animation-duration: 0.001ms !important;
+      animation-delay: 0s !important;
+    }
+  </style>
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.className += ' otb-preload';
+      function reveal() { d.classList.remove('otb-preload'); }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+          requestAnimationFrame(reveal);
+        });
+      } else {
+        requestAnimationFrame(reveal);
+      }
+      // Filet de sécurité : toujours révéler au plus tard au 'load'.
+      window.addEventListener('load', reveal);
+      // Filet de sécurité ultime (si un script échoue) : révéler après 3 s.
+      setTimeout(reveal, 3000);
+    })();
+  </script>
   <meta name="csrf-token" content="{{ csrf_token }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
   <meta name="theme-color" content="#0f172a"/>

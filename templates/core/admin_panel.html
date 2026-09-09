@@ -537,8 +537,13 @@
     <form id="hallForm" onsubmit="submitSpotlight(event)" enctype="multipart/form-data">
       <input type="hidden" name="kind" value="laureate">
       <div class="form-row">
-        <label class="form-label">Nom</label>
-        <input class="form-input" name="title" placeholder="ex. Marie Jean" required>
+        <label class="form-label">Compte élève à mettre en avant (email ou username)</label>
+        <input class="form-input" name="student" placeholder="ex. despinassemarken1@gmail.com">
+        <div style="font-size:.72rem;color:var(--t3);margin-top:.25rem;">Si renseigné, le nom, la photo, l'école et la série viennent du compte de l'élève.</div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Nom (laisser vide si un compte est renseigné ci-dessus)</label>
+        <input class="form-input" name="title" placeholder="ex. Marie Jean">
       </div>
       <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
         <div>
@@ -552,8 +557,8 @@
       </div>
       <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
         <div>
-          <label class="form-label">Note /1900 (sur le site)</label>
-          <input class="form-input" name="score" placeholder="ex. 1450/1900">
+          <label class="form-label">Note au BAC (optionnel — laisser vide pour ne rien afficher)</label>
+          <input class="form-input" name="score" placeholder="laisser vide">
         </div>
         <div>
           <label class="form-label">Année (affichée 12 mois)</label>
