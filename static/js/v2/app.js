@@ -431,22 +431,34 @@
     css = String(css || '');
     if (!css.trim()) return '';
 
-    function leaveSelector(sel) {
+    function rewriteSelector(sel) {
       sel = sel.trim();
-      if (!sel) return true;
-      if (/^(html|body|:root|:host)\b/i.test(sel)) return true;
-      if (sel.indexOf(scope) !== -1) return true;
-      if (/#flipFab\b/.test(sel)) return true;
-      return false;
+      if (!sel) return sel;
+      if (sel.indexOf(scope) !== -1) return sel;
+      if (/#flipFab\b/.test(sel)) return sel;
+
+      // :root / :host custom props must stay inside the swapped pane.
+      // Leaving them unscoped overrides --t2/--t3 on the live shell.
+      if (/^:(?:root|host)(?=[\s.#:[>+~]|$)/i.test(sel)) {
+        return sel.replace(/^:(?:root|host)/i, scope);
+      }
+
+      // body.exam-zen / body.v2-exo-session-active — keep on the real <body>
+      // so chrome (sidebar, tab bar) can still hide during those modes.
+      if (/^(html|body)[.#\[]/i.test(sel)) return sel;
+
+      // Bare html/body and "body descendant" (body *, body a, body .nav-item)
+      // used to leak color onto the persistent sidebar.
+      if (/^(html|body)(?=[\s:]|$)/i.test(sel)) {
+        var rest = sel.replace(/^(html|body)/i, '').replace(/^\s+/, '');
+        return rest ? scope + ' ' + rest : scope;
+      }
+
+      return scope + ' ' + sel;
     }
 
     function prefixSelectors(selectorText) {
-      return selectorText.split(',').map(function (sel) {
-        sel = sel.trim();
-        if (!sel) return sel;
-        if (leaveSelector(sel)) return sel;
-        return scope + ' ' + sel;
-      }).join(', ');
+      return selectorText.split(',').map(rewriteSelector).join(', ');
     }
 
     function walk(src) {
@@ -611,18 +623,26 @@
     return found;
   }
 
-  function loadStylesheet(href) {
-    var key = assetHrefKey(href);
-    var existing = findStylesheetLink(key);
-    if (existing) {
-      try {
-        if (existing.sheet) return Promise.resolve();
-      } catch (e) {}
-      return new Promise(function (resolve) {
-        existing.addEventListener('load', resolve, { once: true });
-        existing.addEventListener('error', resolve, { once: true });
-      });
-    }
+  var _cssTextCache = {};
+
+  function findScopedStylesheet(key) {
+    var found = null;
+    document.querySelectorAll('head style[data-otb-href]').forEach(function (style) {
+      if (style.getAttribute('data-otb-href') === key) found = style;
+    });
+    return found;
+  }
+
+  function injectScopedStylesheet(key, css) {
+    if (findScopedStylesheet(key)) return;
+    var s = document.createElement('style');
+    s.setAttribute('data-otb-spa', 'page');
+    s.setAttribute('data-otb-href', key);
+    s.textContent = preparePageCss(css);
+    document.head.appendChild(s);
+  }
+
+  function loadStylesheetLink(href) {
     return new Promise(function (resolve) {
       var l = document.createElement('link');
       l.rel = 'stylesheet';
@@ -632,6 +652,29 @@
       l.addEventListener('error', resolve, { once: true });
       document.head.appendChild(l);
     });
+  }
+
+  function loadStylesheet(href) {
+    var key = assetHrefKey(href);
+    if (findScopedStylesheet(key)) return Promise.resolve();
+
+    var existingLink = findStylesheetLink(key);
+    if (existingLink) existingLink.remove();
+
+    if (Object.prototype.hasOwnProperty.call(_cssTextCache, key)) {
+      injectScopedStylesheet(key, _cssTextCache[key]);
+      return Promise.resolve();
+    }
+
+    return fetch(href, { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error('css fetch')); })
+      .then(function (css) {
+        _cssTextCache[key] = css;
+        injectScopedStylesheet(key, css);
+      })
+      .catch(function () {
+        return loadStylesheetLink(href);
+      });
   }
 
   function injectInlinePageCss(pkg) {
@@ -765,35 +808,69 @@
     curHolder.innerHTML = pkg.pageScriptsHtml || '';
   }
 
-  function runSerializedScripts(scripts) {
-    if (!scripts || !scripts.length) return;
-    scripts.forEach(function (item) {
-      if (item.src) {
-        if (scriptAlreadyLoaded(item.src)) {
-          document.dispatchEvent(new CustomEvent('otb:spa-script-loaded', { detail: { src: item.src } }));
-          return;
-        }
-        var s = document.createElement('script');
-        s.src = item.src;
-        s.async = false;
-        try {
-          _loadedScriptSrcs[new URL(item.src, window.location.origin).href] = true;
-        } catch (e) {}
-        document.body.appendChild(s);
+  function invokeReadyHandler(fn, target, type) {
+    if (!fn) return;
+    try {
+      var evt = new Event(type);
+      if (typeof fn === 'function') fn.call(target, evt);
+      else if (fn.handleEvent) fn.handleEvent(evt);
+    } catch (e) {
+      console.warn('SPA ready handler error:', e);
+    }
+  }
+
+  function patchReadyListener(orig) {
+    return function (type, fn, opts) {
+      if (type === 'DOMContentLoaded' || type === 'load') {
+        invokeReadyHandler(fn, this, type);
         return;
       }
-      if (!item.text) return;
-      // SPA : const/let globaux se redéclarent → SyntaxError. On les réécrit en var
-      // (même scope script) pour garder les function declarations globales (onclick).
-      var text = String(item.text).replace(/(^|\n)([ \t]*)(const|let)[ \t]+/g, '$1$2var ');
-      var inline = document.createElement('script');
-      inline.textContent = text;
-      try {
-        document.body.appendChild(inline);
-      } catch (e) {
-        console.warn('SPA script error:', e);
-      }
-    });
+      return orig.call(this, type, fn, opts);
+    };
+  }
+
+  function runSerializedScripts(scripts) {
+    if (!scripts || !scripts.length) return;
+
+    // Full page already fired DOMContentLoaded. Page extra_js that only
+    // binds on that event would leave tiles/send/start dead after a swap.
+    var origDocAdd = Document.prototype.addEventListener;
+    var origWinAdd = Window.prototype.addEventListener;
+    Document.prototype.addEventListener = patchReadyListener(origDocAdd);
+    Window.prototype.addEventListener = patchReadyListener(origWinAdd);
+
+    try {
+      scripts.forEach(function (item) {
+        if (item.src) {
+          if (scriptAlreadyLoaded(item.src)) {
+            document.dispatchEvent(new CustomEvent('otb:spa-script-loaded', { detail: { src: item.src } }));
+            return;
+          }
+          var s = document.createElement('script');
+          s.src = item.src;
+          s.async = false;
+          try {
+            _loadedScriptSrcs[new URL(item.src, window.location.origin).href] = true;
+          } catch (e) {}
+          document.body.appendChild(s);
+          return;
+        }
+        if (!item.text) return;
+        // SPA : const/let globaux se redéclarent → SyntaxError. On les réécrit en var
+        // (même scope script) pour garder les function declarations globales (onclick).
+        var text = String(item.text).replace(/(^|\n)([ \t]*)(const|let)[ \t]+/g, '$1$2var ');
+        var inline = document.createElement('script');
+        inline.textContent = text;
+        try {
+          document.body.appendChild(inline);
+        } catch (e) {
+          console.warn('SPA script error:', e);
+        }
+      });
+    } finally {
+      Document.prototype.addEventListener = origDocAdd;
+      Window.prototype.addEventListener = origWinAdd;
+    }
   }
 
   function buildPagePackage(html) {
