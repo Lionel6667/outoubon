@@ -18,8 +18,10 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = [
     h.strip() for h in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,outoubon.com,www.outoubon.com').split(',') if h.strip()
 ]
-# Allow ngrok for local testing/previews even if DEBUG=False
-ALLOWED_HOSTS += ['.ngrok-free.dev', '.ngrok.io', '127.0.0.1', 'localhost']
+# Allow ngrok only for explicitly enabled local testing, never by default in production.
+if DEBUG or os.getenv('ALLOW_NGROK_HOSTS', '').lower() in ('1', 'true', 'yes'):
+    ALLOWED_HOSTS += ['.ngrok-free.dev', '.ngrok.io']
+ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
 ALLOWED_HOSTS = list(set(ALLOWED_HOSTS)) # Remove duplicates
 
 # Local development detection (HTTP localhost / ngrok workflows)
@@ -281,8 +283,8 @@ CSRF_COOKIE_SAMESITE    = 'Lax'
 CSRF_TRUSTED_ORIGINS    = [
     o.strip() for o in os.getenv('CSRF_TRUSTED_ORIGINS', 'http://localhost:8000,http://localhost:8001,http://127.0.0.1:8000,http://127.0.0.1:8001,https://outoubon.com,https://www.outoubon.com').split(',') if o.strip()
 ]
-# Always trust ngrok origins for testing/preview purposes
-CSRF_TRUSTED_ORIGINS += ['https://*.ngrok-free.dev', 'https://*.ngrok.io']
+if DEBUG or os.getenv('ALLOW_NGROK_HOSTS', '').lower() in ('1', 'true', 'yes'):
+    CSRF_TRUSTED_ORIGINS += ['https://*.ngrok-free.dev', 'https://*.ngrok.io']
 CSRF_TRUSTED_ORIGINS = list(set(CSRF_TRUSTED_ORIGINS)) # Remove duplicates
 
 # Browser security headers

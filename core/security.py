@@ -3,6 +3,7 @@ Security middleware: rate limiting and extra HTTP headers.
 """
 import time
 import logging
+import os
 from collections import defaultdict
 from threading import Lock
 
@@ -39,9 +40,15 @@ def _is_rate_limited(key: str, max_hits: int, window_seconds: int) -> bool:
 
 def _client_ip(request) -> str:
     xff = request.META.get('HTTP_X_FORWARDED_FOR')
-    if xff:
+    trusted_proxy_ips = {
+        value.strip()
+        for value in os.getenv('TRUSTED_PROXY_IPS', '').split(',')
+        if value.strip()
+    }
+    remote_addr = request.META.get('REMOTE_ADDR', '0.0.0.0')
+    if xff and remote_addr in trusted_proxy_ips:
         return xff.split(',')[0].strip()
-    return request.META.get('REMOTE_ADDR', '0.0.0.0')
+    return remote_addr
 
 
 def _path_matches(path: str, fragment: str) -> bool:
@@ -104,7 +111,9 @@ def _ai_counted_by_view(path: str) -> bool:
 # ── Paths and their limits ──
 # (substring in path, max_requests, window_seconds)
 _RATE_LIMITS = [
-    ('/api/login',             5,  60),     # 5 login attempts / min
+    ('/login/',                5,  60),     # 5 login attempts / min
+    ('/api/auth/token/verify/', 5,  60),    # 5 persistent-token checks / min
+    ('/api/login',             5,  60),     # legacy login endpoint
     ('/api/agent-login',       5,  60),
     ('/api/agent-register',    3,  60),     # 3 registrations / min
     ('/api/verify-token',      5,  60),
