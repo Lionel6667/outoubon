@@ -146,8 +146,10 @@
 
   function isSpaPageStylesheet(href) {
     if (!href || href.indexOf('/static/css/v2/') === -1) return false;
+    var filename = href.split('?')[0].split('/').pop();
     for (var i = 0; i < SPA_CORE_V2_CSS.length; i++) {
-      if (href.indexOf(SPA_CORE_V2_CSS[i]) !== -1) return false;
+      var coreName = SPA_CORE_V2_CSS[i].replace(/\.css$/, '');
+      if (filename === SPA_CORE_V2_CSS[i] || filename.indexOf(coreName + '.') === 0) return false;
     }
     return true;
   }
