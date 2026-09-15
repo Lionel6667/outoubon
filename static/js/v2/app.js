@@ -167,6 +167,7 @@
     var path = normalizePath(url.pathname);
     if (path.indexOf(SPA_DASHBOARD_PREFIX) !== 0) return false;
     if (path.indexOf('/dashboard/admin') === 0) return false;
+    if (path.indexOf('/dashboard/cours/') === 0) return false;
     return true;
   }
 
