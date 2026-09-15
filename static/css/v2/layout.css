@@ -432,7 +432,8 @@ a.otb-nav-loading:not(.nav-item):not(.v2-bottom-nav__item) {
   border-top: 1px solid var(--border2);
 }
 .otb-page-info[hidden] { display: none !important; }
-.otb-page-info__title {
+.otb-page-info__title,
+.app > .main .otb-page-info__title {
   margin: 0 0 .35rem;
   font-size: .72rem;
   font-weight: 800;
@@ -440,7 +441,8 @@ a.otb-nav-loading:not(.nav-item):not(.v2-bottom-nav__item) {
   text-transform: uppercase;
   color: var(--t3);
 }
-.otb-page-info__body {
+.otb-page-info__body,
+.app > .main .otb-page-info__body {
   margin: 0;
   font-size: .82rem;
   line-height: 1.5;
@@ -727,6 +729,13 @@ a.v2-xp-strip__main:hover .v2-xp-strip__xp {
   gap: 0.45rem !important;
   position: relative !important;
   color: var(--t3) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  padding: 0.85rem 1.25rem 0.35rem !important;
+  white-space: nowrap !important;
 }
 .app > .sidebar .sidebar-hub-label i {
   width: 14px !important;
@@ -743,9 +752,48 @@ a.v2-xp-strip__main:hover .v2-xp-strip__xp {
   align-items: center !important;
   position: relative !important;
   text-decoration: none !important;
+  color: var(--t2) !important;
+  -webkit-text-fill-color: unset;
+}
+
+.app > .main .otb-page-info {
+  display: block !important;
+  width: 100% !important;
+  margin: 2rem 0 0 !important;
+  padding: 1rem 0 0.25rem !important;
+  border-top: 1px solid var(--border2) !important;
+}
+.app > .main .otb-page-info__title {
+  display: block !important;
+  margin: 0 0 0.35rem !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: var(--t3) !important;
+}
+.app > .main .otb-page-info__body {
+  display: block !important;
+  margin: 0 !important;
+  font-size: 0.82rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: var(--t2) !important;
+}
+.app > .sidebar .nav-item:hover {
+  color: var(--t1) !important;
+}
+.app > .sidebar .nav-item.active,
+.app > .sidebar .nav-item.active:hover {
+  color: var(--green) !important;
+}
+.app > .sidebar .nav-item[href*="wa.me"] {
+  color: #25cd65 !important;
 }
 .app > .sidebar .nav-item i {
   width: 18px !important;
   font-size: 0.875rem !important;
   position: static !important;
+  color: inherit !important;
 }

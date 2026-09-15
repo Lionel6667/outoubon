@@ -348,7 +348,7 @@ const CHAPTERS_BY_SUBJ = {
 };
 
 const IS_GUEST_COURS = {{ is_guest|yesno:"true,false" }};
-const IS_PREMIUM_COURS = {{ profile.is_premium|default:False|yesno:"true,false" }};
+const IS_PREMIUM_COURS = {{ is_premium|yesno:"true,false" }};
 
 let openSubj = null;
 

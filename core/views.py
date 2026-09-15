@@ -8556,9 +8556,12 @@ def cours_view(request):
         })
     if not request.user.is_authenticated:
         return redirect('/login/?next=' + request.get_full_path())
+    from core.premium import is_premium
+
     spa_mode = getattr(request, 'spa_mode', False)
     profile = UserProfile.objects.filter(user=request.user).only(
         'serie', 'langue_etrangere', 'coach_name', 'first_name', 'school',
+        'plan_expiration',
     ).first()
     if profile is None:
         profile, _ = UserProfile.objects.get_or_create(user=request.user)
@@ -8585,6 +8588,7 @@ def cours_view(request):
         'mats': MATS,
         'user_serie_subjects': list(user_subjs),
         'any_chapters': any(d['count'] > 0 for d in chapters_by_subject.values()),
+        'is_premium': is_premium(request.user),
     })
 
 
