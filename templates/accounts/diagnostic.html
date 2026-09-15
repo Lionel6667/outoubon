@@ -29,7 +29,7 @@
     {% if generating %}
     
     <div id="genScreen" style="text-align:center;padding:2rem 0;">
-      <div style="font-size:2.5rem;margin-bottom:1rem;">🎯</div>
+      <div style="font-size:2.5rem;margin-bottom:1rem;color:var(--green);"><i class="fas fa-compass"></i></div>
       <div style="font-weight:800;font-size:1.3rem;margin-bottom:.4rem;">Préparation de ton diagnostic…</div>
       <div style="color:var(--t2);font-size:.875rem;margin-bottom:1.75rem;">OU TOU BON charge les mêmes quiz que dans la plateforme, avec 10 questions par matière pour mesurer ton niveau réel.</div>
 
@@ -60,13 +60,13 @@
     {% else %}
     
     <div style="text-align:center;margin-bottom:1.5rem;">
-      <div style="font-size:2rem;margin-bottom:.5rem;">🎯</div>
+      <div style="font-size:2rem;margin-bottom:.5rem;color:var(--green);"><i class="fas fa-compass"></i></div>
       <div style="font-weight:800;font-size:1.3rem;margin-bottom:.4rem;">Test Diagnostique</div>
       <div style="color:var(--t2);font-size:.875rem;">Même système que le quiz OU TOU BON, mais en version diagnostic complète: 10 questions par matière.</div>
     </div>
 
     <div class="v2-diag-warning">
-      <span style="font-size:1.2rem;flex-shrink:0;">🚫</span>
+      <span style="font-size:1.2rem;flex-shrink:0;color:#f59e0b;"><i class="fas fa-shield-halved"></i></span>
       <div>
         <div style="font-weight:700;color:#f59e0b;font-size:.9rem;margin-bottom:.3rem;">Ne triche pas — c'est dans ton intérêt !</div>
         <div style="font-size:.82rem;color:var(--t2);line-height:1.5;">
@@ -121,7 +121,7 @@
           <i class="fas fa-pause"></i> Pause
         </button>
         <button type="button" id="nextDiagBtn" onclick="diagNext()" class="btn-primary" style="padding:.75rem 1.5rem;flex:1;">Suivant →</button>
-        <button type="submit" id="submitDiagBtn" style="display:none;flex:1;padding:.75rem 1.5rem;" class="btn-primary">Terminer le test 🎯</button>
+        <button type="submit" id="submitDiagBtn" style="display:none;flex:1;padding:.75rem 1.5rem;" class="btn-primary">Terminer le test <i class="fas fa-flag-checkered"></i></button>
       </div>
     </form>
     {% endif %}
@@ -242,10 +242,10 @@ function selectOpt(label, name) {
   const explHtml = '';
 
   if (isCorrect) {
-    fb.innerHTML = `<div style="display:flex;align-items:center;gap:.4rem;color:var(--green);font-weight:700;font-size:.88rem;">✅ Bonne réponse !</div>${explHtml}`;
+    fb.innerHTML = `<div style="display:flex;align-items:center;gap:.4rem;color:var(--green);font-weight:700;font-size:.88rem;"><i class="fas fa-check-circle"></i> Bonne réponse !</div>${explHtml}`;
   } else {
     const correctText = normalizeDiagText(allLabels[correctIdx].querySelector('.diag-opt-text').textContent, true);
-    fb.innerHTML = `<div style="font-size:.88rem;">❌ <strong style="color:#fca5a5;">Mauvaise réponse.</strong> Bonne réponse : <strong style="color:var(--green)">${correctText}</strong></div>${explHtml}`;
+    fb.innerHTML = `<div style="font-size:.88rem;"><i class="fas fa-circle-xmark" style="color:#fca5a5;"></i> <strong style="color:#fca5a5;">Mauvaise réponse.</strong> Bonne réponse : <strong style="color:var(--green)">${correctText}</strong></div>${explHtml}`;
   }
   fb.style.cssText = 'display:block;margin-top:.75rem;';
   renderKatex(fb);

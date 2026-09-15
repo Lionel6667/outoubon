@@ -1324,6 +1324,7 @@ function closePremiumGate(){
   } else {
     initForeignLang();
   }
+  document.addEventListener('otb:spa-navigate', initForeignLang);
 
   {% if user.is_authenticated and not user.profile.is_premium %}
   function injectProBtn() {
@@ -2361,6 +2362,10 @@ document.addEventListener('DOMContentLoaded', function() {
     translatePageContent();
   }
 });
+document.addEventListener('otb:spa-navigate', function() {
+  applyI18n();
+  if (CURRENT_LANG === 'kr') translatePageContent();
+});
 </script>
 
 {% if user.is_authenticated %}
@@ -2564,6 +2569,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Global form loading state
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
+        if (form.hasAttribute('data-no-global-loading')) return;
       // Find the submit button(s)
       const subBtns = form.querySelectorAll('button[type="submit"], input[type="submit"]');
       if (subBtns.length > 0) {

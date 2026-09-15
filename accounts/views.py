@@ -255,6 +255,63 @@ def signup_view(request):
     return render(request, 'accounts/signup.html', {'error': error, 'form_data': form_data})
 
 
+def _finish_signup_account(request, step1, step2):
+    """Create the account from the two signup steps, without requiring a diagnostic."""
+    contact = step1['contact']
+    is_email = step1['is_email']
+    if is_email:
+        user = User.objects.filter(email__iexact=contact).first()
+    else:
+        profile = UserProfile.objects.filter(phone=contact).select_related('user').first()
+        user = profile.user if profile else None
+
+    if not user:
+        base = contact.split('@')[0] if is_email else contact.lstrip('+').replace(' ', '')
+        username, suffix = base, 1
+        while User.objects.filter(username=username).exists():
+            username = f'{base}{suffix}'
+            suffix += 1
+        user = User.objects.create_user(
+            username=username,
+            email=contact if is_email else '',
+            password=step1['password'],
+            first_name=step1['first_name'],
+            last_name=step1['last_name'],
+        )
+        school_name = step2.get('school', '')
+        if school_name:
+            School.objects.get_or_create(name=school_name)
+        UserProfile.objects.create(
+            user=user,
+            first_name=step1['first_name'],
+            last_name=step1['last_name'],
+            phone='' if is_email else contact,
+            school=school_name,
+            level='Terminale',
+            serie=step2['serie'],
+            langue_etrangere=step2.get('langue_etrangere', 'anglais'),
+            bac_target=step2.get('bac_target'),
+        )
+        from core.models import UserStats
+        UserStats.objects.get_or_create(user=user)
+        _attach_pending_referral(request, user, contact)
+
+    login(request, user)
+    request.session.pop('signup_step1', None)
+    request.session.pop('signup_step2', None)
+    request.session.pop('diagnostic_qs', None)
+    request.session.pop('diagnostic_subjects', None)
+    from .models import PersistentAuthToken
+    PersistentAuthToken.objects.filter(user=user).delete()
+    token_obj = PersistentAuthToken.objects.create(user=user)
+    response = redirect(_post_auth_redirect(user))
+    response.set_cookie(
+        'otb_persistent_token', token_obj.token,
+        max_age=31536000, samesite='Lax', secure=not settings.DEBUG,
+    )
+    return response
+
+
 def signup_step2_view(request):
     """Étape 2 : établissement scolaire + série — stocke en session, NE crée PAS le compte."""
     if request.user.is_authenticated:
@@ -295,13 +352,15 @@ def signup_step2_view(request):
             if school_name:
                 School.objects.get_or_create(name=school_name)
 
-            request.session['signup_step2'] = {
+            step2 = {
                 'school':           school_name,
                 'serie':            serie,
                 'langue_etrangere': langue_etrangere,
                 'bac_target':       bac_target,
             }
-            return redirect('diagnostic')
+            request.session['signup_step2'] = step2
+            request.session.modified = True
+            return _finish_signup_account(request, step1, step2)
 
     series = [
         ('SVT', '🧬', 'Sciences de la Vie et de la Terre'),
@@ -309,7 +368,11 @@ def signup_step2_view(request):
         ('SES', '📊', 'Sciences Économiques et Sociales'),
         ('LLA', '📚', 'Lettres, Langues et Arts'),
     ]
-    return render(request, 'accounts/signup_step2.html', {'error': error, 'series': series})
+    return render(request, 'accounts/signup_step2.html', {
+        'error': error,
+        'series': series,
+        'signup_step2': request.session.get('signup_step2', {}),
+    })
 
 
 def school_search_view(request):
@@ -472,7 +535,7 @@ def complete_profile_view(request):
         profile.level  = 'Terminale'
         profile.save()
 
-        return redirect('diagnostic')
+        return redirect('dashboard')
 
     return render(request, 'accounts/complete_profile.html', {'profile': profile})
 
@@ -482,24 +545,17 @@ def _get_diag_subjects(langue_etrangere):
 
 
 def diagnostic_view(request):
-    """Étape 3 : diagnostic — charge les questions (générées async), crée le compte à la validation."""
+    """Diagnostic volontaire pour un utilisateur déjà inscrit."""
     import uuid, random
 
-    step1 = request.session.get('signup_step1')
-    step2 = request.session.get('signup_step2')
-    is_signup_flow = bool(step1 and step2)
-
-    if not is_signup_flow and not request.user.is_authenticated:
+    if not request.user.is_authenticated:
         return redirect('/login/?next=' + request.get_full_path())
 
     # Langue étrangère choisie
-    if is_signup_flow:
-        langue = step2.get('langue_etrangere', 'anglais')
-    else:
-        try:
-            langue = request.user.profile.langue_etrangere or 'anglais'
-        except Exception:
-            langue = 'anglais'
+    try:
+        langue = request.user.profile.langue_etrangere or 'anglais'
+    except Exception:
+        langue = 'anglais'
 
     subjects = _get_diag_subjects(langue)
 
@@ -513,68 +569,7 @@ def diagnostic_view(request):
         if stored_subjects:
             subjects = stored_subjects
 
-        # ── Créer le compte si on est dans le flow d'inscription ──
-        if is_signup_flow:
-            contact     = step1['contact']
-            is_email    = step1['is_email']
-            first_name  = step1['first_name']
-            last_name   = step1['last_name']
-            password    = step1['password']
-            serie       = step2['serie']
-            school_name = step2.get('school', '')
-
-            if is_email:
-                existing = User.objects.filter(email__iexact=contact).first()
-            else:
-                existing = UserProfile.objects.filter(phone=contact).select_related('user').first()
-                existing = existing.user if existing else None
-
-            if existing:
-                user = existing
-            else:
-                base = (contact.split('@')[0] if is_email else contact.lstrip('+').replace(' ', ''))
-                username, n = base, 1
-                while User.objects.filter(username=username).exists():
-                    username = f"{base}{n}"; n += 1
-
-                user = User.objects.create_user(
-                    username=username,
-                    email=contact if is_email else '',
-                    password=password,
-                    first_name=first_name,
-                    last_name=last_name,
-                )
-                if school_name:
-                    School.objects.get_or_create(name=school_name)
-                UserProfile.objects.create(
-
-                    user=user,
-                    first_name=first_name,
-                    last_name=last_name,
-                    phone='' if is_email else contact,
-                    school=school_name,
-                    level='Terminale',
-                    serie=serie,
-                    langue_etrangere=langue,
-                    bac_target=step2.get('bac_target'),
-                )
-                from core.models import UserStats
-                UserStats.objects.get_or_create(user=user)
-                _attach_pending_referral(request, user, contact)
-                try:
-                    from accounts.referrals import attach_student_referral, ensure_invite_code
-                    attach_student_referral(request, user)
-                    prof = UserProfile.objects.filter(user=user).first()
-                    if prof:
-                        ensure_invite_code(prof)
-                except Exception:
-                    pass
-
-            login(request, user)
-            request.session.pop('signup_step1', None)
-            request.session.pop('signup_step2', None)
-        else:
-            user = request.user
+        user = request.user
 
         # ── Sauvegarder les résultats ──
         for subj in subjects:
@@ -598,22 +593,16 @@ def diagnostic_view(request):
         request.session.pop('diagnostic_qs', None)
         request.session.pop('diagnostic_subjects', None)
         
-        # Générer le token persistant pour le nouvel utilisateur
-        from .models import PersistentAuthToken
-        PersistentAuthToken.objects.filter(user=user).delete()
-        token_obj = PersistentAuthToken.objects.create(user=user)
-        
-        response = redirect(_post_auth_redirect(user))
-        # Cookie longue durée (1 an) pour l'auto-login instantané
-        response.set_cookie('otb_persistent_token', token_obj.token, max_age=31536000, samesite='Lax', secure=not settings.DEBUG)
-        return response
+        return redirect(_post_auth_redirect(user))
 
     # ── GET ──
     session_qs = request.session.get('diagnostic_qs')
 
     if not session_qs:
+        if request.GET.get('start') != '1':
+            return render(request, 'core/diagnostic_required.html')
         # Pas encore de questions — afficher l'écran de chargement,
-        # le JS va appeler /diagnostic/generate/ en AJAX
+        # le JS va appeler /diagnostic/generate/ en AJAX.
         return render(request, 'accounts/diagnostic.html', {'generating': True})
 
     stored_subjects = request.session.get('diagnostic_subjects')

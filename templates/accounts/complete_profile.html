@@ -8,7 +8,7 @@
 <div class="auth-page v2-auth">
   <div class="auth-card v2-auth-card" style="max-width:460px;">
     <div class="auth-logo"><div class="brand-icon" style="width:48px;height:48px;"><img src="/static/img/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='OTB';"></div></div>
-    <div class="auth-title">Encore une étape 🎯</div>
+    <div class="auth-title">Encore une étape <i class="fas fa-user-check" style="color:var(--green);"></i></div>
     <div class="auth-subtitle">
       Bienvenue, <strong>{{ profile.first_name|default:request.user.first_name }}</strong> !<br>
       Dis-nous en un peu plus pour personnaliser ton expérience.
@@ -34,10 +34,10 @@
                 style="background:var(--card2);color:var(--t1);border:1px solid var(--border);padding:.65rem .9rem;border-radius:10px;width:100%;"
                 required>
           <option value="" disabled selected>— Choisis ta série —</option>
-          <option value="SVT">🧬 SVT — Sciences de la Vie et de la Terre</option>
-          <option value="SMP">⚗️ SMP — Sciences Mathématiques et Physiques</option>
-          <option value="SES">📊 SES — Sciences Économiques et Sociales</option>
-          <option value="LLA">📚 LLA — Lettres, Langues et Arts</option>
+          <option value="SVT">SVT — Sciences de la Vie et de la Terre</option>
+          <option value="SMP">SMP — Sciences Mathématiques et Physiques</option>
+          <option value="SES">SES — Sciences Économiques et Sociales</option>
+          <option value="LLA">LLA — Lettres, Langues et Arts</option>
         </select>
         <div id="serieInfo" style="margin-top:.5rem;font-size:.78rem;color:var(--t2);line-height:1.5;display:none;background:var(--card2);border-radius:8px;padding:.6rem .8rem;border:1px solid var(--border);"></div>
       </div>
@@ -86,7 +86,7 @@
       </div>
 
       <button type="submit" class="btn-primary" style="width:100%;padding:.85rem;">
-        Continuer vers le diagnostic <i class="fas fa-arrow-right"></i>
+        Continuer <i class="fas fa-arrow-right"></i>
       </button>
     </form>
   </div>

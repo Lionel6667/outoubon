@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Diagnostic de niveau – OU TOU BON{% endblock %}
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="dashboard" %}
+  <div class="main">
+    <div class="topbar"><div class="topbar-title"><i class="fas fa-compass"></i> Ton niveau</div></div>
+    <div class="view-area">
+      <section style="max-width:760px;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) 1.25rem;text-align:center;">
+        <div style="width:76px;height:76px;margin:0 auto 1.25rem;border-radius:24px;background:linear-gradient(135deg,rgba(16,185,129,.18),rgba(37,99,235,.18));display:flex;align-items:center;justify-content:center;color:var(--green);font-size:2rem;">
+          <i class="fas fa-compass"></i>
+        </div>
+        <p style="color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem;">Parcours personnalisé</p>
+        <h1 style="font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 .75rem;">Découvre ton niveau réel</h1>
+        <p style="max-width:580px;margin:0 auto;color:var(--t2);line-height:1.7;">Réponds à des questions tirées des matières de ta série. Ton résultat te donnera une base claire pour choisir tes cours, tes quiz et tes priorités.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:2rem 0;text-align:left;">
+          <div class="card" style="padding:1rem;"><i class="fas fa-layer-group" style="color:var(--green);"></i><strong style="display:block;margin-top:.6rem;font-size:.85rem;">Matières ciblées</strong><span style="display:block;margin-top:.25rem;color:var(--t3);font-size:.75rem;">Selon ta série</span></div>
+          <div class="card" style="padding:1rem;"><i class="fas fa-chart-line" style="color:var(--blue2);"></i><strong style="display:block;margin-top:.6rem;font-size:.85rem;">Niveau par matière</strong><span style="display:block;margin-top:.25rem;color:var(--t3);font-size:.75rem;">Résultats lisibles</span></div>
+          <div class="card" style="padding:1rem;"><i class="fas fa-route" style="color:var(--orange);"></i><strong style="display:block;margin-top:.6rem;font-size:.85rem;">Parcours adapté</strong><span style="display:block;margin-top:.25rem;color:var(--t3);font-size:.75rem;">Conseils utiles</span></div>
+        </div>
+        <a href="{% url 'diagnostic' %}?start=1" class="btn-primary" style="display:inline-flex;width:auto;align-items:center;gap:.5rem;padding:.85rem 1.4rem;"><i class="fas fa-play"></i> Commencer le diagnostic</a>
+        <p style="margin-top:1rem;color:var(--t3);font-size:.75rem;">Tu peux le faire maintenant ou revenir plus tard depuis ton tableau de bord.</p>
+      </section>
+    </div>
+  </div>
+</div>
+{% endblock %}

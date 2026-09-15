@@ -6190,6 +6190,11 @@ def progression_view(request):
     profile, _ = UserProfile.objects.get_or_create(user=request.user)
     stats       = _get_or_create_stats(request.user)
     diag_scores  = {d.subject: d.score for d in DiagnosticResult.objects.filter(user=request.user)}
+    if not diag_scores:
+        return render(request, 'core/diagnostic_required.html', {
+            'profile': profile,
+            'is_guest': False,
+        })
     quiz_sessions = QuizSession.objects.filter(user=request.user).order_by('-completed_at')[:10]
 
     # Optimized bulk calculation + scores unifiés

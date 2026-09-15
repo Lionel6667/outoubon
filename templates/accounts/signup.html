@@ -16,12 +16,7 @@
       <div class="v2-step__line"></div>
       <div class="v2-step">
         <div class="v2-step__dot">2</div>
-        <span class="v2-step__label">École</span>
-      </div>
-      <div class="v2-step__line"></div>
-      <div class="v2-step">
-        <div class="v2-step__dot">3</div>
-        <span class="v2-step__label">Diagnostic</span>
+        <span class="v2-step__label">Profil</span>
       </div>
     </div>
 
@@ -30,7 +25,7 @@
 
     {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
 
-    <form method="post" class="auth-form">
+    <form method="post" class="auth-form" data-no-global-loading>
       {% csrf_token %}
       <div class="form-grid2">
         <div class="form-group">
