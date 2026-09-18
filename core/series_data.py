@@ -16,7 +16,7 @@ SERIES: dict = {
             'chimie':       300,   # Spécialité
             'physique':     200,
             'maths':        200,
-            'francais':     200,   # Épreuve commune
+            'francais':     200,   # Épreuve officielle Kreyòl (clé interne francais)
             'philosophie': 200,
             'histoire':     200,   # Histoire-Géo / Sciences Sociales
             'anglais':      200,   # Langue vivante
@@ -31,7 +31,7 @@ SERIES: dict = {
             'physique':     300,   # Spécialité
             'chimie':       200,
             'svt':          200,
-            'francais':     200,   # Épreuve commune
+            'francais':     200,   # Épreuve officielle Kreyòl (clé interne francais)
             'philosophie': 200,
             'histoire':     200,   # Histoire-Géo / Sciences Sociales
             'anglais':      200,   # Langue vivante
@@ -46,7 +46,7 @@ SERIES: dict = {
             'histoire':     400,   # Sciences Sociales (Matière principale)
             'maths':        200,
             'philosophie': 200,
-            'francais':     200,   # Épreuve commune
+            'francais':     200,   # Épreuve officielle Kreyòl (clé interne francais)
             'anglais':      200,
             'physique':     100,
             'chimie':       100,
@@ -61,7 +61,7 @@ SERIES: dict = {
             'philosophie': 300,   # Matière principale
             'anglais':      300,   # Langue vivante 1 (Matière principale)
             'art':          300,   # Art & Musique (Matière principale)
-            'francais':     200,   # Littérature & Français
+            'francais':     200,   # Épreuve officielle Kreyòl (clé interne francais)
             'espagnol':     200,   # Langue vivante 2
             'histoire':     200,   # Sciences Sociales
             'maths':        100,
