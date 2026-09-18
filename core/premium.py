@@ -29,9 +29,13 @@ MAX_AI_REQUESTS_PER_DAY = 50  # alias — compte les appels API réels (voir cor
 
 
 def is_premium(user):
-    """Vérifie si l'utilisateur a un abonnement actif."""
+    """Vérifie si l'utilisateur a un abonnement actif ou des droits administrateur/staff."""
+    if not user or not getattr(user, 'is_authenticated', False):
+        return False
+    if getattr(user, 'is_staff', False) or getattr(user, 'is_superuser', False):
+        return True
     try:
-        return user.profile.is_premium
+        return bool(user.profile.is_premium)
     except (UserProfile.DoesNotExist, AttributeError):
         return False
 
@@ -122,11 +126,21 @@ def increment_exercise(user, subject='general'):
 
 def can_access_chapter(user, subject, chapter_num):
     """Vérifie si le chapitre est accessible (gratuit = premier chapitre seulement).
-    chapter_num est 1-based.
+    chapter_num est 1-based. Les utilisateurs premium ont un accès débloqué à tous les chapitres.
     """
     if is_premium(user):
         return True
-    return chapter_num <= FREE_CHAPTERS_PER_SUBJECT
+    try:
+        c_num = int(chapter_num)
+        if c_num <= FREE_CHAPTERS_PER_SUBJECT:
+            return True
+        from core.views import _get_cours_chapters
+        chapters = _get_cours_chapters(subject)
+        if chapters and chapters[0].get('num') == c_num:
+            return True
+    except Exception:
+        pass
+    return False
 
 
 def can_use_extra_bet(user):

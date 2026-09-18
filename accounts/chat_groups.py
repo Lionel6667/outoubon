@@ -126,7 +126,9 @@ def user_can_access_group(user, group, write=False):
         return True
     if not user or not getattr(user, 'is_authenticated', False):
         return False
-    return StudyChatGroupMember.objects.filter(group=group, user=user).exists()
+    return StudyChatGroupMember.objects.filter(
+        group=group, user=user, role__in=[StudyChatGroupMember.ROLE_OWNER, StudyChatGroupMember.ROLE_MEMBER]
+    ).exists()
 
 
 def resolve_group(user, group_id=None, write=False):
@@ -230,7 +232,9 @@ def list_groups_for_user(user):
         groups.append(genius)
     if user and getattr(user, 'is_authenticated', False):
         custom_ids = StudyChatGroupMember.objects.filter(
-            user=user, group__kind=StudyChatGroup.KIND_CUSTOM
+            user=user,
+            group__kind=StudyChatGroup.KIND_CUSTOM,
+            role__in=[StudyChatGroupMember.ROLE_OWNER, StudyChatGroupMember.ROLE_MEMBER]
         ).values_list('group_id', flat=True)
         custom = list(StudyChatGroup.objects.filter(id__in=custom_ids).order_by('-created_at'))
         groups.extend(custom)
@@ -279,8 +283,8 @@ def create_custom_group(actor, name, friend_ids=None, usernames=None):
     if not name:
         return None, 'Donne un nom au groupe.'
     invitees = resolve_invite_users(actor, friend_ids, usernames)
-    if not invitees:
-        return None, 'Invite au moins un ami ou un pseudo du site.'
+    if len(invitees) < 2:
+        return None, 'Un groupe de discussion doit comporter au moins 3 membres (toi et au moins 2 invités).'
     slug = f'g-{uuid.uuid4().hex[:12]}'
     group = StudyChatGroup.objects.create(
         name=name,
@@ -290,9 +294,10 @@ def create_custom_group(actor, name, friend_ids=None, usernames=None):
     )
     _ensure_member(group, actor, role=StudyChatGroupMember.ROLE_OWNER)
     latest = _latest_id_for_group(group)
+    # Les membres invités reçoivent le rôle "invited" en attente de leur acceptation
     StudyChatGroupMember.objects.bulk_create(
         [
-            StudyChatGroupMember(group=group, user=u, last_read_id=latest)
+            StudyChatGroupMember(group=group, user=u, role='invited', last_read_id=latest)
             for u in invitees
         ],
         ignore_conflicts=True,
@@ -305,7 +310,9 @@ def create_custom_group(actor, name, friend_ids=None, usernames=None):
 def invite_to_group(actor, group, friend_ids=None, usernames=None):
     if not group or group.kind != StudyChatGroup.KIND_CUSTOM:
         return None, 'Impossible d’inviter dans ce groupe.'
-    if not StudyChatGroupMember.objects.filter(group=group, user=actor).exists():
+    if not StudyChatGroupMember.objects.filter(
+        group=group, user=actor, role__in=[StudyChatGroupMember.ROLE_OWNER, StudyChatGroupMember.ROLE_MEMBER]
+    ).exists():
         return None, 'Tu ne fais pas partie de ce groupe.'
     invitees = resolve_invite_users(actor, friend_ids, usernames)
     if not invitees:
@@ -314,16 +321,128 @@ def invite_to_group(actor, group, friend_ids=None, usernames=None):
     added = 0
     new_users = []
     for u in invitees:
-        _, created = StudyChatGroupMember.objects.get_or_create(
-            group=group, user=u, defaults={'last_read_id': latest}
+        mem, created = StudyChatGroupMember.objects.get_or_create(
+            group=group, user=u, defaults={'role': 'invited', 'last_read_id': latest}
         )
         if created:
             added += 1
+            new_users.append(u)
+        elif mem.role == 'invited':
             new_users.append(u)
     if new_users:
         from core.push_events import push_group_invite
         push_group_invite(actor, new_users, group)
     return added, None
+
+
+def list_pending_group_invitations(user):
+    """Retourne la liste des invitations en attente pour un utilisateur."""
+    if not user or not getattr(user, 'is_authenticated', False):
+        return []
+    memberships = StudyChatGroupMember.objects.filter(
+        user=user,
+        role='invited',
+        group__kind=StudyChatGroup.KIND_CUSTOM,
+    ).select_related('group', 'group__created_by')
+    invites = []
+    for m in memberships:
+        creator_name = 'Un camarade'
+        if m.group.created_by:
+            creator_name = m.group.created_by.first_name or m.group.created_by.username
+        invites.append({
+            'id': m.id,
+            'group_id': m.group_id,
+            'group_name': m.group.name,
+            'invited_by': creator_name,
+            'invited_by_id': m.group.created_by_id,
+            'member_count': StudyChatGroupMember.objects.filter(
+                group=m.group,
+                role__in=[StudyChatGroupMember.ROLE_OWNER, StudyChatGroupMember.ROLE_MEMBER]
+            ).count(),
+            'created_at': m.joined_at.strftime('%d/%m à %H:%M') if m.joined_at else '',
+        })
+    return invites
+
+
+def respond_group_invitation(user, group_id, accept=True):
+    """Accepte ou refuse une invitation à un groupe."""
+    try:
+        mem = StudyChatGroupMember.objects.get(
+            group_id=int(group_id),
+            user=user,
+            role='invited',
+        )
+    except (StudyChatGroupMember.DoesNotExist, ValueError, TypeError):
+        return False, 'Invitation introuvable ou déjà traitée.'
+
+    if accept:
+        mem.role = StudyChatGroupMember.ROLE_MEMBER
+        mem.last_read_id = _latest_id_for_group(mem.group)
+        mem.save(update_fields=['role', 'last_read_id'])
+        return True, 'Tu as rejoint le groupe avec succès.'
+    else:
+        mem.delete()
+        return True, 'Invitation refusée.'
+
+
+def leave_group(user, group_id):
+    """Permet à un utilisateur de quitter un groupe d'étude personnalisé."""
+    try:
+        group = StudyChatGroup.objects.get(pk=int(group_id), kind=StudyChatGroup.KIND_CUSTOM)
+        mem = StudyChatGroupMember.objects.get(group=group, user=user)
+    except (StudyChatGroup.DoesNotExist, StudyChatGroupMember.DoesNotExist, ValueError, TypeError):
+        return False, 'Groupe introuvable ou tu n’en fais pas partie.'
+
+    was_owner = (mem.role == StudyChatGroupMember.ROLE_OWNER)
+    mem.delete()
+
+    remaining = StudyChatGroupMember.objects.filter(
+        group=group,
+        role__in=[StudyChatGroupMember.ROLE_OWNER, StudyChatGroupMember.ROLE_MEMBER]
+    )
+    if not remaining.exists():
+        group.delete()
+    elif was_owner:
+        next_owner = remaining.first()
+        next_owner.role = StudyChatGroupMember.ROLE_OWNER
+        next_owner.save(update_fields=['role'])
+
+    return True, 'Tu as quitté le groupe.'
+
+
+def get_group_members(user, group_id):
+    """Retourne la liste des membres actifs d'un groupe."""
+    group = resolve_group(user, group_id)
+    if not group:
+        return None, 'Groupe introuvable ou accès non autorisé.'
+
+    members = StudyChatGroupMember.objects.filter(
+        group=group,
+        role__in=[StudyChatGroupMember.ROLE_OWNER, StudyChatGroupMember.ROLE_MEMBER]
+    ).select_related('user', 'user__profile')
+
+    from accounts.names import alias_map_for, overlay_alias
+    aliases = alias_map_for(user)
+
+    res = []
+    for m in members:
+        u = m.user
+        prof = getattr(u, 'profile', None)
+        dname = prof.get_display_name() if prof else u.username
+        res.append({
+            'id': u.id,
+            'username': u.username,
+            'display_name': overlay_alias(aliases, u.id, dname),
+            'role': m.role,
+            'is_owner': (m.role == StudyChatGroupMember.ROLE_OWNER),
+            'is_me': (u.id == user.id),
+        })
+    return {
+        'group_id': group.id,
+        'group_name': group.name,
+        'kind': group.kind,
+        'members': res,
+    }, None
 
 
 def unread_badge_payload(user):

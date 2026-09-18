@@ -145,28 +145,35 @@ def _hub_payload(user):
             cache.set('genius:weekly_synced', 1, 300)
     except Exception:
         pass
-    comps = list(
+    active_comps = list(
         GeniusCompetition.objects.filter(
-            status__in=['draft', 'registration', 'roster_locked', 'in_progress'],
+            status__in=['registration', 'roster_locked', 'in_progress'],
         ).order_by('-start_date', '-created_at')[:8]
     )
+    past_comps = list(
+        GeniusCompetition.objects.filter(
+            status__in=['completed', 'cancelled'],
+        ).order_by('-end_date', '-start_date', '-created_at')[:15]
+    )
+    all_comps = active_comps + past_comps
     reg_by_comp = {}
-    if team and comps:
+    if team and all_comps:
         for reg in GeniusRegistration.objects.filter(
-            competition_id__in=[c.pk for c in comps], team=team,
+            competition_id__in=[c.pk for c in all_comps], team=team,
         ):
             reg_by_comp[reg.competition_id] = reg
     from django.db.models import Count
     counts = {
         row['competition_id']: row['c']
         for row in GeniusRegistration.objects.filter(
-            competition_id__in=[c.pk for c in comps],
+            competition_id__in=[c.pk for c in all_comps],
             status__in=['registered', 'roster_locked'],
         ).values('competition_id').annotate(c=Count('id'))
-    } if comps else {}
-    for comp in comps:
+    } if all_comps else {}
+
+    def _fmt_comp(comp):
         reg = reg_by_comp.get(comp.id)
-        competitions.append({
+        return {
             'id': comp.id,
             'name': comp.name,
             'description': (comp.description or '')[:200],
@@ -178,7 +185,10 @@ def _hub_payload(user):
                 'status': reg.status if reg else None,
                 'roster_locked': reg.roster_is_locked() if reg else False,
             } if team else None,
-        })
+        }
+
+    competitions = [_fmt_comp(c) for c in active_comps]
+    past_competitions = [_fmt_comp(c) for c in past_comps]
 
     active_matches = []
     if team:
@@ -214,6 +224,8 @@ def _hub_payload(user):
         'discoverable_teams': discoverable,
         'friends': friends,
         'competitions': competitions,
+        'active_competition': competitions[0] if competitions else None,
+        'past_competitions': past_competitions,
         'active_matches': active_matches,
         'challengeable_teams': list_challengeable_teams(team.id if team else None),
         'notifications': notifications_payload(user, limit=8),

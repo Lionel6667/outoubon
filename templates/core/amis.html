@@ -178,6 +178,7 @@
           <i class="fas fa-users"></i> Tes groupes
           <button type="button" class="am-create-group-btn" onclick="openCreateGroupModal()">+ Créer</button>
         </div>
+        <div id="groupInvitesContainer"></div>
         <div id="groupsList"></div>
       </div>
     </div>
@@ -202,10 +203,25 @@
           <div class="am-chat-name" id="chatName"></div>
           <div class="am-chat-status" id="chatSub"></div>
         </div>
-        <div class="am-chat-actions">
+        <div class="am-chat-actions" style="position:relative;display:flex;align-items:center;gap:.35rem;">
           <button class="am-icon-btn" id="removeFriendBtn" onclick="removeFriendFromChat()" title="Retirer cet ami">
             <i class="fas fa-user-minus"></i>
           </button>
+          <button type="button" class="am-icon-btn" id="groupOptionsBtn" style="display:none;" onclick="toggleGroupOptionsMenu(event)" title="Options du groupe">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+          <div class="am-group-dropdown-menu" id="groupDropdownMenu" style="display:none;">
+            <button type="button" class="am-group-dropdown-item" onclick="openGroupMembersModal()">
+              <i class="fas fa-users" style="color:var(--green);width:16px;"></i> Membres du groupe
+            </button>
+            <button type="button" class="am-group-dropdown-item" onclick="openInviteMoreModal()">
+              <i class="fas fa-user-plus" style="color:#38bdf8;width:16px;"></i> Inviter des membres
+            </button>
+            <div class="am-group-dropdown-divider"></div>
+            <button type="button" class="am-group-dropdown-item text-danger" onclick="leaveCurrentGroup()">
+              <i class="fas fa-sign-out-alt" style="width:16px;"></i> Quitter le groupe
+            </button>
+          </div>
         </div>
       </div>
 
@@ -990,6 +1006,9 @@ function openGroupChat(groupId, name, kind) {
   document.getElementById('chatSub').textContent  = isOfficial ? 'Communauté OU TOU BON' : (isGenius ? 'Ton équipe de Génies' : 'Groupe');
   const removeBtn = document.getElementById('removeFriendBtn');
   if (removeBtn) removeBtn.style.display = 'none';
+  const groupOptionsBtn = document.getElementById('groupOptionsBtn');
+  if (groupOptionsBtn) groupOptionsBtn.style.display = (_groupKind === 'custom') ? 'inline-flex' : 'none';
+  closeGroupOptionsMenu();
   const inputBar = document.getElementById('chatInputBar');
   if (inputBar) inputBar.style.display = '';
   const quizBtn = document.getElementById('quizToggleBtn');
@@ -1019,6 +1038,9 @@ function closeChat() {
   clearGroupReply();
   _hideMentionPopup();
   _resetMentionState();
+  const groupOptionsBtn = document.getElementById('groupOptionsBtn');
+  if (groupOptionsBtn) groupOptionsBtn.style.display = 'none';
+  closeGroupOptionsMenu();
   document.getElementById('chatActive').classList.remove('open');
   document.getElementById('chatWelcome').style.display = '';
   document.querySelectorAll('.am-conv-row').forEach(el => el.classList.remove('active'));
@@ -1966,11 +1988,28 @@ async function loadStudyGroups(force) {
     if (!d.ok) throw new Error('fail');
     _studyGroups = d.groups || [];
     _studyFriends = d.friends || [];
+    _paintGroupInvitations(d.invitations || []);
     _writeGroupsCache(_studyGroups, _studyFriends);
     _paintGroups(box, _studyGroups);
   } catch (e) {
     if (cached) return;
     box.innerHTML = '<div style="color:#f87171;font-size:.82rem;padding:.5rem;">Impossible de charger les groupes.</div>';
+  }
+}
+
+function updateCreateGroupCounter() {
+  const rawUsers = (document.getElementById('createGroupUsernames')?.value || '');
+  const usernames = rawUsers.split(/[,;\s]+/).map(s => s.trim()).filter(Boolean);
+  const friend_ids = Array.from(document.querySelectorAll('#createGroupFriends input:checked')).map(i => Number(i.value));
+  const total = usernames.length + friend_ids.length;
+  const counter = document.getElementById('createGroupCounter');
+  if (counter) {
+    counter.textContent = `${total} / 2 invité(s) minimum (${total + 1} membres au total)`;
+    if (total >= 2) {
+      counter.classList.add('ready');
+    } else {
+      counter.classList.remove('ready');
+    }
   }
 }
 
@@ -1991,6 +2030,7 @@ function openCreateGroupModal() {
       ).join('');
     }
   }
+  updateCreateGroupCounter();
   modal.style.display = 'flex';
 }
 function closeCreateGroupModal() {
@@ -2002,6 +2042,14 @@ async function submitCreateGroup() {
   const rawUsers = (document.getElementById('createGroupUsernames').value || '');
   const usernames = rawUsers.split(/[,;\s]+/).map(s => s.trim()).filter(Boolean);
   const friend_ids = Array.from(document.querySelectorAll('#createGroupFriends input:checked')).map(i => Number(i.value));
+  if (!name) {
+    showToast('Donne un nom au groupe.', 'error');
+    return;
+  }
+  if (usernames.length + friend_ids.length < 2) {
+    showToast('Un groupe de discussion doit comporter au moins 3 membres (toi et au moins 2 invités).', 'error');
+    return;
+  }
   try {
     const r = await fetch('/dashboard/api/study-groups/create/', {
       method: 'POST',
@@ -2098,6 +2146,193 @@ function searchUsersModal(q) {
   }, 250);
 }
 
+
+function toggleGroupOptionsMenu(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById('groupDropdownMenu');
+  if (!menu) return;
+  menu.style.display = (menu.style.display === 'none' || !menu.style.display) ? 'flex' : 'none';
+}
+
+function closeGroupOptionsMenu() {
+  const menu = document.getElementById('groupDropdownMenu');
+  if (menu) menu.style.display = 'none';
+}
+
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('groupDropdownMenu');
+  const btn = document.getElementById('groupOptionsBtn');
+  if (menu && menu.style.display !== 'none' && !menu.contains(e.target) && (!btn || !btn.contains(e.target))) {
+    menu.style.display = 'none';
+  }
+});
+
+async function openGroupMembersModal() {
+  closeGroupOptionsMenu();
+  const modal = document.getElementById('groupMembersModal');
+  const list = document.getElementById('groupMembersList');
+  const title = document.getElementById('groupMembersTitle');
+  if (!modal || !list) return;
+  modal.style.display = 'flex';
+  list.innerHTML = '<div style="text-align:center;padding:1.5rem;color:var(--t3);"><i class="fas fa-spinner fa-spin"></i> Chargement des membres...</div>';
+  try {
+    const r = await fetch(`/dashboard/api/study-groups/members/?group_id=${_groupId}`);
+    const d = await r.json();
+    if (!d.ok) {
+      list.innerHTML = `<div style="color:#ef4444;font-size:.82rem;padding:.5rem;">${escHtml(d.error || 'Erreur')}</div>`;
+      return;
+    }
+    if (title) title.textContent = `Membres de ${d.group_name || 'ce groupe'}`;
+    list.innerHTML = (d.members || []).map(m => `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:.55rem .75rem;background:rgba(255,255,255,.05);border-radius:10px;">
+        <div style="display:flex;align-items:center;gap:.65rem;">
+          <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem;">
+            ${escHtml((m.display_name || m.username || '?')[0].toUpperCase())}
+          </div>
+          <div>
+            <div style="font-weight:700;color:#fff;font-size:.85rem;">
+              ${escHtml(m.display_name)} ${m.is_me ? '<span style="color:var(--green);font-size:.7rem;">(Toi)</span>' : ''}
+            </div>
+            <div style="font-size:.72rem;color:var(--t3);">@${escHtml(m.username)}</div>
+          </div>
+        </div>
+        <div>
+          ${m.is_owner ? '<span style="font-size:.68rem;padding:.2rem .5rem;background:rgba(251,191,36,.2);color:#fbbf24;border-radius:8px;font-weight:700;">Créateur</span>' : '<span style="font-size:.68rem;padding:.2rem .5rem;background:rgba(255,255,255,.1);color:var(--t3);border-radius:8px;">Membre</span>'}
+        </div>
+      </div>
+    `).join('') || '<div style="color:var(--t3);text-align:center;padding:1rem;">Aucun membre.</div>';
+  } catch(e) {
+    list.innerHTML = '<div style="color:#ef4444;font-size:.82rem;padding:.5rem;">Erreur de chargement.</div>';
+  }
+}
+
+function closeGroupMembersModal() {
+  const modal = document.getElementById('groupMembersModal');
+  if (modal) modal.style.display = 'none';
+}
+
+function openInviteMoreModal() {
+  closeGroupOptionsMenu();
+  const modal = document.getElementById('inviteMoreModal');
+  if (!modal) return;
+  const input = document.getElementById('inviteMoreUsernames');
+  if (input) input.value = '';
+  const list = document.getElementById('inviteMoreFriends');
+  if (list) {
+    if (!_studyFriends || !_studyFriends.length) {
+      list.innerHTML = '<div style="color:var(--t3);font-size:.78rem;">Ajoute des amis ou saisis un pseudo.</div>';
+    } else {
+      list.innerHTML = _studyFriends.map(f =>
+        `<label class="am-group-invite-row"><input type="checkbox" value="${f.id}"> ${escHtml(f.name)} <span style="color:var(--t3);font-size:.72rem;">@${escHtml(f.username)}</span></label>`
+      ).join('');
+    }
+  }
+  modal.style.display = 'flex';
+}
+
+function closeInviteMoreModal() {
+  const modal = document.getElementById('inviteMoreModal');
+  if (modal) modal.style.display = 'none';
+}
+
+async function submitInviteMore() {
+  const rawUsers = (document.getElementById('inviteMoreUsernames')?.value || '');
+  const usernames = rawUsers.split(/[,;\s]+/).map(s => s.trim()).filter(Boolean);
+  const friend_ids = Array.from(document.querySelectorAll('#inviteMoreFriends input:checked')).map(i => Number(i.value));
+  if (!usernames.length && !friend_ids.length) {
+    showToast('Sélectionne au moins un ami ou entre un pseudo.', 'error');
+    return;
+  }
+  try {
+    const r = await fetch('/dashboard/api/study-groups/invite/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+      body: JSON.stringify({ group_id: _groupId, usernames, friend_ids })
+    });
+    const d = await r.json();
+    if (!d.ok) { showToast(d.error || 'Erreur', 'error'); return; }
+    closeInviteMoreModal();
+    showToast('Invitation(s) envoyée(s)', 'success');
+  } catch(e) {
+    showToast('Erreur réseau', 'error');
+  }
+}
+
+async function leaveCurrentGroup() {
+  closeGroupOptionsMenu();
+  if (!_groupId) return;
+  if (!confirm('Es-tu sûr de vouloir quitter ce groupe ?')) return;
+  try {
+    const r = await fetch('/dashboard/api/study-groups/leave/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+      body: JSON.stringify({ group_id: _groupId })
+    });
+    const d = await r.json();
+    if (!d.ok) { showToast(d.error || 'Erreur', 'error'); return; }
+    showToast(d.message || 'Tu as quitté le groupe', 'success');
+    closeChat();
+    try { sessionStorage.removeItem('otb_study_groups'); } catch(e){}
+    await loadStudyGroups(true);
+  } catch(e) {
+    showToast('Erreur réseau', 'error');
+  }
+}
+
+async function respondGroupInvite(groupId, accept) {
+  try {
+    const r = await fetch('/dashboard/api/study-groups/respond/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF },
+      body: JSON.stringify({ group_id: groupId, accept: accept })
+    });
+    const d = await r.json();
+    if (!d.ok) { showToast(d.error || 'Erreur', 'error'); return; }
+    showToast(d.message || (accept ? 'Invitation acceptée' : 'Invitation refusée'), 'success');
+    try { sessionStorage.removeItem('otb_study_groups'); } catch(e){}
+    await loadStudyGroups(true);
+    if (accept) {
+      openGroupChat(groupId);
+    }
+  } catch(e) {
+    showToast('Erreur réseau', 'error');
+  }
+}
+
+function _paintGroupInvitations(invitations) {
+  const container = document.getElementById('groupInvitesContainer');
+  if (!container) return;
+  if (!invitations || !invitations.length) {
+    container.innerHTML = '';
+    return;
+  }
+  container.innerHTML = `
+    <div class="am-group-invites-panel">
+      <div class="am-group-invites-title">
+        <i class="fas fa-envelope-open-text"></i> Invitations reçues (${invitations.length})
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.35rem;">
+        ${invitations.map(inv => `
+          <div class="am-group-invite-card">
+            <div style="min-width:0;flex:1;">
+              <div style="font-weight:700;color:#fff;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                ${escHtml(inv.group_name)}
+              </div>
+              <div style="font-size:.7rem;color:var(--t3);">
+                Par ${escHtml(inv.invited_by)} · ${inv.member_count} membre(s)
+              </div>
+            </div>
+            <div class="am-group-invite-btns">
+              <button type="button" class="am-btn-accept-sm" onclick="respondGroupInvite(${inv.group_id}, true)" title="Accepter"><i class="fas fa-check"></i></button>
+              <button type="button" class="am-btn-decline-sm" onclick="respondGroupInvite(${inv.group_id}, false)" title="Refuser"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
 window.switchTab = switchTab;
 window.openChat = openChat;
 window.openGroupChat = openGroupChat;
@@ -2111,6 +2346,16 @@ window.closeSearchFriendModal = closeSearchFriendModal;
 window.openInvitationsModal = openInvitationsModal;
 window.closeInvitationsModal = closeInvitationsModal;
 window.searchUsersModal = searchUsersModal;
+window.toggleGroupOptionsMenu = toggleGroupOptionsMenu;
+window.closeGroupOptionsMenu = closeGroupOptionsMenu;
+window.openGroupMembersModal = openGroupMembersModal;
+window.closeGroupMembersModal = closeGroupMembersModal;
+window.openInviteMoreModal = openInviteMoreModal;
+window.closeInviteMoreModal = closeInviteMoreModal;
+window.submitInviteMore = submitInviteMore;
+window.leaveCurrentGroup = leaveCurrentGroup;
+window.respondGroupInvite = respondGroupInvite;
+window.updateCreateGroupCounter = updateCreateGroupCounter;
 window.openCreateGroupModal = openCreateGroupModal;
 window.closeCreateGroupModal = closeCreateGroupModal;
 window.submitCreateGroup = submitCreateGroup;
@@ -2242,11 +2487,43 @@ window.updateQuizTypeUI = typeof updateQuizTypeUI === 'function' ? updateQuizTyp
   <div style="width:min(450px,calc(100vw - 2rem));background:linear-gradient(160deg,#1e293b,#0f172a);border:1px solid rgba(16,185,129,.2);border-radius:22px;padding:1.5rem;box-shadow:0 24px 80px rgba(0,0,0,.6);position:relative;">
     <button type="button" onclick="closeCreateGroupModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#64748b;font-size:1.1rem;cursor:pointer;"><i class="fas fa-times"></i></button>
     <h3 style="font-weight:800;font-size:1.15rem;color:#f1f5f9;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;"><i class="fas fa-users" style="color:var(--green);"></i> Nouveau groupe</h3>
+    <div class="am-group-rule-badge"><i class="fas fa-info-circle"></i> Création requise : 3 membres minimum (toi + au moins 2 camarades invités).</div>
     <input id="createGroupName" type="text" placeholder="Nom du groupe" maxlength="80" style="width:100%;padding:.65rem .9rem;background:var(--bg);border:1.5px solid var(--border2);border-radius:12px;color:var(--t1);outline:none;margin-bottom:.75rem;">
-    <input id="createGroupUsernames" type="text" placeholder="Pseudos du site (séparés par des virgules)" style="width:100%;padding:.65rem .9rem;background:var(--bg);border:1.5px solid var(--border2);border-radius:12px;color:var(--t1);outline:none;">
-    <div style="font-size:.7rem;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .45rem;">Inviter des amis</div>
-    <div id="createGroupFriends" class="am-group-invite-list"></div>
-    <button type="button" class="am-annonce-card-ok" style="background:linear-gradient(135deg,#10b981,#059669);color:#fff;" onclick="submitCreateGroup()">Créer le groupe</button>
+    <input id="createGroupUsernames" type="text" oninput="updateCreateGroupCounter()" placeholder="Pseudos du site (séparés par des virgules)" style="width:100%;padding:.65rem .9rem;background:var(--bg);border:1.5px solid var(--border2);border-radius:12px;color:var(--t1);outline:none;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:1rem 0 .45rem;">
+      <div style="font-size:.7rem;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;">Inviter des amis</div>
+      <div id="createGroupCounter" class="am-create-group-counter">0 / 2 invités minimum</div>
+    </div>
+    <div id="createGroupFriends" class="am-group-invite-list" onchange="updateCreateGroupCounter()"></div>
+    <button type="button" id="submitCreateGroupBtn" class="am-annonce-card-ok" style="background:linear-gradient(135deg,#10b981,#059669);color:#fff;" onclick="submitCreateGroup()">Créer le groupe</button>
+  </div>
+</div>
+
+<!-- Modal Membres du Groupe -->
+<div id="groupMembersModal" style="display:none;position:fixed;inset:0;z-index:9980;background:rgba(2,6,23,.75);backdrop-filter:blur(14px);align-items:center;justify-content:center;" onclick="if(event.target===this){closeGroupMembersModal();}">
+  <div style="width:min(440px,calc(100vw - 2rem));background:linear-gradient(160deg,#1e293b,#0f172a);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:1.5rem;box-shadow:0 24px 80px rgba(0,0,0,.6);position:relative;">
+    <button type="button" onclick="closeGroupMembersModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#64748b;font-size:1.1rem;cursor:pointer;"><i class="fas fa-times"></i></button>
+    <h3 style="font-weight:800;font-size:1.15rem;color:#f1f5f9;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;">
+      <i class="fas fa-users" style="color:var(--green);"></i> <span id="groupMembersTitle">Membres du groupe</span>
+    </h3>
+    <div id="groupMembersList" style="max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;">
+      <div style="text-align:center;padding:1.5rem;color:var(--t3);"><i class="fas fa-spinner fa-spin"></i> Chargement...</div>
+    </div>
+    <button type="button" class="am-annonce-card-ok" style="background:rgba(255,255,255,.1);color:#fff;" onclick="closeGroupMembersModal()">Fermer</button>
+  </div>
+</div>
+
+<!-- Modal Inviter plus de membres dans un groupe existant -->
+<div id="inviteMoreModal" style="display:none;position:fixed;inset:0;z-index:9980;background:rgba(2,6,23,.75);backdrop-filter:blur(14px);align-items:center;justify-content:center;" onclick="if(event.target===this){closeInviteMoreModal();}">
+  <div style="width:min(450px,calc(100vw - 2rem));background:linear-gradient(160deg,#1e293b,#0f172a);border:1px solid rgba(56,189,248,.2);border-radius:22px;padding:1.5rem;box-shadow:0 24px 80px rgba(0,0,0,.6);position:relative;">
+    <button type="button" onclick="closeInviteMoreModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#64748b;font-size:1.1rem;cursor:pointer;"><i class="fas fa-times"></i></button>
+    <h3 style="font-weight:800;font-size:1.15rem;color:#f1f5f9;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;">
+      <i class="fas fa-user-plus" style="color:#38bdf8;"></i> Inviter des membres
+    </h3>
+    <input id="inviteMoreUsernames" type="text" placeholder="Pseudos du site (séparés par des virgules)" style="width:100%;padding:.65rem .9rem;background:var(--bg);border:1.5px solid var(--border2);border-radius:12px;color:var(--t1);outline:none;margin-bottom:.75rem;">
+    <div style="font-size:.7rem;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin:.5rem 0 .45rem;">Sélectionner des amis</div>
+    <div id="inviteMoreFriends" class="am-group-invite-list"></div>
+    <button type="button" class="am-annonce-card-ok" style="background:linear-gradient(135deg,#38bdf8,#0284c7);color:#fff;" onclick="submitInviteMore()">Envoyer les invitations</button>
   </div>
 </div>
 {% endblock %}

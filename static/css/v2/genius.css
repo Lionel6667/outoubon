@@ -866,3 +866,86 @@
     max-width: none;
   }
 }
+
+/* ── Concours Actif & Historique Déroulant ───────────────────────── */
+.v2-genius-comp-active-card {
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(15, 23, 42, 0.6));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 1.15rem 1.1rem;
+  border-radius: 14px;
+}
+.v2-genius-comp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--green, #10b981);
+  font-size: 0.72rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.v2-genius-status-tag {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--t2, #94a3b8);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.v2-genius-history-accordion {
+  margin-top: 1rem;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+.v2-genius-history-accordion[open] {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.6);
+}
+.v2-genius-history-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.v2-genius-history-summary::-webkit-details-marker {
+  display: none;
+}
+.v2-genius-history-summary .v2-genius-chevron {
+  font-size: 0.75rem;
+  color: var(--t3, #64748b);
+  transition: transform 0.2s ease;
+}
+.v2-genius-history-accordion[open] .v2-genius-chevron {
+  transform: rotate(180deg);
+}
+.v2-genius-badge-count {
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--t2, #94a3b8);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.v2-genius-history-content {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.v2-genius-past-item {
+  opacity: 0.85;
+}
+.v2-genius-past-item:hover {
+  opacity: 1;
+}

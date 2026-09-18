@@ -1046,3 +1046,156 @@
   .am-msgs { padding: .8rem .65rem; }
 }
 
+
+/* ── Group Menu Dropdown & Pending Invites ───────────────────────── */
+.am-group-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 1000;
+  min-width: 190px;
+  background: var(--card, #1e293b);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.am-group-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  border-radius: 9px;
+  background: transparent;
+  border: none;
+  color: var(--t1, #f8fafc);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.am-group-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.am-group-dropdown-item.text-danger {
+  color: #f87171;
+}
+
+.am-group-dropdown-item.text-danger:hover {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.am-group-dropdown-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0.25rem 0;
+}
+
+/* Invitations de groupes en attente */
+.am-group-invites-panel {
+  margin-bottom: 0.85rem;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+}
+
+.am-group-invites-title {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--green, #10b981);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.am-group-invite-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.35rem;
+}
+
+.am-group-invite-btns {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.am-btn-accept-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #10b981;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.am-btn-accept-sm:hover {
+  transform: scale(1.1);
+}
+
+.am-btn-decline-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.am-btn-decline-sm:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  transform: scale(1.1);
+}
+
+/* Règle de création de groupe */
+.am-group-rule-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 10px;
+  color: var(--t1);
+  font-size: 0.78rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.4;
+}
+
+.am-create-group-counter {
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin: 0.45rem 0;
+  color: #94a3b8;
+}
+
+.am-create-group-counter.ready {
+  color: #34d399;
+}

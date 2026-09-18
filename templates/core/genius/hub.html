@@ -149,20 +149,8 @@
             <div class="v2-genius-panel-card">
               <h3 class="v2-genius-panel-title"><i class="fas fa-trophy"></i> Concours</h3>
               <p class="v2-genius-panel-desc">Inscris ton équipe dès que tu es dans un groupe.</p>
-              <div id="geniusCompListNoTeam" class="v2-genius-list">
-                {% for c in hub_initial.competitions %}
-                <div class="v2-genius-list-item">
-                  <div>
-                    <strong>{{ c.name }}</strong>
-                    <div class="meta">{{ c.status_label|default:c.status }} · {{ c.registered_count }} équipes</div>
-                  </div>
-                  <div class="v2-genius-list-item__actions">
-                    <a href="{% url 'genius_competition' competition_id=c.id %}" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">Voir</a>
-                  </div>
-                </div>
-                {% empty %}
-                <p class="v2-genius-empty">Aucun concours ouvert pour le moment.</p>
-                {% endfor %}
+              <div id="geniusCompListNoTeam">
+                {% include "core/genius/competition_list.html" %}
               </div>
             </div>
             <div class="v2-genius-panel-card">
@@ -206,29 +194,8 @@
           <section class="v2-genius-tab-panel" data-panel="compete" data-state="team">
             <div class="v2-genius-panel-card">
               <h3 class="v2-genius-panel-title"><i class="fas fa-trophy"></i> Concours ouverts</h3>
-              <div id="geniusCompList" class="v2-genius-list">
-                {% for c in hub_initial.competitions %}
-                <div class="v2-genius-list-item">
-                  <div>
-                    <strong>{{ c.name }}</strong>
-                    <div class="meta">{{ c.status_label|default:c.status }} · {{ c.registered_count }} équipes</div>
-                  </div>
-                  <div class="v2-genius-list-item__actions">
-                    {% if hub_initial.my_role == 'captain' and hub_initial.team %}
-                      {% if not c.registration or not c.registration.status %}
-                      <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-reg="{{ c.id }}">S'inscrire</button>
-                      {% elif c.registration.status == 'registered' and hub_initial.team.is_full and not c.registration.roster_locked %}
-                      <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-lock="{{ c.id }}">Verrouiller l'équipe</button>
-                      {% elif c.registration.roster_locked %}
-                      <span class="v2-genius-pill">Équipe verrouillée</span>
-                      {% endif %}
-                    {% endif %}
-                    <a href="{% url 'genius_competition' competition_id=c.id %}" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">Voir</a>
-                  </div>
-                </div>
-                {% empty %}
-                <p class="v2-genius-empty">Aucun concours ouvert pour le moment.</p>
-                {% endfor %}
+              <div id="geniusCompList">
+                {% include "core/genius/competition_list.html" %}
               </div>
             </div>
             <div class="v2-genius-panel-card">
@@ -681,39 +648,87 @@
     });
   }
 
-  function renderCompetitions(comps, team, myRole, listId) {
+  function renderCompetitions(comps, pastComps, team, myRole, listId) {
     const el = document.getElementById(listId);
     if (!el) return;
-    if (!comps.length) {
-      el.innerHTML = '<p class="v2-genius-empty">Aucun concours ouvert pour le moment.</p>';
-      return;
-    }
     const canManage = team && myRole === 'captain' && listId === 'geniusCompList';
-    el.innerHTML = comps.map(c => {
-      let actions = '';
-      if (canManage) {
-        const reg = c.registration;
-        if (!reg || !reg.status) {
-          actions = `<button type="button" class="v2-genius-btn v2-genius-btn--sm" data-reg="${c.id}">S'inscrire</button>`;
-        } else if (reg.status === 'registered' && team.is_full && !reg.roster_locked) {
-          actions = `<button type="button" class="v2-genius-btn v2-genius-btn--sm" data-lock="${c.id}">Verrouiller l'équipe</button>`;
-        } else if (reg.roster_locked) {
-          actions = '<span class="v2-genius-pill">Équipe verrouillée</span>';
-        }
-      }
-      return `
-        <div class="v2-genius-list-item">
-          <div>
-            <strong>${c.name}</strong>
-            <div class="meta">${c.status_label || c.status} · ${c.registered_count} équipes</div>
-          </div>
-          <div class="v2-genius-list-item__actions">
-            ${actions}
-            <a href="${urls.competition}${c.id}/" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">Voir</a>
-          </div>
+    let html = '';
+
+    // 1. Concours Actif au premier plan
+    html += '<div class="v2-genius-active-competition">';
+    if (!comps || !comps.length) {
+      html += `
+        <div class="v2-genius-empty-box" style="padding:1.25rem;text-align:center;color:var(--t3);font-size:.85rem;background:rgba(255,255,255,.02);border:1px dashed var(--border2);border-radius:14px;">
+          <i class="fas fa-calendar-times" style="font-size:1.5rem;margin-bottom:.4rem;display:block;opacity:.6;"></i>
+          Aucun concours actif pour le moment.
         </div>
       `;
-    }).join('');
+    } else {
+      html += comps.map(c => {
+        let actions = '';
+        if (canManage) {
+          const reg = c.registration;
+          if (!reg || !reg.status) {
+            actions = `<button type="button" class="v2-genius-btn v2-genius-btn--sm" data-reg="${c.id}"><i class="fas fa-plus"></i> S'inscrire</button>`;
+          } else if (reg.status === 'registered' && team.is_full && !reg.roster_locked) {
+            actions = `<button type="button" class="v2-genius-btn v2-genius-btn--sm" data-lock="${c.id}"><i class="fas fa-lock"></i> Verrouiller l'équipe</button>`;
+          } else if (reg.roster_locked) {
+            actions = '<span class="v2-genius-pill"><i class="fas fa-check"></i> Équipe verrouillée</span>';
+          }
+        }
+        return `
+          <div class="v2-genius-list-item v2-genius-comp-active-card">
+            <div class="v2-genius-comp-badge"><i class="fas fa-play-circle"></i> Concours en cours</div>
+            <div>
+              <strong style="font-size:1.05rem;color:#fff;">${c.name}</strong>
+              <div class="meta" style="margin-top:.3rem;">
+                <span class="v2-genius-status-tag">${c.status_label || c.status}</span>
+                <span>· ${c.registered_count} équipe(s) inscrite(s)</span>
+              </div>
+            </div>
+            <div class="v2-genius-list-item__actions" style="margin-top:.75rem;">
+              ${actions}
+              <a href="${urls.competition}${c.id}/" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">
+                Voir le tournoi <i class="fas fa-arrow-right" style="font-size:.7rem"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    html += '</div>';
+
+    // 2. Section Historique des Concours passés
+    if (pastComps && pastComps.length > 0) {
+      html += `
+        <details class="v2-genius-history-accordion" style="margin-top:1.25rem;">
+          <summary class="v2-genius-history-summary">
+            <div style="display:flex;align-items:center;gap:.5rem;">
+              <i class="fas fa-history" style="color:var(--t3)"></i>
+              <span style="font-weight:700;font-size:.88rem;">Historique des Concours</span>
+              <span class="v2-genius-badge-count">${pastComps.length}</span>
+            </div>
+            <i class="fas fa-chevron-down v2-genius-chevron"></i>
+          </summary>
+          <div class="v2-genius-history-content">
+            ${pastComps.map(c => `
+              <div class="v2-genius-list-item v2-genius-past-item">
+                <div>
+                  <strong style="color:var(--t2);">${c.name}</strong>
+                  <div class="meta">${c.status_label || 'Terminé'} · ${c.registered_count} équipes</div>
+                </div>
+                <div class="v2-genius-list-item__actions">
+                  <a href="${urls.competition}${c.id}/" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--ghost">Résultats</a>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </details>
+      `;
+    }
+
+    el.innerHTML = html;
+
     el.querySelectorAll('[data-reg]').forEach(btn => {
       btn.onclick = async () => {
         try {
@@ -847,8 +862,8 @@
     if (!data.team) {
       renderDiscover(data.discoverable_teams || []);
     }
-    renderCompetitions(data.competitions || [], data.team, data.my_role, 'geniusCompList');
-    renderCompetitions(data.competitions || [], null, null, 'geniusCompListNoTeam');
+    renderCompetitions(data.competitions || [], data.past_competitions || [], data.team, data.my_role, 'geniusCompList');
+    renderCompetitions(data.competitions || [], data.past_competitions || [], null, null, 'geniusCompListNoTeam');
     renderChallenge(data.challengeable_teams || [], data.my_role);
     renderNotifications(data.notifications || [], data.unread_notifications || 0);
     renderLeaderboard(data.leaderboard || [], 'geniusLeaderboard');

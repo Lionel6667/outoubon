@@ -6197,30 +6197,147 @@ def progression_view(request):
         })
     quiz_sessions = QuizSession.objects.filter(user=request.user).order_by('-completed_at')[:10]
 
-    # Optimized bulk calculation + scores unifiés
-    all_blended = _compute_all_blended_scores(request.user)
-    _prog_user_serie_subjects = list(SERIES.get(profile.serie or 'SVT', SERIES['SVT'])['subjects'].keys())
-    _prog_scores = get_scores_for_user(request.user, set(_prog_user_serie_subjects), diag_scores)
+    # Optimized bulk calculation + scores unifiés avec mise en cache
+    prog_cache_key = f'user_progression_charts_{request.user.pk}'
+    cached_prog = cache.get(prog_cache_key)
 
-    mats_extended = {}
-    for k, v in MATS.items():
-        sc = all_blended.get(k, {})
-        mats_extended[k] = dict(v)
-        mats_extended[k]['sessions']    = sc.get('quiz_count', 0)
-        mats_extended[k]['exo_count']   = sc.get('exo_total', 0)
-        blended = _prog_scores.get(k) if k in _prog_scores else sc.get('blended')
-        mats_extended[k]['quiz_score']  = blended
-        mats_extended[k]['quiz_avg']    = sc.get('quiz_avg')
-        mats_extended[k]['exo_pct']     = sc.get('exo_pct')
-        mats_extended[k]['has_course']  = sc.get('has_course', False)
+    if cached_prog is not None:
+        mats_extended = cached_prog.get('mats_extended', {})
+        _prog_scores = cached_prog.get('_prog_scores', {})
+        avg_blended = cached_prog.get('avg_blended', 0)
+        bac_score = cached_prog.get('bac_score', 0)
+        _prog_user_serie_subjects = cached_prog.get('user_serie_subjects', [])
+        masteries = cached_prog.get('masteries', [])
+        mastery_display = cached_prog.get('mastery_display', [])
+        study_recs = cached_prog.get('study_recs', [])
+        study_insights = cached_prog.get('study_insights', [])
+    else:
+        all_blended = _compute_all_blended_scores(request.user)
+        _prog_user_serie_subjects = list(SERIES.get(profile.serie or 'SVT', SERIES['SVT'])['subjects'].keys())
+        _prog_scores = get_scores_for_user(request.user, set(_prog_user_serie_subjects), diag_scores)
+        mats_extended = {}
+        for k, v in MATS.items():
+            sc = all_blended.get(k, {})
+            mats_extended[k] = dict(v)
+            mats_extended[k]['sessions']    = sc.get('quiz_count', 0)
+            mats_extended[k]['exo_count']   = sc.get('exo_total', 0)
+            blended = _prog_scores.get(k) if k in _prog_scores else sc.get('blended')
+            mats_extended[k]['quiz_score']  = blended
+            mats_extended[k]['quiz_avg']    = sc.get('quiz_avg')
+            mats_extended[k]['exo_pct']     = sc.get('exo_pct')
+            mats_extended[k]['has_course']  = sc.get('has_course', False)
+
+        blended_scores = [v for v in _prog_scores.values() if v is not None]
+        avg_blended = round(sum(blended_scores) / len(blended_scores)) if blended_scores else 0
+        _prog_serie_key = profile.serie or 'SVT'
+        bac_score = estimate_bac_score(_prog_scores, _prog_serie_key, SERIES)
+
+        # Maîtrise adaptive + résumés
+        masteries = []
+        mastery_display = []
+        study_recs = []
+        study_insights = []
+        try:
+            from .learning_tracker import get_study_recommendations
+            _serie_subjs_set = set(_prog_user_serie_subjects)
+            masteries = [m for m in SubjectMastery.objects.filter(user=request.user).order_by('-mastery_score') if m.subject in _serie_subjs_set]
+            for m in masteries:
+                if m.weak_topics:
+                    m.weak_topics = [_clean_topic_name(t) for t in m.weak_topics]
+
+            for r in get_study_recommendations(request.user):
+                if r['subject'] not in _serie_subjs_set:
+                    continue
+                reason = r.get('reason', '')
+                if 'topics à retravailler' in reason:
+                    parts = reason.split('topics à retravailler :', 1)
+                    if len(parts) > 1:
+                        topics = [
+                            _clean_topic_name(t.strip())
+                            for t in parts[1].split(',')
+                            if t.strip() and not _is_generic_topic_name(_clean_topic_name(t.strip()))
+                        ]
+                        if topics:
+                            reason = f'{parts[0].strip()} — {", ".join(topics[:3])}'
+                study_recs.append({**r, 'reason': reason})
+
+            for m in masteries:
+                label = MATS.get(m.subject, {}).get('label', m.subject.title())
+                weak = [
+                    _clean_topic_name(t) for t in (m.weak_topics or [])
+                    if _clean_topic_name(t) and not _is_generic_topic_name(_clean_topic_name(t))
+                ]
+                acc = m.correct_count + m.error_count
+                if acc <= 0:
+                    continue
+                mastery_display.append({
+                    'subject': m.subject,
+                    'label': label,
+                    'color': MATS.get(m.subject, {}).get('color', '#6366f1'),
+                    'score': _prog_scores.get(m.subject, int(round(m.mastery_score))),
+                    'level': m.confidence_level,
+                    'correct': m.correct_count,
+                    'total': acc,
+                    'weak_topics': weak[:3],
+                })
+
+            from .revision_planner import build_study_insights
+            study_insights = build_study_insights(request.user, MATS, _get_user_serie_subjects, limit=10)
+            if not study_insights:
+                weak = sorted(
+                    ((s, sc) for s, sc in _prog_scores.items() if sc is not None),
+                    key=lambda x: x[1],
+                )[:5]
+                study_insights = []
+                for subj, sc in weak:
+                    info = MATS.get(subj, {})
+                    study_insights.append({
+                        'subject': subj,
+                        'label': info.get('label', subj),
+                        'score': int(sc),
+                        'priority': 'haute' if sc < 55 else ('moyenne' if sc < 70 else 'basse'),
+                        'chapter_num': 1,
+                        'chapter': 'Révision prioritaire',
+                        'subtopics': ['Quiz ciblés', 'Cours'],
+                        'weakness_reason': f'Score actuel {int(sc)}% — à renforcer.',
+                        'cours_url': f'/dashboard/cours/?subject={subj}',
+                        'quiz_url': f'/dashboard/quiz/?subject={subj}',
+                        'exo_url': f'/dashboard/exercices/?subject={subj}',
+                        'quiz_category': '',
+                    })
+
+            if not mastery_display and _prog_scores:
+                mastery_display = [
+                    {
+                        'label': MATS.get(subj, {}).get('label', subj),
+                        'color': MATS.get(subj, {}).get('color', '#6366f1'),
+                        'score': int(sc),
+                        'level': 'en progrès' if sc < 70 else 'solide',
+                        'correct': max(1, int(sc) // 10),
+                        'total': 10,
+                        'weak_topics': ['Révision'],
+                    }
+                    for subj, sc in list(_prog_scores.items())[:6]
+                    if sc is not None
+                ]
+        except Exception:
+            pass
+
+        cache.set(prog_cache_key, {
+            'mats_extended': mats_extended,
+            '_prog_scores': _prog_scores,
+            'avg_blended': avg_blended,
+            'bac_score': bac_score,
+            'user_serie_subjects': _prog_user_serie_subjects,
+            'masteries': masteries,
+            'mastery_display': mastery_display,
+            'study_recs': study_recs,
+            'study_insights': study_insights,
+        }, 300)
 
     heures_etude = stats.minutes_etude // 60
     minutes_rest = stats.minutes_etude % 60
-
-    blended_scores = [v for v in _prog_scores.values() if v is not None]
-    avg_blended = round(sum(blended_scores) / len(blended_scores)) if blended_scores else 0
-    _prog_serie_key = profile.serie or 'SVT'
-    bac_score = estimate_bac_score(_prog_scores, _prog_serie_key, SERIES)
+    chat_summaries = list(ChatSessionSummary.objects.filter(user=request.user).order_by('-created_at')[:5])
 
     context = {
         'mats': mats_extended,
@@ -6233,105 +6350,12 @@ def progression_view(request):
         'avg_score': avg_blended,
         'bac_score': bac_score,
         'user_serie_subjects': _prog_user_serie_subjects,
+        'masteries': masteries,
+        'mastery_display': mastery_display,
+        'chat_summaries': chat_summaries,
+        'study_recs': study_recs,
+        'study_insights': study_insights,
     }
-
-    # Maîtrise adaptive + résumés de chat pour la page Progression
-    try:
-        from .learning_tracker import get_study_recommendations
-        _serie_subjs_set = set(_prog_user_serie_subjects)
-        masteries = [m for m in SubjectMastery.objects.filter(user=request.user).order_by('-mastery_score') if m.subject in _serie_subjs_set]
-        # Nettoyer les noms de topics pour l'affichage
-        for m in masteries:
-            if m.weak_topics:
-                m.weak_topics = [_clean_topic_name(t) for t in m.weak_topics]
-        chat_summaries = list(ChatSessionSummary.objects.filter(user=request.user).order_by('-created_at')[:5])
-        study_recs = []
-        for r in get_study_recommendations(request.user):
-            if r['subject'] not in _serie_subjs_set:
-                continue
-            reason = r.get('reason', '')
-            if 'topics à retravailler' in reason:
-                parts = reason.split('topics à retravailler :', 1)
-                if len(parts) > 1:
-                    topics = [
-                        _clean_topic_name(t.strip())
-                        for t in parts[1].split(',')
-                        if t.strip() and not _is_generic_topic_name(_clean_topic_name(t.strip()))
-                    ]
-                    if topics:
-                        reason = f'{parts[0].strip()} — {", ".join(topics[:3])}'
-            study_recs.append({**r, 'reason': reason})
-
-        mastery_display = []
-        for m in masteries:
-            label = MATS.get(m.subject, {}).get('label', m.subject.title())
-            weak = [
-                _clean_topic_name(t) for t in (m.weak_topics or [])
-                if _clean_topic_name(t) and not _is_generic_topic_name(_clean_topic_name(t))
-            ]
-            acc = m.correct_count + m.error_count
-            if acc <= 0:
-                continue
-            mastery_display.append({
-                'subject': m.subject,
-                'label': label,
-                'color': MATS.get(m.subject, {}).get('color', '#6366f1'),
-                'score': _prog_scores.get(m.subject, int(round(m.mastery_score))),
-                'level': m.confidence_level,
-                'correct': m.correct_count,
-                'total': acc,
-                'weak_topics': weak[:3],
-            })
-
-        from .revision_planner import build_study_insights
-        study_insights = build_study_insights(request.user, MATS, _get_user_serie_subjects, limit=10)
-        if not study_insights:
-            weak = sorted(
-                ((s, sc) for s, sc in _prog_scores.items() if sc is not None),
-                key=lambda x: x[1],
-            )[:5]
-            study_insights = []
-            for subj, sc in weak:
-                info = MATS.get(subj, {})
-                study_insights.append({
-                    'subject': subj,
-                    'label': info.get('label', subj),
-                    'score': int(sc),
-                    'priority': 'haute' if sc < 55 else ('moyenne' if sc < 70 else 'basse'),
-                    'chapter_num': 1,
-                    'chapter': 'Révision prioritaire',
-                    'subtopics': ['Quiz ciblés', 'Cours'],
-                    'weakness_reason': f'Score actuel {int(sc)}% — à renforcer.',
-                    'cours_url': f'/dashboard/cours/?subject={subj}',
-                    'quiz_url': f'/dashboard/quiz/?subject={subj}',
-                    'exo_url': f'/dashboard/exercices/?subject={subj}',
-                    'quiz_category': '',
-                })
-        if not mastery_display and _prog_scores:
-            mastery_display = [
-                {
-                    'label': MATS.get(subj, {}).get('label', subj),
-                    'color': MATS.get(subj, {}).get('color', '#6366f1'),
-                    'score': int(sc),
-                    'level': 'en progrès' if sc < 70 else 'solide',
-                    'correct': max(1, int(sc) // 10),
-                    'total': 10,
-                    'weak_topics': ['Révision'],
-                }
-                for subj, sc in list(_prog_scores.items())[:6]
-                if sc is not None
-            ]
-        context['masteries']     = masteries
-        context['mastery_display'] = mastery_display
-        context['chat_summaries'] = chat_summaries
-        context['study_recs']    = study_recs
-        context['study_insights'] = study_insights
-    except Exception:
-        context['masteries']      = []
-        context['mastery_display'] = []
-        context['chat_summaries'] = []
-        context['study_recs']     = []
-        context['study_insights'] = []
 
     return render(request, 'core/progression.html', context)
 
@@ -9950,8 +9974,10 @@ def chapter_cours_view(request, subject, num):
         except Exception:
             pass
 
+    from core.premium import is_premium
     return render(request, 'core/chapter_cours.html', {
         'chapter': chapter,
+        'is_premium': is_premium(request.user),
         'session': session,
         'session_id': session.pk,
         'subject': subject,
@@ -11636,7 +11662,9 @@ def api_study_groups(request):
             'username': other.username,
         })
     friends.sort(key=lambda f: (f['name'] or '').lower())
-    payload = {'ok': True, 'groups': groups, 'friends': friends}
+    from accounts.chat_groups import list_pending_group_invitations
+    invitations = list_pending_group_invitations(request.user)
+    payload = {'ok': True, 'groups': groups, 'friends': friends, 'invitations': invitations}
     cache.set(ck, payload, 45)
     return JsonResponse(payload)
 
@@ -11680,6 +11708,47 @@ def api_study_group_invite(request):
     added_ids = [u.id if hasattr(u, 'id') else u for u in (added if isinstance(added, list) else [])]
     _invalidate_study_groups_cache(request.user.id, *member_ids, *added_ids)
     return JsonResponse({'ok': True, 'added': added, 'group': serialize_group(group, request.user)})
+
+
+@login_required
+@require_POST
+def api_study_group_respond(request):
+    from accounts.chat_groups import respond_group_invitation
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    group_id = data.get('group_id')
+    accept = bool(data.get('accept', True))
+    ok, msg = respond_group_invitation(request.user, group_id, accept=accept)
+    if not ok:
+        return JsonResponse({'ok': False, 'error': msg}, status=400)
+    _invalidate_study_groups_cache(request.user.id)
+    return JsonResponse({'ok': True, 'message': msg})
+
+
+@login_required
+@require_POST
+def api_study_group_leave(request):
+    from accounts.chat_groups import leave_group
+    data, err = _parse_json_body(request)
+    if err:
+        return err
+    group_id = data.get('group_id')
+    ok, msg = leave_group(request.user, group_id)
+    if not ok:
+        return JsonResponse({'ok': False, 'error': msg}, status=400)
+    _invalidate_study_groups_cache(request.user.id)
+    return JsonResponse({'ok': True, 'message': msg})
+
+
+@login_required
+def api_study_group_members(request):
+    from accounts.chat_groups import get_group_members
+    group_id = request.GET.get('group_id')
+    data, err = get_group_members(request.user, group_id)
+    if err:
+        return JsonResponse({'ok': False, 'error': err}, status=404)
+    return JsonResponse({'ok': True, **data})
 
 
 def _group_chat_history_payload(user, after_id=0, group=None):

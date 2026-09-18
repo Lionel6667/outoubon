@@ -1,0 +1,69 @@
+{% comment %}
+Partial pour la liste des concours Groupe de Génies (Concours Actif au 1er plan + Historique déroulant)
+{% endcomment %}
+
+<!-- Concours Actif au premier plan -->
+<div class="v2-genius-active-competition">
+  {% if hub_initial.competitions %}
+    {% for c in hub_initial.competitions %}
+    <div class="v2-genius-list-item v2-genius-comp-active-card">
+      <div class="v2-genius-comp-badge"><i class="fas fa-play-circle"></i> Concours en cours</div>
+      <div>
+        <strong style="font-size:1.05rem;color:#fff;">{{ c.name }}</strong>
+        <div class="meta" style="margin-top:.3rem;">
+          <span class="v2-genius-status-tag">{{ c.status_label|default:c.status }}</span>
+          <span>· {{ c.registered_count }} équipe(s) inscrite(s)</span>
+        </div>
+      </div>
+      <div class="v2-genius-list-item__actions" style="margin-top:.75rem;">
+        {% if hub_initial.my_role == 'captain' and hub_initial.team %}
+          {% if not c.registration or not c.registration.status %}
+          <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-reg="{{ c.id }}"><i class="fas fa-plus"></i> S'inscrire</button>
+          {% elif c.registration.status == 'registered' and hub_initial.team.is_full and not c.registration.roster_locked %}
+          <button type="button" class="v2-genius-btn v2-genius-btn--sm" data-lock="{{ c.id }}"><i class="fas fa-lock"></i> Verrouiller l'équipe</button>
+          {% elif c.registration.roster_locked %}
+          <span class="v2-genius-pill"><i class="fas fa-check"></i> Équipe verrouillée</span>
+          {% endif %}
+        {% endif %}
+        <a href="{% url 'genius_competition' competition_id=c.id %}" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--outline">
+          Voir le tournoi <i class="fas fa-arrow-right" style="font-size:.7rem"></i>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="v2-genius-empty-box" style="padding:1.25rem;text-align:center;color:var(--t3);font-size:.85rem;background:rgba(255,255,255,.02);border:1px dashed var(--border2);border-radius:14px;">
+      <i class="fas fa-calendar-times" style="font-size:1.5rem;margin-bottom:.4rem;display:block;opacity:.6;"></i>
+      Aucun concours actif pour le moment.
+    </div>
+  {% endif %}
+</div>
+
+<!-- Section Historique des Concours passés / terminés -->
+{% if hub_initial.past_competitions %}
+<details class="v2-genius-history-accordion" style="margin-top:1.25rem;">
+  <summary class="v2-genius-history-summary">
+    <div style="display:flex;align-items:center;gap:.5rem;">
+      <i class="fas fa-history" style="color:var(--t3)"></i>
+      <span style="font-weight:700;font-size:.88rem;">Historique des Concours</span>
+      <span class="v2-genius-badge-count">{{ hub_initial.past_competitions|length }}</span>
+    </div>
+    <i class="fas fa-chevron-down v2-genius-chevron"></i>
+  </summary>
+  <div class="v2-genius-history-content">
+    {% for c in hub_initial.past_competitions %}
+    <div class="v2-genius-list-item v2-genius-past-item">
+      <div>
+        <strong style="color:var(--t2);">{{ c.name }}</strong>
+        <div class="meta">{{ c.status_label|default:"Terminé" }} · {{ c.registered_count }} équipes</div>
+      </div>
+      <div class="v2-genius-list-item__actions">
+        <a href="{% url 'genius_competition' competition_id=c.id %}" class="v2-genius-btn v2-genius-btn--sm v2-genius-btn--ghost">
+          Résultats
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</details>
+{% endif %}

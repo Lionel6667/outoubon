@@ -16,10 +16,15 @@
 .duel-tab  { flex: 1; padding: .55rem; border-radius: 9px; border: none; background: transparent; color: var(--t2); font-size: .875rem; font-weight: 700; cursor: pointer; transition: all .18s; }
 .duel-tab.active { background: var(--green); color: #fff; }
 
-.duel-code-box { background: var(--card); border: 2px dashed var(--green); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; }
-.duel-code-big { font-size: 2.8rem; font-weight: 900; letter-spacing: .25em; color: var(--green); font-family: 'Courier New', monospace; }
-.duel-copy-btn { background: rgba(16,185,129,.15); color: var(--green); border: 1px solid rgba(16,185,129,.3); border-radius: 8px; padding: .4rem 1rem; font-size: .82rem; font-weight: 700; cursor: pointer; transition: all .15s; margin-top: .5rem; }
-.duel-copy-btn:hover { background: rgba(16,185,129,.25); }
+.duel-code-box { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 1.5rem; margin: 1.25rem 0; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+.duel-code-big { font-size: 2.8rem; font-weight: 900; letter-spacing: .28em; text-indent: .28em; color: #ffffff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+.duel-copy-btn { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,0.08); color: #f8fafc; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; padding: .55rem 1.25rem; font-size: .82rem; font-weight: 700; cursor: pointer; transition: all .2s; margin-top: .75rem; }
+.duel-copy-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
+.duel-copy-btn.copied { background: rgba(16,185,129,.18); border-color: rgba(16,185,129,.5); color: #34d399; }
+.duel-radar-wrap { position: relative; width: 68px; height: 68px; margin: 1.25rem auto .75rem; display: flex; align-items: center; justify-content: center; }
+.duel-radar-wave { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(16,185,129,.4); background: rgba(16,185,129,.06); animation: duel-radar 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+@keyframes duel-radar { 0% { transform: scale(0.6); opacity: 0.9; } 70% { transform: scale(1.35); opacity: 0.1; } 100% { transform: scale(1.4); opacity: 0; } }
+.duel-radar-icon { position: relative; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: var(--green); font-size: .95rem; }
 
 .duel-code-input { width: 100%; padding: .85rem 1rem; background: var(--card); border: 1.5px solid var(--border2); border-radius: 12px; color: var(--t1); font-size: 1.5rem; font-weight: 800; text-align: center; letter-spacing: .18em; text-transform: uppercase; outline: none; transition: border-color .2s; font-family: 'Courier New', monospace; }
 .duel-code-input:focus { border-color: var(--green); }
@@ -132,20 +137,34 @@
 
         
         <div id="phaseWaiting" style="display:none;">
-          <div class="duel-center duel-waiting">
-            <div style="font-size:1.5rem;margin-bottom:.4rem;font-weight:800;">Duel créé !</div>
-            <div style="color:var(--t2);font-size:.88rem;margin-bottom:1.5rem;">Partage ce code avec ton ami :</div>
+          <div class="duel-center duel-waiting" style="max-width:440px;margin:0 auto;background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:2rem 1.5rem;">
+            <div style="display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .75rem;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:.75rem;font-weight:700;color:var(--t2);margin-bottom:.75rem;">
+              <i class="fas fa-shield-alt"></i> Salon de duel
+            </div>
+            <div style="font-size:1.35rem;font-weight:900;color:#fff;margin-bottom:.3rem;">Duel prêt</div>
+            <div style="color:var(--t2);font-size:.85rem;margin-bottom:1.25rem;">Partage ce code unique avec ton adversaire :</div>
+            
             <div class="duel-code-box">
               <div class="duel-code-big" id="displayCode">——</div>
-              <div style="margin-top:.5rem;">
-                <button class="duel-copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copier</button>
+              <div>
+                <button class="duel-copy-btn" id="btnCopyDuelCode" onclick="copyCode()">
+                  <i class="fas fa-copy"></i> <span>Copier le code</span>
+                </button>
               </div>
             </div>
-            <div class="duel-pulse"></div>
-            <div style="font-weight:700;margin-bottom:.3rem;">En attente de ton adversaire…</div>
-            <div style="color:var(--t2);font-size:.82rem;" id="waitExpiry"></div>
+
+            <div class="duel-radar-wrap">
+              <div class="duel-radar-wave"></div>
+              <div class="duel-radar-icon"><i class="fas fa-user-clock"></i></div>
+            </div>
+
+            <div style="font-weight:800;font-size:1rem;color:#fff;margin-top:.4rem;">En attente d'un adversaire…</div>
+            <div style="color:var(--t3);font-size:.8rem;margin-top:.25rem;" id="waitExpiry"></div>
+            
             <div style="margin-top:1.5rem;">
-              <button class="btn-duel-outline" onclick="cancelDuel()"><i class="fas fa-times"></i> Annuler</button>
+              <button class="btn-duel-outline" onclick="cancelDuel()" style="font-size:.85rem;padding:.55rem 1.2rem;">
+                <i class="fas fa-times"></i> Annuler le salon
+              </button>
             </div>
           </div>
         </div>
@@ -304,10 +323,17 @@ async function selectSubject(subject) {
 }
 
 function copyCode() {
+  if (!duelCode) return;
   navigator.clipboard.writeText(duelCode).then(() => {
-    const btn = document.querySelector('.duel-copy-btn');
-    btn.innerHTML = '<i class="fas fa-check"></i> Copié !';
-    setTimeout(() => btn.innerHTML = '<i class="fas fa-copy"></i> Copier', 1800);
+    const btn = document.getElementById('btnCopyDuelCode') || document.querySelector('.duel-copy-btn');
+    if (btn) {
+      btn.classList.add('copied');
+      btn.innerHTML = '<i class="fas fa-check"></i> <span>Copié !</span>';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<i class="fas fa-copy"></i> <span>Copier le code</span>';
+      }, 2000);
+    }
   });
 }
 

@@ -164,11 +164,42 @@
 
         <div id="matchWait" class="v2-match-hidden">
           <div class="v2-match-wait-card">
-            <div class="v2-match-wait-ring"></div>
-            <div class="v2-match-wait-title">Recherche…</div>
-            <p class="v2-match-wait-sub" id="waitMsg">On cherche un adversaire disponible</p>
+            <div class="v2-radar-container">
+              <div class="v2-radar-pulse"></div>
+              <div class="v2-radar-core"><i class="fas fa-search"></i></div>
+            </div>
+            <div class="v2-match-status-text">Recherche en cours…</div>
+            <p class="v2-match-wait-sub" id="waitMsg">Recherche d'un adversaire disponible</p>
             <button type="button" class="v2-match-btn-secondary" id="btnCancelQueue" style="margin-top:1rem;width:auto;display:inline-flex">
               Annuler
+            </button>
+          </div>
+        </div>
+
+        <!-- Private Match waiting room -->
+        <div id="matchPrivateWait" class="v2-match-hidden">
+          <div class="v2-match-private-wait-card">
+            <div class="v2-match-wait-badge"><i class="fas fa-shield-alt"></i> Salon privé</div>
+            <h3 class="v2-match-wait-title" style="font-size:1.25rem;font-weight:900;">Prêt pour le duel</h3>
+            <p class="v2-match-wait-sub">Partage ce code unique avec ton adversaire :</p>
+
+            <div class="v2-match-code-display-wrap">
+              <div class="v2-match-code-val" id="privateCodeDisplay">------</div>
+              <button type="button" class="v2-match-copy-btn" id="btnCopyPrivateCode" onclick="copyPrivateCode()">
+                <i class="fas fa-copy"></i> <span>Copier le code</span>
+              </button>
+            </div>
+
+            <div class="v2-radar-container">
+              <div class="v2-radar-pulse"></div>
+              <div class="v2-radar-core"><i class="fas fa-user-clock"></i></div>
+            </div>
+
+            <div class="v2-match-status-text">En attente d'un adversaire…</div>
+            <p class="v2-match-wait-hint">Le duel commencera automatiquement dès que ton ami aura rejoint.</p>
+
+            <button type="button" class="v2-match-btn-secondary" id="btnCancelPrivateWait" style="margin-top:1.25rem;">
+              <i class="fas fa-times"></i> Annuler le salon
             </button>
           </div>
         </div>
@@ -260,7 +291,7 @@
 
   function csrf() { return window.CSRF || ''; }
   function show(id) {
-    ['matchHub','matchWait','matchPlay','matchResult'].forEach(x => {
+    ['matchHub','matchWait','matchPrivateWait','matchPlay','matchResult'].forEach(x => {
       document.getElementById(x).classList.toggle('v2-match-hidden', x !== id);
     });
   }
@@ -370,17 +401,77 @@
     show('matchHub');
   };
 
-  document.getElementById('btnCreatePrivate').onclick = async () => {
-    const r = await fetch(urls.duelCreate, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
-      body: JSON.stringify({ subject: selectedSubject, count: 10 }),
+  window.copyPrivateCode = function() {
+    if (!duelCode) return;
+    navigator.clipboard.writeText(duelCode).then(() => {
+      const btn = document.getElementById('btnCopyPrivateCode');
+      if (btn) {
+        btn.classList.add('copied');
+        btn.innerHTML = '<i class="fas fa-check"></i> <span>Copié !</span>';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<i class="fas fa-copy"></i> <span>Copier le code</span>';
+        }, 2200);
+      }
+    }).catch(() => {
+      const btn = document.getElementById('btnCopyPrivateCode');
+      if (btn) {
+        btn.classList.add('copied');
+        btn.innerHTML = '<i class="fas fa-check"></i> <span>' + duelCode + '</span>';
+      }
     });
-    const data = await r.json();
-    if (data.error) { alert(data.error); return; }
-    alert('Code : ' + data.code);
-    beginDuel({ code: data.code, opponent_name: 'En attente…', total: data.total });
   };
+
+  document.getElementById('btnCreatePrivate').onclick = async () => {
+    const btn = document.getElementById('btnCreatePrivate');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Création…';
+    try {
+      const r = await fetch(urls.duelCreate, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+        body: JSON.stringify({ subject: selectedSubject, count: 10 }),
+      });
+      const data = await r.json();
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-key"></i> Générer un code';
+      if (data.error) { alert(data.error); return; }
+
+      duelCode = data.code;
+      document.getElementById('privateCodeDisplay').textContent = duelCode;
+      const copyBtn = document.getElementById('btnCopyPrivateCode');
+      if (copyBtn) {
+        copyBtn.classList.remove('copied');
+        copyBtn.innerHTML = '<i class="fas fa-copy"></i> <span>Copier le code</span>';
+      }
+      show('matchPrivateWait');
+
+      stopAllTimers();
+      liveTimer = setInterval(async () => {
+        if (!duelCode) return;
+        try {
+          const r = await fetch(urls.liveState + '?code=' + encodeURIComponent(duelCode));
+          const state = await r.json();
+          if (state && (state.status === 'active' || state.live_phase === 'active' || (state.opponent_name && state.opponent_name !== 'En attente…'))) {
+            stopAllTimers();
+            beginDuel({ code: duelCode, opponent_name: state.opponent_name || 'Adversaire', total: state.total || data.total });
+          }
+        } catch (e) {}
+      }, 1400);
+    } catch (e) {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-key"></i> Générer un code';
+    }
+  };
+
+  const cancelPrivateWaitBtn = document.getElementById('btnCancelPrivateWait');
+  if (cancelPrivateWaitBtn) {
+    cancelPrivateWaitBtn.onclick = () => {
+      stopAllTimers();
+      duelCode = null;
+      show('matchHub');
+    };
+  }
 
   document.getElementById('btnJoinPrivate').onclick = async () => {
     const code = document.getElementById('privateCode').value.trim().toUpperCase();

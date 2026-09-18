@@ -275,6 +275,8 @@ SESSION_COOKIE_SECURE   = not DEBUG and not IS_LOCAL_DEV_HOSTS
 SESSION_COOKIE_HTTPONLY  = True
 SESSION_COOKIE_SAMESITE  = 'Lax'
 SESSION_COOKIE_AGE       = 31536000            # 1 an
+SESSION_SAVE_EVERY_REQUEST = True        # Rafraîchit la durée de session à chaque requête
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Persiste la session après fermeture du navigateur
 
 # CSRF security
 CSRF_COOKIE_SECURE      = not DEBUG and not IS_LOCAL_DEV_HOSTS

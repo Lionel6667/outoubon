@@ -379,8 +379,9 @@ function toggleDrawer(subj, btn) {
     if (chapters.length === 0) {
       inner.innerHTML = '<div class="chapter-empty">Aucun chapitre disponible pour cette matière.</div>';
     } else {
-      inner.innerHTML = chapters.map(ch => {
-        const locked = ch.locked || (!IS_PREMIUM_COURS && ch.num > 1);
+      inner.innerHTML = chapters.map((ch, index) => {
+        const isFirst = (index === 0 || Number(ch.num) === 1);
+        const locked = ch.locked || (!IS_PREMIUM_COURS && !isFirst);
         const progress = Math.max(0, Math.min(100, Number(ch.progress || 0)));
         const href = locked ? 'javascript:void(0)' : `/dashboard/cours/${subj}/${ch.num}/`;
         const onclick = locked ? (IS_GUEST_COURS ? ' onclick="showGuestCoursModal()"' : ' onclick="showPremiumCoursModal()"') : '';

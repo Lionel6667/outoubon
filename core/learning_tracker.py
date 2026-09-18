@@ -151,6 +151,7 @@ def update_subject_mastery(
         sm.update_confidence_level()
 
         sm.save()
+        invalidate_ai_caches(user)
 
     except Exception as e:
         print(f"[LEARNING_TRACKER] update_subject_mastery error: {e}")
@@ -178,6 +179,7 @@ def log_learning_event(
             details=details,
             score_pct=score_pct,
         )
+        invalidate_ai_caches(user)
     except Exception as e:
         print(f"[LEARNING_TRACKER] log_learning_event error: {e}")
 
@@ -477,11 +479,12 @@ def get_mistake_topics_for_plan(user, limit: int = 8) -> list[str]:
 
 
 def invalidate_ai_caches(user) -> None:
-    """Invalide caches coaching / profil après activité d'apprentissage."""
+    """Invalide caches coaching / profil / progression après activité d'apprentissage."""
     try:
         from django.core.cache import cache as _dj_cache
         _dj_cache.delete(f'ulp_full_{user.pk}')
         _dj_cache.delete(f'ulp_short_{user.pk}')
+        _dj_cache.delete(f'user_progression_charts_{user.pk}')
     except Exception:
         pass
     try:
