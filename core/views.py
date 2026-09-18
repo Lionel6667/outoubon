@@ -8632,7 +8632,7 @@ def study_ping(request):
 
 def cours_view(request):
     """Page principale : choisir une matière puis un chapitre (JSON-backed)."""
-    if _is_guest(request):
+    if not request.user.is_authenticated or _is_guest(request):
         g = _GUEST_DEMO
         demo_progress = g.get('course_progress', {})
         chapters_by_subject = {}
@@ -12613,8 +12613,8 @@ def api_exercise_complete(request):
 # ─────────────────────────────────────────────
 def library_view(request):
     """Liste tous les examens PDF organisés par matière."""
-    is_guest_user = _is_guest(request)
-    if not request.user.is_authenticated and not is_guest_user:
+    is_guest_user = _is_guest(request) or not request.user.is_authenticated
+    if False:
         return redirect('/login/?next=' + request.get_full_path())
     _SUBJ_DIR_MAP = {
         'maths':       'examens_maths',
@@ -13656,13 +13656,13 @@ def sitemap_xml_view(request):
     <loc>https://outoubon.com/pricing/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://outoubon.com/cgu/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://outoubon.com/cours/</loc>
@@ -13696,6 +13696,36 @@ def sitemap_xml_view(request):
   </url>
   <url>
     <loc>https://outoubon.com/library/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/dashboard/cours/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/dashboard/quiz/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/dashboard/examen-blanc/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/dashboard/exercices/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/dashboard/fiches/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
