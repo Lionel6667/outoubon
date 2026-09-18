@@ -744,7 +744,8 @@
                 <span class="v2-chat-dock__notch-cover"></span>
               </div>
               <button type="button" class="v2-chat-dock__subject" id="chatDockSubjectBtn" onclick="toggleSubjectPicker()" aria-expanded="false">
-                <span id="chatDockSubjectLabel">Matière ↕</span>
+                <span id="chatDockSubjectLabel">Matière</span>
+                <i class="fas fa-chevron-down v2-chat-dock__subject-icon" id="chatDockSubjectIcon"></i>
               </button>
             </div>
             <div class="v2-chat-dock__body">
@@ -1155,7 +1156,7 @@ function updateDockSubjectLabel() {
   const name = (active && active.textContent.trim())
     || (typeof otbSubjectLabel === 'function' ? otbSubjectLabel(currentSubject) : '')
     || 'Matière';
-  label.textContent = name + ' ↕';
+  label.textContent = name;
 }
 
 function toggleSubjectPicker() {

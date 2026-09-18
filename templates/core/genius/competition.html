@@ -72,27 +72,47 @@
         </section>
         {% endif %}
 
-        <section class="v2-genius-card">
-          <h3><i class="fas fa-sitemap"></i> Bracket</h3>
+        <section class="v2-genius-card v2-genius-bracket-section">
+          <div class="v2-genius-bracket-header">
+            <h3><i class="fas fa-trophy" style="color:#fbbf24"></i> Arbre du Tournoi · Mode Ligue des Champions</h3>
+            <span class="v2-genius-bracket-badge"><i class="fas fa-sitemap"></i> Phase éliminatoire</span>
+          </div>
           {% if bracket_by_round %}
           <div class="v2-genius-bracket-ucl">
             {% for round_order, nodes in bracket_by_round %}
             <div class="v2-genius-bracket-col {% if forloop.last %}v2-genius-bracket-col--final{% endif %}">
               <div class="v2-genius-bracket-col-title">
-                {% if forloop.last %}<i class="fas fa-crown" style="color:#fbbf24"></i>{% endif %}
+                {% if forloop.last %}<i class="fas fa-crown" style="color:#fbbf24;margin-right:.25rem"></i>{% endif %}
                 {{ nodes.0.phase_label|default:"Round" }}
               </div>
               {% for node in nodes %}
               <div class="v2-genius-bracket-match {% if node.winner %}done{% endif %} {% if forloop.parentloop.last and node.winner %}champion{% endif %}">
-                <div class="v2-genius-bracket-team {% if node.winner == node.team_a %}winner{% endif %}">
-                  {% if forloop.parentloop.last and node.winner == node.team_a %}👑 {% endif %}{{ node.team_a|default:"—" }}
+                {% if node.match_status == 'in_progress' or node.match_status == 'answering' %}
+                <div class="v2-bracket-live-badge"><span class="v2-bracket-live-dot"></span> EN DIRECT</div>
+                {% endif %}
+                <div class="v2-genius-bracket-team-row {% if node.winner and node.winner == node.team_a %}winner{% elif node.winner and node.winner != node.team_a %}loser{% endif %}">
+                  <span class="v2-genius-team-name">
+                    {% if forloop.parentloop.last and node.winner == node.team_a %}<span class="v2-crown-emoji">👑</span>{% endif %}{{ node.team_a|default:"À déterminer" }}
+                  </span>
+                  {% if node.score_a is not None %}
+                  <span class="v2-genius-team-score {% if node.winner and node.winner == node.team_a %}is-winner{% endif %}">{{ node.score_a }}</span>
+                  {% endif %}
                 </div>
-                <div class="v2-genius-bracket-vs">vs</div>
-                <div class="v2-genius-bracket-team {% if node.winner == node.team_b %}winner{% endif %}">
-                  {% if forloop.parentloop.last and node.winner == node.team_b %}👑 {% endif %}{{ node.team_b|default:"—" }}
+                <div class="v2-genius-bracket-vs-line">
+                  <span class="v2-vs-pill">VS</span>
+                </div>
+                <div class="v2-genius-bracket-team-row {% if node.winner and node.winner == node.team_b %}winner{% elif node.winner and node.winner != node.team_b %}loser{% endif %}">
+                  <span class="v2-genius-team-name">
+                    {% if forloop.parentloop.last and node.winner == node.team_b %}<span class="v2-crown-emoji">👑</span>{% endif %}{{ node.team_b|default:"À déterminer" }}
+                  </span>
+                  {% if node.score_b is not None %}
+                  <span class="v2-genius-team-score {% if node.winner and node.winner == node.team_b %}is-winner{% endif %}">{{ node.score_b }}</span>
+                  {% endif %}
                 </div>
                 {% if node.match_id %}
-                <a href="{% url 'genius_match' match_id=node.match_id %}" class="v2-genius-bracket-link">Match →</a>
+                <a href="{% url 'genius_match' match_id=node.match_id %}" class="v2-genius-bracket-link">
+                  {% if node.winner %}Voir le match <i class="fas fa-chevron-right" style="font-size:.65rem"></i>{% else %}Entrer dans le match <i class="fas fa-chevron-right" style="font-size:.65rem"></i>{% endif %}
+                </a>
                 {% endif %}
               </div>
               {% endfor %}
@@ -100,7 +120,7 @@
             {% endfor %}
           </div>
           {% else %}
-          <p class="v2-genius-empty">Le bracket sera publié quand le concours commencera.</p>
+          <p class="v2-genius-empty">Le bracket sera généré automatiquement dès le coup d'envoi du tournoi.</p>
           {% endif %}
         </section>
 

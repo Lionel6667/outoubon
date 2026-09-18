@@ -45,6 +45,7 @@
   <a href="{% url 'library' %}" class="nav-item nav-item--hub-child {% if active_page == 'library' %}active{% endif %}"><i class="fas fa-book-open"></i> <span data-i18n="bibliotheque">Bibliothèque</span></a>
 
   <div class="sidebar-hub-label sidebar-hub-label--match"><i class="fas fa-trophy"></i> Match</div>
+  <a href="{% url 'match' %}" class="nav-item nav-item--hub-child {% if active_page == 'match' %}active{% endif %}"><i class="fas fa-gamepad"></i> <span>Duels 1v1</span></a>
   <a href="{% url 'quiz' %}" class="nav-item nav-item--hub-child {% if active_page == 'quiz' %}active{% endif %}"><i class="fas fa-bolt"></i> <span data-i18n="nav_quiz">Quiz</span></a>
   <a href="{% url 'examen_blanc' %}" class="nav-item nav-item--hub-child {% if active_page == 'examen_blanc' %}active{% endif %}"><i class="fas fa-scroll"></i> <span data-i18n="nav_examen">Examen Blanc</span></a>
   <a href="{% url 'genius_hub' %}" class="nav-item nav-item--hub-child {% if active_page == 'genius' %}active{% endif %}"><i class="fas fa-users"></i> <span>Groupe de Génies</span>{% if genius_unread_count and active_page != 'genius' %}<span class="msg-badge">{{ genius_unread_count }}</span>{% endif %}</a>

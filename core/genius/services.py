@@ -948,6 +948,8 @@ def bracket_payload(competition: GeniusCompetition) -> List[dict]:
             'winner': n.winner_team.name if n.winner_team else None,
             'match_id': n.match_id,
             'match_status': n.match.status if n.match else None,
+            'score_a': n.match.team_a_score if n.match else None,
+            'score_b': n.match.team_b_score if n.match else None,
         }
         for n in nodes
     ]

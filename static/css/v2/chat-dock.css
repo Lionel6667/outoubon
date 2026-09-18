@@ -195,7 +195,22 @@
 }
 
 .v2-chat-dock__subject i {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: #a5b4fc;
+  margin-left: 0.35rem;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+}
+
+.v2-chat-dock__subject:hover i {
+  color: #c7d2fe;
+}
+
+.v2-chat-dock__subject[aria-expanded="true"] i {
+  transform: rotate(180deg);
+  color: #38bdf8;
 }
 
 .v2-chat-subj {

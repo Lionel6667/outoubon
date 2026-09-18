@@ -137,12 +137,21 @@
             {% if comp.mini_bracket %}
             <div class="v2-match-bracket-row">
               {% for round in comp.mini_bracket %}
-              <div class="v2-match-bracket-col">
-                <div class="v2-match-bracket-col-label">{{ round.nodes.0.phase_label|default:"Phase" }}</div>
+              <div class="v2-match-bracket-col {% if forloop.last %}v2-match-bracket-col--final{% endif %}">
+                <div class="v2-match-bracket-col-label">
+                  {% if forloop.last %}<i class="fas fa-crown" style="color:#fbbf24;margin-right:.2rem"></i>{% endif %}
+                  {{ round.nodes.0.phase_label|default:"Phase" }}
+                </div>
                 {% for node in round.nodes %}
-                <div class="v2-match-bracket-node">
-                  <span class="team {% if node.winner == node.team_a %}winner{% endif %}">{{ node.team_a|default:"—" }}</span>
-                  <span class="team {% if node.winner == node.team_b %}winner{% endif %}">{{ node.team_b|default:"—" }}</span>
+                <div class="v2-match-bracket-node {% if node.winner %}done{% endif %} {% if forloop.parentloop.last and node.winner %}champion{% endif %}">
+                  <div class="v2-match-bracket-team-line {% if node.winner and node.winner == node.team_a %}winner{% elif node.winner %}loser{% endif %}">
+                    <span class="team-name">{% if forloop.parentloop.last and node.winner == node.team_a %}👑 {% endif %}{{ node.team_a|default:"—" }}</span>
+                    {% if node.score_a is not None %}<span class="team-score">{{ node.score_a }}</span>{% endif %}
+                  </div>
+                  <div class="v2-match-bracket-team-line {% if node.winner and node.winner == node.team_b %}winner{% elif node.winner %}loser{% endif %}">
+                    <span class="team-name">{% if forloop.parentloop.last and node.winner == node.team_b %}👑 {% endif %}{{ node.team_b|default:"—" }}</span>
+                    {% if node.score_b is not None %}<span class="team-score">{{ node.score_b }}</span>{% endif %}
+                  </div>
                 </div>
                 {% endfor %}
               </div>
