@@ -54,6 +54,7 @@ class UserProfile(models.Model):
     preferred_lang    = models.CharField(max_length=5, default='fr', choices=[('fr', 'Français'), ('kr', 'Kreyòl')])
     langue_etrangere  = models.CharField(max_length=20, default='anglais', choices=[('anglais', 'Anglais'), ('espagnol', 'Espagnol')])
     bac_target        = models.PositiveSmallIntegerField(null=True, blank=True, help_text='Note cible sur 1900 définie à l\'inscription')
+    ml_engine_enabled = models.BooleanField(default=True, help_text="Active les moteurs psychometriques IRT, BKT et FSRS")
     coach_name        = models.CharField(max_length=40, blank=True, default='', help_text='Nom personnel choisi pour l\'assistant IA')
     invite_code       = models.CharField(max_length=16, unique=True, null=True, blank=True, db_index=True)
 

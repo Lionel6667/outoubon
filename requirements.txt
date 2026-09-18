@@ -13,3 +13,6 @@ qrcode>=7.4.0
 dj-database-url>=2.0.0
 psycopg2-binary>=2.9.0
 firebase-admin>=6.5.0
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4

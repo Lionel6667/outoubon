@@ -1133,3 +1133,195 @@ class ExerciseSession(models.Model):
 
     def __str__(self):
         return f"{self.user_id} {self.subject} {self.title[:40]}"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MOTEUR PSYCHOMÉTRIQUE & MACHINE LEARNING (IRT, BKT, FSRS, BANDIT, CLUSTERING)
+# ─────────────────────────────────────────────────────────────────────────────
+
+class TopicNode(models.Model):
+    """
+    Noeud canonique de compétence/thème. Remplace le texte libre `weak_topics`.
+    Chaque question de quiz, exercice, examen blanc ET chaque sous-chapitre
+    de cours pointe vers un TopicNode unique via `topic_id`.
+    """
+    topic_id = models.SlugField(max_length=120, unique=True)  # ex: "maths.derivees.calcul_direct"
+    label = models.CharField(max_length=200)                  # ex: "Calcul direct de dérivées"
+    subject = models.CharField(max_length=50, db_index=True)  # ex: "maths"
+    serie = models.CharField(max_length=20, blank=True, default='')  # SVT/SMP/SES/LLA, vide = commun
+    chapter_ref = models.CharField(max_length=120, blank=True, default='')
+
+    # Graphe de prérequis : ce topic nécessite ces topics en amont
+    prerequisites = models.ManyToManyField(
+        'self', symmetrical=False, related_name='unlocks', blank=True
+    )
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['subject', 'serie']),
+        ]
+
+    def __str__(self):
+        return f"{self.subject} · {self.label} ({self.topic_id})"
+
+
+class ItemParameters(models.Model):
+    """
+    Paramètres IRT (modèle 2PL) calibrés pour CHAQUE question du site
+    (quiz, exercice BAC, examen blanc). Recalculés périodiquement par
+    un job batch à partir de l'historique de réponses de TOUS les élèves.
+    """
+    item_uid = models.CharField(max_length=120, unique=True, db_index=True)
+    topic = models.ForeignKey(TopicNode, on_delete=models.SET_NULL, null=True, blank=True, related_name='items')
+    source_type = models.CharField(
+        max_length=30,
+        choices=[('quiz', 'Quiz'), ('exercice', 'Exercice BAC'), ('examen_blanc', 'Examen Blanc')],
+        default='quiz'
+    )
+
+    difficulty_b = models.FloatField(default=0.0)      # paramètre b (difficulté), échelle ~[-3, +3]
+    discrimination_a = models.FloatField(default=1.0)  # paramètre a (discrimination), typiquement [0.5, 2.5]
+
+    n_responses = models.IntegerField(default=0)
+    last_calibrated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['topic']),
+            models.Index(fields=['source_type']),
+        ]
+
+    def __str__(self):
+        return f"Item {self.item_uid} (a={self.discrimination_a:.2f}, b={self.difficulty_b:.2f})"
+
+
+class StudentAbility(models.Model):
+    """
+    Le θ (thêta) de chaque élève, par matière. Mis à jour en TEMPS RÉEL
+    après chaque réponse via méthode gradient online.
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='ml_abilities')
+    subject = models.CharField(max_length=50, db_index=True)
+
+    theta = models.FloatField(default=0.0)             # habileté actuelle, échelle ~[-4, +4], 0 = niveau moyen
+    theta_se = models.FloatField(default=1.0)          # erreur-type (incertitude)
+    n_responses = models.IntegerField(default=0)
+
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = [('user', 'subject')]
+        indexes = [
+            models.Index(fields=['user', 'subject']),
+        ]
+
+    def __str__(self):
+        return f"{self.user.username} - {self.subject} θ={self.theta:.2f} (±{self.theta_se:.2f})"
+
+
+class TopicMastery(models.Model):
+    """
+    P(maîtrise) calculée par Bayesian Knowledge Tracing (BKT).
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='ml_topic_masteries')
+    topic = models.ForeignKey(TopicNode, on_delete=models.CASCADE, related_name='student_masteries')
+
+    p_mastery = models.FloatField(default=0.15)   # probabilité de maîtrise actuelle, [0, 1]
+    n_observations = models.IntegerField(default=0)
+    last_updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = [('user', 'topic')]
+        indexes = [
+            models.Index(fields=['user', 'p_mastery']),
+        ]
+
+    def __str__(self):
+        return f"{self.user.username} · {self.topic.topic_id} : P={self.p_mastery:.1%}"
+
+
+class MemoryCard(models.Model):
+    """
+    Répétition espacée FSRS (Free Spaced Repetition Scheduler).
+    R(t) = exp(-t / S)
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='memory_cards')
+    topic = models.ForeignKey(TopicNode, on_delete=models.CASCADE, related_name='memory_cards')
+    item_uid = models.CharField(max_length=120, blank=True, default='')
+
+    # Paramètres FSRS
+    stability = models.FloatField(default=1.0)       # S : jours avant que R tombe à 90%
+    difficulty = models.FloatField(default=5.0)      # D : difficulté perçue [1, 10]
+    retrievability = models.FloatField(default=1.0)  # R au dernier calcul [0, 1]
+
+    reps = models.IntegerField(default=0)
+    lapses = models.IntegerField(default=0)
+    last_review = models.DateTimeField(null=True, blank=True)
+    next_review = models.DateTimeField(db_index=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['user', 'next_review']),
+        ]
+
+    def __str__(self):
+        return f"{self.user.username} · {self.topic.topic_id} (S={self.stability:.1f}j, D={self.difficulty:.1f})"
+
+
+class PeerCluster(models.Model):
+    """
+    Résultat du clustering k-means des profils d'élèves par série.
+    """
+    cluster_id = models.IntegerField()
+    serie = models.CharField(max_length=20, db_index=True)
+    centroid_vector = models.JSONField(default=dict)
+    label = models.CharField(max_length=200, blank=True, default='')
+    computed_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = [('cluster_id', 'serie')]
+
+    def __str__(self):
+        return f"Cluster #{self.cluster_id} ({self.serie}) - {self.label}"
+
+
+class StudentClusterAssignment(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cluster_assignment')
+    cluster = models.ForeignKey(PeerCluster, on_delete=models.SET_NULL, null=True, blank=True)
+    distance_to_centroid = models.FloatField(default=0.0)
+    assigned_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user.username} -> Cluster {self.cluster_id}"
+
+
+class BacRiskPrediction(models.Model):
+    """
+    Prédiction probabiliste de réussite / atteinte de l'objectif BAC.
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='risk_prediction')
+    p_reach_target = models.FloatField(default=0.5)  # [0, 1]
+    top_factors = models.JSONField(default=list)     # [{"factor": "streak_faible", "impact": -0.12}, ...]
+    computed_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user.username} : P(BAC)={self.p_reach_target:.1%}"
+
+
+class BanditArmStats(models.Model):
+    """
+    Distribution Beta(alpha, beta) pour Thompson Sampling par élève.
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bandit_arms')
+    arm_name = models.CharField(max_length=50)
+
+    alpha = models.FloatField(default=1.0)
+    beta = models.FloatField(default=1.0)
+
+    class Meta:
+        unique_together = [('user', 'arm_name')]
+
+    def __str__(self):
+        return f"{self.user.username} · {self.arm_name} (α={self.alpha:.1f}, β={self.beta:.1f})"

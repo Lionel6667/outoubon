@@ -4141,6 +4141,24 @@ def quiz_save_api(request):
         )
         from .learning_tracker import invalidate_ai_caches
         invalidate_ai_caches(request.user)
+        try:
+            from core.ml.tracking import track_quiz_answer
+            for d in details:
+                en = (d.get("question") or "").strip()
+                if not en:
+                    continue
+                _qid = str(d.get("id") or d.get("question_id") or MistakeTracker.make_hash(en))
+                _th = str(d.get("theme") or d.get("sujet") or "")
+                track_quiz_answer(
+                    user=request.user,
+                    subject=subject,
+                    question_id=_qid,
+                    enonce=en,
+                    is_correct=bool(d.get("ok")),
+                    theme=_th,
+                )
+        except Exception as _ml_err:
+            print(f"[ML_TRACKING] quiz: {_ml_err}")
     except Exception as _lt_err:
         print(f"[LEARNING_TRACKER] quiz: {_lt_err}")
 
@@ -5871,6 +5889,11 @@ def _record_exam_item_outcomes(request, subject: str, safe_pairs: list, correcti
                 user=request.user, subject=subject, item_hash=h,
                 defaults={'succeeded': False},
             )
+        try:
+            from core.ml.tracking import track_exam_item_outcome
+            track_exam_item_outcome(request.user, subject, h, txt, ok)
+        except Exception as _ml_err:
+            print(f"[ML_TRACKING] exam: {_ml_err}")
     return succeeded_hashes
 
 

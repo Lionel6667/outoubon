@@ -172,3 +172,50 @@ def estimate_bac_score(scores: Dict[str, int], serie_key: str, series_config: di
         avg = sum(scores.values()) / len(scores)
         return round(avg / 100 * 1900)
     return 0
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MOTEUR PSYCHOMÉTRIQUE V2 (IRT 2PL + BKT)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def get_scores_for_user_v2(
+    user,
+    serie_subjects: Set[str],
+    diag_scores: Optional[Dict[str, int]] = None,
+) -> Dict[str, int]:
+    """
+    Score unifié basé sur l'habileté psychométrique IRT 2PL (theta)
+    et la probabilité de maîtrise BKT par matière.
+    """
+    if diag_scores is None:
+        from accounts.models import DiagnosticResult
+        diag_scores = {
+            d.subject: int(d.score)
+            for d in DiagnosticResult.objects.filter(user=user)
+        }
+
+    from core.models import StudentAbility
+    from core.ml.irt_engine import theta_to_display_score
+
+    abilities = {
+        a.subject: a for a in StudentAbility.objects.filter(user=user)
+    }
+
+    out: Dict[str, int] = {}
+    for subj in serie_subjects:
+        ab = abilities.get(subj)
+        if ab and ab.n_responses >= 5:
+            # Score converti depuis theta IRT 2PL
+            score_irt = int(round(theta_to_display_score(ab.theta)))
+            out[subj] = max(0, min(100, score_irt))
+        elif subj in diag_scores:
+            out[subj] = int(diag_scores[subj])
+        else:
+            # Fallback sur l'ancien blended_score
+            sc = compute_subject_blended_score(user, subj)
+            if sc.get('blended') is not None:
+                out[subj] = int(sc['blended'])
+            else:
+                out[subj] = 0
+
+    return out
