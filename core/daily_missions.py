@@ -162,7 +162,23 @@ def _pick_bonus_mission(user, profile, activity, weak_subject, weak_subject_labe
             'done': activity['events'] >= 2,
         })
 
-    pick = pool[seed % len(pool)]
+    try:
+        from core.ml.content_bandit import select_arm_thompson_sampling
+        arm = select_arm_thompson_sampling(user)
+        arm_mapping = {
+            "quiz_court": "bonus_weak_quiz",
+            "exercice_srs": "bonus_mistakes",
+            "fiche_memo": "bonus_fiches",
+            "cours_chapitre": "bonus_plan",
+        }
+        target_id = arm_mapping.get(arm)
+        matching = [p for p in pool if p["id"] == target_id]
+        if matching:
+            pick = matching[0]
+        else:
+            pick = pool[seed % len(pool)]
+    except Exception:
+        pick = pool[seed % len(pool)]
     return _mission(
         pick['id'],
         pick['title'],

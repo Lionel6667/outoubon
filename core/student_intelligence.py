@@ -151,6 +151,22 @@ def add_friend_coaching_cards(cards: list, profile_data: Dict[str, Any], mats: d
         })
         break
 
+    # ── Diagnostic causal ML (Graphe de pre-requis) ───────────────────
+    try:
+        from core.ml.bkt_engine import get_weak_topics
+        from core.ml.prerequisite_graph import build_action_card
+        user_obj = getattr(profile_data.get("profile"), "user", None)
+        if user_obj:
+            for subj, _ in profile_data.get("weaknesses", [])[:2]:
+                weak_topics = get_weak_topics(user_obj, subject=subj, limit=1)
+                if weak_topics:
+                    causal_card = build_action_card(user_obj, weak_topics[0].topic)
+                    if causal_card["id"] not in used_ids:
+                        cards.append(causal_card)
+                        used_ids.add(causal_card["id"])
+    except Exception as _causal_err:
+        pass
+
     return cards
 
 

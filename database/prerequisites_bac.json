@@ -1,0 +1,97 @@
+{
+  "maths.derivees.calcul_direct": {
+    "label": "Calcul direct de dérivées",
+    "subject": "maths",
+    "prerequisites": ["maths.limites.notion_calcul", "maths.fonctions.notion_base"]
+  },
+  "maths.integrales.calcul_et_aires": {
+    "label": "Calcul intégral et calcul d'aires",
+    "subject": "maths",
+    "prerequisites": ["maths.primitives.notion_calcul", "maths.derivees.calcul_direct"]
+  },
+  "maths.primitives.notion_calcul": {
+    "label": "Primitives de fonctions usuelles",
+    "subject": "maths",
+    "prerequisites": ["maths.derivees.calcul_direct"]
+  },
+  "maths.limites.notion_calcul": {
+    "label": "Limites et asymptotes",
+    "subject": "maths",
+    "prerequisites": ["maths.fonctions.notion_base"]
+  },
+  "maths.fonctions.notion_base": {
+    "label": "Notion générale de fonction et domaine de définition",
+    "subject": "maths",
+    "prerequisites": []
+  },
+  "maths.nombres_complexes.forme_trigo": {
+    "label": "Nombres complexes : Forme trigonométrique et exponentielle",
+    "subject": "maths",
+    "prerequisites": ["maths.nombres_complexes.forme_algebrique", "maths.trigonometrie.cercle"]
+  },
+  "maths.nombres_complexes.forme_algebrique": {
+    "label": "Nombres complexes : Forme algébrique et conjugué",
+    "subject": "maths",
+    "prerequisites": []
+  },
+  "physique.mecanique.newton_2": {
+    "label": "Deuxième loi de Newton et mouvement des projectiles",
+    "subject": "physique",
+    "prerequisites": ["physique.cinematique.vitesse_acceleration", "maths.derivees.calcul_direct"]
+  },
+  "physique.cinematique.vitesse_acceleration": {
+    "label": "Cinématique du point matériel",
+    "subject": "physique",
+    "prerequisites": ["maths.derivees.calcul_direct"]
+  },
+  "physique.electricite.circuit_rlc": {
+    "label": "Oscillations électriques et circuits RLC",
+    "subject": "physique",
+    "prerequisites": ["physique.electricite.condensateur_rc", "maths.derivees.calcul_direct"]
+  },
+  "physique.electricite.condensateur_rc": {
+    "label": "Charge et décharge du condensateur (Circuit RC)",
+    "subject": "physique",
+    "prerequisites": ["physique.electricite.loi_ohm"]
+  },
+  "physique.electricite.loi_ohm": {
+    "label": "Loi d'Ohm et circuits en courant continu",
+    "subject": "physique",
+    "prerequisites": []
+  },
+  "chimie.acido_basique.titrage": {
+    "label": "Dosages et titrages acido-basiques",
+    "subject": "chimie",
+    "prerequisites": ["chimie.acido_basique.notion_ph", "chimie.stoechiometrie.quantite_matiere"]
+  },
+  "chimie.acido_basique.notion_ph": {
+    "label": "Notion de pH et couples acide-base",
+    "subject": "chimie",
+    "prerequisites": ["chimie.solutions.concentration_molaire"]
+  },
+  "chimie.stoechiometrie.quantite_matiere": {
+    "label": "Quantité de matière et tableau d'avancement",
+    "subject": "chimie",
+    "prerequisites": []
+  },
+  "svt.genetique.lois_mendel": {
+    "label": "Lois de Mendel et transmission des caractères héréditaires",
+    "subject": "svt",
+    "prerequisites": ["svt.cellule.mitose_meiose", "svt.genetique.adn_structure"]
+  },
+  "svt.cellule.mitose_meiose": {
+    "label": "Division cellulaire : Mitose et Méiose",
+    "subject": "svt",
+    "prerequisites": ["svt.cellule.notion_base"]
+  },
+  "svt.genetique.adn_structure": {
+    "label": "Structure de l'ADN et synthèse des protéines",
+    "subject": "svt",
+    "prerequisites": ["svt.cellule.notion_base"]
+  },
+  "svt.cellule.notion_base": {
+    "label": "La cellule unité du vivant",
+    "subject": "svt",
+    "prerequisites": []
+  }
+}

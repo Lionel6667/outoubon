@@ -6182,6 +6182,8 @@ def progression_view(request):
                 'quiz_sessions': quiz_sessions,
                 'user_serie_subjects': g['user_serie_subjects'],
                 'study_insights': study_insights,
+        'risk_prediction': risk_prediction,
+        'peer_insight': peer_insight,
                 'coach_advice': g['coach_advice'],
                 'coaching_cards': g['coaching_cards'],
                 'mastery_display': [
@@ -6360,6 +6362,15 @@ def progression_view(request):
 
     heures_etude = stats.minutes_etude // 60
     minutes_rest = stats.minutes_etude % 60
+    risk_prediction = None
+    peer_insight = {}
+    try:
+        from core.ml.risk_predictor import predict_risk
+        from core.ml.peer_clustering import get_peer_comparison_insight
+        risk_prediction = predict_risk(request.user, profile)
+        peer_insight = get_peer_comparison_insight(request.user)
+    except Exception:
+        pass
     chat_summaries = list(ChatSessionSummary.objects.filter(user=request.user).order_by('-created_at')[:5])
 
     context = {

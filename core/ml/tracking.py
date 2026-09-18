@@ -1,5 +1,5 @@
 """
-Pipeline d'ingestion unifié pour les moteurs ML (IRT, BKT, FSRS).
+Pipeline d'ingestion unifié pour les moteurs ML (IRT, BKT, FSRS, Bandit).
 Enregistre chaque réponse d'élève en arrière-plan sans bloquer la requête.
 """
 from __future__ import annotations
@@ -24,6 +24,22 @@ def _sanitize_slug(text: str) -> str:
     return cleaned[:60] or "general"
 
 
+def track_bandit_feedback(user, activity_type: str, is_correct: bool) -> None:
+    """Met à jour le bandit Thompson Sampling selon le type d'activité."""
+    try:
+        from core.ml.content_bandit import record_arm_outcome
+        arm_map = {
+            "quiz": "quiz_court",
+            "exercise": "exercice_srs",
+            "flashcard": "fiche_memo",
+            "course": "cours_chapitre",
+        }
+        arm = arm_map.get(activity_type, "quiz_court")
+        record_arm_outcome(user, arm, learning_gain=is_correct)
+    except Exception as e:
+        logger.warning(f"[ML_BANDIT] Error recording arm outcome: {e}")
+
+
 def track_quiz_answer(
     user,
     subject: str,
@@ -34,7 +50,7 @@ def track_quiz_answer(
 ) -> None:
     """
     Ingestion ML d'une réponse à un quiz.
-    Met à jour IRT theta, BKT mastery et FSRS memory card.
+    Met à jour IRT theta, BKT mastery, FSRS memory card et Bandit.
     """
     if not user or not user.is_authenticated:
         return
@@ -67,6 +83,9 @@ def track_quiz_answer(
             card = MemoryCard.objects.filter(user=user, topic=topic, item_uid=item_uid).first()
             if card:
                 update_card_after_review(card, RATING_GOOD)
+
+        # 4. Bandit Thompson Sampling feedback
+        track_bandit_feedback(user, "quiz", is_correct)
     except Exception as e:
         logger.warning(f"[ML_TRACKING] Error tracking quiz answer: {e}")
 
@@ -110,5 +129,8 @@ def track_exam_item_outcome(
             card = MemoryCard.objects.filter(user=user, topic=topic, item_uid=item_uid).first()
             if card:
                 update_card_after_review(card, RATING_GOOD)
+
+        # 4. Bandit feedback
+        track_bandit_feedback(user, "exercise", is_correct)
     except Exception as e:
         logger.warning(f"[ML_TRACKING] Error tracking exam item: {e}")
