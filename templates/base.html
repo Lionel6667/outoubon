@@ -1008,6 +1008,31 @@
   {% endif %}
   {% block extra_css %}{% endblock %}
   {% block extra_head_links %}{% endblock %}
+
+  <!-- Anti-Copy & Anti-Scraping Protection -->
+  <style>
+    .v2-exo-card, .quiz-card, .exam-question, .sc-card, .cours-content, .fiches-card {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .v2-exo-card input, .v2-exo-card textarea, .quiz-card input, .quiz-card textarea,
+    .quiz-card select, .v2-exo-card select {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      user-select: text !important;
+    }
+  </style>
+  <script>
+    document.addEventListener("contextmenu", function(e) {
+      if (e.target.closest(".v2-exo-card, .quiz-card, .exam-question, .sc-card, .cours-content")) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
+
 </head>
 <body{% if not spa_mode %} data-myid="{{ request.user.id|default:0 }}"{% endif %}>
 {% block body %}{% endblock %}

@@ -108,7 +108,7 @@
               <div class="v2-prog-mastery-item">
                 <div class="v2-prog-mastery-item__top">
                   <span class="v2-prog-mastery-item__label" style="color:{{ m.color }}">{{ m.label }}</span>
-                  <span class="v2-prog-mastery-item__score" style="color:{% if m.score >= 70 %}#10b981{% elif m.score >= 40 %}#f59e0b{% else %}#ef4444{% endif %}">{{ m.score }}%</span>
+                  <span class="v2-prog-mastery-item__score" style="color:{% if m.score and m.score >= 70 %}#10b981{% elif m.score and m.score >= 40 %}#f59e0b{% else %}#ef4444{% endif %}">{{ m.score }}%</span>
                 </div>
                 <div class="v2-prog-mastery-item__bar"><div style="width:{{ m.score }}%;background:{{ m.color }}"></div></div>
                 <div class="v2-prog-mastery-item__meta">{{ m.level }} · {{ m.correct }}/{{ m.total }} correct</div>
@@ -209,7 +209,7 @@ window.__PROG_SEED = {
       color: '{{ v.color|default:"#6366f1"|escapejs }}',
       icon: '{{ v.icon|default:"fa-book"|escapejs }}',
       current: {{ v.quiz_score }},
-      trend: {% if v.quiz_score >= 65 %}4{% else %}-2{% endif %},
+      trend: {% if v.quiz_score and v.quiz_score >= 65 %}4{% else %}-2{% endif %},
       quiz_count: {{ v.sessions|default:2 }},
       points: [
         {date: '01/03', pct: {{ v.quiz_score|add:'-8' }}},

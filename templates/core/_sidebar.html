@@ -22,7 +22,8 @@
           <i class="fas fa-crown" style="font-size:.5rem;"></i> Premium
         </span>
         {% endif %}
-        {% if is_guest %}
+        <a href="{% url 'cgu' %}" style="display:block;text-align:center;font-size:.68rem;color:var(--t3);margin-bottom:.5rem;text-decoration:underline;">Conditions & Protection du Contenu</a>
+    {% if is_guest %}
         <span style="display:inline-flex;align-items:center;gap:.2rem;background:rgba(251,191,36,.15);color:#fbbf24;font-size:.55rem;font-weight:800;padding:.1rem .4rem;border-radius:6px;margin-left:.3rem;vertical-align:middle;">
           DÉMO
         </span>
@@ -105,6 +106,7 @@
       <span id="sessionTimerDisplay" style="font-size:.72rem;font-weight:700;color:var(--green);">Session 0s</span>
     </div>
 
+    <a href="{% url 'cgu' %}" style="display:block;text-align:center;font-size:.68rem;color:var(--t3);margin-bottom:.5rem;text-decoration:underline;">Conditions & Protection du Contenu</a>
     {% if is_guest %}
     <a href="{% url 'signup' %}" class="logout-btn" style="background:linear-gradient(135deg,var(--green),var(--blue2));color:#fff;font-weight:800;text-align:center;border-radius:10px;padding:.55rem;margin-bottom:.4rem;"><i class="fas fa-user-plus"></i> Créer un compte</a>
     <a href="{% url 'guest_stop' %}" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Quitter le mode démo</a>

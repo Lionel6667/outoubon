@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Conditions Générales d'Utilisation (CGU) & Propriété Intellectuelle – OU TOU BON{% endblock %}
+
+{% block body %}
+<div class="app has-topbar">
+  {% include "core/_sidebar.html" with active_page="" %}
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title"><i class="fas fa-shield-alt" style="color:var(--green)"></i> Conditions Générales & Protection du Contenu</div>
+    </div>
+    <div class="view-area" style="padding: 2rem 1.25rem; max-width: 900px; margin: 0 auto; color: var(--t1); line-height: 1.7;">
+      
+      <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 14px; padding: 1.25rem; margin-bottom: 2rem;">
+        <h2 style="margin: 0 0 .5rem; font-size: 1.2rem; color: var(--green); display: flex; align-items: center; gap: .5rem;">
+          <i class="fas fa-lock"></i> Engagement de Protection de la Plateforme
+        </h2>
+        <p style="margin: 0; font-size: .88rem; color: var(--t2);">
+          OU TOU BON est une plateforme éducative protégée par les lois internationales sur la propriété intellectuelle et les droits d'auteur. L'accès au site implique l'acceptation intégrale et sans réserve des présentes conditions.
+        </p>
+      </div>
+
+      <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem;">Conditions Générales d'Utilisation (CGU)</h1>
+
+      <section style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.2rem; color: var(--green); margin-bottom: .6rem;">Article 1 : Propriété Intellectuelle & Contenu Éducatif</h3>
+        <p style="font-size: .9rem; color: var(--t2);">
+          L'ensemble des contenus présents sur la plateforme <strong>OU TOU BON</strong> (incluant sans limitation : quiz, simulations d'examens blancs du BAC, exercices corrigés, fiches mémo, cours générés par l'IA, algorithmes de recommandation, modèles d'évaluation ML, graphismes, interfaces et logos) constitue une œuvre de l'esprit protégée. Toute reproduction, représentation, modification, adaptation ou diffusion, intégrale ou partielle, est strictement interdite sans l'autorisation écrite préalable explicite des créateurs de la plateforme.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem; background: rgba(239, 68, 68, 0.06); border-left: 4px solid #ef4444; padding: 1.25rem; border-radius: 0 12px 12px 0;">
+        <h3 style="font-size: 1.2rem; color: #ef4444; margin-bottom: .6rem;">Article 2 : Interdiction Stricte de Scraping, Extraction et Automatisation</h3>
+        <p style="font-size: .9rem; color: var(--t2); margin-bottom: .8rem;">
+          Sont formellement et rigoureusement interdits sur l'ensemble du site et des APIs de la plateforme :
+        </p>
+        <ul style="font-size: .88rem; color: var(--t2); padding-left: 1.2rem; margin: 0; display: flex; flex-direction: column; gap: .4rem;">
+          <li>L'utilisation de tout bot, spider, scraper, crawler, script automatisé, extension de navigateur ou tout autre système d'extraction automatique de données.</li>
+          <li>Le téléchargement en masse, la réutilisation ou le moissonnage (data harvesting) des questions de quiz, corrigés d'exercices ou épreuves du BAC.</li>
+          <li>Le rétro-ingénierie (reverse engineering), la décompilation ou la tentative d'accès non autorisé aux codes sources et algorithmes de la plateforme.</li>
+          <li>Toute tentative de surcharge des serveurs (attaques par déni de service DoS / DDoS, spam de requêtes API).</li>
+          <li>La revente, la sous-licence ou la distribution sous quelque forme que ce soit du contenu du site à des tiers.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.2rem; color: var(--green); margin-bottom: .6rem;">Article 3 : Sanctions, Bannissement et Poursuites Judiciaires</h3>
+        <p style="font-size: .9rem; color: var(--t2);">
+          En cas de détection d'une infraction aux présentes règles (scraping, tentative d'intrusion, abus d'API ou copie non autorisée) :
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+          <div style="background: var(--bg2, rgba(255,255,255,0.03)); border: 1px solid var(--b1, rgba(255,255,255,0.1)); padding: 1rem; border-radius: 10px;">
+            <i class="fas fa-user-slash" style="color:#ef4444; font-size: 1.2rem; margin-bottom: .5rem;"></i>
+            <strong style="display:block; font-size: .9rem; margin-bottom: .25rem;">Fermeture Immédiate</strong>
+            <span style="font-size: .8rem; color: var(--t3);">Suspension définitive du compte utilisateur sans remboursement possible.</span>
+          </div>
+          <div style="background: var(--bg2, rgba(255,255,255,0.03)); border: 1px solid var(--b1, rgba(255,255,255,0.1)); padding: 1rem; border-radius: 10px;">
+            <i class="fas fa-ban" style="color:#f59e0b; font-size: 1.2rem; margin-bottom: .5rem;"></i>
+            <strong style="display:block; font-size: .9rem; margin-bottom: .25rem;">Blocage IP & Réseau</strong>
+            <span style="font-size: .8rem; color: var(--t3);">Bannissement réseau automatisé au niveau de nos pare-feu et de Cloudflare.</span>
+          </div>
+          <div style="background: var(--bg2, rgba(255,255,255,0.03)); border: 1px solid var(--b1, rgba(255,255,255,0.1)); padding: 1rem; border-radius: 10px;">
+            <i class="fas fa-gavel" style="color:#3b82f6; font-size: 1.2rem; margin-bottom: .5rem;"></i>
+            <strong style="display:block; font-size: .9rem; margin-bottom: .25rem;">Poursuites Légales</strong>
+            <span style="font-size: .8rem; color: var(--t3);">Saisine des juridictions compétentes pour réclamer des dommages et intérêts au titre du préjudice subi.</span>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.2rem; color: var(--green); margin-bottom: .6rem;">Article 4 : Protection des Données Personnelles</h3>
+        <p style="font-size: .9rem; color: var(--t2);">
+          OU TOU BON s'engage à respecter la confidentialité des données des élèves. Les données d'apprentissage (scores, réponses, temps d'étude) sont uniquement utilisées pour personnaliser l'expérience pédagogique et calculer les indicateurs de progression. Aucune donnée personnelle n'est vendue ou transmise à des tiers sans votre consentement.
+        </p>
+      </section>
+
+      <div style="text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--b1, rgba(255,255,255,0.1)); font-size: .8rem; color: var(--t3);">
+        OU TOU BON © 2026 – Tous droits réservés.
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

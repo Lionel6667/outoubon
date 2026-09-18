@@ -247,3 +247,33 @@ class SecurityHeadersMiddleware:
                 "base-uri 'self';"
             )
         return response
+
+
+SCRAPER_UA_PATTERNS = [
+    "python-requests", "scrapy", "urllib", "curl/", "wget/", "puppeteer",
+    "selenium", "playwright", "headlesschrome", "aiohttp", "httpx",
+    "postmanruntime", "go-http-client", "apache-httpclient", "node-fetch",
+    "gptbot", "chatgpt-user", "ccbot", "google-extended",
+]
+
+class AntiScraperMiddleware:
+    """Bloque les scrapers automatisés et agents utilisateur suspects."""
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        ua = (request.META.get("HTTP_USER_AGENT") or "").lower()
+        path = request.path.lower()
+
+        if path in ("/api/health/", "/health", "/ping"):
+            return self.get_response(request)
+
+        for pattern in SCRAPER_UA_PATTERNS:
+            if pattern in ua:
+                logger.warning("AntiScraper: Bloqué UA suspect '%s' sur %s", ua[:60], path)
+                return JsonResponse({
+                    "error": "Accès interdit. Les scrapers et bots automatisés sont strictement proscrits par les CGU de OU TOU BON.",
+                    "cgu_link": "/cgu/"
+                }, status=403)
+
+        return self.get_response(request)

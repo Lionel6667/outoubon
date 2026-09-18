@@ -6302,7 +6302,7 @@ def progression_view(request):
                         'subject': m.subject,
                         'label': label,
                         'color': MATS.get(m.subject, {}).get('color', '#6366f1'),
-                        'score': _prog_scores.get(m.subject, int(round(m.mastery_score))),
+                        'score': _prog_scores.get(m.subject) if _prog_scores.get(m.subject) is not None else int(round(getattr(m, "mastery_score", 50) or 50)),
                         'level': m.confidence_level,
                         'correct': m.correct_count,
                         'total': acc,
@@ -6410,10 +6410,16 @@ def progression_view(request):
             stats = SimpleNamespace(minutes_etude=0)
             user_subjs = ['maths', 'physique', 'chimie', 'svt', 'philo', 'francais', 'histoire', 'anglais']
 
+        fallback_mats = {}
+        for k, v in MATS.items():
+            fallback_mats[k] = dict(v)
+            fallback_mats[k]['quiz_score'] = 50
+            fallback_mats[k]['sessions'] = 0
+
         return render(request, 'core/progression.html', {
             'profile': profile,
             'stats': stats,
-            'mats': MATS,
+            'mats': fallback_mats,
             'diag_scores': {},
             'quiz_sessions': [],
             'heures_etude': 0,
@@ -13596,3 +13602,37 @@ def api_group_chat_quiz_attempt(request):
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+
+def cgu_view(request):
+    return render(request, "cgu.html", {"is_guest": _is_guest(request)})
+
+from django.http import HttpResponse
+
+def robots_txt_view(request):
+    content = """User-agent: *
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /examen-blanc/
+Disallow: /quiz/
+Disallow: /cours/
+Disallow: /exercices/
+Disallow: /fiches/
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+Sitemap: https://outoubon.com/sitemap.xml
+"""
+    return HttpResponse(content, content_type="text/plain")

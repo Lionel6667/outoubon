@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'core.spa_middleware.SpaModeMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.security.AntiScraperMiddleware',
     'core.security.RateLimitMiddleware',
     'core.security.AiUsageContextMiddleware',
     'core.security.UserDailyAiLimitMiddleware',

@@ -175,6 +175,8 @@ urlpatterns = [
     path('api/user-foreign-lang/', views.api_user_foreign_lang, name='api_user_foreign_lang'),
 
     # Bibliothèque PDF
+    path('robots.txt', views.robots_txt_view, name='robots_txt'),
+    path('cgu/', views.cgu_view, name='cgu'),
     path('library/',               views.library_view,           name='library'),
     path('api/pdf-serve/',         views.api_pdf_serve,          name='api_pdf_serve'),
     path('api/pdf-extract-text/',  views.api_pdf_extract_text,   name='api_pdf_extract_text'),
