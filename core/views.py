@@ -13608,15 +13608,20 @@ def cgu_view(request):
 
 from django.http import HttpResponse
 
+
+from django.http import HttpResponse, JsonResponse
+
 def robots_txt_view(request):
     content = """User-agent: *
+Allow: /
+Allow: /pricing/
+Allow: /cgu/
+Allow: /library/
 Disallow: /api/
-Disallow: /dashboard/
-Disallow: /examen-blanc/
-Disallow: /quiz/
-Disallow: /cours/
-Disallow: /exercices/
-Disallow: /fiches/
+Disallow: /admin/
+
+User-agent: Googlebot
+Allow: /
 
 User-agent: GPTBot
 Disallow: /
@@ -13636,3 +13641,91 @@ Disallow: /
 Sitemap: https://outoubon.com/sitemap.xml
 """
     return HttpResponse(content, content_type="text/plain")
+
+
+def sitemap_xml_view(request):
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://outoubon.com/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/pricing/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/cgu/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/cours/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/quiz/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/examen-blanc/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/exercices/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/fiches/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outoubon.com/library/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>"""
+    return HttpResponse(xml_content, content_type="application/xml")
+
+
+def manifest_json_view(request):
+    manifest = {
+        "name": "OU TOU BON - BAC NS4 Haïti",
+        "short_name": "OU TOU BON",
+        "description": "Plateforme IA N°1 de préparation et révision au Baccalauréat NS4 en Haïti (MENFP/BUNEXE).",
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#0f172a",
+        "theme_color": "#0f172a",
+        "icons": [
+            {
+                "src": "/static/img/logo.png",
+                "sizes": "192x192",
+                "type": "image/png",
+                "purpose": "any maskable"
+            },
+            {
+                "src": "/static/img/logo.png",
+                "sizes": "512x512",
+                "type": "image/png",
+                "purpose": "any maskable"
+            }
+        ]
+    }
+    return JsonResponse(manifest)

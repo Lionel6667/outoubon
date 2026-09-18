@@ -176,6 +176,10 @@ urlpatterns = [
 
     # Bibliothèque PDF
     path('robots.txt', views.robots_txt_view, name='robots_txt'),
+        path("sitemap.xml", views.sitemap_xml_view, name="sitemap_xml"),
+    path("manifest.json", views.manifest_json_view, name="manifest_json"),
+    path("site.webmanifest", views.manifest_json_view, name="site_webmanifest"),
+    path("robots.txt", views.robots_txt_view, name="robots_txt"),
     path('cgu/', views.cgu_view, name='cgu'),
     path('library/',               views.library_view,           name='library'),
     path('api/pdf-serve/',         views.api_pdf_serve,          name='api_pdf_serve'),

@@ -63,6 +63,32 @@
     })();
   </script>
   {% endif %}
+    <meta name="description" content="OU TOU BON - Plateforme IA N°1 de préparation et révision au Baccalauréat NS4 en Haïti.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/logo.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/logo.png' %}">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:site_name" content="OU TOU BON">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://outoubon.com/static/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://outoubon.com/static/img/logo.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OU TOU BON",
+    "alternateName": ["outoubon", "outoubon.com"],
+    "url": "https://outoubon.com/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "OU TOU BON",
+      "logo": "https://outoubon.com/static/img/logo.png"
+    }
+  }
+  </script>
+
   <title>{% block title %}OU TOU BON{% endblock %}</title>
   {% if not spa_mode %}
   <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}"/>
