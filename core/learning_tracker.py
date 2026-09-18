@@ -380,37 +380,39 @@ def get_adaptive_level(user, subject: str) -> str:
 
 def get_study_recommendations(user) -> list[dict]:
     """
-    Génère des recommandations d'étude basées sur la maîtrise.
-    Returns liste de {subject, label, priority, reason, action}
+    Génère des recommandations d'étude basées sur la maîtrise unifiée.
+    Returns liste de {subject, label, priority, reason, action, mastery}
     """
     try:
+        from core.subject_scores import get_scores_for_user
         from .models import SubjectMastery
-        masteries = list(SubjectMastery.objects.filter(user=user))
+        from accounts.models import DiagnosticResult
+        user_subjs = set(MATS_LABELS.keys())
+        diag_scores = {d.subject: int(d.score) for d in DiagnosticResult.objects.filter(user=user)}
+        unified_scores = get_scores_for_user(user, user_subjs, diag_scores)
+        masteries = {sm.subject: sm for sm in SubjectMastery.objects.filter(user=user)}
         recs = []
-
-        for sm in sorted(masteries, key=lambda x: x.mastery_score):
-            if sm.mastery_score < 50:
-                priority = 'haute' if sm.mastery_score < 30 else 'moyenne'
-                label = MATS_LABELS.get(sm.subject, sm.subject)
-                weak = sm.weak_topics[:3] if sm.weak_topics else []
-                reason = f"Score de maîtrise faible ({sm.mastery_score:.0f}%)"
+        for subj, score in sorted(unified_scores.items(), key=lambda x: x[1]):
+            if score < 60:
+                priority = 'haute' if score < 40 else 'moyenne'
+                label = MATS_LABELS.get(subj, subj)
+                sm = masteries.get(subj)
+                weak = sm.weak_topics[:3] if (sm and sm.weak_topics) else []
+                reason = f"Score de maîtrise ({score}%)"
                 if weak:
                     reason += f" — topics à retravailler : {', '.join(weak)}"
                 recs.append({
-                    'subject': sm.subject,
+                    'subject': subj,
                     'label': label,
                     'priority': priority,
                     'reason': reason,
-                    'mastery': round(sm.mastery_score),
+                    'mastery': score,
                     'action': 'quiz',
                 })
-
         return recs[:5]
-
     except Exception as e:
         print(f"[LEARNING_TRACKER] get_study_recommendations error: {e}")
         return []
-
 
 # ─── Score & niveau unifiés ────────────────────────────────────────────────────
 
@@ -422,48 +424,27 @@ LEVEL_TO_PROMPT = {
     'expert': 'avancé',
 }
 
-
 def get_subject_level_score(user, subject: str) -> int:
-    """Score 0-100 pour adapter le coaching (remplace SubjectScore absent)."""
+    """Score 0-100 unifié pour adapter le coaching."""
     try:
-        from .models import SubjectMastery
-        sm = SubjectMastery.objects.filter(user=user, subject=subject).first()
-        if sm and sm.total_attempts() > 0:
-            return int(round(sm.mastery_score))
-    except Exception:
-        pass
-    try:
-        from accounts.models import DiagnosticResult
-        diag = DiagnosticResult.objects.filter(user=user, subject=subject).first()
-        if diag:
-            return int(diag.score)
+        from core.subject_scores import get_scores_for_user
+        scores = get_scores_for_user(user, {subject})
+        if subject in scores:
+            return scores[subject]
     except Exception:
         pass
     return 50
 
-
 def build_combined_weakness_scores(user) -> dict:
-    """Scores combinés diagnostic + maîtrise pour plans et UI lacunes."""
-    scores = {}
+    """Scores unifiés pour plans et UI lacunes — source unique pour tout le site."""
     try:
+        from core.subject_scores import get_scores_for_user
         from accounts.models import DiagnosticResult
-        for d in DiagnosticResult.objects.filter(user=user):
-            scores[d.subject] = int(d.score)
+        diag_scores = {d.subject: int(d.score) for d in DiagnosticResult.objects.filter(user=user)}
+        all_subjs = set(MATS_LABELS.keys())
+        return get_scores_for_user(user, all_subjs, diag_scores)
     except Exception:
-        pass
-    try:
-        from .models import SubjectMastery
-        for sm in SubjectMastery.objects.filter(user=user):
-            prev = scores.get(sm.subject)
-            mastery = int(round(sm.mastery_score))
-            if prev is None:
-                scores[sm.subject] = mastery
-            elif sm.total_attempts() > 0:
-                scores[sm.subject] = int(round(prev * 0.35 + mastery * 0.65))
-    except Exception:
-        pass
-    return scores
-
+        return {}
 
 def get_mistake_topics_for_plan(user, limit: int = 8) -> list[str]:
     """Thèmes prioritaires depuis MistakeTracker (révisions dues)."""

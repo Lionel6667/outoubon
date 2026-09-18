@@ -7320,7 +7320,7 @@ def api_stats(request):
                     'points': [{'date': '—', 'pct': int(blended)}],
                 }
         pts = info['points']
-        current = pts[-1]['pct']
+        current = unified_scores.get(subj, pts[-1]['pct'] if pts else 0)
         trend = 0
         if len(pts) >= 4:
             recent = sum(p['pct'] for p in pts[-2:]) / 2
@@ -13189,6 +13189,43 @@ def match_view(request):
             'mini_bracket': mini_bracket,
         })
 
+    past_comps = list(
+        GeniusCompetition.objects.filter(
+            status__in=['completed', 'archived'],
+        ).annotate(
+            registered_count=Count(
+                'registrations',
+                filter=Q(registrations__status__in=['registered', 'roster_locked', 'eliminated']),
+            ),
+        ).order_by('-start_date', '-created_at')[:8]
+    )
+    past_competitions = []
+    for comp in past_comps:
+        bracket = bracket_payload(comp)
+        rounds = {}
+        for node in bracket:
+            rounds.setdefault(node['round_order'], []).append(node)
+        mini_bracket = []
+        winner_name = ''
+        if rounds:
+            max_round = max(rounds.keys())
+            final_nodes = rounds.get(max_round, [])
+            if final_nodes and final_nodes[0].get('winner_team'):
+                winner_name = final_nodes[0]['winner_team'].get('name', '')
+            for ro in sorted(rounds.keys()):
+                if ro >= max_round - 2 or len(rounds) <= 3:
+                    mini_bracket.append({'round_order': ro, 'nodes': rounds[ro]})
+        past_competitions.append({
+            'id': comp.id,
+            'name': comp.name,
+            'status': comp.status,
+            'status_label': 'Terminé',
+            'winner_name': winner_name,
+            'start_date': comp.start_date,
+            'registered_count': getattr(comp, 'registered_count', 0) or 0,
+            'mini_bracket': mini_bracket,
+        })
+
     user_subjs = _get_user_serie_subjects(request.user)
     serie_subjects = [k for k in MATS.keys() if k in user_subjs]
     subject_choices = [
@@ -13205,6 +13242,7 @@ def match_view(request):
         'online_count': online_players_count(),
         'recent_duels': recent_duels_for_user(request.user),
         'competitions': competitions,
+        'past_competitions': past_competitions,
         'has_genius_team': team is not None,
         'genius_team_name': team.name if team else '',
     })

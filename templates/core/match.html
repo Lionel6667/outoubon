@@ -18,7 +18,7 @@
         <div id="matchHub">
           <div class="v2-match-lobby">
             <section class="v2-match-hero card">
-              <div class="v2-match-hero__aura" aria-hidden="true"></div>
+              
               <header class="v2-dash-panel-header v2-match-hero__head">
                 <div class="v2-dash-panel-icon" style="background:rgba(251,191,36,.14);color:#fbbf24">
                   <i class="fas fa-trophy"></i>
@@ -41,7 +41,7 @@
               </div>
 
               <button type="button" class="v2-match-cta" id="btnQuickMatch">
-                <span class="v2-match-cta__glow" aria-hidden="true"></span>
+                
                 <i class="fas fa-bolt"></i>
                 <span>Trouver un adversaire</span>
               </button>
@@ -164,9 +164,52 @@
           </div>
           {% empty %}
           <div class="card" style="padding:1.15rem;font-size:.8rem;color:var(--t3)">
-            Aucun tournoi ouvert pour le moment.
+            Aucun tournoi en cours pour le moment.
           </div>
           {% endfor %}
+
+          {% if past_competitions %}
+          <div class="v2-match-section-label" style="margin-top:1.75rem"><i class="fas fa-history"></i> Historique des concours terminés</div>
+          {% for comp in past_competitions %}
+          <div class="v2-match-tourney-card v2-match-tourney-card--past">
+            <div class="v2-match-tourney-card__head">
+              <div class="v2-match-tourney-card__title">{{ comp.name }}</div>
+              <span class="v2-match-status-pill v2-match-status-pill--done"><i class="fas fa-check-circle" style="color:var(--green)"></i> Terminé</span>
+            </div>
+            <p class="v2-match-private-card__sub">
+              {{ comp.registered_count }} équipe(s)
+              {% if comp.winner_name %} · Vainqueur : <strong style="color:#fbbf24">🏆 {{ comp.winner_name }}</strong>{% endif %}
+            </p>
+            {% if comp.mini_bracket %}
+            <div class="v2-match-bracket-row">
+              {% for round in comp.mini_bracket %}
+              <div class="v2-match-bracket-col {% if forloop.last %}v2-match-bracket-col--final{% endif %}">
+                <div class="v2-match-bracket-col-label">
+                  {% if forloop.last %}<i class="fas fa-crown" style="color:#fbbf24;margin-right:.2rem"></i>{% endif %}
+                  {{ round.nodes.0.phase_label|default:"Phase" }}
+                </div>
+                {% for node in round.nodes %}
+                <div class="v2-match-bracket-node {% if node.winner %}done{% endif %} {% if forloop.parentloop.last and node.winner %}champion{% endif %}">
+                  <div class="v2-match-bracket-team-line {% if node.winner and node.winner == node.team_a %}winner{% elif node.winner %}loser{% endif %}">
+                    <span class="team-name">{% if forloop.parentloop.last and node.winner == node.team_a %}👑 {% endif %}{{ node.team_a|default:"—" }}</span>
+                    {% if node.score_a is not None %}<span class="team-score">{{ node.score_a }}</span>{% endif %}
+                  </div>
+                  <div class="v2-match-bracket-team-line {% if node.winner and node.winner == node.team_b %}winner{% elif node.winner %}loser{% endif %}">
+                    <span class="team-name">{% if forloop.parentloop.last and node.winner == node.team_b %}👑 {% endif %}{{ node.team_b|default:"—" }}</span>
+                    {% if node.score_b is not None %}<span class="team-score">{{ node.score_b }}</span>{% endif %}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              {% endfor %}
+            </div>
+            {% endif %}
+            <a href="{% url 'genius_competition' competition_id=comp.id %}" class="v2-match-link">
+              Voir les résultats et tableau final <i class="fas fa-arrow-right" style="font-size:.65rem"></i>
+            </a>
+          </div>
+          {% endfor %}
+          {% endif %}
 
           {% include "partials/v2/_page_info.html" with info_key="match" info_title="Match" info_body="Duel en direct · la première bonne réponse gagne la manche." %}
         </div>
