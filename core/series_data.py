@@ -1,6 +1,6 @@
 """
-Données officielles des séries du Baccalauréat Haïtien (MENFP - Nouveau Secondaire 4 / NS4).
-Total = EXACTEMENT 1900 points pour chaque série.
+Données officielles des séries du Baccalauréat Haïtien (MENFP/BUNEXE - Nouveau Secondaire 4 / NS4).
+Total = EXACTEMENT 1900 points pour chaque série (somme des coefficients x 100 = 1900).
 """
 
 # Coefficient de base pour les matières hors-série (jamais 0, au moins 100)
@@ -58,16 +58,14 @@ SERIES: dict = {
         'label': 'LLA — Lettres, Langues et Arts',
         'icon': '📚',
         'subjects': {
-            'philosophie': 300,   # Matière principale
-            'anglais':      300,   # Langue vivante 1 (Matière principale)
-            'art':          300,   # Art & Musique (Matière principale)
-            'francais':     200,   # Épreuve officielle Kreyòl (clé interne francais)
-            'espagnol':     200,   # Langue vivante 2
-            'histoire':     200,   # Sciences Sociales
-            'maths':        100,
-            'physique':     100,
-            'chimie':       100,
-            'svt':          100,
+            'philosophie': 300,   # Spécialité majeure
+            'francais':     300,   # Kreyòl (Matière principale LLA - 300 pts)
+            'art':          300,   # Art & Musique (Matière principale LLA - 300 pts)
+            'anglais':      300,   # Langue vivante 1 (Matière principale LLA - 300 pts)
+            'espagnol':     300,   # Langue vivante 2 (Matière principale LLA - 300 pts)
+            'histoire':     200,   # Sciences Sociales (200 pts)
+            'chimie':       100,   # Tronc commun (100 pts)
+            'maths':        100,   # Tronc commun (100 pts)
         },
     },
 }
