@@ -1325,3 +1325,24 @@ class BanditArmStats(models.Model):
 
     def __str__(self):
         return f"{self.user.username} · {self.arm_name} (α={self.alpha:.1f}, β={self.beta:.1f})"
+
+
+class ThetaHistory(models.Model):
+    """
+    Snapshot quotidien de theta par élève/matière. Alimenté par un job
+    cron nocturne (`snapshot_theta_history`). Sert à calculer la pente
+    de progression (vélocité) par régression linéaire.
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="theta_history")
+    subject = models.CharField(max_length=30)
+    date = models.DateField(db_index=True)
+    theta = models.FloatField()
+    theta_se = models.FloatField()
+    display_score = models.FloatField()
+
+    class Meta:
+        unique_together = [("user", "subject", "date")]
+        indexes = [models.Index(fields=["user", "subject", "date"])]
+
+    def __str__(self):
+        return f"{self.user.username} · {self.subject} · {self.date} (θ={self.theta:.2f})"

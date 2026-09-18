@@ -6,5 +6,12 @@ class CoreConfig(AppConfig):
     name = 'core'
 
     def ready(self):
-        from core.push_scheduler import start_push_digest_scheduler
-        start_push_digest_scheduler()
+        try:
+            import core.signals  # noqa
+        except Exception:
+            pass
+        try:
+            from core.push_scheduler import start_push_digest_scheduler
+            start_push_digest_scheduler()
+        except Exception:
+            pass
