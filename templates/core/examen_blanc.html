@@ -751,15 +751,22 @@ body.mau-open #examMainCol { margin-right:min(460px,94vw); transition:margin .35
     <div class="view-area" style="padding:1.5rem;">
 
       
-      <div id="examPicker" style="max-width:720px;margin:0 auto;">
-        <div style="text-align:center;margin-bottom:1.75rem;">
-          <div style="font-size:2.5rem;margin-bottom:.5rem;"></div>
-          <div style="font-weight:800;font-size:1.3rem;margin-bottom:.3rem;">Examen Blanc BAC Haïti</div>
-          <div style="color:var(--t2);font-size:.875rem;margin-bottom:1.5rem;">Choisis une matière pour générer un examen original de niveau BAC — corrigé automatique après soumission</div>
+      <div id="examPicker" style="max-width:760px;margin:0 auto;">
+        <div class="v2-exo-hero-panel" style="margin-bottom:1.25rem;">
+          <div class="v2-exo-hero-topbar">
+            <div class="v2-exo-eyebrow"><i class="fas fa-file-signature" style="color:#3b82f6;"></i> Examen Blanc BAC · Conditions Réelles</div>
+          </div>
+          <h1 class="v2-exo-hero__title">Choisis une matière</h1>
+          <div class="v2-exo-pills">
+            <span class="v2-exo-pill"><i class="fas fa-history" style="color:var(--green);"></i> Sujets conformes MENFP</span>
+            <span class="v2-exo-pill"><i class="fas fa-stopwatch" style="color:#f59e0b;"></i> Chronomètre d'épreuve</span>
+            <span class="v2-exo-pill"><i class="fas fa-graduation-cap" style="color:#a855f7;"></i> Correction officielle IA + Mise au net</span>
+          </div>
         </div>
-        <div class="quiz-mat-grid">
+
+        <div class="quiz-mat-grid v2-exo-mat-grid">
           {% for key, mat in mats.items %}
-          <button type="button" class="mat-tile" data-exam-subject="{{ key }}" style="--color:{{ mat.color }}">
+          <button type="button" class="mat-tile v2-exo-mat-tile" data-exam-subject="{{ key }}" style="--color:{{ mat.color }}">
             <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
             <div class="mat-tile-label">{{ mat.label }}</div>
           </button>

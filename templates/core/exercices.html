@@ -1251,6 +1251,22 @@ function _showStep(step) {
   const bar = document.getElementById('exInputBar');
   if (bar) { if (step===3) bar.classList.add('visible'); else bar.classList.remove('visible'); }
   document.body.classList.toggle('v2-exo-session-active', step === 3);
+  const _bNav = document.getElementById('v2BottomNav');
+  if (_bNav) {
+    if (step === 3) {
+      _bNav.style.setProperty('display', 'none', 'important');
+      _bNav.hidden = true;
+    } else {
+      _bNav.hidden = false;
+      _bNav.style.removeProperty('display');
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        _bNav.style.setProperty('display', 'flex', 'important');
+      }
+      if (window.OTB_App && typeof window.OTB_App.ensureBottomNavVisible === 'function') {
+        window.OTB_App.ensureBottomNavVisible();
+      }
+    }
+  }
 }
 
 function backToSubject() {

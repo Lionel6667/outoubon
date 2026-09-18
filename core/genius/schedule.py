@@ -129,9 +129,15 @@ def ensure_weekly_competition(now=None, created_by=None) -> GeniusCompetition:
         comp.status = 'registration'
         updates.append('status')
     elif desired == 'roster_locked' and comp.status == 'registration':
-        # Lundi : plus d'inscriptions
-        comp.status = 'roster_locked'
-        updates.append('status')
+        # Lundi : fin des inscriptions le dimanche.
+        # Règle d'annulation : Moins de 10 équipes enregistrées -> Concours annulé.
+        reg_count = comp.registrations.filter(status__in=['registered', 'roster_locked', 'pending']).count()
+        if reg_count < 10:
+            comp.status = 'cancelled'
+            updates.append('status')
+        else:
+            comp.status = 'roster_locked'
+            updates.append('status')
     if comp.start_date != sunday:
         comp.start_date = sunday
         updates.append('start_date')

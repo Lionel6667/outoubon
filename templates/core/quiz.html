@@ -8,114 +8,73 @@
     <div class="view-area quiz-view">
 
       
-      <div id="quizPicker" class="quiz-picker-wrap">
-
-        
-        <div style="display:flex;gap:.5rem;background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:.3rem;margin-bottom:1.25rem;">
-          <button id="tabSolo" onclick="setQuizMode('solo')" style="flex:1;padding:.55rem;border-radius:9px;border:none;background:var(--green);color:#fff;font-size:.875rem;font-weight:700;cursor:pointer;transition:all .18s;">
-            <i class="fas fa-bolt"></i> Solo
-          </button>
-          <button id="tabDuel" onclick="setQuizMode('duel')" style="flex:1;padding:.55rem;border-radius:9px;border:none;background:transparent;color:var(--t2);font-size:.875rem;font-weight:700;cursor:pointer;transition:all .18s;">
-            ⚔️ Défier un ami
-          </button>
-        </div>
-
-        
-        <div id="panelSolo">
-          <div style="text-align:center;margin-bottom:1.5rem;">
-            <div style="font-size:2rem;margin-bottom:.5rem;"><i class="fas fa-bolt" style="color:var(--green)"></i></div>
-            <div style="font-weight:700;font-size:1.25rem;margin-bottom:.3rem;" data-i18n="quiz_choisir_mat">Choisis une matière</div>
+      <div id="quizPicker" class="quiz-picker-wrap" style="max-width:760px;margin:0 auto;">
+          <div class="v2-exo-hero-panel" style="margin-bottom:1.25rem;">
+            <div class="v2-exo-hero-topbar">
+              <div class="v2-exo-eyebrow"><i class="fas fa-bolt" style="color:#f59e0b;"></i> Quiz entraînement BAC · Haïti</div>
+            </div>
+            <h1 class="v2-exo-hero__title">Choisis ta matière</h1>
+            <div class="v2-exo-pills">
+              <span class="v2-exo-pill"><i class="fas fa-check-circle" style="color:var(--green);"></i> 10 questions chrono</span>
+              <span class="v2-exo-pill"><i class="fas fa-award" style="color:#3b82f6;"></i> Corrigé détaillé + explications</span>
+              <span class="v2-exo-pill"><i class="fas fa-star" style="color:#f59e0b;"></i> XP & Badge à gagner</span>
+            </div>
           </div>
-          <div id="svtMatGrid" class="quiz-mat-grid">
+
+          <div id="svtMatGrid" class="quiz-mat-grid v2-exo-mat-grid">
             {% for key, mat in mats.items %}
-            <button class="mat-tile" onclick="{% if key == 'svt' %}pickSVTDiscipline(){% else %}startQuiz('{{ key }}'){% endif %}" style="--color:{{ mat.color }}">
+            {% if key == "svt" %}
+            <button type="button" class="mat-tile v2-exo-mat-tile" onclick="document.getElementById('svtMatGrid').style.display='none';document.getElementById('svtDiscPicker').style.display='block';" style="--color:{{ mat.color }}">
               <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
               <div class="mat-tile-label">{{ mat.label }}</div>
             </button>
+            {% else %}
+            <button type="button" class="mat-tile v2-exo-mat-tile" onclick="startQuiz('{{ key }}')" style="--color:{{ mat.color }}">
+              <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
+              <div class="mat-tile-label">{{ mat.label }}</div>
+            </button>
+            {% endif %}
             {% endfor %}
           </div>
 
-          
-          <div id="svtDiscPicker" style="display:none;">
+          <div id="svtDiscPicker" style="display:none;margin-top:1rem;">
             <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
-              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';" style="background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:.35rem .7rem;font-size:.8rem;color:var(--t2);cursor:pointer;"><i class="fas fa-arrow-left"></i></button>
-              <div style="font-weight:700;font-size:.95rem;">SVT — Choisir la discipline</div>
+              <button type="button" onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='grid';" style="background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:.4rem .8rem;font-size:.82rem;color:var(--t2);cursor:pointer;"><i class="fas fa-arrow-left"></i> Retour</button>
+              <div style="font-weight:800;font-size:.98rem;color:var(--t1);">SVT — Choisis la discipline</div>
             </div>
-            <div style="color:var(--t2);font-size:.82rem;margin-bottom:1rem;">L'examen SVT est divisé en Biologie (50 pts) et Géologie (50 pts)</div>
             <div style="display:grid;gap:.75rem;">
-              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';startQuiz('svt','biologie')" style="background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.35);border-radius:14px;padding:1rem 1.25rem;text-align:left;cursor:pointer;transition:all .18s;">
-                <div style="font-weight:700;font-size:.92rem;color:var(--green);margin-bottom:.2rem;"><i class="fas fa-dna" style="margin-right:.4rem"></i>Biologie</div>
-                <div style="font-size:.78rem;color:var(--t2);">Génétique, hérédité, hormones, neurophysiologie, immunologie…</div>
+              <button type="button" onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='grid';startQuiz('svt','biologie')" style="background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.35);border-radius:16px;padding:1.1rem 1.25rem;text-align:left;cursor:pointer;">
+                <div style="font-weight:800;font-size:.95rem;color:var(--green);margin-bottom:.2rem;"><i class="fas fa-dna" style="margin-right:.4rem;"></i>Biologie</div>
+                <div style="font-size:.8rem;color:var(--t2);">Génétique, hérédité, hormones, neurophysiologie, immunologie…</div>
               </button>
-              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';startQuiz('svt','geologie')" style="background:rgba(245,158,11,.06);border:1.5px solid rgba(245,158,11,.3);border-radius:14px;padding:1rem 1.25rem;text-align:left;cursor:pointer;transition:all .18s;">
-                <div style="font-weight:700;font-size:.92rem;color:#f59e0b;margin-bottom:.2rem;"><i class="fas fa-mountain" style="margin-right:.4rem"></i>Géologie</div>
-                <div style="font-size:.78rem;color:var(--t2);">Structure de la Terre, stratigraphie, volcanism, séismes…</div>
+              <button type="button" onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='grid';startQuiz('svt','geologie')" style="background:rgba(245,158,11,.08);border:1.5px solid rgba(245,158,11,.35);border-radius:16px;padding:1.1rem 1.25rem;text-align:left;cursor:pointer;">
+                <div style="font-weight:800;font-size:.95rem;color:#f59e0b;margin-bottom:.2rem;"><i class="fas fa-mountain" style="margin-right:.4rem;"></i>Géologie</div>
+                <div style="font-size:.8rem;color:var(--t2);">Structure de la Terre, stratigraphie, volcanisme, séismes…</div>
               </button>
-              <button onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='';startQuiz('svt')" style="background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:.8rem 1.25rem;text-align:left;cursor:pointer;transition:all .18s;">
-                <div style="font-weight:700;font-size:.88rem;color:var(--t1);"><i class="fas fa-layer-group" style="margin-right:.4rem;color:var(--t2)"></i>Toutes les questions</div>
+              <button type="button" onclick="document.getElementById('svtDiscPicker').style.display='none';document.getElementById('svtMatGrid').style.display='grid';startQuiz('svt')" style="background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:.9rem 1.25rem;text-align:left;cursor:pointer;">
+                <div style="font-weight:800;font-size:.9rem;color:var(--t1);"><i class="fas fa-layer-group" style="margin-right:.4rem;color:var(--t2);"></i>Toutes les questions SVT</div>
               </button>
             </div>
           </div>
-        </div>
 
-        {% include "partials/v2/_page_info.html" with info_key="quiz" info_title="Quiz" info_body="10 questions tirées des vrais sujets BAC Haïti — évalue-toi comme à l'examen" info_i18n="quiz_desc" %}
-
-        
-        <div id="panelDuel" style="display:none;">
-          
-          <div style="display:flex;gap:.5rem;margin-bottom:1.25rem;">
-            <button id="duelTabCreate" onclick="setDuelTab('create')" style="flex:1;padding:.5rem;border-radius:9px;border:1.5px solid var(--green);background:rgba(16,185,129,.12);color:var(--green);font-size:.83rem;font-weight:700;cursor:pointer;"><i class="fas fa-plus"></i> Créer un duel</button>
-            <button id="duelTabJoin" onclick="setDuelTab('join')" style="flex:1;padding:.5rem;border-radius:9px;border:1.5px solid var(--border2);background:transparent;color:var(--t2);font-size:.83rem;font-weight:700;cursor:pointer;"><i class="fas fa-sign-in-alt"></i> Rejoindre</button>
-          </div>
-
-          
-          <div id="duelPanelCreate">
-            <div style="font-weight:700;font-size:.95rem;margin-bottom:.3rem;">Choisis une matière pour le duel</div>
-            <div style="color:var(--t2);font-size:.82rem;margin-bottom:.9rem;">Les deux joueurs répondront aux mêmes questions en temps réel</div>
-            <div class="quiz-mat-grid">
-              {% for key, mat in mats.items %}
-              <button class="mat-tile" onclick="createDuel('{{ key }}')" style="--color:{{ mat.color }}">
-                <div class="mat-tile-icon" style="color:{{ mat.color }}"><i class="fas {{ mat.icon }}"></i></div>
-                <div class="mat-tile-label">{{ mat.label }}</div>
-              </button>
-              {% endfor %}
+          <div class="v2-quiz-duel-banner" style="background:linear-gradient(135deg, rgba(99,102,241,.1), rgba(168,85,247,.1)); border:1.5px solid rgba(168,85,247,.28); border-radius:20px; padding:1.25rem; margin-top:1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <div style="width:48px; height:48px; border-radius:14px; background:linear-gradient(135deg, #6366f1, #a855f7); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem; flex-shrink:0; box-shadow:0 4px 12px rgba(168,85,247,.3);">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div>
+                <div style="font-weight:800; font-size:.95rem; color:var(--t1);">Envie de défier un ami en 1v1 ?</div>
+                <div style="font-size:.82rem; color:var(--t2); margin-top:.15rem;">Rends-toi sur la page <strong>Duels</strong> pour créer un salon, inviter tes amis et jouer en direct !</div>
+              </div>
             </div>
-            <div id="duelCreateError" style="display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;border-radius:10px;padding:.6rem 1rem;font-size:.84rem;margin-top:.75rem;"></div>
+            <a href="{% url 'match' %}" style="display:inline-flex; align-items:center; gap:.5rem; background:linear-gradient(135deg, #6366f1, #a855f7); color:#fff; font-weight:800; font-size:.85rem; padding:.65rem 1.25rem; border-radius:12px; text-decoration:none; box-shadow:0 4px 12px rgba(99,102,241,.3);">
+              <span>Aller aux Duels</span> <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
 
-          
-          <div id="duelPanelJoin" style="display:none;">
-            <div style="font-weight:700;font-size:.95rem;margin-bottom:.3rem;">Entre le code d'invitation</div>
-            <div style="color:var(--t2);font-size:.82rem;margin-bottom:.9rem;">Demande le code à ton ami qui a créé le duel</div>
-            <input type="text" id="duelJoinInput"
-              maxlength="6" placeholder="ABC123"
-              oninput="this.value=this.value.toUpperCase().replace(/[^A-F0-9]/g,'')"
-              style="width:100%;padding:.85rem 1rem;background:var(--card);border:1.5px solid var(--border2);border-radius:12px;color:var(--t1);font-size:1.5rem;font-weight:800;text-align:center;letter-spacing:.18em;text-transform:uppercase;outline:none;transition:border-color .2s;font-family:'Courier New',monospace;box-sizing:border-box;"
-              onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border2)'">
-            <div id="duelJoinError" style="display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;border-radius:10px;padding:.6rem 1rem;font-size:.84rem;margin-top:.6rem;"></div>
-            <div style="margin-top:1rem;text-align:center;">
-              <button onclick="joinDuel()" style="background:var(--green);color:#fff;border:none;border-radius:12px;padding:.75rem 1.5rem;font-size:.925rem;font-weight:700;cursor:pointer;"><i class="fas fa-play"></i> Rejoindre</button>
-            </div>
-          </div>
+          {% include "partials/v2/_page_info.html" with info_key="quiz" info_title="Quiz" info_body="10 questions tirées des vrais sujets BAC Haïti — évalue-toi comme à l'examen" info_i18n="quiz_desc" %}
         </div>
-
-      </div>
-
-      
-      <div id="duelWaiting" style="display:none;max-width:560px;margin:0 auto;text-align:center;padding:2rem 1rem;">
-        <div style="width:64px;height:64px;border-radius:50%;background:rgba(16,185,129,.15);border:3px solid var(--green);margin:0 auto 1rem;animation:duel-ping 1.2s ease-in-out infinite;"></div>
-        <div style="font-size:1.25rem;font-weight:800;margin-bottom:.4rem;">Duel créé !</div>
-        <div style="color:var(--t2);font-size:.87rem;margin-bottom:1.5rem;">Partage ce code avec ton ami :</div>
-        <div style="background:var(--card);border:2px dashed var(--green);border-radius:16px;padding:1.5rem;margin-bottom:1.25rem;">
-          <div id="duelWaitCode" style="font-size:2.8rem;font-weight:900;letter-spacing:.25em;color:var(--green);font-family:'Courier New',monospace;">——</div>
-          <button onclick="copyDuelCode()" style="margin-top:.5rem;background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:.4rem 1rem;font-size:.82rem;font-weight:700;cursor:pointer;"><i class="fas fa-copy"></i> Copier</button>
-        </div>
-        <div style="color:var(--t2);font-size:.85rem;margin-bottom:1.5rem;">En attente de ton adversaire…</div>
-        <button onclick="cancelDuel()" style="background:transparent;color:var(--t3);border:1px solid var(--border2);border-radius:10px;padding:.55rem 1.2rem;font-size:.85rem;font-weight:700;cursor:pointer;"><i class="fas fa-times"></i> Annuler</button>
-      </div>
-
-      
-      <!-- Modal pour les comptes demo -->
+        <!-- Modal pour les comptes demo -->
       <div id="guestUpgradeModal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);">
         <div style="background:var(--card);border:1px solid var(--border2);border-radius:24px;padding:2.5rem 2rem;max-width:480px;width:92%;box-shadow:0 24px 80px rgba(0,0,0,.6);text-align:center;">
           <div style="font-size:3rem;margin-bottom:1rem;"> lock</div>

@@ -171,6 +171,16 @@ def _hub_payload(user):
         ).values('competition_id').annotate(c=Count('id'))
     } if all_comps else {}
 
+    # Annulation automatique si moins de 10 équipes enregistrées
+    for c_obj in list(active_comps):
+        c_cnt = counts.get(c_obj.id, 0)
+        if c_obj.status in ['roster_locked', 'in_progress'] and c_cnt < 10:
+            c_obj.status = 'cancelled'
+            try:
+                c_obj.save(update_fields=['status', 'updated_at'])
+            except Exception:
+                pass
+
     def _fmt_comp(comp):
         reg = reg_by_comp.get(comp.id)
         return {
