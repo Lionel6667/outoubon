@@ -6182,8 +6182,8 @@ def progression_view(request):
                 'quiz_sessions': quiz_sessions,
                 'user_serie_subjects': g['user_serie_subjects'],
                 'study_insights': study_insights,
-        'risk_prediction': risk_prediction,
-        'peer_insight': peer_insight,
+        'risk_prediction': None,
+        'peer_insight': {},
                 'coach_advice': g['coach_advice'],
                 'coaching_cards': g['coaching_cards'],
                 'mastery_display': [
@@ -6389,6 +6389,8 @@ def progression_view(request):
         'chat_summaries': chat_summaries,
         'study_recs': study_recs,
         'study_insights': study_insights,
+        'risk_prediction': risk_prediction,
+        'peer_insight': peer_insight,
     }
 
     return render(request, 'core/progression.html', context)
