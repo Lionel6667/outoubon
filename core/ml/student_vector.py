@@ -8,18 +8,17 @@ from datetime import datetime, timedelta
 from typing import Dict, List
 from django.utils import timezone
 from core.models import MemoryCard, StudentAbility, TopicMastery
+from core.series_data import SERIES
 
 SUBJECTS_BY_SERIE: Dict[str, List[str]] = {
-    "SVT": ["maths", "physique", "svt", "francais", "philosophie", "anglais"],
-    "SMP": ["maths", "physique", "chimie", "francais", "philosophie", "anglais"],
-    "SES": ["maths", "economie", "histoire_geo", "francais", "philosophie", "anglais"],
-    "LLA": ["francais", "litterature", "philosophie", "histoire_geo", "anglais"],
+    serie: list(cfg["subjects"].keys())
+    for serie, cfg in SERIES.items()
 }
 
 
 def get_feature_order(serie: str) -> List[str]:
     """Retourne la liste ordonnée et stable des noms de variables pour une série."""
-    subjects = SUBJECTS_BY_SERIE.get(serie, SUBJECTS_BY_SERIE["SVT"])
+    subjects = SUBJECTS_BY_SERIE.get(serie, list(SERIES["SVT"]["subjects"].keys()))
     order = []
     for s in subjects:
         order.extend([
@@ -44,7 +43,7 @@ def build_student_vector(user, profile) -> Dict[str, float]:
     Garantit 100% d'explicabilité de chaque variable statistique.
     """
     serie = getattr(profile, "serie", "SVT") or "SVT"
-    subjects = SUBJECTS_BY_SERIE.get(serie, SUBJECTS_BY_SERIE["SVT"])
+    subjects = SUBJECTS_BY_SERIE.get(serie, list(SERIES["SVT"]["subjects"].keys()))
     features: Dict[str, float] = {}
 
     # 1. Habiletés IRT par matière

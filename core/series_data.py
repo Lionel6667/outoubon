@@ -1,85 +1,73 @@
 """
-Données des séries du Baccalauréat : matières et coefficients.
-Source : tableau officiel des épreuves.
-
-Mapping interne → labels officiels :
-  philosophie  → Philosophy
-  chimie       → Chemistry
-  histoire     → History and Geo / Social Sciences
-  svt          → SVT / Biology
-  physique     → Physics
-  anglais      → English / English or Spanish
-  maths        → Mathematics
-  francais     → (implicite dans LLA)
-  economie     → Economics (SES)
-  art          → Art & Music (LLA)
-  espagnol     → Spanish (LLA Thu, Philo C)
-  creole       → Creole (ignoré dans les quiz)
+Données officielles des séries du Baccalauréat Haïtien (MENFP - Nouveau Secondaire 4 / NS4).
+Total = EXACTEMENT 1900 points pour chaque série.
 """
 
-# Coefficient de base pour les matières hors-série (jamais 0, au moins 1)
+# Coefficient de base pour les matières hors-série (jamais 0, au moins 100)
 DEFAULT_COEF = 100
 
 SERIES: dict = {
-
-    # ── Sciences de la Vie et de la Terre ─────────────────────────────────────
+    # ── Sciences de la Vie et de la Terre (Total: 1900 pts) ─────────────────
     'SVT': {
         'label': 'SVT — Sciences de la Vie et de la Terre',
         'icon': '🧬',
         'subjects': {
-            'philosophie': 200,
-            'chimie':       300,
-            'histoire':     200,
-            'svt':          400,   # matière principale
+            'svt':          400,   # Matière principale (Biologie & Géologie)
+            'chimie':       300,   # Spécialité
             'physique':     200,
-            'anglais':      200,
             'maths':        200,
+            'francais':     200,   # Épreuve commune
+            'philosophie': 200,
+            'histoire':     200,   # Histoire-Géo / Sciences Sociales
+            'anglais':      200,   # Langue vivante
         },
     },
-
-    # ── Sciences Mathématiques et Physiques ────────────────────────────────────
+    # ── Sciences Mathématiques et Physiques (Total: 1900 pts) ────────────────
     'SMP': {
         'label': 'SMP — Sciences Mathématiques et Physiques',
         'icon': '⚗️',
         'subjects': {
-            'philosophie': 200,
+            'maths':        400,   # Matière principale
+            'physique':     300,   # Spécialité
             'chimie':       200,
-            'histoire':     200,
             'svt':          200,
-            'physique':     300,
-            'anglais':      200,
-            'maths':        400,   # matière principale
+            'francais':     200,   # Épreuve commune
+            'philosophie': 200,
+            'histoire':     200,   # Histoire-Géo / Sciences Sociales
+            'anglais':      200,   # Langue vivante
         },
     },
-
-    # ── Sciences Économiques et Sociales ───────────────────────────────────────
+    # ── Sciences Économiques et Sociales (Total: 1900 pts) ───────────────────
     'SES': {
         'label': 'SES — Sciences Économiques et Sociales',
         'icon': '📊',
         'subjects': {
-            'philosophie': 200,
-            'chimie':       100,
-            'histoire':     400,   # matière principale
-            'svt':          100,
-            'physique':     100,
-            'anglais':      200,
+            'economie':     400,   # Matière principale
+            'histoire':     400,   # Sciences Sociales (Matière principale)
             'maths':        200,
-            'economie':     400,   # matière principale (Economics)
+            'philosophie': 200,
+            'francais':     200,   # Épreuve commune
+            'anglais':      200,
+            'physique':     100,
+            'chimie':       100,
+            'svt':          100,
         },
     },
-
-    # ── Lettres, Langues et Arts ───────────────────────────────────────────────
+    # ── Lettres, Langues et Arts (Total: 1900 pts) ───────────────────────────
     'LLA': {
         'label': 'LLA — Lettres, Langues et Arts',
         'icon': '📚',
         'subjects': {
-            'philosophie': 300,   # matière principale
-            'chimie':       100,
-            'histoire':     200,
-            'anglais':      300,   # matière principale
+            'philosophie': 300,   # Matière principale
+            'anglais':      300,   # Langue vivante 1 (Matière principale)
+            'art':          300,   # Art & Musique (Matière principale)
+            'francais':     200,   # Littérature & Français
+            'espagnol':     200,   # Langue vivante 2
+            'histoire':     200,   # Sciences Sociales
             'maths':        100,
-            'francais':     200,
-            'art':          300,   # matière principale (Art & Music)
+            'physique':     100,
+            'chimie':       100,
+            'svt':          100,
         },
     },
 }
@@ -91,8 +79,8 @@ ALL_SUBJECTS = sorted({
     for subj in serie['subjects']
 })
 
-# Matières "standard" disponibles dans l'app (pas economie/art/creole)
-APP_SUBJECTS = ['maths', 'physique', 'chimie', 'svt', 'francais', 'philosophie', 'histoire', 'anglais']
+# Matières "standard" disponibles dans l'app
+APP_SUBJECTS = ['maths', 'physique', 'chimie', 'svt', 'francais', 'philosophie', 'histoire', 'anglais', 'espagnol', 'economie', 'art']
 
 
 def get_serie(serie_key: str) -> dict:
@@ -107,7 +95,7 @@ def get_subject_coeff(serie_key: str, subject: str) -> int:
 
 
 def get_exam_total_points(serie_key: str, subject: str) -> int:
-    """Note officielle de l'épreuve (200 / 300 / 400), jamais un petit coefficient 2–4."""
+    """Note officielle de l'épreuve (100 / 200 / 300 / 400), jamais un petit coefficient 2–4."""
     raw = get_subject_coeff(serie_key, subject)
     if raw <= 10:
         return max(100, int(raw) * 100)
@@ -141,7 +129,6 @@ def get_serie_context_text(serie_key: str) -> str:
         if s in APP_SUBJECTS
     }
     sorted_subjs = sorted(app_subjs.items(), key=lambda x: x[1], reverse=True)
-
     from core.gemini import MATS  # import local pour éviter circulaire
     lines = [f"Série : {serie['label']}", "Coefficients aux épreuves du Bac :"]
     for subj, coef in sorted_subjs:
