@@ -262,6 +262,11 @@ class AntiScraperMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        # Ne pas bloquer les requêtes de boucle locale (health checks de la plateforme, etc.)
+        remote_addr = request.META.get("REMOTE_ADDR")
+        if remote_addr in ("127.0.0.1", "::1"):
+            return self.get_response(request)
+
         ua = (request.META.get("HTTP_USER_AGENT") or "").lower()
         path = request.path.lower()
 
